@@ -8,7 +8,7 @@ unsafe trait INumberFactory: IUnknown {
 #[implement(INumberFactory)]
 struct MyFactory<T: Copy + Into<u32> + 'static>(T);
 
-impl<T: Copy + Into<u32> + 'static> INumberFactory_Impl for MyFactory_Impl<T> {
+impl<T: Copy + Into<u32> + 'static> INumberFactory_Impl for MyFactory<T> {
     unsafe fn get(&self) -> u32 {
         self.0.into()
     }

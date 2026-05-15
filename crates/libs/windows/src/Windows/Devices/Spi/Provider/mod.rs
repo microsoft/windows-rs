@@ -46,14 +46,21 @@ impl ISpiControllerProvider {
 impl windows_core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
-pub trait ISpiControllerProvider_Impl: windows_core::IUnknownImpl {
+pub trait ISpiControllerProvider_Impl {
     fn GetDeviceProvider(&self, settings: windows_core::Ref<ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
 }
 impl ISpiControllerProvider_Vtbl {
-    pub const fn new<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDeviceProvider<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISpiControllerProvider_Impl,
+    {
+        unsafe extern "system" fn GetDeviceProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiControllerProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISpiControllerProvider_Impl::GetDeviceProvider(this, core::mem::transmute_copy(&settings)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -127,10 +134,17 @@ pub trait ISpiDeviceProvider_Impl: super::super::super::Foundation::IClosable_Im
     fn TransferFullDuplex(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_core::Result<()>;
 }
 impl ISpiDeviceProvider_Vtbl {
-    pub const fn new<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeviceId<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISpiDeviceProvider_Impl,
+    {
+        unsafe extern "system" fn DeviceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISpiDeviceProvider_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -141,9 +155,13 @@ impl ISpiDeviceProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ConnectionSettings<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectionSettings<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISpiDeviceProvider_Impl::ConnectionSettings(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -154,27 +172,43 @@ impl ISpiDeviceProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Write<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISpiDeviceProvider_Impl::Write(this, core::slice::from_raw_parts(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn Read<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISpiDeviceProvider_Impl::Read(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn TransferSequential<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransferSequential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISpiDeviceProvider_Impl::TransferSequential(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn TransferFullDuplex<Identity: ISpiDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransferFullDuplex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISpiDeviceProvider_Impl::TransferFullDuplex(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
             }
         }
@@ -219,14 +253,21 @@ impl ISpiProvider {
 impl windows_core::RuntimeName for ISpiProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiProvider";
 }
-pub trait ISpiProvider_Impl: windows_core::IUnknownImpl {
+pub trait ISpiProvider_Impl {
     fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ISpiControllerProvider>>>;
 }
 impl ISpiProvider_Vtbl {
-    pub const fn new<Identity: ISpiProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetControllersAsync<Identity: ISpiProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISpiProvider_Impl,
+    {
+        unsafe extern "system" fn GetControllersAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISpiProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISpiProvider_Impl::GetControllersAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

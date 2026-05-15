@@ -17,21 +17,32 @@ impl IMcpMessageFilterExperimental {
 impl windows_core::RuntimeName for IMcpMessageFilterExperimental {
     const NAME: &'static str = "Windows.AI.Agents.Mcp.IMcpMessageFilterExperimental";
 }
-pub trait IMcpMessageFilterExperimental_Impl: windows_core::IUnknownImpl {
+pub trait IMcpMessageFilterExperimental_Impl {
     fn Initialize(&self, clientAppUserModelId: &windows_core::HSTRING, clientProcessId: u32, serverIdentity: &windows_core::HSTRING, serverName: &windows_core::HSTRING, serverProcessId: u32) -> windows_core::Result<()>;
     fn OnMessage(&self, message: &windows_core::HSTRING, direction: McpMessageDirection, filterResponse: windows_core::Ref<McpMessageFilterResponse>) -> windows_core::Result<()>;
 }
 impl IMcpMessageFilterExperimental_Vtbl {
-    pub const fn new<Identity: IMcpMessageFilterExperimental_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IMcpMessageFilterExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientappusermodelid: *mut core::ffi::c_void, clientprocessid: u32, serveridentity: *mut core::ffi::c_void, servername: *mut core::ffi::c_void, serverprocessid: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterExperimental_Impl,
+    {
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, clientappusermodelid: *mut core::ffi::c_void, clientprocessid: u32, serveridentity: *mut core::ffi::c_void, servername: *mut core::ffi::c_void, serverprocessid: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterExperimental_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMcpMessageFilterExperimental_Impl::Initialize(this, core::mem::transmute(&clientappusermodelid), clientprocessid, core::mem::transmute(&serveridentity), core::mem::transmute(&servername), serverprocessid).into()
             }
         }
-        unsafe extern "system" fn OnMessage<Identity: IMcpMessageFilterExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, direction: McpMessageDirection, filterresponse: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnMessage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, message: *mut core::ffi::c_void, direction: McpMessageDirection, filterresponse: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterExperimental_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMcpMessageFilterExperimental_Impl::OnMessage(this, core::mem::transmute(&message), direction, core::mem::transmute_copy(&filterresponse)).into()
             }
         }
@@ -89,17 +100,24 @@ impl IMcpMessageFilterResponseExperimental {
 impl windows_core::RuntimeName for IMcpMessageFilterResponseExperimental {
     const NAME: &'static str = "Windows.AI.Agents.Mcp.IMcpMessageFilterResponseExperimental";
 }
-pub trait IMcpMessageFilterResponseExperimental_Impl: windows_core::IUnknownImpl {
+pub trait IMcpMessageFilterResponseExperimental_Impl {
     fn IsAllowed(&self) -> windows_core::Result<bool>;
     fn SetIsAllowed(&self, value: bool) -> windows_core::Result<()>;
     fn MessageIfNotAllowed(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetMessageIfNotAllowed(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl IMcpMessageFilterResponseExperimental_Vtbl {
-    pub const fn new<Identity: IMcpMessageFilterResponseExperimental_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsAllowed<Identity: IMcpMessageFilterResponseExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
+    {
+        unsafe extern "system" fn IsAllowed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMcpMessageFilterResponseExperimental_Impl::IsAllowed(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -109,15 +127,23 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsAllowed<Identity: IMcpMessageFilterResponseExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsAllowed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMcpMessageFilterResponseExperimental_Impl::SetIsAllowed(this, value).into()
             }
         }
-        unsafe extern "system" fn MessageIfNotAllowed<Identity: IMcpMessageFilterResponseExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn MessageIfNotAllowed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMcpMessageFilterResponseExperimental_Impl::MessageIfNotAllowed(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -128,9 +154,13 @@ impl IMcpMessageFilterResponseExperimental_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMessageIfNotAllowed<Identity: IMcpMessageFilterResponseExperimental_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMessageIfNotAllowed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMcpMessageFilterResponseExperimental_Impl::SetMessageIfNotAllowed(this, core::mem::transmute(&value)).into()
             }
         }
@@ -171,21 +201,32 @@ impl IMcpMessageFilterResponseExperimental2 {
 impl windows_core::RuntimeName for IMcpMessageFilterResponseExperimental2 {
     const NAME: &'static str = "Windows.AI.Agents.Mcp.IMcpMessageFilterResponseExperimental2";
 }
-pub trait IMcpMessageFilterResponseExperimental2_Impl: windows_core::IUnknownImpl {
+pub trait IMcpMessageFilterResponseExperimental2_Impl {
     fn Allow(&self) -> windows_core::Result<()>;
     fn Reject(&self, reason: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl IMcpMessageFilterResponseExperimental2_Vtbl {
-    pub const fn new<Identity: IMcpMessageFilterResponseExperimental2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Allow<Identity: IMcpMessageFilterResponseExperimental2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental2_Impl,
+    {
+        unsafe extern "system" fn Allow<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMcpMessageFilterResponseExperimental2_Impl::Allow(this).into()
             }
         }
-        unsafe extern "system" fn Reject<Identity: IMcpMessageFilterResponseExperimental2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reason: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMcpMessageFilterResponseExperimental2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMcpMessageFilterResponseExperimental2_Impl::Reject(this, core::mem::transmute(&reason)).into()
             }
         }

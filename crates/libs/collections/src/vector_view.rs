@@ -17,7 +17,7 @@ implement_decl! {
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
-impl<T> IIterable_Impl<T> for StockVectorView_Impl<T>
+impl<T> IIterable_Impl<T> for StockVectorView<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
@@ -31,7 +31,7 @@ where
     }
 }
 
-impl<T> IVectorView_Impl<T> for StockVectorView_Impl<T>
+impl<T> IVectorView_Impl<T> for StockVectorView<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
@@ -96,7 +96,7 @@ implement_decl! {
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
-impl<T> IIterator_Impl<T> for StockVectorViewIterator_Impl<T>
+impl<T> IIterator_Impl<T> for StockVectorViewIterator<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,

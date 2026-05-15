@@ -48,7 +48,7 @@ pub struct AsyncIAssociatedIdentityProvider_Vtbl {
     pub Finish_ChangeCredential: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub trait AsyncIAssociatedIdentityProvider_Impl: windows_core::IUnknownImpl {
+pub trait AsyncIAssociatedIdentityProvider_Impl {
     fn Begin_AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn Finish_AssociateIdentity(&self) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Begin_DisassociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -58,16 +58,27 @@ pub trait AsyncIAssociatedIdentityProvider_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl AsyncIAssociatedIdentityProvider_Vtbl {
-    pub const fn new<Identity: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_AssociateIdentity<Identity: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: AsyncIAssociatedIdentityProvider_Impl,
+    {
+        unsafe extern "system" fn Begin_AssociateIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIAssociatedIdentityProvider_Impl::Begin_AssociateIdentity(this, core::mem::transmute_copy(&hwndparent)).into()
             }
         }
-        unsafe extern "system" fn Finish_AssociateIdentity<Identity: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_AssociateIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIAssociatedIdentityProvider_Impl::Finish_AssociateIdentity(this) {
                     Ok(ok__) => {
                         pppropertystore.write(core::mem::transmute(ok__));
@@ -77,27 +88,43 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_DisassociateIdentity<Identity: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_DisassociateIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIAssociatedIdentityProvider_Impl::Begin_DisassociateIdentity(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&lpszuniqueid)).into()
             }
         }
-        unsafe extern "system" fn Finish_DisassociateIdentity<Identity: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_DisassociateIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIAssociatedIdentityProvider_Impl::Finish_DisassociateIdentity(this).into()
             }
         }
-        unsafe extern "system" fn Begin_ChangeCredential<Identity: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_ChangeCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIAssociatedIdentityProvider_Impl::Begin_ChangeCredential(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&lpszuniqueid)).into()
             }
         }
-        unsafe extern "system" fn Finish_ChangeCredential<Identity: AsyncIAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_ChangeCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIAssociatedIdentityProvider_Impl::Finish_ChangeCredential(this).into()
             }
         }
@@ -184,7 +211,7 @@ pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub Finish_GetAccountState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ACCOUNT_STATE) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait AsyncIConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
+pub trait AsyncIConnectedIdentityProvider_Impl {
     fn Begin_ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> windows_core::Result<()>;
     fn Finish_ConnectIdentity(&self) -> windows_core::Result<()>;
     fn Begin_DisconnectIdentity(&self) -> windows_core::Result<()>;
@@ -198,40 +225,67 @@ pub trait AsyncIConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl AsyncIConnectedIdentityProvider_Vtbl {
-    pub const fn new<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_ConnectIdentity<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+    {
+        unsafe extern "system" fn Begin_ConnectIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Begin_ConnectIdentity(this, core::mem::transmute_copy(&authbuffer), core::mem::transmute_copy(&authbuffersize)).into()
             }
         }
-        unsafe extern "system" fn Finish_ConnectIdentity<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_ConnectIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Finish_ConnectIdentity(this).into()
             }
         }
-        unsafe extern "system" fn Begin_DisconnectIdentity<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_DisconnectIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Begin_DisconnectIdentity(this).into()
             }
         }
-        unsafe extern "system" fn Finish_DisconnectIdentity<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_DisconnectIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Finish_DisconnectIdentity(this).into()
             }
         }
-        unsafe extern "system" fn Begin_IsConnected<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_IsConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Begin_IsConnected(this).into()
             }
         }
-        unsafe extern "system" fn Finish_IsConnected<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_IsConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIConnectedIdentityProvider_Impl::Finish_IsConnected(this) {
                     Ok(ok__) => {
                         connected.write(core::mem::transmute(ok__));
@@ -241,27 +295,43 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_GetUrl<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: IDENTITY_URL, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_GetUrl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: IDENTITY_URL, context: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Begin_GetUrl(this, core::mem::transmute_copy(&identifier), core::mem::transmute_copy(&context)).into()
             }
         }
-        unsafe extern "system" fn Finish_GetUrl<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_GetUrl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Finish_GetUrl(this, core::mem::transmute_copy(&postdata), core::mem::transmute_copy(&url)).into()
             }
         }
-        unsafe extern "system" fn Begin_GetAccountState<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_GetAccountState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIConnectedIdentityProvider_Impl::Begin_GetAccountState(this).into()
             }
         }
-        unsafe extern "system" fn Finish_GetAccountState<Identity: AsyncIConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_GetAccountState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIConnectedIdentityProvider_Impl::Finish_GetAccountState(this) {
                     Ok(ok__) => {
                         pstate.write(core::mem::transmute(ok__));
@@ -311,21 +381,32 @@ pub struct AsyncIIdentityAdvise_Vtbl {
     pub Begin_IdentityUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub Finish_IdentityUpdated: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait AsyncIIdentityAdvise_Impl: windows_core::IUnknownImpl {
+pub trait AsyncIIdentityAdvise_Impl {
     fn Begin_IdentityUpdated(&self, dwidentityupdateevents: u32, lpszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Finish_IdentityUpdated(&self) -> windows_core::Result<()>;
 }
 impl AsyncIIdentityAdvise_Vtbl {
-    pub const fn new<Identity: AsyncIIdentityAdvise_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_IdentityUpdated<Identity: AsyncIIdentityAdvise_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAdvise_Impl,
+    {
+        unsafe extern "system" fn Begin_IdentityUpdated<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAdvise_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityAdvise_Impl::Begin_IdentityUpdated(this, core::mem::transmute_copy(&dwidentityupdateevents), core::mem::transmute(&lpszuniqueid)).into()
             }
         }
-        unsafe extern "system" fn Finish_IdentityUpdated<Identity: AsyncIIdentityAdvise_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_IdentityUpdated<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAdvise_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityAdvise_Impl::Finish_IdentityUpdated(this).into()
             }
         }
@@ -374,7 +455,7 @@ pub struct AsyncIIdentityAuthentication_Vtbl {
     Finish_ValidateIdentityCredential: usize,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub trait AsyncIIdentityAuthentication_Impl: windows_core::IUnknownImpl {
+pub trait AsyncIIdentityAuthentication_Impl {
     fn Begin_SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> windows_core::Result<()>;
     fn Finish_SetIdentityCredential(&self) -> windows_core::Result<()>;
     fn Begin_ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: windows_core::OutRef<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
@@ -382,28 +463,47 @@ pub trait AsyncIIdentityAuthentication_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl AsyncIIdentityAuthentication_Vtbl {
-    pub const fn new<Identity: AsyncIIdentityAuthentication_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_SetIdentityCredential<Identity: AsyncIIdentityAuthentication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAuthentication_Impl,
+    {
+        unsafe extern "system" fn Begin_SetIdentityCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAuthentication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityAuthentication_Impl::Begin_SetIdentityCredential(this, core::mem::transmute_copy(&credbuffer), core::mem::transmute_copy(&credbufferlength)).into()
             }
         }
-        unsafe extern "system" fn Finish_SetIdentityCredential<Identity: AsyncIIdentityAuthentication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_SetIdentityCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAuthentication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityAuthentication_Impl::Finish_SetIdentityCredential(this).into()
             }
         }
-        unsafe extern "system" fn Begin_ValidateIdentityCredential<Identity: AsyncIIdentityAuthentication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_ValidateIdentityCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAuthentication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityAuthentication_Impl::Begin_ValidateIdentityCredential(this, core::mem::transmute_copy(&credbuffer), core::mem::transmute_copy(&credbufferlength), core::mem::transmute_copy(&ppidentityproperties)).into()
             }
         }
-        unsafe extern "system" fn Finish_ValidateIdentityCredential<Identity: AsyncIIdentityAuthentication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppidentityproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_ValidateIdentityCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppidentityproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityAuthentication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityAuthentication_Impl::Finish_ValidateIdentityCredential(this, core::mem::transmute_copy(&ppidentityproperties)).into()
             }
         }
@@ -557,7 +657,7 @@ pub struct AsyncIIdentityProvider_Vtbl {
     pub Finish_UnAdvise: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-pub trait AsyncIIdentityProvider_Impl: windows_core::IUnknownImpl {
+pub trait AsyncIIdentityProvider_Impl {
     fn Begin_GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Finish_GetIdentityEnum(&self) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown>;
     fn Begin_Create(&self, lpszusername: &windows_core::PCWSTR, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
@@ -577,16 +677,27 @@ pub trait AsyncIIdentityProvider_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl AsyncIIdentityProvider_Vtbl {
-    pub const fn new<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_GetIdentityEnum<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+    {
+        unsafe extern "system" fn Begin_GetIdentityEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_GetIdentityEnum(this, core::mem::transmute_copy(&eidentitytype), core::mem::transmute_copy(&pfilterkey), core::mem::transmute_copy(&pfilterpropvarvalue)).into()
             }
         }
-        unsafe extern "system" fn Finish_GetIdentityEnum<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_GetIdentityEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIIdentityProvider_Impl::Finish_GetIdentityEnum(this) {
                     Ok(ok__) => {
                         ppidentityenum.write(core::mem::transmute(ok__));
@@ -596,15 +707,23 @@ impl AsyncIIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_Create<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszusername: windows_core::PCWSTR, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_Create<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszusername: windows_core::PCWSTR, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_Create(this, core::mem::transmute(&lpszusername), core::mem::transmute_copy(&pkeywordstoadd)).into()
             }
         }
-        unsafe extern "system" fn Finish_Create<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_Create<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIIdentityProvider_Impl::Finish_Create(this) {
                     Ok(ok__) => {
                         pppropertystore.write(core::mem::transmute(ok__));
@@ -614,39 +733,63 @@ impl AsyncIIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_Import<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_Import<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_Import(this, core::mem::transmute_copy(&ppropertystore)).into()
             }
         }
-        unsafe extern "system" fn Finish_Import<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_Import<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Finish_Import(this).into()
             }
         }
-        unsafe extern "system" fn Begin_Delete<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_Delete<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_Delete(this, core::mem::transmute(&lpszuniqueid), core::mem::transmute_copy(&pkeywordstodelete)).into()
             }
         }
-        unsafe extern "system" fn Finish_Delete<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_Delete<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Finish_Delete(this).into()
             }
         }
-        unsafe extern "system" fn Begin_FindByUniqueID<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_FindByUniqueID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_FindByUniqueID(this, core::mem::transmute(&lpszuniqueid)).into()
             }
         }
-        unsafe extern "system" fn Finish_FindByUniqueID<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_FindByUniqueID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIIdentityProvider_Impl::Finish_FindByUniqueID(this) {
                     Ok(ok__) => {
                         pppropertystore.write(core::mem::transmute(ok__));
@@ -656,15 +799,23 @@ impl AsyncIIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_GetProviderPropertyStore<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_GetProviderPropertyStore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_GetProviderPropertyStore(this).into()
             }
         }
-        unsafe extern "system" fn Finish_GetProviderPropertyStore<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_GetProviderPropertyStore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIIdentityProvider_Impl::Finish_GetProviderPropertyStore(this) {
                     Ok(ok__) => {
                         pppropertystore.write(core::mem::transmute(ok__));
@@ -674,15 +825,23 @@ impl AsyncIIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_Advise<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidentityadvise: *mut core::ffi::c_void, dwidentityupdateevents: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_Advise<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidentityadvise: *mut core::ffi::c_void, dwidentityupdateevents: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_Advise(this, core::mem::transmute_copy(&pidentityadvise), core::mem::transmute_copy(&dwidentityupdateevents)).into()
             }
         }
-        unsafe extern "system" fn Finish_Advise<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_Advise<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcookie: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIIdentityProvider_Impl::Finish_Advise(this) {
                     Ok(ok__) => {
                         pdwcookie.write(core::mem::transmute(ok__));
@@ -692,15 +851,23 @@ impl AsyncIIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_UnAdvise<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_UnAdvise<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Begin_UnAdvise(this, core::mem::transmute_copy(&dwcookie)).into()
             }
         }
-        unsafe extern "system" fn Finish_UnAdvise<Identity: AsyncIIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_UnAdvise<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityProvider_Impl::Finish_UnAdvise(this).into()
             }
         }
@@ -808,7 +975,7 @@ pub struct AsyncIIdentityStore_Vtbl {
     pub Finish_Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub trait AsyncIIdentityStore_Impl: windows_core::IUnknownImpl {
+pub trait AsyncIIdentityStore_Impl {
     fn Begin_GetCount(&self) -> windows_core::Result<()>;
     fn Finish_GetCount(&self) -> windows_core::Result<u32>;
     fn Begin_GetAt(&self, dwprovider: u32, pprovguid: *mut windows_core::GUID) -> windows_core::Result<()>;
@@ -824,16 +991,27 @@ pub trait AsyncIIdentityStore_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl AsyncIIdentityStore_Vtbl {
-    pub const fn new<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_GetCount<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+    {
+        unsafe extern "system" fn Begin_GetCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Begin_GetCount(this).into()
             }
         }
-        unsafe extern "system" fn Finish_GetCount<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwproviders: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_GetCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwproviders: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIIdentityStore_Impl::Finish_GetCount(this) {
                     Ok(ok__) => {
                         pdwproviders.write(core::mem::transmute(ok__));
@@ -843,51 +1021,83 @@ impl AsyncIIdentityStore_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_GetAt<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprovider: u32, pprovguid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_GetAt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprovider: u32, pprovguid: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Begin_GetAt(this, core::mem::transmute_copy(&dwprovider), core::mem::transmute_copy(&pprovguid)).into()
             }
         }
-        unsafe extern "system" fn Finish_GetAt<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovguid: *mut windows_core::GUID, ppidentityprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_GetAt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprovguid: *mut windows_core::GUID, ppidentityprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Finish_GetAt(this, core::mem::transmute_copy(&pprovguid), core::mem::transmute_copy(&ppidentityprovider)).into()
             }
         }
-        unsafe extern "system" fn Begin_AddToCache<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_AddToCache<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Begin_AddToCache(this, core::mem::transmute(&lpszuniqueid), core::mem::transmute_copy(&providerguid)).into()
             }
         }
-        unsafe extern "system" fn Finish_AddToCache<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_AddToCache<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Finish_AddToCache(this).into()
             }
         }
-        unsafe extern "system" fn Begin_ConvertToSid<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID, cbsid: u16, psid: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_ConvertToSid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID, cbsid: u16, psid: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Begin_ConvertToSid(this, core::mem::transmute(&lpszuniqueid), core::mem::transmute_copy(&providerguid), core::mem::transmute_copy(&cbsid), core::mem::transmute_copy(&psid)).into()
             }
         }
-        unsafe extern "system" fn Finish_ConvertToSid<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut u8, pcbrequiredsid: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_ConvertToSid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, psid: *mut u8, pcbrequiredsid: *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Finish_ConvertToSid(this, core::mem::transmute_copy(&psid), core::mem::transmute_copy(&pcbrequiredsid)).into()
             }
         }
-        unsafe extern "system" fn Begin_EnumerateIdentities<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_EnumerateIdentities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Begin_EnumerateIdentities(this, core::mem::transmute_copy(&eidentitytype), core::mem::transmute_copy(&pfilterkey), core::mem::transmute_copy(&pfilterpropvarvalue)).into()
             }
         }
-        unsafe extern "system" fn Finish_EnumerateIdentities<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_EnumerateIdentities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match AsyncIIdentityStore_Impl::Finish_EnumerateIdentities(this) {
                     Ok(ok__) => {
                         ppidentityenum.write(core::mem::transmute(ok__));
@@ -897,15 +1107,23 @@ impl AsyncIIdentityStore_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Begin_Reset<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Begin_Reset(this).into()
             }
         }
-        unsafe extern "system" fn Finish_Reset<Identity: AsyncIIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStore_Impl::Finish_Reset(this).into()
             }
         }
@@ -963,35 +1181,54 @@ pub struct AsyncIIdentityStoreEx_Vtbl {
     pub Begin_DeleteConnectedIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
     pub Finish_DeleteConnectedIdentity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait AsyncIIdentityStoreEx_Impl: windows_core::IUnknownImpl {
+pub trait AsyncIIdentityStoreEx_Impl {
     fn Begin_CreateConnectedIdentity(&self, localname: &windows_core::PCWSTR, connectedname: &windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Finish_CreateConnectedIdentity(&self) -> windows_core::Result<()>;
     fn Begin_DeleteConnectedIdentity(&self, connectedname: &windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Finish_DeleteConnectedIdentity(&self) -> windows_core::Result<()>;
 }
 impl AsyncIIdentityStoreEx_Vtbl {
-    pub const fn new<Identity: AsyncIIdentityStoreEx_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Begin_CreateConnectedIdentity<Identity: AsyncIIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localname: windows_core::PCWSTR, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStoreEx_Impl,
+    {
+        unsafe extern "system" fn Begin_CreateConnectedIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, localname: windows_core::PCWSTR, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStoreEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStoreEx_Impl::Begin_CreateConnectedIdentity(this, core::mem::transmute(&localname), core::mem::transmute(&connectedname), core::mem::transmute_copy(&providerguid)).into()
             }
         }
-        unsafe extern "system" fn Finish_CreateConnectedIdentity<Identity: AsyncIIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_CreateConnectedIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStoreEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStoreEx_Impl::Finish_CreateConnectedIdentity(this).into()
             }
         }
-        unsafe extern "system" fn Begin_DeleteConnectedIdentity<Identity: AsyncIIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Begin_DeleteConnectedIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStoreEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStoreEx_Impl::Begin_DeleteConnectedIdentity(this, core::mem::transmute(&connectedname), core::mem::transmute_copy(&providerguid)).into()
             }
         }
-        unsafe extern "system" fn Finish_DeleteConnectedIdentity<Identity: AsyncIIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finish_DeleteConnectedIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: AsyncIIdentityStoreEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 AsyncIIdentityStoreEx_Impl::Finish_DeleteConnectedIdentity(this).into()
             }
         }
@@ -1047,17 +1284,24 @@ pub struct IAssociatedIdentityProvider_Vtbl {
     pub ChangeCredential: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::HWND, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub trait IAssociatedIdentityProvider_Impl: windows_core::IUnknownImpl {
+pub trait IAssociatedIdentityProvider_Impl {
     fn AssociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn DisassociateIdentity(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ChangeCredential(&self, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IAssociatedIdentityProvider_Vtbl {
-    pub const fn new<Identity: IAssociatedIdentityProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AssociateIdentity<Identity: IAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAssociatedIdentityProvider_Impl,
+    {
+        unsafe extern "system" fn AssociateIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAssociatedIdentityProvider_Impl::AssociateIdentity(this, core::mem::transmute_copy(&hwndparent)) {
                     Ok(ok__) => {
                         pppropertystore.write(core::mem::transmute(ok__));
@@ -1067,15 +1311,23 @@ impl IAssociatedIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DisassociateIdentity<Identity: IAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisassociateIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAssociatedIdentityProvider_Impl::DisassociateIdentity(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&lpszuniqueid)).into()
             }
         }
-        unsafe extern "system" fn ChangeCredential<Identity: IAssociatedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChangeCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAssociatedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAssociatedIdentityProvider_Impl::ChangeCredential(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute(&lpszuniqueid)).into()
             }
         }
@@ -1135,7 +1387,7 @@ pub struct IConnectedIdentityProvider_Vtbl {
     pub GetAccountState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ACCOUNT_STATE) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
+pub trait IConnectedIdentityProvider_Impl {
     fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> windows_core::Result<()>;
     fn DisconnectIdentity(&self) -> windows_core::Result<()>;
     fn IsConnected(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -1144,22 +1396,37 @@ pub trait IConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IConnectedIdentityProvider_Vtbl {
-    pub const fn new<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ConnectIdentity<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IConnectedIdentityProvider_Impl,
+    {
+        unsafe extern "system" fn ConnectIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IConnectedIdentityProvider_Impl::ConnectIdentity(this, core::mem::transmute_copy(&authbuffer), core::mem::transmute_copy(&authbuffersize)).into()
             }
         }
-        unsafe extern "system" fn DisconnectIdentity<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisconnectIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IConnectedIdentityProvider_Impl::DisconnectIdentity(this).into()
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connected: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IConnectedIdentityProvider_Impl::IsConnected(this) {
                     Ok(ok__) => {
                         connected.write(core::mem::transmute(ok__));
@@ -1169,15 +1436,23 @@ impl IConnectedIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetUrl<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: IDENTITY_URL, context: *mut core::ffi::c_void, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUrl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, identifier: IDENTITY_URL, context: *mut core::ffi::c_void, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IConnectedIdentityProvider_Impl::GetUrl(this, core::mem::transmute_copy(&identifier), core::mem::transmute_copy(&context), core::mem::transmute_copy(&postdata), core::mem::transmute_copy(&url)).into()
             }
         }
-        unsafe extern "system" fn GetAccountState<Identity: IConnectedIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAccountState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IConnectedIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IConnectedIdentityProvider_Impl::GetAccountState(this) {
                     Ok(ok__) => {
                         pstate.write(core::mem::transmute(ok__));
@@ -1245,14 +1520,21 @@ pub struct IIdentityAdvise_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IdentityUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
-pub trait IIdentityAdvise_Impl: windows_core::IUnknownImpl {
+pub trait IIdentityAdvise_Impl {
     fn IdentityUpdated(&self, dwidentityupdateevents: &IdentityUpdateEvent, lpszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IIdentityAdvise_Vtbl {
-    pub const fn new<Identity: IIdentityAdvise_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IdentityUpdated<Identity: IIdentityAdvise_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIdentityAdvise_Impl,
+    {
+        unsafe extern "system" fn IdentityUpdated<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityAdvise_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityAdvise_Impl::IdentityUpdated(this, core::mem::transmute(&dwidentityupdateevents), core::mem::transmute(&lpszuniqueid)).into()
             }
         }
@@ -1285,22 +1567,33 @@ pub struct IIdentityAuthentication_Vtbl {
     ValidateIdentityCredential: usize,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub trait IIdentityAuthentication_Impl: windows_core::IUnknownImpl {
+pub trait IIdentityAuthentication_Impl {
     fn SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> windows_core::Result<()>;
     fn ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: windows_core::OutRef<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IIdentityAuthentication_Vtbl {
-    pub const fn new<Identity: IIdentityAuthentication_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetIdentityCredential<Identity: IIdentityAuthentication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIdentityAuthentication_Impl,
+    {
+        unsafe extern "system" fn SetIdentityCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityAuthentication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityAuthentication_Impl::SetIdentityCredential(this, core::mem::transmute_copy(&credbuffer), core::mem::transmute_copy(&credbufferlength)).into()
             }
         }
-        unsafe extern "system" fn ValidateIdentityCredential<Identity: IIdentityAuthentication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValidateIdentityCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityAuthentication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityAuthentication_Impl::ValidateIdentityCredential(this, core::mem::transmute_copy(&credbuffer), core::mem::transmute_copy(&credbufferlength), core::mem::transmute_copy(&ppidentityproperties)).into()
             }
         }
@@ -1409,7 +1702,7 @@ pub struct IIdentityProvider_Vtbl {
     pub UnAdvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-pub trait IIdentityProvider_Impl: windows_core::IUnknownImpl {
+pub trait IIdentityProvider_Impl {
     fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown>;
     fn Create(&self, lpszusername: &windows_core::PCWSTR, pppropertystore: windows_core::OutRef<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Import(&self, ppropertystore: windows_core::Ref<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
@@ -1421,10 +1714,17 @@ pub trait IIdentityProvider_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IIdentityProvider_Vtbl {
-    pub const fn new<Identity: IIdentityProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIdentityEnum<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+    {
+        unsafe extern "system" fn GetIdentityEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIdentityProvider_Impl::GetIdentityEnum(this, core::mem::transmute_copy(&eidentitytype), core::mem::transmute_copy(&pfilterkey), core::mem::transmute_copy(&pfilterpropvarvalue)) {
                     Ok(ok__) => {
                         ppidentityenum.write(core::mem::transmute(ok__));
@@ -1434,27 +1734,43 @@ impl IIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Create<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszusername: windows_core::PCWSTR, pppropertystore: *mut *mut core::ffi::c_void, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszusername: windows_core::PCWSTR, pppropertystore: *mut *mut core::ffi::c_void, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityProvider_Impl::Create(this, core::mem::transmute(&lpszusername), core::mem::transmute_copy(&pppropertystore), core::mem::transmute_copy(&pkeywordstoadd)).into()
             }
         }
-        unsafe extern "system" fn Import<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Import<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppropertystore: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityProvider_Impl::Import(this, core::mem::transmute_copy(&ppropertystore)).into()
             }
         }
-        unsafe extern "system" fn Delete<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityProvider_Impl::Delete(this, core::mem::transmute(&lpszuniqueid), core::mem::transmute_copy(&pkeywordstodelete)).into()
             }
         }
-        unsafe extern "system" fn FindByUniqueID<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindByUniqueID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIdentityProvider_Impl::FindByUniqueID(this, core::mem::transmute(&lpszuniqueid)) {
                     Ok(ok__) => {
                         pppropertystore.write(core::mem::transmute(ok__));
@@ -1464,9 +1780,13 @@ impl IIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetProviderPropertyStore<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProviderPropertyStore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppropertystore: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIdentityProvider_Impl::GetProviderPropertyStore(this) {
                     Ok(ok__) => {
                         pppropertystore.write(core::mem::transmute(ok__));
@@ -1476,9 +1796,13 @@ impl IIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Advise<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidentityadvise: *mut core::ffi::c_void, dwidentityupdateevents: u32, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Advise<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidentityadvise: *mut core::ffi::c_void, dwidentityupdateevents: u32, pdwcookie: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIdentityProvider_Impl::Advise(this, core::mem::transmute_copy(&pidentityadvise), core::mem::transmute(&dwidentityupdateevents)) {
                     Ok(ok__) => {
                         pdwcookie.write(core::mem::transmute(ok__));
@@ -1488,9 +1812,13 @@ impl IIdentityProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnAdvise<Identity: IIdentityProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnAdvise<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityProvider_Impl::UnAdvise(this, core::mem::transmute_copy(&dwcookie)).into()
             }
         }
@@ -1562,7 +1890,7 @@ pub struct IIdentityStore_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-pub trait IIdentityStore_Impl: windows_core::IUnknownImpl {
+pub trait IIdentityStore_Impl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, dwprovider: u32, pprovguid: *mut windows_core::GUID, ppidentityprovider: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn AddToCache(&self, lpszuniqueid: &windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -1572,10 +1900,17 @@ pub trait IIdentityStore_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IIdentityStore_Vtbl {
-    pub const fn new<Identity: IIdentityStore_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCount<Identity: IIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwproviders: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStore_Impl,
+    {
+        unsafe extern "system" fn GetCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwproviders: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIdentityStore_Impl::GetCount(this) {
                     Ok(ok__) => {
                         pdwproviders.write(core::mem::transmute(ok__));
@@ -1585,27 +1920,43 @@ impl IIdentityStore_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetAt<Identity: IIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprovider: u32, pprovguid: *mut windows_core::GUID, ppidentityprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprovider: u32, pprovguid: *mut windows_core::GUID, ppidentityprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityStore_Impl::GetAt(this, core::mem::transmute_copy(&dwprovider), core::mem::transmute_copy(&pprovguid), core::mem::transmute_copy(&ppidentityprovider)).into()
             }
         }
-        unsafe extern "system" fn AddToCache<Identity: IIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddToCache<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityStore_Impl::AddToCache(this, core::mem::transmute(&lpszuniqueid), core::mem::transmute_copy(&providerguid)).into()
             }
         }
-        unsafe extern "system" fn ConvertToSid<Identity: IIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID, cbsid: u16, psid: *mut u8, pcbrequiredsid: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConvertToSid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszuniqueid: windows_core::PCWSTR, providerguid: *const windows_core::GUID, cbsid: u16, psid: *mut u8, pcbrequiredsid: *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityStore_Impl::ConvertToSid(this, core::mem::transmute(&lpszuniqueid), core::mem::transmute_copy(&providerguid), core::mem::transmute_copy(&cbsid), core::mem::transmute_copy(&psid), core::mem::transmute_copy(&pcbrequiredsid)).into()
             }
         }
-        unsafe extern "system" fn EnumerateIdentities<Identity: IIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateIdentities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppidentityenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIdentityStore_Impl::EnumerateIdentities(this, core::mem::transmute_copy(&eidentitytype), core::mem::transmute_copy(&pfilterkey), core::mem::transmute_copy(&pfilterpropvarvalue)) {
                     Ok(ok__) => {
                         ppidentityenum.write(core::mem::transmute(ok__));
@@ -1615,9 +1966,13 @@ impl IIdentityStore_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Reset<Identity: IIdentityStore_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStore_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityStore_Impl::Reset(this).into()
             }
         }
@@ -1661,21 +2016,32 @@ pub struct IIdentityStoreEx_Vtbl {
     pub CreateConnectedIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
     pub DeleteConnectedIdentity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait IIdentityStoreEx_Impl: windows_core::IUnknownImpl {
+pub trait IIdentityStoreEx_Impl {
     fn CreateConnectedIdentity(&self, localname: &windows_core::PCWSTR, connectedname: &windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn DeleteConnectedIdentity(&self, connectedname: &windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IIdentityStoreEx_Vtbl {
-    pub const fn new<Identity: IIdentityStoreEx_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateConnectedIdentity<Identity: IIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localname: windows_core::PCWSTR, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStoreEx_Impl,
+    {
+        unsafe extern "system" fn CreateConnectedIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, localname: windows_core::PCWSTR, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStoreEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityStoreEx_Impl::CreateConnectedIdentity(this, core::mem::transmute(&localname), core::mem::transmute(&connectedname), core::mem::transmute_copy(&providerguid)).into()
             }
         }
-        unsafe extern "system" fn DeleteConnectedIdentity<Identity: IIdentityStoreEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteConnectedIdentity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectedname: windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIdentityStoreEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIdentityStoreEx_Impl::DeleteConnectedIdentity(this, core::mem::transmute(&connectedname), core::mem::transmute_copy(&providerguid)).into()
             }
         }

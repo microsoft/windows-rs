@@ -40,7 +40,7 @@ struct MyApp {
     tombstone: Arc<Tombstone>,
 }
 
-impl IFoo_Impl for MyApp_Impl {
+impl IFoo_Impl for MyApp {
     unsafe fn get_x(&self) -> u32 {
         self.x
     }
@@ -54,7 +54,7 @@ impl IFoo_Impl for MyApp_Impl {
     }
 }
 
-impl IBar_Impl for MyApp_Impl {
+impl IBar_Impl for MyApp {
     unsafe fn say_hello(&self) {
         println!("Hello!");
     }
@@ -64,7 +64,7 @@ impl IBar_Impl for MyApp_Impl {
     }
 }
 
-impl IBar2_Impl for MyApp_Impl {
+impl IBar2_Impl for MyApp {
     unsafe fn common(&self) -> f32 {
         std::f32::consts::PI
     }
@@ -482,7 +482,7 @@ struct UnsendableThing {
     cell: core::cell::Cell<u32>,
 }
 
-impl IBar_Impl for UnsendableThing_Impl {
+impl IBar_Impl for UnsendableThing {
     unsafe fn say_hello(&self) {
         println!("{}", self.cell.get());
     }
@@ -500,7 +500,7 @@ struct SendableThing {
     arc: std::sync::Arc<u32>,
 }
 
-impl IBar_Impl for SendableThing_Impl {
+impl IBar_Impl for SendableThing {
     unsafe fn say_hello(&self) {
         println!("{}", *self.arc);
     }

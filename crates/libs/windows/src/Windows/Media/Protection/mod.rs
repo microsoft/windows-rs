@@ -307,15 +307,22 @@ impl IMediaProtectionServiceRequest {
 impl windows_core::RuntimeName for IMediaProtectionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
 }
-pub trait IMediaProtectionServiceRequest_Impl: windows_core::IUnknownImpl {
+pub trait IMediaProtectionServiceRequest_Impl {
     fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID>;
     fn Type(&self) -> windows_core::Result<windows_core::GUID>;
 }
 impl IMediaProtectionServiceRequest_Vtbl {
-    pub const fn new<Identity: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ProtectionSystem<Identity: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMediaProtectionServiceRequest_Impl,
+    {
+        unsafe extern "system" fn ProtectionSystem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMediaProtectionServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMediaProtectionServiceRequest_Impl::ProtectionSystem(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -325,9 +332,13 @@ impl IMediaProtectionServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Type<Identity: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMediaProtectionServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMediaProtectionServiceRequest_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

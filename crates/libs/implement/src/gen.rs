@@ -257,6 +257,12 @@ fn gen_impl_com_object_inner(inputs: &ImplementInputs) -> syn::Item {
         impl #generics ::windows_core::ComObjectInner for #original_ident::#generics_idents where #constraints {
             type Outer = #impl_ident::#generics_idents;
 
+            // Byte offset of the `this` field inside the outer wrapper. Used by
+            // `ComObjectInner::outer` to recover `&Outer` from `&Self` so trait methods
+            // implemented on the inner type can call `self.to_object()` etc.
+            const INNER_OFFSET_IN_OUTER: usize =
+                ::core::mem::offset_of!(#impl_ident::#generics_idents, this);
+
             // Assembles the boxed COM object. Move the value into a heap allocation and return
             // only a `ComObject` reference, never an owned `Foo_Impl`: exposing an owned
             // `Foo_Impl` to safe code would be unsound because of the reference-count

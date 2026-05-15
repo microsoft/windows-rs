@@ -26,7 +26,7 @@ impl ClassFactory {
     }
 }
 
-impl bindings::IClassStatics_Impl for ClassFactory_Impl {
+impl bindings::IClassStatics_Impl for ClassFactory {
     fn StaticSignal(&self, value: i32) -> Result<i32> {
         let mut counter = 0;
         self.0.call(|delegate| {
@@ -46,7 +46,7 @@ impl bindings::IClassStatics_Impl for ClassFactory_Impl {
     }
 }
 
-impl IActivationFactory_Impl for ClassFactory_Impl {
+impl IActivationFactory_Impl for ClassFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Class::new().into())
     }
@@ -55,7 +55,7 @@ impl IActivationFactory_Impl for ClassFactory_Impl {
 #[implement(bindings::Class)]
 struct Class(Event<TypedEventHandler<bindings::Class, i32>>);
 
-impl bindings::IClass_Impl for Class_Impl {
+impl bindings::IClass_Impl for Class {
     fn Signal(&self, value: i32) -> Result<i32> {
         let mut counter = 0;
         self.0.call(|delegate| {

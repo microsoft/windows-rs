@@ -4752,7 +4752,7 @@ impl windows_core::RuntimeType for IApplicationFactory {
 impl windows_core::RuntimeName for IApplicationFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationFactory";
 }
-pub trait IApplicationFactory_Impl: windows_core::IUnknownImpl {
+pub trait IApplicationFactory_Impl {
     fn CreateInstance(
         &self,
         baseInterface: windows_core::Ref<windows_core::IInspectable>,
@@ -4760,19 +4760,27 @@ pub trait IApplicationFactory_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<Application>;
 }
 impl IApplicationFactory_Vtbl {
-    pub const fn new<Identity: IApplicationFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IApplicationFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: IApplicationFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             baseinterface: *mut core::ffi::c_void,
             innerinterface: *mut *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IApplicationFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -4819,12 +4827,13 @@ impl windows_core::RuntimeType for IApplicationInitializationCallbackParams {
 impl windows_core::RuntimeName for IApplicationInitializationCallbackParams {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationInitializationCallbackParams";
 }
-pub trait IApplicationInitializationCallbackParams_Impl: windows_core::IUnknownImpl {}
+pub trait IApplicationInitializationCallbackParams_Impl {}
 impl IApplicationInitializationCallbackParams_Vtbl {
-    pub const fn new<
-        Identity: IApplicationInitializationCallbackParams_Impl,
-        const OFFSET: isize,
-    >() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl:
+            IApplicationInitializationCallbackParams_Impl,
+    {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<
                 Identity,
@@ -4854,7 +4863,7 @@ impl windows_core::RuntimeType for IApplicationOverrides {
 impl windows_core::RuntimeName for IApplicationOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationOverrides";
 }
-pub trait IApplicationOverrides_Impl: windows_core::IUnknownImpl {
+pub trait IApplicationOverrides_Impl {
     fn OnActivated(
         &self,
         args: windows_core::Ref<windows::ApplicationModel::Activation::IActivatedEventArgs>,
@@ -4901,59 +4910,82 @@ pub trait IApplicationOverrides_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
 }
 impl IApplicationOverrides_Vtbl {
-    pub const fn new<Identity: IApplicationOverrides_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+    {
         unsafe extern "system" fn OnActivated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnActivated(this, core::mem::transmute_copy(&args))
                     .into()
             }
         }
         unsafe extern "system" fn OnLaunched<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnLaunched(this, core::mem::transmute_copy(&args))
                     .into()
             }
         }
         unsafe extern "system" fn OnFileActivated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnFileActivated(this, core::mem::transmute_copy(&args))
                     .into()
             }
         }
         unsafe extern "system" fn OnSearchActivated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnSearchActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -4962,15 +4994,20 @@ impl IApplicationOverrides_Vtbl {
             }
         }
         unsafe extern "system" fn OnShareTargetActivated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnShareTargetActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -4979,15 +5016,20 @@ impl IApplicationOverrides_Vtbl {
             }
         }
         unsafe extern "system" fn OnFileOpenPickerActivated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnFileOpenPickerActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -4996,15 +5038,20 @@ impl IApplicationOverrides_Vtbl {
             }
         }
         unsafe extern "system" fn OnFileSavePickerActivated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnFileSavePickerActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5013,15 +5060,20 @@ impl IApplicationOverrides_Vtbl {
             }
         }
         unsafe extern "system" fn OnCachedFileUpdaterActivated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnCachedFileUpdaterActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5030,15 +5082,20 @@ impl IApplicationOverrides_Vtbl {
             }
         }
         unsafe extern "system" fn OnWindowCreated<
-            Identity: IApplicationOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides_Impl::OnWindowCreated(this, core::mem::transmute_copy(&args))
                     .into()
             }
@@ -5114,7 +5171,7 @@ impl windows_core::RuntimeType for IApplicationOverrides2 {
 impl windows_core::RuntimeName for IApplicationOverrides2 {
     const NAME: &'static str = "Windows.UI.Xaml.IApplicationOverrides2";
 }
-pub trait IApplicationOverrides2_Impl: windows_core::IUnknownImpl {
+pub trait IApplicationOverrides2_Impl {
     fn OnBackgroundActivated(
         &self,
         args: windows_core::Ref<
@@ -5123,17 +5180,25 @@ pub trait IApplicationOverrides2_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
 }
 impl IApplicationOverrides2_Vtbl {
-    pub const fn new<Identity: IApplicationOverrides2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides2_Impl,
+    {
         unsafe extern "system" fn OnBackgroundActivated<
-            Identity: IApplicationOverrides2_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             args: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationOverrides2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IApplicationOverrides2_Impl::OnBackgroundActivated(
                     this,
                     core::mem::transmute_copy(&args),
@@ -5291,22 +5356,30 @@ impl windows_core::RuntimeType for IControl2 {
 impl windows_core::RuntimeName for IControl2 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl2";
 }
-pub trait IControl2_Impl: windows_core::IUnknownImpl {
+pub trait IControl2_Impl {
     fn IsTextScaleFactorEnabled(&self) -> windows_core::Result<bool>;
     fn SetIsTextScaleFactorEnabled(&self, value: bool) -> windows_core::Result<()>;
 }
 impl IControl2_Vtbl {
-    pub const fn new<Identity: IControl2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IControl2_Impl,
+    {
         unsafe extern "system" fn IsTextScaleFactorEnabled<
-            Identity: IControl2_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControl2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IControl2_Impl::IsTextScaleFactorEnabled(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -5317,15 +5390,20 @@ impl IControl2_Vtbl {
             }
         }
         unsafe extern "system" fn SetIsTextScaleFactorEnabled<
-            Identity: IControl2_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             value: bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControl2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IControl2_Impl::SetIsTextScaleFactorEnabled(this, value).into()
             }
         }
@@ -5360,22 +5438,30 @@ impl windows_core::RuntimeType for IControl3 {
 impl windows_core::RuntimeName for IControl3 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl3";
 }
-pub trait IControl3_Impl: windows_core::IUnknownImpl {
+pub trait IControl3_Impl {
     fn UseSystemFocusVisuals(&self) -> windows_core::Result<bool>;
     fn SetUseSystemFocusVisuals(&self, value: bool) -> windows_core::Result<()>;
 }
 impl IControl3_Vtbl {
-    pub const fn new<Identity: IControl3_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IControl3_Impl,
+    {
         unsafe extern "system" fn UseSystemFocusVisuals<
-            Identity: IControl3_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControl3_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IControl3_Impl::UseSystemFocusVisuals(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -5386,15 +5472,20 @@ impl IControl3_Vtbl {
             }
         }
         unsafe extern "system" fn SetUseSystemFocusVisuals<
-            Identity: IControl3_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             value: bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControl3_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IControl3_Impl::SetUseSystemFocusVisuals(this, value).into()
             }
         }
@@ -5498,7 +5589,7 @@ impl windows_core::RuntimeType for IControl5 {
 impl windows_core::RuntimeName for IControl5 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControl5";
 }
-pub trait IControl5_Impl: windows_core::IUnknownImpl {
+pub trait IControl5_Impl {
     fn DefaultStyleResourceUri(&self) -> windows_core::Result<windows::Foundation::Uri>;
     fn SetDefaultStyleResourceUri(
         &self,
@@ -5506,17 +5597,25 @@ pub trait IControl5_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
 }
 impl IControl5_Vtbl {
-    pub const fn new<Identity: IControl5_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IControl5_Impl,
+    {
         unsafe extern "system" fn DefaultStyleResourceUri<
-            Identity: IControl5_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControl5_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IControl5_Impl::DefaultStyleResourceUri(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5528,15 +5627,20 @@ impl IControl5_Vtbl {
             }
         }
         unsafe extern "system" fn SetDefaultStyleResourceUri<
-            Identity: IControl5_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControl5_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IControl5_Impl::SetDefaultStyleResourceUri(this, core::mem::transmute_copy(&value))
                     .into()
             }
@@ -5597,7 +5701,7 @@ impl windows_core::RuntimeType for IControlFactory {
 impl windows_core::RuntimeName for IControlFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlFactory";
 }
-pub trait IControlFactory_Impl: windows_core::IUnknownImpl {
+pub trait IControlFactory_Impl {
     fn CreateInstance(
         &self,
         baseInterface: windows_core::Ref<windows_core::IInspectable>,
@@ -5605,19 +5709,27 @@ pub trait IControlFactory_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<Control>;
 }
 impl IControlFactory_Vtbl {
-    pub const fn new<Identity: IControlFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IControlFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: IControlFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             baseinterface: *mut core::ffi::c_void,
             innerinterface: *mut *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControlFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IControlFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -5726,7 +5838,7 @@ impl windows_core::RuntimeType for IControlProtected {
 impl windows_core::RuntimeName for IControlProtected {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.IControlProtected";
 }
-pub trait IControlProtected_Impl: windows_core::IUnknownImpl {
+pub trait IControlProtected_Impl {
     fn DefaultStyleKey(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn SetDefaultStyleKey(
         &self,
@@ -5738,17 +5850,25 @@ pub trait IControlProtected_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<DependencyObject>;
 }
 impl IControlProtected_Vtbl {
-    pub const fn new<Identity: IControlProtected_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IControlProtected_Impl,
+    {
         unsafe extern "system" fn DefaultStyleKey<
-            Identity: IControlProtected_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControlProtected_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IControlProtected_Impl::DefaultStyleKey(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5760,30 +5880,40 @@ impl IControlProtected_Vtbl {
             }
         }
         unsafe extern "system" fn SetDefaultStyleKey<
-            Identity: IControlProtected_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControlProtected_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IControlProtected_Impl::SetDefaultStyleKey(this, core::mem::transmute_copy(&value))
                     .into()
             }
         }
         unsafe extern "system" fn GetTemplateChild<
-            Identity: IControlProtected_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             childname: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IControlProtected_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IControlProtected_Impl::GetTemplateChild(
                     this,
                     core::mem::transmute(&childname),
@@ -6040,7 +6170,7 @@ impl windows_core::RuntimeType for IDependencyObjectFactory {
 impl windows_core::RuntimeName for IDependencyObjectFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IDependencyObjectFactory";
 }
-pub trait IDependencyObjectFactory_Impl: windows_core::IUnknownImpl {
+pub trait IDependencyObjectFactory_Impl {
     fn CreateInstance(
         &self,
         baseInterface: windows_core::Ref<windows_core::IInspectable>,
@@ -6048,19 +6178,27 @@ pub trait IDependencyObjectFactory_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<DependencyObject>;
 }
 impl IDependencyObjectFactory_Vtbl {
-    pub const fn new<Identity: IDependencyObjectFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDependencyObjectFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: IDependencyObjectFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             baseinterface: *mut core::ffi::c_void,
             innerinterface: *mut *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDependencyObjectFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDependencyObjectFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -6251,7 +6389,7 @@ impl windows_core::RuntimeType for IFrameworkElement3 {
 impl windows_core::RuntimeName for IFrameworkElement3 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElement3";
 }
-pub trait IFrameworkElement3_Impl: windows_core::IUnknownImpl {
+pub trait IFrameworkElement3_Impl {
     fn Loading(
         &self,
         handler: windows_core::Ref<
@@ -6261,18 +6399,26 @@ pub trait IFrameworkElement3_Impl: windows_core::IUnknownImpl {
     fn RemoveLoading(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IFrameworkElement3_Vtbl {
-    pub const fn new<Identity: IFrameworkElement3_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElement3_Impl,
+    {
         unsafe extern "system" fn Loading<
-            Identity: IFrameworkElement3_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
             result__: *mut i64,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElement3_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFrameworkElement3_Impl::Loading(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -6283,15 +6429,20 @@ impl IFrameworkElement3_Vtbl {
             }
         }
         unsafe extern "system" fn RemoveLoading<
-            Identity: IFrameworkElement3_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             token: i64,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElement3_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IFrameworkElement3_Impl::RemoveLoading(this, token).into()
             }
         }
@@ -6411,7 +6562,7 @@ impl windows_core::RuntimeType for IFrameworkElementFactory {
 impl windows_core::RuntimeName for IFrameworkElementFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementFactory";
 }
-pub trait IFrameworkElementFactory_Impl: windows_core::IUnknownImpl {
+pub trait IFrameworkElementFactory_Impl {
     fn CreateInstance(
         &self,
         baseInterface: windows_core::Ref<windows_core::IInspectable>,
@@ -6419,19 +6570,27 @@ pub trait IFrameworkElementFactory_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<FrameworkElement>;
 }
 impl IFrameworkElementFactory_Vtbl {
-    pub const fn new<Identity: IFrameworkElementFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: IFrameworkElementFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             baseinterface: *mut core::ffi::c_void,
             innerinterface: *mut *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFrameworkElementFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -6482,7 +6641,7 @@ impl windows_core::RuntimeType for IFrameworkElementOverrides {
 impl windows_core::RuntimeName for IFrameworkElementOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementOverrides";
 }
-pub trait IFrameworkElementOverrides_Impl: windows_core::IUnknownImpl {
+pub trait IFrameworkElementOverrides_Impl {
     fn MeasureOverride(
         &self,
         availableSize: &windows::Foundation::Size,
@@ -6494,18 +6653,26 @@ pub trait IFrameworkElementOverrides_Impl: windows_core::IUnknownImpl {
     fn OnApplyTemplate(&self) -> windows_core::Result<()>;
 }
 impl IFrameworkElementOverrides_Vtbl {
-    pub const fn new<Identity: IFrameworkElementOverrides_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides_Impl,
+    {
         unsafe extern "system" fn MeasureOverride<
-            Identity: IFrameworkElementOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             availablesize: windows::Foundation::Size,
             result__: *mut windows::Foundation::Size,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFrameworkElementOverrides_Impl::MeasureOverride(
                     this,
                     core::mem::transmute(&availablesize),
@@ -6519,16 +6686,21 @@ impl IFrameworkElementOverrides_Vtbl {
             }
         }
         unsafe extern "system" fn ArrangeOverride<
-            Identity: IFrameworkElementOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             finalsize: windows::Foundation::Size,
             result__: *mut windows::Foundation::Size,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFrameworkElementOverrides_Impl::ArrangeOverride(
                     this,
                     core::mem::transmute(&finalsize),
@@ -6542,14 +6714,19 @@ impl IFrameworkElementOverrides_Vtbl {
             }
         }
         unsafe extern "system" fn OnApplyTemplate<
-            Identity: IFrameworkElementOverrides_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IFrameworkElementOverrides_Impl::OnApplyTemplate(this).into()
             }
         }
@@ -6596,7 +6773,7 @@ impl windows_core::RuntimeType for IFrameworkElementOverrides2 {
 impl windows_core::RuntimeName for IFrameworkElementOverrides2 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementOverrides2";
 }
-pub trait IFrameworkElementOverrides2_Impl: windows_core::IUnknownImpl {
+pub trait IFrameworkElementOverrides2_Impl {
     fn GoToElementStateCore(
         &self,
         stateName: &windows_core::HSTRING,
@@ -6604,19 +6781,27 @@ pub trait IFrameworkElementOverrides2_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<bool>;
 }
 impl IFrameworkElementOverrides2_Vtbl {
-    pub const fn new<Identity: IFrameworkElementOverrides2_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides2_Impl,
+    {
         unsafe extern "system" fn GoToElementStateCore<
-            Identity: IFrameworkElementOverrides2_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             statename: *mut core::ffi::c_void,
             usetransitions: bool,
             result__: *mut bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementOverrides2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFrameworkElementOverrides2_Impl::GoToElementStateCore(
                     this,
                     core::mem::transmute(&statename),
@@ -6666,20 +6851,28 @@ impl windows_core::RuntimeType for IFrameworkElementProtected7 {
 impl windows_core::RuntimeName for IFrameworkElementProtected7 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementProtected7";
 }
-pub trait IFrameworkElementProtected7_Impl: windows_core::IUnknownImpl {
+pub trait IFrameworkElementProtected7_Impl {
     fn InvalidateViewport(&self) -> windows_core::Result<()>;
 }
 impl IFrameworkElementProtected7_Vtbl {
-    pub const fn new<Identity: IFrameworkElementProtected7_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementProtected7_Impl,
+    {
         unsafe extern "system" fn InvalidateViewport<
-            Identity: IFrameworkElementProtected7_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementProtected7_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IFrameworkElementProtected7_Impl::InvalidateViewport(this).into()
             }
         }
@@ -6791,21 +6984,29 @@ impl windows_core::RuntimeType for IFrameworkElementStatics5 {
 impl windows_core::RuntimeName for IFrameworkElementStatics5 {
     const NAME: &'static str = "Windows.UI.Xaml.IFrameworkElementStatics5";
 }
-pub trait IFrameworkElementStatics5_Impl: windows_core::IUnknownImpl {
+pub trait IFrameworkElementStatics5_Impl {
     fn DeferTree(&self, element: windows_core::Ref<DependencyObject>) -> windows_core::Result<()>;
 }
 impl IFrameworkElementStatics5_Vtbl {
-    pub const fn new<Identity: IFrameworkElementStatics5_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementStatics5_Impl,
+    {
         unsafe extern "system" fn DeferTree<
-            Identity: IFrameworkElementStatics5_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             element: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFrameworkElementStatics5_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IFrameworkElementStatics5_Impl::DeferTree(this, core::mem::transmute_copy(&element))
                     .into()
             }
@@ -7031,7 +7232,7 @@ impl windows_core::RuntimeType for ITextBox4 {
 impl windows_core::RuntimeName for ITextBox4 {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBox4";
 }
-pub trait ITextBox4_Impl: windows_core::IUnknownImpl {
+pub trait ITextBox4_Impl {
     fn GetLinguisticAlternativesAsync(
         &self,
     ) -> windows_core::Result<
@@ -7039,17 +7240,25 @@ pub trait ITextBox4_Impl: windows_core::IUnknownImpl {
     >;
 }
 impl ITextBox4_Vtbl {
-    pub const fn new<Identity: ITextBox4_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ITextBox4_Impl,
+    {
         unsafe extern "system" fn GetLinguisticAlternativesAsync<
-            Identity: ITextBox4_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITextBox4_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ITextBox4_Impl::GetLinguisticAlternativesAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -7211,7 +7420,7 @@ impl windows_core::RuntimeType for ITextBoxFactory {
 impl windows_core::RuntimeName for ITextBoxFactory {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.ITextBoxFactory";
 }
-pub trait ITextBoxFactory_Impl: windows_core::IUnknownImpl {
+pub trait ITextBoxFactory_Impl {
     fn CreateInstance(
         &self,
         baseInterface: windows_core::Ref<windows_core::IInspectable>,
@@ -7219,19 +7428,27 @@ pub trait ITextBoxFactory_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<TextBox>;
 }
 impl ITextBoxFactory_Vtbl {
-    pub const fn new<Identity: ITextBoxFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ITextBoxFactory_Impl,
+    {
         unsafe extern "system" fn CreateInstance<
-            Identity: ITextBoxFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             baseinterface: *mut core::ffi::c_void,
             innerinterface: *mut *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITextBoxFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ITextBoxFactory_Impl::CreateInstance(
                     this,
                     core::mem::transmute_copy(&baseinterface),
@@ -7947,9 +8164,12 @@ impl windows_core::RuntimeType for IUIElementFactory {
 impl windows_core::RuntimeName for IUIElementFactory {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementFactory";
 }
-pub trait IUIElementFactory_Impl: windows_core::IUnknownImpl {}
+pub trait IUIElementFactory_Impl {}
 impl IUIElementFactory_Vtbl {
-    pub const fn new<Identity: IUIElementFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IUIElementFactory_Impl,
+    {
         Self {
             base__: windows_core::IInspectable_Vtbl::new::<Identity, IUIElementFactory, OFFSET>(),
         }
@@ -8042,7 +8262,7 @@ impl windows_core::RuntimeType for IUIElementOverrides9 {
 impl windows_core::RuntimeName for IUIElementOverrides9 {
     const NAME: &'static str = "Windows.UI.Xaml.IUIElementOverrides9";
 }
-pub trait IUIElementOverrides9_Impl: windows_core::IUnknownImpl {
+pub trait IUIElementOverrides9_Impl {
     fn PopulatePropertyInfoOverride(
         &self,
         propertyName: &windows_core::HSTRING,
@@ -8050,18 +8270,26 @@ pub trait IUIElementOverrides9_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
 }
 impl IUIElementOverrides9_Vtbl {
-    pub const fn new<Identity: IUIElementOverrides9_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IUIElementOverrides9_Impl,
+    {
         unsafe extern "system" fn PopulatePropertyInfoOverride<
-            Identity: IUIElementOverrides9_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             propertyname: *mut core::ffi::c_void,
             animationpropertyinfo: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IUIElementOverrides9_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IUIElementOverrides9_Impl::PopulatePropertyInfoOverride(
                     this,
                     core::mem::transmute(&propertyname),
@@ -8402,18 +8630,29 @@ impl windows_core::RuntimeType for IWindow2 {
 impl windows_core::RuntimeName for IWindow2 {
     const NAME: &'static str = "Windows.UI.Xaml.IWindow2";
 }
-pub trait IWindow2_Impl: windows_core::IUnknownImpl {
+pub trait IWindow2_Impl {
     fn SetTitleBar(&self, value: windows_core::Ref<UIElement>) -> windows_core::Result<()>;
 }
 impl IWindow2_Vtbl {
-    pub const fn new<Identity: IWindow2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetTitleBar<Identity: IWindow2_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWindow2_Impl,
+    {
+        unsafe extern "system" fn SetTitleBar<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWindow2_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWindow2_Impl::SetTitleBar(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -8447,18 +8686,29 @@ impl windows_core::RuntimeType for IWindow3 {
 impl windows_core::RuntimeName for IWindow3 {
     const NAME: &'static str = "Windows.UI.Xaml.IWindow3";
 }
-pub trait IWindow3_Impl: windows_core::IUnknownImpl {
+pub trait IWindow3_Impl {
     fn Compositor(&self) -> windows_core::Result<windows::UI::Composition::Compositor>;
 }
 impl IWindow3_Vtbl {
-    pub const fn new<Identity: IWindow3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Compositor<Identity: IWindow3_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWindow3_Impl,
+    {
+        unsafe extern "system" fn Compositor<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWindow3_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWindow3_Impl::Compositor(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -8517,21 +8767,29 @@ impl windows_core::RuntimeType for IWindowCreatedEventArgs {
 impl windows_core::RuntimeName for IWindowCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.IWindowCreatedEventArgs";
 }
-pub trait IWindowCreatedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait IWindowCreatedEventArgs_Impl {
     fn Window(&self) -> windows_core::Result<Window>;
 }
 impl IWindowCreatedEventArgs_Vtbl {
-    pub const fn new<Identity: IWindowCreatedEventArgs_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWindowCreatedEventArgs_Impl,
+    {
         unsafe extern "system" fn Window<
-            Identity: IWindowCreatedEventArgs_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWindowCreatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWindowCreatedEventArgs_Impl::Window(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -8573,18 +8831,29 @@ impl windows_core::RuntimeType for IWindowStatics {
 impl windows_core::RuntimeName for IWindowStatics {
     const NAME: &'static str = "Windows.UI.Xaml.IWindowStatics";
 }
-pub trait IWindowStatics_Impl: windows_core::IUnknownImpl {
+pub trait IWindowStatics_Impl {
     fn Current(&self) -> windows_core::Result<Window>;
 }
 impl IWindowStatics_Vtbl {
-    pub const fn new<Identity: IWindowStatics_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Current<Identity: IWindowStatics_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWindowStatics_Impl,
+    {
+        unsafe extern "system" fn Current<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWindowStatics_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWindowStatics_Impl::Current(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

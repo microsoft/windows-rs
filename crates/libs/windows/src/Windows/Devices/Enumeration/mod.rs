@@ -1739,9 +1739,12 @@ windows_core::imp::interface_hierarchy!(IDeviceEnumerationSettings, windows_core
 impl windows_core::RuntimeName for IDeviceEnumerationSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceEnumerationSettings";
 }
-pub trait IDeviceEnumerationSettings_Impl: windows_core::IUnknownImpl {}
+pub trait IDeviceEnumerationSettings_Impl {}
 impl IDeviceEnumerationSettings_Vtbl {
-    pub const fn new<Identity: IDeviceEnumerationSettings_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDeviceEnumerationSettings_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDeviceEnumerationSettings, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -1994,9 +1997,12 @@ windows_core::imp::interface_hierarchy!(IDevicePairingSettings, windows_core::IU
 impl windows_core::RuntimeName for IDevicePairingSettings {
     const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingSettings";
 }
-pub trait IDevicePairingSettings_Impl: windows_core::IUnknownImpl {}
+pub trait IDevicePairingSettings_Impl {}
 impl IDevicePairingSettings_Vtbl {
-    pub const fn new<Identity: IDevicePairingSettings_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDevicePairingSettings_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDevicePairingSettings, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

@@ -28,12 +28,12 @@ unsafe extern "system" fn DllGetActivationFactory(
 struct FA;
 #[implement(bindings::A)]
 struct A;
-impl IActivationFactory_Impl for FA_Impl {
+impl IActivationFactory_Impl for FA {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(A.into())
     }
 }
-impl bindings::IA_Impl for A_Impl {
+impl bindings::IA_Impl for A {
     fn Method(&self) -> Result<i32> {
         Ok(1)
     }
@@ -46,12 +46,12 @@ impl bindings::IA_Impl for A_Impl {
 struct FB;
 #[implement(bindings::B)]
 struct B;
-impl IActivationFactory_Impl for FB_Impl {
+impl IActivationFactory_Impl for FB {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(B.into())
     }
 }
-impl bindings::IB_Impl for B_Impl {
+impl bindings::IB_Impl for B {
     fn MethodOne(&self) -> Result<i32> {
         Ok(3)
     }
@@ -64,12 +64,12 @@ impl bindings::IB_Impl for B_Impl {
 struct FC;
 #[implement(bindings::C)]
 struct C;
-impl IActivationFactory_Impl for FC_Impl {
+impl IActivationFactory_Impl for FC {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(C.into())
     }
 }
-impl bindings::IC_Impl for C_Impl {
+impl bindings::IC_Impl for C {
     fn Method(&self) -> Result<i32> {
         Ok(5)
     }
@@ -82,12 +82,12 @@ impl bindings::IC_Impl for C_Impl {
 struct FD;
 #[implement(bindings::D, bindings::ID2)] // TODO: https://github.com/microsoft/windows-rs/issues/3258
 struct D;
-impl IActivationFactory_Impl for FD_Impl {
+impl IActivationFactory_Impl for FD {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(D.into())
     }
 }
-impl bindings::ID_Impl for D_Impl {
+impl bindings::ID_Impl for D {
     fn Method(&self) -> Result<i32> {
         Ok(7)
     }
@@ -95,7 +95,7 @@ impl bindings::ID_Impl for D_Impl {
         Ok(8)
     }
 }
-impl bindings::ID2_Impl for D_Impl {
+impl bindings::ID2_Impl for D {
     fn Method(&self, _: i32, _: i32) -> Result<i32> {
         Ok(9)
     }
@@ -108,12 +108,12 @@ impl bindings::ID2_Impl for D_Impl {
 struct FE;
 #[implement(bindings::E, bindings::IE2)] // TODO: https://github.com/microsoft/windows-rs/issues/3258
 struct E;
-impl IActivationFactory_Impl for FE_Impl {
+impl IActivationFactory_Impl for FE {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(E.into())
     }
 }
-impl bindings::IE_Impl for E_Impl {
+impl bindings::IE_Impl for E {
     fn MethodOne(&self) -> Result<i32> {
         Ok(11)
     }
@@ -121,7 +121,7 @@ impl bindings::IE_Impl for E_Impl {
         Ok(12)
     }
 }
-impl bindings::IE2_Impl for E_Impl {
+impl bindings::IE2_Impl for E {
     fn MethodThree(&self, _: i32, _: i32) -> Result<i32> {
         Ok(13)
     }

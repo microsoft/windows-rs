@@ -33,18 +33,29 @@ pub struct IPersist_Vtbl {
         *mut windows_core::GUID,
     ) -> windows_core::HRESULT,
 }
-pub trait IPersist_Impl: windows_core::IUnknownImpl {
+pub trait IPersist_Impl {
     fn GetClassID(&self) -> windows_core::Result<windows_core::GUID>;
 }
 impl IPersist_Vtbl {
-    pub const fn new<Identity: IPersist_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetClassID<Identity: IPersist_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPersist_Impl,
+    {
+        unsafe extern "system" fn GetClassID<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             pclassid: *mut windows_core::GUID,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPersist_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPersist_Impl::GetClassID(this) {
                     Ok(ok__) => {
                         pclassid.write(core::mem::transmute(ok__));

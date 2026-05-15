@@ -24,7 +24,7 @@ unsafe trait IHResult: IUnknown {
 #[implement(IResult)]
 struct HasResult;
 
-impl IResult_Impl for HasResult_Impl {
+impl IResult_Impl for HasResult {
     unsafe fn GetOk(&self) -> Result<()> {
         Ok(())
     }
@@ -42,7 +42,7 @@ impl IResult_Impl for HasResult_Impl {
 #[implement(IHResult)]
 struct HasHResult;
 
-impl IHResult_Impl for HasHResult_Impl {
+impl IHResult_Impl for HasHResult {
     unsafe fn GetOk(&self) -> HRESULT {
         S_OK
     }

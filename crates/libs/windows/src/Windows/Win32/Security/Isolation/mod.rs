@@ -115,14 +115,21 @@ pub struct IIsolatedAppLauncher_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT,
 }
-pub trait IIsolatedAppLauncher_Impl: windows_core::IUnknownImpl {
+pub trait IIsolatedAppLauncher_Impl {
     fn Launch(&self, appusermodelid: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::Result<()>;
 }
 impl IIsolatedAppLauncher_Vtbl {
-    pub const fn new<Identity: IIsolatedAppLauncher_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Launch<Identity: IIsolatedAppLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, appusermodelid: windows_core::PCWSTR, arguments: windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedAppLauncher_Impl,
+    {
+        unsafe extern "system" fn Launch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, appusermodelid: windows_core::PCWSTR, arguments: windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedAppLauncher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIsolatedAppLauncher_Impl::Launch(this, core::mem::transmute(&appusermodelid), core::mem::transmute(&arguments), core::mem::transmute_copy(&telemetryparameters)).into()
             }
         }
@@ -177,7 +184,7 @@ pub struct IIsolatedProcessLauncher_Vtbl {
     pub AllowSetForegroundAccess: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub IsContainerRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-pub trait IIsolatedProcessLauncher_Impl: windows_core::IUnknownImpl {
+pub trait IIsolatedProcessLauncher_Impl {
     fn LaunchProcess(&self, process: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ShareDirectory(&self, hostpath: &windows_core::PCWSTR, containerpath: &windows_core::PCWSTR, readonly: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetContainerGuid(&self) -> windows_core::Result<windows_core::GUID>;
@@ -185,22 +192,37 @@ pub trait IIsolatedProcessLauncher_Impl: windows_core::IUnknownImpl {
     fn IsContainerRunning(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IIsolatedProcessLauncher_Vtbl {
-    pub const fn new<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn LaunchProcess<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
+    {
+        unsafe extern "system" fn LaunchProcess<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIsolatedProcessLauncher_Impl::LaunchProcess(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory)).into()
             }
         }
-        unsafe extern "system" fn ShareDirectory<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostpath: windows_core::PCWSTR, containerpath: windows_core::PCWSTR, readonly: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ShareDirectory<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hostpath: windows_core::PCWSTR, containerpath: windows_core::PCWSTR, readonly: windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIsolatedProcessLauncher_Impl::ShareDirectory(this, core::mem::transmute(&hostpath), core::mem::transmute(&containerpath), core::mem::transmute_copy(&readonly)).into()
             }
         }
-        unsafe extern "system" fn GetContainerGuid<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContainerGuid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIsolatedProcessLauncher_Impl::GetContainerGuid(this) {
                     Ok(ok__) => {
                         guid.write(core::mem::transmute(ok__));
@@ -210,15 +232,23 @@ impl IIsolatedProcessLauncher_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AllowSetForegroundAccess<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllowSetForegroundAccess<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pid: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIsolatedProcessLauncher_Impl::AllowSetForegroundAccess(this, core::mem::transmute_copy(&pid)).into()
             }
         }
-        unsafe extern "system" fn IsContainerRunning<Identity: IIsolatedProcessLauncher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, running: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsContainerRunning<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, running: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIsolatedProcessLauncher_Impl::IsContainerRunning(this) {
                     Ok(ok__) => {
                         running.write(core::mem::transmute(ok__));
@@ -270,10 +300,17 @@ pub trait IIsolatedProcessLauncher2_Impl: IIsolatedProcessLauncher_Impl {
     fn LaunchProcess2(&self, process: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, workingdirectory: &windows_core::PCWSTR, correlationguid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IIsolatedProcessLauncher2_Vtbl {
-    pub const fn new<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn LaunchProcess2<Identity: IIsolatedProcessLauncher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR, correlationguid: *const windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher2_Impl,
+    {
+        unsafe extern "system" fn LaunchProcess2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, process: windows_core::PCWSTR, arguments: windows_core::PCWSTR, workingdirectory: windows_core::PCWSTR, correlationguid: *const windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedProcessLauncher2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IIsolatedProcessLauncher2_Impl::LaunchProcess2(this, core::mem::transmute(&process), core::mem::transmute(&arguments), core::mem::transmute(&workingdirectory), core::mem::transmute_copy(&correlationguid)).into()
             }
         }

@@ -52,17 +52,28 @@ pub struct IRobotInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
 }
-pub trait IRobotInterop_Impl: windows_core::IUnknownImpl {
+pub trait IRobotInterop_Impl {
     fn Handle(&self) -> *mut core::ffi::c_void;
 }
 impl IRobotInterop_Vtbl {
-    pub const fn new<Identity: IRobotInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Handle<Identity: IRobotInterop_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRobotInterop_Impl,
+    {
+        unsafe extern "system" fn Handle<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> *mut core::ffi::c_void {
+        ) -> *mut core::ffi::c_void
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRobotInterop_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRobotInterop_Impl::Handle(this)
             }
         }

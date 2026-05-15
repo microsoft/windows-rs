@@ -8,7 +8,7 @@ use windows_collections::*;
 #[derive(Default)]
 struct Test;
 
-impl ITest_Impl for Test_Impl {
+impl ITest_Impl for Test {
     fn TestIterable(&self, collection: Ref<IIterable<i32>>, values: &[i32]) -> Result<()> {
         let collection: Vec<i32> = collection.ok()?.into_iter().collect();
         assert_eq!(collection, values);

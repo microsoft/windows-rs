@@ -4,7 +4,7 @@ use windows::{core::*, Foundation::*, Win32::System::Com::Marshal::*, Win32::Sys
 #[implement(IClassFactory)]
 struct Factory;
 
-impl IClassFactory_Impl for Factory_Impl {
+impl IClassFactory_Impl for Factory {
     fn CreateInstance(
         &self,
         outer: Ref<IUnknown>,
@@ -27,7 +27,7 @@ impl IClassFactory_Impl for Factory_Impl {
 #[implement(IStringable)]
 struct Stringable;
 
-impl IStringable_Impl for Stringable_Impl {
+impl IStringable_Impl for Stringable {
     fn ToString(&self) -> Result<HSTRING> {
         Ok("Stringable".into())
     }

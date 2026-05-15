@@ -30,7 +30,7 @@ struct Robot {
     handle: *mut std::ffi::c_void,
 }
 
-impl bindings::IRobot_Impl for Robot_Impl {
+impl bindings::IRobot_Impl for Robot {
     fn Speak(&self, message: &HSTRING) -> Result<()> {
         if self.handle.is_null() {
             println!("{}", message.display());
@@ -45,7 +45,7 @@ impl bindings::IRobot_Impl for Robot_Impl {
     }
 }
 
-impl bindings::IRobotInterop_Impl for Robot_Impl {
+impl bindings::IRobotInterop_Impl for Robot {
     fn Handle(&self) -> *mut std::ffi::c_void {
         self.handle
     }
@@ -54,7 +54,7 @@ impl bindings::IRobotInterop_Impl for Robot_Impl {
 #[implement(IActivationFactory)]
 struct RobotFactory;
 
-impl IActivationFactory_Impl for RobotFactory_Impl {
+impl IActivationFactory_Impl for RobotFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Robot {
             handle: std::ptr::null_mut(),

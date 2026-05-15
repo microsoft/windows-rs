@@ -13,7 +13,7 @@ struct Test {
     drop: *mut u32,
 }
 
-impl ITest_Impl for Test_Impl {
+impl ITest_Impl for Test {
     unsafe fn Test(&self) -> u32 {
         unsafe { *self.drop }
     }

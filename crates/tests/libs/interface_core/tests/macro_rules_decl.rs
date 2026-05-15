@@ -47,21 +47,21 @@ implement_decl! {
     impl Test as pub Test_Impl: [ITest, IOther, IRaw]
 }
 
-impl ITest_Impl for Test_Impl {
+impl ITest_Impl for Test {
     unsafe fn Void(&self) {}
     unsafe fn Result(&self, code: HRESULT) -> Result<()> {
         code.ok()
     }
 }
 
-impl IOther_Impl for Test_Impl {
+impl IOther_Impl for Test {
     unsafe fn Sum(&self, a: i32, b: i32, out: *mut i32) -> Result<()> {
         unsafe { *out = a + b };
         Ok(())
     }
 }
 
-impl IRaw_Impl for Test_Impl {
+impl IRaw_Impl for Test {
     unsafe fn Echo(&self, code: HRESULT, out: *mut HRESULT) -> HRESULT {
         unsafe { *out = code };
         code

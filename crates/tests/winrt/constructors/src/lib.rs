@@ -21,14 +21,14 @@ unsafe extern "system" fn DllGetActivationFactory(
 #[implement(IActivationFactory, bindings::IActivatableFactory)]
 struct ActivatableFactory;
 
-impl IActivationFactory_Impl for ActivatableFactory_Impl {
+impl IActivationFactory_Impl for ActivatableFactory {
     // Activatable types implement their default constructors using `IActivationFactory::ActivateInstance`.
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Activatable::new(0).into())
     }
 }
 
-impl bindings::IActivatableFactory_Impl for ActivatableFactory_Impl {
+impl bindings::IActivatableFactory_Impl for ActivatableFactory {
     fn WithValue(&self, arg: i32) -> Result<bindings::Activatable> {
         Ok(Activatable::new(arg).into())
     }
@@ -37,7 +37,7 @@ impl bindings::IActivatableFactory_Impl for ActivatableFactory_Impl {
 #[implement(bindings::Activatable)]
 struct Activatable(i32);
 
-impl bindings::IActivatable_Impl for Activatable_Impl {
+impl bindings::IActivatable_Impl for Activatable {
     fn Property(&self) -> Result<i32> {
         Ok(self.0)
     }
@@ -52,7 +52,7 @@ impl Activatable {
 #[implement(IActivationFactory, bindings::IComposableFactory)]
 struct ComposableFactory;
 
-impl IActivationFactory_Impl for ComposableFactory_Impl {
+impl IActivationFactory_Impl for ComposableFactory {
     // Composable types implement their default constructors using custom composable factory interfaces.
     // `IComposableFactory::CreateInstance` in this case.
     fn ActivateInstance(&self) -> Result<IInspectable> {
@@ -60,7 +60,7 @@ impl IActivationFactory_Impl for ComposableFactory_Impl {
     }
 }
 
-impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
+impl bindings::IComposableFactory_Impl for ComposableFactory {
     fn CreateInstance(
         &self,
         base: Ref<windows_core::IInspectable>,
@@ -94,7 +94,7 @@ impl bindings::IComposableFactory_Impl for ComposableFactory_Impl {
 #[implement(bindings::Composable)]
 struct Composable(i32);
 
-impl bindings::IComposable_Impl for Composable_Impl {
+impl bindings::IComposable_Impl for Composable {
     fn Property(&self) -> Result<i32> {
         Ok(self.0)
     }

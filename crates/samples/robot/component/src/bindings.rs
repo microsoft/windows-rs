@@ -27,18 +27,26 @@ impl windows_core::RuntimeType for IRobot {
 impl windows_core::RuntimeName for IRobot {
     const NAME: &'static str = "Robotics.IRobot";
 }
-pub trait IRobot_Impl: windows_core::IUnknownImpl {
+pub trait IRobot_Impl {
     fn Speak(&self, message: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl IRobot_Vtbl {
-    pub const fn new<Identity: IRobot_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Speak<Identity: IRobot_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRobot_Impl,
+    {
+        unsafe extern "system" fn Speak<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             message: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRobot_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRobot_Impl::Speak(this, core::mem::transmute(&message)).into()
             }
         }
@@ -79,17 +87,28 @@ pub struct IRobotInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
 }
-pub trait IRobotInterop_Impl: windows_core::IUnknownImpl {
+pub trait IRobotInterop_Impl {
     fn Handle(&self) -> *mut core::ffi::c_void;
 }
 impl IRobotInterop_Vtbl {
-    pub const fn new<Identity: IRobotInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Handle<Identity: IRobotInterop_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRobotInterop_Impl,
+    {
+        unsafe extern "system" fn Handle<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> *mut core::ffi::c_void {
+        ) -> *mut core::ffi::c_void
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRobotInterop_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRobotInterop_Impl::Handle(this)
             }
         }

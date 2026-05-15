@@ -500,7 +500,7 @@ impl windows_core::RuntimeName for IGameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
 }
 #[cfg(feature = "ApplicationModel")]
-pub trait IGameListEntry_Impl: windows_core::IUnknownImpl {
+pub trait IGameListEntry_Impl {
     fn DisplayInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;
     fn LaunchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>>;
     fn Category(&self) -> windows_core::Result<GameListCategory>;
@@ -509,10 +509,17 @@ pub trait IGameListEntry_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "ApplicationModel")]
 impl IGameListEntry_Vtbl {
-    pub const fn new<Identity: IGameListEntry_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DisplayInfo<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGameListEntry_Impl,
+    {
+        unsafe extern "system" fn DisplayInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameListEntry_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameListEntry_Impl::DisplayInfo(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -523,9 +530,13 @@ impl IGameListEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LaunchAsync<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LaunchAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameListEntry_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameListEntry_Impl::LaunchAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -536,9 +547,13 @@ impl IGameListEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Category<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut GameListCategory) -> windows_core::HRESULT {
+        unsafe extern "system" fn Category<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut GameListCategory) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameListEntry_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameListEntry_Impl::Category(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -548,9 +563,13 @@ impl IGameListEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Properties<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Properties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameListEntry_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameListEntry_Impl::Properties(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -561,9 +580,13 @@ impl IGameListEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCategoryAsync<Identity: IGameListEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: GameListCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCategoryAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: GameListCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameListEntry_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameListEntry_Impl::SetCategoryAsync(this, value) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

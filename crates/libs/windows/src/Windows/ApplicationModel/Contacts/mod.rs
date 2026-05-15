@@ -4323,17 +4323,24 @@ impl IContactField {
 impl windows_core::RuntimeName for IContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactField";
 }
-pub trait IContactField_Impl: windows_core::IUnknownImpl {
+pub trait IContactField_Impl {
     fn Type(&self) -> windows_core::Result<ContactFieldType>;
     fn Category(&self) -> windows_core::Result<ContactFieldCategory>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Value(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IContactField_Vtbl {
-    pub const fn new<Identity: IContactField_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Type<Identity: IContactField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ContactFieldType) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactField_Impl,
+    {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ContactFieldType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactField_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactField_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4343,9 +4350,13 @@ impl IContactField_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Category<Identity: IContactField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ContactFieldCategory) -> windows_core::HRESULT {
+        unsafe extern "system" fn Category<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ContactFieldCategory) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactField_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactField_Impl::Category(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -4355,9 +4366,13 @@ impl IContactField_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Name<Identity: IContactField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactField_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactField_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4368,9 +4383,13 @@ impl IContactField_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Value<Identity: IContactField_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactField_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactField_Impl::Value(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4430,16 +4449,23 @@ impl IContactFieldFactory {
 impl windows_core::RuntimeName for IContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactFieldFactory";
 }
-pub trait IContactFieldFactory_Impl: windows_core::IUnknownImpl {
+pub trait IContactFieldFactory_Impl {
     fn CreateField_Default(&self, value: &windows_core::HSTRING, r#type: ContactFieldType) -> windows_core::Result<ContactField>;
     fn CreateField_Category(&self, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField>;
     fn CreateField_Custom(&self, name: &windows_core::HSTRING, value: &windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> windows_core::Result<ContactField>;
 }
 impl IContactFieldFactory_Vtbl {
-    pub const fn new<Identity: IContactFieldFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateField_Default<Identity: IContactFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, r#type: ContactFieldType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactFieldFactory_Impl,
+    {
+        unsafe extern "system" fn CreateField_Default<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, r#type: ContactFieldType, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactFieldFactory_Impl::CreateField_Default(this, core::mem::transmute(&value), r#type) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4450,9 +4476,13 @@ impl IContactFieldFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateField_Category<Identity: IContactFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, r#type: ContactFieldType, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateField_Category<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, r#type: ContactFieldType, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactFieldFactory_Impl::CreateField_Category(this, core::mem::transmute(&value), r#type, category) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4463,9 +4493,13 @@ impl IContactFieldFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateField_Custom<Identity: IContactFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut core::ffi::c_void, r#type: ContactFieldType, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateField_Custom<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut core::ffi::c_void, r#type: ContactFieldType, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactFieldFactory_Impl::CreateField_Custom(this, core::mem::transmute(&name), core::mem::transmute(&value), r#type, category) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4568,16 +4602,23 @@ impl IContactInstantMessageFieldFactory {
 impl windows_core::RuntimeName for IContactInstantMessageFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory";
 }
-pub trait IContactInstantMessageFieldFactory_Impl: windows_core::IUnknownImpl {
+pub trait IContactInstantMessageFieldFactory_Impl {
     fn CreateInstantMessage_Default(&self, userName: &windows_core::HSTRING) -> windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_Category(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactInstantMessageField>;
     fn CreateInstantMessage_All(&self, userName: &windows_core::HSTRING, category: ContactFieldCategory, service: &windows_core::HSTRING, displayText: &windows_core::HSTRING, verb: windows_core::Ref<super::super::Foundation::Uri>) -> windows_core::Result<ContactInstantMessageField>;
 }
 impl IContactInstantMessageFieldFactory_Vtbl {
-    pub const fn new<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateInstantMessage_Default<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactInstantMessageFieldFactory_Impl,
+    {
+        unsafe extern "system" fn CreateInstantMessage_Default<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactInstantMessageFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_Default(this, core::mem::transmute(&username)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4588,9 +4629,13 @@ impl IContactInstantMessageFieldFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateInstantMessage_Category<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstantMessage_Category<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactInstantMessageFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_Category(this, core::mem::transmute(&username), category) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4601,9 +4646,13 @@ impl IContactInstantMessageFieldFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateInstantMessage_All<Identity: IContactInstantMessageFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, category: ContactFieldCategory, service: *mut core::ffi::c_void, displaytext: *mut core::ffi::c_void, verb: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstantMessage_All<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, category: ContactFieldCategory, service: *mut core::ffi::c_void, displaytext: *mut core::ffi::c_void, verb: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactInstantMessageFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactInstantMessageFieldFactory_Impl::CreateInstantMessage_All(this, core::mem::transmute(&username), category, core::mem::transmute(&service), core::mem::transmute(&displaytext), core::mem::transmute_copy(&verb)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4875,16 +4924,23 @@ impl IContactLocationFieldFactory {
 impl windows_core::RuntimeName for IContactLocationFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";
 }
-pub trait IContactLocationFieldFactory_Impl: windows_core::IUnknownImpl {
+pub trait IContactLocationFieldFactory_Impl {
     fn CreateLocation_Default(&self, unstructuredAddress: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;
     fn CreateLocation_Category(&self, unstructuredAddress: &windows_core::HSTRING, category: ContactFieldCategory) -> windows_core::Result<ContactLocationField>;
     fn CreateLocation_All(&self, unstructuredAddress: &windows_core::HSTRING, category: ContactFieldCategory, street: &windows_core::HSTRING, city: &windows_core::HSTRING, region: &windows_core::HSTRING, country: &windows_core::HSTRING, postalCode: &windows_core::HSTRING) -> windows_core::Result<ContactLocationField>;
 }
 impl IContactLocationFieldFactory_Vtbl {
-    pub const fn new<Identity: IContactLocationFieldFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateLocation_Default<Identity: IContactLocationFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unstructuredaddress: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactLocationFieldFactory_Impl,
+    {
+        unsafe extern "system" fn CreateLocation_Default<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, unstructuredaddress: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactLocationFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactLocationFieldFactory_Impl::CreateLocation_Default(this, core::mem::transmute(&unstructuredaddress)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4895,9 +4951,13 @@ impl IContactLocationFieldFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateLocation_Category<Identity: IContactLocationFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unstructuredaddress: *mut core::ffi::c_void, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateLocation_Category<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, unstructuredaddress: *mut core::ffi::c_void, category: ContactFieldCategory, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactLocationFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactLocationFieldFactory_Impl::CreateLocation_Category(this, core::mem::transmute(&unstructuredaddress), category) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4908,9 +4968,13 @@ impl IContactLocationFieldFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateLocation_All<Identity: IContactLocationFieldFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unstructuredaddress: *mut core::ffi::c_void, category: ContactFieldCategory, street: *mut core::ffi::c_void, city: *mut core::ffi::c_void, region: *mut core::ffi::c_void, country: *mut core::ffi::c_void, postalcode: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateLocation_All<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, unstructuredaddress: *mut core::ffi::c_void, category: ContactFieldCategory, street: *mut core::ffi::c_void, city: *mut core::ffi::c_void, region: *mut core::ffi::c_void, country: *mut core::ffi::c_void, postalcode: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactLocationFieldFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactLocationFieldFactory_Impl::CreateLocation_All(this, core::mem::transmute(&unstructuredaddress), category, core::mem::transmute(&street), core::mem::transmute(&city), core::mem::transmute(&region), core::mem::transmute(&country), core::mem::transmute(&postalcode)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

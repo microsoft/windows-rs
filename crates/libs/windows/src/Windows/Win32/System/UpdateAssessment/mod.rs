@@ -20,14 +20,21 @@ pub struct IWaaSAssessor_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOSUpdateAssessment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OSUpdateAssessment) -> windows_core::HRESULT,
 }
-pub trait IWaaSAssessor_Impl: windows_core::IUnknownImpl {
+pub trait IWaaSAssessor_Impl {
     fn GetOSUpdateAssessment(&self) -> windows_core::Result<OSUpdateAssessment>;
 }
 impl IWaaSAssessor_Vtbl {
-    pub const fn new<Identity: IWaaSAssessor_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetOSUpdateAssessment<Identity: IWaaSAssessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: *mut OSUpdateAssessment) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWaaSAssessor_Impl,
+    {
+        unsafe extern "system" fn GetOSUpdateAssessment<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: *mut OSUpdateAssessment) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWaaSAssessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWaaSAssessor_Impl::GetOSUpdateAssessment(this) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));

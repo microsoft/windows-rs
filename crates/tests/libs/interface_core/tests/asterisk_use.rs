@@ -13,7 +13,7 @@ unsafe trait ITest: IUnknown {
 #[implement(ITest)]
 struct Test;
 
-impl ITest_Impl for Test_Impl {
+impl ITest_Impl for Test {
     unsafe fn Test(&self) -> HRESULT {
         HRESULT(123)
     }

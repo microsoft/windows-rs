@@ -859,24 +859,43 @@ pub trait IAsyncAction_Impl: IAsyncInfo_Impl {
     fn GetResults(&self) -> windows_core::Result<()>;
 }
 impl IAsyncAction_Vtbl {
-    pub const fn new<Identity: IAsyncAction_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetCompleted<Identity: IAsyncAction_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAsyncAction_Impl,
+    {
+        unsafe extern "system" fn SetCompleted<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncAction_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncAction_Impl::SetCompleted(this, core::mem::transmute_copy(&handler)).into()
             }
         }
-        unsafe extern "system" fn Completed<Identity: IAsyncAction_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Completed<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncAction_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncAction_Impl::Completed(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -887,12 +906,20 @@ impl IAsyncAction_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetResults<Identity: IAsyncAction_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn GetResults<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncAction_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncAction_Impl::GetResults(this).into()
             }
         }
@@ -1092,19 +1119,27 @@ where
     fn GetResults(&self) -> windows_core::Result<()>;
 }
 impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vtbl<TProgress> {
-    pub const fn new<Identity: IAsyncActionWithProgress_Impl<TProgress>, const OFFSET: isize>(
-    ) -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAsyncActionWithProgress_Impl<TProgress>,
+    {
         unsafe extern "system" fn SetProgress<
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncActionWithProgress_Impl<TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncActionWithProgress_Impl<TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncActionWithProgress_Impl::SetProgress(
                     this,
                     core::mem::transmute_copy(&handler),
@@ -1114,15 +1149,21 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
         }
         unsafe extern "system" fn Progress<
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncActionWithProgress_Impl<TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncActionWithProgress_Impl<TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncActionWithProgress_Impl::Progress(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1135,15 +1176,21 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
         }
         unsafe extern "system" fn SetCompleted<
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncActionWithProgress_Impl<TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncActionWithProgress_Impl<TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncActionWithProgress_Impl::SetCompleted(
                     this,
                     core::mem::transmute_copy(&handler),
@@ -1153,15 +1200,21 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
         }
         unsafe extern "system" fn Completed<
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncActionWithProgress_Impl<TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncActionWithProgress_Impl<TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncActionWithProgress_Impl::Completed(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1174,14 +1227,20 @@ impl<TProgress: windows_core::RuntimeType + 'static> IAsyncActionWithProgress_Vt
         }
         unsafe extern "system" fn GetResults<
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncActionWithProgress_Impl<TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncActionWithProgress_Impl<TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncActionWithProgress_Impl::GetResults(this).into()
             }
         }
@@ -1290,7 +1349,7 @@ impl IAsyncInfo {
 impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
-pub trait IAsyncInfo_Impl: windows_core::IUnknownImpl {
+pub trait IAsyncInfo_Impl {
     fn Id(&self) -> windows_core::Result<u32>;
     fn Status(&self) -> windows_core::Result<AsyncStatus>;
     fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
@@ -1298,14 +1357,22 @@ pub trait IAsyncInfo_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IAsyncInfo_Vtbl {
-    pub const fn new<Identity: IAsyncInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Id<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+    {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut u32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncInfo_Impl::Id(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1315,13 +1382,21 @@ impl IAsyncInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Status<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Status<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut AsyncStatus,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncInfo_Impl::Status(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1331,13 +1406,21 @@ impl IAsyncInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ErrorCode<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn ErrorCode<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncInfo_Impl::ErrorCode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1347,21 +1430,34 @@ impl IAsyncInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Cancel<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Cancel<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncInfo_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Close<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncInfo_Impl::Close(this).into()
             }
         }
@@ -1528,32 +1624,45 @@ where
     fn GetResults(&self) -> windows_core::Result<TResult>;
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult> {
-    pub const fn new<Identity: IAsyncOperation_Impl<TResult>, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAsyncOperation_Impl<TResult>,
+    {
         unsafe extern "system" fn SetCompleted<
             TResult: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperation_Impl<TResult>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncOperation_Impl<TResult>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncOperation_Impl::SetCompleted(this, core::mem::transmute_copy(&handler)).into()
             }
         }
         unsafe extern "system" fn Completed<
             TResult: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperation_Impl<TResult>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncOperation_Impl<TResult>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncOperation_Impl::Completed(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1566,15 +1675,20 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult>
         }
         unsafe extern "system" fn GetResults<
             TResult: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperation_Impl<TResult>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut windows_core::AbiType<TResult>,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncOperation_Impl<TResult>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncOperation_Impl::GetResults(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1829,22 +1943,29 @@ impl<
         TProgress: windows_core::RuntimeType + 'static,
     > IAsyncOperationWithProgress_Vtbl<TResult, TProgress>
 {
-    pub const fn new<
-        Identity: IAsyncOperationWithProgress_Impl<TResult, TProgress>,
-        const OFFSET: isize,
-    >() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl:
+            IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+    {
         unsafe extern "system" fn SetProgress<
             TResult: windows_core::RuntimeType + 'static,
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncOperationWithProgress_Impl::SetProgress(
                     this,
                     core::mem::transmute_copy(&handler),
@@ -1855,15 +1976,21 @@ impl<
         unsafe extern "system" fn Progress<
             TResult: windows_core::RuntimeType + 'static,
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncOperationWithProgress_Impl::Progress(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1877,15 +2004,21 @@ impl<
         unsafe extern "system" fn SetCompleted<
             TResult: windows_core::RuntimeType + 'static,
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncOperationWithProgress_Impl::SetCompleted(
                     this,
                     core::mem::transmute_copy(&handler),
@@ -1896,15 +2029,21 @@ impl<
         unsafe extern "system" fn Completed<
             TResult: windows_core::RuntimeType + 'static,
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncOperationWithProgress_Impl::Completed(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1918,15 +2057,21 @@ impl<
         unsafe extern "system" fn GetResults<
             TResult: windows_core::RuntimeType + 'static,
             TProgress: windows_core::RuntimeType + 'static,
-            Identity: IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut windows_core::AbiType<TResult>,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl:
+                IAsyncOperationWithProgress_Impl<TResult, TProgress>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncOperationWithProgress_Impl::GetResults(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

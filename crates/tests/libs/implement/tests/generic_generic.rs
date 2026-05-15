@@ -11,7 +11,7 @@ where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq;
 
-impl<T> IVectorView_Impl<T> for Thing_Impl<T>
+impl<T> IVectorView_Impl<T> for Thing<T>
 where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,
@@ -33,7 +33,7 @@ where
     }
 }
 
-impl<T> IIterable_Impl<T> for Thing_Impl<T>
+impl<T> IIterable_Impl<T> for Thing<T>
 where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,

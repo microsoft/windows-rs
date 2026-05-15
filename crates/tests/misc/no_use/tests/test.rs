@@ -5,13 +5,13 @@
 #[windows::core::implement(windows::Foundation::{IStringable, IClosable})]
 struct Test(&'static str);
 
-impl windows::Foundation::IStringable_Impl for Test_Impl {
+impl windows::Foundation::IStringable_Impl for Test {
     fn ToString(&self) -> windows::core::Result<windows::core::HSTRING> {
         Ok(self.0.into())
     }
 }
 
-impl windows::Foundation::IClosable_Impl for Test_Impl {
+impl windows::Foundation::IClosable_Impl for Test {
     fn Close(&self) -> windows::core::Result<()> {
         Ok(())
     }

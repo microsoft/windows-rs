@@ -55,9 +55,12 @@ pub mod Test {
     impl windows_core::RuntimeName for IBase {
         const NAME: &'static str = "Test.IBase";
     }
-    pub trait IBase_Impl: windows_core::IUnknownImpl {}
+    pub trait IBase_Impl {}
     impl IBase_Vtbl {
-        pub const fn new<Identity: IBase_Impl, const OFFSET: isize>() -> Self {
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBase_Impl,
+        {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IBase, OFFSET>(),
             }
@@ -88,9 +91,12 @@ pub mod Test {
     impl windows_core::RuntimeName for IDerived {
         const NAME: &'static str = "Test.IDerived";
     }
-    pub trait IDerived_Impl: windows_core::IUnknownImpl {}
+    pub trait IDerived_Impl {}
     impl IDerived_Vtbl {
-        pub const fn new<Identity: IDerived_Impl, const OFFSET: isize>() -> Self {
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDerived_Impl,
+        {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IDerived, OFFSET>(),
             }

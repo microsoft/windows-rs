@@ -24,7 +24,7 @@ unsafe trait ITest: IUnknown {
 #[implement(ITest)]
 struct Test;
 
-impl ITest_Impl for Test_Impl {
+impl ITest_Impl for Test {
     unsafe fn usize(&self, input: usize, output: OutRef<usize>) -> HRESULT {
         output.write(input).into()
     }

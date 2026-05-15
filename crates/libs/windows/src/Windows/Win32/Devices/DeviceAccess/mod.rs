@@ -83,35 +83,54 @@ pub struct ICreateDeviceAccessAsync_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetResult: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ICreateDeviceAccessAsync_Impl: windows_core::IUnknownImpl {
+pub trait ICreateDeviceAccessAsync_Impl {
     fn Cancel(&self) -> windows_core::Result<()>;
     fn Wait(&self, timeout: u32) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn GetResult(&self, riid: *const windows_core::GUID, deviceaccess: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl ICreateDeviceAccessAsync_Vtbl {
-    pub const fn new<Identity: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Cancel<Identity: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICreateDeviceAccessAsync_Impl,
+    {
+        unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICreateDeviceAccessAsync_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICreateDeviceAccessAsync_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Wait<Identity: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Wait<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeout: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICreateDeviceAccessAsync_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICreateDeviceAccessAsync_Impl::Wait(this, core::mem::transmute_copy(&timeout)).into()
             }
         }
-        unsafe extern "system" fn Close<Identity: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICreateDeviceAccessAsync_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICreateDeviceAccessAsync_Impl::Close(this).into()
             }
         }
-        unsafe extern "system" fn GetResult<Identity: ICreateDeviceAccessAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, deviceaccess: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetResult<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, deviceaccess: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICreateDeviceAccessAsync_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICreateDeviceAccessAsync_Impl::GetResult(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&deviceaccess)).into()
             }
         }
@@ -164,28 +183,43 @@ pub struct IDeviceIoControl_Vtbl {
     pub DeviceIoControlAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, u32, *mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub CancelOperation: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-pub trait IDeviceIoControl_Impl: windows_core::IUnknownImpl {
+pub trait IDeviceIoControl_Impl {
     fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
     fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: windows_core::Ref<IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> windows_core::Result<()>;
     fn CancelOperation(&self, cancelcontext: usize) -> windows_core::Result<()>;
 }
 impl IDeviceIoControl_Vtbl {
-    pub const fn new<Identity: IDeviceIoControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeviceIoControlSync<Identity: IDeviceIoControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDeviceIoControl_Impl,
+    {
+        unsafe extern "system" fn DeviceIoControlSync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDeviceIoControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDeviceIoControl_Impl::DeviceIoControlSync(this, core::mem::transmute_copy(&iocontrolcode), core::mem::transmute_copy(&inputbuffer), core::mem::transmute_copy(&inputbuffersize), core::mem::transmute_copy(&outputbuffer), core::mem::transmute_copy(&outputbuffersize), core::mem::transmute_copy(&bytesreturned)).into()
             }
         }
-        unsafe extern "system" fn DeviceIoControlAsync<Identity: IDeviceIoControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: *mut core::ffi::c_void, cancelcontext: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceIoControlAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: *mut core::ffi::c_void, cancelcontext: *mut usize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDeviceIoControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDeviceIoControl_Impl::DeviceIoControlAsync(this, core::mem::transmute_copy(&iocontrolcode), core::mem::transmute_copy(&inputbuffer), core::mem::transmute_copy(&inputbuffersize), core::mem::transmute_copy(&outputbuffer), core::mem::transmute_copy(&outputbuffersize), core::mem::transmute_copy(&requestcompletioncallback), core::mem::transmute_copy(&cancelcontext)).into()
             }
         }
-        unsafe extern "system" fn CancelOperation<Identity: IDeviceIoControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancelcontext: usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn CancelOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancelcontext: usize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDeviceIoControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDeviceIoControl_Impl::CancelOperation(this, core::mem::transmute_copy(&cancelcontext)).into()
             }
         }
@@ -214,14 +248,21 @@ pub struct IDeviceRequestCompletionCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, u32) -> windows_core::HRESULT,
 }
-pub trait IDeviceRequestCompletionCallback_Impl: windows_core::IUnknownImpl {
+pub trait IDeviceRequestCompletionCallback_Impl {
     fn Invoke(&self, requestresult: windows_core::HRESULT, bytesreturned: u32) -> windows_core::Result<()>;
 }
 impl IDeviceRequestCompletionCallback_Vtbl {
-    pub const fn new<Identity: IDeviceRequestCompletionCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Invoke<Identity: IDeviceRequestCompletionCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestresult: windows_core::HRESULT, bytesreturned: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDeviceRequestCompletionCallback_Impl,
+    {
+        unsafe extern "system" fn Invoke<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, requestresult: windows_core::HRESULT, bytesreturned: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDeviceRequestCompletionCallback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDeviceRequestCompletionCallback_Impl::Invoke(this, core::mem::transmute_copy(&requestresult), core::mem::transmute_copy(&bytesreturned)).into()
             }
         }

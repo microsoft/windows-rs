@@ -21,7 +21,7 @@ unsafe extern "system" fn DllGetActivationFactory(
 #[implement(IActivationFactory)]
 struct InstanceFactory;
 
-impl IActivationFactory_Impl for InstanceFactory_Impl {
+impl IActivationFactory_Impl for InstanceFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Instance.into())
     }
@@ -30,7 +30,7 @@ impl IActivationFactory_Impl for InstanceFactory_Impl {
 #[implement(bindings::Instance)]
 struct Instance;
 
-impl bindings::IInstance_Impl for Instance_Impl {
+impl bindings::IInstance_Impl for Instance {
     fn Property(&self) -> Result<i32> {
         Ok(123)
     }
@@ -39,13 +39,13 @@ impl bindings::IInstance_Impl for Instance_Impl {
 #[implement(IActivationFactory, bindings::IStaticStatics)]
 struct StaticFactory;
 
-impl IActivationFactory_Impl for StaticFactory_Impl {
+impl IActivationFactory_Impl for StaticFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Err(Error::from_hresult(E_NOTIMPL))
     }
 }
 
-impl bindings::IStaticStatics_Impl for StaticFactory_Impl {
+impl bindings::IStaticStatics_Impl for StaticFactory {
     fn Property(&self) -> Result<i32> {
         Ok(456)
     }

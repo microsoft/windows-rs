@@ -10,7 +10,7 @@ fn main() -> windows::core::Result<()> {
     #[implement(IBackgroundCopyCallback)]
     struct Callback;
 
-    impl IBackgroundCopyCallback_Impl for Callback_Impl {
+    impl IBackgroundCopyCallback_Impl for Callback {
         fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> Result<()> {
             let job = job.unwrap();
             unsafe { job.Complete()? };

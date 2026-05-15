@@ -14,14 +14,21 @@ pub struct IIsolatedEnvironmentInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetHostHwndInterop: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
-pub trait IIsolatedEnvironmentInterop_Impl: windows_core::IUnknownImpl {
+pub trait IIsolatedEnvironmentInterop_Impl {
     fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND>;
 }
 impl IIsolatedEnvironmentInterop_Vtbl {
-    pub const fn new<Identity: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetHostHwndInterop<Identity: IIsolatedEnvironmentInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedEnvironmentInterop_Impl,
+    {
+        unsafe extern "system" fn GetHostHwndInterop<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIsolatedEnvironmentInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIsolatedEnvironmentInterop_Impl::GetHostHwndInterop(this, core::mem::transmute_copy(&containerhwnd)) {
                     Ok(ok__) => {
                         hosthwnd.write(core::mem::transmute(ok__));

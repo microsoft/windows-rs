@@ -16,7 +16,7 @@ fn main() -> windows::core::Result<()> {
     #[implement(ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)]
     struct EnvironmentHandler(HWND);
 
-    impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvironmentHandler_Impl {
+    impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl for EnvironmentHandler {
         fn Invoke(
             &self,
             status: HRESULT,
@@ -39,7 +39,7 @@ fn main() -> windows::core::Result<()> {
     #[implement(ICoreWebView2CreateCoreWebView2ControllerCompletedHandler)]
     struct ControllerHandler(HWND);
 
-    impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for ControllerHandler_Impl {
+    impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl for ControllerHandler {
         fn Invoke(&self, status: HRESULT, controller: Ref<ICoreWebView2Controller>) -> Result<()> {
             status.ok()?;
             let controller = controller.ok()?;

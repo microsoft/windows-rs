@@ -19,7 +19,7 @@ implement_decl! {
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone, V::Default: Clone
 }
 
-impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair_Impl<K, V>
+impl<K, V> IKeyValuePair_Impl<K, V> for StockKeyValuePair<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,

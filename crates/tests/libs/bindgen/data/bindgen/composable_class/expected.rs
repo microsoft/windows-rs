@@ -104,9 +104,12 @@ pub mod Test {
     impl windows_core::RuntimeName for IFoo {
         const NAME: &'static str = "Test.IFoo";
     }
-    pub trait IFoo_Impl: windows_core::IUnknownImpl {}
+    pub trait IFoo_Impl {}
     impl IFoo_Vtbl {
-        pub const fn new<Identity: IFoo_Impl, const OFFSET: isize>() -> Self {
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFoo_Impl,
+        {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IFoo, OFFSET>(),
             }
@@ -179,7 +182,7 @@ pub mod Test {
     impl windows_core::RuntimeName for IFooFactory {
         const NAME: &'static str = "Test.IFooFactory";
     }
-    pub trait IFooFactory_Impl: windows_core::IUnknownImpl {
+    pub trait IFooFactory_Impl {
         fn CreateInstance(
             &self,
             name: i32,
@@ -193,9 +196,12 @@ pub mod Test {
         ) -> windows_result::Result<Foo>;
     }
     impl IFooFactory_Vtbl {
-        pub const fn new<Identity: IFooFactory_Impl, const OFFSET: isize>() -> Self {
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFooFactory_Impl,
+        {
             unsafe extern "system" fn CreateInstance<
-                Identity: IFooFactory_Impl,
+                Identity: windows_core::IUnknownImpl,
                 const OFFSET: isize,
             >(
                 this: *mut core::ffi::c_void,
@@ -203,10 +209,15 @@ pub mod Test {
                 outer: *mut core::ffi::c_void,
                 inner: *mut *mut core::ffi::c_void,
                 result__: *mut *mut core::ffi::c_void,
-            ) -> windows_core::HRESULT {
+            ) -> windows_core::HRESULT
+            where
+                <Identity as windows_core::IUnknownImpl>::Impl: IFooFactory_Impl,
+            {
                 unsafe {
-                    let this: &Identity =
+                    let outer: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                    let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                        <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                     match IFooFactory_Impl::CreateInstance(
                         this,
                         name,
@@ -222,15 +233,23 @@ pub mod Test {
                     }
                 }
             }
-            unsafe extern "system" fn Default<Identity: IFooFactory_Impl, const OFFSET: isize>(
+            unsafe extern "system" fn Default<
+                Identity: windows_core::IUnknownImpl,
+                const OFFSET: isize,
+            >(
                 this: *mut core::ffi::c_void,
                 outer: *mut core::ffi::c_void,
                 inner: *mut *mut core::ffi::c_void,
                 result__: *mut *mut core::ffi::c_void,
-            ) -> windows_core::HRESULT {
+            ) -> windows_core::HRESULT
+            where
+                <Identity as windows_core::IUnknownImpl>::Impl: IFooFactory_Impl,
+            {
                 unsafe {
-                    let this: &Identity =
+                    let outer: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                    let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                        <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                     match IFooFactory_Impl::Default(
                         this,
                         core::mem::transmute_copy(&outer),

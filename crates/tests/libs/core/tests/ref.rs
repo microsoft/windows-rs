@@ -18,7 +18,7 @@ impl Drop for Test {
     }
 }
 
-impl ITest_Impl for Test_Impl {
+impl ITest_Impl for Test {
     unsafe fn get(&self) -> usize {
         self.0
     }

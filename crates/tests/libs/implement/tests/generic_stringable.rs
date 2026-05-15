@@ -8,7 +8,7 @@ use windows_collections::*;
 )]
 struct Thing(Vec<IStringable>);
 
-impl IVectorView_Impl<IStringable> for Thing_Impl {
+impl IVectorView_Impl<IStringable> for Thing {
     fn GetAt(&self, index: u32) -> Result<IStringable> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
     }
@@ -26,7 +26,7 @@ impl IVectorView_Impl<IStringable> for Thing_Impl {
     }
 }
 
-impl IIterable_Impl<IStringable> for Thing_Impl {
+impl IIterable_Impl<IStringable> for Thing {
     fn First(&self) -> Result<IIterator<IStringable>> {
         unimplemented!()
     }

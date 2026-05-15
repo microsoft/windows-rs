@@ -1767,16 +1767,23 @@ impl IActivatedEventArgs {
 impl windows_core::RuntimeName for IActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IActivatedEventArgs";
 }
-pub trait IActivatedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait IActivatedEventArgs_Impl {
     fn Kind(&self) -> windows_core::Result<ActivationKind>;
     fn PreviousExecutionState(&self) -> windows_core::Result<ApplicationExecutionState>;
     fn SplashScreen(&self) -> windows_core::Result<SplashScreen>;
 }
 impl IActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Kind<Identity: IActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ActivationKind) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ActivationKind) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActivatedEventArgs_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1786,9 +1793,13 @@ impl IActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PreviousExecutionState<Identity: IActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ApplicationExecutionState) -> windows_core::HRESULT {
+        unsafe extern "system" fn PreviousExecutionState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ApplicationExecutionState) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActivatedEventArgs_Impl::PreviousExecutionState(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1798,9 +1809,13 @@ impl IActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SplashScreen<Identity: IActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SplashScreen<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActivatedEventArgs_Impl::SplashScreen(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1876,10 +1891,17 @@ pub trait IActivatedEventArgsWithUser_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "System")]
 impl IActivatedEventArgsWithUser_Vtbl {
-    pub const fn new<Identity: IActivatedEventArgsWithUser_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn User<Identity: IActivatedEventArgsWithUser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgsWithUser_Impl,
+    {
+        unsafe extern "system" fn User<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgsWithUser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActivatedEventArgsWithUser_Impl::User(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1947,10 +1969,17 @@ pub trait IApplicationViewActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn CurrentlyShownApplicationViewId(&self) -> windows_core::Result<i32>;
 }
 impl IApplicationViewActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IApplicationViewActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CurrentlyShownApplicationViewId<Identity: IApplicationViewActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IApplicationViewActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn CurrentlyShownApplicationViewId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IApplicationViewActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IApplicationViewActivatedEventArgs_Impl::CurrentlyShownApplicationViewId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2017,10 +2046,17 @@ pub trait IAppointmentsProviderActivatedEventArgs_Impl: IActivatedEventArgs_Impl
     fn Verb(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IAppointmentsProviderActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IAppointmentsProviderActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Verb<Identity: IAppointmentsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2096,10 +2132,17 @@ pub trait IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl: IActivated
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AddAppointmentOperation<Identity: IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn AddAppointmentOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderAddAppointmentActivatedEventArgs_Impl::AddAppointmentOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2181,10 +2224,17 @@ pub trait IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl: IActiva
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RemoveAppointmentOperation<Identity: IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn RemoveAppointmentOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Impl::RemoveAppointmentOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2266,10 +2316,17 @@ pub trait IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl: IActiv
 }
 #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
 impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReplaceAppointmentOperation<Identity: IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ReplaceAppointmentOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Impl::ReplaceAppointmentOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2361,10 +2418,17 @@ pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl: IA
     fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InstanceStartDate<Identity: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn InstanceStartDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::InstanceStartDate(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2375,9 +2439,13 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LocalId<Identity: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocalId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::LocalId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2388,9 +2456,13 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RoamingId<Identity: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoamingId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl::RoamingId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2476,10 +2548,17 @@ pub trait IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl: IActivatedE
     fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
 }
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TimeToShow<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn TimeToShow<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::TimeToShow(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2489,9 +2568,13 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Duration<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Duration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::Duration(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2537,15 +2620,22 @@ impl windows_core::RuntimeName for IBackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Background")]
-pub trait IBackgroundActivatedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait IBackgroundActivatedEventArgs_Impl {
     fn TaskInstance(&self) -> windows_core::Result<super::Background::IBackgroundTaskInstance>;
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl IBackgroundActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IBackgroundActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TaskInstance<Identity: IBackgroundActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn TaskInstance<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBackgroundActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBackgroundActivatedEventArgs_Impl::TaskInstance(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2616,10 +2706,17 @@ pub trait IBarcodeScannerPreviewActivatedEventArgs_Impl: IActivatedEventArgs_Imp
     fn ConnectionId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IBarcodeScannerPreviewActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ConnectionId<Identity: IBarcodeScannerPreviewActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IBarcodeScannerPreviewActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ConnectionId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBarcodeScannerPreviewActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBarcodeScannerPreviewActivatedEventArgs_Impl::ConnectionId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2691,10 +2788,17 @@ pub trait ICachedFileUpdaterActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Storage_Provider")]
 impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: ICachedFileUpdaterActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CachedFileUpdaterUI<Identity: ICachedFileUpdaterActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICachedFileUpdaterActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn CachedFileUpdaterUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICachedFileUpdaterActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICachedFileUpdaterActivatedEventArgs_Impl::CachedFileUpdaterUI(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2772,10 +2876,17 @@ pub trait ICameraSettingsActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn VideoDeviceExtension(&self) -> windows_core::Result<windows_core::IInspectable>;
 }
 impl ICameraSettingsActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: ICameraSettingsActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn VideoDeviceController<Identity: ICameraSettingsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICameraSettingsActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn VideoDeviceController<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICameraSettingsActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceController(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2786,9 +2897,13 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn VideoDeviceExtension<Identity: ICameraSettingsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn VideoDeviceExtension<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICameraSettingsActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICameraSettingsActivatedEventArgs_Impl::VideoDeviceExtension(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2858,10 +2973,17 @@ pub trait ICommandLineActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn Operation(&self) -> windows_core::Result<CommandLineActivationOperation>;
 }
 impl ICommandLineActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: ICommandLineActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Operation<Identity: ICommandLineActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICommandLineActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Operation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICommandLineActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICommandLineActivatedEventArgs_Impl::Operation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2940,10 +3062,17 @@ pub trait IContactActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn Verb(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IContactActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Verb<Identity: IContactActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3033,10 +3162,17 @@ pub trait IContactCallActivatedEventArgs_Impl: IActivatedEventArgs_Impl + IConta
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactCallActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ServiceId<Identity: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactCallActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactCallActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3047,9 +3183,13 @@ impl IContactCallActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactCallActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3060,9 +3200,13 @@ impl IContactCallActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Contact<Identity: IContactCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactCallActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3156,10 +3300,17 @@ pub trait IContactMapActivatedEventArgs_Impl: IActivatedEventArgs_Impl + IContac
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactMapActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactMapActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Address<Identity: IContactMapActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactMapActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Address<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactMapActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactMapActivatedEventArgs_Impl::Address(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3170,9 +3321,13 @@ impl IContactMapActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Contact<Identity: IContactMapActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactMapActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactMapActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3273,10 +3428,17 @@ pub trait IContactMessageActivatedEventArgs_Impl: IActivatedEventArgs_Impl + ICo
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactMessageActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ServiceId<Identity: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactMessageActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactMessageActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactMessageActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3287,9 +3449,13 @@ impl IContactMessageActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactMessageActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactMessageActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3300,9 +3466,13 @@ impl IContactMessageActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Contact<Identity: IContactMessageActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactMessageActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactMessageActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3361,16 +3531,23 @@ impl windows_core::RuntimeName for IContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs";
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
-pub trait IContactPanelActivatedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait IContactPanelActivatedEventArgs_Impl {
     fn ContactPanel(&self) -> windows_core::Result<super::Contacts::ContactPanel>;
     fn Contact(&self) -> windows_core::Result<super::Contacts::Contact>;
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactPanelActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactPanelActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ContactPanel<Identity: IContactPanelActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactPanelActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ContactPanel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactPanelActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactPanelActivatedEventArgs_Impl::ContactPanel(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3381,9 +3558,13 @@ impl IContactPanelActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Contact<Identity: IContactPanelActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactPanelActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactPanelActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3463,10 +3644,17 @@ pub trait IContactPickerActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 impl IContactPickerActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactPickerActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ContactPickerUI<Identity: IContactPickerActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactPickerActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ContactPickerUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactPickerActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactPickerActivatedEventArgs_Impl::ContactPickerUI(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3562,10 +3750,17 @@ pub trait IContactPostActivatedEventArgs_Impl: IActivatedEventArgs_Impl + IConta
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactPostActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ServiceId<Identity: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactPostActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactPostActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactPostActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3576,9 +3771,13 @@ impl IContactPostActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactPostActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactPostActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3589,9 +3788,13 @@ impl IContactPostActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Contact<Identity: IContactPostActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactPostActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactPostActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3691,10 +3894,17 @@ pub trait IContactVideoCallActivatedEventArgs_Impl: IActivatedEventArgs_Impl + I
 }
 #[cfg(feature = "ApplicationModel_Contacts")]
 impl IContactVideoCallActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ServiceId<Identity: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactVideoCallActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactVideoCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactVideoCallActivatedEventArgs_Impl::ServiceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3705,9 +3915,13 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ServiceUserId<Identity: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceUserId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactVideoCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactVideoCallActivatedEventArgs_Impl::ServiceUserId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3718,9 +3932,13 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Contact<Identity: IContactVideoCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Contact<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactVideoCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactVideoCallActivatedEventArgs_Impl::Contact(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3795,10 +4013,17 @@ pub trait IContactsProviderActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn Verb(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IContactsProviderActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContactsProviderActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Verb<Identity: IContactsProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContactsProviderActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContactsProviderActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContactsProviderActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3867,10 +4092,17 @@ pub trait IContinuationActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IContinuationActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IContinuationActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ContinuationData<Identity: IContinuationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContinuationActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ContinuationData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContinuationActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContinuationActivatedEventArgs_Impl::ContinuationData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3948,10 +4180,17 @@ pub trait IDeviceActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn Verb(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IDeviceActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeviceInformationId<Identity: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDeviceActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn DeviceInformationId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDeviceActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDeviceActivatedEventArgs_Impl::DeviceInformationId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -3962,9 +4201,13 @@ impl IDeviceActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Verb<Identity: IDeviceActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDeviceActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDeviceActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4038,10 +4281,17 @@ pub trait IDevicePairingActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Devices_Enumeration")]
 impl IDevicePairingActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IDevicePairingActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeviceInformation<Identity: IDevicePairingActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDevicePairingActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn DeviceInformation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDevicePairingActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDevicePairingActivatedEventArgs_Impl::DeviceInformation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4126,10 +4376,17 @@ pub trait IDialReceiverActivatedEventArgs_Impl: IActivatedEventArgs_Impl + ILaun
     fn AppName(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IDialReceiverActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IDialReceiverActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AppName<Identity: IDialReceiverActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDialReceiverActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn AppName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDialReceiverActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDialReceiverActivatedEventArgs_Impl::AppName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4205,10 +4462,17 @@ pub trait IFileActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Storage")]
 impl IFileActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IFileActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Files<Identity: IFileActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Files<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileActivatedEventArgs_Impl::Files(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4219,9 +4483,13 @@ impl IFileActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Verb<Identity: IFileActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Verb<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileActivatedEventArgs_Impl::Verb(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4294,10 +4562,17 @@ pub trait IFileActivatedEventArgsWithCallerPackageFamilyName_Impl: IActivatedEve
     fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
-    pub const fn new<Identity: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl,
+    {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileActivatedEventArgsWithCallerPackageFamilyName_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileActivatedEventArgsWithCallerPackageFamilyName_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4384,10 +4659,17 @@ pub trait IFileActivatedEventArgsWithNeighboringFiles_Impl: IActivatedEventArgs_
 }
 #[cfg(feature = "Storage_Search")]
 impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
-    pub const fn new<Identity: IFileActivatedEventArgsWithNeighboringFiles_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn NeighboringFilesQuery<Identity: IFileActivatedEventArgsWithNeighboringFiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileActivatedEventArgsWithNeighboringFiles_Impl,
+    {
+        unsafe extern "system" fn NeighboringFilesQuery<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileActivatedEventArgsWithNeighboringFiles_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileActivatedEventArgsWithNeighboringFiles_Impl::NeighboringFilesQuery(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4462,10 +4744,17 @@ pub trait IFileOpenPickerActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Storage_Pickers_Provider")]
 impl IFileOpenPickerActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IFileOpenPickerActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FileOpenPickerUI<Identity: IFileOpenPickerActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileOpenPickerActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn FileOpenPickerUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileOpenPickerActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileOpenPickerActivatedEventArgs_Impl::FileOpenPickerUI(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4510,14 +4799,21 @@ impl IFileOpenPickerActivatedEventArgs2 {
 impl windows_core::RuntimeName for IFileOpenPickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs2";
 }
-pub trait IFileOpenPickerActivatedEventArgs2_Impl: windows_core::IUnknownImpl {
+pub trait IFileOpenPickerActivatedEventArgs2_Impl {
     fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IFileOpenPickerActivatedEventArgs2_Vtbl {
-    pub const fn new<Identity: IFileOpenPickerActivatedEventArgs2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: IFileOpenPickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileOpenPickerActivatedEventArgs2_Impl,
+    {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileOpenPickerActivatedEventArgs2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileOpenPickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4597,10 +4893,17 @@ pub trait IFileOpenPickerContinuationEventArgs_Impl: IActivatedEventArgs_Impl + 
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IFileOpenPickerContinuationEventArgs_Vtbl {
-    pub const fn new<Identity: IFileOpenPickerContinuationEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Files<Identity: IFileOpenPickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileOpenPickerContinuationEventArgs_Impl,
+    {
+        unsafe extern "system" fn Files<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileOpenPickerContinuationEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileOpenPickerContinuationEventArgs_Impl::Files(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4672,10 +4975,17 @@ pub trait IFileSavePickerActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Storage_Pickers_Provider")]
 impl IFileSavePickerActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IFileSavePickerActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FileSavePickerUI<Identity: IFileSavePickerActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileSavePickerActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn FileSavePickerUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileSavePickerActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileSavePickerActivatedEventArgs_Impl::FileSavePickerUI(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4726,15 +5036,22 @@ impl IFileSavePickerActivatedEventArgs2 {
 impl windows_core::RuntimeName for IFileSavePickerActivatedEventArgs2 {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs2";
 }
-pub trait IFileSavePickerActivatedEventArgs2_Impl: windows_core::IUnknownImpl {
+pub trait IFileSavePickerActivatedEventArgs2_Impl {
     fn CallerPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IFileSavePickerActivatedEventArgs2_Vtbl {
-    pub const fn new<Identity: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileSavePickerActivatedEventArgs2_Impl,
+    {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileSavePickerActivatedEventArgs2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileSavePickerActivatedEventArgs2_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4745,9 +5062,13 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnterpriseId<Identity: IFileSavePickerActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnterpriseId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileSavePickerActivatedEventArgs2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileSavePickerActivatedEventArgs2_Impl::EnterpriseId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4829,10 +5150,17 @@ pub trait IFileSavePickerContinuationEventArgs_Impl: IActivatedEventArgs_Impl + 
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 impl IFileSavePickerContinuationEventArgs_Vtbl {
-    pub const fn new<Identity: IFileSavePickerContinuationEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn File<Identity: IFileSavePickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFileSavePickerContinuationEventArgs_Impl,
+    {
+        unsafe extern "system" fn File<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFileSavePickerContinuationEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFileSavePickerContinuationEventArgs_Impl::File(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4912,10 +5240,17 @@ pub trait IFolderPickerContinuationEventArgs_Impl: IActivatedEventArgs_Impl + IC
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Search"))]
 impl IFolderPickerContinuationEventArgs_Vtbl {
-    pub const fn new<Identity: IFolderPickerContinuationEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Folder<Identity: IFolderPickerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFolderPickerContinuationEventArgs_Impl,
+    {
+        unsafe extern "system" fn Folder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFolderPickerContinuationEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFolderPickerContinuationEventArgs_Impl::Folder(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -4990,10 +5325,17 @@ pub trait ILaunchActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn TileId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl ILaunchActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Arguments<Identity: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ILaunchActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Arguments<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILaunchActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ILaunchActivatedEventArgs_Impl::Arguments(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5004,9 +5346,13 @@ impl ILaunchActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TileId<Identity: ILaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn TileId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILaunchActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ILaunchActivatedEventArgs_Impl::TileId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5090,10 +5436,17 @@ pub trait ILaunchActivatedEventArgs2_Impl: IActivatedEventArgs_Impl + ILaunchAct
     fn TileActivatedInfo(&self) -> windows_core::Result<TileActivatedInfo>;
 }
 impl ILaunchActivatedEventArgs2_Vtbl {
-    pub const fn new<Identity: ILaunchActivatedEventArgs2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TileActivatedInfo<Identity: ILaunchActivatedEventArgs2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ILaunchActivatedEventArgs2_Impl,
+    {
+        unsafe extern "system" fn TileActivatedInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILaunchActivatedEventArgs2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ILaunchActivatedEventArgs2_Impl::TileActivatedInfo(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5161,10 +5514,17 @@ pub trait ILockScreenActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn Info(&self) -> windows_core::Result<windows_core::IInspectable>;
 }
 impl ILockScreenActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: ILockScreenActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Info<Identity: ILockScreenActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ILockScreenActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Info<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILockScreenActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ILockScreenActivatedEventArgs_Impl::Info(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5247,10 +5607,17 @@ pub trait ILockScreenCallActivatedEventArgs_Impl: IActivatedEventArgs_Impl + ILa
 }
 #[cfg(feature = "ApplicationModel_Calls")]
 impl ILockScreenCallActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: ILockScreenCallActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CallUI<Identity: ILockScreenCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ILockScreenCallActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn CallUI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILockScreenCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ILockScreenCallActivatedEventArgs_Impl::CallUI(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5318,10 +5685,17 @@ pub trait IPhoneCallActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn LineId(&self) -> windows_core::Result<windows_core::GUID>;
 }
 impl IPhoneCallActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IPhoneCallActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn LineId<Identity: IPhoneCallActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPhoneCallActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn LineId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPhoneCallActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPhoneCallActivatedEventArgs_Impl::LineId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -5385,10 +5759,17 @@ pub trait IPickerReturnedActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn PickerOperationId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IPickerReturnedActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IPickerReturnedActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PickerOperationId<Identity: IPickerReturnedActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPickerReturnedActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn PickerOperationId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPickerReturnedActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPickerReturnedActivatedEventArgs_Impl::PickerOperationId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5456,10 +5837,17 @@ pub trait IPrelaunchActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn PrelaunchActivated(&self) -> windows_core::Result<bool>;
 }
 impl IPrelaunchActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IPrelaunchActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PrelaunchActivated<Identity: IPrelaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrelaunchActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn PrelaunchActivated<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrelaunchActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrelaunchActivatedEventArgs_Impl::PrelaunchActivated(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -5530,10 +5918,17 @@ pub trait IPrint3DWorkflowActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Devices_Printers_Extensions")]
 impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IPrint3DWorkflowActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Workflow<Identity: IPrint3DWorkflowActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrint3DWorkflowActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Workflow<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrint3DWorkflowActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrint3DWorkflowActivatedEventArgs_Impl::Workflow(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5605,10 +6000,17 @@ pub trait IPrintTaskSettingsActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Devices_Printers_Extensions")]
 impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IPrintTaskSettingsActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Configuration<Identity: IPrintTaskSettingsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintTaskSettingsActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Configuration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintTaskSettingsActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintTaskSettingsActivatedEventArgs_Impl::Configuration(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5679,10 +6081,17 @@ pub trait IProtocolActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri>;
 }
 impl IProtocolActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IProtocolActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Uri<Identity: IProtocolActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IProtocolActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Uri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IProtocolActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IProtocolActivatedEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5758,10 +6167,17 @@ pub trait IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl: IA
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
-    pub const fn new<Identity: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CallerPackageFamilyName<Identity: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl,
+    {
+        unsafe extern "system" fn CallerPackageFamilyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::CallerPackageFamilyName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5772,9 +6188,13 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Data<Identity: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Data<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Impl::Data(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5851,10 +6271,17 @@ pub trait IProtocolForResultsActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "System")]
 impl IProtocolForResultsActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IProtocolForResultsActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ProtocolForResultsOperation<Identity: IProtocolForResultsActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IProtocolForResultsActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ProtocolForResultsOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IProtocolForResultsActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IProtocolForResultsActivatedEventArgs_Impl::ProtocolForResultsOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -5925,10 +6352,17 @@ pub trait IRestrictedLaunchActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn SharedContext(&self) -> windows_core::Result<windows_core::IInspectable>;
 }
 impl IRestrictedLaunchActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IRestrictedLaunchActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SharedContext<Identity: IRestrictedLaunchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRestrictedLaunchActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn SharedContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRestrictedLaunchActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRestrictedLaunchActivatedEventArgs_Impl::SharedContext(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6003,10 +6437,17 @@ pub trait ISearchActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl ISearchActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: ISearchActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryText<Identity: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISearchActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn QueryText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISearchActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISearchActivatedEventArgs_Impl::QueryText(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6017,9 +6458,13 @@ impl ISearchActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Language<Identity: ISearchActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Language<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISearchActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISearchActivatedEventArgs_Impl::Language(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6066,15 +6511,22 @@ impl windows_core::RuntimeName for ISearchActivatedEventArgsWithLinguisticDetail
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ISearchActivatedEventArgsWithLinguisticDetails";
 }
 #[cfg(feature = "ApplicationModel_Search")]
-pub trait ISearchActivatedEventArgsWithLinguisticDetails_Impl: windows_core::IUnknownImpl {
+pub trait ISearchActivatedEventArgsWithLinguisticDetails_Impl {
     fn LinguisticDetails(&self) -> windows_core::Result<super::Search::SearchPaneQueryLinguisticDetails>;
 }
 #[cfg(feature = "ApplicationModel_Search")]
 impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
-    pub const fn new<Identity: ISearchActivatedEventArgsWithLinguisticDetails_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn LinguisticDetails<Identity: ISearchActivatedEventArgsWithLinguisticDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISearchActivatedEventArgsWithLinguisticDetails_Impl,
+    {
+        unsafe extern "system" fn LinguisticDetails<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISearchActivatedEventArgsWithLinguisticDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISearchActivatedEventArgsWithLinguisticDetails_Impl::LinguisticDetails(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6149,10 +6601,17 @@ pub trait IShareTargetActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 impl IShareTargetActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IShareTargetActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ShareOperation<Identity: IShareTargetActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IShareTargetActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ShareOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IShareTargetActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IShareTargetActivatedEventArgs_Impl::ShareOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6235,10 +6694,17 @@ pub trait IStartupTaskActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
     fn TaskId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IStartupTaskActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IStartupTaskActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TaskId<Identity: IStartupTaskActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IStartupTaskActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn TaskId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IStartupTaskActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IStartupTaskActivatedEventArgs_Impl::TaskId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6327,10 +6793,17 @@ pub trait IToastNotificationActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IToastNotificationActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Argument<Identity: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IToastNotificationActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Argument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IToastNotificationActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IToastNotificationActivatedEventArgs_Impl::Argument(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6341,9 +6814,13 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UserInput<Identity: IToastNotificationActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserInput<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IToastNotificationActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IToastNotificationActivatedEventArgs_Impl::UserInput(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6420,10 +6897,17 @@ pub trait IUserDataAccountProviderActivatedEventArgs_Impl: IActivatedEventArgs_I
 }
 #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
 impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IUserDataAccountProviderActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Operation<Identity: IUserDataAccountProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IUserDataAccountProviderActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Operation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IUserDataAccountProviderActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IUserDataAccountProviderActivatedEventArgs_Impl::Operation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6498,10 +6982,17 @@ pub trait IViewSwitcherProvider_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "UI_ViewManagement")]
 impl IViewSwitcherProvider_Vtbl {
-    pub const fn new<Identity: IViewSwitcherProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ViewSwitcher<Identity: IViewSwitcherProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IViewSwitcherProvider_Impl,
+    {
+        unsafe extern "system" fn ViewSwitcher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IViewSwitcherProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IViewSwitcherProvider_Impl::ViewSwitcher(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6573,10 +7064,17 @@ pub trait IVoiceCommandActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Media_SpeechRecognition")]
 impl IVoiceCommandActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IVoiceCommandActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Result<Identity: IVoiceCommandActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVoiceCommandActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Result<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVoiceCommandActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVoiceCommandActivatedEventArgs_Impl::Result(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6662,10 +7160,17 @@ pub trait IWalletActionActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "ApplicationModel_Wallet")]
 impl IWalletActionActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ItemId<Identity: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWalletActionActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ItemId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWalletActionActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWalletActionActivatedEventArgs_Impl::ItemId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6676,9 +7181,13 @@ impl IWalletActionActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ActionKind<Identity: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Wallet::WalletActionKind) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActionKind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Wallet::WalletActionKind) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWalletActionActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWalletActionActivatedEventArgs_Impl::ActionKind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -6688,9 +7197,13 @@ impl IWalletActionActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ActionId<Identity: IWalletActionActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActionId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWalletActionActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWalletActionActivatedEventArgs_Impl::ActionId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6769,10 +7282,17 @@ pub trait IWebAccountProviderActivatedEventArgs_Impl: IActivatedEventArgs_Impl {
 }
 #[cfg(feature = "Security_Authentication_Web_Provider")]
 impl IWebAccountProviderActivatedEventArgs_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Operation<Identity: IWebAccountProviderActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderActivatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn Operation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderActivatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccountProviderActivatedEventArgs_Impl::Operation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -6855,10 +7375,17 @@ pub trait IWebAuthenticationBrokerContinuationEventArgs_Impl: IActivatedEventArg
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Security_Authentication_Web"))]
 impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
-    pub const fn new<Identity: IWebAuthenticationBrokerContinuationEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn WebAuthenticationResult<Identity: IWebAuthenticationBrokerContinuationEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAuthenticationBrokerContinuationEventArgs_Impl,
+    {
+        unsafe extern "system" fn WebAuthenticationResult<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAuthenticationBrokerContinuationEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAuthenticationBrokerContinuationEventArgs_Impl::WebAuthenticationResult(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

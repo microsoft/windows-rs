@@ -444,6 +444,9 @@ macro_rules! __implement_decl_struct {
         impl $crate::ComObjectInner for $name {
             type Outer = $impl_name;
 
+            const INNER_OFFSET_IN_OUTER: usize =
+                ::core::mem::offset_of!($impl_name, this);
+
             fn into_object(self) -> $crate::ComObject<Self> {
                 let boxed = $crate::imp::Box::<$impl_name>::new(self.into_outer());
                 unsafe {
@@ -1048,6 +1051,9 @@ macro_rules! __implement_decl_g_struct {
         where $($wc)*
         {
             type Outer = $impl_name < $($gp),+ >;
+
+            const INNER_OFFSET_IN_OUTER: usize =
+                ::core::mem::offset_of!($impl_name < $($gp),+ >, this);
 
             fn into_object(self) -> $crate::ComObject<Self> {
                 let boxed = $crate::imp::Box::<$impl_name < $($gp),+ >>::new(self.into_outer());

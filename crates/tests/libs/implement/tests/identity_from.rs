@@ -4,13 +4,13 @@ use windows::{core::*, Foundation::*};
 #[implement(IStringable, IClosable)]
 struct Test;
 
-impl IStringable_Impl for Test_Impl {
+impl IStringable_Impl for Test {
     fn ToString(&self) -> Result<HSTRING> {
         todo!()
     }
 }
 
-impl IClosable_Impl for Test_Impl {
+impl IClosable_Impl for Test {
     fn Close(&self) -> Result<()> {
         todo!()
     }

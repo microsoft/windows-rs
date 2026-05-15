@@ -86,7 +86,7 @@ implement_decl! {
     where T: RuntimeType + 'static, P: RuntimeType + 'static
 }
 
-impl IAsyncInfo_Impl for ReadyAction_Impl {
+impl IAsyncInfo_Impl for ReadyAction {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -104,7 +104,7 @@ impl IAsyncInfo_Impl for ReadyAction_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncInfo_Impl for ReadyOperation_Impl<T> {
+impl<T: RuntimeType> IAsyncInfo_Impl for ReadyOperation<T> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -122,7 +122,7 @@ impl<T: RuntimeType> IAsyncInfo_Impl for ReadyOperation_Impl<T> {
     }
 }
 
-impl<P: RuntimeType> IAsyncInfo_Impl for ReadyActionWithProgress_Impl<P> {
+impl<P: RuntimeType> IAsyncInfo_Impl for ReadyActionWithProgress<P> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -140,7 +140,7 @@ impl<P: RuntimeType> IAsyncInfo_Impl for ReadyActionWithProgress_Impl<P> {
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for ReadyOperationWithProgress_Impl<T, P> {
+impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for ReadyOperationWithProgress<T, P> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -158,7 +158,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for ReadyOperationWithProgr
     }
 }
 
-impl IAsyncAction_Impl for ReadyAction_Impl {
+impl IAsyncAction_Impl for ReadyAction {
     fn SetCompleted(&self, handler: Ref<AsyncActionCompletedHandler>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
@@ -170,7 +170,7 @@ impl IAsyncAction_Impl for ReadyAction_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
+impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation<T> {
     fn SetCompleted(&self, handler: Ref<AsyncOperationCompletedHandler<T>>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
@@ -182,7 +182,7 @@ impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
     }
 }
 
-impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgress_Impl<P> {
+impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgress<P> {
     fn SetCompleted(&self, handler: Ref<AsyncActionWithProgressCompletedHandler<P>>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
@@ -201,7 +201,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgres
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
-    for ReadyOperationWithProgress_Impl<T, P>
+    for ReadyOperationWithProgress<T, P>
 {
     fn SetCompleted(
         &self,

@@ -68,18 +68,29 @@ impl IStringable {
 impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
 }
-pub trait IStringable_Impl: windows_core::IUnknownImpl {
+pub trait IStringable_Impl {
     fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IStringable_Vtbl {
-    pub const fn new<Identity: IStringable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ToString<Identity: IStringable_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IStringable_Impl,
+    {
+        unsafe extern "system" fn ToString<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IStringable_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IStringable_Impl::ToString(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

@@ -76,64 +76,107 @@ pub trait IChannelCredentials_Impl: super::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IChannelCredentials_Vtbl {
-    pub const fn new<Identity: IChannelCredentials_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetWindowsCredential<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domain: *mut core::ffi::c_void, username: *mut core::ffi::c_void, password: *mut core::ffi::c_void, impersonationlevel: i32, allowntlm: windows_core::BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+    {
+        unsafe extern "system" fn SetWindowsCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, domain: *mut core::ffi::c_void, username: *mut core::ffi::c_void, password: *mut core::ffi::c_void, impersonationlevel: i32, allowntlm: windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetWindowsCredential(this, core::mem::transmute(&domain), core::mem::transmute(&username), core::mem::transmute(&password), core::mem::transmute_copy(&impersonationlevel), core::mem::transmute_copy(&allowntlm)).into()
             }
         }
-        unsafe extern "system" fn SetUserNameCredential<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, password: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUserNameCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, username: *mut core::ffi::c_void, password: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetUserNameCredential(this, core::mem::transmute(&username), core::mem::transmute(&password)).into()
             }
         }
-        unsafe extern "system" fn SetClientCertificateFromStore<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void, findyype: *mut core::ffi::c_void, findvalue: super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientCertificateFromStore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void, findyype: *mut core::ffi::c_void, findvalue: super::super::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetClientCertificateFromStore(this, core::mem::transmute(&storelocation), core::mem::transmute(&storename), core::mem::transmute(&findyype), core::mem::transmute(&findvalue)).into()
             }
         }
-        unsafe extern "system" fn SetClientCertificateFromStoreByName<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subjectname: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientCertificateFromStoreByName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, subjectname: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetClientCertificateFromStoreByName(this, core::mem::transmute(&subjectname), core::mem::transmute(&storelocation), core::mem::transmute(&storename)).into()
             }
         }
-        unsafe extern "system" fn SetClientCertificateFromFile<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, password: *mut core::ffi::c_void, keystorageflags: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientCertificateFromFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, password: *mut core::ffi::c_void, keystorageflags: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetClientCertificateFromFile(this, core::mem::transmute(&filename), core::mem::transmute(&password), core::mem::transmute(&keystorageflags)).into()
             }
         }
-        unsafe extern "system" fn SetDefaultServiceCertificateFromStore<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void, findtype: *mut core::ffi::c_void, findvalue: super::super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDefaultServiceCertificateFromStore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void, findtype: *mut core::ffi::c_void, findvalue: super::super::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetDefaultServiceCertificateFromStore(this, core::mem::transmute(&storelocation), core::mem::transmute(&storename), core::mem::transmute(&findtype), core::mem::transmute(&findvalue)).into()
             }
         }
-        unsafe extern "system" fn SetDefaultServiceCertificateFromStoreByName<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subjectname: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDefaultServiceCertificateFromStoreByName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, subjectname: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, storename: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetDefaultServiceCertificateFromStoreByName(this, core::mem::transmute(&subjectname), core::mem::transmute(&storelocation), core::mem::transmute(&storename)).into()
             }
         }
-        unsafe extern "system" fn SetDefaultServiceCertificateFromFile<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, password: *mut core::ffi::c_void, keystorageflags: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDefaultServiceCertificateFromFile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filename: *mut core::ffi::c_void, password: *mut core::ffi::c_void, keystorageflags: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetDefaultServiceCertificateFromFile(this, core::mem::transmute(&filename), core::mem::transmute(&password), core::mem::transmute(&keystorageflags)).into()
             }
         }
-        unsafe extern "system" fn SetServiceCertificateAuthentication<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, revocationmode: *mut core::ffi::c_void, certificatevalidationmode: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServiceCertificateAuthentication<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, storelocation: *mut core::ffi::c_void, revocationmode: *mut core::ffi::c_void, certificatevalidationmode: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetServiceCertificateAuthentication(this, core::mem::transmute(&storelocation), core::mem::transmute(&revocationmode), core::mem::transmute(&certificatevalidationmode)).into()
             }
         }
-        unsafe extern "system" fn SetIssuedToken<Identity: IChannelCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, localissueraddres: *mut core::ffi::c_void, localissuerbindingtype: *mut core::ffi::c_void, localissuerbinding: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIssuedToken<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, localissueraddres: *mut core::ffi::c_void, localissuerbindingtype: *mut core::ffi::c_void, localissuerbinding: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChannelCredentials_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IChannelCredentials_Impl::SetIssuedToken(this, core::mem::transmute(&localissueraddres), core::mem::transmute(&localissuerbindingtype), core::mem::transmute(&localissuerbinding)).into()
             }
         }

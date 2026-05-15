@@ -11,7 +11,7 @@ struct JsonValidator {
 }
 
 // Implement the `IJsonValidator` interface.
-impl bindings::IJsonValidator_Impl for JsonValidator_Impl {
+impl bindings::IJsonValidator_Impl for JsonValidator {
     fn Validate(&self, value: &HSTRING) -> Result<HSTRING> {
         let value = json_from_hstring(value)?;
 
@@ -39,14 +39,14 @@ struct JsonValidatorFactory;
 
 // The JsonValidator class doesn't provide a default constructor but WinRT still requires an
 // implementation of `IActivationFactory`.
-impl IActivationFactory_Impl for JsonValidatorFactory_Impl {
+impl IActivationFactory_Impl for JsonValidatorFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Err(E_NOTIMPL.into())
     }
 }
 
 // Implement the `IJsonValidatorFactory` interface.
-impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory_Impl {
+impl bindings::IJsonValidatorFactory_Impl for JsonValidatorFactory {
     fn CreateInstance(&self, schema: &HSTRING) -> Result<bindings::JsonValidator> {
         let schema = json_from_hstring(schema)?;
 

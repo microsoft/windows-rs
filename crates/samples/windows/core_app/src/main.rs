@@ -18,7 +18,7 @@ fn main() -> windows::core::Result<()> {
     #[implement(IFrameworkViewSource)]
     struct CoreApp();
 
-    impl IFrameworkViewSource_Impl for CoreApp_Impl {
+    impl IFrameworkViewSource_Impl for CoreApp {
         fn CreateView(&self) -> Result<IFrameworkView> {
             Ok(CoreAppView().into())
         }
@@ -27,7 +27,7 @@ fn main() -> windows::core::Result<()> {
     #[implement(IFrameworkView)]
     struct CoreAppView();
 
-    impl IFrameworkView_Impl for CoreAppView_Impl {
+    impl IFrameworkView_Impl for CoreAppView {
         fn Initialize(&self, _: Ref<CoreApplicationView>) -> Result<()> {
             Ok(())
         }

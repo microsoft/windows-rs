@@ -980,7 +980,7 @@ impl windows_core::RuntimeName for IGameController {
     const NAME: &'static str = "Windows.Gaming.Input.IGameController";
 }
 #[cfg(feature = "System")]
-pub trait IGameController_Impl: windows_core::IUnknownImpl {
+pub trait IGameController_Impl {
     fn HeadsetConnected(&self, value: windows_core::Ref<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
     fn RemoveHeadsetConnected(&self, token: i64) -> windows_core::Result<()>;
     fn HeadsetDisconnected(&self, value: windows_core::Ref<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
@@ -993,10 +993,17 @@ pub trait IGameController_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "System")]
 impl IGameController_Vtbl {
-    pub const fn new<Identity: IGameController_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn HeadsetConnected<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+    {
+        unsafe extern "system" fn HeadsetConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameController_Impl::HeadsetConnected(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1006,15 +1013,23 @@ impl IGameController_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveHeadsetConnected<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveHeadsetConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IGameController_Impl::RemoveHeadsetConnected(this, token).into()
             }
         }
-        unsafe extern "system" fn HeadsetDisconnected<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn HeadsetDisconnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameController_Impl::HeadsetDisconnected(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1024,15 +1039,23 @@ impl IGameController_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveHeadsetDisconnected<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveHeadsetDisconnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IGameController_Impl::RemoveHeadsetDisconnected(this, token).into()
             }
         }
-        unsafe extern "system" fn UserChanged<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameController_Impl::UserChanged(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1042,15 +1065,23 @@ impl IGameController_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveUserChanged<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveUserChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IGameController_Impl::RemoveUserChanged(this, token).into()
             }
         }
-        unsafe extern "system" fn Headset<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Headset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameController_Impl::Headset(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1061,9 +1092,13 @@ impl IGameController_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsWireless<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsWireless<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameController_Impl::IsWireless(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1073,9 +1108,13 @@ impl IGameController_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn User<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn User<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameController_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameController_Impl::User(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1142,15 +1181,22 @@ impl windows_core::RuntimeName for IGameControllerBatteryInfo {
     const NAME: &'static str = "Windows.Gaming.Input.IGameControllerBatteryInfo";
 }
 #[cfg(feature = "Devices_Power")]
-pub trait IGameControllerBatteryInfo_Impl: windows_core::IUnknownImpl {
+pub trait IGameControllerBatteryInfo_Impl {
     fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport>;
 }
 #[cfg(feature = "Devices_Power")]
 impl IGameControllerBatteryInfo_Vtbl {
-    pub const fn new<Identity: IGameControllerBatteryInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TryGetBatteryReport<Identity: IGameControllerBatteryInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGameControllerBatteryInfo_Impl,
+    {
+        unsafe extern "system" fn TryGetBatteryReport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGameControllerBatteryInfo_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGameControllerBatteryInfo_Impl::TryGetBatteryReport(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

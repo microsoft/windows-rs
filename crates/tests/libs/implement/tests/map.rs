@@ -7,7 +7,7 @@ use windows_collections::*;
 )]
 struct KeyValuePair();
 
-impl IKeyValuePair_Impl<i32, f32> for KeyValuePair_Impl {
+impl IKeyValuePair_Impl<i32, f32> for KeyValuePair {
     fn Key(&self) -> Result<i32> {
         Ok(0)
     }
@@ -21,7 +21,7 @@ impl IKeyValuePair_Impl<i32, f32> for KeyValuePair_Impl {
 )]
 struct Iterator();
 
-impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator_Impl {
+impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator {
     fn GetMany(&self, _items: &mut [Option<IKeyValuePair<i32, f32>>]) -> Result<u32> {
         Ok(0)
     }
@@ -42,7 +42,7 @@ impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator_Impl {
 )]
 struct MapView();
 
-impl IMapView_Impl<i32, f32> for MapView_Impl {
+impl IMapView_Impl<i32, f32> for MapView {
     fn HasKey(&self, _key: i32) -> Result<bool> {
         Ok(true)
     }
@@ -61,7 +61,7 @@ impl IMapView_Impl<i32, f32> for MapView_Impl {
     }
 }
 
-impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView_Impl {
+impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView {
     fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }
@@ -73,7 +73,7 @@ impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView_Impl {
 )]
 struct Map();
 
-impl IMap_Impl<i32, f32> for Map_Impl {
+impl IMap_Impl<i32, f32> for Map {
     fn Clear(&self) -> Result<()> {
         Ok(())
     }
@@ -97,7 +97,7 @@ impl IMap_Impl<i32, f32> for Map_Impl {
     }
 }
 
-impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map_Impl {
+impl IIterable_Impl<IKeyValuePair<i32, f32>> for Map {
     fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
     }

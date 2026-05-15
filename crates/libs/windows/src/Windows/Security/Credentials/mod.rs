@@ -163,14 +163,21 @@ impl IKeyCredentialCacheConfigurationFactory {
 impl windows_core::RuntimeName for IKeyCredentialCacheConfigurationFactory {
     const NAME: &'static str = "Windows.Security.Credentials.IKeyCredentialCacheConfigurationFactory";
 }
-pub trait IKeyCredentialCacheConfigurationFactory_Impl: windows_core::IUnknownImpl {
+pub trait IKeyCredentialCacheConfigurationFactory_Impl {
     fn CreateInstance(&self, cacheOption: KeyCredentialCacheOption, timeout: &super::super::Foundation::TimeSpan, usageCount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration>;
 }
 impl IKeyCredentialCacheConfigurationFactory_Vtbl {
-    pub const fn new<Identity: IKeyCredentialCacheConfigurationFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateInstance<Identity: IKeyCredentialCacheConfigurationFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacheoption: KeyCredentialCacheOption, timeout: super::super::Foundation::TimeSpan, usagecount: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IKeyCredentialCacheConfigurationFactory_Impl,
+    {
+        unsafe extern "system" fn CreateInstance<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacheoption: KeyCredentialCacheOption, timeout: super::super::Foundation::TimeSpan, usagecount: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IKeyCredentialCacheConfigurationFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IKeyCredentialCacheConfigurationFactory_Impl::CreateInstance(this, cacheoption, core::mem::transmute(&timeout), usagecount) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -345,16 +352,23 @@ impl IWebAccount {
 impl windows_core::RuntimeName for IWebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.IWebAccount";
 }
-pub trait IWebAccount_Impl: windows_core::IUnknownImpl {
+pub trait IWebAccount_Impl {
     fn WebAccountProvider(&self) -> windows_core::Result<WebAccountProvider>;
     fn UserName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn State(&self) -> windows_core::Result<WebAccountState>;
 }
 impl IWebAccount_Vtbl {
-    pub const fn new<Identity: IWebAccount_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn WebAccountProvider<Identity: IWebAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccount_Impl,
+    {
+        unsafe extern "system" fn WebAccountProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccount_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccount_Impl::WebAccountProvider(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -365,9 +379,13 @@ impl IWebAccount_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UserName<Identity: IWebAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccount_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccount_Impl::UserName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -378,9 +396,13 @@ impl IWebAccount_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IWebAccount_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut WebAccountState) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut WebAccountState) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccount_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccount_Impl::State(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

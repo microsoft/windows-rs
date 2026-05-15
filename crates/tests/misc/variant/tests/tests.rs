@@ -272,7 +272,7 @@ fn test_propvariant() -> Result<()> {
 struct Canary {
     _counter: Rc<()>,
 }
-impl IAgileObject_Impl for Canary_Impl {}
+impl IAgileObject_Impl for Canary {}
 
 #[test]
 fn test_owned_variant() -> Result<()> {

@@ -52,10 +52,17 @@ pub trait IPrintDocumentPackageStatusEvent_Impl: super::super::super::System::Co
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPrintDocumentPackageStatusEvent_Vtbl {
-    pub const fn new<Identity: IPrintDocumentPackageStatusEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PackageStatusUpdated<Identity: IPrintDocumentPackageStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagestatus: *const PrintDocumentPackageStatus) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageStatusEvent_Impl,
+    {
+        unsafe extern "system" fn PackageStatusUpdated<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagestatus: *const PrintDocumentPackageStatus) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintDocumentPackageStatusEvent_Impl::PackageStatusUpdated(this, core::mem::transmute_copy(&packagestatus)).into()
             }
         }
@@ -95,28 +102,43 @@ pub struct IPrintDocumentPackageTarget_Vtbl {
     pub GetPackageTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IPrintDocumentPackageTarget_Impl: windows_core::IUnknownImpl {
+pub trait IPrintDocumentPackageTarget_Impl {
     fn GetPackageTargetTypes(&self, targetcount: *mut u32, targettypes: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetPackageTarget(&self, guidtargettype: *const windows_core::GUID, riid: *const windows_core::GUID, ppvtarget: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
 impl IPrintDocumentPackageTarget_Vtbl {
-    pub const fn new<Identity: IPrintDocumentPackageTarget_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPackageTargetTypes<Identity: IPrintDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetcount: *mut u32, targettypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTarget_Impl,
+    {
+        unsafe extern "system" fn GetPackageTargetTypes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetcount: *mut u32, targettypes: *mut *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTarget_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintDocumentPackageTarget_Impl::GetPackageTargetTypes(this, core::mem::transmute_copy(&targetcount), core::mem::transmute_copy(&targettypes)).into()
             }
         }
-        unsafe extern "system" fn GetPackageTarget<Identity: IPrintDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidtargettype: *const windows_core::GUID, riid: *const windows_core::GUID, ppvtarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPackageTarget<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidtargettype: *const windows_core::GUID, riid: *const windows_core::GUID, ppvtarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTarget_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintDocumentPackageTarget_Impl::GetPackageTarget(this, core::mem::transmute_copy(&guidtargettype), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvtarget)).into()
             }
         }
-        unsafe extern "system" fn Cancel<Identity: IPrintDocumentPackageTarget_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTarget_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintDocumentPackageTarget_Impl::Cancel(this).into()
             }
         }
@@ -156,15 +178,22 @@ pub struct IPrintDocumentPackageTarget2_Vtbl {
     pub GetIsTargetIppPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetTargetIppPrintDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IPrintDocumentPackageTarget2_Impl: windows_core::IUnknownImpl {
+pub trait IPrintDocumentPackageTarget2_Impl {
     fn GetIsTargetIppPrinter(&self) -> windows_core::Result<windows_core::BOOL>;
     fn GetTargetIppPrintDevice(&self, riid: *const windows_core::GUID, ppvtarget: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IPrintDocumentPackageTarget2_Vtbl {
-    pub const fn new<Identity: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIsTargetIppPrinter<Identity: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isippprinter: *mut windows_core::BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTarget2_Impl,
+    {
+        unsafe extern "system" fn GetIsTargetIppPrinter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isippprinter: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTarget2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintDocumentPackageTarget2_Impl::GetIsTargetIppPrinter(this) {
                     Ok(ok__) => {
                         isippprinter.write(core::mem::transmute(ok__));
@@ -174,9 +203,13 @@ impl IPrintDocumentPackageTarget2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTargetIppPrintDevice<Identity: IPrintDocumentPackageTarget2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvtarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTargetIppPrintDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvtarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTarget2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintDocumentPackageTarget2_Impl::GetTargetIppPrintDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvtarget)).into()
             }
         }
@@ -218,15 +251,22 @@ pub struct IPrintDocumentPackageTargetFactory_Vtbl {
     CreateDocumentPackageTargetForPrintJob: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IPrintDocumentPackageTargetFactory_Impl: windows_core::IUnknownImpl {
+pub trait IPrintDocumentPackageTargetFactory_Impl {
     fn CreateDocumentPackageTargetForPrintJob(&self, printername: &windows_core::PCWSTR, jobname: &windows_core::PCWSTR, joboutputstream: windows_core::Ref<super::super::super::System::Com::IStream>, jobprintticketstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IPrintDocumentPackageTarget>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintDocumentPackageTargetFactory_Vtbl {
-    pub const fn new<Identity: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateDocumentPackageTargetForPrintJob<Identity: IPrintDocumentPackageTargetFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, printername: windows_core::PCWSTR, jobname: windows_core::PCWSTR, joboutputstream: *mut core::ffi::c_void, jobprintticketstream: *mut core::ffi::c_void, docpackagetarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTargetFactory_Impl,
+    {
+        unsafe extern "system" fn CreateDocumentPackageTargetForPrintJob<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, printername: windows_core::PCWSTR, jobname: windows_core::PCWSTR, joboutputstream: *mut core::ffi::c_void, jobprintticketstream: *mut core::ffi::c_void, docpackagetarget: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintDocumentPackageTargetFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintDocumentPackageTargetFactory_Impl::CreateDocumentPackageTargetForPrintJob(this, core::mem::transmute(&printername), core::mem::transmute(&jobname), core::mem::transmute_copy(&joboutputstream), core::mem::transmute_copy(&jobprintticketstream)) {
                     Ok(ok__) => {
                         docpackagetarget.write(core::mem::transmute(ok__));
@@ -264,21 +304,32 @@ pub struct IXpsPrintJob_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetJobStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XPS_JOB_STATUS) -> windows_core::HRESULT,
 }
-pub trait IXpsPrintJob_Impl: windows_core::IUnknownImpl {
+pub trait IXpsPrintJob_Impl {
     fn Cancel(&self) -> windows_core::Result<()>;
     fn GetJobStatus(&self, jobstatus: *mut XPS_JOB_STATUS) -> windows_core::Result<()>;
 }
 impl IXpsPrintJob_Vtbl {
-    pub const fn new<Identity: IXpsPrintJob_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Cancel<Identity: IXpsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXpsPrintJob_Impl,
+    {
+        unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXpsPrintJob_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXpsPrintJob_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn GetJobStatus<Identity: IXpsPrintJob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobstatus: *mut XPS_JOB_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetJobStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, jobstatus: *mut XPS_JOB_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXpsPrintJob_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXpsPrintJob_Impl::GetJobStatus(this, core::mem::transmute_copy(&jobstatus)).into()
             }
         }
@@ -323,10 +374,17 @@ pub trait IXpsPrintJobStream_Impl: super::super::super::System::Com::ISequential
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXpsPrintJobStream_Vtbl {
-    pub const fn new<Identity: IXpsPrintJobStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Close<Identity: IXpsPrintJobStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXpsPrintJobStream_Impl,
+    {
+        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXpsPrintJobStream_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXpsPrintJobStream_Impl::Close(this).into()
             }
         }

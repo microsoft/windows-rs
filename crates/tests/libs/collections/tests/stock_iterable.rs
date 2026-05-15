@@ -181,7 +181,7 @@ fn hstring() -> Result<()> {
 struct Stringable(HSTRING);
 
 #[cfg(windows)]
-impl windows::Foundation::IStringable_Impl for Stringable_Impl {
+impl windows::Foundation::IStringable_Impl for Stringable {
     fn ToString(&self) -> Result<HSTRING> {
         Ok(self.0.clone())
     }
@@ -307,7 +307,7 @@ struct FailingIterator {
     fail_move_next_at: usize,
 }
 
-impl IIterator_Impl<i32> for FailingIterator_Impl {
+impl IIterator_Impl<i32> for FailingIterator {
     fn Current(&self) -> Result<i32> {
         if self.failed.load(std::sync::atomic::Ordering::Relaxed) {
             return Err(Error::from(E_FAIL));

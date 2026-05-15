@@ -1253,16 +1253,23 @@ impl IGeoshape {
 impl windows_core::RuntimeName for IGeoshape {
     const NAME: &'static str = "Windows.Devices.Geolocation.IGeoshape";
 }
-pub trait IGeoshape_Impl: windows_core::IUnknownImpl {
+pub trait IGeoshape_Impl {
     fn GeoshapeType(&self) -> windows_core::Result<GeoshapeType>;
     fn SpatialReferenceId(&self) -> windows_core::Result<u32>;
     fn AltitudeReferenceSystem(&self) -> windows_core::Result<AltitudeReferenceSystem>;
 }
 impl IGeoshape_Vtbl {
-    pub const fn new<Identity: IGeoshape_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GeoshapeType<Identity: IGeoshape_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut GeoshapeType) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGeoshape_Impl,
+    {
+        unsafe extern "system" fn GeoshapeType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut GeoshapeType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGeoshape_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGeoshape_Impl::GeoshapeType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1272,9 +1279,13 @@ impl IGeoshape_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SpatialReferenceId<Identity: IGeoshape_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SpatialReferenceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGeoshape_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGeoshape_Impl::SpatialReferenceId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1284,9 +1295,13 @@ impl IGeoshape_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AltitudeReferenceSystem<Identity: IGeoshape_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AltitudeReferenceSystem) -> windows_core::HRESULT {
+        unsafe extern "system" fn AltitudeReferenceSystem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AltitudeReferenceSystem) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGeoshape_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGeoshape_Impl::AltitudeReferenceSystem(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

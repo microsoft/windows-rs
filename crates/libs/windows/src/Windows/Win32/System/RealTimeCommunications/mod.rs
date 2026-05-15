@@ -27,22 +27,33 @@ pub struct INetworkTransportSettings_Vtbl {
     QuerySetting: usize,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub trait INetworkTransportSettings_Impl: windows_core::IUnknownImpl {
+pub trait INetworkTransportSettings_Impl {
     fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()>;
     fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl INetworkTransportSettings_Vtbl {
-    pub const fn new<Identity: INetworkTransportSettings_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ApplySetting<Identity: INetworkTransportSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkTransportSettings_Impl,
+    {
+        unsafe extern "system" fn ApplySetting<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkTransportSettings_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkTransportSettings_Impl::ApplySetting(this, core::mem::transmute_copy(&settingid), core::mem::transmute_copy(&lengthin), core::mem::transmute_copy(&valuein), core::mem::transmute_copy(&lengthout), core::mem::transmute_copy(&valueout)).into()
             }
         }
-        unsafe extern "system" fn QuerySetting<Identity: INetworkTransportSettings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn QuerySetting<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkTransportSettings_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkTransportSettings_Impl::QuerySetting(this, core::mem::transmute_copy(&settingid), core::mem::transmute_copy(&lengthin), core::mem::transmute_copy(&valuein), core::mem::transmute_copy(&lengthout), core::mem::transmute_copy(&valueout)).into()
             }
         }
@@ -75,21 +86,32 @@ pub struct INotificationTransportSync_Vtbl {
     pub CompleteDelivery: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait INotificationTransportSync_Impl: windows_core::IUnknownImpl {
+pub trait INotificationTransportSync_Impl {
     fn CompleteDelivery(&self) -> windows_core::Result<()>;
     fn Flush(&self) -> windows_core::Result<()>;
 }
 impl INotificationTransportSync_Vtbl {
-    pub const fn new<Identity: INotificationTransportSync_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CompleteDelivery<Identity: INotificationTransportSync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INotificationTransportSync_Impl,
+    {
+        unsafe extern "system" fn CompleteDelivery<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INotificationTransportSync_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INotificationTransportSync_Impl::CompleteDelivery(this).into()
             }
         }
-        unsafe extern "system" fn Flush<Identity: INotificationTransportSync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Flush<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INotificationTransportSync_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INotificationTransportSync_Impl::Flush(this).into()
             }
         }
@@ -138,10 +160,17 @@ pub trait IRTCBuddy_Impl: IRTCPresenceContact_Impl {
     fn Notes(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 impl IRTCBuddy_Vtbl {
-    pub const fn new<Identity: IRTCBuddy_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Status<Identity: IRTCBuddy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy_Impl,
+    {
+        unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy_Impl::Status(this) {
                     Ok(ok__) => {
                         penstatus.write(core::mem::transmute(ok__));
@@ -151,9 +180,13 @@ impl IRTCBuddy_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Notes<Identity: IRTCBuddy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Notes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy_Impl::Notes(this) {
                     Ok(ok__) => {
                         pbstrnotes.write(core::mem::transmute(ok__));
@@ -259,10 +292,17 @@ pub trait IRTCBuddy2_Impl: IRTCBuddy_Impl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddy2_Vtbl {
-    pub const fn new<Identity: IRTCBuddy2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Profile<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+    {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy2_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -272,15 +312,23 @@ impl IRTCBuddy2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Refresh<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Refresh<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCBuddy2_Impl::Refresh(this).into()
             }
         }
-        unsafe extern "system" fn EnumerateGroups<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateGroups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy2_Impl::EnumerateGroups(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -290,9 +338,13 @@ impl IRTCBuddy2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Groups<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Groups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy2_Impl::Groups(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -302,9 +354,13 @@ impl IRTCBuddy2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_PresenceProperty<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy2_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                     Ok(ok__) => {
                         pbstrproperty.write(core::mem::transmute(ok__));
@@ -314,9 +370,13 @@ impl IRTCBuddy2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnumeratePresenceDevices<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumdevices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumeratePresenceDevices<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumdevices: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy2_Impl::EnumeratePresenceDevices(this) {
                     Ok(ok__) => {
                         ppenumdevices.write(core::mem::transmute(ok__));
@@ -326,9 +386,13 @@ impl IRTCBuddy2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PresenceDevices<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevicescollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PresenceDevices<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevicescollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy2_Impl::PresenceDevices(this) {
                     Ok(ok__) => {
                         ppdevicescollection.write(core::mem::transmute(ok__));
@@ -338,9 +402,13 @@ impl IRTCBuddy2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SubscriptionType<Identity: IRTCBuddy2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pensubscriptiontype: *mut RTC_BUDDY_SUBSCRIPTION_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SubscriptionType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pensubscriptiontype: *mut RTC_BUDDY_SUBSCRIPTION_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddy2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddy2_Impl::SubscriptionType(this) {
                     Ok(ok__) => {
                         pensubscriptiontype.write(core::mem::transmute(ok__));
@@ -401,10 +469,17 @@ pub trait IRTCBuddyEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCBuddyEvent_Vtbl {
-    pub const fn new<Identity: IRTCBuddyEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Buddy<Identity: IRTCBuddyEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent_Impl,
+    {
+        unsafe extern "system" fn Buddy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyEvent_Impl::Buddy(this) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -471,10 +546,17 @@ pub trait IRTCBuddyEvent2_Impl: IRTCBuddyEvent_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCBuddyEvent2_Vtbl {
-    pub const fn new<Identity: IRTCBuddyEvent2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventType<Identity: IRTCBuddyEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_BUDDY_EVENT_TYPE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent2_Impl,
+    {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_BUDDY_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -484,9 +566,13 @@ impl IRTCBuddyEvent2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCBuddyEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyEvent2_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -496,9 +582,13 @@ impl IRTCBuddyEvent2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCBuddyEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyEvent2_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -592,7 +682,7 @@ pub struct IRTCBuddyGroup_Vtbl {
     pub Profile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRTCBuddyGroup_Impl: windows_core::IUnknownImpl {
+pub trait IRTCBuddyGroup_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
@@ -605,10 +695,17 @@ pub trait IRTCBuddyGroup_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyGroup_Vtbl {
-    pub const fn new<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgroupname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+    {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrgroupname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroup_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrgroupname.write(core::mem::transmute(ok__));
@@ -618,27 +715,43 @@ impl IRTCBuddyGroup_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetName<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCBuddyGroup_Impl::SetName(this, core::mem::transmute(&bstrgroupname)).into()
             }
         }
-        unsafe extern "system" fn AddBuddy<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddBuddy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCBuddyGroup_Impl::AddBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
             }
         }
-        unsafe extern "system" fn RemoveBuddy<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveBuddy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCBuddyGroup_Impl::RemoveBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
             }
         }
-        unsafe extern "system" fn EnumerateBuddies<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateBuddies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroup_Impl::EnumerateBuddies(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -648,9 +761,13 @@ impl IRTCBuddyGroup_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Buddies<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Buddies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroup_Impl::Buddies(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -660,9 +777,13 @@ impl IRTCBuddyGroup_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Data<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Data<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroup_Impl::Data(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -672,15 +793,23 @@ impl IRTCBuddyGroup_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetData<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCBuddyGroup_Impl::SetData(this, core::mem::transmute(&bstrdata)).into()
             }
         }
-        unsafe extern "system" fn Profile<Identity: IRTCBuddyGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroup_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -766,10 +895,17 @@ pub trait IRTCBuddyGroupEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCBuddyGroupEvent_Vtbl {
-    pub const fn new<Identity: IRTCBuddyGroupEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventType<Identity: IRTCBuddyGroupEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_GROUP_EVENT_TYPE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
+    {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_GROUP_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroupEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -779,9 +915,13 @@ impl IRTCBuddyGroupEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Group<Identity: IRTCBuddyGroupEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Group<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroupEvent_Impl::Group(this) {
                     Ok(ok__) => {
                         ppgroup.write(core::mem::transmute(ok__));
@@ -791,9 +931,13 @@ impl IRTCBuddyGroupEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Buddy<Identity: IRTCBuddyGroupEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Buddy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroupEvent_Impl::Buddy(this) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -803,9 +947,13 @@ impl IRTCBuddyGroupEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCBuddyGroupEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCBuddyGroupEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCBuddyGroupEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -1081,7 +1229,7 @@ pub struct IRTCClient_Vtbl {
     pub IsTuned: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IRTCClient_Impl: windows_core::IUnknownImpl {
+pub trait IRTCClient_Impl {
     fn Initialize(&self) -> windows_core::Result<()>;
     fn Shutdown(&self) -> windows_core::Result<()>;
     fn PrepareForShutdown(&self) -> windows_core::Result<()>;
@@ -1127,34 +1275,57 @@ pub trait IRTCClient_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClient_Vtbl {
-    pub const fn new<Identity: IRTCClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+    {
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::Initialize(this).into()
             }
         }
-        unsafe extern "system" fn Shutdown<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Shutdown<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::Shutdown(this).into()
             }
         }
-        unsafe extern "system" fn PrepareForShutdown<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrepareForShutdown<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::PrepareForShutdown(this).into()
             }
         }
-        unsafe extern "system" fn SetEventFilter<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfilter: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEventFilter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lfilter: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetEventFilter(this, core::mem::transmute_copy(&lfilter)).into()
             }
         }
-        unsafe extern "system" fn EventFilter<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plfilter: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventFilter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plfilter: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::EventFilter(this) {
                     Ok(ok__) => {
                         plfilter.write(core::mem::transmute(ok__));
@@ -1164,15 +1335,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPreferredMediaTypes<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPreferredMediaTypes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetPreferredMediaTypes(this, core::mem::transmute_copy(&lmediatypes), core::mem::transmute_copy(&fpersistent)).into()
             }
         }
-        unsafe extern "system" fn PreferredMediaTypes<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PreferredMediaTypes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::PreferredMediaTypes(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -1182,9 +1361,13 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MediaCapabilities<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MediaCapabilities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::MediaCapabilities(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -1194,9 +1377,13 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateSession<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSession<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::CreateSession(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -1206,15 +1393,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetListenForIncomingSessions<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enlisten: RTC_LISTEN_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetListenForIncomingSessions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enlisten: RTC_LISTEN_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetListenForIncomingSessions(this, core::mem::transmute_copy(&enlisten)).into()
             }
         }
-        unsafe extern "system" fn ListenForIncomingSessions<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penlisten: *mut RTC_LISTEN_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn ListenForIncomingSessions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penlisten: *mut RTC_LISTEN_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::ListenForIncomingSessions(this) {
                     Ok(ok__) => {
                         penlisten.write(core::mem::transmute(ok__));
@@ -1224,9 +1419,13 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_NetworkAddresses<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL, pvaddresses: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_NetworkAddresses<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL, pvaddresses: *mut super::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::get_NetworkAddresses(this, core::mem::transmute_copy(&ftcp), core::mem::transmute_copy(&fexternal)) {
                     Ok(ok__) => {
                         pvaddresses.write(core::mem::transmute(ok__));
@@ -1236,15 +1435,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_Volume<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Volume<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::put_Volume(this, core::mem::transmute_copy(&endevice), core::mem::transmute_copy(&lvolume)).into()
             }
         }
-        unsafe extern "system" fn get_Volume<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Volume<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::get_Volume(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         plvolume.write(core::mem::transmute(ok__));
@@ -1254,15 +1461,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_AudioMuted<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AudioMuted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::put_AudioMuted(this, core::mem::transmute_copy(&endevice), core::mem::transmute_copy(&fmuted)).into()
             }
         }
-        unsafe extern "system" fn get_AudioMuted<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pfmuted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AudioMuted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pfmuted: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::get_AudioMuted(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         pfmuted.write(core::mem::transmute(ok__));
@@ -1272,9 +1487,13 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_IVideoWindow<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_VIDEO_DEVICE, ppivideowindow: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_IVideoWindow<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_VIDEO_DEVICE, ppivideowindow: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::get_IVideoWindow(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         ppivideowindow.write(core::mem::transmute(ok__));
@@ -1284,15 +1503,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_PreferredAudioDevice<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PreferredAudioDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, bstrdevicename: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::put_PreferredAudioDevice(this, core::mem::transmute_copy(&endevice), core::mem::transmute(&bstrdevicename)).into()
             }
         }
-        unsafe extern "system" fn get_PreferredAudioDevice<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pbstrdevicename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PreferredAudioDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, pbstrdevicename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::get_PreferredAudioDevice(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         pbstrdevicename.write(core::mem::transmute(ok__));
@@ -1302,15 +1529,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_PreferredVolume<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PreferredVolume<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::put_PreferredVolume(this, core::mem::transmute_copy(&endevice), core::mem::transmute_copy(&lvolume)).into()
             }
         }
-        unsafe extern "system" fn get_PreferredVolume<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PreferredVolume<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endevice: RTC_AUDIO_DEVICE, plvolume: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::get_PreferredVolume(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
                         plvolume.write(core::mem::transmute(ok__));
@@ -1320,15 +1555,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPreferredAEC<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPreferredAEC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetPreferredAEC(this, core::mem::transmute_copy(&benable)).into()
             }
         }
-        unsafe extern "system" fn PreferredAEC<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PreferredAEC<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::PreferredAEC(this) {
                     Ok(ok__) => {
                         pbenabled.write(core::mem::transmute(ok__));
@@ -1338,15 +1581,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPreferredVideoDevice<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdevicename: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPreferredVideoDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdevicename: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetPreferredVideoDevice(this, core::mem::transmute(&bstrdevicename)).into()
             }
         }
-        unsafe extern "system" fn PreferredVideoDevice<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn PreferredVideoDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdevicename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::PreferredVideoDevice(this) {
                     Ok(ok__) => {
                         pbstrdevicename.write(core::mem::transmute(ok__));
@@ -1356,9 +1607,13 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ActiveMedia<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ActiveMedia<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatype: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::ActiveMedia(this) {
                     Ok(ok__) => {
                         plmediatype.write(core::mem::transmute(ok__));
@@ -1368,15 +1623,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMaxBitrate<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxbitrate: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaxBitrate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmaxbitrate: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetMaxBitrate(this, core::mem::transmute_copy(&lmaxbitrate)).into()
             }
         }
-        unsafe extern "system" fn MaxBitrate<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxbitrate: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MaxBitrate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmaxbitrate: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::MaxBitrate(this) {
                     Ok(ok__) => {
                         plmaxbitrate.write(core::mem::transmute(ok__));
@@ -1386,15 +1649,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTemporalSpatialTradeOff<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvalue: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTemporalSpatialTradeOff<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvalue: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetTemporalSpatialTradeOff(this, core::mem::transmute_copy(&lvalue)).into()
             }
         }
-        unsafe extern "system" fn TemporalSpatialTradeOff<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn TemporalSpatialTradeOff<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plvalue: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::TemporalSpatialTradeOff(this) {
                     Ok(ok__) => {
                         plvalue.write(core::mem::transmute(ok__));
@@ -1404,9 +1675,13 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn NetworkQuality<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plnetworkquality: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn NetworkQuality<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plnetworkquality: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::NetworkQuality(this) {
                     Ok(ok__) => {
                         plnetworkquality.write(core::mem::transmute(ok__));
@@ -1416,21 +1691,33 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StartT120Applet<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enapplet: RTC_T120_APPLET) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartT120Applet<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enapplet: RTC_T120_APPLET) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::StartT120Applet(this, core::mem::transmute_copy(&enapplet)).into()
             }
         }
-        unsafe extern "system" fn StopT120Applets<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StopT120Applets<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::StopT120Applets(this).into()
             }
         }
-        unsafe extern "system" fn get_IsT120AppletRunning<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enapplet: RTC_T120_APPLET, pfrunning: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_IsT120AppletRunning<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enapplet: RTC_T120_APPLET, pfrunning: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::get_IsT120AppletRunning(this, core::mem::transmute_copy(&enapplet)) {
                     Ok(ok__) => {
                         pfrunning.write(core::mem::transmute(ok__));
@@ -1440,9 +1727,13 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LocalUserURI<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocalUserURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::LocalUserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -1452,15 +1743,23 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLocalUserURI<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruseruri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLocalUserURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruseruri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetLocalUserURI(this, core::mem::transmute(&bstruseruri)).into()
             }
         }
-        unsafe extern "system" fn LocalUserName<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LocalUserName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::LocalUserName(this) {
                     Ok(ok__) => {
                         pbstrusername.write(core::mem::transmute(ok__));
@@ -1470,33 +1769,53 @@ impl IRTCClient_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLocalUserName<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLocalUserName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SetLocalUserName(this, core::mem::transmute(&bstrusername)).into()
             }
         }
-        unsafe extern "system" fn PlayRing<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlayRing<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::PlayRing(this, core::mem::transmute_copy(&entype), core::mem::transmute_copy(&bplay)).into()
             }
         }
-        unsafe extern "system" fn SendDTMF<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endtmf: RTC_DTMF) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendDTMF<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endtmf: RTC_DTMF) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::SendDTMF(this, core::mem::transmute_copy(&endtmf)).into()
             }
         }
-        unsafe extern "system" fn InvokeTuningWizard<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeTuningWizard<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient_Impl::InvokeTuningWizard(this, core::mem::transmute_copy(&hwndparent)).into()
             }
         }
-        unsafe extern "system" fn IsTuned<Identity: IRTCClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pftuned: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsTuned<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pftuned: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient_Impl::IsTuned(this) {
                     Ok(ok__) => {
                         pftuned.write(core::mem::transmute(ok__));
@@ -1664,16 +1983,27 @@ pub trait IRTCClient2_Impl: IRTCClient_Impl {
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClient2_Vtbl {
-    pub const fn new<Identity: IRTCClient2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn put_AnswerMode<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+    {
+        unsafe extern "system" fn put_AnswerMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::put_AnswerMode(this, core::mem::transmute_copy(&entype), core::mem::transmute_copy(&enmode)).into()
             }
         }
-        unsafe extern "system" fn get_AnswerMode<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, penmode: *mut RTC_ANSWER_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AnswerMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, penmode: *mut RTC_ANSWER_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient2_Impl::get_AnswerMode(this, core::mem::transmute_copy(&entype)) {
                     Ok(ok__) => {
                         penmode.write(core::mem::transmute(ok__));
@@ -1683,15 +2013,23 @@ impl IRTCClient2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn InvokeTuningWizardEx<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: isize, fallowaudio: super::super::Foundation::VARIANT_BOOL, fallowvideo: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn InvokeTuningWizardEx<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndparent: isize, fallowaudio: super::super::Foundation::VARIANT_BOOL, fallowvideo: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::InvokeTuningWizardEx(this, core::mem::transmute_copy(&hwndparent), core::mem::transmute_copy(&fallowaudio), core::mem::transmute_copy(&fallowvideo)).into()
             }
         }
-        unsafe extern "system" fn Version<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plversion: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Version<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plversion: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient2_Impl::Version(this) {
                     Ok(ok__) => {
                         plversion.write(core::mem::transmute(ok__));
@@ -1701,27 +2039,43 @@ impl IRTCClient2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetClientName<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclientname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclientname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::SetClientName(this, core::mem::transmute(&bstrclientname)).into()
             }
         }
-        unsafe extern "system" fn SetClientCurVer<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclientcurver: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClientCurVer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrclientcurver: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::SetClientCurVer(this, core::mem::transmute(&bstrclientcurver)).into()
             }
         }
-        unsafe extern "system" fn InitializeEx<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn InitializeEx<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lflags: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::InitializeEx(this, core::mem::transmute_copy(&lflags)).into()
             }
         }
-        unsafe extern "system" fn CreateSessionWithDescription<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppsession2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSessionWithDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppsession2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient2_Impl::CreateSessionWithDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppsession2.write(core::mem::transmute(ok__));
@@ -1731,21 +2085,33 @@ impl IRTCClient2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSessionDescriptionManager<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psessiondescriptionmanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSessionDescriptionManager<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, psessiondescriptionmanager: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::SetSessionDescriptionManager(this, core::mem::transmute_copy(&psessiondescriptionmanager)).into()
             }
         }
-        unsafe extern "system" fn put_PreferredSecurityLevel<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PreferredSecurityLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::put_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype), core::mem::transmute_copy(&ensecuritylevel)).into()
             }
         }
-        unsafe extern "system" fn get_PreferredSecurityLevel<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PreferredSecurityLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -1755,15 +2121,23 @@ impl IRTCClient2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_AllowedPorts<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AllowedPorts<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClient2_Impl::put_AllowedPorts(this, core::mem::transmute_copy(&ltransport), core::mem::transmute_copy(&enlistenmode)).into()
             }
         }
-        unsafe extern "system" fn get_AllowedPorts<Identity: IRTCClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltransport: i32, penlistenmode: *mut RTC_LISTEN_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AllowedPorts<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ltransport: i32, penlistenmode: *mut RTC_LISTEN_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClient2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClient2_Impl::get_AllowedPorts(this, core::mem::transmute_copy(&ltransport)) {
                     Ok(ok__) => {
                         penlistenmode.write(core::mem::transmute(ok__));
@@ -1837,10 +2211,17 @@ pub trait IRTCClientEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientEvent_Vtbl {
-    pub const fn new<Identity: IRTCClientEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventType<Identity: IRTCClientEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventtype: *mut RTC_CLIENT_EVENT_TYPE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientEvent_Impl,
+    {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventtype: *mut RTC_CLIENT_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peneventtype.write(core::mem::transmute(ok__));
@@ -1850,9 +2231,13 @@ impl IRTCClientEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Client<Identity: IRTCClientEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclient: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Client<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclient: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientEvent_Impl::Client(this) {
                     Ok(ok__) => {
                         ppclient.write(core::mem::transmute(ok__));
@@ -1891,28 +2276,43 @@ pub struct IRTCClientPortManagement_Vtbl {
     pub StopListenAddressAndPort: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetPortRange: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_PORT_TYPE, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
-pub trait IRTCClientPortManagement_Impl: windows_core::IUnknownImpl {
+pub trait IRTCClientPortManagement_Impl {
     fn StartListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_core::Result<()>;
     fn StopListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_core::Result<()>;
     fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_core::Result<()>;
 }
 impl IRTCClientPortManagement_Vtbl {
-    pub const fn new<Identity: IRTCClientPortManagement_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn StartListenAddressAndPort<Identity: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPortManagement_Impl,
+    {
+        unsafe extern "system" fn StartListenAddressAndPort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPortManagement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPortManagement_Impl::StartListenAddressAndPort(this, core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport)).into()
             }
         }
-        unsafe extern "system" fn StopListenAddressAndPort<Identity: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StopListenAddressAndPort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPortManagement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPortManagement_Impl::StopListenAddressAndPort(this, core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport)).into()
             }
         }
-        unsafe extern "system" fn GetPortRange<Identity: IRTCClientPortManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPortRange<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPortManagement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPortManagement_Impl::GetPortRange(this, core::mem::transmute_copy(&enporttype), core::mem::transmute_copy(&plminvalue), core::mem::transmute_copy(&plmaxvalue)).into()
             }
         }
@@ -2069,7 +2469,7 @@ pub struct IRTCClientPresence_Vtbl {
     pub SetPrivacyMode: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_PRIVACY_MODE) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IRTCClientPresence_Impl: windows_core::IUnknownImpl {
+pub trait IRTCClientPresence_Impl {
     fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Export(&self, varstorage: &super::Variant::VARIANT) -> windows_core::Result<()>;
     fn Import(&self, varstorage: &super::Variant::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -2091,28 +2491,47 @@ pub trait IRTCClientPresence_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientPresence_Vtbl {
-    pub const fn new<Identity: IRTCClientPresence_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnablePresence<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: super::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+    {
+        unsafe extern "system" fn EnablePresence<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: super::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::EnablePresence(this, core::mem::transmute_copy(&fusestorage), core::mem::transmute(&varstorage)).into()
             }
         }
-        unsafe extern "system" fn Export<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varstorage: super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Export<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, varstorage: super::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::Export(this, core::mem::transmute(&varstorage)).into()
             }
         }
-        unsafe extern "system" fn Import<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varstorage: super::Variant::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Import<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, varstorage: super::Variant::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::Import(this, core::mem::transmute(&varstorage), core::mem::transmute_copy(&freplaceall)).into()
             }
         }
-        unsafe extern "system" fn EnumerateBuddies<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateBuddies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::EnumerateBuddies(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -2122,9 +2541,13 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Buddies<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Buddies<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::Buddies(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -2134,9 +2557,13 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_Buddy<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Buddy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::get_Buddy(this, core::mem::transmute(&bstrpresentityuri)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -2146,9 +2573,13 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddBuddy<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: *mut core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddBuddy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: *mut core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::AddBuddy(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -2158,15 +2589,23 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveBuddy<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveBuddy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuddy: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::RemoveBuddy(this, core::mem::transmute_copy(&pbuddy)).into()
             }
         }
-        unsafe extern "system" fn EnumerateWatchers<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateWatchers<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::EnumerateWatchers(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -2176,9 +2615,13 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Watchers<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Watchers<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::Watchers(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -2188,9 +2631,13 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_Watcher<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Watcher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::get_Watcher(this, core::mem::transmute(&bstrpresentityuri)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -2200,9 +2647,13 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddWatcher<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddWatcher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::AddWatcher(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fblocked), core::mem::transmute_copy(&fpersistent)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -2212,21 +2663,33 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveWatcher<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwatcher: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveWatcher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwatcher: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::RemoveWatcher(this, core::mem::transmute_copy(&pwatcher)).into()
             }
         }
-        unsafe extern "system" fn SetLocalPresenceInfo<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enstatus: RTC_PRESENCE_STATUS, bstrnotes: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLocalPresenceInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enstatus: RTC_PRESENCE_STATUS, bstrnotes: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::SetLocalPresenceInfo(this, core::mem::transmute_copy(&enstatus), core::mem::transmute(&bstrnotes)).into()
             }
         }
-        unsafe extern "system" fn OfferWatcherMode<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penmode: *mut RTC_OFFER_WATCHER_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn OfferWatcherMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penmode: *mut RTC_OFFER_WATCHER_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::OfferWatcherMode(this) {
                     Ok(ok__) => {
                         penmode.write(core::mem::transmute(ok__));
@@ -2236,15 +2699,23 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOfferWatcherMode<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enmode: RTC_OFFER_WATCHER_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOfferWatcherMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enmode: RTC_OFFER_WATCHER_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::SetOfferWatcherMode(this, core::mem::transmute_copy(&enmode)).into()
             }
         }
-        unsafe extern "system" fn PrivacyMode<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penmode: *mut RTC_PRIVACY_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn PrivacyMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penmode: *mut RTC_PRIVACY_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence_Impl::PrivacyMode(this) {
                     Ok(ok__) => {
                         penmode.write(core::mem::transmute(ok__));
@@ -2254,9 +2725,13 @@ impl IRTCClientPresence_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPrivacyMode<Identity: IRTCClientPresence_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enmode: RTC_PRIVACY_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPrivacyMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enmode: RTC_PRIVACY_MODE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence_Impl::SetPrivacyMode(this, core::mem::transmute_copy(&enmode)).into()
             }
         }
@@ -2430,22 +2905,37 @@ pub trait IRTCClientPresence2_Impl: IRTCClientPresence_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientPresence2_Vtbl {
-    pub const fn new<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnablePresenceEx<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, varstorage: super::Variant::VARIANT, lflags: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+    {
+        unsafe extern "system" fn EnablePresenceEx<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, varstorage: super::Variant::VARIANT, lflags: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence2_Impl::EnablePresenceEx(this, core::mem::transmute_copy(&pprofile), core::mem::transmute(&varstorage), core::mem::transmute_copy(&lflags)).into()
             }
         }
-        unsafe extern "system" fn DisablePresence<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisablePresence<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence2_Impl::DisablePresence(this).into()
             }
         }
-        unsafe extern "system" fn AddGroup<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddGroup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::AddGroup(this, core::mem::transmute(&bstrgroupname), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppgroup.write(core::mem::transmute(ok__));
@@ -2455,15 +2945,23 @@ impl IRTCClientPresence2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveGroup<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgroup: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveGroup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgroup: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence2_Impl::RemoveGroup(this, core::mem::transmute_copy(&pgroup)).into()
             }
         }
-        unsafe extern "system" fn EnumerateGroups<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateGroups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::EnumerateGroups(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -2473,9 +2971,13 @@ impl IRTCClientPresence2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Groups<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Groups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::Groups(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -2485,9 +2987,13 @@ impl IRTCClientPresence2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_Group<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: *mut core::ffi::c_void, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Group<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrgroupname: *mut core::ffi::c_void, ppgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::get_Group(this, core::mem::transmute(&bstrgroupname)) {
                     Ok(ok__) => {
                         ppgroup.write(core::mem::transmute(ok__));
@@ -2497,9 +3003,13 @@ impl IRTCClientPresence2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddWatcherEx<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: *mut core::ffi::c_void, lflags: i32, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddWatcherEx<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: *mut core::ffi::c_void, lflags: i32, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::AddWatcherEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&enstate), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&enscope), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -2509,9 +3019,13 @@ impl IRTCClientPresence2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_WatcherEx<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: *mut core::ffi::c_void, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_WatcherEx<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: *mut core::ffi::c_void, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::get_WatcherEx(this, core::mem::transmute_copy(&enmode), core::mem::transmute(&bstrpresentityuri)) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -2521,15 +3035,23 @@ impl IRTCClientPresence2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_PresenceProperty<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PresenceProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence2_Impl::put_PresenceProperty(this, core::mem::transmute_copy(&enproperty), core::mem::transmute(&bstrproperty)).into()
             }
         }
-        unsafe extern "system" fn get_PresenceProperty<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                     Ok(ok__) => {
                         pbstrproperty.write(core::mem::transmute(ok__));
@@ -2539,27 +3061,43 @@ impl IRTCClientPresence2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPresenceData<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnamespace: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPresenceData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnamespace: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence2_Impl::SetPresenceData(this, core::mem::transmute(&bstrnamespace), core::mem::transmute(&bstrdata)).into()
             }
         }
-        unsafe extern "system" fn GetPresenceData<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnamespace: *mut *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPresenceData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnamespace: *mut *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence2_Impl::GetPresenceData(this, core::mem::transmute_copy(&pbstrnamespace), core::mem::transmute_copy(&pbstrdata)).into()
             }
         }
-        unsafe extern "system" fn GetLocalPresenceInfo<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLocalPresenceInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientPresence2_Impl::GetLocalPresenceInfo(this, core::mem::transmute_copy(&penstatus), core::mem::transmute_copy(&pbstrnotes)).into()
             }
         }
-        unsafe extern "system" fn AddBuddyEx<Identity: IRTCClientPresence2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: *mut core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddBuddyEx<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: *mut core::ffi::c_void, lflags: i32, ppbuddy: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientPresence2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientPresence2_Impl::AddBuddyEx(this, core::mem::transmute(&bstrpresentityuri), core::mem::transmute(&bstrusername), core::mem::transmute(&bstrdata), core::mem::transmute_copy(&fpersistent), core::mem::transmute_copy(&ensubscriptiontype), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
                         ppbuddy.write(core::mem::transmute(ok__));
@@ -2654,7 +3192,7 @@ pub struct IRTCClientProvisioning_Vtbl {
     pub SessionCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRTCClientProvisioning_Impl: windows_core::IUnknownImpl {
+pub trait IRTCClientProvisioning_Impl {
     fn CreateProfile(&self, bstrprofilexml: &windows_core::BSTR) -> windows_core::Result<IRTCProfile>;
     fn EnableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32) -> windows_core::Result<()>;
     fn DisableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>) -> windows_core::Result<()>;
@@ -2665,10 +3203,17 @@ pub trait IRTCClientProvisioning_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientProvisioning_Vtbl {
-    pub const fn new<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateProfile<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprofilexml: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+    {
+        unsafe extern "system" fn CreateProfile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrprofilexml: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientProvisioning_Impl::CreateProfile(this, core::mem::transmute(&bstrprofilexml)) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -2678,21 +3223,33 @@ impl IRTCClientProvisioning_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnableProfile<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lregisterflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableProfile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lregisterflags: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientProvisioning_Impl::EnableProfile(this, core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lregisterflags)).into()
             }
         }
-        unsafe extern "system" fn DisableProfile<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisableProfile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientProvisioning_Impl::DisableProfile(this, core::mem::transmute_copy(&pprofile)).into()
             }
         }
-        unsafe extern "system" fn EnumerateProfiles<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateProfiles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientProvisioning_Impl::EnumerateProfiles(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -2702,9 +3259,13 @@ impl IRTCClientProvisioning_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Profiles<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Profiles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientProvisioning_Impl::Profiles(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -2714,15 +3275,23 @@ impl IRTCClientProvisioning_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetProfile<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruseraccount: *mut core::ffi::c_void, bstruserpassword: *mut core::ffi::c_void, bstruseruri: *mut core::ffi::c_void, bstrserver: *mut core::ffi::c_void, ltransport: i32, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProfile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruseraccount: *mut core::ffi::c_void, bstruserpassword: *mut core::ffi::c_void, bstruseruri: *mut core::ffi::c_void, bstrserver: *mut core::ffi::c_void, ltransport: i32, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientProvisioning_Impl::GetProfile(this, core::mem::transmute(&bstruseraccount), core::mem::transmute(&bstruserpassword), core::mem::transmute(&bstruseruri), core::mem::transmute(&bstrserver), core::mem::transmute_copy(&ltransport), core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn SessionCapabilities<Identity: IRTCClientProvisioning_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsupportedsessions: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SessionCapabilities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsupportedsessions: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCClientProvisioning_Impl::SessionCapabilities(this) {
                     Ok(ok__) => {
                         plsupportedsessions.write(core::mem::transmute(ok__));
@@ -2777,10 +3346,17 @@ pub trait IRTCClientProvisioning2_Impl: IRTCClientProvisioning_Impl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientProvisioning2_Vtbl {
-    pub const fn new<Identity: IRTCClientProvisioning2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnableProfileEx<Identity: IRTCClientProvisioning2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lregisterflags: i32, lroamingflags: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning2_Impl,
+    {
+        unsafe extern "system" fn EnableProfileEx<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lregisterflags: i32, lroamingflags: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCClientProvisioning2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCClientProvisioning2_Impl::EnableProfileEx(this, core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lregisterflags), core::mem::transmute_copy(&lroamingflags)).into()
             }
         }
@@ -2845,10 +3421,17 @@ pub trait IRTCCollection_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCCollection_Vtbl {
-    pub const fn new<Identity: IRTCCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IRTCCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcount: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCCollection_Impl,
+    {
+        unsafe extern "system" fn Count<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcount: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCCollection_Impl::Count(this) {
                     Ok(ok__) => {
                         lcount.write(core::mem::transmute(ok__));
@@ -2858,9 +3441,13 @@ impl IRTCCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_Item<Identity: IRTCCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvariant: *mut super::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, pvariant: *mut super::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCCollection_Impl::get_Item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         pvariant.write(core::mem::transmute(ok__));
@@ -2870,9 +3457,13 @@ impl IRTCCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IRTCCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnewenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnewenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCCollection_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppnewenum.write(core::mem::transmute(ok__));
@@ -2916,7 +3507,10 @@ pub struct IRTCDispatchEventNotification_Vtbl {
 pub trait IRTCDispatchEventNotification_Impl: super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCDispatchEventNotification_Vtbl {
-    pub const fn new<Identity: IRTCDispatchEventNotification_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCDispatchEventNotification_Impl,
+    {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -2953,35 +3547,54 @@ pub struct IRTCEnumBuddies_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCEnumBuddies_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEnumBuddies_Impl {
     fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddy>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumBuddies>;
 }
 impl IRTCEnumBuddies_Vtbl {
-    pub const fn new<Identity: IRTCEnumBuddies_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IRTCEnumBuddies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
+    {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumBuddies_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IRTCEnumBuddies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumBuddies_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IRTCEnumBuddies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumBuddies_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IRTCEnumBuddies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumBuddies_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCEnumBuddies_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3032,35 +3645,54 @@ pub struct IRTCEnumGroups_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCEnumGroups_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEnumGroups_Impl {
     fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumGroups>;
 }
 impl IRTCEnumGroups_Vtbl {
-    pub const fn new<Identity: IRTCEnumGroups_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IRTCEnumGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
+    {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumGroups_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IRTCEnumGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumGroups_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IRTCEnumGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumGroups_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IRTCEnumGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumGroups_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCEnumGroups_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3111,35 +3743,54 @@ pub struct IRTCEnumParticipants_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCEnumParticipants_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEnumParticipants_Impl {
     fn Next(&self, celt: u32, ppelements: *mut Option<IRTCParticipant>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumParticipants>;
 }
 impl IRTCEnumParticipants_Vtbl {
-    pub const fn new<Identity: IRTCEnumParticipants_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IRTCEnumParticipants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
+    {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumParticipants_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IRTCEnumParticipants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumParticipants_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IRTCEnumParticipants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumParticipants_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IRTCEnumParticipants_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumParticipants_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCEnumParticipants_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3190,35 +3841,54 @@ pub struct IRTCEnumPresenceDevices_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCEnumPresenceDevices_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEnumPresenceDevices_Impl {
     fn Next(&self, celt: u32, ppelements: *mut Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumPresenceDevices>;
 }
 impl IRTCEnumPresenceDevices_Vtbl {
-    pub const fn new<Identity: IRTCEnumPresenceDevices_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IRTCEnumPresenceDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
+    {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumPresenceDevices_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IRTCEnumPresenceDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumPresenceDevices_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IRTCEnumPresenceDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumPresenceDevices_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IRTCEnumPresenceDevices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumPresenceDevices_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCEnumPresenceDevices_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3269,35 +3939,54 @@ pub struct IRTCEnumProfiles_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCEnumProfiles_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEnumProfiles_Impl {
     fn Next(&self, celt: u32, ppelements: *mut Option<IRTCProfile>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumProfiles>;
 }
 impl IRTCEnumProfiles_Vtbl {
-    pub const fn new<Identity: IRTCEnumProfiles_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IRTCEnumProfiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
+    {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumProfiles_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IRTCEnumProfiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumProfiles_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IRTCEnumProfiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumProfiles_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IRTCEnumProfiles_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumProfiles_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCEnumProfiles_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3348,35 +4037,54 @@ pub struct IRTCEnumUserSearchResults_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCEnumUserSearchResults_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEnumUserSearchResults_Impl {
     fn Next(&self, celt: u32, ppelements: *mut Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumUserSearchResults>;
 }
 impl IRTCEnumUserSearchResults_Vtbl {
-    pub const fn new<Identity: IRTCEnumUserSearchResults_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IRTCEnumUserSearchResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
+    {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumUserSearchResults_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IRTCEnumUserSearchResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumUserSearchResults_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IRTCEnumUserSearchResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumUserSearchResults_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IRTCEnumUserSearchResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumUserSearchResults_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCEnumUserSearchResults_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3427,35 +4135,54 @@ pub struct IRTCEnumWatchers_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCEnumWatchers_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEnumWatchers_Impl {
     fn Next(&self, celt: u32, ppelements: *mut Option<IRTCWatcher>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IRTCEnumWatchers>;
 }
 impl IRTCEnumWatchers_Vtbl {
-    pub const fn new<Identity: IRTCEnumWatchers_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Next<Identity: IRTCEnumWatchers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
+    {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppelements: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumWatchers_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppelements), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IRTCEnumWatchers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumWatchers_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IRTCEnumWatchers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEnumWatchers_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IRTCEnumWatchers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEnumWatchers_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCEnumWatchers_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -3499,15 +4226,22 @@ pub struct IRTCEventNotification_Vtbl {
     Event: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRTCEventNotification_Impl: windows_core::IUnknownImpl {
+pub trait IRTCEventNotification_Impl {
     fn Event(&self, rtcevent: RTC_EVENT, pevent: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCEventNotification_Vtbl {
-    pub const fn new<Identity: IRTCEventNotification_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Event<Identity: IRTCEventNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtcevent: RTC_EVENT, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCEventNotification_Impl,
+    {
+        unsafe extern "system" fn Event<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtcevent: RTC_EVENT, pevent: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCEventNotification_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCEventNotification_Impl::Event(this, core::mem::transmute_copy(&rtcevent), core::mem::transmute_copy(&pevent)).into()
             }
         }
@@ -3576,10 +4310,17 @@ pub trait IRTCInfoEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCInfoEvent_Vtbl {
-    pub const fn new<Identity: IRTCInfoEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCInfoEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -3589,9 +4330,13 @@ impl IRTCInfoEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Participant<Identity: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Participant<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCInfoEvent_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -3601,9 +4346,13 @@ impl IRTCInfoEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Info<Identity: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Info<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCInfoEvent_Impl::Info(this) {
                     Ok(ok__) => {
                         pbstrinfo.write(core::mem::transmute(ok__));
@@ -3613,9 +4362,13 @@ impl IRTCInfoEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn InfoHeader<Identity: IRTCInfoEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrinfoheader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn InfoHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrinfoheader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCInfoEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCInfoEvent_Impl::InfoHeader(this) {
                     Ok(ok__) => {
                         pbstrinfoheader.write(core::mem::transmute(ok__));
@@ -3696,10 +4449,17 @@ pub trait IRTCIntensityEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCIntensityEvent_Vtbl {
-    pub const fn new<Identity: IRTCIntensityEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Level<Identity: IRTCIntensityEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pllevel: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
+    {
+        unsafe extern "system" fn Level<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pllevel: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCIntensityEvent_Impl::Level(this) {
                     Ok(ok__) => {
                         pllevel.write(core::mem::transmute(ok__));
@@ -3709,9 +4469,13 @@ impl IRTCIntensityEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Min<Identity: IRTCIntensityEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmin: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Min<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmin: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCIntensityEvent_Impl::Min(this) {
                     Ok(ok__) => {
                         plmin.write(core::mem::transmute(ok__));
@@ -3721,9 +4485,13 @@ impl IRTCIntensityEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Max<Identity: IRTCIntensityEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmax: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Max<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmax: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCIntensityEvent_Impl::Max(this) {
                     Ok(ok__) => {
                         plmax.write(core::mem::transmute(ok__));
@@ -3733,9 +4501,13 @@ impl IRTCIntensityEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Direction<Identity: IRTCIntensityEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pendirection: *mut RTC_AUDIO_DEVICE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Direction<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pendirection: *mut RTC_AUDIO_DEVICE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCIntensityEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCIntensityEvent_Impl::Direction(this) {
                     Ok(ok__) => {
                         pendirection.write(core::mem::transmute(ok__));
@@ -3808,10 +4580,17 @@ pub trait IRTCMediaEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCMediaEvent_Vtbl {
-    pub const fn new<Identity: IRTCMediaEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MediaType<Identity: IRTCMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediatype: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaEvent_Impl,
+    {
+        unsafe extern "system" fn MediaType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediatype: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaEvent_Impl::MediaType(this) {
                     Ok(ok__) => {
                         pmediatype.write(core::mem::transmute(ok__));
@@ -3821,9 +4600,13 @@ impl IRTCMediaEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EventType<Identity: IRTCMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventtype: *mut RTC_MEDIA_EVENT_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventtype: *mut RTC_MEDIA_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peneventtype.write(core::mem::transmute(ok__));
@@ -3833,9 +4616,13 @@ impl IRTCMediaEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EventReason<Identity: IRTCMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventreason: *mut RTC_MEDIA_EVENT_REASON) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventReason<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventreason: *mut RTC_MEDIA_EVENT_REASON) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaEvent_Impl::EventReason(this) {
                     Ok(ok__) => {
                         peneventreason.write(core::mem::transmute(ok__));
@@ -3933,10 +4720,17 @@ pub trait IRTCMediaRequestEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCMediaRequestEvent_Vtbl {
-    pub const fn new<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaRequestEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -3946,9 +4740,13 @@ impl IRTCMediaRequestEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ProposedMedia<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProposedMedia<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaRequestEvent_Impl::ProposedMedia(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -3958,9 +4756,13 @@ impl IRTCMediaRequestEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentMedia<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CurrentMedia<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmediatypes: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaRequestEvent_Impl::CurrentMedia(this) {
                     Ok(ok__) => {
                         plmediatypes.write(core::mem::transmute(ok__));
@@ -3970,15 +4772,23 @@ impl IRTCMediaRequestEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Accept<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatypes: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Accept<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatypes: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCMediaRequestEvent_Impl::Accept(this, core::mem::transmute_copy(&lmediatypes)).into()
             }
         }
-        unsafe extern "system" fn get_RemotePreferredSecurityLevel<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_RemotePreferredSecurityLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaRequestEvent_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -3988,15 +4798,23 @@ impl IRTCMediaRequestEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Reject<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCMediaRequestEvent_Impl::Reject(this).into()
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCMediaRequestEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut RTC_REINVITE_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut RTC_REINVITE_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMediaRequestEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMediaRequestEvent_Impl::State(this) {
                     Ok(ok__) => {
                         pstate.write(core::mem::transmute(ok__));
@@ -4096,10 +4914,17 @@ pub trait IRTCMessagingEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCMessagingEvent_Vtbl {
-    pub const fn new<Identity: IRTCMessagingEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMessagingEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -4109,9 +4934,13 @@ impl IRTCMessagingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Participant<Identity: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Participant<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMessagingEvent_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -4121,9 +4950,13 @@ impl IRTCMessagingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EventType<Identity: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventtype: *mut RTC_MESSAGING_EVENT_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peneventtype: *mut RTC_MESSAGING_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMessagingEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peneventtype.write(core::mem::transmute(ok__));
@@ -4133,9 +4966,13 @@ impl IRTCMessagingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Message<Identity: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Message<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmessage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMessagingEvent_Impl::Message(this) {
                     Ok(ok__) => {
                         pbstrmessage.write(core::mem::transmute(ok__));
@@ -4145,9 +4982,13 @@ impl IRTCMessagingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MessageHeader<Identity: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmessageheader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn MessageHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrmessageheader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMessagingEvent_Impl::MessageHeader(this) {
                     Ok(ok__) => {
                         pbstrmessageheader.write(core::mem::transmute(ok__));
@@ -4157,9 +4998,13 @@ impl IRTCMessagingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UserStatus<Identity: IRTCMessagingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penuserstatus: *mut RTC_MESSAGING_USER_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penuserstatus: *mut RTC_MESSAGING_USER_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCMessagingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCMessagingEvent_Impl::UserStatus(this) {
                     Ok(ok__) => {
                         penuserstatus.write(core::mem::transmute(ok__));
@@ -4229,7 +5074,7 @@ pub struct IRTCParticipant_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_PARTICIPANT_STATE) -> windows_core::HRESULT,
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCParticipant_Impl: windows_core::IUnknownImpl {
+pub trait IRTCParticipant_Impl {
     fn UserURI(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Removable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4237,10 +5082,17 @@ pub trait IRTCParticipant_Impl: windows_core::IUnknownImpl {
     fn Session(&self) -> windows_core::Result<IRTCSession>;
 }
 impl IRTCParticipant_Vtbl {
-    pub const fn new<Identity: IRTCParticipant_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn UserURI<Identity: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
+    {
+        unsafe extern "system" fn UserURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipant_Impl::UserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -4250,9 +5102,13 @@ impl IRTCParticipant_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Name<Identity: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipant_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -4262,9 +5118,13 @@ impl IRTCParticipant_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Removable<Identity: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfremovable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Removable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfremovable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipant_Impl::Removable(this) {
                     Ok(ok__) => {
                         pfremovable.write(core::mem::transmute(ok__));
@@ -4274,9 +5134,13 @@ impl IRTCParticipant_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipant_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -4286,9 +5150,13 @@ impl IRTCParticipant_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Session<Identity: IRTCParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipant_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -4361,10 +5229,17 @@ pub trait IRTCParticipantStateChangeEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCParticipantStateChangeEvent_Vtbl {
-    pub const fn new<Identity: IRTCParticipantStateChangeEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Participant<Identity: IRTCParticipantStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipantStateChangeEvent_Impl,
+    {
+        unsafe extern "system" fn Participant<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipantStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipantStateChangeEvent_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -4374,9 +5249,13 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCParticipantStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipantStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipantStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -4386,9 +5265,13 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCParticipantStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCParticipantStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCParticipantStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -4432,28 +5315,43 @@ pub struct IRTCPortManager_Vtbl {
     pub UpdateRemoteAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ReleaseMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-pub trait IRTCPortManager_Impl: windows_core::IUnknownImpl {
+pub trait IRTCPortManager_Impl {
     fn GetMapping(&self, bstrremoteaddress: &windows_core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut windows_core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut windows_core::BSTR, plexternallocalport: *mut i32) -> windows_core::Result<()>;
     fn UpdateRemoteAddress(&self, bstrremoteaddress: &windows_core::BSTR, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocalport: i32) -> windows_core::Result<()>;
     fn ReleaseMapping(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocaladdress: i32) -> windows_core::Result<()>;
 }
 impl IRTCPortManager_Vtbl {
-    pub const fn new<Identity: IRTCPortManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMapping<Identity: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrremoteaddress: *mut core::ffi::c_void, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut *mut core::ffi::c_void, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut *mut core::ffi::c_void, plexternallocalport: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCPortManager_Impl,
+    {
+        unsafe extern "system" fn GetMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrremoteaddress: *mut core::ffi::c_void, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut *mut core::ffi::c_void, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut *mut core::ffi::c_void, plexternallocalport: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPortManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPortManager_Impl::GetMapping(this, core::mem::transmute(&bstrremoteaddress), core::mem::transmute_copy(&enporttype), core::mem::transmute_copy(&pbstrinternallocaladdress), core::mem::transmute_copy(&plinternallocalport), core::mem::transmute_copy(&pbstrexternallocaladdress), core::mem::transmute_copy(&plexternallocalport)).into()
             }
         }
-        unsafe extern "system" fn UpdateRemoteAddress<Identity: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrremoteaddress: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32, bstrexternallocaladdress: *mut core::ffi::c_void, lexternallocalport: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateRemoteAddress<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrremoteaddress: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32, bstrexternallocaladdress: *mut core::ffi::c_void, lexternallocalport: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPortManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPortManager_Impl::UpdateRemoteAddress(this, core::mem::transmute(&bstrremoteaddress), core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport), core::mem::transmute(&bstrexternallocaladdress), core::mem::transmute_copy(&lexternallocalport)).into()
             }
         }
-        unsafe extern "system" fn ReleaseMapping<Identity: IRTCPortManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32, bstrexternallocaladdress: *mut core::ffi::c_void, lexternallocaladdress: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinternallocaladdress: *mut core::ffi::c_void, linternallocalport: i32, bstrexternallocaladdress: *mut core::ffi::c_void, lexternallocaladdress: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPortManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPortManager_Impl::ReleaseMapping(this, core::mem::transmute(&bstrinternallocaladdress), core::mem::transmute_copy(&linternallocalport), core::mem::transmute(&bstrexternallocaladdress), core::mem::transmute_copy(&lexternallocaladdress)).into()
             }
         }
@@ -4522,7 +5420,7 @@ pub struct IRTCPresenceContact_Vtbl {
     pub Persistent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub SetPersistent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
-pub trait IRTCPresenceContact_Impl: windows_core::IUnknownImpl {
+pub trait IRTCPresenceContact_Impl {
     fn PresentityURI(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetPresentityURI(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -4533,10 +5431,17 @@ pub trait IRTCPresenceContact_Impl: windows_core::IUnknownImpl {
     fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 impl IRTCPresenceContact_Vtbl {
-    pub const fn new<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PresentityURI<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpresentityuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+    {
+        unsafe extern "system" fn PresentityURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpresentityuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceContact_Impl::PresentityURI(this) {
                     Ok(ok__) => {
                         pbstrpresentityuri.write(core::mem::transmute(ok__));
@@ -4546,15 +5451,23 @@ impl IRTCPresenceContact_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPresentityURI<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPresentityURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpresentityuri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPresenceContact_Impl::SetPresentityURI(this, core::mem::transmute(&bstrpresentityuri)).into()
             }
         }
-        unsafe extern "system" fn Name<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceContact_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -4564,15 +5477,23 @@ impl IRTCPresenceContact_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetName<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPresenceContact_Impl::SetName(this, core::mem::transmute(&bstrname)).into()
             }
         }
-        unsafe extern "system" fn Data<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Data<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceContact_Impl::Data(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -4582,15 +5503,23 @@ impl IRTCPresenceContact_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetData<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPresenceContact_Impl::SetData(this, core::mem::transmute(&bstrdata)).into()
             }
         }
-        unsafe extern "system" fn Persistent<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfpersistent: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Persistent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfpersistent: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceContact_Impl::Persistent(this) {
                     Ok(ok__) => {
                         pfpersistent.write(core::mem::transmute(ok__));
@@ -4600,9 +5529,13 @@ impl IRTCPresenceContact_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPersistent<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPersistent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceContact_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPresenceContact_Impl::SetPersistent(this, core::mem::transmute_copy(&fpersistent)).into()
             }
         }
@@ -4669,10 +5602,17 @@ pub trait IRTCPresenceDataEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCPresenceDataEvent_Vtbl {
-    pub const fn new<Identity: IRTCPresenceDataEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn StatusCode<Identity: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDataEvent_Impl,
+    {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDataEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceDataEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -4682,9 +5622,13 @@ impl IRTCPresenceDataEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDataEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceDataEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -4694,9 +5638,13 @@ impl IRTCPresenceDataEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPresenceData<Identity: IRTCPresenceDataEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnamespace: *mut *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPresenceData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnamespace: *mut *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDataEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPresenceDataEvent_Impl::GetPresenceData(this, core::mem::transmute_copy(&pbstrnamespace), core::mem::transmute_copy(&pbstrdata)).into()
             }
         }
@@ -4747,17 +5695,24 @@ pub struct IRTCPresenceDevice_Vtbl {
     pub get_PresenceProperty: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_PRESENCE_PROPERTY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPresenceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCPresenceDevice_Impl: windows_core::IUnknownImpl {
+pub trait IRTCPresenceDevice_Impl {
     fn Status(&self) -> windows_core::Result<RTC_PRESENCE_STATUS>;
     fn Notes(&self) -> windows_core::Result<windows_core::BSTR>;
     fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR>;
     fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IRTCPresenceDevice_Vtbl {
-    pub const fn new<Identity: IRTCPresenceDevice_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Status<Identity: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
+    {
+        unsafe extern "system" fn Status<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceDevice_Impl::Status(this) {
                     Ok(ok__) => {
                         penstatus.write(core::mem::transmute(ok__));
@@ -4767,9 +5722,13 @@ impl IRTCPresenceDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Notes<Identity: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Notes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceDevice_Impl::Notes(this) {
                     Ok(ok__) => {
                         pbstrnotes.write(core::mem::transmute(ok__));
@@ -4779,9 +5738,13 @@ impl IRTCPresenceDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_PresenceProperty<Identity: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PresenceProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enproperty: RTC_PRESENCE_PROPERTY, pbstrproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceDevice_Impl::get_PresenceProperty(this, core::mem::transmute_copy(&enproperty)) {
                     Ok(ok__) => {
                         pbstrproperty.write(core::mem::transmute(ok__));
@@ -4791,9 +5754,13 @@ impl IRTCPresenceDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPresenceData<Identity: IRTCPresenceDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnamespace: *mut *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPresenceData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnamespace: *mut *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceDevice_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPresenceDevice_Impl::GetPresenceData(this, core::mem::transmute_copy(&pbstrnamespace), core::mem::transmute_copy(&pbstrdata)).into()
             }
         }
@@ -4867,10 +5834,17 @@ pub trait IRTCPresencePropertyEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCPresencePropertyEvent_Vtbl {
-    pub const fn new<Identity: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn StatusCode<Identity: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
+    {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresencePropertyEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -4880,9 +5854,13 @@ impl IRTCPresencePropertyEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresencePropertyEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -4892,9 +5870,13 @@ impl IRTCPresencePropertyEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PresenceProperty<Identity: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penpresprop: *mut RTC_PRESENCE_PROPERTY) -> windows_core::HRESULT {
+        unsafe extern "system" fn PresenceProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penpresprop: *mut RTC_PRESENCE_PROPERTY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresencePropertyEvent_Impl::PresenceProperty(this) {
                     Ok(ok__) => {
                         penpresprop.write(core::mem::transmute(ok__));
@@ -4904,9 +5886,13 @@ impl IRTCPresencePropertyEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Value<Identity: IRTCPresencePropertyEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresencePropertyEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresencePropertyEvent_Impl::Value(this) {
                     Ok(ok__) => {
                         pbstrvalue.write(core::mem::transmute(ok__));
@@ -4976,10 +5962,17 @@ pub trait IRTCPresenceStatusEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCPresenceStatusEvent_Vtbl {
-    pub const fn new<Identity: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn StatusCode<Identity: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceStatusEvent_Impl,
+    {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceStatusEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -4989,9 +5982,13 @@ impl IRTCPresenceStatusEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCPresenceStatusEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -5001,9 +5998,13 @@ impl IRTCPresenceStatusEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLocalPresenceInfo<Identity: IRTCPresenceStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLocalPresenceInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCPresenceStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCPresenceStatusEvent_Impl::GetLocalPresenceInfo(this, core::mem::transmute_copy(&penstatus), core::mem::transmute_copy(&pbstrnotes)).into()
             }
         }
@@ -5152,7 +6153,7 @@ pub struct IRTCProfile_Vtbl {
     pub SessionCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_REGISTRATION_STATE) -> windows_core::HRESULT,
 }
-pub trait IRTCProfile_Impl: windows_core::IUnknownImpl {
+pub trait IRTCProfile_Impl {
     fn Key(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn XML(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -5173,10 +6174,17 @@ pub trait IRTCProfile_Impl: windows_core::IUnknownImpl {
     fn State(&self) -> windows_core::Result<RTC_REGISTRATION_STATE>;
 }
 impl IRTCProfile_Vtbl {
-    pub const fn new<Identity: IRTCProfile_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Key<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+    {
+        unsafe extern "system" fn Key<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrkey: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::Key(this) {
                     Ok(ok__) => {
                         pbstrkey.write(core::mem::transmute(ok__));
@@ -5186,9 +6194,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Name<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::Name(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -5198,9 +6210,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn XML<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxml: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn XML<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxml: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::XML(this) {
                     Ok(ok__) => {
                         pbstrxml.write(core::mem::transmute(ok__));
@@ -5210,9 +6226,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ProviderName<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProviderName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ProviderName(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -5222,9 +6242,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_ProviderURI<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enuri: RTC_PROVIDER_URI, pbstruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ProviderURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enuri: RTC_PROVIDER_URI, pbstruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::get_ProviderURI(this, core::mem::transmute_copy(&enuri)) {
                     Ok(ok__) => {
                         pbstruri.write(core::mem::transmute(ok__));
@@ -5234,9 +6258,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ProviderData<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProviderData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ProviderData(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -5246,9 +6274,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClientName<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClientName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ClientName(this) {
                     Ok(ok__) => {
                         pbstrname.write(core::mem::transmute(ok__));
@@ -5258,9 +6290,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClientBanner<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfbanner: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClientBanner<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfbanner: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ClientBanner(this) {
                     Ok(ok__) => {
                         pfbanner.write(core::mem::transmute(ok__));
@@ -5270,9 +6306,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClientMinVer<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrminver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClientMinVer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrminver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ClientMinVer(this) {
                     Ok(ok__) => {
                         pbstrminver.write(core::mem::transmute(ok__));
@@ -5282,9 +6322,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClientCurVer<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcurver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClientCurVer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcurver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ClientCurVer(this) {
                     Ok(ok__) => {
                         pbstrcurver.write(core::mem::transmute(ok__));
@@ -5294,9 +6338,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClientUpdateURI<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrupdateuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClientUpdateURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrupdateuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ClientUpdateURI(this) {
                     Ok(ok__) => {
                         pbstrupdateuri.write(core::mem::transmute(ok__));
@@ -5306,9 +6354,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClientData<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClientData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::ClientData(this) {
                     Ok(ok__) => {
                         pbstrdata.write(core::mem::transmute(ok__));
@@ -5318,9 +6370,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UserURI<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::UserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -5330,9 +6386,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UserName<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::UserName(this) {
                     Ok(ok__) => {
                         pbstrusername.write(core::mem::transmute(ok__));
@@ -5342,9 +6402,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UserAccount<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseraccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UserAccount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseraccount: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::UserAccount(this) {
                     Ok(ok__) => {
                         pbstruseraccount.write(core::mem::transmute(ok__));
@@ -5354,15 +6418,23 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCredentials<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruseruri: *mut core::ffi::c_void, bstruseraccount: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCredentials<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstruseruri: *mut core::ffi::c_void, bstruseraccount: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCProfile_Impl::SetCredentials(this, core::mem::transmute(&bstruseruri), core::mem::transmute(&bstruseraccount), core::mem::transmute(&bstrpassword)).into()
             }
         }
-        unsafe extern "system" fn SessionCapabilities<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsupportedsessions: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SessionCapabilities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsupportedsessions: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::SessionCapabilities(this) {
                     Ok(ok__) => {
                         plsupportedsessions.write(core::mem::transmute(ok__));
@@ -5372,9 +6444,13 @@ impl IRTCProfile_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_REGISTRATION_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_REGISTRATION_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -5455,10 +6531,17 @@ pub trait IRTCProfile2_Impl: IRTCProfile_Impl {
     fn SetAllowedAuth(&self, lallowedauth: i32) -> windows_core::Result<()>;
 }
 impl IRTCProfile2_Vtbl {
-    pub const fn new<Identity: IRTCProfile2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Realm<Identity: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrealm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
+    {
+        unsafe extern "system" fn Realm<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrealm: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile2_Impl::Realm(this) {
                     Ok(ok__) => {
                         pbstrrealm.write(core::mem::transmute(ok__));
@@ -5468,15 +6551,23 @@ impl IRTCProfile2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRealm<Identity: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrealm: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRealm<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrealm: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCProfile2_Impl::SetRealm(this, core::mem::transmute(&bstrrealm)).into()
             }
         }
-        unsafe extern "system" fn AllowedAuth<Identity: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plallowedauth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllowedAuth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plallowedauth: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfile2_Impl::AllowedAuth(this) {
                     Ok(ok__) => {
                         plallowedauth.write(core::mem::transmute(ok__));
@@ -5486,9 +6577,13 @@ impl IRTCProfile2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAllowedAuth<Identity: IRTCProfile2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lallowedauth: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAllowedAuth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lallowedauth: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfile2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCProfile2_Impl::SetAllowedAuth(this, core::mem::transmute_copy(&lallowedauth)).into()
             }
         }
@@ -5554,10 +6649,17 @@ pub trait IRTCProfileEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCProfileEvent_Vtbl {
-    pub const fn new<Identity: IRTCProfileEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Profile<Identity: IRTCProfileEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent_Impl,
+    {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfileEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -5567,9 +6669,13 @@ impl IRTCProfileEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Cookie<Identity: IRTCProfileEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcookie: *mut isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcookie: *mut isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfileEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
                         plcookie.write(core::mem::transmute(ok__));
@@ -5579,9 +6685,13 @@ impl IRTCProfileEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCProfileEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfileEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -5637,10 +6747,17 @@ pub trait IRTCProfileEvent2_Impl: IRTCProfileEvent_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCProfileEvent2_Vtbl {
-    pub const fn new<Identity: IRTCProfileEvent2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventType<Identity: IRTCProfileEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_PROFILE_EVENT_TYPE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent2_Impl,
+    {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_PROFILE_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCProfileEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCProfileEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -5714,10 +6831,17 @@ pub trait IRTCReInviteEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCReInviteEvent_Vtbl {
-    pub const fn new<Identity: IRTCReInviteEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCReInviteEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession2.write(core::mem::transmute(ok__));
@@ -5727,21 +6851,33 @@ impl IRTCReInviteEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Accept<Identity: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Accept<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCReInviteEvent_Impl::Accept(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription)).into()
             }
         }
-        unsafe extern "system" fn Reject<Identity: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCReInviteEvent_Impl::Reject(this).into()
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut RTC_REINVITE_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstate: *mut RTC_REINVITE_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCReInviteEvent_Impl::State(this) {
                     Ok(ok__) => {
                         pstate.write(core::mem::transmute(ok__));
@@ -5751,9 +6887,13 @@ impl IRTCReInviteEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRemoteSessionDescription<Identity: IRTCReInviteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontenttype: *mut *mut core::ffi::c_void, pbstrsessiondescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRemoteSessionDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontenttype: *mut *mut core::ffi::c_void, pbstrsessiondescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCReInviteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCReInviteEvent_Impl::GetRemoteSessionDescription(this, core::mem::transmute_copy(&pbstrcontenttype), core::mem::transmute_copy(&pbstrsessiondescription)).into()
             }
         }
@@ -5829,10 +6969,17 @@ pub trait IRTCRegistrationStateChangeEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCRegistrationStateChangeEvent_Vtbl {
-    pub const fn new<Identity: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Profile<Identity: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
+    {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRegistrationStateChangeEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -5842,9 +6989,13 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_REGISTRATION_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_REGISTRATION_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRegistrationStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -5854,9 +7005,13 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRegistrationStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -5866,9 +7021,13 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCRegistrationStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRegistrationStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRegistrationStateChangeEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -5949,10 +7108,17 @@ pub trait IRTCRoamingEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCRoamingEvent_Vtbl {
-    pub const fn new<Identity: IRTCRoamingEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventType<Identity: IRTCRoamingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_ROAMING_EVENT_TYPE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
+    {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_ROAMING_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRoamingEvent_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -5962,9 +7128,13 @@ impl IRTCRoamingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Profile<Identity: IRTCRoamingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRoamingEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -5974,9 +7144,13 @@ impl IRTCRoamingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCRoamingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRoamingEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -5986,9 +7160,13 @@ impl IRTCRoamingEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCRoamingEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCRoamingEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCRoamingEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -6142,7 +7320,7 @@ pub struct IRTCSession_Vtbl {
     pub put_EncryptionKey: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IRTCSession_Impl: windows_core::IUnknownImpl {
+pub trait IRTCSession_Impl {
     fn Client(&self) -> windows_core::Result<IRTCClient>;
     fn State(&self) -> windows_core::Result<RTC_SESSION_STATE>;
     fn Type(&self) -> windows_core::Result<RTC_SESSION_TYPE>;
@@ -6166,10 +7344,17 @@ pub trait IRTCSession_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSession_Vtbl {
-    pub const fn new<Identity: IRTCSession_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Client<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclient: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+    {
+        unsafe extern "system" fn Client<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppclient: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::Client(this) {
                     Ok(ok__) => {
                         ppclient.write(core::mem::transmute(ok__));
@@ -6179,9 +7364,13 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_SESSION_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_SESSION_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -6191,9 +7380,13 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Type<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentype: *mut RTC_SESSION_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentype: *mut RTC_SESSION_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::Type(this) {
                     Ok(ok__) => {
                         pentype.write(core::mem::transmute(ok__));
@@ -6203,9 +7396,13 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Profile<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -6215,9 +7412,13 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Participants<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Participants<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::Participants(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -6227,27 +7428,43 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Answer<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Answer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::Answer(this).into()
             }
         }
-        unsafe extern "system" fn Terminate<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enreason: RTC_TERMINATE_REASON) -> windows_core::HRESULT {
+        unsafe extern "system" fn Terminate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enreason: RTC_TERMINATE_REASON) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::Terminate(this, core::mem::transmute_copy(&enreason)).into()
             }
         }
-        unsafe extern "system" fn Redirect<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Redirect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lflags: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::Redirect(this, core::mem::transmute_copy(&entype), core::mem::transmute(&bstrlocalphoneuri), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lflags)).into()
             }
         }
-        unsafe extern "system" fn AddParticipant<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraddress: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddParticipant<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstraddress: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::AddParticipant(this, core::mem::transmute(&bstraddress), core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -6257,15 +7474,23 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveParticipant<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparticipant: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveParticipant<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparticipant: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::RemoveParticipant(this, core::mem::transmute_copy(&pparticipant)).into()
             }
         }
-        unsafe extern "system" fn EnumerateParticipants<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateParticipants<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::EnumerateParticipants(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -6275,9 +7500,13 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanAddParticipants<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcanadd: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanAddParticipants<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfcanadd: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::CanAddParticipants(this) {
                     Ok(ok__) => {
                         pfcanadd.write(core::mem::transmute(ok__));
@@ -6287,9 +7516,13 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RedirectedUserURI<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RedirectedUserURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstruseruri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::RedirectedUserURI(this) {
                     Ok(ok__) => {
                         pbstruseruri.write(core::mem::transmute(ok__));
@@ -6299,9 +7532,13 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RedirectedUserName<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RedirectedUserName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession_Impl::RedirectedUserName(this) {
                     Ok(ok__) => {
                         pbstrusername.write(core::mem::transmute(ok__));
@@ -6311,39 +7548,63 @@ impl IRTCSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn NextRedirectedUser<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn NextRedirectedUser<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::NextRedirectedUser(this).into()
             }
         }
-        unsafe extern "system" fn SendMessage<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageheader: *mut core::ffi::c_void, bstrmessage: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendMessage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmessageheader: *mut core::ffi::c_void, bstrmessage: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::SendMessage(this, core::mem::transmute(&bstrmessageheader), core::mem::transmute(&bstrmessage), core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn SendMessageStatus<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendMessageStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::SendMessageStatus(this, core::mem::transmute_copy(&enuserstatus), core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn AddStream<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatype: i32, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatype: i32, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::AddStream(this, core::mem::transmute_copy(&lmediatype), core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn RemoveStream<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatype: i32, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatype: i32, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::RemoveStream(this, core::mem::transmute_copy(&lmediatype), core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn put_EncryptionKey<Identity: IRTCSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatype: i32, encryptionkey: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EncryptionKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmediatype: i32, encryptionkey: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession_Impl::put_EncryptionKey(this, core::mem::transmute_copy(&lmediatype), core::mem::transmute(&encryptionkey)).into()
             }
         }
@@ -6433,22 +7694,37 @@ pub trait IRTCSession2_Impl: IRTCSession_Impl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSession2_Vtbl {
-    pub const fn new<Identity: IRTCSession2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SendInfo<Identity: IRTCSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinfoheader: *mut core::ffi::c_void, bstrinfo: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
+    {
+        unsafe extern "system" fn SendInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrinfoheader: *mut core::ffi::c_void, bstrinfo: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession2_Impl::SendInfo(this, core::mem::transmute(&bstrinfoheader), core::mem::transmute(&bstrinfo), core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn put_PreferredSecurityLevel<Identity: IRTCSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PreferredSecurityLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession2_Impl::put_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype), core::mem::transmute_copy(&ensecuritylevel)).into()
             }
         }
-        unsafe extern "system" fn get_PreferredSecurityLevel<Identity: IRTCSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PreferredSecurityLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -6458,9 +7734,13 @@ impl IRTCSession2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsSecurityEnabled<Identity: IRTCSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pfsecurityenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsSecurityEnabled<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pfsecurityenabled: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSession2_Impl::IsSecurityEnabled(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pfsecurityenabled.write(core::mem::transmute(ok__));
@@ -6470,15 +7750,23 @@ impl IRTCSession2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AnswerWithSessionDescription<Identity: IRTCSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AnswerWithSessionDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession2_Impl::AnswerWithSessionDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription)).into()
             }
         }
-        unsafe extern "system" fn ReInviteWithSessionDescription<Identity: IRTCSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReInviteWithSessionDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSession2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSession2_Impl::ReInviteWithSessionDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -6552,7 +7840,7 @@ pub struct IRTCSessionCallControl_Vtbl {
     pub ReferCookie: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsReferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
-pub trait IRTCSessionCallControl_Impl: windows_core::IUnknownImpl {
+pub trait IRTCSessionCallControl_Impl {
     fn Hold(&self, lcookie: isize) -> windows_core::Result<()>;
     fn UnHold(&self, lcookie: isize) -> windows_core::Result<()>;
     fn Forward(&self, bstrforwardtouri: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -6564,40 +7852,67 @@ pub trait IRTCSessionCallControl_Impl: windows_core::IUnknownImpl {
     fn IsReferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 impl IRTCSessionCallControl_Vtbl {
-    pub const fn new<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Hold<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+    {
+        unsafe extern "system" fn Hold<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionCallControl_Impl::Hold(this, core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn UnHold<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnHold<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionCallControl_Impl::UnHold(this, core::mem::transmute_copy(&lcookie)).into()
             }
         }
-        unsafe extern "system" fn Forward<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrforwardtouri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Forward<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrforwardtouri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionCallControl_Impl::Forward(this, core::mem::transmute(&bstrforwardtouri)).into()
             }
         }
-        unsafe extern "system" fn Refer<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrefertouri: *mut core::ffi::c_void, bstrrefercookie: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Refer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrefertouri: *mut core::ffi::c_void, bstrrefercookie: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionCallControl_Impl::Refer(this, core::mem::transmute(&bstrrefertouri), core::mem::transmute(&bstrrefercookie)).into()
             }
         }
-        unsafe extern "system" fn SetReferredByURI<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreferredbyuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReferredByURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrreferredbyuri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionCallControl_Impl::SetReferredByURI(this, core::mem::transmute(&bstrreferredbyuri)).into()
             }
         }
-        unsafe extern "system" fn ReferredByURI<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreferredbyuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferredByURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreferredbyuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionCallControl_Impl::ReferredByURI(this) {
                     Ok(ok__) => {
                         pbstrreferredbyuri.write(core::mem::transmute(ok__));
@@ -6607,15 +7922,23 @@ impl IRTCSessionCallControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetReferCookie<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrefercookie: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReferCookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrrefercookie: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionCallControl_Impl::SetReferCookie(this, core::mem::transmute(&bstrrefercookie)).into()
             }
         }
-        unsafe extern "system" fn ReferCookie<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrefercookie: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferCookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrefercookie: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionCallControl_Impl::ReferCookie(this) {
                     Ok(ok__) => {
                         pbstrrefercookie.write(core::mem::transmute(ok__));
@@ -6625,9 +7948,13 @@ impl IRTCSessionCallControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsReferred<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisreferred: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsReferred<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisreferred: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionCallControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionCallControl_Impl::IsReferred(this) {
                     Ok(ok__) => {
                         pfisreferred.write(core::mem::transmute(ok__));
@@ -6668,14 +7995,21 @@ pub struct IRTCSessionDescriptionManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub EvaluateSessionDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
-pub trait IRTCSessionDescriptionManager_Impl: windows_core::IUnknownImpl {
+pub trait IRTCSessionDescriptionManager_Impl {
     fn EvaluateSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 impl IRTCSessionDescriptionManager_Vtbl {
-    pub const fn new<Identity: IRTCSessionDescriptionManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EvaluateSessionDescription<Identity: IRTCSessionDescriptionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionDescriptionManager_Impl,
+    {
+        unsafe extern "system" fn EvaluateSessionDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcontenttype: *mut core::ffi::c_void, bstrsessiondescription: *mut core::ffi::c_void, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionDescriptionManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionDescriptionManager_Impl::EvaluateSessionDescription(this, core::mem::transmute(&bstrcontenttype), core::mem::transmute(&bstrsessiondescription), core::mem::transmute_copy(&pfapplicationsession)).into()
             }
         }
@@ -6743,10 +8077,17 @@ pub trait IRTCSessionOperationCompleteEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionOperationCompleteEvent_Vtbl {
-    pub const fn new<Identity: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionOperationCompleteEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -6756,9 +8097,13 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Cookie<Identity: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcookie: *mut isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcookie: *mut isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionOperationCompleteEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
                         plcookie.write(core::mem::transmute(ok__));
@@ -6768,9 +8113,13 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionOperationCompleteEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -6780,9 +8129,13 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCSessionOperationCompleteEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionOperationCompleteEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -6844,10 +8197,17 @@ pub trait IRTCSessionOperationCompleteEvent2_Impl: IRTCSessionOperationCompleteE
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionOperationCompleteEvent2_Vtbl {
-    pub const fn new<Identity: IRTCSessionOperationCompleteEvent2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Participant<Identity: IRTCSessionOperationCompleteEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent2_Impl,
+    {
+        unsafe extern "system" fn Participant<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparticipant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionOperationCompleteEvent2_Impl::Participant(this) {
                     Ok(ok__) => {
                         ppparticipant.write(core::mem::transmute(ok__));
@@ -6857,9 +8217,13 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRemoteSessionDescription<Identity: IRTCSessionOperationCompleteEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontenttype: *mut *mut core::ffi::c_void, pbstrsessiondescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRemoteSessionDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontenttype: *mut *mut core::ffi::c_void, pbstrsessiondescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionOperationCompleteEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionOperationCompleteEvent2_Impl::GetRemoteSessionDescription(this, core::mem::transmute_copy(&pbstrcontenttype), core::mem::transmute_copy(&pbstrsessiondescription)).into()
             }
         }
@@ -6891,14 +8255,21 @@ pub struct IRTCSessionPortManagement_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetPortManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCSessionPortManagement_Impl: windows_core::IUnknownImpl {
+pub trait IRTCSessionPortManagement_Impl {
     fn SetPortManager(&self, pportmanager: windows_core::Ref<IRTCPortManager>) -> windows_core::Result<()>;
 }
 impl IRTCSessionPortManagement_Vtbl {
-    pub const fn new<Identity: IRTCSessionPortManagement_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetPortManager<Identity: IRTCSessionPortManagement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportmanager: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionPortManagement_Impl,
+    {
+        unsafe extern "system" fn SetPortManager<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportmanager: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionPortManagement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionPortManagement_Impl::SetPortManager(this, core::mem::transmute_copy(&pportmanager)).into()
             }
         }
@@ -6966,10 +8337,17 @@ pub trait IRTCSessionReferStatusEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionReferStatusEvent_Vtbl {
-    pub const fn new<Identity: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferStatusEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -6979,9 +8357,13 @@ impl IRTCSessionReferStatusEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReferStatus<Identity: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penreferstatus: *mut RTC_SESSION_REFER_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penreferstatus: *mut RTC_SESSION_REFER_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferStatusEvent_Impl::ReferStatus(this) {
                     Ok(ok__) => {
                         penreferstatus.write(core::mem::transmute(ok__));
@@ -6991,9 +8373,13 @@ impl IRTCSessionReferStatusEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferStatusEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -7003,9 +8389,13 @@ impl IRTCSessionReferStatusEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCSessionReferStatusEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferStatusEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferStatusEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -7101,10 +8491,17 @@ pub trait IRTCSessionReferredEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionReferredEvent_Vtbl {
-    pub const fn new<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferredEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -7114,9 +8511,13 @@ impl IRTCSessionReferredEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReferredByURI<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreferredbyuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferredByURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreferredbyuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferredEvent_Impl::ReferredByURI(this) {
                     Ok(ok__) => {
                         pbstrreferredbyuri.write(core::mem::transmute(ok__));
@@ -7126,9 +8527,13 @@ impl IRTCSessionReferredEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReferToURI<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreferouri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferToURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrreferouri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferredEvent_Impl::ReferToURI(this) {
                     Ok(ok__) => {
                         pbstrreferouri.write(core::mem::transmute(ok__));
@@ -7138,9 +8543,13 @@ impl IRTCSessionReferredEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReferCookie<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrefercookie: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReferCookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrrefercookie: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionReferredEvent_Impl::ReferCookie(this) {
                     Ok(ok__) => {
                         pbstrrefercookie.write(core::mem::transmute(ok__));
@@ -7150,21 +8559,33 @@ impl IRTCSessionReferredEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Accept<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Accept<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionReferredEvent_Impl::Accept(this).into()
             }
         }
-        unsafe extern "system" fn Reject<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionReferredEvent_Impl::Reject(this).into()
             }
         }
-        unsafe extern "system" fn SetReferredSessionState<Identity: IRTCSessionReferredEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enstate: RTC_SESSION_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetReferredSessionState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enstate: RTC_SESSION_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionReferredEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionReferredEvent_Impl::SetReferredSessionState(this, core::mem::transmute_copy(&enstate)).into()
             }
         }
@@ -7242,10 +8663,17 @@ pub trait IRTCSessionStateChangeEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionStateChangeEvent_Vtbl {
-    pub const fn new<Identity: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Session<Identity: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
+    {
+        unsafe extern "system" fn Session<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionStateChangeEvent_Impl::Session(this) {
                     Ok(ok__) => {
                         ppsession.write(core::mem::transmute(ok__));
@@ -7255,9 +8683,13 @@ impl IRTCSessionStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_SESSION_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_SESSION_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -7267,9 +8699,13 @@ impl IRTCSessionStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -7279,9 +8715,13 @@ impl IRTCSessionStateChangeEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusText<Identity: IRTCSessionStateChangeEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatustext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionStateChangeEvent_Impl::StatusText(this) {
                     Ok(ok__) => {
                         pbstrstatustext.write(core::mem::transmute(ok__));
@@ -7359,10 +8799,17 @@ pub trait IRTCSessionStateChangeEvent2_Impl: IRTCSessionStateChangeEvent_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionStateChangeEvent2_Vtbl {
-    pub const fn new<Identity: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MediaTypes<Identity: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediatypes: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
+    {
+        unsafe extern "system" fn MediaTypes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediatypes: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionStateChangeEvent2_Impl::MediaTypes(this) {
                     Ok(ok__) => {
                         pmediatypes.write(core::mem::transmute(ok__));
@@ -7372,9 +8819,13 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_RemotePreferredSecurityLevel<Identity: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_RemotePreferredSecurityLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ensecuritytype: RTC_SECURITY_TYPE, pensecuritylevel: *mut RTC_SECURITY_LEVEL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionStateChangeEvent2_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
                         pensecuritylevel.write(core::mem::transmute(ok__));
@@ -7384,9 +8835,13 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsForked<Identity: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisforked: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsForked<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfisforked: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCSessionStateChangeEvent2_Impl::IsForked(this) {
                     Ok(ok__) => {
                         pfisforked.write(core::mem::transmute(ok__));
@@ -7396,9 +8851,13 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRemoteSessionDescription<Identity: IRTCSessionStateChangeEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontenttype: *mut *mut core::ffi::c_void, pbstrsessiondescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRemoteSessionDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrcontenttype: *mut *mut core::ffi::c_void, pbstrsessiondescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCSessionStateChangeEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCSessionStateChangeEvent2_Impl::GetRemoteSessionDescription(this, core::mem::transmute_copy(&pbstrcontenttype), core::mem::transmute_copy(&pbstrsessiondescription)).into()
             }
         }
@@ -7440,15 +8899,22 @@ pub struct IRTCUserSearch_Vtbl {
     pub CreateQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExecuteSearch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, isize) -> windows_core::HRESULT,
 }
-pub trait IRTCUserSearch_Impl: windows_core::IUnknownImpl {
+pub trait IRTCUserSearch_Impl {
     fn CreateQuery(&self) -> windows_core::Result<IRTCUserSearchQuery>;
     fn ExecuteSearch(&self, pquery: windows_core::Ref<IRTCUserSearchQuery>, pprofile: windows_core::Ref<IRTCProfile>, lcookie: isize) -> windows_core::Result<()>;
 }
 impl IRTCUserSearch_Vtbl {
-    pub const fn new<Identity: IRTCUserSearch_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateQuery<Identity: IRTCUserSearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearch_Impl,
+    {
+        unsafe extern "system" fn CreateQuery<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearch_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearch_Impl::CreateQuery(this) {
                     Ok(ok__) => {
                         ppquery.write(core::mem::transmute(ok__));
@@ -7458,9 +8924,13 @@ impl IRTCUserSearch_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExecuteSearch<Identity: IRTCUserSearch_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pquery: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExecuteSearch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pquery: *mut core::ffi::c_void, pprofile: *mut core::ffi::c_void, lcookie: isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearch_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCUserSearch_Impl::ExecuteSearch(this, core::mem::transmute_copy(&pquery), core::mem::transmute_copy(&pprofile), core::mem::transmute_copy(&lcookie)).into()
             }
         }
@@ -7524,7 +8994,7 @@ pub struct IRTCUserSearchQuery_Vtbl {
     pub SetSearchDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SearchDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCUserSearchQuery_Impl: windows_core::IUnknownImpl {
+pub trait IRTCUserSearchQuery_Impl {
     fn put_SearchTerm(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn get_SearchTerm(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn SearchTerms(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -7534,16 +9004,27 @@ pub trait IRTCUserSearchQuery_Impl: windows_core::IUnknownImpl {
     fn SearchDomain(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 impl IRTCUserSearchQuery_Vtbl {
-    pub const fn new<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn put_SearchTerm<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+    {
+        unsafe extern "system" fn put_SearchTerm<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCUserSearchQuery_Impl::put_SearchTerm(this, core::mem::transmute(&bstrname), core::mem::transmute(&bstrvalue)).into()
             }
         }
-        unsafe extern "system" fn get_SearchTerm<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SearchTerm<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchQuery_Impl::get_SearchTerm(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
                         pbstrvalue.write(core::mem::transmute(ok__));
@@ -7553,9 +9034,13 @@ impl IRTCUserSearchQuery_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SearchTerms<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnames: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchTerms<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrnames: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchQuery_Impl::SearchTerms(this) {
                     Ok(ok__) => {
                         pbstrnames.write(core::mem::transmute(ok__));
@@ -7565,15 +9050,23 @@ impl IRTCUserSearchQuery_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn put_SearchPreference<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SearchPreference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCUserSearchQuery_Impl::put_SearchPreference(this, core::mem::transmute_copy(&enpreference), core::mem::transmute_copy(&lvalue)).into()
             }
         }
-        unsafe extern "system" fn get_SearchPreference<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, plvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SearchPreference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enpreference: RTC_USER_SEARCH_PREFERENCE, plvalue: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchQuery_Impl::get_SearchPreference(this, core::mem::transmute_copy(&enpreference)) {
                     Ok(ok__) => {
                         plvalue.write(core::mem::transmute(ok__));
@@ -7583,15 +9076,23 @@ impl IRTCUserSearchQuery_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSearchDomain<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdomain: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSearchDomain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdomain: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCUserSearchQuery_Impl::SetSearchDomain(this, core::mem::transmute(&bstrdomain)).into()
             }
         }
-        unsafe extern "system" fn SearchDomain<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdomain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SearchDomain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrdomain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchQuery_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchQuery_Impl::SearchDomain(this) {
                     Ok(ok__) => {
                         pbstrdomain.write(core::mem::transmute(ok__));
@@ -7633,14 +9134,21 @@ pub struct IRTCUserSearchResult_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub get_Value: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_USER_SEARCH_COLUMN, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRTCUserSearchResult_Impl: windows_core::IUnknownImpl {
+pub trait IRTCUserSearchResult_Impl {
     fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> windows_core::Result<windows_core::BSTR>;
 }
 impl IRTCUserSearchResult_Vtbl {
-    pub const fn new<Identity: IRTCUserSearchResult_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn get_Value<Identity: IRTCUserSearchResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResult_Impl,
+    {
+        unsafe extern "system" fn get_Value<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResult_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResult_Impl::get_Value(this, core::mem::transmute_copy(&encolumn)) {
                     Ok(ok__) => {
                         pbstrvalue.write(core::mem::transmute(ok__));
@@ -7738,10 +9246,17 @@ pub trait IRTCUserSearchResultsEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCUserSearchResultsEvent_Vtbl {
-    pub const fn new<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnumerateResults<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+    {
+        unsafe extern "system" fn EnumerateResults<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResultsEvent_Impl::EnumerateResults(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -7751,9 +9266,13 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Results<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Results<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResultsEvent_Impl::Results(this) {
                     Ok(ok__) => {
                         ppcollection.write(core::mem::transmute(ok__));
@@ -7763,9 +9282,13 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Profile<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResultsEvent_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -7775,9 +9298,13 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Query<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Query<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResultsEvent_Impl::Query(this) {
                     Ok(ok__) => {
                         ppquery.write(core::mem::transmute(ok__));
@@ -7787,9 +9314,13 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Cookie<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcookie: *mut isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcookie: *mut isize) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResultsEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
                         plcookie.write(core::mem::transmute(ok__));
@@ -7799,9 +9330,13 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResultsEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -7811,9 +9346,13 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MoreAvailable<Identity: IRTCUserSearchResultsEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfmoreavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn MoreAvailable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfmoreavailable: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCUserSearchResultsEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCUserSearchResultsEvent_Impl::MoreAvailable(this) {
                     Ok(ok__) => {
                         pfmoreavailable.write(core::mem::transmute(ok__));
@@ -7871,10 +9410,17 @@ pub trait IRTCWatcher_Impl: IRTCPresenceContact_Impl {
     fn SetState(&self, enstate: RTC_WATCHER_STATE) -> windows_core::Result<()>;
 }
 impl IRTCWatcher_Vtbl {
-    pub const fn new<Identity: IRTCWatcher_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn State<Identity: IRTCWatcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_WATCHER_STATE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher_Impl,
+    {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penstate: *mut RTC_WATCHER_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCWatcher_Impl::State(this) {
                     Ok(ok__) => {
                         penstate.write(core::mem::transmute(ok__));
@@ -7884,9 +9430,13 @@ impl IRTCWatcher_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetState<Identity: IRTCWatcher_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enstate: RTC_WATCHER_STATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enstate: RTC_WATCHER_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRTCWatcher_Impl::SetState(this, core::mem::transmute_copy(&enstate)).into()
             }
         }
@@ -7931,10 +9481,17 @@ pub trait IRTCWatcher2_Impl: IRTCWatcher_Impl {
     fn Scope(&self) -> windows_core::Result<RTC_ACE_SCOPE>;
 }
 impl IRTCWatcher2_Vtbl {
-    pub const fn new<Identity: IRTCWatcher2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Profile<Identity: IRTCWatcher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher2_Impl,
+    {
+        unsafe extern "system" fn Profile<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprofile: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCWatcher2_Impl::Profile(this) {
                     Ok(ok__) => {
                         ppprofile.write(core::mem::transmute(ok__));
@@ -7944,9 +9501,13 @@ impl IRTCWatcher2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Scope<Identity: IRTCWatcher2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penscope: *mut RTC_ACE_SCOPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Scope<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, penscope: *mut RTC_ACE_SCOPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcher2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCWatcher2_Impl::Scope(this) {
                     Ok(ok__) => {
                         penscope.write(core::mem::transmute(ok__));
@@ -7996,10 +9557,17 @@ pub trait IRTCWatcherEvent_Impl: super::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCWatcherEvent_Vtbl {
-    pub const fn new<Identity: IRTCWatcherEvent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Watcher<Identity: IRTCWatcherEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent_Impl,
+    {
+        unsafe extern "system" fn Watcher<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCWatcherEvent_Impl::Watcher(this) {
                     Ok(ok__) => {
                         ppwatcher.write(core::mem::transmute(ok__));
@@ -8058,10 +9626,17 @@ pub trait IRTCWatcherEvent2_Impl: IRTCWatcherEvent_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCWatcherEvent2_Vtbl {
-    pub const fn new<Identity: IRTCWatcherEvent2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventType<Identity: IRTCWatcherEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_WATCHER_EVENT_TYPE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent2_Impl,
+    {
+        unsafe extern "system" fn EventType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventtype: *mut RTC_WATCHER_EVENT_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCWatcherEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
                         peventtype.write(core::mem::transmute(ok__));
@@ -8071,9 +9646,13 @@ impl IRTCWatcherEvent2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StatusCode<Identity: IRTCWatcherEvent2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn StatusCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatuscode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRTCWatcherEvent2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRTCWatcherEvent2_Impl::StatusCode(this) {
                     Ok(ok__) => {
                         plstatuscode.write(core::mem::transmute(ok__));
@@ -8117,22 +9696,33 @@ pub struct ITransportSettingsInternal_Vtbl {
     QuerySetting: usize,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub trait ITransportSettingsInternal_Impl: windows_core::IUnknownImpl {
+pub trait ITransportSettingsInternal_Impl {
     fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()>;
     fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ITransportSettingsInternal_Vtbl {
-    pub const fn new<Identity: ITransportSettingsInternal_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ApplySetting<Identity: ITransportSettingsInternal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, setting: *mut TRANSPORT_SETTING) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ITransportSettingsInternal_Impl,
+    {
+        unsafe extern "system" fn ApplySetting<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, setting: *mut TRANSPORT_SETTING) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITransportSettingsInternal_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ITransportSettingsInternal_Impl::ApplySetting(this, core::mem::transmute_copy(&setting)).into()
             }
         }
-        unsafe extern "system" fn QuerySetting<Identity: ITransportSettingsInternal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, setting: *mut TRANSPORT_SETTING) -> windows_core::HRESULT {
+        unsafe extern "system" fn QuerySetting<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, setting: *mut TRANSPORT_SETTING) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITransportSettingsInternal_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ITransportSettingsInternal_Impl::QuerySetting(this, core::mem::transmute_copy(&setting)).into()
             }
         }

@@ -121,7 +121,7 @@ impl windows_core::RuntimeType for IClass {
 impl windows_core::RuntimeName for IClass {
     const NAME: &'static str = "test_events.IClass";
 }
-pub trait IClass_Impl: windows_core::IUnknownImpl {
+pub trait IClass_Impl {
     fn Signal(&self, value: i32) -> windows_core::Result<i32>;
     fn Event(
         &self,
@@ -130,15 +130,26 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
     fn RemoveEvent(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IClass_Vtbl {
-    pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Signal<Identity: IClass_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IClass_Impl,
+    {
+        unsafe extern "system" fn Signal<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             value: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IClass_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IClass_Impl::Signal(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -148,14 +159,19 @@ impl IClass_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Event<Identity: IClass_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Event<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
             result__: *mut i64,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IClass_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IClass_Impl::Event(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -165,13 +181,21 @@ impl IClass_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveEvent<Identity: IClass_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn RemoveEvent<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             token: i64,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IClass_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IClass_Impl::RemoveEvent(this, token).into()
             }
         }
@@ -212,7 +236,7 @@ impl windows_core::RuntimeType for IClassStatics {
 impl windows_core::RuntimeName for IClassStatics {
     const NAME: &'static str = "test_events.IClassStatics";
 }
-pub trait IClassStatics_Impl: windows_core::IUnknownImpl {
+pub trait IClassStatics_Impl {
     fn StaticSignal(&self, value: i32) -> windows_core::Result<i32>;
     fn StaticEvent(
         &self,
@@ -221,18 +245,26 @@ pub trait IClassStatics_Impl: windows_core::IUnknownImpl {
     fn RemoveStaticEvent(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IClassStatics_Vtbl {
-    pub const fn new<Identity: IClassStatics_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IClassStatics_Impl,
+    {
         unsafe extern "system" fn StaticSignal<
-            Identity: IClassStatics_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             value: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IClassStatics_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IClassStatics_Impl::StaticSignal(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -242,14 +274,22 @@ impl IClassStatics_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StaticEvent<Identity: IClassStatics_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn StaticEvent<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             handler: *mut core::ffi::c_void,
             result__: *mut i64,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IClassStatics_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IClassStatics_Impl::StaticEvent(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -260,15 +300,20 @@ impl IClassStatics_Vtbl {
             }
         }
         unsafe extern "system" fn RemoveStaticEvent<
-            Identity: IClassStatics_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             token: i64,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IClassStatics_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IClassStatics_Impl::RemoveStaticEvent(this, token).into()
             }
         }

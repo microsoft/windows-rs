@@ -230,9 +230,12 @@ windows_core::imp::interface_hierarchy!(IPrintWorkflowObjectModelProvider, windo
 impl windows_core::RuntimeName for IPrintWorkflowObjectModelProvider {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelProvider";
 }
-pub trait IPrintWorkflowObjectModelProvider_Impl: windows_core::IUnknownImpl {}
+pub trait IPrintWorkflowObjectModelProvider_Impl {}
 impl IPrintWorkflowObjectModelProvider_Vtbl {
-    pub const fn new<Identity: IPrintWorkflowObjectModelProvider_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintWorkflowObjectModelProvider_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPrintWorkflowObjectModelProvider, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

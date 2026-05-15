@@ -357,7 +357,7 @@ impl IForceFeedbackEffect {
 impl windows_core::RuntimeName for IForceFeedbackEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
 }
-pub trait IForceFeedbackEffect_Impl: windows_core::IUnknownImpl {
+pub trait IForceFeedbackEffect_Impl {
     fn Gain(&self) -> windows_core::Result<f64>;
     fn SetGain(&self, value: f64) -> windows_core::Result<()>;
     fn State(&self) -> windows_core::Result<ForceFeedbackEffectState>;
@@ -365,10 +365,17 @@ pub trait IForceFeedbackEffect_Impl: windows_core::IUnknownImpl {
     fn Stop(&self) -> windows_core::Result<()>;
 }
 impl IForceFeedbackEffect_Vtbl {
-    pub const fn new<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Gain<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IForceFeedbackEffect_Impl,
+    {
+        unsafe extern "system" fn Gain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IForceFeedbackEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IForceFeedbackEffect_Impl::Gain(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -378,15 +385,23 @@ impl IForceFeedbackEffect_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetGain<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IForceFeedbackEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IForceFeedbackEffect_Impl::SetGain(this, value).into()
             }
         }
-        unsafe extern "system" fn State<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ForceFeedbackEffectState) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ForceFeedbackEffectState) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IForceFeedbackEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IForceFeedbackEffect_Impl::State(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -396,15 +411,23 @@ impl IForceFeedbackEffect_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Start<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IForceFeedbackEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IForceFeedbackEffect_Impl::Start(this).into()
             }
         }
-        unsafe extern "system" fn Stop<Identity: IForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Stop<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IForceFeedbackEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IForceFeedbackEffect_Impl::Stop(this).into()
             }
         }

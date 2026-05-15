@@ -6,7 +6,7 @@ use test_ref_params::*;
 #[implement(ITest)]
 struct Test(AtomicI32);
 
-impl ITest_Impl for Test_Impl {
+impl ITest_Impl for Test {
     fn Input(&self, input: Ref<ITest>) -> Result<i32> {
         input.ok()?.Current()
     }

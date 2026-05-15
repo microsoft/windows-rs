@@ -1316,7 +1316,7 @@ impl windows_core::RuntimeName for IBitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapFrame";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IBitmapFrame_Impl: windows_core::IUnknownImpl {
+pub trait IBitmapFrame_Impl {
     fn GetThumbnailAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ImageStream>>;
     fn BitmapProperties(&self) -> windows_core::Result<BitmapPropertiesView>;
     fn BitmapPixelFormat(&self) -> windows_core::Result<BitmapPixelFormat>;
@@ -1332,10 +1332,17 @@ pub trait IBitmapFrame_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Storage_Streams")]
 impl IBitmapFrame_Vtbl {
-    pub const fn new<Identity: IBitmapFrame_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetThumbnailAsync<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+    {
+        unsafe extern "system" fn GetThumbnailAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::GetThumbnailAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1346,9 +1353,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BitmapProperties<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BitmapProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::BitmapProperties(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1359,9 +1370,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BitmapPixelFormat<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BitmapPixelFormat) -> windows_core::HRESULT {
+        unsafe extern "system" fn BitmapPixelFormat<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BitmapPixelFormat) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::BitmapPixelFormat(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1371,9 +1386,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BitmapAlphaMode<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BitmapAlphaMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn BitmapAlphaMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut BitmapAlphaMode) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::BitmapAlphaMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1383,9 +1402,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DpiX<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn DpiX<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::DpiX(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1395,9 +1418,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DpiY<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn DpiY<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::DpiY(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1407,9 +1434,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PixelWidth<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PixelWidth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::PixelWidth(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1419,9 +1450,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PixelHeight<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PixelHeight<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::PixelHeight(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1431,9 +1466,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OrientedPixelWidth<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OrientedPixelWidth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::OrientedPixelWidth(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1443,9 +1482,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OrientedPixelHeight<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OrientedPixelHeight<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::OrientedPixelHeight(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1455,9 +1498,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPixelDataAsync<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPixelDataAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::GetPixelDataAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1468,9 +1515,13 @@ impl IBitmapFrame_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPixelDataTransformedAsync<Identity: IBitmapFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: *mut core::ffi::c_void, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPixelDataTransformedAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: *mut core::ffi::c_void, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrame_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrame_Impl::GetPixelDataTransformedAsync(this, pixelformat, alphamode, core::mem::transmute_copy(&transform), exiforientationmode, colormanagementmode) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1650,10 +1701,17 @@ pub trait IBitmapFrameWithSoftwareBitmap_Impl: IBitmapFrame_Impl {
 }
 #[cfg(feature = "Storage_Streams")]
 impl IBitmapFrameWithSoftwareBitmap_Vtbl {
-    pub const fn new<Identity: IBitmapFrameWithSoftwareBitmap_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSoftwareBitmapAsync<Identity: IBitmapFrameWithSoftwareBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrameWithSoftwareBitmap_Impl,
+    {
+        unsafe extern "system" fn GetSoftwareBitmapAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrameWithSoftwareBitmap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1664,9 +1722,13 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSoftwareBitmapConvertedAsync<Identity: IBitmapFrameWithSoftwareBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSoftwareBitmapConvertedAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrameWithSoftwareBitmap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapConvertedAsync(this, pixelformat, alphamode) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1677,9 +1739,13 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSoftwareBitmapTransformedAsync<Identity: IBitmapFrameWithSoftwareBitmap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: *mut core::ffi::c_void, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSoftwareBitmapTransformedAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: *mut core::ffi::c_void, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapFrameWithSoftwareBitmap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapFrameWithSoftwareBitmap_Impl::GetSoftwareBitmapTransformedAsync(this, pixelformat, alphamode, core::mem::transmute_copy(&transform), exiforientationmode, colormanagementmode) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1738,14 +1804,21 @@ impl IBitmapPropertiesView {
 impl windows_core::RuntimeName for IBitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.IBitmapPropertiesView";
 }
-pub trait IBitmapPropertiesView_Impl: windows_core::IUnknownImpl {
+pub trait IBitmapPropertiesView_Impl {
     fn GetPropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<BitmapPropertySet>>;
 }
 impl IBitmapPropertiesView_Vtbl {
-    pub const fn new<Identity: IBitmapPropertiesView_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPropertiesAsync<Identity: IBitmapPropertiesView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IBitmapPropertiesView_Impl,
+    {
+        unsafe extern "system" fn GetPropertiesAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, propertiestoretrieve: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBitmapPropertiesView_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IBitmapPropertiesView_Impl::GetPropertiesAsync(this, core::mem::transmute_copy(&propertiestoretrieve)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

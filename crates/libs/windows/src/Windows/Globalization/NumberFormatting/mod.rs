@@ -558,16 +558,23 @@ impl INumberFormatter {
 impl windows_core::RuntimeName for INumberFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter";
 }
-pub trait INumberFormatter_Impl: windows_core::IUnknownImpl {
+pub trait INumberFormatter_Impl {
     fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatUInt(&self, value: u64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatDouble(&self, value: f64) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl INumberFormatter_Vtbl {
-    pub const fn new<Identity: INumberFormatter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FormatInt<Identity: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter_Impl,
+    {
+        unsafe extern "system" fn FormatInt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatter_Impl::FormatInt(this, value) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -578,9 +585,13 @@ impl INumberFormatter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FormatUInt<Identity: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatUInt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatter_Impl::FormatUInt(this, value) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -591,9 +602,13 @@ impl INumberFormatter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FormatDouble<Identity: INumberFormatter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatDouble<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatter_Impl::FormatDouble(this, value) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -651,16 +666,23 @@ impl INumberFormatter2 {
 impl windows_core::RuntimeName for INumberFormatter2 {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatter2";
 }
-pub trait INumberFormatter2_Impl: windows_core::IUnknownImpl {
+pub trait INumberFormatter2_Impl {
     fn FormatInt(&self, value: i64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatUInt(&self, value: u64) -> windows_core::Result<windows_core::HSTRING>;
     fn FormatDouble(&self, value: f64) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl INumberFormatter2_Vtbl {
-    pub const fn new<Identity: INumberFormatter2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FormatInt<Identity: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter2_Impl,
+    {
+        unsafe extern "system" fn FormatInt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatter2_Impl::FormatInt(this, value) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -671,9 +693,13 @@ impl INumberFormatter2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FormatUInt<Identity: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatUInt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatter2_Impl::FormatUInt(this, value) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -684,9 +710,13 @@ impl INumberFormatter2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FormatDouble<Identity: INumberFormatter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FormatDouble<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatter2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatter2_Impl::FormatDouble(this, value) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -795,7 +825,7 @@ impl INumberFormatterOptions {
 impl windows_core::RuntimeName for INumberFormatterOptions {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberFormatterOptions";
 }
-pub trait INumberFormatterOptions_Impl: windows_core::IUnknownImpl {
+pub trait INumberFormatterOptions_Impl {
     fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>>;
     fn GeographicRegion(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn IntegerDigits(&self) -> windows_core::Result<i32>;
@@ -812,10 +842,17 @@ pub trait INumberFormatterOptions_Impl: windows_core::IUnknownImpl {
     fn ResolvedGeographicRegion(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl INumberFormatterOptions_Vtbl {
-    pub const fn new<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Languages<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+    {
+        unsafe extern "system" fn Languages<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::Languages(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -826,9 +863,13 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GeographicRegion<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GeographicRegion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::GeographicRegion(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -839,9 +880,13 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IntegerDigits<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn IntegerDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::IntegerDigits(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -851,15 +896,23 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIntegerDigits<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIntegerDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INumberFormatterOptions_Impl::SetIntegerDigits(this, value).into()
             }
         }
-        unsafe extern "system" fn FractionDigits<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FractionDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::FractionDigits(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -869,15 +922,23 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFractionDigits<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFractionDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INumberFormatterOptions_Impl::SetFractionDigits(this, value).into()
             }
         }
-        unsafe extern "system" fn IsGrouped<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsGrouped<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::IsGrouped(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -887,15 +948,23 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsGrouped<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsGrouped<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INumberFormatterOptions_Impl::SetIsGrouped(this, value).into()
             }
         }
-        unsafe extern "system" fn IsDecimalPointAlwaysDisplayed<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsDecimalPointAlwaysDisplayed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::IsDecimalPointAlwaysDisplayed(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -905,15 +974,23 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsDecimalPointAlwaysDisplayed<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsDecimalPointAlwaysDisplayed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INumberFormatterOptions_Impl::SetIsDecimalPointAlwaysDisplayed(this, value).into()
             }
         }
-        unsafe extern "system" fn NumeralSystem<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn NumeralSystem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::NumeralSystem(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -924,15 +1001,23 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNumeralSystem<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNumeralSystem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INumberFormatterOptions_Impl::SetNumeralSystem(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn ResolvedLanguage<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResolvedLanguage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::ResolvedLanguage(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -943,9 +1028,13 @@ impl INumberFormatterOptions_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ResolvedGeographicRegion<Identity: INumberFormatterOptions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResolvedGeographicRegion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberFormatterOptions_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberFormatterOptions_Impl::ResolvedGeographicRegion(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1025,16 +1114,23 @@ impl INumberParser {
 impl windows_core::RuntimeName for INumberParser {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberParser";
 }
-pub trait INumberParser_Impl: windows_core::IUnknownImpl {
+pub trait INumberParser_Impl {
     fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IReference<i64>>;
     fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IReference<u64>>;
     fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IReference<f64>>;
 }
 impl INumberParser_Vtbl {
-    pub const fn new<Identity: INumberParser_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ParseInt<Identity: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INumberParser_Impl,
+    {
+        unsafe extern "system" fn ParseInt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberParser_Impl::ParseInt(this, core::mem::transmute(&text)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1045,9 +1141,13 @@ impl INumberParser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ParseUInt<Identity: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseUInt<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberParser_Impl::ParseUInt(this, core::mem::transmute(&text)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1058,9 +1158,13 @@ impl INumberParser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ParseDouble<Identity: INumberParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ParseDouble<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberParser_Impl::ParseDouble(this, core::mem::transmute(&text)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1136,7 +1240,7 @@ impl INumberRounder {
 impl windows_core::RuntimeName for INumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounder";
 }
-pub trait INumberRounder_Impl: windows_core::IUnknownImpl {
+pub trait INumberRounder_Impl {
     fn RoundInt32(&self, value: i32) -> windows_core::Result<i32>;
     fn RoundUInt32(&self, value: u32) -> windows_core::Result<u32>;
     fn RoundInt64(&self, value: i64) -> windows_core::Result<i64>;
@@ -1145,10 +1249,17 @@ pub trait INumberRounder_Impl: windows_core::IUnknownImpl {
     fn RoundDouble(&self, value: f64) -> windows_core::Result<f64>;
 }
 impl INumberRounder_Vtbl {
-    pub const fn new<Identity: INumberRounder_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RoundInt32<Identity: INumberRounder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32, result__: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INumberRounder_Impl,
+    {
+        unsafe extern "system" fn RoundInt32<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32, result__: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounder_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberRounder_Impl::RoundInt32(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1158,9 +1269,13 @@ impl INumberRounder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RoundUInt32<Identity: INumberRounder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoundUInt32<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u32, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounder_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberRounder_Impl::RoundUInt32(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1170,9 +1285,13 @@ impl INumberRounder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RoundInt64<Identity: INumberRounder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoundInt64<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i64, result__: *mut i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounder_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberRounder_Impl::RoundInt64(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1182,9 +1301,13 @@ impl INumberRounder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RoundUInt64<Identity: INumberRounder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoundUInt64<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: u64, result__: *mut u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounder_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberRounder_Impl::RoundUInt64(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1194,9 +1317,13 @@ impl INumberRounder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RoundSingle<Identity: INumberRounder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32, result__: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoundSingle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32, result__: *mut f32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounder_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberRounder_Impl::RoundSingle(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1206,9 +1333,13 @@ impl INumberRounder_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RoundDouble<Identity: INumberRounder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RoundDouble<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f64, result__: *mut f64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounder_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberRounder_Impl::RoundDouble(this, value) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1265,15 +1396,22 @@ impl INumberRounderOption {
 impl windows_core::RuntimeName for INumberRounderOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.INumberRounderOption";
 }
-pub trait INumberRounderOption_Impl: windows_core::IUnknownImpl {
+pub trait INumberRounderOption_Impl {
     fn NumberRounder(&self) -> windows_core::Result<INumberRounder>;
     fn SetNumberRounder(&self, value: windows_core::Ref<INumberRounder>) -> windows_core::Result<()>;
 }
 impl INumberRounderOption_Vtbl {
-    pub const fn new<Identity: INumberRounderOption_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn NumberRounder<Identity: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INumberRounderOption_Impl,
+    {
+        unsafe extern "system" fn NumberRounder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounderOption_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INumberRounderOption_Impl::NumberRounder(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1284,9 +1422,13 @@ impl INumberRounderOption_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetNumberRounder<Identity: INumberRounderOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNumberRounder<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INumberRounderOption_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INumberRounderOption_Impl::SetNumberRounder(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -1370,15 +1512,22 @@ impl ISignedZeroOption {
 impl windows_core::RuntimeName for ISignedZeroOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignedZeroOption";
 }
-pub trait ISignedZeroOption_Impl: windows_core::IUnknownImpl {
+pub trait ISignedZeroOption_Impl {
     fn IsZeroSigned(&self) -> windows_core::Result<bool>;
     fn SetIsZeroSigned(&self, value: bool) -> windows_core::Result<()>;
 }
 impl ISignedZeroOption_Vtbl {
-    pub const fn new<Identity: ISignedZeroOption_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsZeroSigned<Identity: ISignedZeroOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISignedZeroOption_Impl,
+    {
+        unsafe extern "system" fn IsZeroSigned<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISignedZeroOption_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISignedZeroOption_Impl::IsZeroSigned(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1388,9 +1537,13 @@ impl ISignedZeroOption_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIsZeroSigned<Identity: ISignedZeroOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetIsZeroSigned<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISignedZeroOption_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISignedZeroOption_Impl::SetIsZeroSigned(this, value).into()
             }
         }
@@ -1443,15 +1596,22 @@ impl ISignificantDigitsOption {
 impl windows_core::RuntimeName for ISignificantDigitsOption {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.ISignificantDigitsOption";
 }
-pub trait ISignificantDigitsOption_Impl: windows_core::IUnknownImpl {
+pub trait ISignificantDigitsOption_Impl {
     fn SignificantDigits(&self) -> windows_core::Result<i32>;
     fn SetSignificantDigits(&self, value: i32) -> windows_core::Result<()>;
 }
 impl ISignificantDigitsOption_Vtbl {
-    pub const fn new<Identity: ISignificantDigitsOption_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SignificantDigits<Identity: ISignificantDigitsOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISignificantDigitsOption_Impl,
+    {
+        unsafe extern "system" fn SignificantDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISignificantDigitsOption_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISignificantDigitsOption_Impl::SignificantDigits(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1461,9 +1621,13 @@ impl ISignificantDigitsOption_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSignificantDigits<Identity: ISignificantDigitsOption_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignificantDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISignificantDigitsOption_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISignificantDigitsOption_Impl::SetSignificantDigits(this, value).into()
             }
         }

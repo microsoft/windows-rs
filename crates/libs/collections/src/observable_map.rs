@@ -21,7 +21,7 @@ implement_decl! {
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
-impl<K, V> IObservableMap_Impl<K, V> for StockObservableMap_Impl<K, V>
+impl<K, V> IObservableMap_Impl<K, V> for StockObservableMap<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
@@ -38,7 +38,7 @@ where
     }
 }
 
-impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockObservableMap_Impl<K, V>
+impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockObservableMap<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
@@ -54,7 +54,7 @@ where
     }
 }
 
-impl<K, V> IMap_Impl<K, V> for StockObservableMap_Impl<K, V>
+impl<K, V> IMap_Impl<K, V> for StockObservableMap<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
@@ -124,7 +124,7 @@ where
     }
 }
 
-impl<K, V> StockObservableMap_Impl<K, V>
+impl<K, V> StockObservableMap<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
@@ -156,7 +156,7 @@ implement_decl! {
     where K: RuntimeType + 'static, K::Default: Clone
 }
 
-impl<K> IMapChangedEventArgs_Impl<K> for StockMapChangedEventArgs_Impl<K>
+impl<K> IMapChangedEventArgs_Impl<K> for StockMapChangedEventArgs<K>
 where
     K: RuntimeType,
     K::Default: Clone,
@@ -191,7 +191,7 @@ implement_decl! {
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
-impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockObservableMapIterator_Impl<K, V>
+impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockObservableMapIterator<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,

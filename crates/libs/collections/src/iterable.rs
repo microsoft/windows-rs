@@ -16,7 +16,7 @@ implement_decl! {
     where T: RuntimeType + 'static, T::Default: Clone
 }
 
-impl<T> IIterable_Impl<T> for StockIterable_Impl<T>
+impl<T> IIterable_Impl<T> for StockIterable<T>
 where
     T: RuntimeType,
     T::Default: Clone,
@@ -46,7 +46,7 @@ implement_decl! {
     where T: RuntimeType + 'static, T::Default: Clone
 }
 
-impl<T> IIterator_Impl<T> for StockIterator_Impl<T>
+impl<T> IIterator_Impl<T> for StockIterator<T>
 where
     T: RuntimeType,
     T::Default: Clone,

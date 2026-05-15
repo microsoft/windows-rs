@@ -176,22 +176,33 @@ impl windows_core::RuntimeName for IWebAccountProviderBaseReportOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderBaseReportOperation";
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
-pub trait IWebAccountProviderBaseReportOperation_Impl: windows_core::IUnknownImpl {
+pub trait IWebAccountProviderBaseReportOperation_Impl {
     fn ReportCompleted(&self) -> windows_core::Result<()>;
     fn ReportError(&self, value: windows_core::Ref<super::Core::WebProviderError>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderBaseReportOperation_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReportCompleted<Identity: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderBaseReportOperation_Impl,
+    {
+        unsafe extern "system" fn ReportCompleted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderBaseReportOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWebAccountProviderBaseReportOperation_Impl::ReportCompleted(this).into()
             }
         }
-        unsafe extern "system" fn ReportError<Identity: IWebAccountProviderBaseReportOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReportError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderBaseReportOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWebAccountProviderBaseReportOperation_Impl::ReportError(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -258,14 +269,21 @@ impl IWebAccountProviderOperation {
 impl windows_core::RuntimeName for IWebAccountProviderOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderOperation";
 }
-pub trait IWebAccountProviderOperation_Impl: windows_core::IUnknownImpl {
+pub trait IWebAccountProviderOperation_Impl {
     fn Kind(&self) -> windows_core::Result<WebAccountProviderOperationKind>;
 }
 impl IWebAccountProviderOperation_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderOperation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Kind<Identity: IWebAccountProviderOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut WebAccountProviderOperationKind) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderOperation_Impl,
+    {
+        unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut WebAccountProviderOperationKind) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccountProviderOperation_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -360,16 +378,27 @@ pub trait IWebAccountProviderSilentReportOperation_Impl: IWebAccountProviderBase
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderSilentReportOperation_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReportUserInteractionRequired<Identity: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderSilentReportOperation_Impl,
+    {
+        unsafe extern "system" fn ReportUserInteractionRequired<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderSilentReportOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWebAccountProviderSilentReportOperation_Impl::ReportUserInteractionRequired(this).into()
             }
         }
-        unsafe extern "system" fn ReportUserInteractionRequiredWithError<Identity: IWebAccountProviderSilentReportOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReportUserInteractionRequiredWithError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderSilentReportOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWebAccountProviderSilentReportOperation_Impl::ReportUserInteractionRequiredWithError(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -409,14 +438,21 @@ impl IWebAccountProviderTokenObjects {
 impl windows_core::RuntimeName for IWebAccountProviderTokenObjects {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.IWebAccountProviderTokenObjects";
 }
-pub trait IWebAccountProviderTokenObjects_Impl: windows_core::IUnknownImpl {
+pub trait IWebAccountProviderTokenObjects_Impl {
     fn Operation(&self) -> windows_core::Result<IWebAccountProviderOperation>;
 }
 impl IWebAccountProviderTokenObjects_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderTokenObjects_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Operation<Identity: IWebAccountProviderTokenObjects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenObjects_Impl,
+    {
+        unsafe extern "system" fn Operation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenObjects_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccountProviderTokenObjects_Impl::Operation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -471,10 +507,17 @@ pub trait IWebAccountProviderTokenObjects2_Impl: IWebAccountProviderTokenObjects
 }
 #[cfg(feature = "System")]
 impl IWebAccountProviderTokenObjects2_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderTokenObjects2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn User<Identity: IWebAccountProviderTokenObjects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenObjects2_Impl,
+    {
+        unsafe extern "system" fn User<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenObjects2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccountProviderTokenObjects2_Impl::User(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -546,10 +589,17 @@ pub trait IWebAccountProviderTokenOperation_Impl: IWebAccountProviderOperation_I
     fn CacheExpirationTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime>;
 }
 impl IWebAccountProviderTokenOperation_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ProviderRequest<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenOperation_Impl,
+    {
+        unsafe extern "system" fn ProviderRequest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccountProviderTokenOperation_Impl::ProviderRequest(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -560,9 +610,13 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ProviderResponses<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProviderResponses<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccountProviderTokenOperation_Impl::ProviderResponses(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -573,15 +627,23 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCacheExpirationTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWebAccountProviderTokenOperation_Impl::SetCacheExpirationTime(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn CacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn CacheExpirationTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderTokenOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebAccountProviderTokenOperation_Impl::CacheExpirationTime(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -645,10 +707,17 @@ pub trait IWebAccountProviderUIReportOperation_Impl: IWebAccountProviderBaseRepo
 }
 #[cfg(feature = "Security_Authentication_Web_Core")]
 impl IWebAccountProviderUIReportOperation_Vtbl {
-    pub const fn new<Identity: IWebAccountProviderUIReportOperation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReportUserCanceled<Identity: IWebAccountProviderUIReportOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderUIReportOperation_Impl,
+    {
+        unsafe extern "system" fn ReportUserCanceled<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebAccountProviderUIReportOperation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWebAccountProviderUIReportOperation_Impl::ReportUserCanceled(this).into()
             }
         }

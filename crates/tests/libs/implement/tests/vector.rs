@@ -67,7 +67,7 @@ where
     }
 }
 
-impl<T> IVector_Impl<T> for Vector_Impl<T>
+impl<T> IVector_Impl<T> for Vector<T>
 where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,
@@ -147,7 +147,7 @@ where
     }
 }
 
-impl<T> IVectorView_Impl<T> for Vector_Impl<T>
+impl<T> IVectorView_Impl<T> for Vector<T>
 where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,
@@ -166,7 +166,7 @@ where
     }
 }
 
-impl<T> IIterable_Impl<T> for Vector_Impl<T>
+impl<T> IIterable_Impl<T> for Vector<T>
 where
     T: RuntimeType + 'static,
     <T as Type<T>>::Default: PartialEq + Clone,

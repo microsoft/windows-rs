@@ -19,15 +19,22 @@ pub struct ICompositionCapabilitiesInteropFactory_Vtbl {
     GetForWindow: usize,
 }
 #[cfg(feature = "UI_Composition")]
-pub trait ICompositionCapabilitiesInteropFactory_Impl: windows_core::IUnknownImpl {
+pub trait ICompositionCapabilitiesInteropFactory_Impl {
     fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositionCapabilitiesInteropFactory_Vtbl {
-    pub const fn new<Identity: ICompositionCapabilitiesInteropFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetForWindow<Identity: ICompositionCapabilitiesInteropFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositionCapabilitiesInteropFactory_Impl,
+    {
+        unsafe extern "system" fn GetForWindow<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionCapabilitiesInteropFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositionCapabilitiesInteropFactory_Impl::GetForWindow(this, core::mem::transmute_copy(&hwnd)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -85,7 +92,7 @@ pub struct ICompositionDrawingSurfaceInterop_Vtbl {
     pub ResumeDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SuspendDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ICompositionDrawingSurfaceInterop_Impl: windows_core::IUnknownImpl {
+pub trait ICompositionDrawingSurfaceInterop_Impl {
     fn BeginDraw(&self, updaterect: *const super::super::super::Foundation::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::Result<()>;
     fn EndDraw(&self) -> windows_core::Result<()>;
     fn Resize(&self, sizepixels: &super::super::super::Foundation::SIZE) -> windows_core::Result<()>;
@@ -94,40 +101,67 @@ pub trait ICompositionDrawingSurfaceInterop_Impl: windows_core::IUnknownImpl {
     fn SuspendDraw(&self) -> windows_core::Result<()>;
 }
 impl ICompositionDrawingSurfaceInterop_Vtbl {
-    pub const fn new<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn BeginDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop_Impl,
+    {
+        unsafe extern "system" fn BeginDraw<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: *const super::super::super::Foundation::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::super::super::Foundation::POINT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionDrawingSurfaceInterop_Impl::BeginDraw(this, core::mem::transmute_copy(&updaterect), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&updateobject), core::mem::transmute_copy(&updateoffset)).into()
             }
         }
-        unsafe extern "system" fn EndDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EndDraw<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionDrawingSurfaceInterop_Impl::EndDraw(this).into()
             }
         }
-        unsafe extern "system" fn Resize<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sizepixels: super::super::super::Foundation::SIZE) -> windows_core::HRESULT {
+        unsafe extern "system" fn Resize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, sizepixels: super::super::super::Foundation::SIZE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionDrawingSurfaceInterop_Impl::Resize(this, core::mem::transmute(&sizepixels)).into()
             }
         }
-        unsafe extern "system" fn Scroll<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Scroll<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, scrollrect: *const super::super::super::Foundation::RECT, cliprect: *const super::super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionDrawingSurfaceInterop_Impl::Scroll(this, core::mem::transmute_copy(&scrollrect), core::mem::transmute_copy(&cliprect), core::mem::transmute_copy(&offsetx), core::mem::transmute_copy(&offsety)).into()
             }
         }
-        unsafe extern "system" fn ResumeDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResumeDraw<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionDrawingSurfaceInterop_Impl::ResumeDraw(this).into()
             }
         }
-        unsafe extern "system" fn SuspendDraw<Identity: ICompositionDrawingSurfaceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SuspendDraw<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionDrawingSurfaceInterop_Impl::SuspendDraw(this).into()
             }
         }
@@ -172,10 +206,17 @@ pub trait ICompositionDrawingSurfaceInterop2_Impl: ICompositionDrawingSurfaceInt
     fn CopySurface(&self, destinationresource: windows_core::Ref<windows_core::IUnknown>, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 impl ICompositionDrawingSurfaceInterop2_Vtbl {
-    pub const fn new<Identity: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CopySurface<Identity: ICompositionDrawingSurfaceInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationresource: *mut core::ffi::c_void, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop2_Impl,
+    {
+        unsafe extern "system" fn CopySurface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationresource: *mut core::ffi::c_void, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionDrawingSurfaceInterop2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionDrawingSurfaceInterop2_Impl::CopySurface(this, core::mem::transmute_copy(&destinationresource), core::mem::transmute_copy(&destinationoffsetx), core::mem::transmute_copy(&destinationoffsety), core::mem::transmute_copy(&sourcerectangle)).into()
             }
         }
@@ -209,15 +250,22 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
     pub GetRenderingDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetRenderingDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ICompositionGraphicsDeviceInterop_Impl: windows_core::IUnknownImpl {
+pub trait ICompositionGraphicsDeviceInterop_Impl {
     fn GetRenderingDevice(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn SetRenderingDevice(&self, value: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl ICompositionGraphicsDeviceInterop_Vtbl {
-    pub const fn new<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetRenderingDevice<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositionGraphicsDeviceInterop_Impl,
+    {
+        unsafe extern "system" fn GetRenderingDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionGraphicsDeviceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositionGraphicsDeviceInterop_Impl::GetRenderingDevice(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -227,9 +275,13 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRenderingDevice<Identity: ICompositionGraphicsDeviceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRenderingDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionGraphicsDeviceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionGraphicsDeviceInterop_Impl::SetRenderingDevice(this, core::mem::transmute_copy(&value)).into()
             }
         }
@@ -257,14 +309,21 @@ pub struct ICompositionTextureInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAvailableFence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ICompositionTextureInterop_Impl: windows_core::IUnknownImpl {
+pub trait ICompositionTextureInterop_Impl {
     fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl ICompositionTextureInterop_Vtbl {
-    pub const fn new<Identity: ICompositionTextureInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAvailableFence<Identity: ICompositionTextureInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositionTextureInterop_Impl,
+    {
+        unsafe extern "system" fn GetAvailableFence<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositionTextureInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositionTextureInterop_Impl::GetAvailableFence(this, core::mem::transmute_copy(&fencevalue), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&availablefence)).into()
             }
         }
@@ -300,16 +359,23 @@ pub struct ICompositorDesktopInterop_Vtbl {
     pub EnsureOnThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "UI_Composition_Desktop")]
-pub trait ICompositorDesktopInterop_Impl: windows_core::IUnknownImpl {
+pub trait ICompositorDesktopInterop_Impl {
     fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: windows_core::BOOL) -> windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>;
     fn EnsureOnThread(&self, threadid: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "UI_Composition_Desktop")]
 impl ICompositorDesktopInterop_Vtbl {
-    pub const fn new<Identity: ICompositorDesktopInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateDesktopWindowTarget<Identity: ICompositorDesktopInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndtarget: super::super::super::Foundation::HWND, istopmost: windows_core::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositorDesktopInterop_Impl,
+    {
+        unsafe extern "system" fn CreateDesktopWindowTarget<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwndtarget: super::super::super::Foundation::HWND, istopmost: windows_core::BOOL, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositorDesktopInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositorDesktopInterop_Impl::CreateDesktopWindowTarget(this, core::mem::transmute_copy(&hwndtarget), core::mem::transmute_copy(&istopmost)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -319,9 +385,13 @@ impl ICompositorDesktopInterop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnsureOnThread<Identity: ICompositorDesktopInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnsureOnThread<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadid: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositorDesktopInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICompositorDesktopInterop_Impl::EnsureOnThread(this, core::mem::transmute_copy(&threadid)).into()
             }
         }
@@ -386,17 +456,24 @@ pub struct ICompositorInterop_Vtbl {
     CreateGraphicsDevice: usize,
 }
 #[cfg(feature = "UI_Composition")]
-pub trait ICompositorInterop_Impl: windows_core::IUnknownImpl {
+pub trait ICompositorInterop_Impl {
     fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
     fn CreateCompositionSurfaceForSwapChain(&self, swapchain: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
     fn CreateGraphicsDevice(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop_Vtbl {
-    pub const fn new<Identity: ICompositorInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateCompositionSurfaceForHandle<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: super::super::super::Foundation::HANDLE, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositorInterop_Impl,
+    {
+        unsafe extern "system" fn CreateCompositionSurfaceForHandle<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: super::super::super::Foundation::HANDLE, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositorInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositorInterop_Impl::CreateCompositionSurfaceForHandle(this, core::mem::transmute_copy(&swapchain)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -406,9 +483,13 @@ impl ICompositorInterop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateCompositionSurfaceForSwapChain<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateCompositionSurfaceForSwapChain<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, swapchain: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositorInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositorInterop_Impl::CreateCompositionSurfaceForSwapChain(this, core::mem::transmute_copy(&swapchain)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -418,9 +499,13 @@ impl ICompositorInterop_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateGraphicsDevice<Identity: ICompositorInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateGraphicsDevice<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositorInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositorInterop_Impl::CreateGraphicsDevice(this, core::mem::transmute_copy(&renderingdevice)) {
                     Ok(ok__) => {
                         result.write(core::mem::transmute(ok__));
@@ -477,16 +562,23 @@ pub struct ICompositorInterop2_Vtbl {
     CreateCompositionTexture: usize,
 }
 #[cfg(feature = "UI_Composition")]
-pub trait ICompositorInterop2_Impl: windows_core::IUnknownImpl {
+pub trait ICompositorInterop2_Impl {
     fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
     fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::super::super::super::UI::Composition::CompositionTexture>;
 }
 #[cfg(feature = "UI_Composition")]
 impl ICompositorInterop2_Vtbl {
-    pub const fn new<Identity: ICompositorInterop2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CheckCompositionTextureSupport<Identity: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, supportscompositiontextures: *mut windows_core::BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICompositorInterop2_Impl,
+    {
+        unsafe extern "system" fn CheckCompositionTextureSupport<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, supportscompositiontextures: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositorInterop2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositorInterop2_Impl::CheckCompositionTextureSupport(this, core::mem::transmute_copy(&renderingdevice)) {
                     Ok(ok__) => {
                         supportscompositiontextures.write(core::mem::transmute(ok__));
@@ -496,9 +588,13 @@ impl ICompositorInterop2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateCompositionTexture<Identity: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, d3dtexture: *mut core::ffi::c_void, compositiontexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateCompositionTexture<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, d3dtexture: *mut core::ffi::c_void, compositiontexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICompositorInterop2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ICompositorInterop2_Impl::CreateCompositionTexture(this, core::mem::transmute_copy(&d3dtexture)) {
                     Ok(ok__) => {
                         compositiontexture.write(core::mem::transmute(ok__));
@@ -536,14 +632,21 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Hwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
-pub trait IDesktopWindowTargetInterop_Impl: windows_core::IUnknownImpl {
+pub trait IDesktopWindowTargetInterop_Impl {
     fn Hwnd(&self) -> windows_core::Result<super::super::super::Foundation::HWND>;
 }
 impl IDesktopWindowTargetInterop_Vtbl {
-    pub const fn new<Identity: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Hwnd<Identity: IDesktopWindowTargetInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDesktopWindowTargetInterop_Impl,
+    {
+        unsafe extern "system" fn Hwnd<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::super::super::Foundation::HWND) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDesktopWindowTargetInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDesktopWindowTargetInterop_Impl::Hwnd(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -578,15 +681,22 @@ pub struct IVisualInteractionSourceInterop_Vtbl {
     TryRedirectForManipulation: usize,
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IVisualInteractionSourceInterop_Impl: windows_core::IUnknownImpl {
+pub trait IVisualInteractionSourceInterop_Impl {
     fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IVisualInteractionSourceInterop_Vtbl {
-    pub const fn new<Identity: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TryRedirectForManipulation<Identity: IVisualInteractionSourceInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVisualInteractionSourceInterop_Impl,
+    {
+        unsafe extern "system" fn TryRedirectForManipulation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVisualInteractionSourceInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVisualInteractionSourceInterop_Impl::TryRedirectForManipulation(this, core::mem::transmute_copy(&pointerinfo)).into()
             }
         }

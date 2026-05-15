@@ -158,15 +158,22 @@ impl ILampArrayEffect {
 impl windows_core::RuntimeName for ILampArrayEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.ILampArrayEffect";
 }
-pub trait ILampArrayEffect_Impl: windows_core::IUnknownImpl {
+pub trait ILampArrayEffect_Impl {
     fn ZIndex(&self) -> windows_core::Result<i32>;
     fn SetZIndex(&self, value: i32) -> windows_core::Result<()>;
 }
 impl ILampArrayEffect_Vtbl {
-    pub const fn new<Identity: ILampArrayEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ZIndex<Identity: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ILampArrayEffect_Impl,
+    {
+        unsafe extern "system" fn ZIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILampArrayEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ILampArrayEffect_Impl::ZIndex(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -176,9 +183,13 @@ impl ILampArrayEffect_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetZIndex<Identity: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetZIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILampArrayEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ILampArrayEffect_Impl::SetZIndex(this, value).into()
             }
         }

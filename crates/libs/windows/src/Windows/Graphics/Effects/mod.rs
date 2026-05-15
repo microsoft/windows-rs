@@ -23,10 +23,17 @@ pub trait IGraphicsEffect_Impl: IGraphicsEffectSource_Impl {
     fn SetName(&self, name: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl IGraphicsEffect_Vtbl {
-    pub const fn new<Identity: IGraphicsEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffect_Impl,
+    {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IGraphicsEffect_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -37,9 +44,13 @@ impl IGraphicsEffect_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetName<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffect_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IGraphicsEffect_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -68,9 +79,12 @@ windows_core::imp::interface_hierarchy!(IGraphicsEffectSource, windows_core::IUn
 impl windows_core::RuntimeName for IGraphicsEffectSource {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffectSource";
 }
-pub trait IGraphicsEffectSource_Impl: windows_core::IUnknownImpl {}
+pub trait IGraphicsEffectSource_Impl {}
 impl IGraphicsEffectSource_Vtbl {
-    pub const fn new<Identity: IGraphicsEffectSource_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsEffectSource_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGraphicsEffectSource, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

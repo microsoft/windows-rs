@@ -35,18 +35,29 @@ impl IStringable {
 impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
 }
-pub trait IStringable_Impl: windows_core::IUnknownImpl {
+pub trait IStringable_Impl {
     fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IStringable_Vtbl {
-    pub const fn new<Identity: IStringable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ToString<Identity: IStringable_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IStringable_Impl,
+    {
+        unsafe extern "system" fn ToString<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IStringable_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IStringable_Impl::ToString(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -129,7 +140,7 @@ impl ITest {
 impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
-pub trait ITest_Impl: windows_core::IUnknownImpl {
+pub trait ITest_Impl {
     fn Numerics(&self, n: &windows_numerics::Vector2) -> windows_core::Result<()>;
     fn Collections(
         &self,
@@ -139,34 +150,58 @@ pub trait ITest_Impl: windows_core::IUnknownImpl {
     fn Windows(&self, s: windows_core::Ref<IStringable>) -> windows_core::Result<()>;
 }
 impl ITest_Vtbl {
-    pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Numerics<Identity: ITest_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+    {
+        unsafe extern "system" fn Numerics<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             n: windows_numerics::Vector2,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ITest_Impl::Numerics(this, core::mem::transmute(&n)).into()
             }
         }
-        unsafe extern "system" fn Collections<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Collections<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             c: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ITest_Impl::Collections(this, core::mem::transmute_copy(&c)).into()
             }
         }
-        unsafe extern "system" fn Async<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Async<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ITest_Impl::Async(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -177,13 +212,21 @@ impl ITest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Windows<Identity: ITest_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Windows<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             s: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ITest_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ITest_Impl::Windows(this, core::mem::transmute_copy(&s)).into()
             }
         }

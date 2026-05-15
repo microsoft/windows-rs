@@ -29,7 +29,7 @@ static INNER_DROPS: AtomicUsize = AtomicUsize::new(0);
 #[implement(IFoo)]
 struct Inner;
 
-impl IFoo_Impl for Inner_Impl {
+impl IFoo_Impl for Inner {
     fn Hello(&self) -> Result<i32> {
         Ok(INNER_VALUE)
     }
@@ -47,7 +47,7 @@ impl Drop for Inner {
 #[implement(IFoo)]
 struct Derived;
 
-impl IFoo_Impl for Derived_Impl {
+impl IFoo_Impl for Derived {
     fn Hello(&self) -> Result<i32> {
         Ok(DERIVED_VALUE)
     }
@@ -65,7 +65,7 @@ impl Drop for Derived {
 #[implement(IFooFactory)]
 struct MockFactory;
 
-impl IFooFactory_Impl for MockFactory_Impl {
+impl IFooFactory_Impl for MockFactory {
     fn CreateInstance(&self, outer: Ref<IInspectable>, inner: OutRef<IInspectable>) -> Result<Foo> {
         // Aggregation contract:
         //   * `outer` is the controlling-unknown supplied by the derived caller.

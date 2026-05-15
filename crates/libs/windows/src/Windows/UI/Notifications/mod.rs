@@ -292,15 +292,22 @@ impl IAdaptiveNotificationContent {
 impl windows_core::RuntimeName for IAdaptiveNotificationContent {
     const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
 }
-pub trait IAdaptiveNotificationContent_Impl: windows_core::IUnknownImpl {
+pub trait IAdaptiveNotificationContent_Impl {
     fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind>;
     fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>;
 }
 impl IAdaptiveNotificationContent_Vtbl {
-    pub const fn new<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Kind<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAdaptiveNotificationContent_Impl,
+    {
+        unsafe extern "system" fn Kind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AdaptiveNotificationContentKind) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAdaptiveNotificationContent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAdaptiveNotificationContent_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -310,9 +317,13 @@ impl IAdaptiveNotificationContent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Hints<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Hints<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAdaptiveNotificationContent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAdaptiveNotificationContent_Impl::Hints(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

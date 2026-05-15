@@ -2524,17 +2524,24 @@ impl IAppointmentParticipant {
 impl windows_core::RuntimeName for IAppointmentParticipant {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.IAppointmentParticipant";
 }
-pub trait IAppointmentParticipant_Impl: windows_core::IUnknownImpl {
+pub trait IAppointmentParticipant_Impl {
     fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Address(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl IAppointmentParticipant_Vtbl {
-    pub const fn new<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DisplayName<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentParticipant_Impl,
+    {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentParticipant_Impl::DisplayName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2545,15 +2552,23 @@ impl IAppointmentParticipant_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAppointmentParticipant_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn Address<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Address<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAppointmentParticipant_Impl::Address(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2564,9 +2579,13 @@ impl IAppointmentParticipant_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAddress<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAddress<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAppointmentParticipant_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAppointmentParticipant_Impl::SetAddress(this, core::mem::transmute(&value)).into()
             }
         }

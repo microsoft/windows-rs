@@ -209,7 +209,7 @@ impl IPropertyAnimation {
 impl windows_core::RuntimeName for IPropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.IPropertyAnimation";
 }
-pub trait IPropertyAnimation_Impl: windows_core::IUnknownImpl {
+pub trait IPropertyAnimation_Impl {
     fn Type(&self) -> windows_core::Result<PropertyAnimationType>;
     fn Delay(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
     fn Duration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
@@ -217,10 +217,17 @@ pub trait IPropertyAnimation_Impl: windows_core::IUnknownImpl {
     fn Control2(&self) -> windows_core::Result<super::super::super::Foundation::Point>;
 }
 impl IPropertyAnimation_Vtbl {
-    pub const fn new<Identity: IPropertyAnimation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Type<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PropertyAnimationType) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
+    {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PropertyAnimationType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPropertyAnimation_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -230,9 +237,13 @@ impl IPropertyAnimation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Delay<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Delay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPropertyAnimation_Impl::Delay(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -242,9 +253,13 @@ impl IPropertyAnimation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Duration<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Duration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPropertyAnimation_Impl::Duration(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -254,9 +269,13 @@ impl IPropertyAnimation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Control1<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> windows_core::HRESULT {
+        unsafe extern "system" fn Control1<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPropertyAnimation_Impl::Control1(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -266,9 +285,13 @@ impl IPropertyAnimation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Control2<Identity: IPropertyAnimation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> windows_core::HRESULT {
+        unsafe extern "system" fn Control2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPropertyAnimation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPropertyAnimation_Impl::Control2(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

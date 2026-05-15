@@ -35,17 +35,28 @@ pub mod Windows {
         impl windows_core::RuntimeName for IClosable {
             const NAME: &'static str = "Windows.Foundation.IClosable";
         }
-        pub trait IClosable_Impl: windows_core::IUnknownImpl {
+        pub trait IClosable_Impl {
             fn Close(&self) -> windows_core::Result<()>;
         }
         impl IClosable_Vtbl {
-            pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {
-                unsafe extern "system" fn Close<Identity: IClosable_Impl, const OFFSET: isize>(
+            pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+            where
+                <Identity as windows_core::IUnknownImpl>::Impl: IClosable_Impl,
+            {
+                unsafe extern "system" fn Close<
+                    Identity: windows_core::IUnknownImpl,
+                    const OFFSET: isize,
+                >(
                     this: *mut core::ffi::c_void,
-                ) -> windows_core::HRESULT {
+                ) -> windows_core::HRESULT
+                where
+                    <Identity as windows_core::IUnknownImpl>::Impl: IClosable_Impl,
+                {
                     unsafe {
-                        let this: &Identity =
+                        let outer: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                        let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                            <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                         IClosable_Impl::Close(this).into()
                     }
                 }

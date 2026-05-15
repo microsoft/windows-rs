@@ -57,17 +57,24 @@ pub struct IMLOperatorAttributes_Vtbl {
     pub GetStringAttributeElementLength: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub GetStringAttributeElement: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, u32, windows_core::PSTR) -> windows_core::HRESULT,
 }
-pub trait IMLOperatorAttributes_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorAttributes_Impl {
     fn GetAttributeElementCount(&self, name: &windows_core::PCSTR, r#type: MLOperatorAttributeType) -> windows_core::Result<u32>;
     fn GetAttribute(&self, name: &windows_core::PCSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetStringAttributeElementLength(&self, name: &windows_core::PCSTR, elementindex: u32) -> windows_core::Result<u32>;
     fn GetStringAttributeElement(&self, name: &windows_core::PCSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: windows_core::PSTR) -> windows_core::Result<()>;
 }
 impl IMLOperatorAttributes_Vtbl {
-    pub const fn new<Identity: IMLOperatorAttributes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAttributeElementCount<Identity: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorAttributes_Impl,
+    {
+        unsafe extern "system" fn GetAttributeElementCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorAttributes_Impl::GetAttributeElementCount(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
                         elementcount.write(core::mem::transmute(ok__));
@@ -77,15 +84,23 @@ impl IMLOperatorAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetAttribute<Identity: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorAttributes_Impl::GetAttribute(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&elementcount), core::mem::transmute_copy(&elementbytesize), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetStringAttributeElementLength<Identity: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStringAttributeElementLength<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorAttributes_Impl::GetStringAttributeElementLength(this, core::mem::transmute(&name), core::mem::transmute_copy(&elementindex)) {
                     Ok(ok__) => {
                         attributeelementbytesize.write(core::mem::transmute(ok__));
@@ -95,9 +110,13 @@ impl IMLOperatorAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetStringAttributeElement<Identity: IMLOperatorAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: windows_core::PSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStringAttributeElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: windows_core::PSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorAttributes_Impl::GetStringAttributeElement(this, core::mem::transmute(&name), core::mem::transmute_copy(&elementindex), core::mem::transmute_copy(&attributeelementbytesize), core::mem::transmute_copy(&attributeelement)).into()
             }
         }
@@ -130,14 +149,21 @@ pub struct IMLOperatorKernel_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Compute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IMLOperatorKernel_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorKernel_Impl {
     fn Compute(&self, context: windows_core::Ref<IMLOperatorKernelContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorKernel_Vtbl {
-    pub const fn new<Identity: IMLOperatorKernel_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Compute<Identity: IMLOperatorKernel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernel_Impl,
+    {
+        unsafe extern "system" fn Compute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernel_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernel_Impl::Compute(this, core::mem::transmute_copy(&context)).into()
             }
         }
@@ -193,7 +219,7 @@ pub struct IMLOperatorKernelContext_Vtbl {
     pub AllocateTemporaryData: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetExecutionInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
-pub trait IMLOperatorKernelContext_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorKernelContext_Impl {
     fn GetInputTensor(&self, inputindex: u32) -> windows_core::Result<IMLOperatorTensor>;
     fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> windows_core::Result<IMLOperatorTensor>;
     fn GetOutputTensor2(&self, outputindex: u32) -> windows_core::Result<IMLOperatorTensor>;
@@ -201,10 +227,17 @@ pub trait IMLOperatorKernelContext_Impl: windows_core::IUnknownImpl {
     fn GetExecutionInterface(&self, executionobject: windows_core::OutRef<windows_core::IUnknown>);
 }
 impl IMLOperatorKernelContext_Vtbl {
-    pub const fn new<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetInputTensor<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, tensor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelContext_Impl,
+    {
+        unsafe extern "system" fn GetInputTensor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, tensor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelContext_Impl::GetInputTensor(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
                         tensor.write(core::mem::transmute(ok__));
@@ -214,9 +247,13 @@ impl IMLOperatorKernelContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOutputTensor<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOutputTensor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelContext_Impl::GetOutputTensor(this, core::mem::transmute_copy(&outputindex), core::mem::transmute_copy(&dimensioncount), core::mem::transmute_copy(&dimensionsizes)) {
                     Ok(ok__) => {
                         tensor.write(core::mem::transmute(ok__));
@@ -226,9 +263,13 @@ impl IMLOperatorKernelContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOutputTensor2<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, tensor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOutputTensor2<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, tensor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelContext_Impl::GetOutputTensor2(this, core::mem::transmute_copy(&outputindex)) {
                     Ok(ok__) => {
                         tensor.write(core::mem::transmute(ok__));
@@ -238,9 +279,13 @@ impl IMLOperatorKernelContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AllocateTemporaryData<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: usize, data: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AllocateTemporaryData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: usize, data: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelContext_Impl::AllocateTemporaryData(this, core::mem::transmute_copy(&size)) {
                     Ok(ok__) => {
                         data.write(core::mem::transmute(ok__));
@@ -250,9 +295,13 @@ impl IMLOperatorKernelContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetExecutionInterface<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionobject: *mut *mut core::ffi::c_void) {
+        unsafe extern "system" fn GetExecutionInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionobject: *mut *mut core::ffi::c_void)
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernelContext_Impl::GetExecutionInterface(this, core::mem::transmute_copy(&executionobject))
             }
         }
@@ -346,34 +395,57 @@ pub trait IMLOperatorKernelCreationContext_Impl: IMLOperatorAttributes_Impl {
     fn GetExecutionInterface(&self, executionobject: windows_core::OutRef<windows_core::IUnknown>);
 }
 impl IMLOperatorKernelCreationContext_Vtbl {
-    pub const fn new<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetInputCount<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+    {
+        unsafe extern "system" fn GetInputCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernelCreationContext_Impl::GetInputCount(this)
             }
         }
-        unsafe extern "system" fn GetOutputCount<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetOutputCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernelCreationContext_Impl::GetOutputCount(this)
             }
         }
-        unsafe extern "system" fn IsInputValid<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32) -> bool {
+        unsafe extern "system" fn IsInputValid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernelCreationContext_Impl::IsInputValid(this, core::mem::transmute_copy(&inputindex))
             }
         }
-        unsafe extern "system" fn IsOutputValid<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32) -> bool {
+        unsafe extern "system" fn IsOutputValid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernelCreationContext_Impl::IsOutputValid(this, core::mem::transmute_copy(&outputindex))
             }
         }
-        unsafe extern "system" fn GetInputEdgeDescription<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInputEdgeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelCreationContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
                         edgedescription.write(core::mem::transmute(ok__));
@@ -383,9 +455,13 @@ impl IMLOperatorKernelCreationContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOutputEdgeDescription<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOutputEdgeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelCreationContext_Impl::GetOutputEdgeDescription(this, core::mem::transmute_copy(&outputindex)) {
                     Ok(ok__) => {
                         edgedescription.write(core::mem::transmute(ok__));
@@ -395,15 +471,23 @@ impl IMLOperatorKernelCreationContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn HasTensorShapeDescription<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool {
+        unsafe extern "system" fn HasTensorShapeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernelCreationContext_Impl::HasTensorShapeDescription(this)
             }
         }
-        unsafe extern "system" fn GetTensorShapeDescription<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, shapedescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTensorShapeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, shapedescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelCreationContext_Impl::GetTensorShapeDescription(this) {
                     Ok(ok__) => {
                         shapedescription.write(core::mem::transmute(ok__));
@@ -413,9 +497,13 @@ impl IMLOperatorKernelCreationContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetExecutionInterface<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionobject: *mut *mut core::ffi::c_void) {
+        unsafe extern "system" fn GetExecutionInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionobject: *mut *mut core::ffi::c_void)
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelCreationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorKernelCreationContext_Impl::GetExecutionInterface(this, core::mem::transmute_copy(&executionobject))
             }
         }
@@ -456,14 +544,21 @@ pub struct IMLOperatorKernelFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IMLOperatorKernelFactory_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorKernelFactory_Impl {
     fn CreateKernel(&self, context: windows_core::Ref<IMLOperatorKernelCreationContext>) -> windows_core::Result<IMLOperatorKernel>;
 }
 impl IMLOperatorKernelFactory_Vtbl {
-    pub const fn new<Identity: IMLOperatorKernelFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateKernel<Identity: IMLOperatorKernelFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, kernel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelFactory_Impl,
+    {
+        unsafe extern "system" fn CreateKernel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, kernel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorKernelFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorKernelFactory_Impl::CreateKernel(this, core::mem::transmute_copy(&context)) {
                     Ok(ok__) => {
                         kernel.write(core::mem::transmute(ok__));
@@ -505,21 +600,32 @@ pub struct IMLOperatorRegistry_Vtbl {
     pub RegisterOperatorSetSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *const MLOperatorSetId, i32, *const *const MLOperatorSchemaDescription, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RegisterOperatorKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *const MLOperatorKernelDescription, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IMLOperatorRegistry_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorRegistry_Impl {
     fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: windows_core::Ref<IMLOperatorTypeInferrer>, shapeinferrer: windows_core::Ref<IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
     fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: windows_core::Ref<IMLOperatorKernelFactory>, shapeinferrer: windows_core::Ref<IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
 }
 impl IMLOperatorRegistry_Vtbl {
-    pub const fn new<Identity: IMLOperatorRegistry_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RegisterOperatorSetSchema<Identity: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: *mut core::ffi::c_void, shapeinferrer: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorRegistry_Impl,
+    {
+        unsafe extern "system" fn RegisterOperatorSetSchema<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: *mut core::ffi::c_void, shapeinferrer: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorRegistry_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorRegistry_Impl::RegisterOperatorSetSchema(this, core::mem::transmute_copy(&operatorsetid), core::mem::transmute_copy(&baselineversion), core::mem::transmute_copy(&schema), core::mem::transmute_copy(&schemacount), core::mem::transmute_copy(&typeinferrer), core::mem::transmute_copy(&shapeinferrer)).into()
             }
         }
-        unsafe extern "system" fn RegisterOperatorKernel<Identity: IMLOperatorRegistry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: *mut core::ffi::c_void, shapeinferrer: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterOperatorKernel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: *mut core::ffi::c_void, shapeinferrer: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorRegistry_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorRegistry_Impl::RegisterOperatorKernel(this, core::mem::transmute_copy(&operatorkernel), core::mem::transmute_copy(&operatorkernelfactory), core::mem::transmute_copy(&shapeinferrer)).into()
             }
         }
@@ -598,34 +704,57 @@ pub trait IMLOperatorShapeInferenceContext_Impl: IMLOperatorAttributes_Impl {
     fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> windows_core::Result<()>;
 }
 impl IMLOperatorShapeInferenceContext_Vtbl {
-    pub const fn new<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetInputCount<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+    {
+        unsafe extern "system" fn GetInputCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorShapeInferenceContext_Impl::GetInputCount(this)
             }
         }
-        unsafe extern "system" fn GetOutputCount<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetOutputCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorShapeInferenceContext_Impl::GetOutputCount(this)
             }
         }
-        unsafe extern "system" fn IsInputValid<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32) -> bool {
+        unsafe extern "system" fn IsInputValid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorShapeInferenceContext_Impl::IsInputValid(this, core::mem::transmute_copy(&inputindex))
             }
         }
-        unsafe extern "system" fn IsOutputValid<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32) -> bool {
+        unsafe extern "system" fn IsOutputValid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorShapeInferenceContext_Impl::IsOutputValid(this, core::mem::transmute_copy(&outputindex))
             }
         }
-        unsafe extern "system" fn GetInputEdgeDescription<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInputEdgeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorShapeInferenceContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
                         edgedescription.write(core::mem::transmute(ok__));
@@ -635,9 +764,13 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetInputTensorDimensionCount<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInputTensorDimensionCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorShapeInferenceContext_Impl::GetInputTensorDimensionCount(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
                         dimensioncount.write(core::mem::transmute(ok__));
@@ -647,15 +780,23 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetInputTensorShape<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInputTensorShape<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorShapeInferenceContext_Impl::GetInputTensorShape(this, core::mem::transmute_copy(&inputindex), core::mem::transmute_copy(&dimensioncount), core::mem::transmute_copy(&dimensions)).into()
             }
         }
-        unsafe extern "system" fn SetOutputTensorShape<Identity: IMLOperatorShapeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOutputTensorShape<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorShapeInferenceContext_Impl::SetOutputTensorShape(this, core::mem::transmute_copy(&outputindex), core::mem::transmute_copy(&dimensioncount), core::mem::transmute_copy(&dimensions)).into()
             }
         }
@@ -692,14 +833,21 @@ pub struct IMLOperatorShapeInferrer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InferOutputShapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IMLOperatorShapeInferrer_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorShapeInferrer_Impl {
     fn InferOutputShapes(&self, context: windows_core::Ref<IMLOperatorShapeInferenceContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorShapeInferrer_Vtbl {
-    pub const fn new<Identity: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InferOutputShapes<Identity: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferrer_Impl,
+    {
+        unsafe extern "system" fn InferOutputShapes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorShapeInferrer_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorShapeInferrer_Impl::InferOutputShapes(this, core::mem::transmute_copy(&context)).into()
             }
         }
@@ -751,7 +899,7 @@ pub struct IMLOperatorTensor_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
     pub GetDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void),
 }
-pub trait IMLOperatorTensor_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorTensor_Impl {
     fn GetDimensionCount(&self) -> u32;
     fn GetShape(&self, dimensioncount: u32, dimensions: *mut u32) -> windows_core::Result<()>;
     fn GetTensorDataType(&self) -> MLOperatorTensorDataType;
@@ -761,46 +909,77 @@ pub trait IMLOperatorTensor_Impl: windows_core::IUnknownImpl {
     fn GetDataInterface(&self, datainterface: windows_core::OutRef<windows_core::IUnknown>);
 }
 impl IMLOperatorTensor_Vtbl {
-    pub const fn new<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDimensionCount<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+    {
+        unsafe extern "system" fn GetDimensionCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensor_Impl::GetDimensionCount(this)
             }
         }
-        unsafe extern "system" fn GetShape<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetShape<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensor_Impl::GetShape(this, core::mem::transmute_copy(&dimensioncount), core::mem::transmute_copy(&dimensions)).into()
             }
         }
-        unsafe extern "system" fn GetTensorDataType<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> MLOperatorTensorDataType {
+        unsafe extern "system" fn GetTensorDataType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> MLOperatorTensorDataType
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensor_Impl::GetTensorDataType(this)
             }
         }
-        unsafe extern "system" fn IsCpuData<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool {
+        unsafe extern "system" fn IsCpuData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensor_Impl::IsCpuData(this)
             }
         }
-        unsafe extern "system" fn IsDataInterface<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool {
+        unsafe extern "system" fn IsDataInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensor_Impl::IsDataInterface(this)
             }
         }
-        unsafe extern "system" fn GetData<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
+        unsafe extern "system" fn GetData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensor_Impl::GetData(this)
             }
         }
-        unsafe extern "system" fn GetDataInterface<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datainterface: *mut *mut core::ffi::c_void) {
+        unsafe extern "system" fn GetDataInterface<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, datainterface: *mut *mut core::ffi::c_void)
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensor_Impl::GetDataInterface(this, core::mem::transmute_copy(&datainterface))
             }
         }
@@ -855,7 +1034,7 @@ pub struct IMLOperatorTensorShapeDescription_Vtbl {
     pub GetOutputTensorDimensionCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub GetOutputTensorShape: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IMLOperatorTensorShapeDescription_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorTensorShapeDescription_Impl {
     fn GetInputTensorDimensionCount(&self, inputindex: u32) -> windows_core::Result<u32>;
     fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::Result<()>;
     fn HasOutputShapeDescription(&self) -> bool;
@@ -863,10 +1042,17 @@ pub trait IMLOperatorTensorShapeDescription_Impl: windows_core::IUnknownImpl {
     fn GetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::Result<()>;
 }
 impl IMLOperatorTensorShapeDescription_Vtbl {
-    pub const fn new<Identity: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetInputTensorDimensionCount<Identity: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensorShapeDescription_Impl,
+    {
+        unsafe extern "system" fn GetInputTensorDimensionCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensorShapeDescription_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorTensorShapeDescription_Impl::GetInputTensorDimensionCount(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
                         dimensioncount.write(core::mem::transmute(ok__));
@@ -876,21 +1062,33 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetInputTensorShape<Identity: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInputTensorShape<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensorShapeDescription_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensorShapeDescription_Impl::GetInputTensorShape(this, core::mem::transmute_copy(&inputindex), core::mem::transmute_copy(&dimensioncount), core::mem::transmute_copy(&dimensions)).into()
             }
         }
-        unsafe extern "system" fn HasOutputShapeDescription<Identity: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool {
+        unsafe extern "system" fn HasOutputShapeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensorShapeDescription_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensorShapeDescription_Impl::HasOutputShapeDescription(this)
             }
         }
-        unsafe extern "system" fn GetOutputTensorDimensionCount<Identity: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOutputTensorDimensionCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensorShapeDescription_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorTensorShapeDescription_Impl::GetOutputTensorDimensionCount(this, core::mem::transmute_copy(&outputindex)) {
                     Ok(ok__) => {
                         dimensioncount.write(core::mem::transmute(ok__));
@@ -900,9 +1098,13 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOutputTensorShape<Identity: IMLOperatorTensorShapeDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOutputTensorShape<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTensorShapeDescription_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTensorShapeDescription_Impl::GetOutputTensorShape(this, core::mem::transmute_copy(&outputindex), core::mem::transmute_copy(&dimensioncount), core::mem::transmute_copy(&dimensions)).into()
             }
         }
@@ -971,34 +1173,57 @@ pub trait IMLOperatorTypeInferenceContext_Impl: IMLOperatorAttributes_Impl {
     fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> windows_core::Result<()>;
 }
 impl IMLOperatorTypeInferenceContext_Vtbl {
-    pub const fn new<Identity: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetInputCount<Identity: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferenceContext_Impl,
+    {
+        unsafe extern "system" fn GetInputCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTypeInferenceContext_Impl::GetInputCount(this)
             }
         }
-        unsafe extern "system" fn GetOutputCount<Identity: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetOutputCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTypeInferenceContext_Impl::GetOutputCount(this)
             }
         }
-        unsafe extern "system" fn IsInputValid<Identity: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32) -> bool {
+        unsafe extern "system" fn IsInputValid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTypeInferenceContext_Impl::IsInputValid(this, core::mem::transmute_copy(&inputindex))
             }
         }
-        unsafe extern "system" fn IsOutputValid<Identity: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32) -> bool {
+        unsafe extern "system" fn IsOutputValid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32) -> bool
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTypeInferenceContext_Impl::IsOutputValid(this, core::mem::transmute_copy(&outputindex))
             }
         }
-        unsafe extern "system" fn GetInputEdgeDescription<Identity: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInputEdgeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMLOperatorTypeInferenceContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
                         edgedescription.write(core::mem::transmute(ok__));
@@ -1008,9 +1233,13 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOutputEdgeDescription<Identity: IMLOperatorTypeInferenceContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetOutputEdgeDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferenceContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTypeInferenceContext_Impl::SetOutputEdgeDescription(this, core::mem::transmute_copy(&outputindex), core::mem::transmute_copy(&edgedescription)).into()
             }
         }
@@ -1045,14 +1274,21 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InferOutputTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IMLOperatorTypeInferrer_Impl: windows_core::IUnknownImpl {
+pub trait IMLOperatorTypeInferrer_Impl {
     fn InferOutputTypes(&self, context: windows_core::Ref<IMLOperatorTypeInferenceContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorTypeInferrer_Vtbl {
-    pub const fn new<Identity: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InferOutputTypes<Identity: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferrer_Impl,
+    {
+        unsafe extern "system" fn InferOutputTypes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMLOperatorTypeInferrer_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMLOperatorTypeInferrer_Impl::InferOutputTypes(this, core::mem::transmute_copy(&context)).into()
             }
         }
@@ -1099,23 +1335,34 @@ pub struct IWinMLEvaluationContext_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-pub trait IWinMLEvaluationContext_Impl: windows_core::IUnknownImpl {
+pub trait IWinMLEvaluationContext_Impl {
     fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> windows_core::Result<()>;
     fn GetValueByName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<*mut WINML_BINDING_DESC>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLEvaluationContext_Vtbl {
-    pub const fn new<Identity: IWinMLEvaluationContext_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn BindValue<Identity: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdescriptor: *const WINML_BINDING_DESC) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWinMLEvaluationContext_Impl,
+    {
+        unsafe extern "system" fn BindValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdescriptor: *const WINML_BINDING_DESC) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLEvaluationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWinMLEvaluationContext_Impl::BindValue(this, core::mem::transmute_copy(&pdescriptor)).into()
             }
         }
-        unsafe extern "system" fn GetValueByName<Identity: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetValueByName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLEvaluationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWinMLEvaluationContext_Impl::GetValueByName(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         pdescriptor.write(core::mem::transmute(ok__));
@@ -1125,9 +1372,13 @@ impl IWinMLEvaluationContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Clear<Identity: IWinMLEvaluationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clear<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLEvaluationContext_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWinMLEvaluationContext_Impl::Clear(this).into()
             }
         }
@@ -1178,17 +1429,24 @@ pub struct IWinMLModel_Vtbl {
     pub EnumerateModelInputs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT,
     pub EnumerateModelOutputs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT,
 }
-pub trait IWinMLModel_Impl: windows_core::IUnknownImpl {
+pub trait IWinMLModel_Impl {
     fn GetDescription(&self) -> windows_core::Result<*mut WINML_MODEL_DESC>;
     fn EnumerateMetadata(&self, index: u32, pkey: *mut windows_core::PCWSTR, pvalue: *mut windows_core::PCWSTR) -> windows_core::Result<()>;
     fn EnumerateModelInputs(&self, index: u32) -> windows_core::Result<*mut WINML_VARIABLE_DESC>;
     fn EnumerateModelOutputs(&self, index: u32) -> windows_core::Result<*mut WINML_VARIABLE_DESC>;
 }
 impl IWinMLModel_Vtbl {
-    pub const fn new<Identity: IWinMLModel_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDescription<Identity: IWinMLModel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdescription: *mut *mut WINML_MODEL_DESC) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWinMLModel_Impl,
+    {
+        unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdescription: *mut *mut WINML_MODEL_DESC) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLModel_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWinMLModel_Impl::GetDescription(this) {
                     Ok(ok__) => {
                         ppdescription.write(core::mem::transmute(ok__));
@@ -1198,15 +1456,23 @@ impl IWinMLModel_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnumerateMetadata<Identity: IWinMLModel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pkey: *mut windows_core::PCWSTR, pvalue: *mut windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateMetadata<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, pkey: *mut windows_core::PCWSTR, pvalue: *mut windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLModel_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWinMLModel_Impl::EnumerateMetadata(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&pkey), core::mem::transmute_copy(&pvalue)).into()
             }
         }
-        unsafe extern "system" fn EnumerateModelInputs<Identity: IWinMLModel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, ppinputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateModelInputs<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, ppinputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLModel_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWinMLModel_Impl::EnumerateModelInputs(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         ppinputdescriptor.write(core::mem::transmute(ok__));
@@ -1216,9 +1482,13 @@ impl IWinMLModel_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnumerateModelOutputs<Identity: IWinMLModel_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, ppoutputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumerateModelOutputs<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, ppoutputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLModel_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWinMLModel_Impl::EnumerateModelOutputs(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         ppoutputdescriptor.write(core::mem::transmute(ok__));
@@ -1282,17 +1552,24 @@ pub struct IWinMLRuntime_Vtbl {
     pub EvaluateModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-pub trait IWinMLRuntime_Impl: windows_core::IUnknownImpl {
+pub trait IWinMLRuntime_Impl {
     fn LoadModel(&self, path: &windows_core::PCWSTR) -> windows_core::Result<IWinMLModel>;
     fn CreateEvaluationContext(&self, device: windows_core::Ref<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> windows_core::Result<IWinMLEvaluationContext>;
     fn EvaluateModel(&self, pcontext: windows_core::Ref<IWinMLEvaluationContext>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLRuntime_Vtbl {
-    pub const fn new<Identity: IWinMLRuntime_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn LoadModel<Identity: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, ppmodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWinMLRuntime_Impl,
+    {
+        unsafe extern "system" fn LoadModel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, ppmodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWinMLRuntime_Impl::LoadModel(this, core::mem::transmute(&path)) {
                     Ok(ok__) => {
                         ppmodel.write(core::mem::transmute(ok__));
@@ -1302,9 +1579,13 @@ impl IWinMLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateEvaluationContext<Identity: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void, ppcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateEvaluationContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void, ppcontext: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWinMLRuntime_Impl::CreateEvaluationContext(this, core::mem::transmute_copy(&device)) {
                     Ok(ok__) => {
                         ppcontext.write(core::mem::transmute(ok__));
@@ -1314,9 +1595,13 @@ impl IWinMLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EvaluateModel<Identity: IWinMLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EvaluateModel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcontext: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWinMLRuntime_Impl::EvaluateModel(this, core::mem::transmute_copy(&pcontext)).into()
             }
         }
@@ -1349,14 +1634,21 @@ pub struct IWinMLRuntimeFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateRuntime: unsafe extern "system" fn(*mut core::ffi::c_void, WINML_RUNTIME_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWinMLRuntimeFactory_Impl: windows_core::IUnknownImpl {
+pub trait IWinMLRuntimeFactory_Impl {
     fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> windows_core::Result<IWinMLRuntime>;
 }
 impl IWinMLRuntimeFactory_Vtbl {
-    pub const fn new<Identity: IWinMLRuntimeFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateRuntime<Identity: IWinMLRuntimeFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWinMLRuntimeFactory_Impl,
+    {
+        unsafe extern "system" fn CreateRuntime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWinMLRuntimeFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWinMLRuntimeFactory_Impl::CreateRuntime(this, core::mem::transmute_copy(&runtimetype)) {
                     Ok(ok__) => {
                         ppruntime.write(core::mem::transmute(ok__));

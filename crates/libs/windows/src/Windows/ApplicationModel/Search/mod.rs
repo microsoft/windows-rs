@@ -80,16 +80,23 @@ impl ISearchPaneQueryChangedEventArgs {
 impl windows_core::RuntimeName for ISearchPaneQueryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.ISearchPaneQueryChangedEventArgs";
 }
-pub trait ISearchPaneQueryChangedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait ISearchPaneQueryChangedEventArgs_Impl {
     fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Language(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn LinguisticDetails(&self) -> windows_core::Result<SearchPaneQueryLinguisticDetails>;
 }
 impl ISearchPaneQueryChangedEventArgs_Vtbl {
-    pub const fn new<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryText<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISearchPaneQueryChangedEventArgs_Impl,
+    {
+        unsafe extern "system" fn QueryText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISearchPaneQueryChangedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISearchPaneQueryChangedEventArgs_Impl::QueryText(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -100,9 +107,13 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Language<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Language<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISearchPaneQueryChangedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISearchPaneQueryChangedEventArgs_Impl::Language(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -113,9 +124,13 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LinguisticDetails<Identity: ISearchPaneQueryChangedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LinguisticDetails<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISearchPaneQueryChangedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISearchPaneQueryChangedEventArgs_Impl::LinguisticDetails(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

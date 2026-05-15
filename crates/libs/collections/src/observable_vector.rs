@@ -19,7 +19,7 @@ implement_decl! {
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
-impl<T> IObservableVector_Impl<T> for StockObservableVector_Impl<T>
+impl<T> IObservableVector_Impl<T> for StockObservableVector<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
@@ -34,7 +34,7 @@ where
     }
 }
 
-impl<T> IIterable_Impl<T> for StockObservableVector_Impl<T>
+impl<T> IIterable_Impl<T> for StockObservableVector<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
@@ -48,7 +48,7 @@ where
     }
 }
 
-impl<T> IVector_Impl<T> for StockObservableVector_Impl<T>
+impl<T> IVector_Impl<T> for StockObservableVector<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
@@ -179,7 +179,7 @@ where
     }
 }
 
-impl<T> StockObservableVector_Impl<T>
+impl<T> StockObservableVector<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,
@@ -202,7 +202,7 @@ implement_decl! {
     impl StockVectorChangedEventArgs as StockVectorChangedEventArgs_Impl: [IVectorChangedEventArgs]
 }
 
-impl IVectorChangedEventArgs_Impl for StockVectorChangedEventArgs_Impl {
+impl IVectorChangedEventArgs_Impl for StockVectorChangedEventArgs {
     fn CollectionChange(&self) -> Result<CollectionChange> {
         Ok(self.change)
     }
@@ -228,7 +228,7 @@ implement_decl! {
     where T: RuntimeType + 'static, T::Default: Clone + PartialEq
 }
 
-impl<T> IIterator_Impl<T> for StockObservableVectorIterator_Impl<T>
+impl<T> IIterator_Impl<T> for StockObservableVectorIterator<T>
 where
     T: RuntimeType,
     T::Default: Clone + PartialEq,

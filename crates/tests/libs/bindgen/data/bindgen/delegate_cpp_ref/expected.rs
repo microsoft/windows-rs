@@ -42,21 +42,29 @@ pub struct IActivationFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait IActivationFactory_Impl: windows_core::IUnknownImpl {
+pub trait IActivationFactory_Impl {
     fn ActivateInstance(&self) -> windows_core::Result<windows_core::IInspectable>;
 }
 impl IActivationFactory_Vtbl {
-    pub const fn new<Identity: IActivationFactory_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActivationFactory_Impl,
+    {
         unsafe extern "system" fn ActivateInstance<
-            Identity: IActivationFactory_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             instance: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivationFactory_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActivationFactory_Impl::ActivateInstance(this) {
                     Ok(ok__) => {
                         instance.write(core::mem::transmute(ok__));

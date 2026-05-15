@@ -115,10 +115,17 @@ pub trait IDirect3DDevice_Impl: super::super::super::Foundation::IClosable_Impl 
     fn Trim(&self) -> windows_core::Result<()>;
 }
 impl IDirect3DDevice_Vtbl {
-    pub const fn new<Identity: IDirect3DDevice_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Trim<Identity: IDirect3DDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDirect3DDevice_Impl,
+    {
+        unsafe extern "system" fn Trim<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDirect3DDevice_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDirect3DDevice_Impl::Trim(this).into()
             }
         }
@@ -159,10 +166,17 @@ pub trait IDirect3DSurface_Impl: super::super::super::Foundation::IClosable_Impl
     fn Description(&self) -> windows_core::Result<Direct3DSurfaceDescription>;
 }
 impl IDirect3DSurface_Vtbl {
-    pub const fn new<Identity: IDirect3DSurface_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Description<Identity: IDirect3DSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDirect3DSurface_Impl,
+    {
+        unsafe extern "system" fn Description<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDirect3DSurface_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDirect3DSurface_Impl::Description(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

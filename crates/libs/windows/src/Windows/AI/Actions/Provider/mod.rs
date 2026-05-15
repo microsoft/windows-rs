@@ -18,14 +18,21 @@ impl IActionFeedbackHandler {
 impl windows_core::RuntimeName for IActionFeedbackHandler {
     const NAME: &'static str = "Windows.AI.Actions.Provider.IActionFeedbackHandler";
 }
-pub trait IActionFeedbackHandler_Impl: windows_core::IUnknownImpl {
+pub trait IActionFeedbackHandler_Impl {
     fn ProcessFeedbackAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>, feedback: windows_core::Ref<super::ActionFeedback>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 impl IActionFeedbackHandler_Vtbl {
-    pub const fn new<Identity: IActionFeedbackHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ProcessFeedbackAsync<Identity: IActionFeedbackHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, feedback: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActionFeedbackHandler_Impl,
+    {
+        unsafe extern "system" fn ProcessFeedbackAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, feedback: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActionFeedbackHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActionFeedbackHandler_Impl::ProcessFeedbackAsync(this, core::mem::transmute_copy(&context), core::mem::transmute_copy(&feedback)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -70,14 +77,21 @@ impl IActionProvider {
 impl windows_core::RuntimeName for IActionProvider {
     const NAME: &'static str = "Windows.AI.Actions.Provider.IActionProvider";
 }
-pub trait IActionProvider_Impl: windows_core::IUnknownImpl {
+pub trait IActionProvider_Impl {
     fn InvokeAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 impl IActionProvider_Vtbl {
-    pub const fn new<Identity: IActionProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn InvokeAsync<Identity: IActionProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActionProvider_Impl,
+    {
+        unsafe extern "system" fn InvokeAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActionProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActionProvider_Impl::InvokeAsync(this, core::mem::transmute_copy(&context)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

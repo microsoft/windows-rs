@@ -7,7 +7,7 @@ use windows::{
 #[implement(IDataObject)]
 struct DataObject();
 
-impl IDataObject_Impl for DataObject_Impl {
+impl IDataObject_Impl for DataObject {
     fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
         unimplemented!()
     }
@@ -43,7 +43,7 @@ impl IDataObject_Impl for DataObject_Impl {
 #[implement(IDropTarget)]
 struct DropTarget();
 
-impl IDropTarget_Impl for DropTarget_Impl {
+impl IDropTarget_Impl for DropTarget {
     fn DragEnter(
         &self,
         object: Ref<IDataObject>,

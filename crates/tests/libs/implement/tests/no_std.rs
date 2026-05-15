@@ -16,7 +16,7 @@ struct MyApp {
     x: u32,
 }
 
-impl IFoo_Impl for MyApp_Impl {
+impl IFoo_Impl for MyApp {
     unsafe fn x(&self) -> u32 {
         self.x
     }

@@ -28,22 +28,33 @@ pub struct IGraphicsCaptureItemInterop_Vtbl {
     CreateForMonitor: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub trait IGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
+pub trait IGraphicsCaptureItemInterop_Impl {
     fn CreateForWindow(&self, window: super::super::super::super::Foundation::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateForMonitor(&self, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IGraphicsCaptureItemInterop_Vtbl {
-    pub const fn new<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateForWindow<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: super::super::super::super::Foundation::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsCaptureItemInterop_Impl,
+    {
+        unsafe extern "system" fn CreateForWindow<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: super::super::super::super::Foundation::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsCaptureItemInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IGraphicsCaptureItemInterop_Impl::CreateForWindow(this, core::mem::transmute_copy(&window), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
             }
         }
-        unsafe extern "system" fn CreateForMonitor<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateForMonitor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IGraphicsCaptureItemInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IGraphicsCaptureItemInterop_Impl::CreateForMonitor(this, core::mem::transmute_copy(&monitor), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
             }
         }
@@ -77,15 +88,22 @@ pub struct IMonitorGraphicsCaptureItemInterop_Vtbl {
     GetMonitor: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub trait IMonitorGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
+pub trait IMonitorGraphicsCaptureItemInterop_Impl {
     fn GetMonitor(&self, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IMonitorGraphicsCaptureItemInterop_Vtbl {
-    pub const fn new<Identity: IMonitorGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMonitor<Identity: IMonitorGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMonitorGraphicsCaptureItemInterop_Impl,
+    {
+        unsafe extern "system" fn GetMonitor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: *mut super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMonitorGraphicsCaptureItemInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMonitorGraphicsCaptureItemInterop_Impl::GetMonitor(this, core::mem::transmute_copy(&monitor)).into()
             }
         }
@@ -110,14 +128,21 @@ pub struct IWindowGraphicsCaptureItemInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::HWND) -> windows_core::HRESULT,
 }
-pub trait IWindowGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
+pub trait IWindowGraphicsCaptureItemInterop_Impl {
     fn GetWindow(&self, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 impl IWindowGraphicsCaptureItemInterop_Vtbl {
-    pub const fn new<Identity: IWindowGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetWindow<Identity: IWindowGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWindowGraphicsCaptureItemInterop_Impl,
+    {
+        unsafe extern "system" fn GetWindow<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut super::super::super::super::Foundation::HWND) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWindowGraphicsCaptureItemInterop_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWindowGraphicsCaptureItemInterop_Impl::GetWindow(this, core::mem::transmute_copy(&window)).into()
             }
         }

@@ -8,7 +8,7 @@ use windows_collections::*;
 )]
 struct Thing();
 
-impl IIterator_Impl<i32> for Thing_Impl {
+impl IIterator_Impl<i32> for Thing {
     fn Current(&self) -> Result<i32> {
         Ok(123)
     }
@@ -26,7 +26,7 @@ impl IIterator_Impl<i32> for Thing_Impl {
     }
 }
 
-impl IIterator_Impl<HSTRING> for Thing_Impl {
+impl IIterator_Impl<HSTRING> for Thing {
     fn Current(&self) -> Result<HSTRING> {
         Ok("hello".into())
     }

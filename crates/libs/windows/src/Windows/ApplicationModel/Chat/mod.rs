@@ -2021,14 +2021,21 @@ impl IChatItem {
 impl windows_core::RuntimeName for IChatItem {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatItem";
 }
-pub trait IChatItem_Impl: windows_core::IUnknownImpl {
+pub trait IChatItem_Impl {
     fn ItemKind(&self) -> windows_core::Result<ChatItemKind>;
 }
 impl IChatItem_Vtbl {
-    pub const fn new<Identity: IChatItem_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ItemKind<Identity: IChatItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ChatItemKind) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IChatItem_Impl,
+    {
+        unsafe extern "system" fn ItemKind<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ChatItemKind) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IChatItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IChatItem_Impl::ItemKind(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

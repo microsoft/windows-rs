@@ -135,7 +135,7 @@ pub struct IDODownload_Vtbl {
     SetProperty: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IDODownload_Impl: windows_core::IUnknownImpl {
+pub trait IDODownload_Impl {
     fn Start(&self, ranges: *const DO_DOWNLOAD_RANGES_INFO) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
@@ -146,40 +146,67 @@ pub trait IDODownload_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDODownload_Vtbl {
-    pub const fn new<Identity: IDODownload_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Start<Identity: IDODownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ranges: *const DO_DOWNLOAD_RANGES_INFO) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+    {
+        unsafe extern "system" fn Start<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ranges: *const DO_DOWNLOAD_RANGES_INFO) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDODownload_Impl::Start(this, core::mem::transmute_copy(&ranges)).into()
             }
         }
-        unsafe extern "system" fn Pause<Identity: IDODownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Pause<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDODownload_Impl::Pause(this).into()
             }
         }
-        unsafe extern "system" fn Abort<Identity: IDODownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Abort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDODownload_Impl::Abort(this).into()
             }
         }
-        unsafe extern "system" fn Finalize<Identity: IDODownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Finalize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDODownload_Impl::Finalize(this).into()
             }
         }
-        unsafe extern "system" fn GetStatus<Identity: IDODownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut DO_DOWNLOAD_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut DO_DOWNLOAD_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDODownload_Impl::GetStatus(this, core::mem::transmute_copy(&status)).into()
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: IDODownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: DODownloadProperty, propval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: DODownloadProperty, propval: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDODownload_Impl::GetProperty(this, core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
                         propval.write(core::mem::transmute(ok__));
@@ -189,9 +216,13 @@ impl IDODownload_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: IDODownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: DODownloadProperty, propval: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, propid: DODownloadProperty, propval: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownload_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDODownload_Impl::SetProperty(this, core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propval)).into()
             }
         }
@@ -228,14 +259,21 @@ pub struct IDODownloadStatusCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DO_DOWNLOAD_STATUS) -> windows_core::HRESULT,
 }
-pub trait IDODownloadStatusCallback_Impl: windows_core::IUnknownImpl {
+pub trait IDODownloadStatusCallback_Impl {
     fn OnStatusChange(&self, download: windows_core::Ref<IDODownload>, status: *const DO_DOWNLOAD_STATUS) -> windows_core::Result<()>;
 }
 impl IDODownloadStatusCallback_Vtbl {
-    pub const fn new<Identity: IDODownloadStatusCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnStatusChange<Identity: IDODownloadStatusCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, download: *mut core::ffi::c_void, status: *const DO_DOWNLOAD_STATUS) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDODownloadStatusCallback_Impl,
+    {
+        unsafe extern "system" fn OnStatusChange<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, download: *mut core::ffi::c_void, status: *const DO_DOWNLOAD_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDODownloadStatusCallback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDODownloadStatusCallback_Impl::OnStatusChange(this, core::mem::transmute_copy(&download), core::mem::transmute_copy(&status)).into()
             }
         }
@@ -274,16 +312,23 @@ pub struct IDOManager_Vtbl {
     EnumDownloads: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IDOManager_Impl: windows_core::IUnknownImpl {
+pub trait IDOManager_Impl {
     fn CreateDownload(&self) -> windows_core::Result<IDODownload>;
     fn EnumDownloads(&self, category: *const DO_DOWNLOAD_ENUM_CATEGORY) -> windows_core::Result<super::super::System::Com::IEnumUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDOManager_Vtbl {
-    pub const fn new<Identity: IDOManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateDownload<Identity: IDOManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, download: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDOManager_Impl,
+    {
+        unsafe extern "system" fn CreateDownload<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, download: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDOManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDOManager_Impl::CreateDownload(this) {
                     Ok(ok__) => {
                         download.write(core::mem::transmute(ok__));
@@ -293,9 +338,13 @@ impl IDOManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EnumDownloads<Identity: IDOManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: *const DO_DOWNLOAD_ENUM_CATEGORY, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumDownloads<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: *const DO_DOWNLOAD_ENUM_CATEGORY, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDOManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IDOManager_Impl::EnumDownloads(this, core::mem::transmute_copy(&category)) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));

@@ -19,7 +19,7 @@ unsafe extern "system" fn DllGetActivationFactory(
 #[implement(IActivationFactory)]
 struct ReferenceFactory;
 
-impl IActivationFactory_Impl for ReferenceFactory_Impl {
+impl IActivationFactory_Impl for ReferenceFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Reference.into())
     }
@@ -28,13 +28,13 @@ impl IActivationFactory_Impl for ReferenceFactory_Impl {
 #[implement(IStringable, bindings::IReference)]
 struct Reference;
 
-impl IStringable_Impl for Reference_Impl {
+impl IStringable_Impl for Reference {
     fn ToString(&self) -> Result<HSTRING> {
         Ok(h!("Reference").clone())
     }
 }
 
-impl bindings::IReference_Impl for Reference_Impl {
+impl bindings::IReference_Impl for Reference {
     fn Method(&self, stringable: Ref<IStringable>) -> Result<HSTRING> {
         stringable.unwrap().ToString()
     }

@@ -23,7 +23,10 @@ pub struct DRendezvousSessionEvents_Vtbl {
 pub trait DRendezvousSessionEvents_Impl: super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl DRendezvousSessionEvents_Vtbl {
-    pub const fn new<Identity: DRendezvousSessionEvents_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: DRendezvousSessionEvents_Impl,
+    {
         Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -48,14 +51,21 @@ pub struct IRendezvousApplication_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetRendezvousSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRendezvousApplication_Impl: windows_core::IUnknownImpl {
+pub trait IRendezvousApplication_Impl {
     fn SetRendezvousSession(&self, prendezvoussession: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IRendezvousApplication_Vtbl {
-    pub const fn new<Identity: IRendezvousApplication_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetRendezvousSession<Identity: IRendezvousApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendezvoussession: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousApplication_Impl,
+    {
+        unsafe extern "system" fn SetRendezvousSession<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, prendezvoussession: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRendezvousApplication_Impl::SetRendezvousSession(this, core::mem::transmute_copy(&prendezvoussession)).into()
             }
         }
@@ -104,7 +114,7 @@ pub struct IRendezvousSession_Vtbl {
     pub SendContextData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IRendezvousSession_Impl: windows_core::IUnknownImpl {
+pub trait IRendezvousSession_Impl {
     fn State(&self) -> windows_core::Result<RENDEZVOUS_SESSION_STATE>;
     fn RemoteUser(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Flags(&self) -> windows_core::Result<i32>;
@@ -112,10 +122,17 @@ pub trait IRendezvousSession_Impl: windows_core::IUnknownImpl {
     fn Terminate(&self, hr: windows_core::HRESULT, bstrappdata: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IRendezvousSession_Vtbl {
-    pub const fn new<Identity: IRendezvousSession_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn State<Identity: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psessionstate: *mut RENDEZVOUS_SESSION_STATE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousSession_Impl,
+    {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, psessionstate: *mut RENDEZVOUS_SESSION_STATE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRendezvousSession_Impl::State(this) {
                     Ok(ok__) => {
                         psessionstate.write(core::mem::transmute(ok__));
@@ -125,9 +142,13 @@ impl IRendezvousSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoteUser<Identity: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoteUser<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRendezvousSession_Impl::RemoteUser(this) {
                     Ok(ok__) => {
                         bstrusername.write(core::mem::transmute(ok__));
@@ -137,9 +158,13 @@ impl IRendezvousSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Flags<Identity: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Flags<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRendezvousSession_Impl::Flags(this) {
                     Ok(ok__) => {
                         pflags.write(core::mem::transmute(ok__));
@@ -149,15 +174,23 @@ impl IRendezvousSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SendContextData<Identity: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendContextData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrdata: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRendezvousSession_Impl::SendContextData(this, core::mem::transmute(&bstrdata)).into()
             }
         }
-        unsafe extern "system" fn Terminate<Identity: IRendezvousSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, bstrappdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Terminate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, bstrappdata: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRendezvousSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRendezvousSession_Impl::Terminate(this, core::mem::transmute_copy(&hr), core::mem::transmute(&bstrappdata)).into()
             }
         }

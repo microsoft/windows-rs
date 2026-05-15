@@ -441,9 +441,12 @@ impl Interface {
                     let upcall = method.write_upcall(call, true, config);
 
                     quote! {
-                        unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
+                        unsafe extern "system" fn #name<#constraints Identity: windows_core::IUnknownImpl, const OFFSET: isize> (#signature) -> windows_core::HRESULT
+                        where <Identity as windows_core::IUnknownImpl>::Impl: #impl_name <#(#generics,)*>
+                        {
                             unsafe {
-                                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                                 #upcall
                             }
                         }
@@ -467,23 +470,25 @@ impl Interface {
                         .collect();
 
                     let requires = if required_interfaces.is_empty() {
-                        quote! { windows_core::IUnknownImpl }
+                        quote! {}
                     } else {
                         let interfaces = required_interfaces
                             .iter()
                             .map(|ty| ty.write_impl_name(config));
 
-                        quote! {  #(#interfaces)+* }
+                        quote! { : #(#interfaces)+* }
                     };
 
                     result.combine(quote! {
                 #cfg
-                pub trait #impl_name <#(#generics),*> : #requires where #constraints {
+                pub trait #impl_name <#(#generics),*> #requires where #constraints {
                     #(#trait_methods)*
                 }
                 #cfg
                 impl<#constraints> #vtbl_name {
-                    pub const fn new<Identity: #impl_name <#(#generics,)*>, const OFFSET: isize>() -> Self {
+                    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+                    where <Identity as windows_core::IUnknownImpl>::Impl: #impl_name <#(#generics,)*>
+                    {
                         #(#impl_methods)*
                         Self {
                             base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(),

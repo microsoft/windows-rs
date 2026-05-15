@@ -173,7 +173,7 @@ impl IIOControlCode {
 impl windows_core::RuntimeName for IIOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
 }
-pub trait IIOControlCode_Impl: windows_core::IUnknownImpl {
+pub trait IIOControlCode_Impl {
     fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode>;
     fn BufferingMethod(&self) -> windows_core::Result<IOControlBufferingMethod>;
     fn Function(&self) -> windows_core::Result<u16>;
@@ -181,10 +181,17 @@ pub trait IIOControlCode_Impl: windows_core::IUnknownImpl {
     fn ControlCode(&self) -> windows_core::Result<u32>;
 }
 impl IIOControlCode_Vtbl {
-    pub const fn new<Identity: IIOControlCode_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AccessMode<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlAccessMode) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
+    {
+        unsafe extern "system" fn AccessMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlAccessMode) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIOControlCode_Impl::AccessMode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -194,9 +201,13 @@ impl IIOControlCode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BufferingMethod<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> windows_core::HRESULT {
+        unsafe extern "system" fn BufferingMethod<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIOControlCode_Impl::BufferingMethod(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -206,9 +217,13 @@ impl IIOControlCode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Function<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn Function<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIOControlCode_Impl::Function(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -218,9 +233,13 @@ impl IIOControlCode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DeviceType<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIOControlCode_Impl::DeviceType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -230,9 +249,13 @@ impl IIOControlCode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ControlCode<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ControlCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIOControlCode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIOControlCode_Impl::ControlCode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

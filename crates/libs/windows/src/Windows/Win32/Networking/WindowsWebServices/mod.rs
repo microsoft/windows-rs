@@ -1008,21 +1008,32 @@ pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub TriggerContentPrefetcherTask: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u8) -> windows_core::HRESULT,
 }
-pub trait IContentPrefetcherTaskTrigger_Impl: windows_core::IUnknownImpl {
+pub trait IContentPrefetcherTaskTrigger_Impl {
     fn TriggerContentPrefetcherTask(&self, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn IsRegisteredForContentPrefetch(&self, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<u8>;
 }
 impl IContentPrefetcherTaskTrigger_Vtbl {
-    pub const fn new<Identity: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TriggerContentPrefetcherTask<Identity: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: windows_core::PCWSTR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IContentPrefetcherTaskTrigger_Impl,
+    {
+        unsafe extern "system" fn TriggerContentPrefetcherTask<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContentPrefetcherTaskTrigger_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IContentPrefetcherTaskTrigger_Impl::TriggerContentPrefetcherTask(this, core::mem::transmute(&packagefullname)).into()
             }
         }
-        unsafe extern "system" fn IsRegisteredForContentPrefetch<Identity: IContentPrefetcherTaskTrigger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: windows_core::PCWSTR, isregistered: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsRegisteredForContentPrefetch<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, packagefullname: windows_core::PCWSTR, isregistered: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IContentPrefetcherTaskTrigger_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IContentPrefetcherTaskTrigger_Impl::IsRegisteredForContentPrefetch(this, core::mem::transmute(&packagefullname)) {
                     Ok(ok__) => {
                         isregistered.write(core::mem::transmute(ok__));

@@ -168,7 +168,7 @@ impl IAsyncInfo {
 impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
-pub trait IAsyncInfo_Impl: windows_core::IUnknownImpl {
+pub trait IAsyncInfo_Impl {
     fn Id(&self) -> windows_core::Result<u32>;
     fn Status(&self) -> windows_core::Result<AsyncStatus>;
     fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
@@ -176,14 +176,22 @@ pub trait IAsyncInfo_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IAsyncInfo_Vtbl {
-    pub const fn new<Identity: IAsyncInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Id<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+    {
+        unsafe extern "system" fn Id<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut u32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncInfo_Impl::Id(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -193,13 +201,21 @@ impl IAsyncInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Status<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Status<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut AsyncStatus,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncInfo_Impl::Status(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -209,13 +225,21 @@ impl IAsyncInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ErrorCode<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn ErrorCode<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             result__: *mut windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IAsyncInfo_Impl::ErrorCode(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -225,21 +249,34 @@ impl IAsyncInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Cancel<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Cancel<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncInfo_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Close<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IAsyncInfo_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IAsyncInfo_Impl::Close(this).into()
             }
         }

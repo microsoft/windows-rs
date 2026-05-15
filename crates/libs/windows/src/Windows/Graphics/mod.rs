@@ -45,9 +45,12 @@ windows_core::imp::interface_hierarchy!(IGeometrySource2D, windows_core::IUnknow
 impl windows_core::RuntimeName for IGeometrySource2D {
     const NAME: &'static str = "Windows.Graphics.IGeometrySource2D";
 }
-pub trait IGeometrySource2D_Impl: windows_core::IUnknownImpl {}
+pub trait IGeometrySource2D_Impl {}
 impl IGeometrySource2D_Vtbl {
-    pub const fn new<Identity: IGeometrySource2D_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IGeometrySource2D_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGeometrySource2D, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

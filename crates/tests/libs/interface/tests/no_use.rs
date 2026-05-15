@@ -11,13 +11,13 @@ unsafe trait ITestPersistMemory: windows::Win32::System::Com::IPersist {
 #[windows::core::implement(ITestPersistMemory, windows::Win32::System::Com::IPersist)]
 struct Test;
 
-impl windows::Win32::System::Com::IPersist_Impl for Test_Impl {
+impl windows::Win32::System::Com::IPersist_Impl for Test {
     fn GetClassID(&self) -> windows::core::Result<windows::core::GUID> {
         "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()
     }
 }
 
-impl ITestPersistMemory_Impl for Test_Impl {
+impl ITestPersistMemory_Impl for Test {
     unsafe fn IsDirty(&self) -> windows::core::HRESULT {
         windows::Win32::Foundation::S_FALSE
     }

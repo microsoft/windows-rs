@@ -28,15 +28,22 @@ pub struct IFindSimilarResults_Vtbl {
     pub GetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetNextFileId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut SimilarityFileId) -> windows_core::HRESULT,
 }
-pub trait IFindSimilarResults_Impl: windows_core::IUnknownImpl {
+pub trait IFindSimilarResults_Impl {
     fn GetSize(&self) -> windows_core::Result<u32>;
     fn GetNextFileId(&self, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> windows_core::Result<()>;
 }
 impl IFindSimilarResults_Vtbl {
-    pub const fn new<Identity: IFindSimilarResults_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSize<Identity: IFindSimilarResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IFindSimilarResults_Impl,
+    {
+        unsafe extern "system" fn GetSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFindSimilarResults_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IFindSimilarResults_Impl::GetSize(this) {
                     Ok(ok__) => {
                         size.write(core::mem::transmute(ok__));
@@ -46,9 +53,13 @@ impl IFindSimilarResults_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNextFileId<Identity: IFindSimilarResults_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNextFileId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFindSimilarResults_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IFindSimilarResults_Impl::GetNextFileId(this, core::mem::transmute_copy(&numtraitsmatched), core::mem::transmute_copy(&similarityfileid)).into()
             }
         }
@@ -76,14 +87,21 @@ pub struct IRdcComparator_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::BOOL, *mut RdcBufferPointer, *mut RdcNeedPointer, *mut RDC_ErrorCode) -> windows_core::HRESULT,
 }
-pub trait IRdcComparator_Impl: windows_core::IUnknownImpl {
+pub trait IRdcComparator_Impl {
     fn Process(&self, endofinput: windows_core::BOOL, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::Result<()>;
 }
 impl IRdcComparator_Vtbl {
-    pub const fn new<Identity: IRdcComparator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Process<Identity: IRdcComparator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endofinput: windows_core::BOOL, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcComparator_Impl,
+    {
+        unsafe extern "system" fn Process<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endofinput: windows_core::BOOL, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcComparator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcComparator_Impl::Process(this, core::mem::transmute_copy(&endofinput), core::mem::transmute_copy(&endofoutput), core::mem::transmute_copy(&inputbuffer), core::mem::transmute_copy(&outputbuffer), core::mem::transmute_copy(&rdc_errorcode)).into()
             }
         }
@@ -121,16 +139,23 @@ pub struct IRdcFileReader_Vtbl {
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, *mut u32, *mut u8, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub GetFilePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
-pub trait IRdcFileReader_Impl: windows_core::IUnknownImpl {
+pub trait IRdcFileReader_Impl {
     fn GetFileSize(&self) -> windows_core::Result<u64>;
     fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFilePosition(&self) -> windows_core::Result<u64>;
 }
 impl IRdcFileReader_Vtbl {
-    pub const fn new<Identity: IRdcFileReader_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetFileSize<Identity: IRdcFileReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: *mut u64) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileReader_Impl,
+    {
+        unsafe extern "system" fn GetFileSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: *mut u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcFileReader_Impl::GetFileSize(this) {
                     Ok(ok__) => {
                         filesize.write(core::mem::transmute(ok__));
@@ -140,15 +165,23 @@ impl IRdcFileReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Read<Identity: IRdcFileReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcFileReader_Impl::Read(this, core::mem::transmute_copy(&offsetfilestart), core::mem::transmute_copy(&bytestoread), core::mem::transmute_copy(&bytesactuallyread), core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&eof)).into()
             }
         }
-        unsafe extern "system" fn GetFilePosition<Identity: IRdcFileReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfromstart: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFilePosition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfromstart: *mut u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcFileReader_Impl::GetFilePosition(this) {
                     Ok(ok__) => {
                         offsetfromstart.write(core::mem::transmute(ok__));
@@ -206,10 +239,17 @@ pub trait IRdcFileWriter_Impl: IRdcFileReader_Impl {
     fn DeleteOnClose(&self) -> windows_core::Result<()>;
 }
 impl IRdcFileWriter_Vtbl {
-    pub const fn new<Identity: IRdcFileWriter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Write<Identity: IRdcFileWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfilestart: u64, bytestowrite: u32, buffer: *mut u8) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileWriter_Impl,
+    {
+        unsafe extern "system" fn Write<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offsetfilestart: u64, bytestowrite: u32, buffer: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcFileWriter_Impl::Write(this, core::mem::transmute_copy(&offsetfilestart), core::mem::transmute_copy(&bytestowrite)) {
                     Ok(ok__) => {
                         buffer.write(core::mem::transmute(ok__));
@@ -219,15 +259,23 @@ impl IRdcFileWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Truncate<Identity: IRdcFileWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Truncate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcFileWriter_Impl::Truncate(this).into()
             }
         }
-        unsafe extern "system" fn DeleteOnClose<Identity: IRdcFileWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteOnClose<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcFileWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcFileWriter_Impl::DeleteOnClose(this).into()
             }
         }
@@ -263,15 +311,22 @@ pub struct IRdcGenerator_Vtbl {
     pub GetGeneratorParameters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Process: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut windows_core::BOOL, *mut RdcBufferPointer, u32, *mut *mut RdcBufferPointer, *mut RDC_ErrorCode) -> windows_core::HRESULT,
 }
-pub trait IRdcGenerator_Impl: windows_core::IUnknownImpl {
+pub trait IRdcGenerator_Impl {
     fn GetGeneratorParameters(&self, level: u32) -> windows_core::Result<IRdcGeneratorParameters>;
     fn Process(&self, endofinput: windows_core::BOOL, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, depth: u32, outputbuffers: *mut *mut RdcBufferPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::Result<()>;
 }
 impl IRdcGenerator_Vtbl {
-    pub const fn new<Identity: IRdcGenerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetGeneratorParameters<Identity: IRdcGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, igeneratorparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcGenerator_Impl,
+    {
+        unsafe extern "system" fn GetGeneratorParameters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, igeneratorparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGenerator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcGenerator_Impl::GetGeneratorParameters(this, core::mem::transmute_copy(&level)) {
                     Ok(ok__) => {
                         igeneratorparameters.write(core::mem::transmute(ok__));
@@ -281,9 +336,13 @@ impl IRdcGenerator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Process<Identity: IRdcGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, endofinput: windows_core::BOOL, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, depth: u32, outputbuffers: *mut *mut RdcBufferPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT {
+        unsafe extern "system" fn Process<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, endofinput: windows_core::BOOL, endofoutput: *mut windows_core::BOOL, inputbuffer: *mut RdcBufferPointer, depth: u32, outputbuffers: *mut *mut RdcBufferPointer, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGenerator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcGenerator_Impl::Process(this, core::mem::transmute_copy(&endofinput), core::mem::transmute_copy(&endofoutput), core::mem::transmute_copy(&inputbuffer), core::mem::transmute_copy(&depth), core::mem::transmute_copy(&outputbuffers), core::mem::transmute_copy(&rdc_errorcode)).into()
             }
         }
@@ -329,17 +388,24 @@ pub struct IRdcGeneratorFilterMaxParameters_Vtbl {
     pub GetHashWindowSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetHashWindowSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IRdcGeneratorFilterMaxParameters_Impl: windows_core::IUnknownImpl {
+pub trait IRdcGeneratorFilterMaxParameters_Impl {
     fn GetHorizonSize(&self) -> windows_core::Result<u32>;
     fn SetHorizonSize(&self, horizonsize: u32) -> windows_core::Result<()>;
     fn GetHashWindowSize(&self) -> windows_core::Result<u32>;
     fn SetHashWindowSize(&self, hashwindowsize: u32) -> windows_core::Result<()>;
 }
 impl IRdcGeneratorFilterMaxParameters_Vtbl {
-    pub const fn new<Identity: IRdcGeneratorFilterMaxParameters_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetHorizonSize<Identity: IRdcGeneratorFilterMaxParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizonsize: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorFilterMaxParameters_Impl,
+    {
+        unsafe extern "system" fn GetHorizonSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizonsize: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorFilterMaxParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcGeneratorFilterMaxParameters_Impl::GetHorizonSize(this) {
                     Ok(ok__) => {
                         horizonsize.write(core::mem::transmute(ok__));
@@ -349,15 +415,23 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetHorizonSize<Identity: IRdcGeneratorFilterMaxParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizonsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHorizonSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, horizonsize: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorFilterMaxParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcGeneratorFilterMaxParameters_Impl::SetHorizonSize(this, core::mem::transmute_copy(&horizonsize)).into()
             }
         }
-        unsafe extern "system" fn GetHashWindowSize<Identity: IRdcGeneratorFilterMaxParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashwindowsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHashWindowSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashwindowsize: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorFilterMaxParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcGeneratorFilterMaxParameters_Impl::GetHashWindowSize(this) {
                     Ok(ok__) => {
                         hashwindowsize.write(core::mem::transmute(ok__));
@@ -367,9 +441,13 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetHashWindowSize<Identity: IRdcGeneratorFilterMaxParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashwindowsize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHashWindowSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hashwindowsize: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorFilterMaxParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcGeneratorFilterMaxParameters_Impl::SetHashWindowSize(this, core::mem::transmute_copy(&hashwindowsize)).into()
             }
         }
@@ -417,17 +495,24 @@ pub struct IRdcGeneratorParameters_Vtbl {
     pub GetSerializeSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IRdcGeneratorParameters_Impl: windows_core::IUnknownImpl {
+pub trait IRdcGeneratorParameters_Impl {
     fn GetGeneratorParametersType(&self) -> windows_core::Result<GeneratorParametersType>;
     fn GetParametersVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()>;
     fn GetSerializeSize(&self) -> windows_core::Result<u32>;
     fn Serialize(&self, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> windows_core::Result<()>;
 }
 impl IRdcGeneratorParameters_Vtbl {
-    pub const fn new<Identity: IRdcGeneratorParameters_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetGeneratorParametersType<Identity: IRdcGeneratorParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterstype: *mut GeneratorParametersType) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorParameters_Impl,
+    {
+        unsafe extern "system" fn GetGeneratorParametersType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterstype: *mut GeneratorParametersType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcGeneratorParameters_Impl::GetGeneratorParametersType(this) {
                     Ok(ok__) => {
                         parameterstype.write(core::mem::transmute(ok__));
@@ -437,15 +522,23 @@ impl IRdcGeneratorParameters_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetParametersVersion<Identity: IRdcGeneratorParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetParametersVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcGeneratorParameters_Impl::GetParametersVersion(this, core::mem::transmute_copy(&currentversion), core::mem::transmute_copy(&minimumcompatibleappversion)).into()
             }
         }
-        unsafe extern "system" fn GetSerializeSize<Identity: IRdcGeneratorParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSerializeSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcGeneratorParameters_Impl::GetSerializeSize(this) {
                     Ok(ok__) => {
                         size.write(core::mem::transmute(ok__));
@@ -455,9 +548,13 @@ impl IRdcGeneratorParameters_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Serialize<Identity: IRdcGeneratorParameters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Serialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcGeneratorParameters_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcGeneratorParameters_Impl::Serialize(this, core::mem::transmute_copy(&size), core::mem::transmute_copy(&parametersblob), core::mem::transmute_copy(&byteswritten)).into()
             }
         }
@@ -535,7 +632,7 @@ pub struct IRdcLibrary_Vtbl {
     pub CreateSignatureReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRDCVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IRdcLibrary_Impl: windows_core::IUnknownImpl {
+pub trait IRdcLibrary_Impl {
     fn ComputeDefaultRecursionDepth(&self, filesize: u64) -> windows_core::Result<u32>;
     fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> windows_core::Result<IRdcGeneratorParameters>;
     fn OpenGeneratorParameters(&self, size: u32, parametersblob: *const u8) -> windows_core::Result<IRdcGeneratorParameters>;
@@ -545,10 +642,17 @@ pub trait IRdcLibrary_Impl: windows_core::IUnknownImpl {
     fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()>;
 }
 impl IRdcLibrary_Vtbl {
-    pub const fn new<Identity: IRdcLibrary_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ComputeDefaultRecursionDepth<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: u64, depth: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+    {
+        unsafe extern "system" fn ComputeDefaultRecursionDepth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: u64, depth: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcLibrary_Impl::ComputeDefaultRecursionDepth(this, core::mem::transmute_copy(&filesize)) {
                     Ok(ok__) => {
                         depth.write(core::mem::transmute(ok__));
@@ -558,9 +662,13 @@ impl IRdcLibrary_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateGeneratorParameters<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterstype: GeneratorParametersType, level: u32, igeneratorparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateGeneratorParameters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterstype: GeneratorParametersType, level: u32, igeneratorparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcLibrary_Impl::CreateGeneratorParameters(this, core::mem::transmute_copy(&parameterstype), core::mem::transmute_copy(&level)) {
                     Ok(ok__) => {
                         igeneratorparameters.write(core::mem::transmute(ok__));
@@ -570,9 +678,13 @@ impl IRdcLibrary_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OpenGeneratorParameters<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: u32, parametersblob: *const u8, igeneratorparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenGeneratorParameters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, size: u32, parametersblob: *const u8, igeneratorparameters: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcLibrary_Impl::OpenGeneratorParameters(this, core::mem::transmute_copy(&size), core::mem::transmute_copy(&parametersblob)) {
                     Ok(ok__) => {
                         igeneratorparameters.write(core::mem::transmute(ok__));
@@ -582,9 +694,13 @@ impl IRdcLibrary_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateGenerator<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, depth: u32, igeneratorparametersarray: *const *mut core::ffi::c_void, igenerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateGenerator<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, depth: u32, igeneratorparametersarray: *const *mut core::ffi::c_void, igenerator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcLibrary_Impl::CreateGenerator(this, core::mem::transmute_copy(&depth), core::mem::transmute_copy(&igeneratorparametersarray)) {
                     Ok(ok__) => {
                         igenerator.write(core::mem::transmute(ok__));
@@ -594,9 +710,13 @@ impl IRdcLibrary_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateComparator<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iseedsignaturesfile: *mut core::ffi::c_void, comparatorbuffersize: u32, icomparator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateComparator<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, iseedsignaturesfile: *mut core::ffi::c_void, comparatorbuffersize: u32, icomparator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcLibrary_Impl::CreateComparator(this, core::mem::transmute_copy(&iseedsignaturesfile), core::mem::transmute_copy(&comparatorbuffersize)) {
                     Ok(ok__) => {
                         icomparator.write(core::mem::transmute(ok__));
@@ -606,9 +726,13 @@ impl IRdcLibrary_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateSignatureReader<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifilereader: *mut core::ffi::c_void, isignaturereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSignatureReader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ifilereader: *mut core::ffi::c_void, isignaturereader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcLibrary_Impl::CreateSignatureReader(this, core::mem::transmute_copy(&ifilereader)) {
                     Ok(ok__) => {
                         isignaturereader.write(core::mem::transmute(ok__));
@@ -618,9 +742,13 @@ impl IRdcLibrary_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRDCVersion<Identity: IRdcLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRDCVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcLibrary_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcLibrary_Impl::GetRDCVersion(this, core::mem::transmute_copy(&currentversion), core::mem::transmute_copy(&minimumcompatibleappversion)).into()
             }
         }
@@ -660,15 +788,22 @@ pub struct IRdcSignatureReader_Vtbl {
     pub ReadHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RDC_ErrorCode) -> windows_core::HRESULT,
     pub ReadSignatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RdcSignaturePointer, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-pub trait IRdcSignatureReader_Impl: windows_core::IUnknownImpl {
+pub trait IRdcSignatureReader_Impl {
     fn ReadHeader(&self) -> windows_core::Result<RDC_ErrorCode>;
     fn ReadSignatures(&self, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl IRdcSignatureReader_Vtbl {
-    pub const fn new<Identity: IRdcSignatureReader_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReadHeader<Identity: IRdcSignatureReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcSignatureReader_Impl,
+    {
+        unsafe extern "system" fn ReadHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, rdc_errorcode: *mut RDC_ErrorCode) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcSignatureReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcSignatureReader_Impl::ReadHeader(this) {
                     Ok(ok__) => {
                         rdc_errorcode.write(core::mem::transmute(ok__));
@@ -678,9 +813,13 @@ impl IRdcSignatureReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReadSignatures<Identity: IRdcSignatureReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadSignatures<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcSignatureReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcSignatureReader_Impl::ReadSignatures(this, core::mem::transmute_copy(&rdcsignaturepointer), core::mem::transmute_copy(&endofoutput)).into()
             }
         }
@@ -715,21 +854,32 @@ pub struct IRdcSimilarityGenerator_Vtbl {
     pub EnableSimilarity: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Results: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SimilarityData) -> windows_core::HRESULT,
 }
-pub trait IRdcSimilarityGenerator_Impl: windows_core::IUnknownImpl {
+pub trait IRdcSimilarityGenerator_Impl {
     fn EnableSimilarity(&self) -> windows_core::Result<()>;
     fn Results(&self) -> windows_core::Result<SimilarityData>;
 }
 impl IRdcSimilarityGenerator_Vtbl {
-    pub const fn new<Identity: IRdcSimilarityGenerator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnableSimilarity<Identity: IRdcSimilarityGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IRdcSimilarityGenerator_Impl,
+    {
+        unsafe extern "system" fn EnableSimilarity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcSimilarityGenerator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IRdcSimilarityGenerator_Impl::EnableSimilarity(this).into()
             }
         }
-        unsafe extern "system" fn Results<Identity: IRdcSimilarityGenerator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritydata: *mut SimilarityData) -> windows_core::HRESULT {
+        unsafe extern "system" fn Results<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritydata: *mut SimilarityData) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IRdcSimilarityGenerator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IRdcSimilarityGenerator_Impl::Results(this) {
                     Ok(ok__) => {
                         similaritydata.write(core::mem::transmute(ok__));
@@ -810,7 +960,7 @@ pub struct ISimilarity_Vtbl {
     pub CopyAndSwap: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRecordCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait ISimilarity_Impl: windows_core::IUnknownImpl {
+pub trait ISimilarity_Impl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CreateTableIndirect(&self, mapping: windows_core::Ref<ISimilarityTraitsMapping>, fileidfile: windows_core::Ref<IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
@@ -820,10 +970,17 @@ pub trait ISimilarity_Impl: windows_core::IUnknownImpl {
     fn GetRecordCount(&self) -> windows_core::Result<u32>;
 }
 impl ISimilarity_Vtbl {
-    pub const fn new<Identity: ISimilarity_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateTable<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+    {
+        unsafe extern "system" fn CreateTable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarity_Impl::CreateTable(this, core::mem::transmute(&path), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&securitydescriptor), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
@@ -833,9 +990,13 @@ impl ISimilarity_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateTableIndirect<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void, fileidfile: *mut core::ffi::c_void, truncate: windows_core::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTableIndirect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void, fileidfile: *mut core::ffi::c_void, truncate: windows_core::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarity_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&mapping), core::mem::transmute_copy(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
@@ -845,21 +1006,33 @@ impl ISimilarity_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CloseTable<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalid: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CloseTable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalid: windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarity_Impl::CloseTable(this, core::mem::transmute_copy(&isvalid)).into()
             }
         }
-        unsafe extern "system" fn Append<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> windows_core::HRESULT {
+        unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarity_Impl::Append(this, core::mem::transmute_copy(&similarityfileid), core::mem::transmute_copy(&similaritydata)).into()
             }
         }
-        unsafe extern "system" fn FindSimilarFileId<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32, findsimilarresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindSimilarFileId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32, findsimilarresults: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarity_Impl::FindSimilarFileId(this, core::mem::transmute_copy(&similaritydata), core::mem::transmute_copy(&numberofmatchesrequired), core::mem::transmute_copy(&resultssize)) {
                     Ok(ok__) => {
                         findsimilarresults.write(core::mem::transmute(ok__));
@@ -869,15 +1042,23 @@ impl ISimilarity_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CopyAndSwap<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newsimilaritytables: *mut core::ffi::c_void, reportprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CopyAndSwap<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newsimilaritytables: *mut core::ffi::c_void, reportprogress: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarity_Impl::CopyAndSwap(this, core::mem::transmute_copy(&newsimilaritytables), core::mem::transmute_copy(&reportprogress)).into()
             }
         }
-        unsafe extern "system" fn GetRecordCount<Identity: ISimilarity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordcount: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarity_Impl::GetRecordCount(this) {
                     Ok(ok__) => {
                         recordcount.write(core::mem::transmute(ok__));
@@ -958,7 +1139,7 @@ pub struct ISimilarityFileIdTable_Vtbl {
     pub Invalidate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetRecordCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait ISimilarityFileIdTable_Impl: windows_core::IUnknownImpl {
+pub trait ISimilarityFileIdTable_Impl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CreateTableIndirect(&self, fileidfile: windows_core::Ref<IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
@@ -968,10 +1149,17 @@ pub trait ISimilarityFileIdTable_Impl: windows_core::IUnknownImpl {
     fn GetRecordCount(&self) -> windows_core::Result<u32>;
 }
 impl ISimilarityFileIdTable_Vtbl {
-    pub const fn new<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateTable<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+    {
+        unsafe extern "system" fn CreateTable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityFileIdTable_Impl::CreateTable(this, core::mem::transmute(&path), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&securitydescriptor), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
@@ -981,9 +1169,13 @@ impl ISimilarityFileIdTable_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateTableIndirect<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileidfile: *mut core::ffi::c_void, truncate: windows_core::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTableIndirect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileidfile: *mut core::ffi::c_void, truncate: windows_core::BOOL, recordsize: u32, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityFileIdTable_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
@@ -993,15 +1185,23 @@ impl ISimilarityFileIdTable_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CloseTable<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalid: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CloseTable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalid: windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityFileIdTable_Impl::CloseTable(this, core::mem::transmute_copy(&isvalid)).into()
             }
         }
-        unsafe extern "system" fn Append<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileid: *const SimilarityFileId, similarityfileindex: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileid: *const SimilarityFileId, similarityfileindex: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityFileIdTable_Impl::Append(this, core::mem::transmute_copy(&similarityfileid)) {
                     Ok(ok__) => {
                         similarityfileindex.write(core::mem::transmute(ok__));
@@ -1011,21 +1211,33 @@ impl ISimilarityFileIdTable_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Lookup<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> windows_core::HRESULT {
+        unsafe extern "system" fn Lookup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityFileIdTable_Impl::Lookup(this, core::mem::transmute_copy(&similarityfileindex), core::mem::transmute_copy(&similarityfileid)).into()
             }
         }
-        unsafe extern "system" fn Invalidate<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Invalidate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similarityfileindex: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityFileIdTable_Impl::Invalidate(this, core::mem::transmute_copy(&similarityfileindex)).into()
             }
         }
-        unsafe extern "system" fn GetRecordCount<Identity: ISimilarityFileIdTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecordCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, recordcount: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityFileIdTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityFileIdTable_Impl::GetRecordCount(this) {
                     Ok(ok__) => {
                         recordcount.write(core::mem::transmute(ok__));
@@ -1064,14 +1276,21 @@ pub struct ISimilarityReportProgress_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ReportProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait ISimilarityReportProgress_Impl: windows_core::IUnknownImpl {
+pub trait ISimilarityReportProgress_Impl {
     fn ReportProgress(&self, percentcompleted: u32) -> windows_core::Result<()>;
 }
 impl ISimilarityReportProgress_Vtbl {
-    pub const fn new<Identity: ISimilarityReportProgress_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReportProgress<Identity: ISimilarityReportProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, percentcompleted: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityReportProgress_Impl,
+    {
+        unsafe extern "system" fn ReportProgress<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, percentcompleted: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityReportProgress_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityReportProgress_Impl::ReportProgress(this, core::mem::transmute_copy(&percentcompleted)).into()
             }
         }
@@ -1095,14 +1314,21 @@ pub struct ISimilarityTableDumpState_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNextData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut windows_core::BOOL, *mut SimilarityDumpData) -> windows_core::HRESULT,
 }
-pub trait ISimilarityTableDumpState_Impl: windows_core::IUnknownImpl {
+pub trait ISimilarityTableDumpState_Impl {
     fn GetNextData(&self, resultssize: u32, resultsused: *mut u32, eof: *mut windows_core::BOOL, results: *mut SimilarityDumpData) -> windows_core::Result<()>;
 }
 impl ISimilarityTableDumpState_Vtbl {
-    pub const fn new<Identity: ISimilarityTableDumpState_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetNextData<Identity: ISimilarityTableDumpState_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultssize: u32, resultsused: *mut u32, eof: *mut windows_core::BOOL, results: *mut SimilarityDumpData) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTableDumpState_Impl,
+    {
+        unsafe extern "system" fn GetNextData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultssize: u32, resultsused: *mut u32, eof: *mut windows_core::BOOL, results: *mut SimilarityDumpData) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTableDumpState_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTableDumpState_Impl::GetNextData(this, core::mem::transmute_copy(&resultssize), core::mem::transmute_copy(&resultsused), core::mem::transmute_copy(&eof), core::mem::transmute_copy(&results)).into()
             }
         }
@@ -1141,29 +1367,44 @@ pub struct ISimilarityTraitsMappedView_Vtbl {
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::BOOL, u32, *mut SimilarityMappedViewInfo) -> windows_core::HRESULT,
     pub GetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8, *mut *mut u8),
 }
-pub trait ISimilarityTraitsMappedView_Impl: windows_core::IUnknownImpl {
+pub trait ISimilarityTraitsMappedView_Impl {
     fn Flush(&self) -> windows_core::Result<()>;
     fn Unmap(&self) -> windows_core::Result<()>;
     fn Get(&self, index: u64, dirty: windows_core::BOOL, numelements: u32) -> windows_core::Result<SimilarityMappedViewInfo>;
     fn GetView(&self, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8);
 }
 impl ISimilarityTraitsMappedView_Vtbl {
-    pub const fn new<Identity: ISimilarityTraitsMappedView_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Flush<Identity: ISimilarityTraitsMappedView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMappedView_Impl,
+    {
+        unsafe extern "system" fn Flush<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMappedView_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsMappedView_Impl::Flush(this).into()
             }
         }
-        unsafe extern "system" fn Unmap<Identity: ISimilarityTraitsMappedView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Unmap<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMappedView_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsMappedView_Impl::Unmap(this).into()
             }
         }
-        unsafe extern "system" fn Get<Identity: ISimilarityTraitsMappedView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u64, dirty: windows_core::BOOL, numelements: u32, viewinfo: *mut SimilarityMappedViewInfo) -> windows_core::HRESULT {
+        unsafe extern "system" fn Get<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u64, dirty: windows_core::BOOL, numelements: u32, viewinfo: *mut SimilarityMappedViewInfo) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMappedView_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsMappedView_Impl::Get(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dirty), core::mem::transmute_copy(&numelements)) {
                     Ok(ok__) => {
                         viewinfo.write(core::mem::transmute(ok__));
@@ -1173,9 +1414,13 @@ impl ISimilarityTraitsMappedView_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetView<Identity: ISimilarityTraitsMappedView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8) {
+        unsafe extern "system" fn GetView<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8)
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMappedView_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsMappedView_Impl::GetView(this, core::mem::transmute_copy(&mappedpagebegin), core::mem::transmute_copy(&mappedpageend))
             }
         }
@@ -1245,7 +1490,7 @@ pub struct ISimilarityTraitsMapping_Vtbl {
     pub GetPageSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32),
     pub CreateView: unsafe extern "system" fn(*mut core::ffi::c_void, u32, RdcMappingAccessMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait ISimilarityTraitsMapping_Impl: windows_core::IUnknownImpl {
+pub trait ISimilarityTraitsMapping_Impl {
     fn CloseMapping(&self);
     fn SetFileSize(&self, filesize: u64) -> windows_core::Result<()>;
     fn GetFileSize(&self) -> windows_core::Result<u64>;
@@ -1255,22 +1500,37 @@ pub trait ISimilarityTraitsMapping_Impl: windows_core::IUnknownImpl {
     fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> windows_core::Result<ISimilarityTraitsMappedView>;
 }
 impl ISimilarityTraitsMapping_Vtbl {
-    pub const fn new<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CloseMapping<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+    {
+        unsafe extern "system" fn CloseMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void)
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsMapping_Impl::CloseMapping(this)
             }
         }
-        unsafe extern "system" fn SetFileSize<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFileSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsMapping_Impl::SetFileSize(this, core::mem::transmute_copy(&filesize)).into()
             }
         }
-        unsafe extern "system" fn GetFileSize<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFileSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: *mut u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsMapping_Impl::GetFileSize(this) {
                     Ok(ok__) => {
                         filesize.write(core::mem::transmute(ok__));
@@ -1280,9 +1540,13 @@ impl ISimilarityTraitsMapping_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OpenMapping<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: RdcMappingAccessMode, begin: u64, end: u64, actualend: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: RdcMappingAccessMode, begin: u64, end: u64, actualend: *mut u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsMapping_Impl::OpenMapping(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&begin), core::mem::transmute_copy(&end)) {
                     Ok(ok__) => {
                         actualend.write(core::mem::transmute(ok__));
@@ -1292,9 +1556,13 @@ impl ISimilarityTraitsMapping_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ResizeMapping<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: RdcMappingAccessMode, begin: u64, end: u64, actualend: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResizeMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, accessmode: RdcMappingAccessMode, begin: u64, end: u64, actualend: *mut u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsMapping_Impl::ResizeMapping(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&begin), core::mem::transmute_copy(&end)) {
                     Ok(ok__) => {
                         actualend.write(core::mem::transmute(ok__));
@@ -1304,15 +1572,23 @@ impl ISimilarityTraitsMapping_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPageSize<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagesize: *mut u32) {
+        unsafe extern "system" fn GetPageSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagesize: *mut u32)
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsMapping_Impl::GetPageSize(this, core::mem::transmute_copy(&pagesize))
             }
         }
-        unsafe extern "system" fn CreateView<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minimummappedpages: u32, accessmode: RdcMappingAccessMode, mappedview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateView<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minimummappedpages: u32, accessmode: RdcMappingAccessMode, mappedview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsMapping_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsMapping_Impl::CreateView(this, core::mem::transmute_copy(&minimummappedpages), core::mem::transmute_copy(&accessmode)) {
                     Ok(ok__) => {
                         mappedview.write(core::mem::transmute(ok__));
@@ -1393,7 +1669,7 @@ pub struct ISimilarityTraitsTable_Vtbl {
     pub BeginDump: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetLastIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait ISimilarityTraitsTable_Impl: windows_core::IUnknownImpl {
+pub trait ISimilarityTraitsTable_Impl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8) -> windows_core::Result<RdcCreatedTables>;
     fn CreateTableIndirect(&self, mapping: windows_core::Ref<ISimilarityTraitsMapping>, truncate: windows_core::BOOL) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
@@ -1403,10 +1679,17 @@ pub trait ISimilarityTraitsTable_Impl: windows_core::IUnknownImpl {
     fn GetLastIndex(&self) -> windows_core::Result<u32>;
 }
 impl ISimilarityTraitsTable_Vtbl {
-    pub const fn new<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateTable<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+    {
+        unsafe extern "system" fn CreateTable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, path: windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsTable_Impl::CreateTable(this, core::mem::transmute(&path), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&securitydescriptor)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
@@ -1416,9 +1699,13 @@ impl ISimilarityTraitsTable_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateTableIndirect<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void, truncate: windows_core::BOOL, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTableIndirect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mapping: *mut core::ffi::c_void, truncate: windows_core::BOOL, isnew: *mut RdcCreatedTables) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsTable_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&mapping), core::mem::transmute_copy(&truncate)) {
                     Ok(ok__) => {
                         isnew.write(core::mem::transmute(ok__));
@@ -1428,27 +1715,43 @@ impl ISimilarityTraitsTable_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CloseTable<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalid: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CloseTable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalid: windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsTable_Impl::CloseTable(this, core::mem::transmute_copy(&isvalid)).into()
             }
         }
-        unsafe extern "system" fn Append<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *const SimilarityData, fileindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Append<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *const SimilarityData, fileindex: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsTable_Impl::Append(this, core::mem::transmute_copy(&data), core::mem::transmute_copy(&fileindex)).into()
             }
         }
-        unsafe extern "system" fn FindSimilarFileIndex<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn FindSimilarFileIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISimilarityTraitsTable_Impl::FindSimilarFileIndex(this, core::mem::transmute_copy(&similaritydata), core::mem::transmute_copy(&numberofmatchesrequired), core::mem::transmute_copy(&findsimilarfileindexresults), core::mem::transmute_copy(&resultssize), core::mem::transmute_copy(&resultsused)).into()
             }
         }
-        unsafe extern "system" fn BeginDump<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritytabledumpstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginDump<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, similaritytabledumpstate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsTable_Impl::BeginDump(this) {
                     Ok(ok__) => {
                         similaritytabledumpstate.write(core::mem::transmute(ok__));
@@ -1458,9 +1761,13 @@ impl ISimilarityTraitsTable_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetLastIndex<Identity: ISimilarityTraitsTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileindex: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLastIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileindex: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISimilarityTraitsTable_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISimilarityTraitsTable_Impl::GetLastIndex(this) {
                     Ok(ok__) => {
                         fileindex.write(core::mem::transmute(ok__));

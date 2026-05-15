@@ -300,9 +300,12 @@ impl CppInterface {
 
                     if has_unknown_base {
                     quote! {
-                        unsafe extern "system" fn #name<Identity: #impl_name, const OFFSET: isize> #signature {
+                        unsafe extern "system" fn #name<Identity: windows_core::IUnknownImpl, const OFFSET: isize> #signature
+                        where <Identity as windows_core::IUnknownImpl>::Impl: #impl_name
+                        {
                             unsafe {
-                                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                                 #upcall
                             }
                         }
@@ -336,7 +339,15 @@ impl CppInterface {
                     })
                     .collect();
 
-                let impl_base = base_interfaces.last().map(|ty| ty.write_impl_name(config));
+                let impl_base = base_interfaces.last().and_then(|ty| match ty {
+                    // The leaf C++ `_Impl` trait drops `IUnknownImpl` as a supertrait. The
+                    // user implements `IFoo_Impl` directly on their inner type; the vtable
+                    // bound `<Identity as IUnknownImpl>::Impl: IFoo_Impl` is what enforces
+                    // wiring through `#[implement]`'s outer wrapper.
+                    Type::IUnknown | Type::Object => None,
+                    other => Some(other.write_impl_name(config)),
+                });
+                let impl_base_bound = impl_base.as_ref().map(|b| quote! { : #b });
 
                 let field_base = base_interfaces.last().map(|ty|{
                 match ty {
@@ -388,12 +399,14 @@ impl CppInterface {
 
                 quote! {
                     #cfg
-                    pub trait #impl_name: #impl_base {
+                    pub trait #impl_name #impl_base_bound {
                         #(#trait_methods)*
                     }
                     #cfg
                     impl #vtbl_name {
-                        pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
+                        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+                        where <Identity as windows_core::IUnknownImpl>::Impl: #impl_name
+                        {
                             #(#impl_methods)*
                             Self {
                                 #field_base
@@ -412,7 +425,7 @@ impl CppInterface {
 
                 quote! {
                     #cfg
-                    pub trait #impl_name : #impl_base {
+                    pub trait #impl_name #impl_base_bound {
                         #(#trait_methods)*
                     }
                     #cfg

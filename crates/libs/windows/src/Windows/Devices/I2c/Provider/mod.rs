@@ -17,14 +17,21 @@ impl II2cControllerProvider {
 impl windows_core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
 }
-pub trait II2cControllerProvider_Impl: windows_core::IUnknownImpl {
+pub trait II2cControllerProvider_Impl {
     fn GetDeviceProvider(&self, settings: windows_core::Ref<ProviderI2cConnectionSettings>) -> windows_core::Result<II2cDeviceProvider>;
 }
 impl II2cControllerProvider_Vtbl {
-    pub const fn new<Identity: II2cControllerProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDeviceProvider<Identity: II2cControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: II2cControllerProvider_Impl,
+    {
+        unsafe extern "system" fn GetDeviceProvider<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cControllerProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match II2cControllerProvider_Impl::GetDeviceProvider(this, core::mem::transmute_copy(&settings)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -108,10 +115,17 @@ pub trait II2cDeviceProvider_Impl: super::super::super::Foundation::IClosable_Im
     fn WriteReadPartial(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_core::Result<ProviderI2cTransferResult>;
 }
 impl II2cDeviceProvider_Vtbl {
-    pub const fn new<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeviceId<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+    {
+        unsafe extern "system" fn DeviceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match II2cDeviceProvider_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -122,15 +136,23 @@ impl II2cDeviceProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Write<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 II2cDeviceProvider_Impl::Write(this, core::slice::from_raw_parts(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn WritePartial<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePartial<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match II2cDeviceProvider_Impl::WritePartial(this, core::slice::from_raw_parts(core::mem::transmute_copy(&buffer), buffer_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -140,15 +162,23 @@ impl II2cDeviceProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Read<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 II2cDeviceProvider_Impl::Read(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn ReadPartial<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadPartial<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match II2cDeviceProvider_Impl::ReadPartial(this, core::slice::from_raw_parts_mut(core::mem::transmute_copy(&buffer), buffer_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -158,15 +188,23 @@ impl II2cDeviceProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn WriteRead<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteRead<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 II2cDeviceProvider_Impl::WriteRead(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn WriteReadPartial<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteReadPartial<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, writebuffer_array_size: u32, writebuffer: *const u8, readbuffer_array_size: u32, readbuffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cDeviceProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match II2cDeviceProvider_Impl::WriteReadPartial(this, core::slice::from_raw_parts(core::mem::transmute_copy(&writebuffer), writebuffer_array_size as usize), core::slice::from_raw_parts_mut(core::mem::transmute_copy(&readbuffer), readbuffer_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -219,14 +257,21 @@ impl II2cProvider {
 impl windows_core::RuntimeName for II2cProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cProvider";
 }
-pub trait II2cProvider_Impl: windows_core::IUnknownImpl {
+pub trait II2cProvider_Impl {
     fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>>;
 }
 impl II2cProvider_Vtbl {
-    pub const fn new<Identity: II2cProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetControllersAsync<Identity: II2cProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: II2cProvider_Impl,
+    {
+        unsafe extern "system" fn GetControllersAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: II2cProvider_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match II2cProvider_Impl::GetControllersAsync(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

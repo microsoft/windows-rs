@@ -60,7 +60,7 @@ struct PersistState {
     dirty: bool,
 }
 
-impl ICustomPersist_Impl for Persist_Impl {
+impl ICustomPersist_Impl for Persist {
     unsafe fn GetClassID(&self, clsid: *mut GUID) -> HRESULT {
         unsafe {
             *clsid = "117fb826-2155-483a-b50d-bc99a2c7cca3".try_into().unwrap();
@@ -69,7 +69,7 @@ impl ICustomPersist_Impl for Persist_Impl {
     }
 }
 
-impl ICustomPersistMemory_Impl for Persist_Impl {
+impl ICustomPersistMemory_Impl for Persist {
     unsafe fn IsDirty(&self) -> HRESULT {
         let reader = self.0.read().unwrap();
         if reader.dirty {

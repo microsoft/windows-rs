@@ -17,7 +17,7 @@ struct MyFactory {
     x: AtomicU32,
 }
 
-impl INumberFactory_Impl for MyFactory_Impl {
+impl INumberFactory_Impl for MyFactory {
     unsafe fn next(&self) -> u32 {
         self.x.fetch_add(1, SeqCst)
     }

@@ -20,6 +20,13 @@ pub trait ComObjectInner: Sized {
     /// The generated `<foo>_Impl` type (aka the "boxed" or "outer" type).
     type Outer: IUnknownImpl<Impl = Self>;
 
+    /// Byte offset of the inner `Self` value within `Self::Outer`.
+    ///
+    /// The `#[implement]` macro and `implement_decl!` macro emit this as
+    /// `core::mem::offset_of!(<Self::Outer>, this)`. It is used by the default methods
+    /// below to recover a reference to the outer wrapper from a reference to the inner.
+    const INNER_OFFSET_IN_OUTER: usize;
+
     /// Moves an instance of this type into a new `ComObject` box and returns it.
     ///
     /// # Safety
@@ -37,6 +44,55 @@ pub trait ComObjectInner: Sized {
     /// reference, preserving the invariant that safe Rust code never owns a `<foo>_Impl`
     /// directly.
     fn into_object(self) -> ComObject<Self>;
+
+    /// Returns a reference to the outer wrapper containing this value.
+    ///
+    /// This is safe because safe Rust code can only ever observe a `&Self` reference
+    /// that lives inside a heap-allocated `Self::Outer` (constructed via `ComObject::new`
+    /// or similar). The macro-generated `Self::Outer` is `#[repr(C)]` with `Self` at
+    /// a known offset, so we recover the outer pointer with pointer arithmetic.
+    #[inline(always)]
+    fn outer(&self) -> &Self::Outer {
+        // SAFETY: `self` is a reference to the `this` field of a `Self::Outer`. The
+        // `INNER_OFFSET_IN_OUTER` constant is the byte offset of that field within
+        // `Self::Outer` (emitted by the macro using `core::mem::offset_of!`).
+        unsafe {
+            let inner_ptr = self as *const Self as *const u8;
+            let outer_ptr = inner_ptr.sub(Self::INNER_OFFSET_IN_OUTER) as *const Self::Outer;
+            &*outer_ptr
+        }
+    }
+
+    /// Acquires an additional reference to this object and returns it as a [`ComObject`].
+    ///
+    /// Equivalent to `self.outer().to_object()`. Convenient for use inside `_Impl` trait
+    /// methods where `&self` is the inner type.
+    #[inline(always)]
+    fn to_object(&self) -> ComObject<Self> {
+        <Self::Outer as IUnknownImpl>::to_object(self.outer())
+    }
+
+    /// Gets a borrowed interface reference to an interface that the outer object implements.
+    ///
+    /// Equivalent to `self.outer().as_interface::<I>()`.
+    #[inline(always)]
+    fn as_interface<I: Interface>(&self) -> InterfaceRef<'_, I>
+    where
+        Self::Outer: ComObjectInterface<I>,
+    {
+        <Self::Outer as IUnknownImpl>::as_interface::<I>(self.outer())
+    }
+
+    /// Gets an owned (counted) reference to an interface that the outer object implements.
+    ///
+    /// Equivalent to `self.outer().to_interface::<I>()`.
+    #[inline(always)]
+    fn to_interface<I: Interface>(&self) -> I
+    where
+        Self::Outer: ComObjectInterface<I>,
+    {
+        <Self::Outer as IUnknownImpl>::to_interface::<I>(self.outer())
+    }
 }
 
 /// Describes the COM interfaces implemented by a specific COM object.

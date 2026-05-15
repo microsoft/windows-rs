@@ -6,7 +6,7 @@ use windows::Win32::System::WinRT::*;
 #[implement(IBufferByteAccess)]
 struct TestBuffer(std::cell::UnsafeCell<Vec<u8>>);
 
-impl IBufferByteAccess_Impl for TestBuffer_Impl {
+impl IBufferByteAccess_Impl for TestBuffer {
     fn Buffer(&self) -> Result<*mut u8> {
         unsafe { Ok((*self.0.get()).as_mut_ptr()) }
     }

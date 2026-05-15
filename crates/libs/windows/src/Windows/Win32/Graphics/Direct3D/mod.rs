@@ -848,21 +848,32 @@ pub struct ID3DBlob_Vtbl {
 }
 unsafe impl Send for ID3DBlob {}
 unsafe impl Sync for ID3DBlob {}
-pub trait ID3DBlob_Impl: windows_core::IUnknownImpl {
+pub trait ID3DBlob_Impl {
     fn GetBufferPointer(&self) -> *mut core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
 }
 impl ID3DBlob_Vtbl {
-    pub const fn new<Identity: ID3DBlob_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetBufferPointer<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3DBlob_Impl,
+    {
+        unsafe extern "system" fn GetBufferPointer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut core::ffi::c_void
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DBlob_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DBlob_Impl::GetBufferPointer(this)
             }
         }
-        unsafe extern "system" fn GetBufferSize<Identity: ID3DBlob_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> usize {
+        unsafe extern "system" fn GetBufferSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> usize
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DBlob_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DBlob_Impl::GetBufferSize(this)
             }
         }
@@ -899,15 +910,22 @@ pub struct ID3DDestructionNotifier_Vtbl {
 }
 unsafe impl Send for ID3DDestructionNotifier {}
 unsafe impl Sync for ID3DDestructionNotifier {}
-pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
+pub trait ID3DDestructionNotifier_Impl {
     fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32>;
     fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()>;
 }
 impl ID3DDestructionNotifier_Vtbl {
-    pub const fn new<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RegisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3DDestructionNotifier_Impl,
+    {
+        unsafe extern "system" fn RegisterDestructionCallback<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void, pcallbackid: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DDestructionNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
                     Ok(ok__) => {
                         pcallbackid.write(core::mem::transmute(ok__));
@@ -917,9 +935,13 @@ impl ID3DDestructionNotifier_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterDestructionCallback<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterDestructionCallback<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackid: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DDestructionNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DDestructionNotifier_Impl::UnregisterDestructionCallback(this, core::mem::transmute_copy(&callbackid)).into()
             }
         }
@@ -1054,7 +1076,7 @@ pub struct ID3DShaderCacheApplication_Vtbl {
 }
 unsafe impl Send for ID3DShaderCacheApplication {}
 unsafe impl Sync for ID3DShaderCacheApplication {}
-pub trait ID3DShaderCacheApplication_Impl: windows_core::IUnknownImpl {
+pub trait ID3DShaderCacheApplication_Impl {
     fn GetExePath(&self) -> windows_core::Result<*mut u16>;
     fn GetDesc(&self, papplicationdesc: *mut D3D_SHADER_CACHE_APPLICATION_DESC) -> windows_core::Result<()>;
     fn RegisterComponent(&self, pname: &windows_core::PCWSTR, pstateobjectdbpath: &windows_core::PCWSTR, numpsdb: u32, ppsdbs: *const D3D_SHADER_CACHE_PSDB_PROPERTIES, riid: *const windows_core::GUID, ppvcomponent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -1066,10 +1088,17 @@ pub trait ID3DShaderCacheApplication_Impl: windows_core::IUnknownImpl {
     fn GetInstallerName(&self) -> windows_core::Result<*mut u16>;
 }
 impl ID3DShaderCacheApplication_Vtbl {
-    pub const fn new<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetExePath<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexepath: *mut *mut u16) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+    {
+        unsafe extern "system" fn GetExePath<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexepath: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ID3DShaderCacheApplication_Impl::GetExePath(this) {
                     Ok(ok__) => {
                         pexepath.write(core::mem::transmute(ok__));
@@ -1079,51 +1108,83 @@ impl ID3DShaderCacheApplication_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDesc<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplicationdesc: *mut D3D_SHADER_CACHE_APPLICATION_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDesc<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplicationdesc: *mut D3D_SHADER_CACHE_APPLICATION_DESC) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheApplication_Impl::GetDesc(this, core::mem::transmute_copy(&papplicationdesc)).into()
             }
         }
-        unsafe extern "system" fn RegisterComponent<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, pstateobjectdbpath: windows_core::PCWSTR, numpsdb: u32, ppsdbs: *const D3D_SHADER_CACHE_PSDB_PROPERTIES, riid: *const windows_core::GUID, ppvcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterComponent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, pstateobjectdbpath: windows_core::PCWSTR, numpsdb: u32, ppsdbs: *const D3D_SHADER_CACHE_PSDB_PROPERTIES, riid: *const windows_core::GUID, ppvcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheApplication_Impl::RegisterComponent(this, core::mem::transmute(&pname), core::mem::transmute(&pstateobjectdbpath), core::mem::transmute_copy(&numpsdb), core::mem::transmute_copy(&ppsdbs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvcomponent)).into()
             }
         }
-        unsafe extern "system" fn RemoveComponent<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcomponent: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveComponent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcomponent: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheApplication_Impl::RemoveComponent(this, core::mem::transmute_copy(&pcomponent)).into()
             }
         }
-        unsafe extern "system" fn GetComponentCount<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetComponentCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheApplication_Impl::GetComponentCount(this)
             }
         }
-        unsafe extern "system" fn GetComponent<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, riid: *const windows_core::GUID, ppvcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetComponent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, riid: *const windows_core::GUID, ppvcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheApplication_Impl::GetComponent(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvcomponent)).into()
             }
         }
-        unsafe extern "system" fn GetPrecompileTargetCount<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: D3D_SHADER_CACHE_TARGET_FLAGS) -> u32 {
+        unsafe extern "system" fn GetPrecompileTargetCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: D3D_SHADER_CACHE_TARGET_FLAGS) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheApplication_Impl::GetPrecompileTargetCount(this, core::mem::transmute_copy(&flags))
             }
         }
-        unsafe extern "system" fn GetPrecompileTargets<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arraysize: u32, parray: *const D3D_SHADER_CACHE_COMPILER_PROPERTIES, flags: D3D_SHADER_CACHE_TARGET_FLAGS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrecompileTargets<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, arraysize: u32, parray: *const D3D_SHADER_CACHE_COMPILER_PROPERTIES, flags: D3D_SHADER_CACHE_TARGET_FLAGS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheApplication_Impl::GetPrecompileTargets(this, core::mem::transmute_copy(&arraysize), core::mem::transmute_copy(&parray), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetInstallerName<Identity: ID3DShaderCacheApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinstallername: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInstallerName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinstallername: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheApplication_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ID3DShaderCacheApplication_Impl::GetInstallerName(this) {
                     Ok(ok__) => {
                         pinstallername.write(core::mem::transmute(ok__));
@@ -1191,7 +1252,7 @@ pub struct ID3DShaderCacheComponent_Vtbl {
 }
 unsafe impl Send for ID3DShaderCacheComponent {}
 unsafe impl Sync for ID3DShaderCacheComponent {}
-pub trait ID3DShaderCacheComponent_Impl: windows_core::IUnknownImpl {
+pub trait ID3DShaderCacheComponent_Impl {
     fn GetComponentName(&self) -> windows_core::Result<*mut u16>;
     fn GetStateObjectDatabasePath(&self) -> windows_core::Result<*mut u16>;
     fn GetPrecompiledCachePath(&self, padapterfamily: &windows_core::PCWSTR, ppath: *mut *mut u16) -> windows_core::Result<()>;
@@ -1199,10 +1260,17 @@ pub trait ID3DShaderCacheComponent_Impl: windows_core::IUnknownImpl {
     fn GetPrecompiledShaderDatabases(&self, arraysize: u32, ppsdbs: *mut D3D_SHADER_CACHE_PSDB_PROPERTIES) -> windows_core::Result<()>;
 }
 impl ID3DShaderCacheComponent_Vtbl {
-    pub const fn new<Identity: ID3DShaderCacheComponent_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetComponentName<Identity: ID3DShaderCacheComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: *mut *mut u16) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheComponent_Impl,
+    {
+        unsafe extern "system" fn GetComponentName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheComponent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ID3DShaderCacheComponent_Impl::GetComponentName(this) {
                     Ok(ok__) => {
                         pname.write(core::mem::transmute(ok__));
@@ -1212,9 +1280,13 @@ impl ID3DShaderCacheComponent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetStateObjectDatabasePath<Identity: ID3DShaderCacheComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppath: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStateObjectDatabasePath<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppath: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheComponent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ID3DShaderCacheComponent_Impl::GetStateObjectDatabasePath(this) {
                     Ok(ok__) => {
                         ppath.write(core::mem::transmute(ok__));
@@ -1224,21 +1296,33 @@ impl ID3DShaderCacheComponent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPrecompiledCachePath<Identity: ID3DShaderCacheComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padapterfamily: windows_core::PCWSTR, ppath: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrecompiledCachePath<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, padapterfamily: windows_core::PCWSTR, ppath: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheComponent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheComponent_Impl::GetPrecompiledCachePath(this, core::mem::transmute(&padapterfamily), core::mem::transmute_copy(&ppath)).into()
             }
         }
-        unsafe extern "system" fn GetPrecompiledShaderDatabaseCount<Identity: ID3DShaderCacheComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetPrecompiledShaderDatabaseCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheComponent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheComponent_Impl::GetPrecompiledShaderDatabaseCount(this)
             }
         }
-        unsafe extern "system" fn GetPrecompiledShaderDatabases<Identity: ID3DShaderCacheComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, arraysize: u32, ppsdbs: *mut D3D_SHADER_CACHE_PSDB_PROPERTIES) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrecompiledShaderDatabases<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, arraysize: u32, ppsdbs: *mut D3D_SHADER_CACHE_PSDB_PROPERTIES) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheComponent_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheComponent_Impl::GetPrecompiledShaderDatabases(this, core::mem::transmute_copy(&arraysize), core::mem::transmute_copy(&ppsdbs)).into()
             }
         }
@@ -1276,14 +1360,21 @@ pub struct ID3DShaderCacheExplorer_Vtbl {
 }
 unsafe impl Send for ID3DShaderCacheExplorer {}
 unsafe impl Sync for ID3DShaderCacheExplorer {}
-pub trait ID3DShaderCacheExplorer_Impl: windows_core::IUnknownImpl {
+pub trait ID3DShaderCacheExplorer_Impl {
     fn GetApplicationFromExePath(&self, pfullexepath: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppvapp: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl ID3DShaderCacheExplorer_Vtbl {
-    pub const fn new<Identity: ID3DShaderCacheExplorer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetApplicationFromExePath<Identity: ID3DShaderCacheExplorer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfullexepath: windows_core::PCWSTR, riid: *const windows_core::GUID, ppvapp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheExplorer_Impl,
+    {
+        unsafe extern "system" fn GetApplicationFromExePath<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfullexepath: windows_core::PCWSTR, riid: *const windows_core::GUID, ppvapp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheExplorer_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheExplorer_Impl::GetApplicationFromExePath(this, core::mem::transmute(&pfullexepath), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvapp)).into()
             }
         }
@@ -1370,7 +1461,7 @@ pub struct ID3DShaderCacheInstaller_Vtbl {
 unsafe impl Send for ID3DShaderCacheInstaller {}
 unsafe impl Sync for ID3DShaderCacheInstaller {}
 #[cfg(feature = "Win32_System_Services")]
-pub trait ID3DShaderCacheInstaller_Impl: windows_core::IUnknownImpl {
+pub trait ID3DShaderCacheInstaller_Impl {
     fn RegisterDriverUpdateListener(&self) -> windows_core::Result<()>;
     fn UnregisterDriverUpdateListener(&self) -> windows_core::Result<()>;
     fn RegisterServiceDriverUpdateTrigger(&self, hservicehandle: super::super::System::Services::SC_HANDLE) -> windows_core::Result<()>;
@@ -1385,70 +1476,117 @@ pub trait ID3DShaderCacheInstaller_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Services")]
 impl ID3DShaderCacheInstaller_Vtbl {
-    pub const fn new<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RegisterDriverUpdateListener<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+    {
+        unsafe extern "system" fn RegisterDriverUpdateListener<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::RegisterDriverUpdateListener(this).into()
             }
         }
-        unsafe extern "system" fn UnregisterDriverUpdateListener<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterDriverUpdateListener<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::UnregisterDriverUpdateListener(this).into()
             }
         }
-        unsafe extern "system" fn RegisterServiceDriverUpdateTrigger<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hservicehandle: super::super::System::Services::SC_HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterServiceDriverUpdateTrigger<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hservicehandle: super::super::System::Services::SC_HANDLE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::RegisterServiceDriverUpdateTrigger(this, core::mem::transmute_copy(&hservicehandle)).into()
             }
         }
-        unsafe extern "system" fn UnregisterServiceDriverUpdateTrigger<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hservicehandle: super::super::System::Services::SC_HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterServiceDriverUpdateTrigger<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, hservicehandle: super::super::System::Services::SC_HANDLE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::UnregisterServiceDriverUpdateTrigger(this, core::mem::transmute_copy(&hservicehandle)).into()
             }
         }
-        unsafe extern "system" fn RegisterApplication<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexepath: windows_core::PCWSTR, papplicationdesc: *const D3D_SHADER_CACHE_APPLICATION_DESC, riid: *const windows_core::GUID, ppvapp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterApplication<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pexepath: windows_core::PCWSTR, papplicationdesc: *const D3D_SHADER_CACHE_APPLICATION_DESC, riid: *const windows_core::GUID, ppvapp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::RegisterApplication(this, core::mem::transmute(&pexepath), core::mem::transmute_copy(&papplicationdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvapp)).into()
             }
         }
-        unsafe extern "system" fn RemoveApplication<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplication: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveApplication<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplication: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::RemoveApplication(this, core::mem::transmute_copy(&papplication)).into()
             }
         }
-        unsafe extern "system" fn GetApplicationCount<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetApplicationCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::GetApplicationCount(this)
             }
         }
-        unsafe extern "system" fn GetApplication<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, riid: *const windows_core::GUID, ppvapp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetApplication<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, riid: *const windows_core::GUID, ppvapp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::GetApplication(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvapp)).into()
             }
         }
-        unsafe extern "system" fn ClearAllState<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClearAllState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::ClearAllState(this).into()
             }
         }
-        unsafe extern "system" fn GetMaxPrecompileTargetCount<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetMaxPrecompileTargetCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::GetMaxPrecompileTargetCount(this)
             }
         }
-        unsafe extern "system" fn GetPrecompileTargets<Identity: ID3DShaderCacheInstaller_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplicationdesc: *const D3D_SHADER_CACHE_APPLICATION_DESC, parraysize: *mut u32, parray: *mut D3D_SHADER_CACHE_COMPILER_PROPERTIES, flags: D3D_SHADER_CACHE_TARGET_FLAGS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrecompileTargets<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, papplicationdesc: *const D3D_SHADER_CACHE_APPLICATION_DESC, parraysize: *mut u32, parray: *mut D3D_SHADER_CACHE_COMPILER_PROPERTIES, flags: D3D_SHADER_CACHE_TARGET_FLAGS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstaller_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstaller_Impl::GetPrecompileTargets(this, core::mem::transmute_copy(&papplicationdesc), core::mem::transmute_copy(&parraysize), core::mem::transmute_copy(&parray), core::mem::transmute_copy(&flags)).into()
             }
         }
@@ -1572,21 +1710,32 @@ pub struct ID3DShaderCacheInstallerFactory_Vtbl {
 }
 unsafe impl Send for ID3DShaderCacheInstallerFactory {}
 unsafe impl Sync for ID3DShaderCacheInstallerFactory {}
-pub trait ID3DShaderCacheInstallerFactory_Impl: windows_core::IUnknownImpl {
+pub trait ID3DShaderCacheInstallerFactory_Impl {
     fn CreateInstaller(&self, pclient: windows_core::Ref<ID3DShaderCacheInstallerClient>, riid: *const windows_core::GUID, ppvinstaller: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateExplorer(&self, punknown: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppvexplorer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl ID3DShaderCacheInstallerFactory_Vtbl {
-    pub const fn new<Identity: ID3DShaderCacheInstallerFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateInstaller<Identity: ID3DShaderCacheInstallerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclient: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvinstaller: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstallerFactory_Impl,
+    {
+        unsafe extern "system" fn CreateInstaller<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclient: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvinstaller: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstallerFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstallerFactory_Impl::CreateInstaller(this, core::mem::transmute_copy(&pclient), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvinstaller)).into()
             }
         }
-        unsafe extern "system" fn CreateExplorer<Identity: ID3DShaderCacheInstallerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, punknown: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvexplorer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateExplorer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, punknown: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvexplorer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3DShaderCacheInstallerFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3DShaderCacheInstallerFactory_Impl::CreateExplorer(this, core::mem::transmute_copy(&punknown), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvexplorer)).into()
             }
         }

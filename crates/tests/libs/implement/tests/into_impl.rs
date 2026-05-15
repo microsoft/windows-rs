@@ -11,7 +11,7 @@ where
     T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq;
 
-impl<T> IIterator_Impl<T> for Iterator_Impl<T>
+impl<T> IIterator_Impl<T> for Iterator<T>
 where
     T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq,
@@ -75,7 +75,7 @@ where
     T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq;
 
-impl<T> IIterable_Impl<T> for Iterable_Impl<T>
+impl<T> IIterable_Impl<T> for Iterable<T>
 where
     T: RuntimeType + 'static + Clone + Into<<T as Type<T>>::Default>,
     <T as Type<T>>::Default: PartialEq,

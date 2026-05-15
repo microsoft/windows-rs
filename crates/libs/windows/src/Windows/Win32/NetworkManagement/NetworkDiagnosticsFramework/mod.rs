@@ -234,14 +234,21 @@ pub struct INetDiagExtensibleHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ResolveAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HELPER_ATTRIBUTE, *mut u32, *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT,
 }
-pub trait INetDiagExtensibleHelper_Impl: windows_core::IUnknownImpl {
+pub trait INetDiagExtensibleHelper_Impl {
     fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()>;
 }
 impl INetDiagExtensibleHelper_Vtbl {
-    pub const fn new<Identity: INetDiagExtensibleHelper_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ResolveAttributes<Identity: INetDiagExtensibleHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetDiagExtensibleHelper_Impl,
+    {
+        unsafe extern "system" fn ResolveAttributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagExtensibleHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagExtensibleHelper_Impl::ResolveAttributes(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgkeyattributes), core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&prgmatchvalues)).into()
             }
         }
@@ -348,7 +355,7 @@ pub struct INetDiagHelper_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Cleanup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait INetDiagHelper_Impl: windows_core::IUnknownImpl {
+pub trait INetDiagHelper_Impl {
     fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> windows_core::Result<()>;
     fn GetDiagnosticsInfo(&self) -> windows_core::Result<*mut DiagnosticsInfo>;
     fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()>;
@@ -369,16 +376,27 @@ pub trait INetDiagHelper_Impl: windows_core::IUnknownImpl {
     fn Cleanup(&self) -> windows_core::Result<()>;
 }
 impl INetDiagHelper_Vtbl {
-    pub const fn new<Identity: INetDiagHelper_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+    {
+        unsafe extern "system" fn Initialize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::Initialize(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgattributes)).into()
             }
         }
-        unsafe extern "system" fn GetDiagnosticsInfo<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinfo: *mut *mut DiagnosticsInfo) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDiagnosticsInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppinfo: *mut *mut DiagnosticsInfo) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetDiagHelper_Impl::GetDiagnosticsInfo(this) {
                     Ok(ok__) => {
                         ppinfo.write(core::mem::transmute(ok__));
@@ -388,69 +406,113 @@ impl INetDiagHelper_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetKeyAttributes<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyAttributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::GetKeyAttributes(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributes)).into()
             }
         }
-        unsafe extern "system" fn LowHealth<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinstancedescription: windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn LowHealth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinstancedescription: windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::LowHealth(this, core::mem::transmute(&pwszinstancedescription), core::mem::transmute_copy(&ppwszdescription), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
             }
         }
-        unsafe extern "system" fn HighUtilization<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinstancedescription: windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn HighUtilization<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszinstancedescription: windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::HighUtilization(this, core::mem::transmute(&pwszinstancedescription), core::mem::transmute_copy(&ppwszdescription), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
             }
         }
-        unsafe extern "system" fn GetLowerHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLowerHypotheses<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::GetLowerHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
             }
         }
-        unsafe extern "system" fn GetDownStreamHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDownStreamHypotheses<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::GetDownStreamHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
             }
         }
-        unsafe extern "system" fn GetHigherHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHigherHypotheses<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::GetHigherHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
             }
         }
-        unsafe extern "system" fn GetUpStreamHypotheses<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUpStreamHypotheses<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::GetUpStreamHypotheses(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprghypotheses)).into()
             }
         }
-        unsafe extern "system" fn Repair<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Repair<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::Repair(this, core::mem::transmute_copy(&pinfo), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
             }
         }
-        unsafe extern "system" fn Validate<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Validate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::Validate(this, core::mem::transmute_copy(&problem), core::mem::transmute_copy(&pdeferredtime), core::mem::transmute_copy(&pstatus)).into()
             }
         }
-        unsafe extern "system" fn GetRepairInfo<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRepairInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::GetRepairInfo(this, core::mem::transmute_copy(&problem), core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&ppinfo)).into()
             }
         }
-        unsafe extern "system" fn GetLifeTime<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plifetime: *mut LIFE_TIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLifeTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plifetime: *mut LIFE_TIME) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetDiagHelper_Impl::GetLifeTime(this) {
                     Ok(ok__) => {
                         plifetime.write(core::mem::transmute(ok__));
@@ -460,15 +522,23 @@ impl INetDiagHelper_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLifeTime<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lifetime: LIFE_TIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLifeTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lifetime: LIFE_TIME) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::SetLifeTime(this, core::mem::transmute(&lifetime)).into()
             }
         }
-        unsafe extern "system" fn GetCacheTime<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCacheTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetDiagHelper_Impl::GetCacheTime(this) {
                     Ok(ok__) => {
                         pcachetime.write(core::mem::transmute(ok__));
@@ -478,21 +548,33 @@ impl INetDiagHelper_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetAttributes<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::GetAttributes(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributes)).into()
             }
         }
-        unsafe extern "system" fn Cancel<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cancel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Cleanup<Identity: INetDiagHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Cleanup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelper_Impl::Cleanup(this).into()
             }
         }
@@ -547,28 +629,43 @@ pub struct INetDiagHelperEx_Vtbl {
     pub SetUtilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReproduceFailure: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait INetDiagHelperEx_Impl: windows_core::IUnknownImpl {
+pub trait INetDiagHelperEx_Impl {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>;
     fn SetUtilities(&self, putilities: windows_core::Ref<INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
     fn ReproduceFailure(&self) -> windows_core::Result<()>;
 }
 impl INetDiagHelperEx_Vtbl {
-    pub const fn new<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ReconfirmLowHealth<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperEx_Impl,
+    {
+        unsafe extern "system" fn ReconfirmLowHealth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelperEx_Impl::ReconfirmLowHealth(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&presults), core::mem::transmute_copy(&ppwszupdateddescription), core::mem::transmute_copy(&pupdatedstatus)).into()
             }
         }
-        unsafe extern "system" fn SetUtilities<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, putilities: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUtilities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, putilities: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelperEx_Impl::SetUtilities(this, core::mem::transmute_copy(&putilities)).into()
             }
         }
-        unsafe extern "system" fn ReproduceFailure<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReproduceFailure<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperEx_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelperEx_Impl::ReproduceFailure(this).into()
             }
         }
@@ -597,14 +694,21 @@ pub struct INetDiagHelperInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut HelperAttributeInfo) -> windows_core::HRESULT,
 }
-pub trait INetDiagHelperInfo_Impl: windows_core::IUnknownImpl {
+pub trait INetDiagHelperInfo_Impl {
     fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_core::Result<()>;
 }
 impl INetDiagHelperInfo_Vtbl {
-    pub const fn new<Identity: INetDiagHelperInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAttributeInfo<Identity: INetDiagHelperInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperInfo_Impl,
+    {
+        unsafe extern "system" fn GetAttributeInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperInfo_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelperInfo_Impl::GetAttributeInfo(this, core::mem::transmute_copy(&pcelt), core::mem::transmute_copy(&pprgattributeinfos)).into()
             }
         }
@@ -632,14 +736,21 @@ pub struct INetDiagHelperUtilFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateUtilityInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait INetDiagHelperUtilFactory_Impl: windows_core::IUnknownImpl {
+pub trait INetDiagHelperUtilFactory_Impl {
     fn CreateUtilityInstance(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl INetDiagHelperUtilFactory_Vtbl {
-    pub const fn new<Identity: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateUtilityInstance<Identity: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperUtilFactory_Impl,
+    {
+        unsafe extern "system" fn CreateUtilityInstance<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetDiagHelperUtilFactory_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetDiagHelperUtilFactory_Impl::CreateUtilityInstance(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobject)).into()
             }
         }

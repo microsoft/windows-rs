@@ -65,7 +65,7 @@ mod tests;
 /// #[implement(IValue)]
 /// struct Value(i32);
 ///
-/// impl IValue_Impl for Value_Impl {
+/// impl IValue_Impl for Value {
 ///     unsafe fn GetValue(&self, value: *mut i32) -> HRESULT {
 ///         *value = self.0;
 ///         HRESULT(0)

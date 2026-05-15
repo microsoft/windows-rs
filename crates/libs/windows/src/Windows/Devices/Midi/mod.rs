@@ -95,17 +95,24 @@ impl windows_core::RuntimeName for IMidiMessage {
     const NAME: &'static str = "Windows.Devices.Midi.IMidiMessage";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IMidiMessage_Impl: windows_core::IUnknownImpl {
+pub trait IMidiMessage_Impl {
     fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
     fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer>;
     fn Type(&self) -> windows_core::Result<MidiMessageType>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IMidiMessage_Vtbl {
-    pub const fn new<Identity: IMidiMessage_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Timestamp<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMidiMessage_Impl,
+    {
+        unsafe extern "system" fn Timestamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMidiMessage_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMidiMessage_Impl::Timestamp(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -115,9 +122,13 @@ impl IMidiMessage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RawData<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RawData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMidiMessage_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMidiMessage_Impl::RawData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -128,9 +139,13 @@ impl IMidiMessage_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Type<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut MidiMessageType) -> windows_core::HRESULT {
+        unsafe extern "system" fn Type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut MidiMessageType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMidiMessage_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMidiMessage_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -259,22 +274,37 @@ pub trait IMidiOutPort_Impl: super::super::Foundation::IClosable_Impl {
 }
 #[cfg(feature = "Storage_Streams")]
 impl IMidiOutPort_Vtbl {
-    pub const fn new<Identity: IMidiOutPort_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SendMessage<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midimessage: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMidiOutPort_Impl,
+    {
+        unsafe extern "system" fn SendMessage<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, midimessage: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMidiOutPort_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMidiOutPort_Impl::SendMessage(this, core::mem::transmute_copy(&midimessage)).into()
             }
         }
-        unsafe extern "system" fn SendBuffer<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mididata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendBuffer<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mididata: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMidiOutPort_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMidiOutPort_Impl::SendBuffer(this, core::mem::transmute_copy(&mididata)).into()
             }
         }
-        unsafe extern "system" fn DeviceId<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMidiOutPort_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMidiOutPort_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

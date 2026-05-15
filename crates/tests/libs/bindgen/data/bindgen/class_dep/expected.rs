@@ -46,25 +46,33 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
 }
-pub trait IIterable_Impl<T>: windows_core::IUnknownImpl
+pub trait IIterable_Impl<T>
 where
     T: windows_core::RuntimeType + 'static,
 {
     fn First(&self) -> windows_core::Result<IIterator<T>>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
-    pub const fn new<Identity: IIterable_Impl<T>, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIterable_Impl<T>,
+    {
         unsafe extern "system" fn First<
             T: windows_core::RuntimeType + 'static,
-            Identity: IIterable_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIterable_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIterable_Impl::First(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -187,7 +195,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterator<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterator";
 }
-pub trait IIterator_Impl<T>: windows_core::IUnknownImpl
+pub trait IIterator_Impl<T>
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -200,18 +208,26 @@ where
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
-    pub const fn new<Identity: IIterator_Impl<T>, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
+    {
         unsafe extern "system" fn Current<
             T: windows_core::RuntimeType + 'static,
-            Identity: IIterator_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut windows_core::AbiType<T>,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIterator_Impl::Current(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -224,15 +240,20 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         }
         unsafe extern "system" fn HasCurrent<
             T: windows_core::RuntimeType + 'static,
-            Identity: IIterator_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIterator_Impl::HasCurrent(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -244,15 +265,20 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         }
         unsafe extern "system" fn MoveNext<
             T: windows_core::RuntimeType + 'static,
-            Identity: IIterator_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIterator_Impl::MoveNext(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -264,17 +290,22 @@ impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         }
         unsafe extern "system" fn GetMany<
             T: windows_core::RuntimeType + 'static,
-            Identity: IIterator_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             items_array_size: u32,
             items: *mut windows_core::AbiType<T>,
             result__: *mut u32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IIterator_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IIterator_Impl::GetMany(
                     this,
                     core::slice::from_raw_parts_mut(
@@ -467,19 +498,27 @@ where
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
-    pub const fn new<Identity: IVectorView_Impl<T>, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
+    {
         unsafe extern "system" fn GetAt<
             T: windows_core::RuntimeType + 'static,
-            Identity: IVectorView_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             index: u32,
             result__: *mut windows_core::AbiType<T>,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVectorView_Impl::GetAt(this, index) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -492,15 +531,20 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         }
         unsafe extern "system" fn Size<
             T: windows_core::RuntimeType + 'static,
-            Identity: IVectorView_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             result__: *mut u32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVectorView_Impl::Size(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -512,17 +556,22 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         }
         unsafe extern "system" fn IndexOf<
             T: windows_core::RuntimeType + 'static,
-            Identity: IVectorView_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             value: windows_core::AbiType<T>,
             index: *mut u32,
             result__: *mut bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVectorView_Impl::IndexOf(
                     this,
                     core::mem::transmute_copy(&value),
@@ -538,7 +587,7 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         }
         unsafe extern "system" fn GetMany<
             T: windows_core::RuntimeType + 'static,
-            Identity: IVectorView_Impl<T>,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
@@ -546,10 +595,15 @@ impl<T: windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             items_array_size: u32,
             items: *mut windows_core::AbiType<T>,
             result__: *mut u32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVectorView_Impl<T>,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVectorView_Impl::GetMany(
                     this,
                     startindex,
@@ -646,22 +700,27 @@ impl IWwwFormUrlDecoderEntry {
 impl windows_core::RuntimeName for IWwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.IWwwFormUrlDecoderEntry";
 }
-pub trait IWwwFormUrlDecoderEntry_Impl: windows_core::IUnknownImpl {
+pub trait IWwwFormUrlDecoderEntry_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Value(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IWwwFormUrlDecoderEntry_Vtbl {
-    pub const fn new<Identity: IWwwFormUrlDecoderEntry_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<
-            Identity: IWwwFormUrlDecoderEntry_Impl,
-            const OFFSET: isize,
-        >(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWwwFormUrlDecoderEntry_Impl,
+    {
+        unsafe extern "system" fn Name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWwwFormUrlDecoderEntry_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWwwFormUrlDecoderEntry_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -672,16 +731,18 @@ impl IWwwFormUrlDecoderEntry_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Value<
-            Identity: IWwwFormUrlDecoderEntry_Impl,
-            const OFFSET: isize,
-        >(
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWwwFormUrlDecoderEntry_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWwwFormUrlDecoderEntry_Impl::Value(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

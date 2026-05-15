@@ -384,14 +384,21 @@ impl IActivatedEventArgsDeferral {
 impl windows_core::RuntimeName for IActivatedEventArgsDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
 }
-pub trait IActivatedEventArgsDeferral_Impl: windows_core::IUnknownImpl {
+pub trait IActivatedEventArgsDeferral_Impl {
     fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation>;
 }
 impl IActivatedEventArgsDeferral_Vtbl {
-    pub const fn new<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ActivatedOperation<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgsDeferral_Impl,
+    {
+        unsafe extern "system" fn ActivatedOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IActivatedEventArgsDeferral_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -571,15 +578,22 @@ impl IWebUIBackgroundTaskInstance {
 impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
 }
-pub trait IWebUIBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
+pub trait IWebUIBackgroundTaskInstance_Impl {
     fn Succeeded(&self) -> windows_core::Result<bool>;
     fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()>;
 }
 impl IWebUIBackgroundTaskInstance_Vtbl {
-    pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Succeeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebUIBackgroundTaskInstance_Impl,
+    {
+        unsafe extern "system" fn Succeeded<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebUIBackgroundTaskInstance_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebUIBackgroundTaskInstance_Impl::Succeeded(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -589,9 +603,13 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSucceeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, succeeded: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSucceeded<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, succeeded: bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebUIBackgroundTaskInstance_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, succeeded).into()
             }
         }
@@ -648,14 +666,21 @@ impl IWebUINavigatedEventArgs {
 impl windows_core::RuntimeName for IWebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
 }
-pub trait IWebUINavigatedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait IWebUINavigatedEventArgs_Impl {
     fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation>;
 }
 impl IWebUINavigatedEventArgs_Vtbl {
-    pub const fn new<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn NavigatedOperation<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IWebUINavigatedEventArgs_Impl,
+    {
+        unsafe extern "system" fn NavigatedOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IWebUINavigatedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

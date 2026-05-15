@@ -2784,35 +2784,54 @@ pub struct ICloneViewHelper_Vtbl {
     pub SetActiveTopology: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, *const u32) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-pub trait ICloneViewHelper_Impl: windows_core::IUnknownImpl {
+pub trait ICloneViewHelper_Impl {
     fn GetConnectedIDs(&self, wszadaptorname: &windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::Result<()>;
     fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>;
     fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>;
     fn Commit(&self, ffinalcall: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICloneViewHelper_Vtbl {
-    pub const fn new<Identity: ICloneViewHelper_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetConnectedIDs<Identity: ICloneViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ICloneViewHelper_Impl,
+    {
+        unsafe extern "system" fn GetConnectedIDs<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICloneViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICloneViewHelper_Impl::GetConnectedIDs(this, core::mem::transmute(&wszadaptorname), core::mem::transmute_copy(&pulcount), core::mem::transmute_copy(&pulid), core::mem::transmute_copy(&ulflags)).into()
             }
         }
-        unsafe extern "system" fn GetActiveTopology<Identity: ICloneViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetActiveTopology<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICloneViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICloneViewHelper_Impl::GetActiveTopology(this, core::mem::transmute(&wszadaptorname), core::mem::transmute_copy(&ulsourceid), core::mem::transmute_copy(&pulcount), core::mem::transmute_copy(&pultargetid)).into()
             }
         }
-        unsafe extern "system" fn SetActiveTopology<Identity: ICloneViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetActiveTopology<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICloneViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICloneViewHelper_Impl::SetActiveTopology(this, core::mem::transmute(&wszadaptorname), core::mem::transmute_copy(&ulsourceid), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&pultargetid)).into()
             }
         }
-        unsafe extern "system" fn Commit<Identity: ICloneViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffinalcall: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ffinalcall: windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ICloneViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ICloneViewHelper_Impl::Commit(this, core::mem::transmute_copy(&ffinalcall)).into()
             }
         }
@@ -3232,7 +3251,7 @@ pub struct IViewHelper_Vtbl {
     pub GetProceedOnNewConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IViewHelper_Impl: windows_core::IUnknownImpl {
+pub trait IViewHelper_Impl {
     fn GetConnectedIDs(&self, wszadaptorname: &windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::Result<()>;
     fn GetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::Result<()>;
     fn SetActiveTopology(&self, wszadaptorname: &windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::Result<()>;
@@ -3242,34 +3261,57 @@ pub trait IViewHelper_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IViewHelper_Vtbl {
-    pub const fn new<Identity: IViewHelper_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetConnectedIDs<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IViewHelper_Impl,
+    {
+        unsafe extern "system" fn GetConnectedIDs<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IViewHelper_Impl::GetConnectedIDs(this, core::mem::transmute(&wszadaptorname), core::mem::transmute_copy(&pulcount), core::mem::transmute_copy(&pulid), core::mem::transmute_copy(&ulflags)).into()
             }
         }
-        unsafe extern "system" fn GetActiveTopology<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetActiveTopology<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IViewHelper_Impl::GetActiveTopology(this, core::mem::transmute(&wszadaptorname), core::mem::transmute_copy(&ulsourceid), core::mem::transmute_copy(&pulcount), core::mem::transmute_copy(&pultargetid)).into()
             }
         }
-        unsafe extern "system" fn SetActiveTopology<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetActiveTopology<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszadaptorname: windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IViewHelper_Impl::SetActiveTopology(this, core::mem::transmute(&wszadaptorname), core::mem::transmute_copy(&ulsourceid), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&pultargetid)).into()
             }
         }
-        unsafe extern "system" fn Commit<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IViewHelper_Impl::Commit(this).into()
             }
         }
-        unsafe extern "system" fn SetConfiguration<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pulstatus: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetConfiguration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pistream: *mut core::ffi::c_void, pulstatus: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IViewHelper_Impl::SetConfiguration(this, core::mem::transmute_copy(&pistream)) {
                     Ok(ok__) => {
                         pulstatus.write(core::mem::transmute(ok__));
@@ -3279,9 +3321,13 @@ impl IViewHelper_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetProceedOnNewConfiguration<Identity: IViewHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProceedOnNewConfiguration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IViewHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IViewHelper_Impl::GetProceedOnNewConfiguration(this).into()
             }
         }

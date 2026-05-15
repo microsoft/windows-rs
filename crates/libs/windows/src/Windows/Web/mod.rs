@@ -28,15 +28,22 @@ impl windows_core::RuntimeName for IUriToStreamResolver {
     const NAME: &'static str = "Windows.Web.IUriToStreamResolver";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait IUriToStreamResolver_Impl: windows_core::IUnknownImpl {
+pub trait IUriToStreamResolver_Impl {
     fn UriToStreamAsync(&self, uri: windows_core::Ref<super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IUriToStreamResolver_Vtbl {
-    pub const fn new<Identity: IUriToStreamResolver_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn UriToStreamAsync<Identity: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IUriToStreamResolver_Impl,
+    {
+        unsafe extern "system" fn UriToStreamAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IUriToStreamResolver_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IUriToStreamResolver_Impl::UriToStreamAsync(this, core::mem::transmute_copy(&uri)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));

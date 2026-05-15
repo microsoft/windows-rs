@@ -8,7 +8,7 @@ use windows_collections::*;
 )]
 struct Thing();
 
-impl IVectorView_Impl<i32> for Thing_Impl {
+impl IVectorView_Impl<i32> for Thing {
     fn GetAt(&self, index: u32) -> Result<i32> {
         Ok(index as i32)
     }
@@ -27,7 +27,7 @@ impl IVectorView_Impl<i32> for Thing_Impl {
     }
 }
 
-impl IIterable_Impl<i32> for Thing_Impl {
+impl IIterable_Impl<i32> for Thing {
     fn First(&self) -> Result<IIterator<i32>> {
         panic!();
     }

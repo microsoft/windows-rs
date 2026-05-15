@@ -6,13 +6,13 @@ use windows::Win32::System::Com::*;
 #[implement(IPersistStream)]
 struct Test();
 
-impl IPersist_Impl for Test_Impl {
+impl IPersist_Impl for Test {
     fn GetClassID(&self) -> Result<GUID> {
         Ok(GUID::zeroed())
     }
 }
 
-impl IPersistStream_Impl for Test_Impl {
+impl IPersistStream_Impl for Test {
     fn IsDirty(&self) -> HRESULT {
         S_OK
     }

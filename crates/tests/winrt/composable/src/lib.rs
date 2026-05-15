@@ -18,7 +18,7 @@ unsafe extern "system" fn DllGetActivationFactory(
 #[implement(IActivationFactory)]
 struct CompositorFactory;
 
-impl IActivationFactory_Impl for CompositorFactory_Impl {
+impl IActivationFactory_Impl for CompositorFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Compositor.into())
     }
@@ -27,7 +27,7 @@ impl IActivationFactory_Impl for CompositorFactory_Impl {
 #[implement(bindings::Compositor)]
 struct Compositor;
 
-impl bindings::ICompositor_Impl for Compositor_Impl {
+impl bindings::ICompositor_Impl for Compositor {
     fn CreateSpriteVisual(&self, brush: i32) -> Result<bindings::SpriteVisual> {
         Ok(SpriteVisual::new(ContainerVisual::new(self.to_object(), brush * 2), brush).into())
     }
@@ -51,13 +51,13 @@ impl ContainerVisual {
     }
 }
 
-impl bindings::IContainerVisual_Impl for ContainerVisual_Impl {
+impl bindings::IContainerVisual_Impl for ContainerVisual {
     fn Children(&self) -> i32 {
         self.children
     }
 }
 
-impl bindings::IVisual_Impl for ContainerVisual_Impl {
+impl bindings::IVisual_Impl for ContainerVisual {
     fn Compositor(&self) -> Result<bindings::Compositor> {
         Ok(self.compositor.to_interface())
     }
@@ -75,19 +75,19 @@ impl SpriteVisual {
     }
 }
 
-impl bindings::ISpriteVisual_Impl for SpriteVisual_Impl {
+impl bindings::ISpriteVisual_Impl for SpriteVisual {
     fn Brush(&self) -> i32 {
         self.brush
     }
 }
 
-impl bindings::IContainerVisual_Impl for SpriteVisual_Impl {
+impl bindings::IContainerVisual_Impl for SpriteVisual {
     fn Children(&self) -> i32 {
         self.container.children
     }
 }
 
-impl bindings::IVisual_Impl for SpriteVisual_Impl {
+impl bindings::IVisual_Impl for SpriteVisual {
     fn Compositor(&self) -> Result<bindings::Compositor> {
         Ok(self.container.compositor.to_interface())
     }

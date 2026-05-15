@@ -7,20 +7,20 @@ unsafe trait ITest: IUnknown {}
 
 #[implement(ITest)]
 struct DefaultAgile;
-impl ITest_Impl for DefaultAgile_Impl {}
+impl ITest_Impl for DefaultAgile {}
 
 #[implement(ITest, Agile = false)]
 struct AgileFalse;
-impl ITest_Impl for AgileFalse_Impl {}
+impl ITest_Impl for AgileFalse {}
 
 #[implement(ITest, Agile = true)]
 struct AgileTrue;
-impl ITest_Impl for AgileTrue_Impl {}
+impl ITest_Impl for AgileTrue {}
 
 #[implement(ITest, Agile = false, IAgileObject)]
 struct ExplicitAgile;
-impl ITest_Impl for ExplicitAgile_Impl {}
-impl IAgileObject_Impl for ExplicitAgile_Impl {}
+impl ITest_Impl for ExplicitAgile {}
+impl IAgileObject_Impl for ExplicitAgile {}
 
 #[test]
 fn test_default() {

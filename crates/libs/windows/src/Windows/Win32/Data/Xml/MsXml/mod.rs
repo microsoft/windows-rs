@@ -644,70 +644,117 @@ pub trait IMXAttributes_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXAttributes_Vtbl {
-    pub const fn new<Identity: IMXAttributes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn addAttribute<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+    {
+        unsafe extern "system" fn addAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::addAttribute(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname), core::mem::transmute(&strqname), core::mem::transmute(&strtype), core::mem::transmute(&strvalue)).into()
             }
         }
-        unsafe extern "system" fn addAttributeFromIndex<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::super::super::System::Variant::VARIANT, nindex: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn addAttributeFromIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::super::super::System::Variant::VARIANT, nindex: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::addAttributeFromIndex(this, core::mem::transmute(&varatts), core::mem::transmute_copy(&nindex)).into()
             }
         }
-        unsafe extern "system" fn clear<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn clear<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::clear(this).into()
             }
         }
-        unsafe extern "system" fn removeAttribute<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::removeAttribute(this, core::mem::transmute_copy(&nindex)).into()
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut core::ffi::c_void, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::setAttribute(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&struri), core::mem::transmute(&strlocalname), core::mem::transmute(&strqname), core::mem::transmute(&strtype), core::mem::transmute(&strvalue)).into()
             }
         }
-        unsafe extern "system" fn setAttributes<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::setAttributes(this, core::mem::transmute(&varatts)).into()
             }
         }
-        unsafe extern "system" fn setLocalName<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strlocalname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setLocalName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strlocalname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::setLocalName(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strlocalname)).into()
             }
         }
-        unsafe extern "system" fn setQName<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strqname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strqname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::setQName(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strqname)).into()
             }
         }
-        unsafe extern "system" fn setType<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strtype: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strtype: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::setType(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strtype)).into()
             }
         }
-        unsafe extern "system" fn setURI<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::setURI(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&struri)).into()
             }
         }
-        unsafe extern "system" fn setValue<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strvalue: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXAttributes_Impl::setValue(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&strvalue)).into()
             }
         }
@@ -807,7 +854,7 @@ pub struct IMXNamespaceManager_Vtbl {
     getURI: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IMXNamespaceManager_Impl: windows_core::IUnknownImpl {
+pub trait IMXNamespaceManager_Impl {
     fn putAllowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getAllowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn reset(&self) -> windows_core::Result<()>;
@@ -821,16 +868,27 @@ pub trait IMXNamespaceManager_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IMXNamespaceManager_Vtbl {
-    pub const fn new<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn putAllowOverride<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+    {
+        unsafe extern "system" fn putAllowOverride<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::putAllowOverride(this, core::mem::transmute_copy(&foverride)).into()
             }
         }
-        unsafe extern "system" fn getAllowOverride<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAllowOverride<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXNamespaceManager_Impl::getAllowOverride(this) {
                     Ok(ok__) => {
                         foverride.write(core::mem::transmute(ok__));
@@ -840,51 +898,83 @@ impl IMXNamespaceManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn reset<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::reset(this).into()
             }
         }
-        unsafe extern "system" fn pushContext<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn pushContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::pushContext(this).into()
             }
         }
-        unsafe extern "system" fn pushNodeContext<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextnode: *mut core::ffi::c_void, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn pushNodeContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextnode: *mut core::ffi::c_void, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::pushNodeContext(this, core::mem::transmute_copy(&contextnode), core::mem::transmute_copy(&fdeep)).into()
             }
         }
-        unsafe extern "system" fn popContext<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn popContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::popContext(this).into()
             }
         }
-        unsafe extern "system" fn declarePrefix<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: windows_core::PCWSTR, namespaceuri: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn declarePrefix<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: windows_core::PCWSTR, namespaceuri: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::declarePrefix(this, core::mem::transmute(&prefix), core::mem::transmute(&namespaceuri)).into()
             }
         }
-        unsafe extern "system" fn getDeclaredPrefix<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getDeclaredPrefix<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::getDeclaredPrefix(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pwchprefix), core::mem::transmute_copy(&pcchprefix)).into()
             }
         }
-        unsafe extern "system" fn getPrefix<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsznamespaceuri: windows_core::PCWSTR, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getPrefix<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsznamespaceuri: windows_core::PCWSTR, nindex: i32, pwchprefix: windows_core::PWSTR, pcchprefix: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::getPrefix(this, core::mem::transmute(&pwsznamespaceuri), core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&pwchprefix), core::mem::transmute_copy(&pcchprefix)).into()
             }
         }
-        unsafe extern "system" fn getURI<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchprefix: windows_core::PCWSTR, pcontextnode: *mut core::ffi::c_void, pwchuri: windows_core::PWSTR, pcchuri: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchprefix: windows_core::PCWSTR, pcontextnode: *mut core::ffi::c_void, pwchuri: windows_core::PWSTR, pcchuri: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXNamespaceManager_Impl::getURI(this, core::mem::transmute(&pwchprefix), core::mem::transmute_copy(&pcontextnode), core::mem::transmute_copy(&pwchuri), core::mem::transmute_copy(&pcchuri)).into()
             }
         }
@@ -957,10 +1047,17 @@ pub trait IMXNamespacePrefixes_Impl: super::super::super::System::Com::IDispatch
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXNamespacePrefixes_Vtbl {
-    pub const fn new<Identity: IMXNamespacePrefixes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn get_item<Identity: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, prefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespacePrefixes_Impl,
+    {
+        unsafe extern "system" fn get_item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, prefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespacePrefixes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXNamespacePrefixes_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         prefix.write(core::mem::transmute(ok__));
@@ -970,9 +1067,13 @@ impl IMXNamespacePrefixes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn length<Identity: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespacePrefixes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXNamespacePrefixes_Impl::length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -982,9 +1083,13 @@ impl IMXNamespacePrefixes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXNamespacePrefixes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXNamespacePrefixes_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -1047,22 +1152,37 @@ pub trait IMXReaderControl_Impl: super::super::super::System::Com::IDispatch_Imp
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXReaderControl_Vtbl {
-    pub const fn new<Identity: IMXReaderControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn abort<Identity: IMXReaderControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMXReaderControl_Impl,
+    {
+        unsafe extern "system" fn abort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXReaderControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXReaderControl_Impl::abort(this).into()
             }
         }
-        unsafe extern "system" fn resume<Identity: IMXReaderControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn resume<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXReaderControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXReaderControl_Impl::resume(this).into()
             }
         }
-        unsafe extern "system" fn suspend<Identity: IMXReaderControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn suspend<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXReaderControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXReaderControl_Impl::suspend(this).into()
             }
         }
@@ -1112,10 +1232,17 @@ pub trait IMXSchemaDeclHandler_Impl: super::super::super::System::Com::IDispatch
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXSchemaDeclHandler_Vtbl {
-    pub const fn new<Identity: IMXSchemaDeclHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn schemaElementDecl<Identity: IMXSchemaDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oschemaelement: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMXSchemaDeclHandler_Impl,
+    {
+        unsafe extern "system" fn schemaElementDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, oschemaelement: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXSchemaDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXSchemaDeclHandler_Impl::schemaElementDecl(this, core::mem::transmute_copy(&oschemaelement)).into()
             }
         }
@@ -1269,16 +1396,27 @@ pub trait IMXWriter_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXWriter_Vtbl {
-    pub const fn new<Identity: IMXWriter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Setoutput<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+    {
+        unsafe extern "system" fn Setoutput<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::Setoutput(this, core::mem::transmute(&vardestination)).into()
             }
         }
-        unsafe extern "system" fn output<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn output<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::output(this) {
                     Ok(ok__) => {
                         vardestination.write(core::mem::transmute(ok__));
@@ -1288,15 +1426,23 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setencoding<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoding: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setencoding<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoding: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::Setencoding(this, core::mem::transmute(&strencoding)).into()
             }
         }
-        unsafe extern "system" fn encoding<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn encoding<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strencoding: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::encoding(this) {
                     Ok(ok__) => {
                         strencoding.write(core::mem::transmute(ok__));
@@ -1306,15 +1452,23 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetbyteOrderMark<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fwritebyteordermark: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetbyteOrderMark<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fwritebyteordermark: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::SetbyteOrderMark(this, core::mem::transmute_copy(&fwritebyteordermark)).into()
             }
         }
-        unsafe extern "system" fn byteOrderMark<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fwritebyteordermark: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn byteOrderMark<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fwritebyteordermark: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::byteOrderMark(this) {
                     Ok(ok__) => {
                         fwritebyteordermark.write(core::mem::transmute(ok__));
@@ -1324,15 +1478,23 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setindent<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findentmode: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setindent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, findentmode: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::Setindent(this, core::mem::transmute_copy(&findentmode)).into()
             }
         }
-        unsafe extern "system" fn indent<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findentmode: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn indent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, findentmode: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::indent(this) {
                     Ok(ok__) => {
                         findentmode.write(core::mem::transmute(ok__));
@@ -1342,15 +1504,23 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setstandalone<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setstandalone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::Setstandalone(this, core::mem::transmute_copy(&fvalue)).into()
             }
         }
-        unsafe extern "system" fn standalone<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn standalone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::standalone(this) {
                     Ok(ok__) => {
                         fvalue.write(core::mem::transmute(ok__));
@@ -1360,15 +1530,23 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetomitXMLDeclaration<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetomitXMLDeclaration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::SetomitXMLDeclaration(this, core::mem::transmute_copy(&fvalue)).into()
             }
         }
-        unsafe extern "system" fn omitXMLDeclaration<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn omitXMLDeclaration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::omitXMLDeclaration(this) {
                     Ok(ok__) => {
                         fvalue.write(core::mem::transmute(ok__));
@@ -1378,15 +1556,23 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setversion<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strversion: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setversion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strversion: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::Setversion(this, core::mem::transmute(&strversion)).into()
             }
         }
-        unsafe extern "system" fn version<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strversion: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn version<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strversion: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::version(this) {
                     Ok(ok__) => {
                         strversion.write(core::mem::transmute(ok__));
@@ -1396,15 +1582,23 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetdisableOutputEscaping<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetdisableOutputEscaping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::SetdisableOutputEscaping(this, core::mem::transmute_copy(&fvalue)).into()
             }
         }
-        unsafe extern "system" fn disableOutputEscaping<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn disableOutputEscaping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXWriter_Impl::disableOutputEscaping(this) {
                     Ok(ok__) => {
                         fvalue.write(core::mem::transmute(ok__));
@@ -1414,9 +1608,13 @@ impl IMXWriter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn flush<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn flush<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXWriter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXWriter_Impl::flush(this).into()
             }
         }
@@ -1570,10 +1768,17 @@ pub trait IMXXMLFilter_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXXMLFilter_Vtbl {
-    pub const fn new<Identity: IMXXMLFilter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn getFeature<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+    {
+        unsafe extern "system" fn getFeature<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXXMLFilter_Impl::getFeature(this, core::mem::transmute(&strname)) {
                     Ok(ok__) => {
                         fvalue.write(core::mem::transmute(ok__));
@@ -1583,15 +1788,23 @@ impl IMXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putFeature<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn putFeature<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXXMLFilter_Impl::putFeature(this, core::mem::transmute(&strname), core::mem::transmute_copy(&fvalue)).into()
             }
         }
-        unsafe extern "system" fn getProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXXMLFilter_Impl::getProperty(this, core::mem::transmute(&strname)) {
                     Ok(ok__) => {
                         varvalue.write(core::mem::transmute(ok__));
@@ -1601,15 +1814,23 @@ impl IMXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn putProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXXMLFilter_Impl::putProperty(this, core::mem::transmute(&strname), core::mem::transmute(&varvalue)).into()
             }
         }
-        unsafe extern "system" fn entityResolver<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn entityResolver<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXXMLFilter_Impl::entityResolver(this) {
                     Ok(ok__) => {
                         oresolver.write(core::mem::transmute(ok__));
@@ -1619,15 +1840,23 @@ impl IMXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_entityResolver<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_entityResolver<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXXMLFilter_Impl::putref_entityResolver(this, core::mem::transmute_copy(&oresolver)).into()
             }
         }
-        unsafe extern "system" fn contentHandler<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn contentHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXXMLFilter_Impl::contentHandler(this) {
                     Ok(ok__) => {
                         ohandler.write(core::mem::transmute(ok__));
@@ -1637,15 +1866,23 @@ impl IMXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_contentHandler<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_contentHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXXMLFilter_Impl::putref_contentHandler(this, core::mem::transmute_copy(&ohandler)).into()
             }
         }
-        unsafe extern "system" fn dtdHandler<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn dtdHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXXMLFilter_Impl::dtdHandler(this) {
                     Ok(ok__) => {
                         ohandler.write(core::mem::transmute(ok__));
@@ -1655,15 +1892,23 @@ impl IMXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_dtdHandler<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_dtdHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXXMLFilter_Impl::putref_dtdHandler(this, core::mem::transmute_copy(&ohandler)).into()
             }
         }
-        unsafe extern "system" fn errorHandler<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn errorHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IMXXMLFilter_Impl::errorHandler(this) {
                     Ok(ok__) => {
                         ohandler.write(core::mem::transmute(ok__));
@@ -1673,9 +1918,13 @@ impl IMXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_errorHandler<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_errorHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IMXXMLFilter_Impl::putref_errorHandler(this, core::mem::transmute_copy(&ohandler)).into()
             }
         }
@@ -1792,7 +2041,7 @@ pub struct ISAXAttributes_Vtbl {
     pub getValueFromName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
     pub getValueFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
 }
-pub trait ISAXAttributes_Impl: windows_core::IUnknownImpl {
+pub trait ISAXAttributes_Impl {
     fn getLength(&self) -> windows_core::Result<i32>;
     fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::Result<()>;
     fn getLocalName(&self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::Result<()>;
@@ -1808,10 +2057,17 @@ pub trait ISAXAttributes_Impl: windows_core::IUnknownImpl {
     fn getValueFromQName(&self, pwchqname: &windows_core::PCWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
 }
 impl ISAXAttributes_Vtbl {
-    pub const fn new<Identity: ISAXAttributes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn getLength<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnlength: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+    {
+        unsafe extern "system" fn getLength<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnlength: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXAttributes_Impl::getLength(this) {
                     Ok(ok__) => {
                         pnlength.write(core::mem::transmute(ok__));
@@ -1821,33 +2077,53 @@ impl ISAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getURI<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getURI(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchuri), core::mem::transmute_copy(&pcchuri)).into()
             }
         }
-        unsafe extern "system" fn getLocalName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getLocalName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getLocalName(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchlocalname), core::mem::transmute_copy(&pcchlocalname)).into()
             }
         }
-        unsafe extern "system" fn getQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getQName(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchqname), core::mem::transmute_copy(&pcchqname)).into()
             }
         }
-        unsafe extern "system" fn getName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getName(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchuri), core::mem::transmute_copy(&pcchuri), core::mem::transmute_copy(&ppwchlocalname), core::mem::transmute_copy(&pcchlocalname), core::mem::transmute_copy(&ppwchqname), core::mem::transmute_copy(&pcchqname)).into()
             }
         }
-        unsafe extern "system" fn getIndexFromName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: windows_core::PCWSTR, cchuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, pnindex: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getIndexFromName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: windows_core::PCWSTR, cchuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, pnindex: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXAttributes_Impl::getIndexFromName(this, core::mem::transmute(&pwchuri), core::mem::transmute_copy(&cchuri), core::mem::transmute(&pwchlocalname), core::mem::transmute_copy(&cchlocalname)) {
                     Ok(ok__) => {
                         pnindex.write(core::mem::transmute(ok__));
@@ -1857,9 +2133,13 @@ impl ISAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getIndexFromQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: windows_core::PCWSTR, cchqname: i32, pnindex: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getIndexFromQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: windows_core::PCWSTR, cchqname: i32, pnindex: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXAttributes_Impl::getIndexFromQName(this, core::mem::transmute(&pwchqname), core::mem::transmute_copy(&cchqname)) {
                     Ok(ok__) => {
                         pnindex.write(core::mem::transmute(ok__));
@@ -1869,39 +2149,63 @@ impl ISAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getType<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getType(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchtype), core::mem::transmute_copy(&pcchtype)).into()
             }
         }
-        unsafe extern "system" fn getTypeFromName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: windows_core::PCWSTR, cchuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getTypeFromName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: windows_core::PCWSTR, cchuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getTypeFromName(this, core::mem::transmute(&pwchuri), core::mem::transmute_copy(&cchuri), core::mem::transmute(&pwchlocalname), core::mem::transmute_copy(&cchlocalname), core::mem::transmute_copy(&ppwchtype), core::mem::transmute_copy(&pcchtype)).into()
             }
         }
-        unsafe extern "system" fn getTypeFromQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: windows_core::PCWSTR, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getTypeFromQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: windows_core::PCWSTR, cchqname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getTypeFromQName(this, core::mem::transmute(&pwchqname), core::mem::transmute_copy(&cchqname), core::mem::transmute_copy(&ppwchtype), core::mem::transmute_copy(&pcchtype)).into()
             }
         }
-        unsafe extern "system" fn getValue<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getValue(this, core::mem::transmute_copy(&nindex), core::mem::transmute_copy(&ppwchvalue), core::mem::transmute_copy(&pcchvalue)).into()
             }
         }
-        unsafe extern "system" fn getValueFromName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: windows_core::PCWSTR, cchuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValueFromName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchuri: windows_core::PCWSTR, cchuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getValueFromName(this, core::mem::transmute(&pwchuri), core::mem::transmute_copy(&cchuri), core::mem::transmute(&pwchlocalname), core::mem::transmute_copy(&cchlocalname), core::mem::transmute_copy(&ppwchvalue), core::mem::transmute_copy(&pcchvalue)).into()
             }
         }
-        unsafe extern "system" fn getValueFromQName<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: windows_core::PCWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValueFromQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchqname: windows_core::PCWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXAttributes_Impl::getValueFromQName(this, core::mem::transmute(&pwchqname), core::mem::transmute_copy(&cchqname), core::mem::transmute_copy(&ppwchvalue), core::mem::transmute_copy(&pcchvalue)).into()
             }
         }
@@ -2014,7 +2318,7 @@ pub struct ISAXContentHandler_Vtbl {
     pub processingInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
     pub skippedEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXContentHandler_Impl: windows_core::IUnknownImpl {
+pub trait ISAXContentHandler_Impl {
     fn putDocumentLocator(&self, plocator: windows_core::Ref<ISAXLocator>) -> windows_core::Result<()>;
     fn startDocument(&self) -> windows_core::Result<()>;
     fn endDocument(&self) -> windows_core::Result<()>;
@@ -2028,70 +2332,117 @@ pub trait ISAXContentHandler_Impl: windows_core::IUnknownImpl {
     fn skippedEntity(&self, pwchname: &windows_core::PCWSTR, cchname: i32) -> windows_core::Result<()>;
 }
 impl ISAXContentHandler_Vtbl {
-    pub const fn new<Identity: ISAXContentHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn putDocumentLocator<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+    {
+        unsafe extern "system" fn putDocumentLocator<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::putDocumentLocator(this, core::mem::transmute_copy(&plocator)).into()
             }
         }
-        unsafe extern "system" fn startDocument<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::startDocument(this).into()
             }
         }
-        unsafe extern "system" fn endDocument<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::endDocument(this).into()
             }
         }
-        unsafe extern "system" fn startPrefixMapping<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchprefix: windows_core::PCWSTR, cchprefix: i32, pwchuri: windows_core::PCWSTR, cchuri: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn startPrefixMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchprefix: windows_core::PCWSTR, cchprefix: i32, pwchuri: windows_core::PCWSTR, cchuri: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::startPrefixMapping(this, core::mem::transmute(&pwchprefix), core::mem::transmute_copy(&cchprefix), core::mem::transmute(&pwchuri), core::mem::transmute_copy(&cchuri)).into()
             }
         }
-        unsafe extern "system" fn endPrefixMapping<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchprefix: windows_core::PCWSTR, cchprefix: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn endPrefixMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchprefix: windows_core::PCWSTR, cchprefix: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::endPrefixMapping(this, core::mem::transmute(&pwchprefix), core::mem::transmute_copy(&cchprefix)).into()
             }
         }
-        unsafe extern "system" fn startElement<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchnamespaceuri: windows_core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, pwchqname: windows_core::PCWSTR, cchqname: i32, pattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchnamespaceuri: windows_core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, pwchqname: windows_core::PCWSTR, cchqname: i32, pattributes: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::startElement(this, core::mem::transmute(&pwchnamespaceuri), core::mem::transmute_copy(&cchnamespaceuri), core::mem::transmute(&pwchlocalname), core::mem::transmute_copy(&cchlocalname), core::mem::transmute(&pwchqname), core::mem::transmute_copy(&cchqname), core::mem::transmute_copy(&pattributes)).into()
             }
         }
-        unsafe extern "system" fn endElement<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchnamespaceuri: windows_core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, pwchqname: windows_core::PCWSTR, cchqname: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn endElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchnamespaceuri: windows_core::PCWSTR, cchnamespaceuri: i32, pwchlocalname: windows_core::PCWSTR, cchlocalname: i32, pwchqname: windows_core::PCWSTR, cchqname: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::endElement(this, core::mem::transmute(&pwchnamespaceuri), core::mem::transmute_copy(&cchnamespaceuri), core::mem::transmute(&pwchlocalname), core::mem::transmute_copy(&cchlocalname), core::mem::transmute(&pwchqname), core::mem::transmute_copy(&cchqname)).into()
             }
         }
-        unsafe extern "system" fn characters<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchchars: windows_core::PCWSTR, cchchars: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn characters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchchars: windows_core::PCWSTR, cchchars: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::characters(this, core::mem::transmute(&pwchchars), core::mem::transmute_copy(&cchchars)).into()
             }
         }
-        unsafe extern "system" fn ignorableWhitespace<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchchars: windows_core::PCWSTR, cchchars: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ignorableWhitespace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchchars: windows_core::PCWSTR, cchchars: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::ignorableWhitespace(this, core::mem::transmute(&pwchchars), core::mem::transmute_copy(&cchchars)).into()
             }
         }
-        unsafe extern "system" fn processingInstruction<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchtarget: windows_core::PCWSTR, cchtarget: i32, pwchdata: windows_core::PCWSTR, cchdata: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn processingInstruction<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchtarget: windows_core::PCWSTR, cchtarget: i32, pwchdata: windows_core::PCWSTR, cchdata: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::processingInstruction(this, core::mem::transmute(&pwchtarget), core::mem::transmute_copy(&cchtarget), core::mem::transmute(&pwchdata), core::mem::transmute_copy(&cchdata)).into()
             }
         }
-        unsafe extern "system" fn skippedEntity<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn skippedEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXContentHandler_Impl::skippedEntity(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname)).into()
             }
         }
@@ -2143,21 +2494,32 @@ pub struct ISAXDTDHandler_Vtbl {
     pub notationDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
     pub unparsedEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXDTDHandler_Impl: windows_core::IUnknownImpl {
+pub trait ISAXDTDHandler_Impl {
     fn notationDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32) -> windows_core::Result<()>;
     fn unparsedEntityDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32, pwchnotationname: &windows_core::PCWSTR, cchnotationname: i32) -> windows_core::Result<()>;
 }
 impl ISAXDTDHandler_Vtbl {
-    pub const fn new<Identity: ISAXDTDHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn notationDecl<Identity: ISAXDTDHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXDTDHandler_Impl,
+    {
+        unsafe extern "system" fn notationDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXDTDHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXDTDHandler_Impl::notationDecl(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchpublicid), core::mem::transmute_copy(&cchpublicid), core::mem::transmute(&pwchsystemid), core::mem::transmute_copy(&cchsystemid)).into()
             }
         }
-        unsafe extern "system" fn unparsedEntityDecl<Identity: ISAXDTDHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32, pwchnotationname: windows_core::PCWSTR, cchnotationname: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn unparsedEntityDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32, pwchnotationname: windows_core::PCWSTR, cchnotationname: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXDTDHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXDTDHandler_Impl::unparsedEntityDecl(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchpublicid), core::mem::transmute_copy(&cchpublicid), core::mem::transmute(&pwchsystemid), core::mem::transmute_copy(&cchsystemid), core::mem::transmute(&pwchnotationname), core::mem::transmute_copy(&cchnotationname)).into()
             }
         }
@@ -2217,35 +2579,54 @@ pub struct ISAXDeclHandler_Vtbl {
     pub internalEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
     pub externalEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXDeclHandler_Impl: windows_core::IUnknownImpl {
+pub trait ISAXDeclHandler_Impl {
     fn elementDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchmodel: &windows_core::PCWSTR, cchmodel: i32) -> windows_core::Result<()>;
     fn attributeDecl(&self, pwchelementname: &windows_core::PCWSTR, cchelementname: i32, pwchattributename: &windows_core::PCWSTR, cchattributename: i32, pwchtype: &windows_core::PCWSTR, cchtype: i32, pwchvaluedefault: &windows_core::PCWSTR, cchvaluedefault: i32, pwchvalue: &windows_core::PCWSTR, cchvalue: i32) -> windows_core::Result<()>;
     fn internalEntityDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchvalue: &windows_core::PCWSTR, cchvalue: i32) -> windows_core::Result<()>;
     fn externalEntityDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32) -> windows_core::Result<()>;
 }
 impl ISAXDeclHandler_Vtbl {
-    pub const fn new<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn elementDecl<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchmodel: windows_core::PCWSTR, cchmodel: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXDeclHandler_Impl,
+    {
+        unsafe extern "system" fn elementDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchmodel: windows_core::PCWSTR, cchmodel: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXDeclHandler_Impl::elementDecl(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchmodel), core::mem::transmute_copy(&cchmodel)).into()
             }
         }
-        unsafe extern "system" fn attributeDecl<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchelementname: windows_core::PCWSTR, cchelementname: i32, pwchattributename: windows_core::PCWSTR, cchattributename: i32, pwchtype: windows_core::PCWSTR, cchtype: i32, pwchvaluedefault: windows_core::PCWSTR, cchvaluedefault: i32, pwchvalue: windows_core::PCWSTR, cchvalue: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributeDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchelementname: windows_core::PCWSTR, cchelementname: i32, pwchattributename: windows_core::PCWSTR, cchattributename: i32, pwchtype: windows_core::PCWSTR, cchtype: i32, pwchvaluedefault: windows_core::PCWSTR, cchvaluedefault: i32, pwchvalue: windows_core::PCWSTR, cchvalue: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXDeclHandler_Impl::attributeDecl(this, core::mem::transmute(&pwchelementname), core::mem::transmute_copy(&cchelementname), core::mem::transmute(&pwchattributename), core::mem::transmute_copy(&cchattributename), core::mem::transmute(&pwchtype), core::mem::transmute_copy(&cchtype), core::mem::transmute(&pwchvaluedefault), core::mem::transmute_copy(&cchvaluedefault), core::mem::transmute(&pwchvalue), core::mem::transmute_copy(&cchvalue)).into()
             }
         }
-        unsafe extern "system" fn internalEntityDecl<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchvalue: windows_core::PCWSTR, cchvalue: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn internalEntityDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchvalue: windows_core::PCWSTR, cchvalue: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXDeclHandler_Impl::internalEntityDecl(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchvalue), core::mem::transmute_copy(&cchvalue)).into()
             }
         }
-        unsafe extern "system" fn externalEntityDecl<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn externalEntityDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXDeclHandler_Impl::externalEntityDecl(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchpublicid), core::mem::transmute_copy(&cchpublicid), core::mem::transmute(&pwchsystemid), core::mem::transmute_copy(&cchsystemid)).into()
             }
         }
@@ -2287,15 +2668,22 @@ pub struct ISAXEntityResolver_Vtbl {
     resolveEntity: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISAXEntityResolver_Impl: windows_core::IUnknownImpl {
+pub trait ISAXEntityResolver_Impl {
     fn resolveEntity(&self, pwchpublicid: &windows_core::PCWSTR, pwchsystemid: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISAXEntityResolver_Vtbl {
-    pub const fn new<Identity: ISAXEntityResolver_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn resolveEntity<Identity: ISAXEntityResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchpublicid: windows_core::PCWSTR, pwchsystemid: windows_core::PCWSTR, pvarinput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXEntityResolver_Impl,
+    {
+        unsafe extern "system" fn resolveEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchpublicid: windows_core::PCWSTR, pwchsystemid: windows_core::PCWSTR, pvarinput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXEntityResolver_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute(&pwchpublicid), core::mem::transmute(&pwchsystemid)) {
                     Ok(ok__) => {
                         pvarinput.write(core::mem::transmute(ok__));
@@ -2346,28 +2734,43 @@ pub struct ISAXErrorHandler_Vtbl {
     pub fatalError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
     pub ignorableWarning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-pub trait ISAXErrorHandler_Impl: windows_core::IUnknownImpl {
+pub trait ISAXErrorHandler_Impl {
     fn error(&self, plocator: windows_core::Ref<ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
     fn fatalError(&self, plocator: windows_core::Ref<ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
     fn ignorableWarning(&self, plocator: windows_core::Ref<ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl ISAXErrorHandler_Vtbl {
-    pub const fn new<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn error<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void, pwcherrormessage: windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXErrorHandler_Impl,
+    {
+        unsafe extern "system" fn error<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void, pwcherrormessage: windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXErrorHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXErrorHandler_Impl::error(this, core::mem::transmute_copy(&plocator), core::mem::transmute(&pwcherrormessage), core::mem::transmute_copy(&hrerrorcode)).into()
             }
         }
-        unsafe extern "system" fn fatalError<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void, pwcherrormessage: windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn fatalError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void, pwcherrormessage: windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXErrorHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXErrorHandler_Impl::fatalError(this, core::mem::transmute_copy(&plocator), core::mem::transmute(&pwcherrormessage), core::mem::transmute_copy(&hrerrorcode)).into()
             }
         }
-        unsafe extern "system" fn ignorableWarning<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void, pwcherrormessage: windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn ignorableWarning<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void, pwcherrormessage: windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXErrorHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXErrorHandler_Impl::ignorableWarning(this, core::mem::transmute_copy(&plocator), core::mem::transmute(&pwcherrormessage), core::mem::transmute_copy(&hrerrorcode)).into()
             }
         }
@@ -2434,7 +2837,7 @@ pub struct ISAXLexicalHandler_Vtbl {
     pub endCDATA: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub comment: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXLexicalHandler_Impl: windows_core::IUnknownImpl {
+pub trait ISAXLexicalHandler_Impl {
     fn startDTD(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32) -> windows_core::Result<()>;
     fn endDTD(&self) -> windows_core::Result<()>;
     fn startEntity(&self, pwchname: &windows_core::PCWSTR, cchname: i32) -> windows_core::Result<()>;
@@ -2444,46 +2847,77 @@ pub trait ISAXLexicalHandler_Impl: windows_core::IUnknownImpl {
     fn comment(&self, pwchchars: &windows_core::PCWSTR, cchchars: i32) -> windows_core::Result<()>;
 }
 impl ISAXLexicalHandler_Vtbl {
-    pub const fn new<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn startDTD<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+    {
+        unsafe extern "system" fn startDTD<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXLexicalHandler_Impl::startDTD(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchpublicid), core::mem::transmute_copy(&cchpublicid), core::mem::transmute(&pwchsystemid), core::mem::transmute_copy(&cchsystemid)).into()
             }
         }
-        unsafe extern "system" fn endDTD<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endDTD<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXLexicalHandler_Impl::endDTD(this).into()
             }
         }
-        unsafe extern "system" fn startEntity<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn startEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXLexicalHandler_Impl::startEntity(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname)).into()
             }
         }
-        unsafe extern "system" fn endEntity<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn endEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXLexicalHandler_Impl::endEntity(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname)).into()
             }
         }
-        unsafe extern "system" fn startCDATA<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startCDATA<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXLexicalHandler_Impl::startCDATA(this).into()
             }
         }
-        unsafe extern "system" fn endCDATA<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endCDATA<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXLexicalHandler_Impl::endCDATA(this).into()
             }
         }
-        unsafe extern "system" fn comment<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchchars: windows_core::PCWSTR, cchchars: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn comment<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchchars: windows_core::PCWSTR, cchchars: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXLexicalHandler_Impl::comment(this, core::mem::transmute(&pwchchars), core::mem::transmute_copy(&cchchars)).into()
             }
         }
@@ -2540,17 +2974,24 @@ pub struct ISAXLocator_Vtbl {
     pub getPublicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
     pub getSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
 }
-pub trait ISAXLocator_Impl: windows_core::IUnknownImpl {
+pub trait ISAXLocator_Impl {
     fn getColumnNumber(&self) -> windows_core::Result<i32>;
     fn getLineNumber(&self) -> windows_core::Result<i32>;
     fn getPublicId(&self) -> windows_core::Result<*mut u16>;
     fn getSystemId(&self) -> windows_core::Result<*mut u16>;
 }
 impl ISAXLocator_Vtbl {
-    pub const fn new<Identity: ISAXLocator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn getColumnNumber<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pncolumn: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXLocator_Impl,
+    {
+        unsafe extern "system" fn getColumnNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pncolumn: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXLocator_Impl::getColumnNumber(this) {
                     Ok(ok__) => {
                         pncolumn.write(core::mem::transmute(ok__));
@@ -2560,9 +3001,13 @@ impl ISAXLocator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getLineNumber<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnline: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getLineNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnline: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXLocator_Impl::getLineNumber(this) {
                     Ok(ok__) => {
                         pnline.write(core::mem::transmute(ok__));
@@ -2572,9 +3017,13 @@ impl ISAXLocator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getPublicId<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getPublicId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXLocator_Impl::getPublicId(this) {
                     Ok(ok__) => {
                         ppwchpublicid.write(core::mem::transmute(ok__));
@@ -2584,9 +3033,13 @@ impl ISAXLocator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getSystemId<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsystemid: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getSystemId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsystemid: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXLocator_Impl::getSystemId(this) {
                     Ok(ok__) => {
                         ppwchsystemid.write(core::mem::transmute(ok__));
@@ -2645,10 +3098,17 @@ pub trait ISAXXMLFilter_Impl: ISAXXMLReader_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISAXXMLFilter_Vtbl {
-    pub const fn new<Identity: ISAXXMLFilter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn getParent<Identity: ISAXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLFilter_Impl,
+    {
+        unsafe extern "system" fn getParent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLFilter_Impl::getParent(this) {
                     Ok(ok__) => {
                         ppreader.write(core::mem::transmute(ok__));
@@ -2658,9 +3118,13 @@ impl ISAXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putParent<Identity: ISAXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preader: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putParent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, preader: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLFilter_Impl::putParent(this, core::mem::transmute_copy(&preader)).into()
             }
         }
@@ -2823,7 +3287,7 @@ pub struct ISAXXMLReader_Vtbl {
     pub parseURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISAXXMLReader_Impl: windows_core::IUnknownImpl {
+pub trait ISAXXMLReader_Impl {
     fn getFeature(&self, pwchname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn putFeature(&self, pwchname: &windows_core::PCWSTR, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getProperty(&self, pwchname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
@@ -2845,10 +3309,17 @@ pub trait ISAXXMLReader_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISAXXMLReader_Vtbl {
-    pub const fn new<Identity: ISAXXMLReader_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn getFeature<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, pvfvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+    {
+        unsafe extern "system" fn getFeature<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, pvfvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getFeature(this, core::mem::transmute(&pwchname)) {
                     Ok(ok__) => {
                         pvfvalue.write(core::mem::transmute(ok__));
@@ -2858,15 +3329,23 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putFeature<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn putFeature<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putFeature(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&vfvalue)).into()
             }
         }
-        unsafe extern "system" fn getProperty<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getProperty(this, core::mem::transmute(&pwchname)) {
                     Ok(ok__) => {
                         pvarvalue.write(core::mem::transmute(ok__));
@@ -2876,15 +3355,23 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putProperty<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn putProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putProperty(this, core::mem::transmute(&pwchname), core::mem::transmute(&varvalue)).into()
             }
         }
-        unsafe extern "system" fn getEntityResolver<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getEntityResolver<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getEntityResolver(this) {
                     Ok(ok__) => {
                         ppresolver.write(core::mem::transmute(ok__));
@@ -2894,15 +3381,23 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putEntityResolver<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presolver: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putEntityResolver<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, presolver: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putEntityResolver(this, core::mem::transmute_copy(&presolver)).into()
             }
         }
-        unsafe extern "system" fn getContentHandler<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getContentHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getContentHandler(this) {
                     Ok(ok__) => {
                         pphandler.write(core::mem::transmute(ok__));
@@ -2912,15 +3407,23 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putContentHandler<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putContentHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putContentHandler(this, core::mem::transmute_copy(&phandler)).into()
             }
         }
-        unsafe extern "system" fn getDTDHandler<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getDTDHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getDTDHandler(this) {
                     Ok(ok__) => {
                         pphandler.write(core::mem::transmute(ok__));
@@ -2930,15 +3433,23 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putDTDHandler<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putDTDHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putDTDHandler(this, core::mem::transmute_copy(&phandler)).into()
             }
         }
-        unsafe extern "system" fn getErrorHandler<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getErrorHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pphandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getErrorHandler(this) {
                     Ok(ok__) => {
                         pphandler.write(core::mem::transmute(ok__));
@@ -2948,15 +3459,23 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putErrorHandler<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putErrorHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putErrorHandler(this, core::mem::transmute_copy(&phandler)).into()
             }
         }
-        unsafe extern "system" fn getBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchbaseurl: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getBaseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchbaseurl: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getBaseURL(this) {
                     Ok(ok__) => {
                         ppwchbaseurl.write(core::mem::transmute(ok__));
@@ -2966,15 +3485,23 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchbaseurl: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn putBaseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchbaseurl: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putBaseURL(this, core::mem::transmute(&pwchbaseurl)).into()
             }
         }
-        unsafe extern "system" fn getSecureBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsecurebaseurl: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn getSecureBaseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwchsecurebaseurl: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISAXXMLReader_Impl::getSecureBaseURL(this) {
                     Ok(ok__) => {
                         ppwchsecurebaseurl.write(core::mem::transmute(ok__));
@@ -2984,21 +3511,33 @@ impl ISAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putSecureBaseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchsecurebaseurl: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn putSecureBaseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchsecurebaseurl: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::putSecureBaseURL(this, core::mem::transmute(&pwchsecurebaseurl)).into()
             }
         }
-        unsafe extern "system" fn parse<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn parse<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::parse(this, core::mem::transmute(&varinput)).into()
             }
         }
-        unsafe extern "system" fn parseURL<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchurl: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn parseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchurl: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ISAXXMLReader_Impl::parseURL(this, core::mem::transmute(&pwchurl)).into()
             }
         }
@@ -3127,10 +3666,17 @@ pub trait ISchema_Impl: ISchemaItem_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchema_Vtbl {
-    pub const fn new<Identity: ISchema_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn targetNamespace<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+    {
+        unsafe extern "system" fn targetNamespace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetnamespace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::targetNamespace(this) {
                     Ok(ok__) => {
                         targetnamespace.write(core::mem::transmute(ok__));
@@ -3140,9 +3686,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn version<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn version<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, version: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::version(this) {
                     Ok(ok__) => {
                         version.write(core::mem::transmute(ok__));
@@ -3152,9 +3702,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn types<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, types: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn types<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, types: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::types(this) {
                     Ok(ok__) => {
                         types.write(core::mem::transmute(ok__));
@@ -3164,9 +3718,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn elements<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, elements: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn elements<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, elements: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::elements(this) {
                     Ok(ok__) => {
                         elements.write(core::mem::transmute(ok__));
@@ -3176,9 +3734,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn attributes<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::attributes(this) {
                     Ok(ok__) => {
                         attributes.write(core::mem::transmute(ok__));
@@ -3188,9 +3750,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn attributeGroups<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributeGroups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributegroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::attributeGroups(this) {
                     Ok(ok__) => {
                         attributegroups.write(core::mem::transmute(ok__));
@@ -3200,9 +3766,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn modelGroups<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modelgroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn modelGroups<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, modelgroups: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::modelGroups(this) {
                     Ok(ok__) => {
                         modelgroups.write(core::mem::transmute(ok__));
@@ -3212,9 +3782,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn notations<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn notations<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, notations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::notations(this) {
                     Ok(ok__) => {
                         notations.write(core::mem::transmute(ok__));
@@ -3224,9 +3798,13 @@ impl ISchema_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn schemaLocations<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, schemalocations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn schemaLocations<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, schemalocations: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchema_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchema_Impl::schemaLocations(this) {
                     Ok(ok__) => {
                         schemalocations.write(core::mem::transmute(ok__));
@@ -3296,10 +3874,17 @@ pub trait ISchemaAny_Impl: ISchemaParticle_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaAny_Vtbl {
-    pub const fn new<Identity: ISchemaAny_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn namespaces<Identity: ISchemaAny_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaces: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAny_Impl,
+    {
+        unsafe extern "system" fn namespaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaces: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAny_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAny_Impl::namespaces(this) {
                     Ok(ok__) => {
                         namespaces.write(core::mem::transmute(ok__));
@@ -3309,9 +3894,13 @@ impl ISchemaAny_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn processContents<Identity: ISchemaAny_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, processcontents: *mut SCHEMAPROCESSCONTENTS) -> windows_core::HRESULT {
+        unsafe extern "system" fn processContents<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, processcontents: *mut SCHEMAPROCESSCONTENTS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAny_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAny_Impl::processContents(this) {
                     Ok(ok__) => {
                         processcontents.write(core::mem::transmute(ok__));
@@ -3406,10 +3995,17 @@ pub trait ISchemaAttribute_Impl: ISchemaItem_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaAttribute_Vtbl {
-    pub const fn new<Identity: ISchemaAttribute_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn r#type<Identity: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttribute_Impl,
+    {
+        unsafe extern "system" fn r#type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttribute_Impl::r#type(this) {
                     Ok(ok__) => {
                         r#type.write(core::mem::transmute(ok__));
@@ -3419,9 +4015,13 @@ impl ISchemaAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn scope<Identity: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn scope<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttribute_Impl::scope(this) {
                     Ok(ok__) => {
                         scope.write(core::mem::transmute(ok__));
@@ -3431,9 +4031,13 @@ impl ISchemaAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn defaultValue<Identity: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, defaultvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn defaultValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, defaultvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttribute_Impl::defaultValue(this) {
                     Ok(ok__) => {
                         defaultvalue.write(core::mem::transmute(ok__));
@@ -3443,9 +4047,13 @@ impl ISchemaAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fixedValue<Identity: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fixedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fixedValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fixedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttribute_Impl::fixedValue(this) {
                     Ok(ok__) => {
                         fixedvalue.write(core::mem::transmute(ok__));
@@ -3455,9 +4063,13 @@ impl ISchemaAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn r#use<Identity: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#use: *mut SCHEMAUSE) -> windows_core::HRESULT {
+        unsafe extern "system" fn r#use<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#use: *mut SCHEMAUSE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttribute_Impl::r#use(this) {
                     Ok(ok__) => {
                         r#use.write(core::mem::transmute(ok__));
@@ -3467,9 +4079,13 @@ impl ISchemaAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn isReference<Identity: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reference: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn isReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reference: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttribute_Impl::isReference(this) {
                     Ok(ok__) => {
                         reference.write(core::mem::transmute(ok__));
@@ -3536,10 +4152,17 @@ pub trait ISchemaAttributeGroup_Impl: ISchemaItem_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaAttributeGroup_Vtbl {
-    pub const fn new<Identity: ISchemaAttributeGroup_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn anyAttribute<Identity: ISchemaAttributeGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, anyattribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttributeGroup_Impl,
+    {
+        unsafe extern "system" fn anyAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, anyattribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttributeGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttributeGroup_Impl::anyAttribute(this) {
                     Ok(ok__) => {
                         anyattribute.write(core::mem::transmute(ok__));
@@ -3549,9 +4172,13 @@ impl ISchemaAttributeGroup_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn attributes<Identity: ISchemaAttributeGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaAttributeGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaAttributeGroup_Impl::attributes(this) {
                     Ok(ok__) => {
                         attributes.write(core::mem::transmute(ok__));
@@ -3642,10 +4269,17 @@ pub trait ISchemaComplexType_Impl: ISchemaType_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaComplexType_Vtbl {
-    pub const fn new<Identity: ISchemaComplexType_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn isAbstract<Identity: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#abstract: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaComplexType_Impl,
+    {
+        unsafe extern "system" fn isAbstract<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#abstract: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaComplexType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaComplexType_Impl::isAbstract(this) {
                     Ok(ok__) => {
                         r#abstract.write(core::mem::transmute(ok__));
@@ -3655,9 +4289,13 @@ impl ISchemaComplexType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn anyAttribute<Identity: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, anyattribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn anyAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, anyattribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaComplexType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaComplexType_Impl::anyAttribute(this) {
                     Ok(ok__) => {
                         anyattribute.write(core::mem::transmute(ok__));
@@ -3667,9 +4305,13 @@ impl ISchemaComplexType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn attributes<Identity: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaComplexType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaComplexType_Impl::attributes(this) {
                     Ok(ok__) => {
                         attributes.write(core::mem::transmute(ok__));
@@ -3679,9 +4321,13 @@ impl ISchemaComplexType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn contentType<Identity: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: *mut SCHEMACONTENTTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn contentType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, contenttype: *mut SCHEMACONTENTTYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaComplexType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaComplexType_Impl::contentType(this) {
                     Ok(ok__) => {
                         contenttype.write(core::mem::transmute(ok__));
@@ -3691,9 +4337,13 @@ impl ISchemaComplexType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn contentModel<Identity: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentmodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn contentModel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentmodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaComplexType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaComplexType_Impl::contentModel(this) {
                     Ok(ok__) => {
                         contentmodel.write(core::mem::transmute(ok__));
@@ -3703,9 +4353,13 @@ impl ISchemaComplexType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn prohibitedSubstitutions<Identity: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prohibited: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT {
+        unsafe extern "system" fn prohibitedSubstitutions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, prohibited: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaComplexType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaComplexType_Impl::prohibitedSubstitutions(this) {
                     Ok(ok__) => {
                         prohibited.write(core::mem::transmute(ok__));
@@ -3844,10 +4498,17 @@ pub trait ISchemaElement_Impl: ISchemaParticle_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaElement_Vtbl {
-    pub const fn new<Identity: ISchemaElement_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn r#type<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+    {
+        unsafe extern "system" fn r#type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::r#type(this) {
                     Ok(ok__) => {
                         r#type.write(core::mem::transmute(ok__));
@@ -3857,9 +4518,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn scope<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn scope<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, scope: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::scope(this) {
                     Ok(ok__) => {
                         scope.write(core::mem::transmute(ok__));
@@ -3869,9 +4534,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn defaultValue<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, defaultvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn defaultValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, defaultvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::defaultValue(this) {
                     Ok(ok__) => {
                         defaultvalue.write(core::mem::transmute(ok__));
@@ -3881,9 +4550,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fixedValue<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fixedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fixedValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fixedvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::fixedValue(this) {
                     Ok(ok__) => {
                         fixedvalue.write(core::mem::transmute(ok__));
@@ -3893,9 +4566,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn isNillable<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nillable: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn isNillable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nillable: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::isNillable(this) {
                     Ok(ok__) => {
                         nillable.write(core::mem::transmute(ok__));
@@ -3905,9 +4582,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn identityConstraints<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, constraints: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn identityConstraints<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, constraints: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::identityConstraints(this) {
                     Ok(ok__) => {
                         constraints.write(core::mem::transmute(ok__));
@@ -3917,9 +4598,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn substitutionGroup<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn substitutionGroup<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::substitutionGroup(this) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -3929,9 +4614,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn substitutionGroupExclusions<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, exclusions: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT {
+        unsafe extern "system" fn substitutionGroupExclusions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, exclusions: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::substitutionGroupExclusions(this) {
                     Ok(ok__) => {
                         exclusions.write(core::mem::transmute(ok__));
@@ -3941,9 +4630,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn disallowedSubstitutions<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, disallowed: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT {
+        unsafe extern "system" fn disallowedSubstitutions<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, disallowed: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::disallowedSubstitutions(this) {
                     Ok(ok__) => {
                         disallowed.write(core::mem::transmute(ok__));
@@ -3953,9 +4646,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn isAbstract<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#abstract: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn isAbstract<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#abstract: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::isAbstract(this) {
                     Ok(ok__) => {
                         r#abstract.write(core::mem::transmute(ok__));
@@ -3965,9 +4662,13 @@ impl ISchemaElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn isReference<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reference: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn isReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reference: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaElement_Impl::isReference(this) {
                     Ok(ok__) => {
                         reference.write(core::mem::transmute(ok__));
@@ -4047,10 +4748,17 @@ pub trait ISchemaIdentityConstraint_Impl: ISchemaItem_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaIdentityConstraint_Vtbl {
-    pub const fn new<Identity: ISchemaIdentityConstraint_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn selector<Identity: ISchemaIdentityConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaIdentityConstraint_Impl,
+    {
+        unsafe extern "system" fn selector<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, selector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaIdentityConstraint_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaIdentityConstraint_Impl::selector(this) {
                     Ok(ok__) => {
                         selector.write(core::mem::transmute(ok__));
@@ -4060,9 +4768,13 @@ impl ISchemaIdentityConstraint_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fields<Identity: ISchemaIdentityConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fields: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fields<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fields: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaIdentityConstraint_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaIdentityConstraint_Impl::fields(this) {
                     Ok(ok__) => {
                         fields.write(core::mem::transmute(ok__));
@@ -4072,9 +4784,13 @@ impl ISchemaIdentityConstraint_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn referencedKey<Identity: ISchemaIdentityConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn referencedKey<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaIdentityConstraint_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaIdentityConstraint_Impl::referencedKey(this) {
                     Ok(ok__) => {
                         key.write(core::mem::transmute(ok__));
@@ -4181,10 +4897,17 @@ pub trait ISchemaItem_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaItem_Vtbl {
-    pub const fn new<Identity: ISchemaItem_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn name<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+    {
+        unsafe extern "system" fn name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItem_Impl::name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -4194,9 +4917,13 @@ impl ISchemaItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn namespaceURI<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn namespaceURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItem_Impl::namespaceURI(this) {
                     Ok(ok__) => {
                         namespaceuri.write(core::mem::transmute(ok__));
@@ -4206,9 +4933,13 @@ impl ISchemaItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn schema<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, schema: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn schema<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, schema: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItem_Impl::schema(this) {
                     Ok(ok__) => {
                         schema.write(core::mem::transmute(ok__));
@@ -4218,9 +4949,13 @@ impl ISchemaItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn id<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn id<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItem_Impl::id(this) {
                     Ok(ok__) => {
                         id.write(core::mem::transmute(ok__));
@@ -4230,9 +4965,13 @@ impl ISchemaItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn itemType<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemtype: *mut SOMITEMTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn itemType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, itemtype: *mut SOMITEMTYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItem_Impl::itemType(this) {
                     Ok(ok__) => {
                         itemtype.write(core::mem::transmute(ok__));
@@ -4242,9 +4981,13 @@ impl ISchemaItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn unhandledAttributes<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn unhandledAttributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItem_Impl::unhandledAttributes(this) {
                     Ok(ok__) => {
                         attributes.write(core::mem::transmute(ok__));
@@ -4254,9 +4997,13 @@ impl ISchemaItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn writeAnnotation<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, annotationsink: *mut core::ffi::c_void, iswritten: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn writeAnnotation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, annotationsink: *mut core::ffi::c_void, iswritten: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItem_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItem_Impl::writeAnnotation(this, core::mem::transmute_copy(&annotationsink)) {
                     Ok(ok__) => {
                         iswritten.write(core::mem::transmute(ok__));
@@ -4348,10 +5095,17 @@ pub trait ISchemaItemCollection_Impl: super::super::super::System::Com::IDispatc
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaItemCollection_Vtbl {
-    pub const fn new<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn get_item<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItemCollection_Impl,
+    {
+        unsafe extern "system" fn get_item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItemCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItemCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         item.write(core::mem::transmute(ok__));
@@ -4361,9 +5115,13 @@ impl ISchemaItemCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn itemByName<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn itemByName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItemCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItemCollection_Impl::itemByName(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         item.write(core::mem::transmute(ok__));
@@ -4373,9 +5131,13 @@ impl ISchemaItemCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn itemByQName<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn itemByQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItemCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItemCollection_Impl::itemByQName(this, core::mem::transmute(&name), core::mem::transmute(&namespaceuri)) {
                     Ok(ok__) => {
                         item.write(core::mem::transmute(ok__));
@@ -4385,9 +5147,13 @@ impl ISchemaItemCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn length<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItemCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItemCollection_Impl::length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -4397,9 +5163,13 @@ impl ISchemaItemCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaItemCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaItemCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -4457,10 +5227,17 @@ pub trait ISchemaModelGroup_Impl: ISchemaParticle_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaModelGroup_Vtbl {
-    pub const fn new<Identity: ISchemaModelGroup_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn particles<Identity: ISchemaModelGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, particles: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaModelGroup_Impl,
+    {
+        unsafe extern "system" fn particles<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, particles: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaModelGroup_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaModelGroup_Impl::particles(this) {
                     Ok(ok__) => {
                         particles.write(core::mem::transmute(ok__));
@@ -4519,10 +5296,17 @@ pub trait ISchemaNotation_Impl: ISchemaItem_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaNotation_Vtbl {
-    pub const fn new<Identity: ISchemaNotation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn systemIdentifier<Identity: ISchemaNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaNotation_Impl,
+    {
+        unsafe extern "system" fn systemIdentifier<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaNotation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaNotation_Impl::systemIdentifier(this) {
                     Ok(ok__) => {
                         uri.write(core::mem::transmute(ok__));
@@ -4532,9 +5316,13 @@ impl ISchemaNotation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn publicIdentifier<Identity: ISchemaNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn publicIdentifier<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaNotation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaNotation_Impl::publicIdentifier(this) {
                     Ok(ok__) => {
                         uri.write(core::mem::transmute(ok__));
@@ -4605,10 +5393,17 @@ pub trait ISchemaParticle_Impl: ISchemaItem_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaParticle_Vtbl {
-    pub const fn new<Identity: ISchemaParticle_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn minOccurs<Identity: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minoccurs: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaParticle_Impl,
+    {
+        unsafe extern "system" fn minOccurs<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minoccurs: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaParticle_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaParticle_Impl::minOccurs(this) {
                     Ok(ok__) => {
                         minoccurs.write(core::mem::transmute(ok__));
@@ -4618,9 +5413,13 @@ impl ISchemaParticle_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn maxOccurs<Identity: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxoccurs: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn maxOccurs<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxoccurs: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaParticle_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaParticle_Impl::maxOccurs(this) {
                     Ok(ok__) => {
                         maxoccurs.write(core::mem::transmute(ok__));
@@ -4687,10 +5486,17 @@ pub trait ISchemaStringCollection_Impl: super::super::super::System::Com::IDispa
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaStringCollection_Vtbl {
-    pub const fn new<Identity: ISchemaStringCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn get_item<Identity: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, bstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaStringCollection_Impl,
+    {
+        unsafe extern "system" fn get_item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, bstr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaStringCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaStringCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         bstr.write(core::mem::transmute(ok__));
@@ -4700,9 +5506,13 @@ impl ISchemaStringCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn length<Identity: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaStringCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaStringCollection_Impl::length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -4712,9 +5522,13 @@ impl ISchemaStringCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaStringCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaStringCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -4918,10 +5732,17 @@ pub trait ISchemaType_Impl: ISchemaItem_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaType_Vtbl {
-    pub const fn new<Identity: ISchemaType_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn baseTypes<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basetypes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+    {
+        unsafe extern "system" fn baseTypes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, basetypes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::baseTypes(this) {
                     Ok(ok__) => {
                         basetypes.write(core::mem::transmute(ok__));
@@ -4931,9 +5752,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn r#final<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#final: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT {
+        unsafe extern "system" fn r#final<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#final: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::r#final(this) {
                     Ok(ok__) => {
                         r#final.write(core::mem::transmute(ok__));
@@ -4943,9 +5768,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn variety<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, variety: *mut SCHEMATYPEVARIETY) -> windows_core::HRESULT {
+        unsafe extern "system" fn variety<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, variety: *mut SCHEMATYPEVARIETY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::variety(this) {
                     Ok(ok__) => {
                         variety.write(core::mem::transmute(ok__));
@@ -4955,9 +5784,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn derivedBy<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, derivedby: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT {
+        unsafe extern "system" fn derivedBy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, derivedby: *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::derivedBy(this) {
                     Ok(ok__) => {
                         derivedby.write(core::mem::transmute(ok__));
@@ -4967,9 +5800,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn isValid<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, valid: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn isValid<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, valid: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::isValid(this, core::mem::transmute(&data)) {
                     Ok(ok__) => {
                         valid.write(core::mem::transmute(ok__));
@@ -4979,9 +5816,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn minExclusive<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minexclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn minExclusive<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minexclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::minExclusive(this) {
                     Ok(ok__) => {
                         minexclusive.write(core::mem::transmute(ok__));
@@ -4991,9 +5832,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn minInclusive<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mininclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn minInclusive<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mininclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::minInclusive(this) {
                     Ok(ok__) => {
                         mininclusive.write(core::mem::transmute(ok__));
@@ -5003,9 +5848,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn maxExclusive<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxexclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn maxExclusive<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxexclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::maxExclusive(this) {
                     Ok(ok__) => {
                         maxexclusive.write(core::mem::transmute(ok__));
@@ -5015,9 +5864,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn maxInclusive<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxinclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn maxInclusive<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxinclusive: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::maxInclusive(this) {
                     Ok(ok__) => {
                         maxinclusive.write(core::mem::transmute(ok__));
@@ -5027,9 +5880,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn totalDigits<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, totaldigits: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn totalDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, totaldigits: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::totalDigits(this) {
                     Ok(ok__) => {
                         totaldigits.write(core::mem::transmute(ok__));
@@ -5039,9 +5896,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fractionDigits<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fractiondigits: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn fractionDigits<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fractiondigits: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::fractionDigits(this) {
                     Ok(ok__) => {
                         fractiondigits.write(core::mem::transmute(ok__));
@@ -5051,9 +5912,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn length<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -5063,9 +5928,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn minLength<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minlength: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn minLength<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, minlength: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::minLength(this) {
                     Ok(ok__) => {
                         minlength.write(core::mem::transmute(ok__));
@@ -5075,9 +5944,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn maxLength<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlength: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn maxLength<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlength: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::maxLength(this) {
                     Ok(ok__) => {
                         maxlength.write(core::mem::transmute(ok__));
@@ -5087,9 +5960,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn enumeration<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumeration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn enumeration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumeration: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::enumeration(this) {
                     Ok(ok__) => {
                         enumeration.write(core::mem::transmute(ok__));
@@ -5099,9 +5976,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn whitespace<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitespace: *mut SCHEMAWHITESPACE) -> windows_core::HRESULT {
+        unsafe extern "system" fn whitespace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, whitespace: *mut SCHEMAWHITESPACE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::whitespace(this) {
                     Ok(ok__) => {
                         whitespace.write(core::mem::transmute(ok__));
@@ -5111,9 +5992,13 @@ impl ISchemaType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn patterns<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, patterns: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn patterns<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, patterns: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ISchemaType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match ISchemaType_Impl::patterns(this) {
                     Ok(ok__) => {
                         patterns.write(core::mem::transmute(ok__));
@@ -5213,16 +6098,27 @@ pub trait IServerXMLHTTPRequest_Impl: IXMLHTTPRequest_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IServerXMLHTTPRequest_Vtbl {
-    pub const fn new<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn setTimeouts<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest_Impl,
+    {
+        unsafe extern "system" fn setTimeouts<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IServerXMLHTTPRequest_Impl::setTimeouts(this, core::mem::transmute_copy(&resolvetimeout), core::mem::transmute_copy(&connecttimeout), core::mem::transmute_copy(&sendtimeout), core::mem::transmute_copy(&receivetimeout)).into()
             }
         }
-        unsafe extern "system" fn waitForResponse<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinseconds: super::super::super::System::Variant::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn waitForResponse<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinseconds: super::super::super::System::Variant::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IServerXMLHTTPRequest_Impl::waitForResponse(this, core::mem::transmute(&timeoutinseconds)) {
                     Ok(ok__) => {
                         issuccessful.write(core::mem::transmute(ok__));
@@ -5232,9 +6128,13 @@ impl IServerXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getOption<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getOption<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IServerXMLHTTPRequest_Impl::getOption(this, core::mem::transmute_copy(&option)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -5244,9 +6144,13 @@ impl IServerXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setOption<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn setOption<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IServerXMLHTTPRequest_Impl::setOption(this, core::mem::transmute_copy(&option), core::mem::transmute(&value)).into()
             }
         }
@@ -5303,16 +6207,27 @@ pub trait IServerXMLHTTPRequest2_Impl: IServerXMLHTTPRequest_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IServerXMLHTTPRequest2_Vtbl {
-    pub const fn new<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn setProxy<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::super::super::System::Variant::VARIANT, varbypasslist: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest2_Impl,
+    {
+        unsafe extern "system" fn setProxy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::super::super::System::Variant::VARIANT, varbypasslist: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IServerXMLHTTPRequest2_Impl::setProxy(this, core::mem::transmute_copy(&proxysetting), core::mem::transmute(&varproxyserver), core::mem::transmute(&varbypasslist)).into()
             }
         }
-        unsafe extern "system" fn setProxyCredentials<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setProxyCredentials<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrusername: *mut core::ffi::c_void, bstrpassword: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IServerXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IServerXMLHTTPRequest2_Impl::setProxyCredentials(this, core::mem::transmute(&bstrusername), core::mem::transmute(&bstrpassword)).into()
             }
         }
@@ -5437,16 +6352,27 @@ pub trait IVBMXNamespaceManager_Impl: super::super::super::System::Com::IDispatc
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBMXNamespaceManager_Vtbl {
-    pub const fn new<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetallowOverride<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+    {
+        unsafe extern "system" fn SetallowOverride<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBMXNamespaceManager_Impl::SetallowOverride(this, core::mem::transmute_copy(&foverride)).into()
             }
         }
-        unsafe extern "system" fn allowOverride<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn allowOverride<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBMXNamespaceManager_Impl::allowOverride(this) {
                     Ok(ok__) => {
                         foverride.write(core::mem::transmute(ok__));
@@ -5456,39 +6382,63 @@ impl IVBMXNamespaceManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn reset<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBMXNamespaceManager_Impl::reset(this).into()
             }
         }
-        unsafe extern "system" fn pushContext<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn pushContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBMXNamespaceManager_Impl::pushContext(this).into()
             }
         }
-        unsafe extern "system" fn pushNodeContext<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextnode: *mut core::ffi::c_void, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn pushNodeContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, contextnode: *mut core::ffi::c_void, fdeep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBMXNamespaceManager_Impl::pushNodeContext(this, core::mem::transmute_copy(&contextnode), core::mem::transmute_copy(&fdeep)).into()
             }
         }
-        unsafe extern "system" fn popContext<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn popContext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBMXNamespaceManager_Impl::popContext(this).into()
             }
         }
-        unsafe extern "system" fn declarePrefix<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn declarePrefix<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBMXNamespaceManager_Impl::declarePrefix(this, core::mem::transmute(&prefix), core::mem::transmute(&namespaceuri)).into()
             }
         }
-        unsafe extern "system" fn getDeclaredPrefixes<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefixes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getDeclaredPrefixes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefixes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBMXNamespaceManager_Impl::getDeclaredPrefixes(this) {
                     Ok(ok__) => {
                         prefixes.write(core::mem::transmute(ok__));
@@ -5498,9 +6448,13 @@ impl IVBMXNamespaceManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getPrefixes<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, prefixes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getPrefixes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, prefixes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBMXNamespaceManager_Impl::getPrefixes(this, core::mem::transmute(&namespaceuri)) {
                     Ok(ok__) => {
                         prefixes.write(core::mem::transmute(ok__));
@@ -5510,9 +6464,13 @@ impl IVBMXNamespaceManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getURI<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void, uri: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void, uri: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBMXNamespaceManager_Impl::getURI(this, core::mem::transmute(&prefix)) {
                     Ok(ok__) => {
                         uri.write(core::mem::transmute(ok__));
@@ -5522,9 +6480,13 @@ impl IVBMXNamespaceManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getURIFromNode<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut core::ffi::c_void, contextnode: *mut core::ffi::c_void, uri: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURIFromNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut core::ffi::c_void, contextnode: *mut core::ffi::c_void, uri: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBMXNamespaceManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBMXNamespaceManager_Impl::getURIFromNode(this, core::mem::transmute(&strprefix), core::mem::transmute_copy(&contextnode)) {
                     Ok(ok__) => {
                         uri.write(core::mem::transmute(ok__));
@@ -5676,10 +6638,17 @@ pub trait IVBSAXAttributes_Impl: super::super::super::System::Com::IDispatch_Imp
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXAttributes_Vtbl {
-    pub const fn new<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn length<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nlength: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+    {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nlength: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::length(this) {
                     Ok(ok__) => {
                         nlength.write(core::mem::transmute(ok__));
@@ -5689,9 +6658,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getURI<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, struri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getURI(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
                         struri.write(core::mem::transmute(ok__));
@@ -5701,9 +6674,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getLocalName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strlocalname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getLocalName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strlocalname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getLocalName(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
                         strlocalname.write(core::mem::transmute(ok__));
@@ -5713,9 +6690,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getQName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strqname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strqname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getQName(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
                         strqname.write(core::mem::transmute(ok__));
@@ -5725,9 +6706,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getIndexFromName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, nindex: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getIndexFromName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, nindex: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getIndexFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
                     Ok(ok__) => {
                         nindex.write(core::mem::transmute(ok__));
@@ -5737,9 +6722,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getIndexFromQName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, nindex: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn getIndexFromQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, nindex: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getIndexFromQName(this, core::mem::transmute(&strqname)) {
                     Ok(ok__) => {
                         nindex.write(core::mem::transmute(ok__));
@@ -5749,9 +6738,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getType<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getType(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
                         strtype.write(core::mem::transmute(ok__));
@@ -5761,9 +6754,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getTypeFromName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getTypeFromName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getTypeFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
                     Ok(ok__) => {
                         strtype.write(core::mem::transmute(ok__));
@@ -5773,9 +6770,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getTypeFromQName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getTypeFromQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getTypeFromQName(this, core::mem::transmute(&strqname)) {
                     Ok(ok__) => {
                         strtype.write(core::mem::transmute(ok__));
@@ -5785,9 +6786,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getValue<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nindex: i32, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getValue(this, core::mem::transmute_copy(&nindex)) {
                     Ok(ok__) => {
                         strvalue.write(core::mem::transmute(ok__));
@@ -5797,9 +6802,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getValueFromName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValueFromName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: *mut core::ffi::c_void, strlocalname: *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getValueFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
                     Ok(ok__) => {
                         strvalue.write(core::mem::transmute(ok__));
@@ -5809,9 +6818,13 @@ impl IVBSAXAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getValueFromQName<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getValueFromQName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strqname: *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXAttributes_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXAttributes_Impl::getValueFromQName(this, core::mem::transmute(&strqname)) {
                     Ok(ok__) => {
                         strvalue.write(core::mem::transmute(ok__));
@@ -5929,70 +6942,117 @@ pub trait IVBSAXContentHandler_Impl: super::super::super::System::Com::IDispatch
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXContentHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn putref_documentLocator<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+    {
+        unsafe extern "system" fn putref_documentLocator<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::putref_documentLocator(this, core::mem::transmute_copy(&olocator)).into()
             }
         }
-        unsafe extern "system" fn startDocument<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::startDocument(this).into()
             }
         }
-        unsafe extern "system" fn endDocument<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::endDocument(this).into()
             }
         }
-        unsafe extern "system" fn startPrefixMapping<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut *mut core::ffi::c_void, struri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startPrefixMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut *mut core::ffi::c_void, struri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::startPrefixMapping(this, core::mem::transmute_copy(&strprefix), core::mem::transmute_copy(&struri)).into()
             }
         }
-        unsafe extern "system" fn endPrefixMapping<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endPrefixMapping<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::endPrefixMapping(this, core::mem::transmute_copy(&strprefix)).into()
             }
         }
-        unsafe extern "system" fn startElement<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespaceuri: *mut *mut core::ffi::c_void, strlocalname: *mut *mut core::ffi::c_void, strqname: *mut *mut core::ffi::c_void, oattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespaceuri: *mut *mut core::ffi::c_void, strlocalname: *mut *mut core::ffi::c_void, strqname: *mut *mut core::ffi::c_void, oattributes: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::startElement(this, core::mem::transmute_copy(&strnamespaceuri), core::mem::transmute_copy(&strlocalname), core::mem::transmute_copy(&strqname), core::mem::transmute_copy(&oattributes)).into()
             }
         }
-        unsafe extern "system" fn endElement<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespaceuri: *mut *mut core::ffi::c_void, strlocalname: *mut *mut core::ffi::c_void, strqname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strnamespaceuri: *mut *mut core::ffi::c_void, strlocalname: *mut *mut core::ffi::c_void, strqname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::endElement(this, core::mem::transmute_copy(&strnamespaceuri), core::mem::transmute_copy(&strlocalname), core::mem::transmute_copy(&strqname)).into()
             }
         }
-        unsafe extern "system" fn characters<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn characters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::characters(this, core::mem::transmute_copy(&strchars)).into()
             }
         }
-        unsafe extern "system" fn ignorableWhitespace<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ignorableWhitespace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::ignorableWhitespace(this, core::mem::transmute_copy(&strchars)).into()
             }
         }
-        unsafe extern "system" fn processingInstruction<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtarget: *mut *mut core::ffi::c_void, strdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn processingInstruction<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtarget: *mut *mut core::ffi::c_void, strdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::processingInstruction(this, core::mem::transmute_copy(&strtarget), core::mem::transmute_copy(&strdata)).into()
             }
         }
-        unsafe extern "system" fn skippedEntity<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn skippedEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXContentHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXContentHandler_Impl::skippedEntity(this, core::mem::transmute_copy(&strname)).into()
             }
         }
@@ -6052,16 +7112,27 @@ pub trait IVBSAXDTDHandler_Impl: super::super::super::System::Com::IDispatch_Imp
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXDTDHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXDTDHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn notationDecl<Identity: IVBSAXDTDHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDTDHandler_Impl,
+    {
+        unsafe extern "system" fn notationDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDTDHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXDTDHandler_Impl::notationDecl(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)).into()
             }
         }
-        unsafe extern "system" fn unparsedEntityDecl<Identity: IVBSAXDTDHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void, strnotationname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn unparsedEntityDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void, strnotationname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDTDHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXDTDHandler_Impl::unparsedEntityDecl(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid), core::mem::transmute_copy(&strnotationname)).into()
             }
         }
@@ -6122,28 +7193,47 @@ pub trait IVBSAXDeclHandler_Impl: super::super::super::System::Com::IDispatch_Im
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXDeclHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn elementDecl<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strmodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDeclHandler_Impl,
+    {
+        unsafe extern "system" fn elementDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strmodel: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXDeclHandler_Impl::elementDecl(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strmodel)).into()
             }
         }
-        unsafe extern "system" fn attributeDecl<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strelementname: *mut *mut core::ffi::c_void, strattributename: *mut *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void, strvaluedefault: *mut *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributeDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strelementname: *mut *mut core::ffi::c_void, strattributename: *mut *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void, strvaluedefault: *mut *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXDeclHandler_Impl::attributeDecl(this, core::mem::transmute_copy(&strelementname), core::mem::transmute_copy(&strattributename), core::mem::transmute_copy(&strtype), core::mem::transmute_copy(&strvaluedefault), core::mem::transmute_copy(&strvalue)).into()
             }
         }
-        unsafe extern "system" fn internalEntityDecl<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn internalEntityDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXDeclHandler_Impl::internalEntityDecl(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strvalue)).into()
             }
         }
-        unsafe extern "system" fn externalEntityDecl<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn externalEntityDecl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXDeclHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXDeclHandler_Impl::externalEntityDecl(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)).into()
             }
         }
@@ -6198,10 +7288,17 @@ pub trait IVBSAXEntityResolver_Impl: super::super::super::System::Com::IDispatch
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXEntityResolver_Vtbl {
-    pub const fn new<Identity: IVBSAXEntityResolver_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn resolveEntity<Identity: IVBSAXEntityResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void, varinput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXEntityResolver_Impl,
+    {
+        unsafe extern "system" fn resolveEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void, varinput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXEntityResolver_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)) {
                     Ok(ok__) => {
                         varinput.write(core::mem::transmute(ok__));
@@ -6268,22 +7365,37 @@ pub trait IVBSAXErrorHandler_Impl: super::super::super::System::Com::IDispatch_I
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXErrorHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXErrorHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn error<Identity: IVBSAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void, strerrormessage: *mut *mut core::ffi::c_void, nerrorcode: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXErrorHandler_Impl,
+    {
+        unsafe extern "system" fn error<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void, strerrormessage: *mut *mut core::ffi::c_void, nerrorcode: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXErrorHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXErrorHandler_Impl::error(this, core::mem::transmute_copy(&olocator), core::mem::transmute_copy(&strerrormessage), core::mem::transmute_copy(&nerrorcode)).into()
             }
         }
-        unsafe extern "system" fn fatalError<Identity: IVBSAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void, strerrormessage: *mut *mut core::ffi::c_void, nerrorcode: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn fatalError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void, strerrormessage: *mut *mut core::ffi::c_void, nerrorcode: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXErrorHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXErrorHandler_Impl::fatalError(this, core::mem::transmute_copy(&olocator), core::mem::transmute_copy(&strerrormessage), core::mem::transmute_copy(&nerrorcode)).into()
             }
         }
-        unsafe extern "system" fn ignorableWarning<Identity: IVBSAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void, strerrormessage: *mut *mut core::ffi::c_void, nerrorcode: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ignorableWarning<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void, strerrormessage: *mut *mut core::ffi::c_void, nerrorcode: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXErrorHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXErrorHandler_Impl::ignorableWarning(this, core::mem::transmute_copy(&olocator), core::mem::transmute_copy(&strerrormessage), core::mem::transmute_copy(&nerrorcode)).into()
             }
         }
@@ -6360,46 +7472,77 @@ pub trait IVBSAXLexicalHandler_Impl: super::super::super::System::Com::IDispatch
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXLexicalHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn startDTD<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+    {
+        unsafe extern "system" fn startDTD<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXLexicalHandler_Impl::startDTD(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)).into()
             }
         }
-        unsafe extern "system" fn endDTD<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endDTD<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXLexicalHandler_Impl::endDTD(this).into()
             }
         }
-        unsafe extern "system" fn startEntity<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXLexicalHandler_Impl::startEntity(this, core::mem::transmute_copy(&strname)).into()
             }
         }
-        unsafe extern "system" fn endEntity<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endEntity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXLexicalHandler_Impl::endEntity(this, core::mem::transmute_copy(&strname)).into()
             }
         }
-        unsafe extern "system" fn startCDATA<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startCDATA<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXLexicalHandler_Impl::startCDATA(this).into()
             }
         }
-        unsafe extern "system" fn endCDATA<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn endCDATA<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXLexicalHandler_Impl::endCDATA(this).into()
             }
         }
-        unsafe extern "system" fn comment<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn comment<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strchars: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLexicalHandler_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXLexicalHandler_Impl::comment(this, core::mem::transmute_copy(&strchars)).into()
             }
         }
@@ -6477,10 +7620,17 @@ pub trait IVBSAXLocator_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXLocator_Vtbl {
-    pub const fn new<Identity: IVBSAXLocator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn columnNumber<Identity: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncolumn: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLocator_Impl,
+    {
+        unsafe extern "system" fn columnNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncolumn: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXLocator_Impl::columnNumber(this) {
                     Ok(ok__) => {
                         ncolumn.write(core::mem::transmute(ok__));
@@ -6490,9 +7640,13 @@ impl IVBSAXLocator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn lineNumber<Identity: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nline: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn lineNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nline: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXLocator_Impl::lineNumber(this) {
                     Ok(ok__) => {
                         nline.write(core::mem::transmute(ok__));
@@ -6502,9 +7656,13 @@ impl IVBSAXLocator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn publicId<Identity: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn publicId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpublicid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXLocator_Impl::publicId(this) {
                     Ok(ok__) => {
                         strpublicid.write(core::mem::transmute(ok__));
@@ -6514,9 +7672,13 @@ impl IVBSAXLocator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn systemId<Identity: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn systemId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsystemid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXLocator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXLocator_Impl::systemId(this) {
                     Ok(ok__) => {
                         strsystemid.write(core::mem::transmute(ok__));
@@ -6581,10 +7743,17 @@ pub trait IVBSAXXMLFilter_Impl: super::super::super::System::Com::IDispatch_Impl
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXXMLFilter_Vtbl {
-    pub const fn new<Identity: IVBSAXXMLFilter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn parent<Identity: IVBSAXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLFilter_Impl,
+    {
+        unsafe extern "system" fn parent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, oreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLFilter_Impl::parent(this) {
                     Ok(ok__) => {
                         oreader.write(core::mem::transmute(ok__));
@@ -6594,9 +7763,13 @@ impl IVBSAXXMLFilter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_parent<Identity: IVBSAXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oreader: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_parent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, oreader: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLFilter_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLFilter_Impl::putref_parent(this, core::mem::transmute_copy(&oreader)).into()
             }
         }
@@ -6775,10 +7948,17 @@ pub trait IVBSAXXMLReader_Impl: super::super::super::System::Com::IDispatch_Impl
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXXMLReader_Vtbl {
-    pub const fn new<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn getFeature<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+    {
+        unsafe extern "system" fn getFeature<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::getFeature(this, core::mem::transmute(&strname)) {
                     Ok(ok__) => {
                         fvalue.write(core::mem::transmute(ok__));
@@ -6788,15 +7968,23 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putFeature<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn putFeature<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::putFeature(this, core::mem::transmute(&strname), core::mem::transmute_copy(&fvalue)).into()
             }
         }
-        unsafe extern "system" fn getProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::getProperty(this, core::mem::transmute(&strname)) {
                     Ok(ok__) => {
                         varvalue.write(core::mem::transmute(ok__));
@@ -6806,15 +7994,23 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn putProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::ffi::c_void, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::putProperty(this, core::mem::transmute(&strname), core::mem::transmute(&varvalue)).into()
             }
         }
-        unsafe extern "system" fn entityResolver<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn entityResolver<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::entityResolver(this) {
                     Ok(ok__) => {
                         oresolver.write(core::mem::transmute(ok__));
@@ -6824,15 +8020,23 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_entityResolver<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_entityResolver<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, oresolver: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::putref_entityResolver(this, core::mem::transmute_copy(&oresolver)).into()
             }
         }
-        unsafe extern "system" fn contentHandler<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn contentHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::contentHandler(this) {
                     Ok(ok__) => {
                         ohandler.write(core::mem::transmute(ok__));
@@ -6842,15 +8046,23 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_contentHandler<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_contentHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::putref_contentHandler(this, core::mem::transmute_copy(&ohandler)).into()
             }
         }
-        unsafe extern "system" fn dtdHandler<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn dtdHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::dtdHandler(this) {
                     Ok(ok__) => {
                         ohandler.write(core::mem::transmute(ok__));
@@ -6860,15 +8072,23 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_dtdHandler<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_dtdHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::putref_dtdHandler(this, core::mem::transmute_copy(&ohandler)).into()
             }
         }
-        unsafe extern "system" fn errorHandler<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn errorHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::errorHandler(this) {
                     Ok(ok__) => {
                         ohandler.write(core::mem::transmute(ok__));
@@ -6878,15 +8098,23 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_errorHandler<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_errorHandler<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ohandler: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::putref_errorHandler(this, core::mem::transmute_copy(&ohandler)).into()
             }
         }
-        unsafe extern "system" fn baseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbaseurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn baseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbaseurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::baseURL(this) {
                     Ok(ok__) => {
                         strbaseurl.write(core::mem::transmute(ok__));
@@ -6896,15 +8124,23 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetbaseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbaseurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetbaseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strbaseurl: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::SetbaseURL(this, core::mem::transmute(&strbaseurl)).into()
             }
         }
-        unsafe extern "system" fn secureBaseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsecurebaseurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn secureBaseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsecurebaseurl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IVBSAXXMLReader_Impl::secureBaseURL(this) {
                     Ok(ok__) => {
                         strsecurebaseurl.write(core::mem::transmute(ok__));
@@ -6914,21 +8150,33 @@ impl IVBSAXXMLReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetsecureBaseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsecurebaseurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetsecureBaseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strsecurebaseurl: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::SetsecureBaseURL(this, core::mem::transmute(&strsecurebaseurl)).into()
             }
         }
-        unsafe extern "system" fn parse<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn parse<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::parse(this, core::mem::transmute(&varinput)).into()
             }
         }
-        unsafe extern "system" fn parseURL<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strurl: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn parseURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strurl: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IVBSAXXMLReader_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IVBSAXXMLReader_Impl::parseURL(this, core::mem::transmute(&strurl)).into()
             }
         }
@@ -7001,10 +8249,17 @@ pub trait IXMLAttribute_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLAttribute_Vtbl {
-    pub const fn new<Identity: IXMLAttribute_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn name<Identity: IXMLAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, n: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLAttribute_Impl,
+    {
+        unsafe extern "system" fn name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, n: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLAttribute_Impl::name(this) {
                     Ok(ok__) => {
                         n.write(core::mem::transmute(ok__));
@@ -7014,9 +8269,13 @@ impl IXMLAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn value<Identity: IXMLAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn value<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLAttribute_Impl::value(this) {
                     Ok(ok__) => {
                         v.write(core::mem::transmute(ok__));
@@ -7092,10 +8351,17 @@ pub trait IXMLDOMAttribute_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMAttribute_Vtbl {
-    pub const fn new<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn name<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMAttribute_Impl,
+    {
+        unsafe extern "system" fn name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMAttribute_Impl::name(this) {
                     Ok(ok__) => {
                         attributename.write(core::mem::transmute(ok__));
@@ -7105,9 +8371,13 @@ impl IXMLDOMAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn value<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn value<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMAttribute_Impl::value(this) {
                     Ok(ok__) => {
                         attributevalue.write(core::mem::transmute(ok__));
@@ -7117,9 +8387,13 @@ impl IXMLDOMAttribute_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setvalue<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setvalue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMAttribute_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMAttribute_Impl::Setvalue(this, core::mem::transmute(&attributevalue)).into()
             }
         }
@@ -7157,7 +8431,10 @@ pub struct IXMLDOMCDATASection_Vtbl {
 pub trait IXMLDOMCDATASection_Impl: IXMLDOMText_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMCDATASection_Vtbl {
-    pub const fn new<Identity: IXMLDOMCDATASection_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCDATASection_Impl,
+    {
         Self { base__: IXMLDOMText_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -7240,10 +8517,17 @@ pub trait IXMLDOMCharacterData_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMCharacterData_Vtbl {
-    pub const fn new<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn data<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+    {
+        unsafe extern "system" fn data<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMCharacterData_Impl::data(this) {
                     Ok(ok__) => {
                         data.write(core::mem::transmute(ok__));
@@ -7253,15 +8537,23 @@ impl IXMLDOMCharacterData_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setdata<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setdata<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMCharacterData_Impl::Setdata(this, core::mem::transmute(&data)).into()
             }
         }
-        unsafe extern "system" fn length<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datalength: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, datalength: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMCharacterData_Impl::length(this) {
                     Ok(ok__) => {
                         datalength.write(core::mem::transmute(ok__));
@@ -7271,9 +8563,13 @@ impl IXMLDOMCharacterData_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn substringData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32, data: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn substringData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32, data: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMCharacterData_Impl::substringData(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
                         data.write(core::mem::transmute(ok__));
@@ -7283,27 +8579,43 @@ impl IXMLDOMCharacterData_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn appendData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn appendData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMCharacterData_Impl::appendData(this, core::mem::transmute(&data)).into()
             }
         }
-        unsafe extern "system" fn insertData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn insertData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, data: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMCharacterData_Impl::insertData(this, core::mem::transmute_copy(&offset), core::mem::transmute(&data)).into()
             }
         }
-        unsafe extern "system" fn deleteData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn deleteData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMCharacterData_Impl::deleteData(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count)).into()
             }
         }
-        unsafe extern "system" fn replaceData<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32, data: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn replaceData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, count: i32, data: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMCharacterData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMCharacterData_Impl::replaceData(this, core::mem::transmute_copy(&offset), core::mem::transmute_copy(&count), core::mem::transmute(&data)).into()
             }
         }
@@ -7346,7 +8658,10 @@ pub struct IXMLDOMComment_Vtbl {
 pub trait IXMLDOMComment_Impl: IXMLDOMCharacterData_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMComment_Vtbl {
-    pub const fn new<Identity: IXMLDOMComment_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMComment_Impl,
+    {
         Self { base__: IXMLDOMCharacterData_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -7641,10 +8956,17 @@ pub trait IXMLDOMDocument_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocument_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn doctype<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+    {
+        unsafe extern "system" fn doctype<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::doctype(this) {
                     Ok(ok__) => {
                         documenttype.write(core::mem::transmute(ok__));
@@ -7654,9 +8976,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn implementation<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#impl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn implementation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#impl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::implementation(this) {
                     Ok(ok__) => {
                         r#impl.write(core::mem::transmute(ok__));
@@ -7666,9 +8992,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn documentElement<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn documentElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, domelement: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::documentElement(this) {
                     Ok(ok__) => {
                         domelement.write(core::mem::transmute(ok__));
@@ -7678,15 +9008,23 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_documentElement<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domelement: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_documentElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, domelement: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::putref_documentElement(this, core::mem::transmute_copy(&domelement)).into()
             }
         }
-        unsafe extern "system" fn createElement<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, element: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createElement(this, core::mem::transmute(&tagname)) {
                     Ok(ok__) => {
                         element.write(core::mem::transmute(ok__));
@@ -7696,9 +9034,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createDocumentFragment<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, docfrag: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createDocumentFragment<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, docfrag: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createDocumentFragment(this) {
                     Ok(ok__) => {
                         docfrag.write(core::mem::transmute(ok__));
@@ -7708,9 +9050,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createTextNode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, text: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createTextNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, text: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createTextNode(this, core::mem::transmute(&data)) {
                     Ok(ok__) => {
                         text.write(core::mem::transmute(ok__));
@@ -7720,9 +9066,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createComment<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, comment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createComment<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, comment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createComment(this, core::mem::transmute(&data)) {
                     Ok(ok__) => {
                         comment.write(core::mem::transmute(ok__));
@@ -7732,9 +9082,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createCDATASection<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, cdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createCDATASection<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::ffi::c_void, cdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createCDATASection(this, core::mem::transmute(&data)) {
                     Ok(ok__) => {
                         cdata.write(core::mem::transmute(ok__));
@@ -7744,9 +9098,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createProcessingInstruction<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, target: *mut core::ffi::c_void, data: *mut core::ffi::c_void, pi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createProcessingInstruction<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, target: *mut core::ffi::c_void, data: *mut core::ffi::c_void, pi: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createProcessingInstruction(this, core::mem::transmute(&target), core::mem::transmute(&data)) {
                     Ok(ok__) => {
                         pi.write(core::mem::transmute(ok__));
@@ -7756,9 +9114,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createAttribute<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, attribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, attribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createAttribute(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         attribute.write(core::mem::transmute(ok__));
@@ -7768,9 +9130,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createEntityReference<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, entityref: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createEntityReference<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, entityref: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createEntityReference(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         entityref.write(core::mem::transmute(ok__));
@@ -7780,9 +9146,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getElementsByTagName<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getElementsByTagName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::getElementsByTagName(this, core::mem::transmute(&tagname)) {
                     Ok(ok__) => {
                         resultlist.write(core::mem::transmute(ok__));
@@ -7792,9 +9162,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createNode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::super::super::System::Variant::VARIANT, name: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::super::super::System::Variant::VARIANT, name: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::createNode(this, core::mem::transmute(&r#type), core::mem::transmute(&name), core::mem::transmute(&namespaceuri)) {
                     Ok(ok__) => {
                         node.write(core::mem::transmute(ok__));
@@ -7804,9 +9178,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn nodeFromID<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idstring: *mut core::ffi::c_void, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn nodeFromID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, idstring: *mut core::ffi::c_void, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::nodeFromID(this, core::mem::transmute(&idstring)) {
                     Ok(ok__) => {
                         node.write(core::mem::transmute(ok__));
@@ -7816,9 +9194,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn load<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlsource: super::super::super::System::Variant::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn load<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlsource: super::super::super::System::Variant::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::load(this, core::mem::transmute(&xmlsource)) {
                     Ok(ok__) => {
                         issuccessful.write(core::mem::transmute(ok__));
@@ -7828,9 +9210,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn readyState<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn readyState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::readyState(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -7840,9 +9226,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn parseError<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn parseError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::parseError(this) {
                     Ok(ok__) => {
                         errorobj.write(core::mem::transmute(ok__));
@@ -7852,9 +9242,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn url<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, urlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn url<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, urlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::url(this) {
                     Ok(ok__) => {
                         urlstring.write(core::mem::transmute(ok__));
@@ -7864,9 +9258,13 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn r#async<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isasync: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn r#async<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isasync: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::r#async(this) {
                     Ok(ok__) => {
                         isasync.write(core::mem::transmute(ok__));
@@ -7876,21 +9274,33 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setasync<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isasync: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setasync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isasync: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::Setasync(this, core::mem::transmute_copy(&isasync)).into()
             }
         }
-        unsafe extern "system" fn abort<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn abort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::abort(this).into()
             }
         }
-        unsafe extern "system" fn loadXML<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn loadXML<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrxml: *mut core::ffi::c_void, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::loadXML(this, core::mem::transmute(&bstrxml)) {
                     Ok(ok__) => {
                         issuccessful.write(core::mem::transmute(ok__));
@@ -7900,15 +9310,23 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn save<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn save<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::save(this, core::mem::transmute(&destination)).into()
             }
         }
-        unsafe extern "system" fn validateOnParse<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalidating: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn validateOnParse<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalidating: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::validateOnParse(this) {
                     Ok(ok__) => {
                         isvalidating.write(core::mem::transmute(ok__));
@@ -7918,15 +9336,23 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetvalidateOnParse<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalidating: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetvalidateOnParse<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isvalidating: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::SetvalidateOnParse(this, core::mem::transmute_copy(&isvalidating)).into()
             }
         }
-        unsafe extern "system" fn resolveExternals<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isresolving: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn resolveExternals<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isresolving: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::resolveExternals(this) {
                     Ok(ok__) => {
                         isresolving.write(core::mem::transmute(ok__));
@@ -7936,15 +9362,23 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetresolveExternals<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isresolving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetresolveExternals<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isresolving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::SetresolveExternals(this, core::mem::transmute_copy(&isresolving)).into()
             }
         }
-        unsafe extern "system" fn preserveWhiteSpace<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispreserving: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn preserveWhiteSpace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispreserving: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument_Impl::preserveWhiteSpace(this) {
                     Ok(ok__) => {
                         ispreserving.write(core::mem::transmute(ok__));
@@ -7954,27 +9388,43 @@ impl IXMLDOMDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetpreserveWhiteSpace<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispreserving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetpreserveWhiteSpace<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ispreserving: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::SetpreserveWhiteSpace(this, core::mem::transmute_copy(&ispreserving)).into()
             }
         }
-        unsafe extern "system" fn Setonreadystatechange<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readystatechangesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setonreadystatechange<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, readystatechangesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::Setonreadystatechange(this, core::mem::transmute(&readystatechangesink)).into()
             }
         }
-        unsafe extern "system" fn Setondataavailable<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ondataavailablesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setondataavailable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ondataavailablesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::Setondataavailable(this, core::mem::transmute(&ondataavailablesink)).into()
             }
         }
-        unsafe extern "system" fn Setontransformnode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ontransformnodesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setontransformnode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ontransformnodesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument_Impl::Setontransformnode(this, core::mem::transmute(&ontransformnodesink)).into()
             }
         }
@@ -8104,10 +9554,17 @@ pub trait IXMLDOMDocument2_Impl: IXMLDOMDocument_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocument2_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn namespaces<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument2_Impl,
+    {
+        unsafe extern "system" fn namespaces<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument2_Impl::namespaces(this) {
                     Ok(ok__) => {
                         namespacecollection.write(core::mem::transmute(ok__));
@@ -8117,9 +9574,13 @@ impl IXMLDOMDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn schemas<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn schemas<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument2_Impl::schemas(this) {
                     Ok(ok__) => {
                         othercollection.write(core::mem::transmute(ok__));
@@ -8129,15 +9590,23 @@ impl IXMLDOMDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_schemas<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_schemas<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument2_Impl::putref_schemas(this, core::mem::transmute(&othercollection)).into()
             }
         }
-        unsafe extern "system" fn validate<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn validate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument2_Impl::validate(this) {
                     Ok(ok__) => {
                         errorobj.write(core::mem::transmute(ok__));
@@ -8147,15 +9616,23 @@ impl IXMLDOMDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn setProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMDocument2_Impl::setProperty(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn getProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument2_Impl::getProperty(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -8228,10 +9705,17 @@ pub trait IXMLDOMDocument3_Impl: IXMLDOMDocument2_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocument3_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocument3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn validateNode<Identity: IXMLDOMDocument3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument3_Impl,
+    {
+        unsafe extern "system" fn validateNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument3_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument3_Impl::validateNode(this, core::mem::transmute_copy(&node)) {
                     Ok(ok__) => {
                         errorobj.write(core::mem::transmute(ok__));
@@ -8241,9 +9725,13 @@ impl IXMLDOMDocument3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn importNode<Identity: IXMLDOMDocument3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, deep: super::super::super::Foundation::VARIANT_BOOL, clone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn importNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, deep: super::super::super::Foundation::VARIANT_BOOL, clone: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocument3_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocument3_Impl::importNode(this, core::mem::transmute_copy(&node), core::mem::transmute_copy(&deep)) {
                     Ok(ok__) => {
                         clone.write(core::mem::transmute(ok__));
@@ -8286,7 +9774,10 @@ pub struct IXMLDOMDocumentFragment_Vtbl {
 pub trait IXMLDOMDocumentFragment_Impl: IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocumentFragment_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocumentFragment_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocumentFragment_Impl,
+    {
         Self { base__: IXMLDOMNode_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -8344,10 +9835,17 @@ pub trait IXMLDOMDocumentType_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocumentType_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocumentType_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn name<Identity: IXMLDOMDocumentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rootname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocumentType_Impl,
+    {
+        unsafe extern "system" fn name<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, rootname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocumentType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocumentType_Impl::name(this) {
                     Ok(ok__) => {
                         rootname.write(core::mem::transmute(ok__));
@@ -8357,9 +9855,13 @@ impl IXMLDOMDocumentType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn entities<Identity: IXMLDOMDocumentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entitymap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn entities<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, entitymap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocumentType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocumentType_Impl::entities(this) {
                     Ok(ok__) => {
                         entitymap.write(core::mem::transmute(ok__));
@@ -8369,9 +9871,13 @@ impl IXMLDOMDocumentType_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn notations<Identity: IXMLDOMDocumentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, notationmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn notations<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, notationmap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMDocumentType_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMDocumentType_Impl::notations(this) {
                     Ok(ok__) => {
                         notationmap.write(core::mem::transmute(ok__));
@@ -8496,10 +10002,17 @@ pub trait IXMLDOMElement_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMElement_Vtbl {
-    pub const fn new<Identity: IXMLDOMElement_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn tagName<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+    {
+        unsafe extern "system" fn tagName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMElement_Impl::tagName(this) {
                     Ok(ok__) => {
                         tagname.write(core::mem::transmute(ok__));
@@ -8509,9 +10022,13 @@ impl IXMLDOMElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMElement_Impl::getAttribute(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -8521,21 +10038,33 @@ impl IXMLDOMElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMElement_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn removeAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMElement_Impl::removeAttribute(this, core::mem::transmute(&name)).into()
             }
         }
-        unsafe extern "system" fn getAttributeNode<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, attributenode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttributeNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, attributenode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMElement_Impl::getAttributeNode(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         attributenode.write(core::mem::transmute(ok__));
@@ -8545,9 +10074,13 @@ impl IXMLDOMElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setAttributeNode<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domattribute: *mut core::ffi::c_void, attributenode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttributeNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, domattribute: *mut core::ffi::c_void, attributenode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMElement_Impl::setAttributeNode(this, core::mem::transmute_copy(&domattribute)) {
                     Ok(ok__) => {
                         attributenode.write(core::mem::transmute(ok__));
@@ -8557,9 +10090,13 @@ impl IXMLDOMElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeAttributeNode<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domattribute: *mut core::ffi::c_void, attributenode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeAttributeNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, domattribute: *mut core::ffi::c_void, attributenode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMElement_Impl::removeAttributeNode(this, core::mem::transmute_copy(&domattribute)) {
                     Ok(ok__) => {
                         attributenode.write(core::mem::transmute(ok__));
@@ -8569,9 +10106,13 @@ impl IXMLDOMElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getElementsByTagName<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getElementsByTagName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMElement_Impl::getElementsByTagName(this, core::mem::transmute(&tagname)) {
                     Ok(ok__) => {
                         resultlist.write(core::mem::transmute(ok__));
@@ -8581,9 +10122,13 @@ impl IXMLDOMElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn normalize<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn normalize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMElement_Impl::normalize(this).into()
             }
         }
@@ -8663,10 +10208,17 @@ pub trait IXMLDOMEntity_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMEntity_Vtbl {
-    pub const fn new<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn publicId<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMEntity_Impl,
+    {
+        unsafe extern "system" fn publicId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMEntity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMEntity_Impl::publicId(this) {
                     Ok(ok__) => {
                         publicid.write(core::mem::transmute(ok__));
@@ -8676,9 +10228,13 @@ impl IXMLDOMEntity_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn systemId<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn systemId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMEntity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMEntity_Impl::systemId(this) {
                     Ok(ok__) => {
                         systemid.write(core::mem::transmute(ok__));
@@ -8688,9 +10244,13 @@ impl IXMLDOMEntity_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn notationName<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn notationName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMEntity_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMEntity_Impl::notationName(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -8734,7 +10294,10 @@ pub struct IXMLDOMEntityReference_Vtbl {
 pub trait IXMLDOMEntityReference_Impl: IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMEntityReference_Vtbl {
-    pub const fn new<Identity: IXMLDOMEntityReference_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMEntityReference_Impl,
+    {
         Self { base__: IXMLDOMNode_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -8776,10 +10339,17 @@ pub trait IXMLDOMImplementation_Impl: super::super::super::System::Com::IDispatc
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMImplementation_Vtbl {
-    pub const fn new<Identity: IXMLDOMImplementation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn hasFeature<Identity: IXMLDOMImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: *mut core::ffi::c_void, version: *mut core::ffi::c_void, hasfeature: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMImplementation_Impl,
+    {
+        unsafe extern "system" fn hasFeature<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: *mut core::ffi::c_void, version: *mut core::ffi::c_void, hasfeature: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMImplementation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMImplementation_Impl::hasFeature(this, core::mem::transmute(&feature), core::mem::transmute(&version)) {
                     Ok(ok__) => {
                         hasfeature.write(core::mem::transmute(ok__));
@@ -8902,10 +10472,17 @@ pub trait IXMLDOMNamedNodeMap_Impl: super::super::super::System::Com::IDispatch_
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNamedNodeMap_Vtbl {
-    pub const fn new<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn getNamedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, nameditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+    {
+        unsafe extern "system" fn getNamedItem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, nameditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::getNamedItem(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         nameditem.write(core::mem::transmute(ok__));
@@ -8915,9 +10492,13 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setNamedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newitem: *mut core::ffi::c_void, nameitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setNamedItem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newitem: *mut core::ffi::c_void, nameitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::setNamedItem(this, core::mem::transmute_copy(&newitem)) {
                     Ok(ok__) => {
                         nameitem.write(core::mem::transmute(ok__));
@@ -8927,9 +10508,13 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeNamedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, nameditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeNamedItem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, nameditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::removeNamedItem(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         nameditem.write(core::mem::transmute(ok__));
@@ -8939,9 +10524,13 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_item<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, listitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, listitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         listitem.write(core::mem::transmute(ok__));
@@ -8951,9 +10540,13 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn length<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listlength: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, listlength: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::length(this) {
                     Ok(ok__) => {
                         listlength.write(core::mem::transmute(ok__));
@@ -8963,9 +10556,13 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getQualifiedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, qualifieditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getQualifiedItem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, qualifieditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::getQualifiedItem(this, core::mem::transmute(&basename), core::mem::transmute(&namespaceuri)) {
                     Ok(ok__) => {
                         qualifieditem.write(core::mem::transmute(ok__));
@@ -8975,9 +10572,13 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeQualifiedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, qualifieditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeQualifiedItem<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, qualifieditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::removeQualifiedItem(this, core::mem::transmute(&basename), core::mem::transmute(&namespaceuri)) {
                     Ok(ok__) => {
                         qualifieditem.write(core::mem::transmute(ok__));
@@ -8987,9 +10588,13 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn nextNode<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nextitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn nextNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nextitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::nextNode(this) {
                     Ok(ok__) => {
                         nextitem.write(core::mem::transmute(ok__));
@@ -8999,15 +10604,23 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn reset<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMNamedNodeMap_Impl::reset(this).into()
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNamedNodeMap_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNamedNodeMap_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -9382,10 +10995,17 @@ pub trait IXMLDOMNode_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNode_Vtbl {
-    pub const fn new<Identity: IXMLDOMNode_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn nodeName<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+    {
+        unsafe extern "system" fn nodeName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::nodeName(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -9395,9 +11015,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn nodeValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn nodeValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::nodeValue(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -9407,15 +11031,23 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetnodeValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetnodeValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMNode_Impl::SetnodeValue(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn nodeType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut DOMNodeType) -> windows_core::HRESULT {
+        unsafe extern "system" fn nodeType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut DOMNodeType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::nodeType(this) {
                     Ok(ok__) => {
                         r#type.write(core::mem::transmute(ok__));
@@ -9425,9 +11057,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn parentNode<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn parentNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, parent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::parentNode(this) {
                     Ok(ok__) => {
                         parent.write(core::mem::transmute(ok__));
@@ -9437,9 +11073,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn childNodes<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn childNodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, childlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::childNodes(this) {
                     Ok(ok__) => {
                         childlist.write(core::mem::transmute(ok__));
@@ -9449,9 +11089,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn firstChild<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, firstchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn firstChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, firstchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::firstChild(this) {
                     Ok(ok__) => {
                         firstchild.write(core::mem::transmute(ok__));
@@ -9461,9 +11105,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn lastChild<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn lastChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lastchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::lastChild(this) {
                     Ok(ok__) => {
                         lastchild.write(core::mem::transmute(ok__));
@@ -9473,9 +11121,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn previousSibling<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, previoussibling: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn previousSibling<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, previoussibling: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::previousSibling(this) {
                     Ok(ok__) => {
                         previoussibling.write(core::mem::transmute(ok__));
@@ -9485,9 +11137,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn nextSibling<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nextsibling: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn nextSibling<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nextsibling: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::nextSibling(this) {
                     Ok(ok__) => {
                         nextsibling.write(core::mem::transmute(ok__));
@@ -9497,9 +11153,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn attributes<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributemap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributemap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::attributes(this) {
                     Ok(ok__) => {
                         attributemap.write(core::mem::transmute(ok__));
@@ -9509,9 +11169,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn insertBefore<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, refchild: super::super::super::System::Variant::VARIANT, outnewchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn insertBefore<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, refchild: super::super::super::System::Variant::VARIANT, outnewchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::insertBefore(this, core::mem::transmute_copy(&newchild), core::mem::transmute(&refchild)) {
                     Ok(ok__) => {
                         outnewchild.write(core::mem::transmute(ok__));
@@ -9521,9 +11185,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn replaceChild<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, oldchild: *mut core::ffi::c_void, outoldchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn replaceChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, oldchild: *mut core::ffi::c_void, outoldchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::replaceChild(this, core::mem::transmute_copy(&newchild), core::mem::transmute_copy(&oldchild)) {
                     Ok(ok__) => {
                         outoldchild.write(core::mem::transmute(ok__));
@@ -9533,9 +11201,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeChild<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, childnode: *mut core::ffi::c_void, oldchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, childnode: *mut core::ffi::c_void, oldchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::removeChild(this, core::mem::transmute_copy(&childnode)) {
                     Ok(ok__) => {
                         oldchild.write(core::mem::transmute(ok__));
@@ -9545,9 +11217,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn appendChild<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, outnewchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn appendChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, outnewchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::appendChild(this, core::mem::transmute_copy(&newchild)) {
                     Ok(ok__) => {
                         outnewchild.write(core::mem::transmute(ok__));
@@ -9557,9 +11233,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn hasChildNodes<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, haschild: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn hasChildNodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, haschild: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::hasChildNodes(this) {
                     Ok(ok__) => {
                         haschild.write(core::mem::transmute(ok__));
@@ -9569,9 +11249,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ownerDocument<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmldomdocument: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ownerDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmldomdocument: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::ownerDocument(this) {
                     Ok(ok__) => {
                         xmldomdocument.write(core::mem::transmute(ok__));
@@ -9581,9 +11265,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn cloneNode<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deep: super::super::super::Foundation::VARIANT_BOOL, cloneroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn cloneNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, deep: super::super::super::Foundation::VARIANT_BOOL, cloneroot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::cloneNode(this, core::mem::transmute_copy(&deep)) {
                     Ok(ok__) => {
                         cloneroot.write(core::mem::transmute(ok__));
@@ -9593,9 +11281,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn nodeTypeString<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodetype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn nodeTypeString<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodetype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::nodeTypeString(this) {
                     Ok(ok__) => {
                         nodetype.write(core::mem::transmute(ok__));
@@ -9605,9 +11297,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn text<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn text<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::text(this) {
                     Ok(ok__) => {
                         text.write(core::mem::transmute(ok__));
@@ -9617,15 +11313,23 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Settext<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Settext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, text: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMNode_Impl::Settext(this, core::mem::transmute(&text)).into()
             }
         }
-        unsafe extern "system" fn specified<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isspecified: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn specified<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isspecified: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::specified(this) {
                     Ok(ok__) => {
                         isspecified.write(core::mem::transmute(ok__));
@@ -9635,9 +11339,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn definition<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, definitionnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn definition<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, definitionnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::definition(this) {
                     Ok(ok__) => {
                         definitionnode.write(core::mem::transmute(ok__));
@@ -9647,9 +11355,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn nodeTypedValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn nodeTypedValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::nodeTypedValue(this) {
                     Ok(ok__) => {
                         typedvalue.write(core::mem::transmute(ok__));
@@ -9659,15 +11371,23 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetnodeTypedValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetnodeTypedValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMNode_Impl::SetnodeTypedValue(this, core::mem::transmute(&typedvalue)).into()
             }
         }
-        unsafe extern "system" fn dataType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn dataType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::dataType(this) {
                     Ok(ok__) => {
                         datatypename.write(core::mem::transmute(ok__));
@@ -9677,15 +11397,23 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetdataType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetdataType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMNode_Impl::SetdataType(this, core::mem::transmute(&datatypename)).into()
             }
         }
-        unsafe extern "system" fn xml<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn xml<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::xml(this) {
                     Ok(ok__) => {
                         xmlstring.write(core::mem::transmute(ok__));
@@ -9695,9 +11423,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn transformNode<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void, xmlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn transformNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void, xmlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::transformNode(this, core::mem::transmute_copy(&stylesheet)) {
                     Ok(ok__) => {
                         xmlstring.write(core::mem::transmute(ok__));
@@ -9707,9 +11439,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn selectNodes<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, querystring: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn selectNodes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, querystring: *mut core::ffi::c_void, resultlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::selectNodes(this, core::mem::transmute(&querystring)) {
                     Ok(ok__) => {
                         resultlist.write(core::mem::transmute(ok__));
@@ -9719,9 +11455,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn selectSingleNode<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, querystring: *mut core::ffi::c_void, resultnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn selectSingleNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, querystring: *mut core::ffi::c_void, resultnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::selectSingleNode(this, core::mem::transmute(&querystring)) {
                     Ok(ok__) => {
                         resultnode.write(core::mem::transmute(ok__));
@@ -9731,9 +11471,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn parsed<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, isparsed: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn parsed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, isparsed: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::parsed(this) {
                     Ok(ok__) => {
                         isparsed.write(core::mem::transmute(ok__));
@@ -9743,9 +11487,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn namespaceURI<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn namespaceURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::namespaceURI(this) {
                     Ok(ok__) => {
                         namespaceuri.write(core::mem::transmute(ok__));
@@ -9755,9 +11503,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn prefix<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefixstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn prefix<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefixstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::prefix(this) {
                     Ok(ok__) => {
                         prefixstring.write(core::mem::transmute(ok__));
@@ -9767,9 +11519,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn baseName<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namestring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn baseName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namestring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNode_Impl::baseName(this) {
                     Ok(ok__) => {
                         namestring.write(core::mem::transmute(ok__));
@@ -9779,9 +11535,13 @@ impl IXMLDOMNode_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn transformNodeToObject<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void, outputobject: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn transformNodeToObject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void, outputobject: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNode_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMNode_Impl::transformNodeToObject(this, core::mem::transmute_copy(&stylesheet), core::mem::transmute(&outputobject)).into()
             }
         }
@@ -9893,10 +11653,17 @@ pub trait IXMLDOMNodeList_Impl: super::super::super::System::Com::IDispatch_Impl
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNodeList_Vtbl {
-    pub const fn new<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn get_item<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, listitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNodeList_Impl,
+    {
+        unsafe extern "system" fn get_item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, listitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNodeList_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNodeList_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         listitem.write(core::mem::transmute(ok__));
@@ -9906,9 +11673,13 @@ impl IXMLDOMNodeList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn length<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, listlength: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, listlength: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNodeList_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNodeList_Impl::length(this) {
                     Ok(ok__) => {
                         listlength.write(core::mem::transmute(ok__));
@@ -9918,9 +11689,13 @@ impl IXMLDOMNodeList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn nextNode<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nextitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn nextNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, nextitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNodeList_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNodeList_Impl::nextNode(this) {
                     Ok(ok__) => {
                         nextitem.write(core::mem::transmute(ok__));
@@ -9930,15 +11705,23 @@ impl IXMLDOMNodeList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn reset<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNodeList_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMNodeList_Impl::reset(this).into()
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNodeList_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNodeList_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -10012,10 +11795,17 @@ pub trait IXMLDOMNotation_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNotation_Vtbl {
-    pub const fn new<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn publicId<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNotation_Impl,
+    {
+        unsafe extern "system" fn publicId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNotation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNotation_Impl::publicId(this) {
                     Ok(ok__) => {
                         publicid.write(core::mem::transmute(ok__));
@@ -10025,9 +11815,13 @@ impl IXMLDOMNotation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn systemId<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn systemId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMNotation_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMNotation_Impl::systemId(this) {
                     Ok(ok__) => {
                         systemid.write(core::mem::transmute(ok__));
@@ -10126,10 +11920,17 @@ pub trait IXMLDOMParseError_Impl: super::super::super::System::Com::IDispatch_Im
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMParseError_Vtbl {
-    pub const fn new<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn errorCode<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorcode: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+    {
+        unsafe extern "system" fn errorCode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorcode: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError_Impl::errorCode(this) {
                     Ok(ok__) => {
                         errorcode.write(core::mem::transmute(ok__));
@@ -10139,9 +11940,13 @@ impl IXMLDOMParseError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn url<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, urlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn url<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, urlstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError_Impl::url(this) {
                     Ok(ok__) => {
                         urlstring.write(core::mem::transmute(ok__));
@@ -10151,9 +11956,13 @@ impl IXMLDOMParseError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn reason<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reasonstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn reason<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, reasonstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError_Impl::reason(this) {
                     Ok(ok__) => {
                         reasonstring.write(core::mem::transmute(ok__));
@@ -10163,9 +11972,13 @@ impl IXMLDOMParseError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn srcText<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn srcText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcestring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError_Impl::srcText(this) {
                     Ok(ok__) => {
                         sourcestring.write(core::mem::transmute(ok__));
@@ -10175,9 +11988,13 @@ impl IXMLDOMParseError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn line<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn line<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError_Impl::line(this) {
                     Ok(ok__) => {
                         linenumber.write(core::mem::transmute(ok__));
@@ -10187,9 +12004,13 @@ impl IXMLDOMParseError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn linepos<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineposition: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn linepos<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lineposition: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError_Impl::linepos(this) {
                     Ok(ok__) => {
                         lineposition.write(core::mem::transmute(ok__));
@@ -10199,9 +12020,13 @@ impl IXMLDOMParseError_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn filepos<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileposition: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn filepos<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileposition: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError_Impl::filepos(this) {
                     Ok(ok__) => {
                         fileposition.write(core::mem::transmute(ok__));
@@ -10285,10 +12110,17 @@ pub trait IXMLDOMParseError2_Impl: IXMLDOMParseError_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMParseError2_Vtbl {
-    pub const fn new<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn errorXPath<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpathexpr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError2_Impl,
+    {
+        unsafe extern "system" fn errorXPath<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpathexpr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError2_Impl::errorXPath(this) {
                     Ok(ok__) => {
                         xpathexpr.write(core::mem::transmute(ok__));
@@ -10298,9 +12130,13 @@ impl IXMLDOMParseError2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn allErrors<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allerrors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn allErrors<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, allerrors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError2_Impl::allErrors(this) {
                     Ok(ok__) => {
                         allerrors.write(core::mem::transmute(ok__));
@@ -10310,9 +12146,13 @@ impl IXMLDOMParseError2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn errorParameters<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn errorParameters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, param1: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError2_Impl::errorParameters(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         param1.write(core::mem::transmute(ok__));
@@ -10322,9 +12162,13 @@ impl IXMLDOMParseError2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn errorParametersCount<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn errorParametersCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseError2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseError2_Impl::errorParametersCount(this) {
                     Ok(ok__) => {
                         count.write(core::mem::transmute(ok__));
@@ -10410,10 +12254,17 @@ pub trait IXMLDOMParseErrorCollection_Impl: super::super::super::System::Com::ID
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMParseErrorCollection_Vtbl {
-    pub const fn new<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn get_item<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, error: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseErrorCollection_Impl,
+    {
+        unsafe extern "system" fn get_item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, error: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseErrorCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseErrorCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         error.write(core::mem::transmute(ok__));
@@ -10423,9 +12274,13 @@ impl IXMLDOMParseErrorCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn length<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseErrorCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseErrorCollection_Impl::length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -10435,9 +12290,13 @@ impl IXMLDOMParseErrorCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn next<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, error: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseErrorCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseErrorCollection_Impl::next(this) {
                     Ok(ok__) => {
                         error.write(core::mem::transmute(ok__));
@@ -10447,15 +12306,23 @@ impl IXMLDOMParseErrorCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn reset<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseErrorCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMParseErrorCollection_Impl::reset(this).into()
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMParseErrorCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMParseErrorCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -10526,10 +12393,17 @@ pub trait IXMLDOMProcessingInstruction_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMProcessingInstruction_Vtbl {
-    pub const fn new<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn target<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMProcessingInstruction_Impl,
+    {
+        unsafe extern "system" fn target<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMProcessingInstruction_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMProcessingInstruction_Impl::target(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
@@ -10539,9 +12413,13 @@ impl IXMLDOMProcessingInstruction_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn data<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn data<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMProcessingInstruction_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMProcessingInstruction_Impl::data(this) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -10551,9 +12429,13 @@ impl IXMLDOMProcessingInstruction_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setdata<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setdata<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMProcessingInstruction_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMProcessingInstruction_Impl::Setdata(this, core::mem::transmute(&value)).into()
             }
         }
@@ -10649,16 +12531,27 @@ pub trait IXMLDOMSchemaCollection_Impl: super::super::super::System::Com::IDispa
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMSchemaCollection_Vtbl {
-    pub const fn new<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn add<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, var: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+    {
+        unsafe extern "system" fn add<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, var: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSchemaCollection_Impl::add(this, core::mem::transmute(&namespaceuri), core::mem::transmute(&var)).into()
             }
         }
-        unsafe extern "system" fn get<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, schemanode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, schemanode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSchemaCollection_Impl::get(this, core::mem::transmute(&namespaceuri)) {
                     Ok(ok__) => {
                         schemanode.write(core::mem::transmute(ok__));
@@ -10668,15 +12561,23 @@ impl IXMLDOMSchemaCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn remove<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn remove<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSchemaCollection_Impl::remove(this, core::mem::transmute(&namespaceuri)).into()
             }
         }
-        unsafe extern "system" fn length<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSchemaCollection_Impl::length(this) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -10686,9 +12587,13 @@ impl IXMLDOMSchemaCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn get_namespaceURI<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, length: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_namespaceURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, length: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSchemaCollection_Impl::get_namespaceURI(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
                         length.write(core::mem::transmute(ok__));
@@ -10698,15 +12603,23 @@ impl IXMLDOMSchemaCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn addCollection<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn addCollection<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSchemaCollection_Impl::addCollection(this, core::mem::transmute_copy(&othercollection)).into()
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSchemaCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -10795,22 +12708,37 @@ pub trait IXMLDOMSchemaCollection2_Impl: IXMLDOMSchemaCollection_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMSchemaCollection2_Vtbl {
-    pub const fn new<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn validate<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection2_Impl,
+    {
+        unsafe extern "system" fn validate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSchemaCollection2_Impl::validate(this).into()
             }
         }
-        unsafe extern "system" fn SetvalidateOnLoad<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, validateonload: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetvalidateOnLoad<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, validateonload: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSchemaCollection2_Impl::SetvalidateOnLoad(this, core::mem::transmute_copy(&validateonload)).into()
             }
         }
-        unsafe extern "system" fn validateOnLoad<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, validateonload: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn validateOnLoad<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, validateonload: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSchemaCollection2_Impl::validateOnLoad(this) {
                     Ok(ok__) => {
                         validateonload.write(core::mem::transmute(ok__));
@@ -10820,9 +12748,13 @@ impl IXMLDOMSchemaCollection2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getSchema<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, schema: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getSchema<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void, schema: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSchemaCollection2_Impl::getSchema(this, core::mem::transmute(&namespaceuri)) {
                     Ok(ok__) => {
                         schema.write(core::mem::transmute(ok__));
@@ -10832,9 +12764,13 @@ impl IXMLDOMSchemaCollection2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getDeclaration<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getDeclaration<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSchemaCollection2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSchemaCollection2_Impl::getDeclaration(this, core::mem::transmute_copy(&node)) {
                     Ok(ok__) => {
                         item.write(core::mem::transmute(ok__));
@@ -10974,10 +12910,17 @@ pub trait IXMLDOMSelection_Impl: IXMLDOMNodeList_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMSelection_Vtbl {
-    pub const fn new<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn expr<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, expression: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+    {
+        unsafe extern "system" fn expr<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, expression: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSelection_Impl::expr(this) {
                     Ok(ok__) => {
                         expression.write(core::mem::transmute(ok__));
@@ -10987,15 +12930,23 @@ impl IXMLDOMSelection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setexpr<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, expression: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setexpr<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, expression: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSelection_Impl::Setexpr(this, core::mem::transmute(&expression)).into()
             }
         }
-        unsafe extern "system" fn context<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn context<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSelection_Impl::context(this) {
                     Ok(ok__) => {
                         ppnode.write(core::mem::transmute(ok__));
@@ -11005,15 +12956,23 @@ impl IXMLDOMSelection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn putref_context<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_context<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSelection_Impl::putref_context(this, core::mem::transmute_copy(&pnode)).into()
             }
         }
-        unsafe extern "system" fn peekNode<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn peekNode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSelection_Impl::peekNode(this) {
                     Ok(ok__) => {
                         ppnode.write(core::mem::transmute(ok__));
@@ -11023,9 +12982,13 @@ impl IXMLDOMSelection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn matches<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn matches<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSelection_Impl::matches(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
                         ppnode.write(core::mem::transmute(ok__));
@@ -11035,9 +12998,13 @@ impl IXMLDOMSelection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeNext<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeNext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSelection_Impl::removeNext(this) {
                     Ok(ok__) => {
                         ppnode.write(core::mem::transmute(ok__));
@@ -11047,15 +13014,23 @@ impl IXMLDOMSelection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeAll<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeAll<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSelection_Impl::removeAll(this).into()
             }
         }
-        unsafe extern "system" fn clone<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSelection_Impl::clone(this) {
                     Ok(ok__) => {
                         ppnode.write(core::mem::transmute(ok__));
@@ -11065,9 +13040,13 @@ impl IXMLDOMSelection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMSelection_Impl::getProperty(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
                         value.write(core::mem::transmute(ok__));
@@ -11077,9 +13056,13 @@ impl IXMLDOMSelection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn setProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMSelection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDOMSelection_Impl::setProperty(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
             }
         }
@@ -11137,10 +13120,17 @@ pub trait IXMLDOMText_Impl: IXMLDOMCharacterData_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMText_Vtbl {
-    pub const fn new<Identity: IXMLDOMText_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn splitText<Identity: IXMLDOMText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, righthandtextnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMText_Impl,
+    {
+        unsafe extern "system" fn splitText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, righthandtextnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDOMText_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDOMText_Impl::splitText(this, core::mem::transmute_copy(&offset)) {
                     Ok(ok__) => {
                         righthandtextnode.write(core::mem::transmute(ok__));
@@ -11220,10 +13210,17 @@ pub trait IXMLDSOControl_Impl: super::super::super::System::Com::IDispatch_Impl 
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDSOControl_Vtbl {
-    pub const fn new<Identity: IXMLDSOControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn XMLDocument<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDSOControl_Impl,
+    {
+        unsafe extern "system" fn XMLDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDSOControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDSOControl_Impl::XMLDocument(this) {
                     Ok(ok__) => {
                         ppdoc.write(core::mem::transmute(ok__));
@@ -11233,15 +13230,23 @@ impl IXMLDSOControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetXMLDocument<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdoc: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetXMLDocument<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdoc: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDSOControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDSOControl_Impl::SetXMLDocument(this, core::mem::transmute_copy(&ppdoc)).into()
             }
         }
-        unsafe extern "system" fn JavaDSOCompatible<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn JavaDSOCompatible<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDSOControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDSOControl_Impl::JavaDSOCompatible(this) {
                     Ok(ok__) => {
                         fjavadsocompatible.write(core::mem::transmute(ok__));
@@ -11251,15 +13256,23 @@ impl IXMLDSOControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetJavaDSOCompatible<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetJavaDSOCompatible<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, fjavadsocompatible: windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDSOControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDSOControl_Impl::SetJavaDSOCompatible(this, core::mem::transmute_copy(&fjavadsocompatible)).into()
             }
         }
-        unsafe extern "system" fn readyState<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn readyState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDSOControl_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDSOControl_Impl::readyState(this) {
                     Ok(ok__) => {
                         state.write(core::mem::transmute(ok__));
@@ -11419,10 +13432,17 @@ pub trait IXMLDocument_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDocument_Vtbl {
-    pub const fn new<Identity: IXMLDocument_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn root<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+    {
+        unsafe extern "system" fn root<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::root(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11432,9 +13452,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fileSize<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fileSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::fileSize(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11444,9 +13468,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fileModifiedDate<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fileModifiedDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::fileModifiedDate(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11456,9 +13484,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fileUpdatedDate<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fileUpdatedDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::fileUpdatedDate(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11468,9 +13500,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn URL<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn URL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::URL(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11480,15 +13516,23 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetURL<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDocument_Impl::SetURL(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn mimeType<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn mimeType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::mimeType(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11498,9 +13542,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn readyState<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pl: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn readyState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pl: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::readyState(this) {
                     Ok(ok__) => {
                         pl.write(core::mem::transmute(ok__));
@@ -11510,9 +13558,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn charset<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn charset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::charset(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11522,15 +13574,23 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setcharset<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setcharset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDocument_Impl::Setcharset(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn version<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn version<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::version(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11540,9 +13600,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn doctype<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn doctype<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::doctype(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11552,9 +13616,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn dtdURL<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn dtdURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::dtdURL(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11564,9 +13632,13 @@ impl IXMLDocument_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createElement<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::super::super::System::Variant::VARIANT, var1: super::super::super::System::Variant::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::super::super::System::Variant::VARIANT, var1: super::super::super::System::Variant::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
                     Ok(ok__) => {
                         ppelem.write(core::mem::transmute(ok__));
@@ -11748,10 +13820,17 @@ pub trait IXMLDocument2_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDocument2_Vtbl {
-    pub const fn new<Identity: IXMLDocument2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn root<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+    {
+        unsafe extern "system" fn root<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::root(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11761,9 +13840,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fileSize<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fileSize<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::fileSize(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11773,9 +13856,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fileModifiedDate<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fileModifiedDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::fileModifiedDate(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11785,9 +13872,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn fileUpdatedDate<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn fileUpdatedDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::fileUpdatedDate(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11797,9 +13888,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn URL<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn URL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::URL(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11809,15 +13904,23 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetURL<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDocument2_Impl::SetURL(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn mimeType<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn mimeType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::mimeType(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11827,9 +13930,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn readyState<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pl: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn readyState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pl: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::readyState(this) {
                     Ok(ok__) => {
                         pl.write(core::mem::transmute(ok__));
@@ -11839,9 +13946,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn charset<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn charset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::charset(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11851,15 +13962,23 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setcharset<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setcharset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDocument2_Impl::Setcharset(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn version<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn version<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::version(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11869,9 +13988,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn doctype<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn doctype<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::doctype(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11881,9 +14004,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn dtdURL<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn dtdURL<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::dtdURL(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -11893,9 +14020,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createElement<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::super::super::System::Variant::VARIANT, var1: super::super::super::System::Variant::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createElement<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::super::super::System::Variant::VARIANT, var1: super::super::super::System::Variant::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
                     Ok(ok__) => {
                         ppelem.write(core::mem::transmute(ok__));
@@ -11905,9 +14036,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn r#async<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pf: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn r#async<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pf: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLDocument2_Impl::r#async(this) {
                     Ok(ok__) => {
                         pf.write(core::mem::transmute(ok__));
@@ -11917,9 +14052,13 @@ impl IXMLDocument2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setasync<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, f: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setasync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, f: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLDocument2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLDocument2_Impl::Setasync(this, core::mem::transmute_copy(&f)).into()
             }
         }
@@ -12066,10 +14205,17 @@ pub trait IXMLElement_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLElement_Vtbl {
-    pub const fn new<Identity: IXMLElement_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn tagName<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+    {
+        unsafe extern "system" fn tagName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement_Impl::tagName(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -12079,15 +14225,23 @@ impl IXMLElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SettagName<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SettagName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement_Impl::SettagName(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn parent<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn parent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement_Impl::parent(this) {
                     Ok(ok__) => {
                         ppparent.write(core::mem::transmute(ok__));
@@ -12097,15 +14251,23 @@ impl IXMLElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement_Impl::setAttribute(this, core::mem::transmute(&strpropertyname), core::mem::transmute(&propertyvalue)).into()
             }
         }
-        unsafe extern "system" fn getAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
                     Ok(ok__) => {
                         propertyvalue.write(core::mem::transmute(ok__));
@@ -12115,15 +14277,23 @@ impl IXMLElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement_Impl::removeAttribute(this, core::mem::transmute(&strpropertyname)).into()
             }
         }
-        unsafe extern "system" fn children<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn children<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement_Impl::children(this) {
                     Ok(ok__) => {
                         pp.write(core::mem::transmute(ok__));
@@ -12133,9 +14303,13 @@ impl IXMLElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn r#type<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn r#type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltype: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement_Impl::r#type(this) {
                     Ok(ok__) => {
                         pltype.write(core::mem::transmute(ok__));
@@ -12145,9 +14319,13 @@ impl IXMLElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn text<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn text<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement_Impl::text(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -12157,21 +14335,33 @@ impl IXMLElement_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Settext<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Settext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement_Impl::Settext(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn addChild<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void, lindex: i32, lreserved: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn addChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void, lindex: i32, lreserved: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement_Impl::addChild(this, core::mem::transmute_copy(&pchildelem), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&lreserved)).into()
             }
         }
-        unsafe extern "system" fn removeChild<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement_Impl::removeChild(this, core::mem::transmute_copy(&pchildelem)).into()
             }
         }
@@ -12322,10 +14512,17 @@ pub trait IXMLElement2_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLElement2_Vtbl {
-    pub const fn new<Identity: IXMLElement2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn tagName<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+    {
+        unsafe extern "system" fn tagName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement2_Impl::tagName(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -12335,15 +14532,23 @@ impl IXMLElement2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SettagName<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SettagName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement2_Impl::SettagName(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn parent<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn parent<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement2_Impl::parent(this) {
                     Ok(ok__) => {
                         ppparent.write(core::mem::transmute(ok__));
@@ -12353,15 +14558,23 @@ impl IXMLElement2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement2_Impl::setAttribute(this, core::mem::transmute(&strpropertyname), core::mem::transmute(&propertyvalue)).into()
             }
         }
-        unsafe extern "system" fn getAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void, propertyvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement2_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
                     Ok(ok__) => {
                         propertyvalue.write(core::mem::transmute(ok__));
@@ -12371,15 +14584,23 @@ impl IXMLElement2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn removeAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeAttribute<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement2_Impl::removeAttribute(this, core::mem::transmute(&strpropertyname)).into()
             }
         }
-        unsafe extern "system" fn children<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn children<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement2_Impl::children(this) {
                     Ok(ok__) => {
                         pp.write(core::mem::transmute(ok__));
@@ -12389,9 +14610,13 @@ impl IXMLElement2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn r#type<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltype: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn r#type<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltype: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement2_Impl::r#type(this) {
                     Ok(ok__) => {
                         pltype.write(core::mem::transmute(ok__));
@@ -12401,9 +14626,13 @@ impl IXMLElement2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn text<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn text<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement2_Impl::text(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -12413,27 +14642,43 @@ impl IXMLElement2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Settext<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Settext<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement2_Impl::Settext(this, core::mem::transmute(&p)).into()
             }
         }
-        unsafe extern "system" fn addChild<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void, lindex: i32, lreserved: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn addChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void, lindex: i32, lreserved: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement2_Impl::addChild(this, core::mem::transmute_copy(&pchildelem), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&lreserved)).into()
             }
         }
-        unsafe extern "system" fn removeChild<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn removeChild<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pchildelem: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElement2_Impl::removeChild(this, core::mem::transmute_copy(&pchildelem)).into()
             }
         }
-        unsafe extern "system" fn attributes<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn attributes<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElement2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElement2_Impl::attributes(this) {
                     Ok(ok__) => {
                         pp.write(core::mem::transmute(ok__));
@@ -12524,16 +14769,27 @@ pub trait IXMLElementCollection_Impl: super::super::super::System::Com::IDispatc
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLElementCollection_Vtbl {
-    pub const fn new<Identity: IXMLElementCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Setlength<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLElementCollection_Impl,
+    {
+        unsafe extern "system" fn Setlength<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElementCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLElementCollection_Impl::Setlength(this, core::mem::transmute_copy(&v)).into()
             }
         }
-        unsafe extern "system" fn length<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElementCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElementCollection_Impl::length(this) {
                     Ok(ok__) => {
                         p.write(core::mem::transmute(ok__));
@@ -12543,9 +14799,13 @@ impl IXMLElementCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _newEnum<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn _newEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElementCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElementCollection_Impl::_newEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
@@ -12555,9 +14815,13 @@ impl IXMLElementCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn item<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var1: super::super::super::System::Variant::VARIANT, var2: super::super::super::System::Variant::VARIANT, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn item<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, var1: super::super::super::System::Variant::VARIANT, var2: super::super::super::System::Variant::VARIANT, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLElementCollection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLElementCollection_Impl::item(this, core::mem::transmute(&var1), core::mem::transmute(&var2)) {
                     Ok(ok__) => {
                         ppdisp.write(core::mem::transmute(ok__));
@@ -12594,14 +14858,21 @@ pub struct IXMLError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XML_ERROR) -> windows_core::HRESULT,
 }
-pub trait IXMLError_Impl: windows_core::IUnknownImpl {
+pub trait IXMLError_Impl {
     fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::Result<()>;
 }
 impl IXMLError_Vtbl {
-    pub const fn new<Identity: IXMLError_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetErrorInfo<Identity: IXMLError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLError_Impl,
+    {
+        unsafe extern "system" fn GetErrorInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLError_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLError_Impl::GetErrorInfo(this, core::mem::transmute_copy(&perrorreturn)).into()
             }
         }
@@ -12753,22 +15024,37 @@ pub trait IXMLHTTPRequest_Impl: super::super::super::System::Com::IDispatch_Impl
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLHTTPRequest_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn open<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethod: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, varasync: super::super::super::System::Variant::VARIANT, bstruser: super::super::super::System::Variant::VARIANT, bstrpassword: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+    {
+        unsafe extern "system" fn open<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethod: *mut core::ffi::c_void, bstrurl: *mut core::ffi::c_void, varasync: super::super::super::System::Variant::VARIANT, bstruser: super::super::super::System::Variant::VARIANT, bstrpassword: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest_Impl::open(this, core::mem::transmute(&bstrmethod), core::mem::transmute(&bstrurl), core::mem::transmute(&varasync), core::mem::transmute(&bstruser), core::mem::transmute(&bstrpassword)).into()
             }
         }
-        unsafe extern "system" fn setRequestHeader<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setRequestHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, bstrvalue: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest_Impl::setRequestHeader(this, core::mem::transmute(&bstrheader), core::mem::transmute(&bstrvalue)).into()
             }
         }
-        unsafe extern "system" fn getResponseHeader<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getResponseHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrheader: *mut core::ffi::c_void, pbstrvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::getResponseHeader(this, core::mem::transmute(&bstrheader)) {
                     Ok(ok__) => {
                         pbstrvalue.write(core::mem::transmute(ok__));
@@ -12778,9 +15064,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn getAllResponseHeaders<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrheaders: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAllResponseHeaders<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrheaders: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::getAllResponseHeaders(this) {
                     Ok(ok__) => {
                         pbstrheaders.write(core::mem::transmute(ok__));
@@ -12790,21 +15080,33 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn send<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn send<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest_Impl::send(this, core::mem::transmute(&varbody)).into()
             }
         }
-        unsafe extern "system" fn abort<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn abort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest_Impl::abort(this).into()
             }
         }
-        unsafe extern "system" fn status<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatus: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn status<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstatus: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::status(this) {
                     Ok(ok__) => {
                         plstatus.write(core::mem::transmute(ok__));
@@ -12814,9 +15116,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn statusText<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatus: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn statusText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrstatus: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::statusText(this) {
                     Ok(ok__) => {
                         pbstrstatus.write(core::mem::transmute(ok__));
@@ -12826,9 +15132,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn responseXML<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbody: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn responseXML<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppbody: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::responseXML(this) {
                     Ok(ok__) => {
                         ppbody.write(core::mem::transmute(ok__));
@@ -12838,9 +15148,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn responseText<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbody: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn responseText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrbody: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::responseText(this) {
                     Ok(ok__) => {
                         pbstrbody.write(core::mem::transmute(ok__));
@@ -12850,9 +15164,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn responseBody<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn responseBody<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::responseBody(this) {
                     Ok(ok__) => {
                         pvarbody.write(core::mem::transmute(ok__));
@@ -12862,9 +15180,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn responseStream<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn responseStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::responseStream(this) {
                     Ok(ok__) => {
                         pvarbody.write(core::mem::transmute(ok__));
@@ -12874,9 +15196,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn readyState<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstate: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn readyState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstate: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest_Impl::readyState(this) {
                     Ok(ok__) => {
                         plstate.write(core::mem::transmute(ok__));
@@ -12886,9 +15212,13 @@ impl IXMLHTTPRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setonreadystatechange<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preadystatesink: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setonreadystatechange<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, preadystatesink: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest_Impl::Setonreadystatechange(this, core::mem::transmute_copy(&preadystatesink)).into()
             }
         }
@@ -13009,7 +15339,7 @@ pub struct IXMLHTTPRequest2_Vtbl {
     pub GetResponseHeader: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut u16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHTTPRequest2_Impl: windows_core::IUnknownImpl {
+pub trait IXMLHTTPRequest2_Impl {
     fn Open(&self, pwszmethod: &windows_core::PCWSTR, pwszurl: &windows_core::PCWSTR, pstatuscallback: windows_core::Ref<IXMLHTTPRequest2Callback>, pwszusername: &windows_core::PCWSTR, pwszpassword: &windows_core::PCWSTR, pwszproxyusername: &windows_core::PCWSTR, pwszproxypassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Send(&self, pbody: windows_core::Ref<super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
@@ -13023,28 +15353,47 @@ pub trait IXMLHTTPRequest2_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest2_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Open<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmethod: windows_core::PCWSTR, pwszurl: windows_core::PCWSTR, pstatuscallback: *mut core::ffi::c_void, pwszusername: windows_core::PCWSTR, pwszpassword: windows_core::PCWSTR, pwszproxyusername: windows_core::PCWSTR, pwszproxypassword: windows_core::PCWSTR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+    {
+        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmethod: windows_core::PCWSTR, pwszurl: windows_core::PCWSTR, pstatuscallback: *mut core::ffi::c_void, pwszusername: windows_core::PCWSTR, pwszpassword: windows_core::PCWSTR, pwszproxyusername: windows_core::PCWSTR, pwszproxypassword: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2_Impl::Open(this, core::mem::transmute(&pwszmethod), core::mem::transmute(&pwszurl), core::mem::transmute_copy(&pstatuscallback), core::mem::transmute(&pwszusername), core::mem::transmute(&pwszpassword), core::mem::transmute(&pwszproxyusername), core::mem::transmute(&pwszproxypassword)).into()
             }
         }
-        unsafe extern "system" fn Send<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbody: *mut core::ffi::c_void, cbbody: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbody: *mut core::ffi::c_void, cbbody: u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2_Impl::Send(this, core::mem::transmute_copy(&pbody), core::mem::transmute_copy(&cbbody)).into()
             }
         }
-        unsafe extern "system" fn Abort<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Abort<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2_Impl::Abort(this).into()
             }
         }
-        unsafe extern "system" fn SetCookie<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcookie: *const XHR_COOKIE, pdwcookiestate: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest2_Impl::SetCookie(this, core::mem::transmute_copy(&pcookie)) {
                     Ok(ok__) => {
                         pdwcookiestate.write(core::mem::transmute(ok__));
@@ -13054,27 +15403,43 @@ impl IXMLHTTPRequest2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCustomResponseStream<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psequentialstream: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCustomResponseStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, psequentialstream: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2_Impl::SetCustomResponseStream(this, core::mem::transmute_copy(&psequentialstream)).into()
             }
         }
-        unsafe extern "system" fn SetProperty<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eproperty: XHR_PROPERTY, ullvalue: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProperty<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, eproperty: XHR_PROPERTY, ullvalue: u64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2_Impl::SetProperty(this, core::mem::transmute_copy(&eproperty), core::mem::transmute_copy(&ullvalue)).into()
             }
         }
-        unsafe extern "system" fn SetRequestHeader<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszheader: windows_core::PCWSTR, pwszvalue: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRequestHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszheader: windows_core::PCWSTR, pwszvalue: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2_Impl::SetRequestHeader(this, core::mem::transmute(&pwszheader), core::mem::transmute(&pwszvalue)).into()
             }
         }
-        unsafe extern "system" fn GetAllResponseHeaders<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszheaders: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAllResponseHeaders<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszheaders: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest2_Impl::GetAllResponseHeaders(this) {
                     Ok(ok__) => {
                         ppwszheaders.write(core::mem::transmute(ok__));
@@ -13084,15 +15449,23 @@ impl IXMLHTTPRequest2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCookie<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, pwszname: windows_core::PCWSTR, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCookie<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszurl: windows_core::PCWSTR, pwszname: windows_core::PCWSTR, dwflags: u32, pccookies: *mut u32, ppcookies: *mut *mut XHR_COOKIE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2_Impl::GetCookie(this, core::mem::transmute(&pwszurl), core::mem::transmute(&pwszname), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pccookies), core::mem::transmute_copy(&ppcookies)).into()
             }
         }
-        unsafe extern "system" fn GetResponseHeader<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszheader: windows_core::PCWSTR, ppwszvalue: *mut *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetResponseHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszheader: windows_core::PCWSTR, ppwszvalue: *mut *mut u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXMLHTTPRequest2_Impl::GetResponseHeader(this, core::mem::transmute(&pwszheader)) {
                     Ok(ok__) => {
                         ppwszvalue.write(core::mem::transmute(ok__));
@@ -13179,7 +15552,7 @@ pub struct IXMLHTTPRequest2Callback_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHTTPRequest2Callback_Impl: windows_core::IUnknownImpl {
+pub trait IXMLHTTPRequest2Callback_Impl {
     fn OnRedirect(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, pwszredirecturl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnHeadersAvailable(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, dwstatus: u32, pwszstatus: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnDataAvailable(&self, pxhr: windows_core::Ref<IXMLHTTPRequest2>, presponsestream: windows_core::Ref<super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
@@ -13188,34 +15561,57 @@ pub trait IXMLHTTPRequest2Callback_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest2Callback_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnRedirect<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, pwszredirecturl: windows_core::PCWSTR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2Callback_Impl,
+    {
+        unsafe extern "system" fn OnRedirect<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, pwszredirecturl: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2Callback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2Callback_Impl::OnRedirect(this, core::mem::transmute_copy(&pxhr), core::mem::transmute(&pwszredirecturl)).into()
             }
         }
-        unsafe extern "system" fn OnHeadersAvailable<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, dwstatus: u32, pwszstatus: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnHeadersAvailable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, dwstatus: u32, pwszstatus: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2Callback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2Callback_Impl::OnHeadersAvailable(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&dwstatus), core::mem::transmute(&pwszstatus)).into()
             }
         }
-        unsafe extern "system" fn OnDataAvailable<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, presponsestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnDataAvailable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, presponsestream: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2Callback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2Callback_Impl::OnDataAvailable(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&presponsestream)).into()
             }
         }
-        unsafe extern "system" fn OnResponseReceived<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, presponsestream: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnResponseReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, presponsestream: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2Callback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2Callback_Impl::OnResponseReceived(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&presponsestream)).into()
             }
         }
-        unsafe extern "system" fn OnError<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, hrerror: windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, hrerror: windows_core::HRESULT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest2Callback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest2Callback_Impl::OnError(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&hrerror)).into()
             }
         }
@@ -13262,10 +15658,17 @@ pub trait IXMLHTTPRequest3_Impl: IXMLHTTPRequest2_Impl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest3_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetClientCertificate<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: windows_core::PCWSTR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest3_Impl,
+    {
+        unsafe extern "system" fn SetClientCertificate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: windows_core::PCWSTR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest3_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest3_Impl::SetClientCertificate(this, core::mem::transmute_copy(&cbclientcertificatehash), core::mem::transmute_copy(&pbclientcertificatehash), core::mem::transmute(&pwszpin)).into()
             }
         }
@@ -13313,16 +15716,27 @@ pub trait IXMLHTTPRequest3Callback_Impl: IXMLHTTPRequest2Callback_Impl {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest3Callback_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnServerCertificateReceived<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest3Callback_Impl,
+    {
+        unsafe extern "system" fn OnServerCertificateReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest3Callback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest3Callback_Impl::OnServerCertificateReceived(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&dwcertificateerrors), core::mem::transmute_copy(&cservercertificatechain), core::mem::transmute_copy(&rgservercertificatechain)).into()
             }
         }
-        unsafe extern "system" fn OnClientCertificateRequested<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnClientCertificateRequested<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXMLHTTPRequest3Callback_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXMLHTTPRequest3Callback_Impl::OnClientCertificateRequested(this, core::mem::transmute_copy(&pxhr), core::mem::transmute_copy(&cissuerlist), core::mem::transmute_copy(&rgpwszissuerlist)).into()
             }
         }
@@ -13480,16 +15894,27 @@ pub trait IXSLProcessor_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXSLProcessor_Vtbl {
-    pub const fn new<Identity: IXSLProcessor_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Setinput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+    {
+        unsafe extern "system" fn Setinput<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXSLProcessor_Impl::Setinput(this, core::mem::transmute(&var)).into()
             }
         }
-        unsafe extern "system" fn input<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn input<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::input(this) {
                     Ok(ok__) => {
                         pvar.write(core::mem::transmute(ok__));
@@ -13499,9 +15924,13 @@ impl IXSLProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ownerTemplate<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ownerTemplate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptemplate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::ownerTemplate(this) {
                     Ok(ok__) => {
                         pptemplate.write(core::mem::transmute(ok__));
@@ -13511,15 +15940,23 @@ impl IXSLProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn setStartMode<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn setStartMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXSLProcessor_Impl::setStartMode(this, core::mem::transmute(&mode), core::mem::transmute(&namespaceuri)).into()
             }
         }
-        unsafe extern "system" fn startMode<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startMode<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::startMode(this) {
                     Ok(ok__) => {
                         mode.write(core::mem::transmute(ok__));
@@ -13529,9 +15966,13 @@ impl IXSLProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn startModeURI<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn startModeURI<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::startModeURI(this) {
                     Ok(ok__) => {
                         namespaceuri.write(core::mem::transmute(ok__));
@@ -13541,15 +15982,23 @@ impl IXSLProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Setoutput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setoutput<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXSLProcessor_Impl::Setoutput(this, core::mem::transmute(&output)).into()
             }
         }
-        unsafe extern "system" fn output<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn output<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::output(this) {
                     Ok(ok__) => {
                         poutput.write(core::mem::transmute(ok__));
@@ -13559,9 +16008,13 @@ impl IXSLProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn transform<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdone: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn transform<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdone: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::transform(this) {
                     Ok(ok__) => {
                         pdone.write(core::mem::transmute(ok__));
@@ -13571,15 +16024,23 @@ impl IXSLProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn reset<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXSLProcessor_Impl::reset(this).into()
             }
         }
-        unsafe extern "system" fn readyState<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preadystate: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn readyState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, preadystate: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::readyState(this) {
                     Ok(ok__) => {
                         preadystate.write(core::mem::transmute(ok__));
@@ -13589,21 +16050,33 @@ impl IXSLProcessor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn addParameter<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, parameter: super::super::super::System::Variant::VARIANT, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn addParameter<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: *mut core::ffi::c_void, parameter: super::super::super::System::Variant::VARIANT, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXSLProcessor_Impl::addParameter(this, core::mem::transmute(&basename), core::mem::transmute(&parameter), core::mem::transmute(&namespaceuri)).into()
             }
         }
-        unsafe extern "system" fn addObject<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, obj: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn addObject<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, obj: *mut core::ffi::c_void, namespaceuri: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXSLProcessor_Impl::addObject(this, core::mem::transmute_copy(&obj), core::mem::transmute(&namespaceuri)).into()
             }
         }
-        unsafe extern "system" fn stylesheet<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn stylesheet<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLProcessor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLProcessor_Impl::stylesheet(this) {
                     Ok(ok__) => {
                         stylesheet.write(core::mem::transmute(ok__));
@@ -13686,16 +16159,27 @@ pub trait IXSLTemplate_Impl: super::super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXSLTemplate_Vtbl {
-    pub const fn new<Identity: IXSLTemplate_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn putref_stylesheet<Identity: IXSLTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXSLTemplate_Impl,
+    {
+        unsafe extern "system" fn putref_stylesheet<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLTemplate_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IXSLTemplate_Impl::putref_stylesheet(this, core::mem::transmute_copy(&stylesheet)).into()
             }
         }
-        unsafe extern "system" fn stylesheet<Identity: IXSLTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn stylesheet<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLTemplate_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLTemplate_Impl::stylesheet(this) {
                     Ok(ok__) => {
                         stylesheet.write(core::mem::transmute(ok__));
@@ -13705,9 +16189,13 @@ impl IXSLTemplate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn createProcessor<Identity: IXSLTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprocessor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createProcessor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppprocessor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXSLTemplate_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXSLTemplate_Impl::createProcessor(this) {
                     Ok(ok__) => {
                         ppprocessor.write(core::mem::transmute(ok__));
@@ -13850,10 +16338,17 @@ pub trait IXTLRuntime_Impl: IXMLDOMNode_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXTLRuntime_Vtbl {
-    pub const fn new<Identity: IXTLRuntime_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn uniqueID<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+    {
+        unsafe extern "system" fn uniqueID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::uniqueID(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
                         pid.write(core::mem::transmute(ok__));
@@ -13863,9 +16358,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn depth<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pdepth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn depth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pdepth: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::depth(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
                         pdepth.write(core::mem::transmute(ok__));
@@ -13875,9 +16374,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn childNumber<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pnumber: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn childNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pnumber: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::childNumber(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
                         pnumber.write(core::mem::transmute(ok__));
@@ -13887,9 +16390,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ancestorChildNumber<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnodename: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pnumber: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ancestorChildNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrnodename: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pnumber: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::ancestorChildNumber(this, core::mem::transmute(&bstrnodename), core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
                         pnumber.write(core::mem::transmute(ok__));
@@ -13899,9 +16406,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn absoluteChildNumber<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pnumber: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn absoluteChildNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pnumber: *mut i32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::absoluteChildNumber(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
                         pnumber.write(core::mem::transmute(ok__));
@@ -13911,9 +16422,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn formatIndex<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, bstrformat: *mut core::ffi::c_void, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn formatIndex<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, bstrformat: *mut core::ffi::c_void, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::formatIndex(this, core::mem::transmute_copy(&lindex), core::mem::transmute(&bstrformat)) {
                     Ok(ok__) => {
                         pbstrformattedstring.write(core::mem::transmute(ok__));
@@ -13923,9 +16438,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn formatNumber<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dblnumber: f64, bstrformat: *mut core::ffi::c_void, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn formatNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, dblnumber: f64, bstrformat: *mut core::ffi::c_void, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::formatNumber(this, core::mem::transmute_copy(&dblnumber), core::mem::transmute(&bstrformat)) {
                     Ok(ok__) => {
                         pbstrformattedstring.write(core::mem::transmute(ok__));
@@ -13935,9 +16454,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn formatDate<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardate: super::super::super::System::Variant::VARIANT, bstrformat: *mut core::ffi::c_void, vardestlocale: super::super::super::System::Variant::VARIANT, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn formatDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardate: super::super::super::System::Variant::VARIANT, bstrformat: *mut core::ffi::c_void, vardestlocale: super::super::super::System::Variant::VARIANT, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::formatDate(this, core::mem::transmute(&vardate), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
                     Ok(ok__) => {
                         pbstrformattedstring.write(core::mem::transmute(ok__));
@@ -13947,9 +16470,13 @@ impl IXTLRuntime_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn formatTime<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartime: super::super::super::System::Variant::VARIANT, bstrformat: *mut core::ffi::c_void, vardestlocale: super::super::super::System::Variant::VARIANT, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn formatTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartime: super::super::super::System::Variant::VARIANT, bstrformat: *mut core::ffi::c_void, vardestlocale: super::super::super::System::Variant::VARIANT, pbstrformattedstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IXTLRuntime_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IXTLRuntime_Impl::formatTime(this, core::mem::transmute(&vartime), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
                     Ok(ok__) => {
                         pbstrformattedstring.write(core::mem::transmute(ok__));
@@ -14252,7 +16779,10 @@ pub struct XMLDOMDocumentEvents_Vtbl {
 pub trait XMLDOMDocumentEvents_Impl: super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl XMLDOMDocumentEvents_Vtbl {
-    pub const fn new<Identity: XMLDOMDocumentEvents_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: XMLDOMDocumentEvents_Impl,
+    {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

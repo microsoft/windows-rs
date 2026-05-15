@@ -59,16 +59,23 @@ impl INDClosedCaptionDataReceivedEventArgs {
 impl windows_core::RuntimeName for INDClosedCaptionDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs";
 }
-pub trait INDClosedCaptionDataReceivedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait INDClosedCaptionDataReceivedEventArgs_Impl {
     fn ClosedCaptionDataFormat(&self) -> windows_core::Result<NDClosedCaptionFormat>;
     fn PresentationTimestamp(&self) -> windows_core::Result<i64>;
     fn ClosedCaptionData(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
 impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
-    pub const fn new<Identity: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ClosedCaptionDataFormat<Identity: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDClosedCaptionFormat) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDClosedCaptionDataReceivedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ClosedCaptionDataFormat<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDClosedCaptionFormat) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDClosedCaptionDataReceivedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionDataFormat(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -78,9 +85,13 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PresentationTimestamp<Identity: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn PresentationTimestamp<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDClosedCaptionDataReceivedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDClosedCaptionDataReceivedEventArgs_Impl::PresentationTimestamp(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -90,9 +101,13 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClosedCaptionData<Identity: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClosedCaptionData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDClosedCaptionDataReceivedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDClosedCaptionDataReceivedEventArgs_Impl::ClosedCaptionData(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -145,15 +160,22 @@ impl INDCustomData {
 impl windows_core::RuntimeName for INDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDCustomData";
 }
-pub trait INDCustomData_Impl: windows_core::IUnknownImpl {
+pub trait INDCustomData_Impl {
     fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
 impl INDCustomData_Vtbl {
-    pub const fn new<Identity: INDCustomData_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CustomDataTypeID<Identity: INDCustomData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDCustomData_Impl,
+    {
+        unsafe extern "system" fn CustomDataTypeID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDCustomData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDCustomData_Impl::CustomDataTypeID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -165,9 +187,13 @@ impl INDCustomData_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CustomData<Identity: INDCustomData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn CustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDCustomData_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDCustomData_Impl::CustomData(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -258,7 +284,7 @@ impl INDDownloadEngine {
 impl windows_core::RuntimeName for INDDownloadEngine {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngine";
 }
-pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
+pub trait INDDownloadEngine_Impl {
     fn Open(&self, uri: windows_core::Ref<super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
@@ -270,40 +296,67 @@ pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
     fn Notifier(&self) -> windows_core::Result<NDDownloadEngineNotifier>;
 }
 impl INDDownloadEngine_Vtbl {
-    pub const fn new<Identity: INDDownloadEngine_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Open<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+    {
+        unsafe extern "system" fn Open<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngine_Impl::Open(this, core::mem::transmute_copy(&uri), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn Pause<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Pause<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngine_Impl::Pause(this).into()
             }
         }
-        unsafe extern "system" fn Resume<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Resume<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngine_Impl::Resume(this).into()
             }
         }
-        unsafe extern "system" fn Close<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Close<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngine_Impl::Close(this).into()
             }
         }
-        unsafe extern "system" fn Seek<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startposition: super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Seek<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, startposition: super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngine_Impl::Seek(this, core::mem::transmute(&startposition)).into()
             }
         }
-        unsafe extern "system" fn CanSeek<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanSeek<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDDownloadEngine_Impl::CanSeek(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -313,9 +366,13 @@ impl INDDownloadEngine_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BufferFullMinThresholdInSamples<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn BufferFullMinThresholdInSamples<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDDownloadEngine_Impl::BufferFullMinThresholdInSamples(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -325,9 +382,13 @@ impl INDDownloadEngine_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BufferFullMaxThresholdInSamples<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn BufferFullMaxThresholdInSamples<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDDownloadEngine_Impl::BufferFullMaxThresholdInSamples(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -337,9 +398,13 @@ impl INDDownloadEngine_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Notifier<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Notifier<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngine_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDDownloadEngine_Impl::Notifier(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -412,7 +477,7 @@ impl INDDownloadEngineNotifier {
 impl windows_core::RuntimeName for INDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier";
 }
-pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
+pub trait INDDownloadEngineNotifier_Impl {
     fn OnStreamOpened(&self) -> windows_core::Result<()>;
     fn OnPlayReadyObjectReceived(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
     fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
@@ -421,40 +486,67 @@ pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
     fn OnNetworkError(&self) -> windows_core::Result<()>;
 }
 impl INDDownloadEngineNotifier_Vtbl {
-    pub const fn new<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnStreamOpened<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngineNotifier_Impl,
+    {
+        unsafe extern "system" fn OnStreamOpened<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngineNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngineNotifier_Impl::OnStreamOpened(this).into()
             }
         }
-        unsafe extern "system" fn OnPlayReadyObjectReceived<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnPlayReadyObjectReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngineNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngineNotifier_Impl::OnPlayReadyObjectReceived(this, core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), databytes_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn OnContentIDReceived<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnContentIDReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngineNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngineNotifier_Impl::OnContentIDReceived(this, core::mem::transmute_copy(&licensefetchdescriptor)).into()
             }
         }
-        unsafe extern "system" fn OnDataReceived<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8, bytesreceived: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnDataReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8, bytesreceived: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngineNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngineNotifier_Impl::OnDataReceived(this, core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), databytes_array_size as usize), bytesreceived).into()
             }
         }
-        unsafe extern "system" fn OnEndOfStream<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnEndOfStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngineNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngineNotifier_Impl::OnEndOfStream(this).into()
             }
         }
-        unsafe extern "system" fn OnNetworkError<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnNetworkError<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDDownloadEngineNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDDownloadEngineNotifier_Impl::OnNetworkError(this).into()
             }
         }
@@ -499,14 +591,21 @@ impl INDLicenseFetchCompletedEventArgs {
 impl windows_core::RuntimeName for INDLicenseFetchCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs";
 }
-pub trait INDLicenseFetchCompletedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait INDLicenseFetchCompletedEventArgs_Impl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
 }
 impl INDLicenseFetchCompletedEventArgs_Vtbl {
-    pub const fn new<Identity: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ResponseCustomData<Identity: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchCompletedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchCompletedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDLicenseFetchCompletedEventArgs_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -566,17 +665,24 @@ impl INDLicenseFetchDescriptor {
 impl windows_core::RuntimeName for INDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor";
 }
-pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
+pub trait INDLicenseFetchDescriptor_Impl {
     fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
     fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
     fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
 }
 impl INDLicenseFetchDescriptor_Vtbl {
-    pub const fn new<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ContentIDType<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDContentIDType) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchDescriptor_Impl,
+    {
+        unsafe extern "system" fn ContentIDType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDContentIDType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchDescriptor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDLicenseFetchDescriptor_Impl::ContentIDType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -586,9 +692,13 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ContentID<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ContentID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchDescriptor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDLicenseFetchDescriptor_Impl::ContentID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -600,9 +710,13 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LicenseFetchChallengeCustomData<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn LicenseFetchChallengeCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchDescriptor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDLicenseFetchDescriptor_Impl::LicenseFetchChallengeCustomData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -613,9 +727,13 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchchallengecustomdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchchallengecustomdata: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchDescriptor_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, core::mem::transmute_copy(&licensefetchchallengecustomdata)).into()
             }
         }
@@ -666,14 +784,21 @@ impl INDLicenseFetchResult {
 impl windows_core::RuntimeName for INDLicenseFetchResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchResult";
 }
-pub trait INDLicenseFetchResult_Impl: windows_core::IUnknownImpl {
+pub trait INDLicenseFetchResult_Impl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
 }
 impl INDLicenseFetchResult_Vtbl {
-    pub const fn new<Identity: INDLicenseFetchResult_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ResponseCustomData<Identity: INDLicenseFetchResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchResult_Impl,
+    {
+        unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDLicenseFetchResult_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDLicenseFetchResult_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -733,17 +858,24 @@ impl INDMessenger {
 impl windows_core::RuntimeName for INDMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDMessenger";
 }
-pub trait INDMessenger_Impl: windows_core::IUnknownImpl {
+pub trait INDMessenger_Impl {
     fn SendRegistrationRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
     fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], responseDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
     fn SendLicenseFetchRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
 }
 impl INDMessenger_Vtbl {
-    pub const fn new<Identity: INDMessenger_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SendRegistrationRequestAsync<Identity: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8, challengedatabytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDMessenger_Impl,
+    {
+        unsafe extern "system" fn SendRegistrationRequestAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8, challengedatabytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDMessenger_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDMessenger_Impl::SendRegistrationRequestAsync(this, core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengedatabytes_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -754,9 +886,13 @@ impl INDMessenger_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SendProximityDetectionStartAsync<Identity: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterchannelbytes_array_size: u32, transmitterchannelbytes: *const u8, sessionidbytes_array_size: u32, sessionidbytes: *const u8, challengedatabytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendProximityDetectionStartAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterchannelbytes_array_size: u32, transmitterchannelbytes: *const u8, sessionidbytes_array_size: u32, sessionidbytes: *const u8, challengedatabytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDMessenger_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDMessenger_Impl::SendProximityDetectionStartAsync(this, pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterchannelbytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengedatabytes_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -767,9 +903,13 @@ impl INDMessenger_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SendProximityDetectionResponseAsync<Identity: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterchannelbytes_array_size: u32, transmitterchannelbytes: *const u8, sessionidbytes_array_size: u32, sessionidbytes: *const u8, responsedatabytes_array_size: u32, responsedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendProximityDetectionResponseAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdtype: NDProximityDetectionType, transmitterchannelbytes_array_size: u32, transmitterchannelbytes: *const u8, sessionidbytes_array_size: u32, sessionidbytes: *const u8, responsedatabytes_array_size: u32, responsedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDMessenger_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDMessenger_Impl::SendProximityDetectionResponseAsync(this, pdtype, core::slice::from_raw_parts(core::mem::transmute_copy(&transmitterchannelbytes), transmitterchannelbytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&responsedatabytes), responsedatabytes_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -780,9 +920,13 @@ impl INDMessenger_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SendLicenseFetchRequestAsync<Identity: INDMessenger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8, challengedatabytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendLicenseFetchRequestAsync<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionidbytes_array_size: u32, sessionidbytes: *const u8, challengedatabytes_array_size: u32, challengedatabytes: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDMessenger_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDMessenger_Impl::SendLicenseFetchRequestAsync(this, core::slice::from_raw_parts(core::mem::transmute_copy(&sessionidbytes), sessionidbytes_array_size as usize), core::slice::from_raw_parts(core::mem::transmute_copy(&challengedatabytes), challengedatabytes_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -830,14 +974,21 @@ impl INDProximityDetectionCompletedEventArgs {
 impl windows_core::RuntimeName for INDProximityDetectionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs";
 }
-pub trait INDProximityDetectionCompletedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait INDProximityDetectionCompletedEventArgs_Impl {
     fn ProximityDetectionRetryCount(&self) -> windows_core::Result<u32>;
 }
 impl INDProximityDetectionCompletedEventArgs_Vtbl {
-    pub const fn new<Identity: INDProximityDetectionCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ProximityDetectionRetryCount<Identity: INDProximityDetectionCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDProximityDetectionCompletedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ProximityDetectionRetryCount<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDProximityDetectionCompletedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDProximityDetectionCompletedEventArgs_Impl::ProximityDetectionRetryCount(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -893,17 +1044,24 @@ impl INDRegistrationCompletedEventArgs {
 impl windows_core::RuntimeName for INDRegistrationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs";
 }
-pub trait INDRegistrationCompletedEventArgs_Impl: windows_core::IUnknownImpl {
+pub trait INDRegistrationCompletedEventArgs_Impl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
     fn TransmitterProperties(&self) -> windows_core::Result<INDTransmitterProperties>;
     fn TransmitterCertificateAccepted(&self) -> windows_core::Result<bool>;
     fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()>;
 }
 impl INDRegistrationCompletedEventArgs_Vtbl {
-    pub const fn new<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ResponseCustomData<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDRegistrationCompletedEventArgs_Impl,
+    {
+        unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDRegistrationCompletedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDRegistrationCompletedEventArgs_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -914,9 +1072,13 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TransmitterProperties<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransmitterProperties<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDRegistrationCompletedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDRegistrationCompletedEventArgs_Impl::TransmitterProperties(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -927,9 +1089,13 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TransmitterCertificateAccepted<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransmitterCertificateAccepted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDRegistrationCompletedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDRegistrationCompletedEventArgs_Impl::TransmitterCertificateAccepted(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -939,9 +1105,13 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTransmitterCertificateAccepted<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accept: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransmitterCertificateAccepted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, accept: bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDRegistrationCompletedEventArgs_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDRegistrationCompletedEventArgs_Impl::SetTransmitterCertificateAccepted(this, accept).into()
             }
         }
@@ -982,14 +1152,21 @@ impl INDSendResult {
 impl windows_core::RuntimeName for INDSendResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDSendResult";
 }
-pub trait INDSendResult_Impl: windows_core::IUnknownImpl {
+pub trait INDSendResult_Impl {
     fn Response(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
 impl INDSendResult_Vtbl {
-    pub const fn new<Identity: INDSendResult_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Response<Identity: INDSendResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDSendResult_Impl,
+    {
+        unsafe extern "system" fn Response<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDSendResult_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDSendResult_Impl::Response(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -1032,15 +1209,22 @@ impl windows_core::RuntimeName for INDStartResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStartResult";
 }
 #[cfg(feature = "Media_Core")]
-pub trait INDStartResult_Impl: windows_core::IUnknownImpl {
+pub trait INDStartResult_Impl {
     fn MediaStreamSource(&self) -> windows_core::Result<super::super::Core::MediaStreamSource>;
 }
 #[cfg(feature = "Media_Core")]
 impl INDStartResult_Vtbl {
-    pub const fn new<Identity: INDStartResult_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MediaStreamSource<Identity: INDStartResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDStartResult_Impl,
+    {
+        unsafe extern "system" fn MediaStreamSource<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStartResult_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDStartResult_Impl::MediaStreamSource(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1088,15 +1272,22 @@ impl windows_core::RuntimeName for INDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStorageFileHelper";
 }
 #[cfg(feature = "Storage_Streams")]
-pub trait INDStorageFileHelper_Impl: windows_core::IUnknownImpl {
+pub trait INDStorageFileHelper_Impl {
     fn GetFileURLs(&self, file: windows_core::Ref<super::super::super::Storage::IStorageFile>) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl INDStorageFileHelper_Vtbl {
-    pub const fn new<Identity: INDStorageFileHelper_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetFileURLs<Identity: INDStorageFileHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDStorageFileHelper_Impl,
+    {
+        unsafe extern "system" fn GetFileURLs<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, file: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStorageFileHelper_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDStorageFileHelper_Impl::GetFileURLs(this, core::mem::transmute_copy(&file)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1159,7 +1350,7 @@ impl windows_core::RuntimeName for INDStreamParser {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStreamParser";
 }
 #[cfg(feature = "Media_Core")]
-pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
+pub trait INDStreamParser_Impl {
     fn ParseData(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
     fn GetStreamInformation(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
     fn BeginOfStream(&self) -> windows_core::Result<()>;
@@ -1168,16 +1359,27 @@ pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Media_Core")]
 impl INDStreamParser_Vtbl {
-    pub const fn new<Identity: INDStreamParser_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ParseData<Identity: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParser_Impl,
+    {
+        unsafe extern "system" fn ParseData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, databytes_array_size: u32, databytes: *const u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDStreamParser_Impl::ParseData(this, core::slice::from_raw_parts(core::mem::transmute_copy(&databytes), databytes_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn GetStreamInformation<Identity: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, streamtype: *mut NDMediaStreamType, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStreamInformation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, streamtype: *mut NDMediaStreamType, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDStreamParser_Impl::GetStreamInformation(this, core::mem::transmute_copy(&descriptor), core::mem::transmute_copy(&streamtype)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1187,21 +1389,33 @@ impl INDStreamParser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BeginOfStream<Identity: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginOfStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDStreamParser_Impl::BeginOfStream(this).into()
             }
         }
-        unsafe extern "system" fn EndOfStream<Identity: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EndOfStream<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDStreamParser_Impl::EndOfStream(this).into()
             }
         }
-        unsafe extern "system" fn Notifier<Identity: INDStreamParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Notifier<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParser_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDStreamParser_Impl::Notifier(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1278,7 +1492,7 @@ impl windows_core::RuntimeName for INDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDStreamParserNotifier";
 }
 #[cfg(feature = "Media_Core")]
-pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
+pub trait INDStreamParserNotifier_Impl {
     fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
     fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
     fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
@@ -1286,28 +1500,47 @@ pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
 }
 #[cfg(feature = "Media_Core")]
 impl INDStreamParserNotifier_Vtbl {
-    pub const fn new<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnContentIDReceived<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParserNotifier_Impl,
+    {
+        unsafe extern "system" fn OnContentIDReceived<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchdescriptor: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParserNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDStreamParserNotifier_Impl::OnContentIDReceived(this, core::mem::transmute_copy(&licensefetchdescriptor)).into()
             }
         }
-        unsafe extern "system" fn OnMediaStreamDescriptorCreated<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiostreamdescriptors: *mut core::ffi::c_void, videostreamdescriptors: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnMediaStreamDescriptorCreated<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiostreamdescriptors: *mut core::ffi::c_void, videostreamdescriptors: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParserNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDStreamParserNotifier_Impl::OnMediaStreamDescriptorCreated(this, core::mem::transmute_copy(&audiostreamdescriptors), core::mem::transmute_copy(&videostreamdescriptors)).into()
             }
         }
-        unsafe extern "system" fn OnSampleParsed<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamid: u32, streamtype: NDMediaStreamType, streamsample: *mut core::ffi::c_void, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes_array_size: u32, ccdatabytes: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnSampleParsed<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamid: u32, streamtype: NDMediaStreamType, streamsample: *mut core::ffi::c_void, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes_array_size: u32, ccdatabytes: *const u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParserNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDStreamParserNotifier_Impl::OnSampleParsed(this, streamid, streamtype, core::mem::transmute_copy(&streamsample), pts, ccformat, core::slice::from_raw_parts(core::mem::transmute_copy(&ccdatabytes), ccdatabytes_array_size as usize)).into()
             }
         }
-        unsafe extern "system" fn OnBeginSetupDecryptor<Identity: INDStreamParserNotifier_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, keyid: windows_core::GUID, probytes_array_size: u32, probytes: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnBeginSetupDecryptor<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, descriptor: *mut core::ffi::c_void, keyid: windows_core::GUID, probytes_array_size: u32, probytes: *const u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDStreamParserNotifier_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INDStreamParserNotifier_Impl::OnBeginSetupDecryptor(this, core::mem::transmute_copy(&descriptor), core::mem::transmute(&keyid), core::slice::from_raw_parts(core::mem::transmute_copy(&probytes), probytes_array_size as usize)).into()
             }
         }
@@ -1427,7 +1660,7 @@ impl INDTransmitterProperties {
 impl windows_core::RuntimeName for INDTransmitterProperties {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDTransmitterProperties";
 }
-pub trait INDTransmitterProperties_Impl: windows_core::IUnknownImpl {
+pub trait INDTransmitterProperties_Impl {
     fn CertificateType(&self) -> windows_core::Result<NDCertificateType>;
     fn PlatformIdentifier(&self) -> windows_core::Result<NDCertificatePlatformID>;
     fn SupportedFeatures(&self) -> windows_core::Result<windows_core::Array<NDCertificateFeature>>;
@@ -1441,10 +1674,17 @@ pub trait INDTransmitterProperties_Impl: windows_core::IUnknownImpl {
     fn ModelNumber(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl INDTransmitterProperties_Vtbl {
-    pub const fn new<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CertificateType<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDCertificateType) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+    {
+        unsafe extern "system" fn CertificateType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDCertificateType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::CertificateType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1454,9 +1694,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PlatformIdentifier<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDCertificatePlatformID) -> windows_core::HRESULT {
+        unsafe extern "system" fn PlatformIdentifier<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut NDCertificatePlatformID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::PlatformIdentifier(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1466,9 +1710,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SupportedFeatures<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut NDCertificateFeature) -> windows_core::HRESULT {
+        unsafe extern "system" fn SupportedFeatures<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut NDCertificateFeature) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::SupportedFeatures(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -1480,9 +1728,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SecurityLevel<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SecurityLevel<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::SecurityLevel(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1492,9 +1744,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SecurityVersion<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SecurityVersion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::SecurityVersion(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1504,9 +1760,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExpirationDate<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::ExpirationDate(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1516,9 +1776,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ClientID<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClientID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::ClientID(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -1530,9 +1794,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ModelDigest<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModelDigest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::ModelDigest(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -1544,9 +1812,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ModelManufacturerName<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModelManufacturerName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::ModelManufacturerName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1557,9 +1829,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ModelName<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModelName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::ModelName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1570,9 +1846,13 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ModelNumber<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ModelNumber<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INDTransmitterProperties_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INDTransmitterProperties_Impl::ModelNumber(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1720,7 +2000,7 @@ impl IPlayReadyDomain {
 impl windows_core::RuntimeName for IPlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyDomain";
 }
-pub trait IPlayReadyDomain_Impl: windows_core::IUnknownImpl {
+pub trait IPlayReadyDomain_Impl {
     fn AccountId(&self) -> windows_core::Result<windows_core::GUID>;
     fn ServiceId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Revision(&self) -> windows_core::Result<u32>;
@@ -1728,10 +2008,17 @@ pub trait IPlayReadyDomain_Impl: windows_core::IUnknownImpl {
     fn DomainJoinUrl(&self) -> windows_core::Result<super::super::super::Foundation::Uri>;
 }
 impl IPlayReadyDomain_Vtbl {
-    pub const fn new<Identity: IPlayReadyDomain_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AccountId<Identity: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyDomain_Impl,
+    {
+        unsafe extern "system" fn AccountId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyDomain_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyDomain_Impl::AccountId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1741,9 +2028,13 @@ impl IPlayReadyDomain_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ServiceId<Identity: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn ServiceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyDomain_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyDomain_Impl::ServiceId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1753,9 +2044,13 @@ impl IPlayReadyDomain_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Revision<Identity: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Revision<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyDomain_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyDomain_Impl::Revision(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1765,9 +2060,13 @@ impl IPlayReadyDomain_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FriendlyName<Identity: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FriendlyName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyDomain_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyDomain_Impl::FriendlyName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1778,9 +2077,13 @@ impl IPlayReadyDomain_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DomainJoinUrl<Identity: IPlayReadyDomain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DomainJoinUrl<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyDomain_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyDomain_Impl::DomainJoinUrl(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1926,7 +2229,7 @@ impl IPlayReadyLicense {
 impl windows_core::RuntimeName for IPlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicense";
 }
-pub trait IPlayReadyLicense_Impl: windows_core::IUnknownImpl {
+pub trait IPlayReadyLicense_Impl {
     fn FullyEvaluated(&self) -> windows_core::Result<bool>;
     fn UsableForPlay(&self) -> windows_core::Result<bool>;
     fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
@@ -1936,10 +2239,17 @@ pub trait IPlayReadyLicense_Impl: windows_core::IUnknownImpl {
     fn GetKIDAtChainDepth(&self, chainDepth: u32) -> windows_core::Result<windows_core::GUID>;
 }
 impl IPlayReadyLicense_Vtbl {
-    pub const fn new<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn FullyEvaluated<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+    {
+        unsafe extern "system" fn FullyEvaluated<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicense_Impl::FullyEvaluated(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1949,9 +2259,13 @@ impl IPlayReadyLicense_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UsableForPlay<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn UsableForPlay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicense_Impl::UsableForPlay(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1961,9 +2275,13 @@ impl IPlayReadyLicense_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExpirationDate<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicense_Impl::ExpirationDate(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -1974,9 +2292,13 @@ impl IPlayReadyLicense_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExpireAfterFirstPlay<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpireAfterFirstPlay<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicense_Impl::ExpireAfterFirstPlay(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1986,9 +2308,13 @@ impl IPlayReadyLicense_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DomainAccountID<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn DomainAccountID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicense_Impl::DomainAccountID(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -1998,9 +2324,13 @@ impl IPlayReadyLicense_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ChainDepth<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChainDepth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicense_Impl::ChainDepth(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2010,9 +2340,13 @@ impl IPlayReadyLicense_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetKIDAtChainDepth<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, chaindepth: u32, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKIDAtChainDepth<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, chaindepth: u32, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicense_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicense_Impl::GetKIDAtChainDepth(this, chaindepth) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2175,10 +2509,17 @@ pub trait IPlayReadyLicenseAcquisitionServiceRequest_Impl: super::IMediaProtecti
     fn SetDomainServiceId(&self, value: &windows_core::GUID) -> windows_core::Result<()>;
 }
 impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
-    pub const fn new<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ContentHeader<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl,
+    {
+        unsafe extern "system" fn ContentHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicenseAcquisitionServiceRequest_Impl::ContentHeader(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2189,15 +2530,23 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetContentHeader<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetContentHeader<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPlayReadyLicenseAcquisitionServiceRequest_Impl::SetContentHeader(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn DomainServiceId<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn DomainServiceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicenseAcquisitionServiceRequest_Impl::DomainServiceId(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2207,9 +2556,13 @@ impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDomainServiceId<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDomainServiceId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseAcquisitionServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPlayReadyLicenseAcquisitionServiceRequest_Impl::SetDomainServiceId(this, core::mem::transmute(&value)).into()
             }
         }
@@ -2296,15 +2649,22 @@ impl IPlayReadyLicenseSession {
 impl windows_core::RuntimeName for IPlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession";
 }
-pub trait IPlayReadyLicenseSession_Impl: windows_core::IUnknownImpl {
+pub trait IPlayReadyLicenseSession_Impl {
     fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
     fn ConfigureMediaProtectionManager(&self, mpm: windows_core::Ref<super::MediaProtectionManager>) -> windows_core::Result<()>;
 }
 impl IPlayReadyLicenseSession_Vtbl {
-    pub const fn new<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateLAServiceRequest<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseSession_Impl,
+    {
+        unsafe extern "system" fn CreateLAServiceRequest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicenseSession_Impl::CreateLAServiceRequest(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2315,9 +2675,13 @@ impl IPlayReadyLicenseSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mpm: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConfigureMediaProtectionManager<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, mpm: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseSession_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPlayReadyLicenseSession_Impl::ConfigureMediaProtectionManager(this, core::mem::transmute_copy(&mpm)).into()
             }
         }
@@ -2376,10 +2740,17 @@ pub trait IPlayReadyLicenseSession2_Impl: IPlayReadyLicenseSession_Impl {
     fn CreateLicenseIterable(&self, contentHeader: windows_core::Ref<PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>;
 }
 impl IPlayReadyLicenseSession2_Vtbl {
-    pub const fn new<Identity: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateLicenseIterable<Identity: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentheader: *mut core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseSession2_Impl,
+    {
+        unsafe extern "system" fn CreateLicenseIterable<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentheader: *mut core::ffi::c_void, fullyevaluated: bool, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyLicenseSession2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyLicenseSession2_Impl::CreateLicenseIterable(this, core::mem::transmute_copy(&contentheader), fullyevaluated) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2571,10 +2942,17 @@ pub trait IPlayReadySecureStopServiceRequest_Impl: super::IMediaProtectionServic
     fn PublisherCertificate(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
 impl IPlayReadySecureStopServiceRequest_Vtbl {
-    pub const fn new<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SessionID<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadySecureStopServiceRequest_Impl,
+    {
+        unsafe extern "system" fn SessionID<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadySecureStopServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadySecureStopServiceRequest_Impl::SessionID(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2584,9 +2962,13 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StartTime<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadySecureStopServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadySecureStopServiceRequest_Impl::StartTime(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2596,9 +2978,13 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UpdateTime<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateTime<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadySecureStopServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadySecureStopServiceRequest_Impl::UpdateTime(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2608,9 +2994,13 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Stopped<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn Stopped<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadySecureStopServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadySecureStopServiceRequest_Impl::Stopped(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -2620,9 +3010,13 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PublisherCertificate<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn PublisherCertificate<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadySecureStopServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadySecureStopServiceRequest_Impl::PublisherCertificate(this) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -2756,10 +3150,17 @@ pub trait IPlayReadyServiceRequest_Impl: super::IMediaProtectionServiceRequest_I
     fn ProcessManualEnablingResponse(&self, responseBytes: &[u8]) -> windows_core::Result<windows_core::HRESULT>;
 }
 impl IPlayReadyServiceRequest_Vtbl {
-    pub const fn new<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Uri<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+    {
+        unsafe extern "system" fn Uri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyServiceRequest_Impl::Uri(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2770,15 +3171,23 @@ impl IPlayReadyServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetUri<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetUri<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPlayReadyServiceRequest_Impl::SetUri(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn ResponseCustomData<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResponseCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyServiceRequest_Impl::ResponseCustomData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2789,9 +3198,13 @@ impl IPlayReadyServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ChallengeCustomData<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChallengeCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyServiceRequest_Impl::ChallengeCustomData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2802,15 +3215,23 @@ impl IPlayReadyServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetChallengeCustomData<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetChallengeCustomData<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPlayReadyServiceRequest_Impl::SetChallengeCustomData(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn BeginServiceRequest<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginServiceRequest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyServiceRequest_Impl::BeginServiceRequest(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2821,9 +3242,13 @@ impl IPlayReadyServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn NextServiceRequest<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn NextServiceRequest<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyServiceRequest_Impl::NextServiceRequest(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2834,9 +3259,13 @@ impl IPlayReadyServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GenerateManualEnablingChallenge<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateManualEnablingChallenge<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyServiceRequest_Impl::GenerateManualEnablingChallenge(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -2847,9 +3276,13 @@ impl IPlayReadyServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ProcessManualEnablingResponse<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, responsebytes_array_size: u32, responsebytes: *const u8, result__: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn ProcessManualEnablingResponse<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, responsebytes_array_size: u32, responsebytes: *const u8, result__: *mut windows_core::HRESULT) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPlayReadyServiceRequest_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPlayReadyServiceRequest_Impl::ProcessManualEnablingResponse(this, core::slice::from_raw_parts(core::mem::transmute_copy(&responsebytes), responsebytes_array_size as usize)) {
                     Ok(ok__) => {
                         result__.write(ok__);

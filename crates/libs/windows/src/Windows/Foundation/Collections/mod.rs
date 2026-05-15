@@ -92,7 +92,10 @@ impl windows_core::RuntimeName for IPropertySet {
 }
 pub trait IPropertySet_Impl: windows_collections::IIterable_Impl<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>> + windows_collections::IMap_Impl<windows_core::HSTRING, windows_core::IInspectable> + windows_collections::IObservableMap_Impl<windows_core::HSTRING, windows_core::IInspectable> {}
 impl IPropertySet_Vtbl {
-    pub const fn new<Identity: IPropertySet_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPropertySet_Impl,
+    {
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPropertySet, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

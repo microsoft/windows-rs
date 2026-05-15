@@ -58,10 +58,17 @@ pub trait IEnumNetworkConnections_Impl: super::super::System::Com::IDispatch_Imp
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetworkConnections_Vtbl {
-    pub const fn new<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn _NewEnum<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworkConnections_Impl,
+    {
+        unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworkConnections_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IEnumNetworkConnections_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppenumvar.write(core::mem::transmute(ok__));
@@ -71,27 +78,43 @@ impl IEnumNetworkConnections_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Next<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworkConnections_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IEnumNetworkConnections_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworkConnections_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IEnumNetworkConnections_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworkConnections_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IEnumNetworkConnections_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IEnumNetworkConnections_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworkConnections_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IEnumNetworkConnections_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenumnetwork.write(core::mem::transmute(ok__));
@@ -176,10 +199,17 @@ pub trait IEnumNetworks_Impl: super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetworks_Vtbl {
-    pub const fn new<Identity: IEnumNetworks_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn _NewEnum<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworks_Impl,
+    {
+        unsafe extern "system" fn _NewEnum<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvar: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworks_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IEnumNetworks_Impl::_NewEnum(this) {
                     Ok(ok__) => {
                         ppenumvar.write(core::mem::transmute(ok__));
@@ -189,27 +219,43 @@ impl IEnumNetworks_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Next<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Next<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworks_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IEnumNetworks_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
             }
         }
-        unsafe extern "system" fn Skip<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Skip<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworks_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IEnumNetworks_Impl::Skip(this, core::mem::transmute_copy(&celt)).into()
             }
         }
-        unsafe extern "system" fn Reset<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworks_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IEnumNetworks_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Clone<Identity: IEnumNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clone<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IEnumNetworks_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IEnumNetworks_Impl::Clone(this) {
                     Ok(ok__) => {
                         ppenumnetwork.write(core::mem::transmute(ok__));
@@ -351,10 +397,17 @@ pub trait INetwork_Impl: super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetwork_Vtbl {
-    pub const fn new<Identity: INetwork_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetName<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psznetworkname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+    {
+        unsafe extern "system" fn GetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, psznetworkname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::GetName(this) {
                     Ok(ok__) => {
                         psznetworkname.write(core::mem::transmute(ok__));
@@ -364,15 +417,23 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetName<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznetworknewname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, sznetworknewname: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetwork_Impl::SetName(this, core::mem::transmute(&sznetworknewname)).into()
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdescription: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::GetDescription(this) {
                     Ok(ok__) => {
                         pszdescription.write(core::mem::transmute(ok__));
@@ -382,15 +443,23 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDescription<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdescription: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescription<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, szdescription: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetwork_Impl::SetDescription(this, core::mem::transmute(&szdescription)).into()
             }
         }
-        unsafe extern "system" fn GetNetworkId<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgdguidnetworkid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNetworkId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgdguidnetworkid: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::GetNetworkId(this) {
                     Ok(ok__) => {
                         pgdguidnetworkid.write(core::mem::transmute(ok__));
@@ -400,9 +469,13 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDomainType<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnetworktype: *mut NLM_DOMAIN_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDomainType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnetworktype: *mut NLM_DOMAIN_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::GetDomainType(this) {
                     Ok(ok__) => {
                         pnetworktype.write(core::mem::transmute(ok__));
@@ -412,9 +485,13 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNetworkConnections<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetworkconnection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNetworkConnections<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumnetworkconnection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::GetNetworkConnections(this) {
                     Ok(ok__) => {
                         ppenumnetworkconnection.write(core::mem::transmute(ok__));
@@ -424,15 +501,23 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTimeCreatedAndConnected<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTimeCreatedAndConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetwork_Impl::GetTimeCreatedAndConnected(this, core::mem::transmute_copy(&pdwlowdatetimecreated), core::mem::transmute_copy(&pdwhighdatetimecreated), core::mem::transmute_copy(&pdwlowdatetimeconnected), core::mem::transmute_copy(&pdwhighdatetimeconnected)).into()
             }
         }
-        unsafe extern "system" fn IsConnectedToInternet<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnectedToInternet<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::IsConnectedToInternet(this) {
                     Ok(ok__) => {
                         pbisconnected.write(core::mem::transmute(ok__));
@@ -442,9 +527,13 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::IsConnected(this) {
                     Ok(ok__) => {
                         pbisconnected.write(core::mem::transmute(ok__));
@@ -454,9 +543,13 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetConnectivity<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConnectivity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::GetConnectivity(this) {
                     Ok(ok__) => {
                         pconnectivity.write(core::mem::transmute(ok__));
@@ -466,9 +559,13 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCategory<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategory: *mut NLM_NETWORK_CATEGORY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCategory<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategory: *mut NLM_NETWORK_CATEGORY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork_Impl::GetCategory(this) {
                     Ok(ok__) => {
                         pcategory.write(core::mem::transmute(ok__));
@@ -478,9 +575,13 @@ impl INetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCategory<Identity: INetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCategory<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetwork_Impl::SetCategory(this, core::mem::transmute_copy(&newcategory)).into()
             }
         }
@@ -540,10 +641,17 @@ pub trait INetwork2_Impl: INetwork_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetwork2_Vtbl {
-    pub const fn new<Identity: INetwork2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: INetwork2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetwork2_Impl,
+    {
+        unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetwork2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetwork2_Impl::IsDomainAuthenticatedBy(this, core::mem::transmute_copy(&domainauthenticationkind)) {
                     Ok(ok__) => {
                         pvalue.write(core::mem::transmute(ok__));
@@ -642,10 +750,17 @@ pub trait INetworkConnection_Impl: super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetworkConnection_Vtbl {
-    pub const fn new<Identity: INetworkConnection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetNetwork<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+    {
+        unsafe extern "system" fn GetNetwork<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection_Impl::GetNetwork(this) {
                     Ok(ok__) => {
                         ppnetwork.write(core::mem::transmute(ok__));
@@ -655,9 +770,13 @@ impl INetworkConnection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsConnectedToInternet<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnectedToInternet<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection_Impl::IsConnectedToInternet(this) {
                     Ok(ok__) => {
                         pbisconnected.write(core::mem::transmute(ok__));
@@ -667,9 +786,13 @@ impl INetworkConnection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection_Impl::IsConnected(this) {
                     Ok(ok__) => {
                         pbisconnected.write(core::mem::transmute(ok__));
@@ -679,9 +802,13 @@ impl INetworkConnection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetConnectivity<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConnectivity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection_Impl::GetConnectivity(this) {
                     Ok(ok__) => {
                         pconnectivity.write(core::mem::transmute(ok__));
@@ -691,9 +818,13 @@ impl INetworkConnection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetConnectionId<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgdconnectionid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConnectionId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgdconnectionid: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection_Impl::GetConnectionId(this) {
                     Ok(ok__) => {
                         pgdconnectionid.write(core::mem::transmute(ok__));
@@ -703,9 +834,13 @@ impl INetworkConnection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetAdapterId<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgdadapterid: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapterId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgdadapterid: *mut windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection_Impl::GetAdapterId(this) {
                     Ok(ok__) => {
                         pgdadapterid.write(core::mem::transmute(ok__));
@@ -715,9 +850,13 @@ impl INetworkConnection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDomainType<Identity: INetworkConnection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdomaintype: *mut NLM_DOMAIN_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDomainType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdomaintype: *mut NLM_DOMAIN_TYPE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection_Impl::GetDomainType(this) {
                     Ok(ok__) => {
                         pdomaintype.write(core::mem::transmute(ok__));
@@ -777,10 +916,17 @@ pub trait INetworkConnection2_Impl: INetworkConnection_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetworkConnection2_Vtbl {
-    pub const fn new<Identity: INetworkConnection2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: INetworkConnection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection2_Impl,
+    {
+        unsafe extern "system" fn IsDomainAuthenticatedBy<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut windows_core::BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnection2_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnection2_Impl::IsDomainAuthenticatedBy(this, core::mem::transmute_copy(&domainauthenticationkind)) {
                     Ok(ok__) => {
                         pvalue.write(core::mem::transmute(ok__));
@@ -818,15 +964,22 @@ pub struct INetworkConnectionCost_Vtbl {
     pub GetCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT,
 }
-pub trait INetworkConnectionCost_Impl: windows_core::IUnknownImpl {
+pub trait INetworkConnectionCost_Impl {
     fn GetCost(&self) -> windows_core::Result<u32>;
     fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::Result<()>;
 }
 impl INetworkConnectionCost_Vtbl {
-    pub const fn new<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCost<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcost: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionCost_Impl,
+    {
+        unsafe extern "system" fn GetCost<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcost: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionCost_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkConnectionCost_Impl::GetCost(this) {
                     Ok(ok__) => {
                         pcost.write(core::mem::transmute(ok__));
@@ -836,9 +989,13 @@ impl INetworkConnectionCost_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDataPlanStatus<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDataPlanStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionCost_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkConnectionCost_Impl::GetDataPlanStatus(this, core::mem::transmute_copy(&pdataplanstatus)).into()
             }
         }
@@ -870,21 +1027,32 @@ pub struct INetworkConnectionCostEvents_Vtbl {
     pub ConnectionCostChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32) -> windows_core::HRESULT,
     pub ConnectionDataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait INetworkConnectionCostEvents_Impl: windows_core::IUnknownImpl {
+pub trait INetworkConnectionCostEvents_Impl {
     fn ConnectionCostChanged(&self, connectionid: &windows_core::GUID, newcost: u32) -> windows_core::Result<()>;
     fn ConnectionDataPlanStatusChanged(&self, connectionid: &windows_core::GUID) -> windows_core::Result<()>;
 }
 impl INetworkConnectionCostEvents_Vtbl {
-    pub const fn new<Identity: INetworkConnectionCostEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ConnectionCostChanged<Identity: INetworkConnectionCostEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, newcost: u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionCostEvents_Impl,
+    {
+        unsafe extern "system" fn ConnectionCostChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, newcost: u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionCostEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkConnectionCostEvents_Impl::ConnectionCostChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&newcost)).into()
             }
         }
-        unsafe extern "system" fn ConnectionDataPlanStatusChanged<Identity: INetworkConnectionCostEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn ConnectionDataPlanStatusChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionCostEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkConnectionCostEvents_Impl::ConnectionDataPlanStatusChanged(this, core::mem::transmute(&connectionid)).into()
             }
         }
@@ -916,21 +1084,32 @@ pub struct INetworkConnectionEvents_Vtbl {
     pub NetworkConnectionConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTIVITY) -> windows_core::HRESULT,
     pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
-pub trait INetworkConnectionEvents_Impl: windows_core::IUnknownImpl {
+pub trait INetworkConnectionEvents_Impl {
     fn NetworkConnectionConnectivityChanged(&self, connectionid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
     fn NetworkConnectionPropertyChanged(&self, connectionid: &windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::Result<()>;
 }
 impl INetworkConnectionEvents_Vtbl {
-    pub const fn new<Identity: INetworkConnectionEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn NetworkConnectionConnectivityChanged<Identity: INetworkConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionEvents_Impl,
+    {
+        unsafe extern "system" fn NetworkConnectionConnectivityChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkConnectionEvents_Impl::NetworkConnectionConnectivityChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&newconnectivity)).into()
             }
         }
-        unsafe extern "system" fn NetworkConnectionPropertyChanged<Identity: INetworkConnectionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn NetworkConnectionPropertyChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, connectionid: windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkConnectionEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkConnectionEvents_Impl::NetworkConnectionPropertyChanged(this, core::mem::transmute(&connectionid), core::mem::transmute_copy(&flags)).into()
             }
         }
@@ -966,28 +1145,43 @@ pub struct INetworkCostManager_Vtbl {
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DATAPLAN_STATUS, *const NLM_SOCKADDR) -> windows_core::HRESULT,
     pub SetDestinationAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const NLM_SOCKADDR, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
-pub trait INetworkCostManager_Impl: windows_core::IUnknownImpl {
+pub trait INetworkCostManager_Impl {
     fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
     fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
     fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 impl INetworkCostManager_Vtbl {
-    pub const fn new<Identity: INetworkCostManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCost<Identity: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkCostManager_Impl,
+    {
+        unsafe extern "system" fn GetCost<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkCostManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkCostManager_Impl::GetCost(this, core::mem::transmute_copy(&pcost), core::mem::transmute_copy(&pdestipaddr)).into()
             }
         }
-        unsafe extern "system" fn GetDataPlanStatus<Identity: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDataPlanStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkCostManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkCostManager_Impl::GetDataPlanStatus(this, core::mem::transmute_copy(&pdataplanstatus), core::mem::transmute_copy(&pdestipaddr)).into()
             }
         }
-        unsafe extern "system" fn SetDestinationAddresses<Identity: INetworkCostManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestinationAddresses<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkCostManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkCostManager_Impl::SetDestinationAddresses(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&pdestipaddrlist), core::mem::transmute_copy(&bappend)).into()
             }
         }
@@ -1020,21 +1214,32 @@ pub struct INetworkCostManagerEvents_Vtbl {
     pub CostChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const NLM_SOCKADDR) -> windows_core::HRESULT,
     pub DataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const NLM_SOCKADDR) -> windows_core::HRESULT,
 }
-pub trait INetworkCostManagerEvents_Impl: windows_core::IUnknownImpl {
+pub trait INetworkCostManagerEvents_Impl {
     fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
     fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
 }
 impl INetworkCostManagerEvents_Vtbl {
-    pub const fn new<Identity: INetworkCostManagerEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CostChanged<Identity: INetworkCostManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkCostManagerEvents_Impl,
+    {
+        unsafe extern "system" fn CostChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkCostManagerEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkCostManagerEvents_Impl::CostChanged(this, core::mem::transmute_copy(&newcost), core::mem::transmute_copy(&pdestaddr)).into()
             }
         }
-        unsafe extern "system" fn DataPlanStatusChanged<Identity: INetworkCostManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT {
+        unsafe extern "system" fn DataPlanStatusChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestaddr: *const NLM_SOCKADDR) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkCostManagerEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkCostManagerEvents_Impl::DataPlanStatusChanged(this, core::mem::transmute_copy(&pdestaddr)).into()
             }
         }
@@ -1074,35 +1279,54 @@ pub struct INetworkEvents_Vtbl {
     pub NetworkConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTIVITY) -> windows_core::HRESULT,
     pub NetworkPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
-pub trait INetworkEvents_Impl: windows_core::IUnknownImpl {
+pub trait INetworkEvents_Impl {
     fn NetworkAdded(&self, networkid: &windows_core::GUID) -> windows_core::Result<()>;
     fn NetworkDeleted(&self, networkid: &windows_core::GUID) -> windows_core::Result<()>;
     fn NetworkConnectivityChanged(&self, networkid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
     fn NetworkPropertyChanged(&self, networkid: &windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::Result<()>;
 }
 impl INetworkEvents_Vtbl {
-    pub const fn new<Identity: INetworkEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn NetworkAdded<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkEvents_Impl,
+    {
+        unsafe extern "system" fn NetworkAdded<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkEvents_Impl::NetworkAdded(this, core::mem::transmute(&networkid)).into()
             }
         }
-        unsafe extern "system" fn NetworkDeleted<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn NetworkDeleted<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkEvents_Impl::NetworkDeleted(this, core::mem::transmute(&networkid)).into()
             }
         }
-        unsafe extern "system" fn NetworkConnectivityChanged<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
+        unsafe extern "system" fn NetworkConnectivityChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkEvents_Impl::NetworkConnectivityChanged(this, core::mem::transmute(&networkid), core::mem::transmute_copy(&newconnectivity)).into()
             }
         }
-        unsafe extern "system" fn NetworkPropertyChanged<Identity: INetworkEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT {
+        unsafe extern "system" fn NetworkPropertyChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, networkid: windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkEvents_Impl::NetworkPropertyChanged(this, core::mem::transmute(&networkid), core::mem::transmute_copy(&flags)).into()
             }
         }
@@ -1210,10 +1434,17 @@ pub trait INetworkListManager_Impl: super::super::System::Com::IDispatch_Impl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetworkListManager_Vtbl {
-    pub const fn new<Identity: INetworkListManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetNetworks<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: NLM_ENUM_NETWORK, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+    {
+        unsafe extern "system" fn GetNetworks<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: NLM_ENUM_NETWORK, ppenumnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkListManager_Impl::GetNetworks(this, core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
                         ppenumnetwork.write(core::mem::transmute(ok__));
@@ -1223,9 +1454,13 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNetwork<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdnetworkid: windows_core::GUID, ppnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNetwork<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdnetworkid: windows_core::GUID, ppnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkListManager_Impl::GetNetwork(this, core::mem::transmute(&gdnetworkid)) {
                     Ok(ok__) => {
                         ppnetwork.write(core::mem::transmute(ok__));
@@ -1235,9 +1470,13 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNetworkConnections<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNetworkConnections<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkListManager_Impl::GetNetworkConnections(this) {
                     Ok(ok__) => {
                         ppenum.write(core::mem::transmute(ok__));
@@ -1247,9 +1486,13 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetNetworkConnection<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdnetworkconnectionid: windows_core::GUID, ppnetworkconnection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNetworkConnection<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, gdnetworkconnectionid: windows_core::GUID, ppnetworkconnection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkListManager_Impl::GetNetworkConnection(this, core::mem::transmute(&gdnetworkconnectionid)) {
                     Ok(ok__) => {
                         ppnetworkconnection.write(core::mem::transmute(ok__));
@@ -1259,9 +1502,13 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsConnectedToInternet<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnectedToInternet<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkListManager_Impl::IsConnectedToInternet(this) {
                     Ok(ok__) => {
                         pbisconnected.write(core::mem::transmute(ok__));
@@ -1271,9 +1518,13 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsConnected<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsConnected<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkListManager_Impl::IsConnected(this) {
                     Ok(ok__) => {
                         pbisconnected.write(core::mem::transmute(ok__));
@@ -1283,9 +1534,13 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetConnectivity<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetConnectivity<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match INetworkListManager_Impl::GetConnectivity(this) {
                     Ok(ok__) => {
                         pconnectivity.write(core::mem::transmute(ok__));
@@ -1295,15 +1550,23 @@ impl INetworkListManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSimulatedProfileInfo<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSimulatedProfileInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkListManager_Impl::SetSimulatedProfileInfo(this, core::mem::transmute_copy(&psimulatedinfo)).into()
             }
         }
-        unsafe extern "system" fn ClearSimulatedProfileInfo<Identity: INetworkListManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ClearSimulatedProfileInfo<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManager_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkListManager_Impl::ClearSimulatedProfileInfo(this).into()
             }
         }
@@ -1339,14 +1602,21 @@ pub struct INetworkListManagerEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_CONNECTIVITY) -> windows_core::HRESULT,
 }
-pub trait INetworkListManagerEvents_Impl: windows_core::IUnknownImpl {
+pub trait INetworkListManagerEvents_Impl {
     fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
 }
 impl INetworkListManagerEvents_Vtbl {
-    pub const fn new<Identity: INetworkListManagerEvents_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ConnectivityChanged<Identity: INetworkListManagerEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManagerEvents_Impl,
+    {
+        unsafe extern "system" fn ConnectivityChanged<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: INetworkListManagerEvents_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 INetworkListManagerEvents_Impl::ConnectivityChanged(this, core::mem::transmute_copy(&newconnectivity)).into()
             }
         }

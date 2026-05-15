@@ -121,7 +121,7 @@ pub struct IDynamicConceptProviderConcept_Vtbl {
     ) -> windows_core::HRESULT,
     pub NotifyDestruct: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
+pub trait IDynamicConceptProviderConcept_Impl {
     fn GetConcept(
         &self,
         contextobject: windows_core::Ref<IModelObject>,
@@ -148,9 +148,12 @@ pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
     fn NotifyDestruct(&self) -> windows_core::Result<()>;
 }
 impl IDynamicConceptProviderConcept_Vtbl {
-    pub const fn new<Identity: IDynamicConceptProviderConcept_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
+    {
         unsafe extern "system" fn GetConcept<
-            Identity: IDynamicConceptProviderConcept_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
@@ -159,10 +162,15 @@ impl IDynamicConceptProviderConcept_Vtbl {
             conceptinterface: *mut *mut core::ffi::c_void,
             conceptmetadata: *mut *mut core::ffi::c_void,
             hasconcept: *mut bool,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDynamicConceptProviderConcept_Impl::GetConcept(
                     this,
                     core::mem::transmute_copy(&contextobject),
@@ -175,7 +183,7 @@ impl IDynamicConceptProviderConcept_Vtbl {
             }
         }
         unsafe extern "system" fn SetConcept<
-            Identity: IDynamicConceptProviderConcept_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
@@ -183,10 +191,15 @@ impl IDynamicConceptProviderConcept_Vtbl {
             conceptid: *const windows_core::GUID,
             conceptinterface: *mut core::ffi::c_void,
             conceptmetadata: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDynamicConceptProviderConcept_Impl::SetConcept(
                     this,
                     core::mem::transmute_copy(&contextobject),
@@ -198,15 +211,20 @@ impl IDynamicConceptProviderConcept_Vtbl {
             }
         }
         unsafe extern "system" fn NotifyParent<
-            Identity: IDynamicConceptProviderConcept_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             parentmodel: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDynamicConceptProviderConcept_Impl::NotifyParent(
                     this,
                     core::mem::transmute_copy(&parentmodel),
@@ -215,15 +233,20 @@ impl IDynamicConceptProviderConcept_Vtbl {
             }
         }
         unsafe extern "system" fn NotifyParentChange<
-            Identity: IDynamicConceptProviderConcept_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             parentmodel: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDynamicConceptProviderConcept_Impl::NotifyParentChange(
                     this,
                     core::mem::transmute_copy(&parentmodel),
@@ -232,14 +255,19 @@ impl IDynamicConceptProviderConcept_Vtbl {
             }
         }
         unsafe extern "system" fn NotifyDestruct<
-            Identity: IDynamicConceptProviderConcept_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IDynamicConceptProviderConcept_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IDynamicConceptProviderConcept_Impl::NotifyDestruct(this).into()
             }
         }
@@ -373,7 +401,7 @@ pub struct IKeyStore_Vtbl {
     ) -> windows_core::HRESULT,
     pub ClearKeys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
+pub trait IKeyStore_Impl {
     fn GetKey(
         &self,
         key: &windows_core::PCWSTR,
@@ -400,16 +428,27 @@ pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
     fn ClearKeys(&self) -> windows_core::Result<()>;
 }
 impl IKeyStore_Vtbl {
-    pub const fn new<Identity: IKeyStore_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetKey<Identity: IKeyStore_Impl, const OFFSET: isize>(
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
+    {
+        unsafe extern "system" fn GetKey<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             key: windows_core::PCWSTR,
             object: *mut *mut core::ffi::c_void,
             metadata: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IKeyStore_Impl::GetKey(
                     this,
                     core::mem::transmute(&key),
@@ -419,15 +458,23 @@ impl IKeyStore_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SetKey<Identity: IKeyStore_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn SetKey<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             key: windows_core::PCWSTR,
             object: *mut core::ffi::c_void,
             metadata: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IKeyStore_Impl::SetKey(
                     this,
                     core::mem::transmute(&key),
@@ -437,15 +484,23 @@ impl IKeyStore_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn GetKeyValue<Identity: IKeyStore_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn GetKeyValue<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             key: windows_core::PCWSTR,
             object: *mut *mut core::ffi::c_void,
             metadata: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IKeyStore_Impl::GetKeyValue(
                     this,
                     core::mem::transmute(&key),
@@ -455,14 +510,22 @@ impl IKeyStore_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SetKeyValue<Identity: IKeyStore_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn SetKeyValue<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             key: windows_core::PCWSTR,
             object: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IKeyStore_Impl::SetKeyValue(
                     this,
                     core::mem::transmute(&key),
@@ -471,12 +534,20 @@ impl IKeyStore_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ClearKeys<Identity: IKeyStore_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn ClearKeys<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IKeyStore_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IKeyStore_Impl::ClearKeys(this).into()
             }
         }

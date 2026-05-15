@@ -58,18 +58,26 @@ pub trait ID3D12DeviceChild_Impl: ID3D12Object_Impl {
     ) -> windows_core::Result<()>;
 }
 impl ID3D12DeviceChild_Vtbl {
-    pub const fn new<Identity: ID3D12DeviceChild_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceChild_Impl,
+    {
         unsafe extern "system" fn GetDevice<
-            Identity: ID3D12DeviceChild_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             riid: *const windows_core::GUID,
             ppvdevice: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3D12DeviceChild_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3D12DeviceChild_Impl::GetDevice(
                     this,
                     core::mem::transmute_copy(&riid),
@@ -186,7 +194,7 @@ pub struct ID3D12Object_Vtbl {
 }
 unsafe impl Send for ID3D12Object {}
 unsafe impl Sync for ID3D12Object {}
-pub trait ID3D12Object_Impl: windows_core::IUnknownImpl {
+pub trait ID3D12Object_Impl {
     fn GetPrivateData(
         &self,
         guid: *const windows_core::GUID,
@@ -207,19 +215,27 @@ pub trait ID3D12Object_Impl: windows_core::IUnknownImpl {
     fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ID3D12Object_Vtbl {
-    pub const fn new<Identity: ID3D12Object_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
+    {
         unsafe extern "system" fn GetPrivateData<
-            Identity: ID3D12Object_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             guid: *const windows_core::GUID,
             pdatasize: *mut u32,
             pdata: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3D12Object_Impl::GetPrivateData(
                     this,
                     core::mem::transmute_copy(&guid),
@@ -230,17 +246,22 @@ impl ID3D12Object_Vtbl {
             }
         }
         unsafe extern "system" fn SetPrivateData<
-            Identity: ID3D12Object_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             guid: *const windows_core::GUID,
             datasize: u32,
             pdata: *const core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3D12Object_Impl::SetPrivateData(
                     this,
                     core::mem::transmute_copy(&guid),
@@ -251,16 +272,21 @@ impl ID3D12Object_Vtbl {
             }
         }
         unsafe extern "system" fn SetPrivateDataInterface<
-            Identity: ID3D12Object_Impl,
+            Identity: windows_core::IUnknownImpl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
             guid: *const windows_core::GUID,
             pdata: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3D12Object_Impl::SetPrivateDataInterface(
                     this,
                     core::mem::transmute_copy(&guid),
@@ -269,13 +295,21 @@ impl ID3D12Object_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SetName<Identity: ID3D12Object_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn SetName<
+            Identity: windows_core::IUnknownImpl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             name: windows_core::PCWSTR,
-        ) -> windows_core::HRESULT {
+        ) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Object_Impl,
+        {
             unsafe {
-                let this: &Identity =
+                let outer: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                    <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 ID3D12Object_Impl::SetName(this, core::mem::transmute(&name)).into()
             }
         }
@@ -318,7 +352,10 @@ unsafe impl Send for ID3D12Pageable {}
 unsafe impl Sync for ID3D12Pageable {}
 pub trait ID3D12Pageable_Impl: ID3D12DeviceChild_Impl {}
 impl ID3D12Pageable_Vtbl {
-    pub const fn new<Identity: ID3D12Pageable_Impl, const OFFSET: isize>() -> Self {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: ID3D12Pageable_Impl,
+    {
         Self {
             base__: ID3D12DeviceChild_Vtbl::new::<Identity, OFFSET>(),
         }

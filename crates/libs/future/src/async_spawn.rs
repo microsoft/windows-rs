@@ -140,7 +140,7 @@ implement_decl! {
     where T: RuntimeType + 'static, P: RuntimeType + 'static
 }
 
-impl IAsyncInfo_Impl for Action_Impl {
+impl IAsyncInfo_Impl for Action {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -158,7 +158,7 @@ impl IAsyncInfo_Impl for Action_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncInfo_Impl for Operation_Impl<T> {
+impl<T: RuntimeType> IAsyncInfo_Impl for Operation<T> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -176,7 +176,7 @@ impl<T: RuntimeType> IAsyncInfo_Impl for Operation_Impl<T> {
     }
 }
 
-impl<P: RuntimeType> IAsyncInfo_Impl for ActionWithProgress_Impl<P> {
+impl<P: RuntimeType> IAsyncInfo_Impl for ActionWithProgress<P> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -194,7 +194,7 @@ impl<P: RuntimeType> IAsyncInfo_Impl for ActionWithProgress_Impl<P> {
     }
 }
 
-impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for OperationWithProgress_Impl<T, P> {
+impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for OperationWithProgress<T, P> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -212,7 +212,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for OperationWithProgress_I
     }
 }
 
-impl IAsyncAction_Impl for Action_Impl {
+impl IAsyncAction_Impl for Action {
     fn SetCompleted(&self, handler: Ref<AsyncActionCompletedHandler>) -> Result<()> {
         self.0.set_completed(&self.as_interface(), handler)
     }
@@ -224,7 +224,7 @@ impl IAsyncAction_Impl for Action_Impl {
     }
 }
 
-impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
+impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation<T> {
     fn SetCompleted(&self, handler: Ref<AsyncOperationCompletedHandler<T>>) -> Result<()> {
         self.0.set_completed(&self.as_interface(), handler)
     }
@@ -236,7 +236,7 @@ impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
     }
 }
 
-impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress_Impl<P> {
+impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress<P> {
     fn SetCompleted(&self, handler: Ref<AsyncActionWithProgressCompletedHandler<P>>) -> Result<()> {
         self.0.set_completed(&self.as_interface(), handler)
     }
@@ -255,7 +255,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress_Imp
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
-    for OperationWithProgress_Impl<T, P>
+    for OperationWithProgress<T, P>
 {
     fn SetCompleted(
         &self,

@@ -19,7 +19,7 @@ implement_decl! {
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
-impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMap_Impl<K, V>
+impl<K, V> IIterable_Impl<IKeyValuePair<K, V>> for StockMap<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
@@ -35,7 +35,7 @@ where
     }
 }
 
-impl<K, V> IMap_Impl<K, V> for StockMap_Impl<K, V>
+impl<K, V> IMap_Impl<K, V> for StockMap<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,
@@ -109,7 +109,7 @@ implement_decl! {
     where K: RuntimeType + 'static, V: RuntimeType + 'static, K::Default: Clone + Ord, V::Default: Clone
 }
 
-impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapIterator_Impl<K, V>
+impl<K, V> IIterator_Impl<IKeyValuePair<K, V>> for StockMapIterator<K, V>
 where
     K: RuntimeType,
     V: RuntimeType,

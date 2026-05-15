@@ -24,7 +24,7 @@ struct MyApp {
     placeholder: HSTRING,
 }
 
-impl IApplicationOverrides_Impl for MyApp_Impl {
+impl IApplicationOverrides_Impl for MyApp {
     fn OnLaunched(&self, _: Ref<LaunchActivatedEventArgs>) -> Result<()> {
         let window = Window::Current()?;
         let text_box = TextBox::new()?;

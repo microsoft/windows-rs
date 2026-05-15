@@ -108,18 +108,29 @@ pub mod Test {
     impl windows_core::RuntimeName for IFoo2 {
         const NAME: &'static str = "Test.IFoo2";
     }
-    pub trait IFoo2_Impl: windows_core::IUnknownImpl {
+    pub trait IFoo2_Impl {
         fn Bar(&self) -> windows_result::Result<i32>;
     }
     impl IFoo2_Vtbl {
-        pub const fn new<Identity: IFoo2_Impl, const OFFSET: isize>() -> Self {
-            unsafe extern "system" fn Bar<Identity: IFoo2_Impl, const OFFSET: isize>(
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IFoo2_Impl,
+        {
+            unsafe extern "system" fn Bar<
+                Identity: windows_core::IUnknownImpl,
+                const OFFSET: isize,
+            >(
                 this: *mut core::ffi::c_void,
                 result__: *mut i32,
-            ) -> windows_core::HRESULT {
+            ) -> windows_core::HRESULT
+            where
+                <Identity as windows_core::IUnknownImpl>::Impl: IFoo2_Impl,
+            {
                 unsafe {
-                    let this: &Identity =
+                    let outer: &Identity =
                         &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                    let this: &<Identity as windows_core::IUnknownImpl>::Impl =
+                        <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                     match IFoo2_Impl::Bar(this) {
                         Ok(ok__) => {
                             result__.write(ok__);

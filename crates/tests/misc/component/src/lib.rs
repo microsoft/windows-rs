@@ -6,7 +6,7 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT
 #[implement(bindings::Class)]
 struct Class(RwLock<i32>);
 
-impl bindings::IClass_Impl for Class_Impl {
+impl bindings::IClass_Impl for Class {
     fn Property(&self) -> Result<i32> {
         let reader = self.0.read().unwrap();
         Ok(*reader)
@@ -63,7 +63,7 @@ impl bindings::IClass_Impl for Class_Impl {
 #[implement(IActivationFactory)]
 struct ClassFactory;
 
-impl IActivationFactory_Impl for ClassFactory_Impl {
+impl IActivationFactory_Impl for ClassFactory {
     fn ActivateInstance(&self) -> Result<IInspectable> {
         Ok(Class(RwLock::new(0)).into())
     }

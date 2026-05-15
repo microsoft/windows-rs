@@ -189,16 +189,27 @@ pub trait IPrintCustomOptionDetails_Impl: IPrintOptionDetails_Impl {
     fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IPrintCustomOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetDisplayName<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintCustomOptionDetails_Impl,
+    {
+        unsafe extern "system" fn SetDisplayName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintCustomOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintCustomOptionDetails_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn DisplayName<Identity: IPrintCustomOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintCustomOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintCustomOptionDetails_Impl::DisplayName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -363,10 +374,17 @@ pub trait IPrintItemListOptionDetails_Impl: IPrintOptionDetails_Impl {
     fn Items(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::IInspectable>>;
 }
 impl IPrintItemListOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintItemListOptionDetails_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Items<Identity: IPrintItemListOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintItemListOptionDetails_Impl,
+    {
+        unsafe extern "system" fn Items<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintItemListOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintItemListOptionDetails_Impl::Items(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -496,10 +514,17 @@ pub trait IPrintNumberOptionDetails_Impl: IPrintOptionDetails_Impl {
     fn MaxValue(&self) -> windows_core::Result<u32>;
 }
 impl IPrintNumberOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintNumberOptionDetails_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MinValue<Identity: IPrintNumberOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintNumberOptionDetails_Impl,
+    {
+        unsafe extern "system" fn MinValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintNumberOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintNumberOptionDetails_Impl::MinValue(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -509,9 +534,13 @@ impl IPrintNumberOptionDetails_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MaxValue<Identity: IPrintNumberOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MaxValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintNumberOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintNumberOptionDetails_Impl::MaxValue(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -593,7 +622,7 @@ impl IPrintOptionDetails {
 impl windows_core::RuntimeName for IPrintOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.IPrintOptionDetails";
 }
-pub trait IPrintOptionDetails_Impl: windows_core::IUnknownImpl {
+pub trait IPrintOptionDetails_Impl {
     fn OptionId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn OptionType(&self) -> windows_core::Result<PrintOptionType>;
     fn SetErrorText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
@@ -604,10 +633,17 @@ pub trait IPrintOptionDetails_Impl: windows_core::IUnknownImpl {
     fn TrySetValue(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<bool>;
 }
 impl IPrintOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OptionId<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+    {
+        unsafe extern "system" fn OptionId<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintOptionDetails_Impl::OptionId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -618,9 +654,13 @@ impl IPrintOptionDetails_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn OptionType<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintOptionType) -> windows_core::HRESULT {
+        unsafe extern "system" fn OptionType<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintOptionType) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintOptionDetails_Impl::OptionType(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -630,15 +670,23 @@ impl IPrintOptionDetails_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetErrorText<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetErrorText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintOptionDetails_Impl::SetErrorText(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn ErrorText<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ErrorText<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintOptionDetails_Impl::ErrorText(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -649,15 +697,23 @@ impl IPrintOptionDetails_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetState<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintOptionStates) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetState<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: PrintOptionStates) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPrintOptionDetails_Impl::SetState(this, value).into()
             }
         }
-        unsafe extern "system" fn State<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintOptionStates) -> windows_core::HRESULT {
+        unsafe extern "system" fn State<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut PrintOptionStates) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintOptionDetails_Impl::State(this) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -667,9 +723,13 @@ impl IPrintOptionDetails_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Value<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintOptionDetails_Impl::Value(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
@@ -680,9 +740,13 @@ impl IPrintOptionDetails_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TrySetValue<Identity: IPrintOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn TrySetValue<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintOptionDetails_Impl::TrySetValue(this, core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
                         result__.write(ok__);
@@ -893,10 +957,17 @@ pub trait IPrintTextOptionDetails_Impl: IPrintOptionDetails_Impl {
     fn MaxCharacters(&self) -> windows_core::Result<u32>;
 }
 impl IPrintTextOptionDetails_Vtbl {
-    pub const fn new<Identity: IPrintTextOptionDetails_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MaxCharacters<Identity: IPrintTextOptionDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPrintTextOptionDetails_Impl,
+    {
+        unsafe extern "system" fn MaxCharacters<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPrintTextOptionDetails_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPrintTextOptionDetails_Impl::MaxCharacters(this) {
                     Ok(ok__) => {
                         result__.write(ok__);

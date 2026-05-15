@@ -148,16 +148,23 @@ pub struct EXPERIMENTAL_IPluginAuthenticator_Vtbl {
     pub EXPERIMENTAL_PluginGetAssertion: unsafe extern "system" fn(*mut core::ffi::c_void, *const EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_REQUEST, *mut *mut EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT,
     pub EXPERIMENTAL_PluginCancelOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *const EXPERIMENTAL_WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT,
 }
-pub trait EXPERIMENTAL_IPluginAuthenticator_Impl: windows_core::IUnknownImpl {
+pub trait EXPERIMENTAL_IPluginAuthenticator_Impl {
     fn EXPERIMENTAL_PluginMakeCredential(&self, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_REQUEST) -> windows_core::Result<*mut EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_RESPONSE>;
     fn EXPERIMENTAL_PluginGetAssertion(&self, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_REQUEST) -> windows_core::Result<*mut EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_RESPONSE>;
     fn EXPERIMENTAL_PluginCancelOperation(&self, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::Result<()>;
 }
 impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
-    pub const fn new<Identity: EXPERIMENTAL_IPluginAuthenticator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EXPERIMENTAL_PluginMakeCredential<Identity: EXPERIMENTAL_IPluginAuthenticator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut *mut EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: EXPERIMENTAL_IPluginAuthenticator_Impl,
+    {
+        unsafe extern "system" fn EXPERIMENTAL_PluginMakeCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut *mut EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: EXPERIMENTAL_IPluginAuthenticator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginMakeCredential(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -167,9 +174,13 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EXPERIMENTAL_PluginGetAssertion<Identity: EXPERIMENTAL_IPluginAuthenticator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut *mut EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT {
+        unsafe extern "system" fn EXPERIMENTAL_PluginGetAssertion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut *mut EXPERIMENTAL_WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: EXPERIMENTAL_IPluginAuthenticator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginGetAssertion(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -179,9 +190,13 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn EXPERIMENTAL_PluginCancelOperation<Identity: EXPERIMENTAL_IPluginAuthenticator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT {
+        unsafe extern "system" fn EXPERIMENTAL_PluginCancelOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const EXPERIMENTAL_WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: EXPERIMENTAL_IPluginAuthenticator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginCancelOperation(this, core::mem::transmute_copy(&request)).into()
             }
         }
@@ -570,17 +585,24 @@ pub struct IPluginAuthenticator_Vtbl {
     pub CancelOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *const WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT,
     pub GetLockStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PLUGIN_LOCK_STATUS) -> windows_core::HRESULT,
 }
-pub trait IPluginAuthenticator_Impl: windows_core::IUnknownImpl {
+pub trait IPluginAuthenticator_Impl {
     fn MakeCredential(&self, request: *const WEBAUTHN_PLUGIN_OPERATION_REQUEST) -> windows_core::Result<WEBAUTHN_PLUGIN_OPERATION_RESPONSE>;
     fn GetAssertion(&self, request: *const WEBAUTHN_PLUGIN_OPERATION_REQUEST) -> windows_core::Result<WEBAUTHN_PLUGIN_OPERATION_RESPONSE>;
     fn CancelOperation(&self, request: *const WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::Result<()>;
     fn GetLockStatus(&self) -> windows_core::Result<PLUGIN_LOCK_STATUS>;
 }
 impl IPluginAuthenticator_Vtbl {
-    pub const fn new<Identity: IPluginAuthenticator_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn MakeCredential<Identity: IPluginAuthenticator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT {
+    pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+    where
+        <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
+    {
+        unsafe extern "system" fn MakeCredential<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPluginAuthenticator_Impl::MakeCredential(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -590,9 +612,13 @@ impl IPluginAuthenticator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetAssertion<Identity: IPluginAuthenticator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAssertion<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const WEBAUTHN_PLUGIN_OPERATION_REQUEST, response: *mut WEBAUTHN_PLUGIN_OPERATION_RESPONSE) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPluginAuthenticator_Impl::GetAssertion(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         response.write(core::mem::transmute(ok__));
@@ -602,15 +628,23 @@ impl IPluginAuthenticator_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CancelOperation<Identity: IPluginAuthenticator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT {
+        unsafe extern "system" fn CancelOperation<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *const WEBAUTHN_PLUGIN_CANCEL_OPERATION_REQUEST) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 IPluginAuthenticator_Impl::CancelOperation(this, core::mem::transmute_copy(&request)).into()
             }
         }
-        unsafe extern "system" fn GetLockStatus<Identity: IPluginAuthenticator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lockstatus: *mut PLUGIN_LOCK_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLockStatus<Identity: windows_core::IUnknownImpl, const OFFSET: isize>(this: *mut core::ffi::c_void, lockstatus: *mut PLUGIN_LOCK_STATUS) -> windows_core::HRESULT
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IPluginAuthenticator_Impl,
+        {
             unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let outer: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                let this: &<Identity as windows_core::IUnknownImpl>::Impl = <Identity as windows_core::IUnknownImpl>::get_impl(outer);
                 match IPluginAuthenticator_Impl::GetLockStatus(this) {
                     Ok(ok__) => {
                         lockstatus.write(core::mem::transmute(ok__));
