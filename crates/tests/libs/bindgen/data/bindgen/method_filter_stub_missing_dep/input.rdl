@@ -1,0 +1,27 @@
+// Exercises the fallback path for method-level `--filter` exclusions when
+// the filtered slot's dependent types are *also* out of scope. With both
+// the method-level exclude (`!Test.IFoo::GetBaz`) and the type-level
+// exclude on its return type (`!Test.Baz`) in play, bindgen cannot emit
+// a typed `E_NOTIMPL` stub thunk (no `Baz` to reference in the signature),
+// so it falls back to an opaque `usize` ABI slot — initialised to `0` in
+// `IFoo_Vtbl::new` — while still emitting the `_Impl` trait sans the
+// filtered method. This keeps the interface implementable from Rust even
+// when callers have aggressively narrowed the binding set.
+//
+//   * `IFoo::Keep` stays as a regular trait method + real thunk.
+//   * `IFoo::GetBaz` drops from `impl IFoo`, from `IFoo_Impl`, and from
+//     `IFoo_Vtbl::new` (no thunk emitted). Its `IFoo_Vtbl` field is a
+//     `usize` and `IFoo_Vtbl::new` writes `0` into it.
+//   * `Baz` itself is not emitted.
+
+#[winrt]
+mod Test {
+    struct Baz {
+        Width: f32,
+        Height: f32,
+    }
+    interface IFoo {
+        fn Keep(&self) -> i32;
+        fn GetBaz(&self) -> Baz;
+    }
+}
