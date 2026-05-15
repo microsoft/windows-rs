@@ -35,8 +35,8 @@ where
 // `IReference<T>` derives from `IPropertyValue`, so we have to provide an implementation.
 // The stock implementation does not attempt to perform value conversions between types
 // the way the C++ implementation does — it simply reports `PropertyType::OtherType` and
-// rejects all of the typed accessors with `E_NOTIMPL`. Callers should use `Value()` to
-// retrieve the underlying value.
+// rejects all of the typed accessors with an empty error (`E_FAIL`). Callers should use
+// `Value()` to retrieve the underlying value.
 impl<T> IPropertyValue_Impl for StockReference_Impl<T>
 where
     T: RuntimeType,
@@ -163,9 +163,11 @@ where
 
 /// Box a value into an `IReference<T>`.
 ///
-/// `Type<T, Default = T>` selects the common cases where `T`'s storage representation is
-/// the same as the value type — primitives, enums, `GUID`, `HSTRING`, and the various
-/// `Windows.Foundation` value types (`DateTime`, `TimeSpan`, `Point`, `Size`, `Rect`).
+/// The `Type<T, Default = T>` constraint selects the common cases where `T`'s storage
+/// representation is the same as the value type — primitives, enums, `GUID`, `HSTRING`,
+/// and the `Windows.Foundation` value types (`DateTime`, `TimeSpan`, `Point`, `Size`,
+/// `Rect`). The full bound is `T: RuntimeType + Type<T, Default = T>` so that we can both
+/// box the value and project it back through `IReference::Value`.
 impl<T> From<T> for IReference<T>
 where
     T: RuntimeType + Type<T, Default = T>,
