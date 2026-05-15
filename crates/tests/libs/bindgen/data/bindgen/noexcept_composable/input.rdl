@@ -1,0 +1,31 @@
+// Coverage for the non-aggregating arm of `InterfaceKind::Composable` when
+// the composable factory method is marked
+// `#[Windows::Foundation::Metadata::NoException]`. Sibling of the
+// `noexcept_factory` fixture which covers the Activatable / Static arms.
+//
+// The non-aggregating entry (here `Foo::CreateInstance`) goes through the
+// `Self::IFooFactory(|this| Ok(unsafe { … })).unwrap()` shape — closure must
+// return `Result<R>` to satisfy the factory-cache helper, even though the
+// `noexcept` method itself returns a non-`Result` value.
+//
+// The aggregating `_compose` arm is intentionally not exercised here:
+// `[NoException]` paired with composition isn't a realistic combination in
+// shipping WinRT metadata. If a future scenario needs it, the
+// `InterfaceKind::Composable` `_compose` arm in
+// `crates/libs/bindgen/src/types/method.rs` will need its own noexcept
+// branch.
+
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Composable(IFooFactory, Public, 1)]
+    class Foo {
+        IFoo,
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFoo {}
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFooFactory {
+        #[Windows::Foundation::Metadata::NoException]
+        fn CreateInstance(&self, name: i32, outer: Object, inner: &mut Object) -> Foo;
+    }
+}

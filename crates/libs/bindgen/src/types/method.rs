@@ -598,11 +598,17 @@ impl Method {
                 let interface_name = to_ident(trim_tick(interface.unwrap().def.name()));
 
                 // For `noexcept` factory/static methods the inner `#vcall`
-                // returns the unwrapped value directly (panicking on
-                // failure). The `Self::IFooFactory(…)` factory-cache helper
-                // still has signature `FnOnce(&IFooFactory) -> Result<R>`
-                // (acquiring the activation factory itself can fail), so
-                // wrap the body in `Ok(…)` and unwrap the outer call.
+                // returns the unwrapped value directly. Failure is only
+                // caught by `debug_assert!(hresult__.0 == 0)`; in release
+                // builds a failing HRESULT silently yields the zeroed
+                // out-param (e.g. `None` for an interface) — matching the
+                // existing instance-method noexcept path. The
+                // `Self::IFooFactory(…)` factory-cache helper still has
+                // signature `FnOnce(&IFooFactory) -> Result<R>` (acquiring
+                // the activation factory itself can fail), so wrap the body
+                // in `Ok(…)` and `.unwrap()` the outer call — that
+                // `.unwrap()` panics in all build configurations if factory
+                // acquisition fails.
                 if noexcept {
                     quote! {
                         pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
