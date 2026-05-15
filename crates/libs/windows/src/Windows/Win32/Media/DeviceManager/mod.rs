@@ -92,7 +92,7 @@ impl IMDSPDevice {
     pub unsafe fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
@@ -271,7 +271,7 @@ impl IMDSPDevice2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -397,7 +397,7 @@ impl IMDSPDevice3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -650,7 +650,7 @@ impl IMDSPDirectTransfer {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TransferToDevice)(windows_core::Interface::as_raw(self), pwszsourcefilepath.param().abi(), psourceoperation.param().abi(), fuflags, pwszdestinationname.param().abi(), psourcemetadata.param().abi(), ptransferprogress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TransferToDevice)(windows_core::Interface::as_raw(self), pwszsourcefilepath.param().abi(), psourceoperation.param().abi(), fuflags, pwszdestinationname.param().abi(), psourcemetadata.param().abi(), ptransferprogress.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -702,7 +702,7 @@ impl IMDSPEnumDevice {
     pub unsafe fn Clone(&self) -> windows_core::Result<IMDSPEnumDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -790,7 +790,7 @@ impl IMDSPEnumStorage {
     pub unsafe fn Clone(&self) -> windows_core::Result<IMDSPEnumStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1233,7 +1233,7 @@ impl IMDSPStorage {
     pub unsafe fn GetStorageGlobals(&self) -> windows_core::Result<IMDSPStorageGlobals> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorageGlobals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorageGlobals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
@@ -1262,13 +1262,13 @@ impl IMDSPStorage {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _, pwszname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _, pwszname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()> {
@@ -1434,7 +1434,7 @@ impl IMDSPStorage2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -1444,7 +1444,7 @@ impl IMDSPStorage2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStorage2)(windows_core::Interface::as_raw(self), dwattributes, dwattributesex, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _, pwszname.param().abi(), qwfilesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStorage2)(windows_core::Interface::as_raw(self), dwattributes, dwattributesex, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _, pwszname.param().abi(), qwfilesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -1617,7 +1617,7 @@ impl IMDSPStorage4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStorageWithMetadata)(windows_core::Interface::as_raw(self), dwattributes, pwszname.param().abi(), pmetadata.param().abi(), qwfilesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStorageWithMetadata)(windows_core::Interface::as_raw(self), dwattributes, pwszname.param().abi(), pmetadata.param().abi(), qwfilesize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetSpecifiedMetadata<P2>(&self, ppwszpropnames: &[windows_core::PCWSTR], pmetadata: P2) -> windows_core::Result<()>
@@ -1632,13 +1632,13 @@ impl IMDSPStorage4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<IMDSPStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1771,13 +1771,13 @@ impl IMDSPStorageGlobals {
     pub unsafe fn GetDevice(&self) -> windows_core::Result<IMDSPDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetRootStorage(&self) -> windows_core::Result<IMDSPStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRootStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRootStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1916,7 +1916,7 @@ impl IMDServiceProvider {
     pub unsafe fn EnumDevices(&self) -> windows_core::Result<IMDSPEnumDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2052,7 +2052,7 @@ impl ISCPSecureAuthenticate {
     pub unsafe fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSecureQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSecureQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2098,7 +2098,7 @@ impl ISCPSecureAuthenticate2 {
     pub unsafe fn GetSCPSession(&self) -> windows_core::Result<ISCPSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSCPSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSCPSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2597,7 +2597,7 @@ impl ISCPSession {
     pub unsafe fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSecureQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSecureQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2694,7 +2694,7 @@ impl IWMDMDevice {
     pub unsafe fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
@@ -2873,7 +2873,7 @@ impl IWMDMDevice2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -2999,7 +2999,7 @@ impl IWMDMDevice3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3303,7 +3303,7 @@ impl IWMDMEnumDevice {
     pub unsafe fn Clone(&self) -> windows_core::Result<IWMDMEnumDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3391,7 +3391,7 @@ impl IWMDMEnumStorage {
     pub unsafe fn Clone(&self) -> windows_core::Result<IWMDMEnumStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4340,7 +4340,7 @@ impl IWMDMStorage {
     pub unsafe fn GetStorageGlobals(&self) -> windows_core::Result<IWMDMStorageGlobals> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorageGlobals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorageGlobals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
@@ -4365,7 +4365,7 @@ impl IWMDMStorage {
     pub unsafe fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()> {
@@ -4513,7 +4513,7 @@ impl IWMDMStorage2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStorage)(windows_core::Interface::as_raw(self), pszstoragename.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
@@ -4597,7 +4597,7 @@ impl IWMDMStorage3 {
     pub unsafe fn GetMetadata(&self) -> windows_core::Result<IWMDMMetaData> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> windows_core::Result<()>
@@ -4609,7 +4609,7 @@ impl IWMDMStorage3 {
     pub unsafe fn CreateEmptyMetadataObject(&self) -> windows_core::Result<IWMDMMetaData> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEmptyMetadataObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEmptyMetadataObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: Option<&[WMDMMetadataView]>) -> windows_core::Result<()> {
@@ -4709,7 +4709,7 @@ impl IWMDMStorage4 {
     pub unsafe fn GetSpecifiedMetadata(&self, ppwszpropnames: &[windows_core::PCWSTR]) -> windows_core::Result<IWMDMMetaData> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSpecifiedMetadata)(windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), core::mem::transmute(ppwszpropnames.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSpecifiedMetadata)(windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), core::mem::transmute(ppwszpropnames.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> windows_core::Result<IWMDMStorage>
@@ -4718,13 +4718,13 @@ impl IWMDMStorage4 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetParent(&self) -> windows_core::Result<IWMDMStorage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4832,7 +4832,7 @@ impl IWMDMStorageControl {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), fumode, pwszfile.param().abi(), poperation.param().abi(), pprogress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), fumode, pwszfile.param().abi(), poperation.param().abi(), pprogress.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Delete<P1>(&self, fumode: u32, pprogress: P1) -> windows_core::Result<()>
@@ -5167,7 +5167,7 @@ impl IWMDeviceManager {
     pub unsafe fn EnumDevices(&self) -> windows_core::Result<IWMDMEnumDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5249,13 +5249,13 @@ impl IWMDeviceManager2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceFromCanonicalName)(windows_core::Interface::as_raw(self), pwszcanonicalname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeviceFromCanonicalName)(windows_core::Interface::as_raw(self), pwszcanonicalname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnumDevices2(&self) -> windows_core::Result<IWMDMEnumDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDevices2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDevices2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Reinitialize(&self) -> windows_core::Result<()> {

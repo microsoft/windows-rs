@@ -131,7 +131,7 @@ impl ISideShowCapabilitiesCollection {
     pub unsafe fn GetAt(&self, in_dwindex: u32) -> windows_core::Result<ISideShowCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), in_dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), in_dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -282,7 +282,7 @@ impl ISideShowContentManager {
     pub unsafe fn GetDeviceCapabilities(&self) -> windows_core::Result<ISideShowCapabilitiesCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeviceCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeviceCapabilities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -361,7 +361,7 @@ impl ISideShowEvents {
     pub unsafe fn ContentMissing(&self, in_contentid: u32) -> windows_core::Result<ISideShowContent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContentMissing)(windows_core::Interface::as_raw(self), in_contentid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ContentMissing)(windows_core::Interface::as_raw(self), in_contentid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ApplicationEvent<P0>(&self, in_picapabilities: P0, in_dweventid: u32, in_pbeventdata: Option<&[u8]>) -> windows_core::Result<()>
@@ -889,13 +889,13 @@ impl ISideShowSession {
     pub unsafe fn RegisterContent(&self, in_applicationid: *const windows_core::GUID, in_endpointid: *const windows_core::GUID) -> windows_core::Result<ISideShowContentManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterContent)(windows_core::Interface::as_raw(self), in_applicationid, in_endpointid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterContent)(windows_core::Interface::as_raw(self), in_applicationid, in_endpointid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RegisterNotifications(&self, in_applicationid: *const windows_core::GUID) -> windows_core::Result<ISideShowNotificationManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterNotifications)(windows_core::Interface::as_raw(self), in_applicationid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterNotifications)(windows_core::Interface::as_raw(self), in_applicationid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

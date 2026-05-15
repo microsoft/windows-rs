@@ -10,7 +10,7 @@ impl IUIApplication {
     pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnCreateUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OnCreateUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OnDestroyUICommand<P2>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P2) -> windows_core::Result<()>
@@ -83,7 +83,7 @@ impl IUICollection {
     pub unsafe fn GetItem(&self, index: u32) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
@@ -614,7 +614,7 @@ impl IUIImageFromBitmap {
     pub unsafe fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> windows_core::Result<IUIImage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), bitmap, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), bitmap, options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

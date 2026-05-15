@@ -39,7 +39,7 @@ impl ITest {
                 values.as_ptr(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetMapView(
@@ -56,7 +56,7 @@ impl ITest {
                 values.as_ptr(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

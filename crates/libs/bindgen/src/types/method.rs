@@ -622,7 +622,7 @@ impl Method {
                             // Keep `derived__` alive until the factory returns; its owning
                             // ref is replaced by the delegating ref in `result__`.
                             let _ = &derived__;
-                            windows_core::Type::from_abi(result__)
+                            windows_core::imp::Type::from_abi(result__)
                         })
                     }
                 }

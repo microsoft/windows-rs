@@ -3,7 +3,7 @@ pub unsafe fn CreateAudioReverb() -> windows_core::Result<windows_core::IUnknown
     windows_core::link!("xaudio2_8.dll" "system" fn CreateAudioReverb(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateAudioReverb(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateAudioReverb(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn CreateAudioVolumeMeter() -> windows_core::Result<windows_core::IUn
     windows_core::link!("xaudio2_8.dll" "system" fn CreateAudioVolumeMeter(ppapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateAudioVolumeMeter(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateAudioVolumeMeter(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -24,7 +24,7 @@ pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> windows_core::Result<IX
     windows_core::link!("hrtfapo.dll" "system" fn CreateHrtfApo(init : *const HrtfApoInit, xapo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateHrtfApo(init, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateHrtfApo(init, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]

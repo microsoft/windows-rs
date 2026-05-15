@@ -83,7 +83,7 @@ impl SceneLightingEffect {
     pub fn NormalMapSource(&self) -> windows_core::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NormalMapSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).NormalMapSource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetNormalMapSource<P0>(&self, value: P0) -> windows_core::Result<()>

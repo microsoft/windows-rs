@@ -80,7 +80,7 @@ impl IMidiMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -511,7 +511,7 @@ impl MidiActiveSensingMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -554,7 +554,7 @@ impl MidiChannelPressureMessage {
     pub fn CreateMidiChannelPressureMessage(channel: u8, pressure: u8) -> windows_core::Result<MidiChannelPressureMessage> {
         Self::IMidiChannelPressureMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiChannelPressureMessage)(windows_core::Interface::as_raw(this), channel, pressure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiChannelPressureMessage)(windows_core::Interface::as_raw(this), channel, pressure, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -569,7 +569,7 @@ impl MidiChannelPressureMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -618,7 +618,7 @@ impl MidiContinueMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -667,7 +667,7 @@ impl MidiControlChangeMessage {
     pub fn CreateMidiControlChangeMessage(channel: u8, controller: u8, controlvalue: u8) -> windows_core::Result<MidiControlChangeMessage> {
         Self::IMidiControlChangeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiControlChangeMessage)(windows_core::Interface::as_raw(this), channel, controller, controlvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiControlChangeMessage)(windows_core::Interface::as_raw(this), channel, controller, controlvalue, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -682,7 +682,7 @@ impl MidiControlChangeMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -740,7 +740,7 @@ impl MidiInPort {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MidiInPort>> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -774,7 +774,7 @@ impl MidiMessageReceivedEventArgs {
     pub fn Message(&self) -> windows_core::Result<IMidiMessage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -839,7 +839,7 @@ impl MidiNoteOffMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -870,7 +870,7 @@ impl MidiNoteOffMessage {
     pub fn CreateMidiNoteOffMessage(channel: u8, note: u8, velocity: u8) -> windows_core::Result<MidiNoteOffMessage> {
         Self::IMidiNoteOffMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiNoteOffMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiNoteOffMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiNoteOffMessageFactory<R, F: FnOnce(&IMidiNoteOffMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -908,7 +908,7 @@ impl MidiNoteOnMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -939,7 +939,7 @@ impl MidiNoteOnMessage {
     pub fn CreateMidiNoteOnMessage(channel: u8, note: u8, velocity: u8) -> windows_core::Result<MidiNoteOnMessage> {
         Self::IMidiNoteOnMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiNoteOnMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiNoteOnMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiNoteOnMessageFactory<R, F: FnOnce(&IMidiNoteOnMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -991,7 +991,7 @@ impl MidiOutPort {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<IMidiOutPort>> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -1035,7 +1035,7 @@ impl MidiPitchBendChangeMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1060,7 +1060,7 @@ impl MidiPitchBendChangeMessage {
     pub fn CreateMidiPitchBendChangeMessage(channel: u8, bend: u16) -> windows_core::Result<MidiPitchBendChangeMessage> {
         Self::IMidiPitchBendChangeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiPitchBendChangeMessage)(windows_core::Interface::as_raw(this), channel, bend, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiPitchBendChangeMessage)(windows_core::Interface::as_raw(this), channel, bend, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiPitchBendChangeMessageFactory<R, F: FnOnce(&IMidiPitchBendChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1098,7 +1098,7 @@ impl MidiPolyphonicKeyPressureMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1129,7 +1129,7 @@ impl MidiPolyphonicKeyPressureMessage {
     pub fn CreateMidiPolyphonicKeyPressureMessage(channel: u8, note: u8, pressure: u8) -> windows_core::Result<MidiPolyphonicKeyPressureMessage> {
         Self::IMidiPolyphonicKeyPressureMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiPolyphonicKeyPressureMessage)(windows_core::Interface::as_raw(this), channel, note, pressure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiPolyphonicKeyPressureMessage)(windows_core::Interface::as_raw(this), channel, note, pressure, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiPolyphonicKeyPressureMessageFactory<R, F: FnOnce(&IMidiPolyphonicKeyPressureMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1167,7 +1167,7 @@ impl MidiProgramChangeMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1192,7 +1192,7 @@ impl MidiProgramChangeMessage {
     pub fn CreateMidiProgramChangeMessage(channel: u8, program: u8) -> windows_core::Result<MidiProgramChangeMessage> {
         Self::IMidiProgramChangeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiProgramChangeMessage)(windows_core::Interface::as_raw(this), channel, program, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiProgramChangeMessage)(windows_core::Interface::as_raw(this), channel, program, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiProgramChangeMessageFactory<R, F: FnOnce(&IMidiProgramChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1230,7 +1230,7 @@ impl MidiSongPositionPointerMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1249,7 +1249,7 @@ impl MidiSongPositionPointerMessage {
     pub fn CreateMidiSongPositionPointerMessage(beats: u16) -> windows_core::Result<MidiSongPositionPointerMessage> {
         Self::IMidiSongPositionPointerMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiSongPositionPointerMessage)(windows_core::Interface::as_raw(this), beats, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiSongPositionPointerMessage)(windows_core::Interface::as_raw(this), beats, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiSongPositionPointerMessageFactory<R, F: FnOnce(&IMidiSongPositionPointerMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1287,7 +1287,7 @@ impl MidiSongSelectMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1306,7 +1306,7 @@ impl MidiSongSelectMessage {
     pub fn CreateMidiSongSelectMessage(song: u8) -> windows_core::Result<MidiSongSelectMessage> {
         Self::IMidiSongSelectMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiSongSelectMessage)(windows_core::Interface::as_raw(this), song, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiSongSelectMessage)(windows_core::Interface::as_raw(this), song, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiSongSelectMessageFactory<R, F: FnOnce(&IMidiSongSelectMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1348,7 +1348,7 @@ impl MidiStartMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1392,7 +1392,7 @@ impl MidiStopMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1450,7 +1450,7 @@ impl MidiSynthesizer {
     pub fn AudioDevice(&self) -> windows_core::Result<super::Enumeration::DeviceInformation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AudioDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AudioDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Volume(&self) -> windows_core::Result<f64> {
@@ -1465,7 +1465,7 @@ impl MidiSynthesizer {
     pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<MidiSynthesizer>> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
@@ -1475,7 +1475,7 @@ impl MidiSynthesizer {
     {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), audiodevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), audiodevice.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
@@ -1520,7 +1520,7 @@ impl MidiSystemExclusiveMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1536,7 +1536,7 @@ impl MidiSystemExclusiveMessage {
     {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1578,7 +1578,7 @@ impl MidiSystemResetMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1618,7 +1618,7 @@ impl MidiTimeCodeMessage {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1643,7 +1643,7 @@ impl MidiTimeCodeMessage {
     pub fn CreateMidiTimeCodeMessage(frametype: u8, values: u8) -> windows_core::Result<MidiTimeCodeMessage> {
         Self::IMidiTimeCodeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiTimeCodeMessage)(windows_core::Interface::as_raw(this), frametype, values, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiTimeCodeMessage)(windows_core::Interface::as_raw(this), frametype, values, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMidiTimeCodeMessageFactory<R, F: FnOnce(&IMidiTimeCodeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1685,7 +1685,7 @@ impl MidiTimingClockMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
@@ -1729,7 +1729,7 @@ impl MidiTuneRequestMessage {
     pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RawData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> windows_core::Result<MidiMessageType> {

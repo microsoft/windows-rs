@@ -730,7 +730,7 @@ impl IXblIdpAuthManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), msaaccountid.param().abi(), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), msaaccountid.param().abi(), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -838,7 +838,7 @@ impl IXblIdpAuthManager2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetUserlessTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetUserlessTokenAndSignatureWithTokenResult)(windows_core::Interface::as_raw(self), appsid.param().abi(), msatarget.param().abi(), msapolicy.param().abi(), httpmethod.param().abi(), uri.param().abi(), headers.param().abi(), core::mem::transmute(body.as_ptr()), body.len().try_into().unwrap(), forcerefresh.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

@@ -877,7 +877,7 @@ impl RemoteSystem {
         let this = &windows_core::Interface::cast::<IRemoteSystem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCapabilitySupportedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(capabilityname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCapabilitySupportedAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(capabilityname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ManufacturerDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -905,14 +905,14 @@ impl RemoteSystem {
         let this = &windows_core::Interface::cast::<IRemoteSystem5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Apps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Apps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn User(&self) -> windows_core::Result<super::User> {
         let this = &windows_core::Interface::cast::<IRemoteSystem6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking")]
@@ -922,13 +922,13 @@ impl RemoteSystem {
     {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindByHostNameAsync)(windows_core::Interface::as_raw(this), hostname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindByHostNameAsync)(windows_core::Interface::as_raw(this), hostname.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateWatcher() -> windows_core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateWatcherWithFilters<P0>(filters: P0) -> windows_core::Result<RemoteSystemWatcher>
@@ -937,13 +937,13 @@ impl RemoteSystem {
     {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcherWithFilters)(windows_core::Interface::as_raw(this), filters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcherWithFilters)(windows_core::Interface::as_raw(this), filters.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemAccessStatus>> {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn IsAuthorizationKindEnabled(kind: RemoteSystemAuthorizationKind) -> windows_core::Result<bool> {
@@ -958,7 +958,7 @@ impl RemoteSystem {
     {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcherForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcherForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateWatcherWithFiltersForUser<P0, P1>(user: P0, filters: P1) -> windows_core::Result<RemoteSystemWatcher>
@@ -968,7 +968,7 @@ impl RemoteSystem {
     {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcherWithFiltersForUser)(windows_core::Interface::as_raw(this), user.param().abi(), filters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcherWithFiltersForUser)(windows_core::Interface::as_raw(this), user.param().abi(), filters.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemStatics<R, F: FnOnce(&IRemoteSystemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1019,7 +1019,7 @@ impl RemoteSystemAddedEventArgs {
     pub fn RemoteSystem(&self) -> windows_core::Result<RemoteSystem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1067,14 +1067,14 @@ impl RemoteSystemApp {
     pub fn Attributes(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn User(&self) -> windows_core::Result<super::User> {
         let this = &windows_core::Interface::cast::<IRemoteSystemApp2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ConnectionToken(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1105,25 +1105,25 @@ impl RemoteSystemAppRegistration {
     pub fn User(&self) -> windows_core::Result<super::User> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Attributes(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<RemoteSystemAppRegistration> {
         Self::IRemoteSystemAppRegistrationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetForUser<P0>(user: P0) -> windows_core::Result<RemoteSystemAppRegistration>
@@ -1132,7 +1132,7 @@ impl RemoteSystemAppRegistration {
     {
         Self::IRemoteSystemAppRegistrationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemAppRegistrationStatics<R, F: FnOnce(&IRemoteSystemAppRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1181,7 +1181,7 @@ impl RemoteSystemAuthorizationKindFilter {
     pub fn Create(remotesystemauthorizationkind: RemoteSystemAuthorizationKind) -> windows_core::Result<RemoteSystemAuthorizationKindFilter> {
         Self::IRemoteSystemAuthorizationKindFilterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemauthorizationkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemauthorizationkind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemAuthorizationKindFilterFactory<R, F: FnOnce(&IRemoteSystemAuthorizationKindFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1219,7 +1219,7 @@ impl RemoteSystemConnectionInfo {
     {
         Self::IRemoteSystemConnectionInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromAppServiceConnection)(windows_core::Interface::as_raw(this), connection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromAppServiceConnection)(windows_core::Interface::as_raw(this), connection.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemConnectionInfoStatics<R, F: FnOnce(&IRemoteSystemConnectionInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1247,14 +1247,14 @@ impl RemoteSystemConnectionRequest {
     pub fn RemoteSystem(&self) -> windows_core::Result<RemoteSystem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoteSystemApp(&self) -> windows_core::Result<RemoteSystemApp> {
         let this = &windows_core::Interface::cast::<IRemoteSystemConnectionRequest2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoteSystemApp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoteSystemApp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ConnectionToken(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1270,7 +1270,7 @@ impl RemoteSystemConnectionRequest {
     {
         Self::IRemoteSystemConnectionRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateForApp<P0>(remotesystemapp: P0) -> windows_core::Result<RemoteSystemConnectionRequest>
@@ -1279,13 +1279,13 @@ impl RemoteSystemConnectionRequest {
     {
         Self::IRemoteSystemConnectionRequestStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForApp)(windows_core::Interface::as_raw(this), remotesystemapp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForApp)(windows_core::Interface::as_raw(this), remotesystemapp.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateFromConnectionToken(connectiontoken: &windows_core::HSTRING) -> windows_core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromConnectionToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(connectiontoken), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromConnectionToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(connectiontoken), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateFromConnectionTokenForUser<P0>(user: P0, connectiontoken: &windows_core::HSTRING) -> windows_core::Result<RemoteSystemConnectionRequest>
@@ -1294,7 +1294,7 @@ impl RemoteSystemConnectionRequest {
     {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromConnectionTokenForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(connectiontoken), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromConnectionTokenForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(connectiontoken), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemConnectionRequestFactory<R, F: FnOnce(&IRemoteSystemConnectionRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1352,7 +1352,7 @@ impl RemoteSystemDiscoveryTypeFilter {
     pub fn Create(discoverytype: RemoteSystemDiscoveryType) -> windows_core::Result<RemoteSystemDiscoveryTypeFilter> {
         Self::IRemoteSystemDiscoveryTypeFilterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), discoverytype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), discoverytype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemDiscoveryTypeFilterFactory<R, F: FnOnce(&IRemoteSystemDiscoveryTypeFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1398,7 +1398,7 @@ impl RemoteSystemKindFilter {
     pub fn RemoteSystemKinds(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoteSystemKinds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemoteSystemKinds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Create<P0>(remotesystemkinds: P0) -> windows_core::Result<RemoteSystemKindFilter>
@@ -1407,7 +1407,7 @@ impl RemoteSystemKindFilter {
     {
         Self::IRemoteSystemKindFilterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemkinds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemkinds.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemKindFilterFactory<R, F: FnOnce(&IRemoteSystemKindFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1572,7 +1572,7 @@ impl RemoteSystemSession {
     pub fn CreateParticipantWatcher(&self) -> windows_core::Result<RemoteSystemSessionParticipantWatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateParticipantWatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateParticipantWatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SendInvitationAsync<P0>(&self, invitee: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -1581,13 +1581,13 @@ impl RemoteSystemSession {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendInvitationAsync)(windows_core::Interface::as_raw(self), invitee.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendInvitationAsync)(windows_core::Interface::as_raw(self), invitee.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateWatcher() -> windows_core::Result<RemoteSystemSessionWatcher> {
         Self::IRemoteSystemSessionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemSessionStatics<R, F: FnOnce(&IRemoteSystemSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1615,7 +1615,7 @@ impl RemoteSystemSessionAddedEventArgs {
     pub fn SessionInfo(&self) -> windows_core::Result<RemoteSystemSessionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1654,19 +1654,19 @@ impl RemoteSystemSessionController {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoveParticipantAsync)(windows_core::Interface::as_raw(self), pparticipant.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemoveParticipantAsync)(windows_core::Interface::as_raw(self), pparticipant.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateSessionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemSessionCreationResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSessionAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSessionAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateController(displayname: &windows_core::HSTRING) -> windows_core::Result<RemoteSystemSessionController> {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateControllerWithSessionOptions<P1>(displayname: &windows_core::HSTRING, options: P1) -> windows_core::Result<RemoteSystemSessionController>
@@ -1675,7 +1675,7 @@ impl RemoteSystemSessionController {
     {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateControllerWithSessionOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayname), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateControllerWithSessionOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayname), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemSessionControllerFactory<R, F: FnOnce(&IRemoteSystemSessionControllerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1709,7 +1709,7 @@ impl RemoteSystemSessionCreationResult {
     pub fn Session(&self) -> windows_core::Result<RemoteSystemSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1797,7 +1797,7 @@ impl RemoteSystemSessionInfo {
     pub fn JoinAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<RemoteSystemSessionJoinResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).JoinAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).JoinAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1821,13 +1821,13 @@ impl RemoteSystemSessionInvitation {
     pub fn Sender(&self) -> windows_core::Result<RemoteSystem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Sender)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Sender)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SessionInfo(&self) -> windows_core::Result<RemoteSystemSessionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1888,7 +1888,7 @@ impl RemoteSystemSessionInvitationReceivedEventArgs {
     pub fn Invitation(&self) -> windows_core::Result<RemoteSystemSessionInvitation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Invitation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Invitation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1912,7 +1912,7 @@ impl RemoteSystemSessionJoinRequest {
     pub fn Participant(&self) -> windows_core::Result<RemoteSystemSessionParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Accept(&self) -> windows_core::Result<()> {
@@ -1939,13 +1939,13 @@ impl RemoteSystemSessionJoinRequestedEventArgs {
     pub fn JoinRequest(&self) -> windows_core::Result<RemoteSystemSessionJoinRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).JoinRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).JoinRequest)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1975,7 +1975,7 @@ impl RemoteSystemSessionJoinResult {
     pub fn Session(&self) -> windows_core::Result<RemoteSystemSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2015,7 +2015,7 @@ impl RemoteSystemSessionMessageChannel {
     pub fn Session(&self) -> windows_core::Result<RemoteSystemSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2025,7 +2025,7 @@ impl RemoteSystemSessionMessageChannel {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BroadcastValueSetAsync)(windows_core::Interface::as_raw(self), messagedata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BroadcastValueSetAsync)(windows_core::Interface::as_raw(self), messagedata.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2036,7 +2036,7 @@ impl RemoteSystemSessionMessageChannel {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendValueSetAsync)(windows_core::Interface::as_raw(self), messagedata.param().abi(), participant.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendValueSetAsync)(windows_core::Interface::as_raw(self), messagedata.param().abi(), participant.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -2047,7 +2047,7 @@ impl RemoteSystemSessionMessageChannel {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendValueSetToParticipantsAsync)(windows_core::Interface::as_raw(self), messagedata.param().abi(), participants.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendValueSetToParticipantsAsync)(windows_core::Interface::as_raw(self), messagedata.param().abi(), participants.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ValueSetReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -2068,7 +2068,7 @@ impl RemoteSystemSessionMessageChannel {
     {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), session.param().abi(), core::mem::transmute_copy(channelname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), session.param().abi(), core::mem::transmute_copy(channelname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateWithReliability<P0>(session: P0, channelname: &windows_core::HSTRING, reliability: RemoteSystemSessionMessageChannelReliability) -> windows_core::Result<RemoteSystemSessionMessageChannel>
@@ -2077,7 +2077,7 @@ impl RemoteSystemSessionMessageChannel {
     {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithReliability)(windows_core::Interface::as_raw(this), session.param().abi(), core::mem::transmute_copy(channelname), reliability, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithReliability)(windows_core::Interface::as_raw(this), session.param().abi(), core::mem::transmute_copy(channelname), reliability, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemSessionMessageChannelFactory<R, F: FnOnce(&IRemoteSystemSessionMessageChannelFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2152,14 +2152,14 @@ impl RemoteSystemSessionParticipant {
     pub fn RemoteSystem(&self) -> windows_core::Result<RemoteSystem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking")]
     pub fn GetHostNames(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Networking::HostName>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetHostNames)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetHostNames)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2183,7 +2183,7 @@ impl RemoteSystemSessionParticipantAddedEventArgs {
     pub fn Participant(&self) -> windows_core::Result<RemoteSystemSessionParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2207,7 +2207,7 @@ impl RemoteSystemSessionParticipantRemovedEventArgs {
     pub fn Participant(&self) -> windows_core::Result<RemoteSystemSessionParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2314,7 +2314,7 @@ impl RemoteSystemSessionRemovedEventArgs {
     pub fn SessionInfo(&self) -> windows_core::Result<RemoteSystemSessionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2338,7 +2338,7 @@ impl RemoteSystemSessionUpdatedEventArgs {
     pub fn SessionInfo(&self) -> windows_core::Result<RemoteSystemSessionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SessionInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2362,14 +2362,14 @@ impl RemoteSystemSessionValueSetReceivedEventArgs {
     pub fn Sender(&self) -> windows_core::Result<RemoteSystemSessionParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Sender)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Sender)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Message(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2511,7 +2511,7 @@ impl RemoteSystemStatusTypeFilter {
     pub fn Create(remotesystemstatustype: RemoteSystemStatusType) -> windows_core::Result<RemoteSystemStatusTypeFilter> {
         Self::IRemoteSystemStatusTypeFilterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemstatustype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), remotesystemstatustype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemStatusTypeFilterFactory<R, F: FnOnce(&IRemoteSystemStatusTypeFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2539,7 +2539,7 @@ impl RemoteSystemUpdatedEventArgs {
     pub fn RemoteSystem(&self) -> windows_core::Result<RemoteSystem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemoteSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2634,7 +2634,7 @@ impl RemoteSystemWatcher {
         let this = &windows_core::Interface::cast::<IRemoteSystemWatcher3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2698,7 +2698,7 @@ impl RemoteSystemWebAccountFilter {
     pub fn Account(&self) -> windows_core::Result<super::super::Security::Credentials::WebAccount> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Account)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Account)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -2708,7 +2708,7 @@ impl RemoteSystemWebAccountFilter {
     {
         Self::IRemoteSystemWebAccountFilterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), account.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRemoteSystemWebAccountFilterFactory<R, F: FnOnce(&IRemoteSystemWebAccountFilterFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

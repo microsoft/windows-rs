@@ -92,7 +92,7 @@ impl Application {
                 &mut core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn compose<T>(compose: T) -> windows_core::Result<Application>
@@ -110,7 +110,7 @@ impl Application {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     pub fn OnActivated<P0>(&self, args: P0) -> windows_core::Result<()>
@@ -260,7 +260,7 @@ impl Application {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn Start<P0>(callback: P0) -> windows_core::Result<()>
@@ -729,7 +729,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusLeft<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -753,7 +753,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusRight<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -777,7 +777,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusUp<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -801,7 +801,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusDown<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -854,7 +854,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDefaultStyleResourceUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -879,7 +879,7 @@ impl Control {
                 &mut core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn compose<T>(compose: T) -> windows_core::Result<Control>
@@ -897,7 +897,7 @@ impl Control {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     pub fn DefaultStyleKey(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -908,7 +908,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDefaultStyleKey<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -936,7 +936,7 @@ impl Control {
                 core::mem::transmute_copy(childname),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetIsTemplateFocusTarget<P0>(element: P0) -> windows_core::Result<bool>
@@ -1001,7 +1001,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -1012,7 +1012,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1226,7 +1226,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DataContext(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -1237,7 +1237,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDataContext<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1261,7 +1261,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveLoaded(&self, token: i64) -> windows_core::Result<()> {
@@ -1331,7 +1331,7 @@ impl Control {
                 core::mem::transmute_copy(name),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveDataContextChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -2139,7 +2139,7 @@ impl Control {
                 pointerpoint.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> windows_core::Result<bool> {
@@ -2192,7 +2192,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetAccessKeyScopeOwner<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2408,7 +2408,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyTipTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2432,7 +2432,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyboardAcceleratorPlacementTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2659,7 +2659,7 @@ impl Control {
                 boundingrect,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetChildrenInTabFocusOrder(
@@ -2672,7 +2672,7 @@ impl Control {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PopulatePropertyInfoOverride<P1>(
@@ -2772,7 +2772,7 @@ impl DependencyObject {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn new() -> windows_core::Result<DependencyObject> {
@@ -2784,7 +2784,7 @@ impl DependencyObject {
                 &mut core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn compose<T>(compose: T) -> windows_core::Result<DependencyObject>
@@ -2802,7 +2802,7 @@ impl DependencyObject {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     fn IDependencyObjectFactory<
@@ -2872,7 +2872,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -2882,7 +2882,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3076,7 +3076,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DataContext(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -3086,7 +3086,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDataContext<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3108,7 +3108,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveLoaded(&self, token: i64) -> windows_core::Result<()> {
@@ -3172,7 +3172,7 @@ impl FrameworkElement {
                 core::mem::transmute_copy(name),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveDataContextChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -3311,7 +3311,7 @@ impl FrameworkElement {
                 &mut core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn compose<T>(compose: T) -> windows_core::Result<FrameworkElement>
@@ -3329,7 +3329,7 @@ impl FrameworkElement {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     pub fn MeasureOverride(
@@ -4022,7 +4022,7 @@ impl FrameworkElement {
                 pointerpoint.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> windows_core::Result<bool> {
@@ -4075,7 +4075,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetAccessKeyScopeOwner<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -4291,7 +4291,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyTipTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -4315,7 +4315,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyboardAcceleratorPlacementTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -4542,7 +4542,7 @@ impl FrameworkElement {
                 boundingrect,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetChildrenInTabFocusOrder(
@@ -4555,7 +4555,7 @@ impl FrameworkElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PopulatePropertyInfoOverride<P1>(
@@ -8934,7 +8934,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusLeft<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -8958,7 +8958,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusRight<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -8982,7 +8982,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusUp<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9006,7 +9006,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetXYFocusDown<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9059,7 +9059,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDefaultStyleResourceUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9083,7 +9083,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDefaultStyleKey<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9111,7 +9111,7 @@ impl TextBox {
                 core::mem::transmute_copy(childname),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Dispatcher(&self) -> windows_core::Result<windows::UI::Core::CoreDispatcher> {
@@ -9122,7 +9122,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -9133,7 +9133,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9347,7 +9347,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DataContext(&self) -> windows_core::Result<windows_core::IInspectable> {
@@ -9358,7 +9358,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDataContext<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -9382,7 +9382,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveLoaded(&self, token: i64) -> windows_core::Result<()> {
@@ -9452,7 +9452,7 @@ impl TextBox {
                 core::mem::transmute_copy(name),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveDataContextChanged(&self, token: i64) -> windows_core::Result<()> {
@@ -9885,7 +9885,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetHeader<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -10039,7 +10039,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveCopyingToClipboard(&self, token: i64) -> windows_core::Result<()> {
@@ -10134,7 +10134,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDescription<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -10217,7 +10217,7 @@ impl TextBox {
                 &mut core::ptr::null_mut(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn compose<T>(compose: T) -> windows_core::Result<TextBox>
@@ -10235,7 +10235,7 @@ impl TextBox {
             )
             .ok()?;
             let _ = &derived__;
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         })
     }
     pub fn DesiredSize(&self) -> windows_core::Result<windows::Foundation::Size> {
@@ -10851,7 +10851,7 @@ impl TextBox {
                 pointerpoint.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> windows_core::Result<bool> {
@@ -10904,7 +10904,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetAccessKeyScopeOwner<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -11120,7 +11120,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyTipTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -11144,7 +11144,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyboardAcceleratorPlacementTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -11371,7 +11371,7 @@ impl TextBox {
                 boundingrect,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetChildrenInTabFocusOrder(
@@ -11384,7 +11384,7 @@ impl TextBox {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PopulatePropertyInfoOverride<P1>(
@@ -11517,7 +11517,7 @@ impl UIElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DesiredSize(&self) -> windows_core::Result<windows::Foundation::Size> {
@@ -12082,7 +12082,7 @@ impl UIElement {
                 pointerpoint.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ExitDisplayModeOnAccessKeyInvoked(&self) -> windows_core::Result<bool> {
@@ -12135,7 +12135,7 @@ impl UIElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetAccessKeyScopeOwner<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -12351,7 +12351,7 @@ impl UIElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyTipTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -12375,7 +12375,7 @@ impl UIElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetKeyboardAcceleratorPlacementTarget<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -12602,7 +12602,7 @@ impl UIElement {
                 boundingrect,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetChildrenInTabFocusOrder(
@@ -12615,7 +12615,7 @@ impl UIElement {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn PopulatePropertyInfoOverride<P1>(
@@ -12764,7 +12764,7 @@ impl Window {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetContent<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -12786,7 +12786,7 @@ impl Window {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Dispatcher(&self) -> windows_core::Result<windows::UI::Core::CoreDispatcher> {
@@ -12796,7 +12796,7 @@ impl Window {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemoveActivated(&self, token: i64) -> windows_core::Result<()> {
@@ -12868,7 +12868,7 @@ impl Window {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Current() -> windows_core::Result<Window> {
@@ -12878,7 +12878,7 @@ impl Window {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IWindowStatics<R, F: FnOnce(&IWindowStatics) -> windows_core::Result<R>>(
@@ -12918,7 +12918,7 @@ impl WindowCreatedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

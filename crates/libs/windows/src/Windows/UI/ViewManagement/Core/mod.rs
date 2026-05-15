@@ -33,13 +33,13 @@ impl CoreFrameworkInputView {
     {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetForCurrentView() -> windows_core::Result<CoreFrameworkInputView> {
         Self::ICoreFrameworkInputViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICoreFrameworkInputViewStatics<R, F: FnOnce(&ICoreFrameworkInputViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -67,7 +67,7 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FrameworkAnimationRecommended(&self) -> windows_core::Result<bool> {
@@ -103,7 +103,7 @@ impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -145,7 +145,7 @@ impl CoreInputView {
     pub fn GetCoreInputViewOcclusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCoreInputViewOcclusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCoreInputViewOcclusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryShowPrimaryView(&self) -> windows_core::Result<bool> {
@@ -282,7 +282,7 @@ impl CoreInputView {
     pub fn GetForCurrentView() -> windows_core::Result<CoreInputView> {
         Self::ICoreInputViewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<CoreInputView>
@@ -291,7 +291,7 @@ impl CoreInputView {
     {
         Self::ICoreInputViewStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICoreInputViewStatics<R, F: FnOnce(&ICoreInputViewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -323,7 +323,7 @@ impl CoreInputViewAnimationStartingEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -449,7 +449,7 @@ impl CoreInputViewOcclusionsChangedEventArgs {
     pub fn Occlusions(&self) -> windows_core::Result<windows_collections::IVectorView<CoreInputViewOcclusion>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Occlusions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -813,7 +813,7 @@ impl UISettingsController {
     pub fn RequestDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<UISettingsController>> {
         Self::IUISettingsControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUISettingsControllerStatics<R, F: FnOnce(&IUISettingsControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

@@ -141,7 +141,7 @@ impl MediaTranscoder {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PrepareFileTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -153,7 +153,7 @@ impl MediaTranscoder {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PrepareStreamTranscodeAsync)(windows_core::Interface::as_raw(self), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
@@ -166,7 +166,7 @@ impl MediaTranscoder {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> windows_core::Result<()> {
@@ -226,7 +226,7 @@ impl PrepareTranscodeResult {
     pub fn TranscodeAsync(&self) -> windows_core::Result<windows_future::IAsyncActionWithProgress<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TranscodeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TranscodeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

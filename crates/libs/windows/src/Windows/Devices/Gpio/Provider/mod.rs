@@ -12,7 +12,7 @@ impl GpioPinProviderValueChangedEventArgs {
     pub fn Create(edge: ProviderGpioPinEdge) -> windows_core::Result<GpioPinProviderValueChangedEventArgs> {
         Self::IGpioPinProviderValueChangedEventArgsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), edge, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), edge, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IGpioPinProviderValueChangedEventArgsFactory<R, F: FnOnce(&IGpioPinProviderValueChangedEventArgsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -47,7 +47,7 @@ impl IGpioControllerProvider {
     pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> windows_core::Result<IGpioPinProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenPinProvider)(windows_core::Interface::as_raw(self), pin, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenPinProvider)(windows_core::Interface::as_raw(self), pin, sharingmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -356,7 +356,7 @@ impl IGpioProvider {
     pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IGpioControllerProvider>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

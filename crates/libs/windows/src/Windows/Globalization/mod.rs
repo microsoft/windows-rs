@@ -22,13 +22,13 @@ impl ApplicationLanguages {
     pub fn Languages() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IApplicationLanguagesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Languages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Languages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ManifestLanguages() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IApplicationLanguagesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ManifestLanguages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ManifestLanguages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -38,7 +38,7 @@ impl ApplicationLanguages {
     {
         Self::IApplicationLanguagesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLanguagesForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetLanguagesForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IApplicationLanguagesStatics<R, F: FnOnce(&IApplicationLanguagesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -68,7 +68,7 @@ impl Calendar {
     pub fn Clone(&self) -> windows_core::Result<Calendar> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetToMin(&self) -> windows_core::Result<()> {
@@ -80,7 +80,7 @@ impl Calendar {
     pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn NumeralSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -584,7 +584,7 @@ impl Calendar {
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(windows_core::Interface::as_raw(this), languages.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateCalendar<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<Calendar>
@@ -593,7 +593,7 @@ impl Calendar {
     {
         Self::ICalendarFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendar)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateCalendarWithTimeZone<P0>(languages: P0, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING, timezoneid: &windows_core::HSTRING) -> windows_core::Result<Calendar>
@@ -602,7 +602,7 @@ impl Calendar {
     {
         Self::ICalendarFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), core::mem::transmute_copy(timezoneid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCalendarWithTimeZone)(windows_core::Interface::as_raw(this), languages.param().abi(), core::mem::transmute_copy(calendar), core::mem::transmute_copy(clock), core::mem::transmute_copy(timezoneid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetTimeZone(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -801,7 +801,7 @@ impl CurrencyAmount {
     pub fn Create(amount: &windows_core::HSTRING, currency: &windows_core::HSTRING) -> windows_core::Result<CurrencyAmount> {
         Self::ICurrencyAmountFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(amount), core::mem::transmute_copy(currency), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(amount), core::mem::transmute_copy(currency), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ICurrencyAmountFactory<R, F: FnOnce(&ICurrencyAmountFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1880,13 +1880,13 @@ impl GeographicRegion {
     pub fn CurrenciesInUse(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrenciesInUse)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CurrenciesInUse)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateGeographicRegion(geographicregioncode: &windows_core::HSTRING) -> windows_core::Result<GeographicRegion> {
         Self::IGeographicRegionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateGeographicRegion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(geographicregioncode), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateGeographicRegion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(geographicregioncode), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn IsSupported(geographicregioncode: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -2594,13 +2594,13 @@ impl JapanesePhoneticAnalyzer {
     pub fn GetWords(input: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWords)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetWords)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetWordsWithMonoRubyOption(input: &windows_core::HSTRING, monoruby: bool) -> windows_core::Result<windows_collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWordsWithMonoRubyOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), monoruby, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetWordsWithMonoRubyOption)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), monoruby, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IJapanesePhoneticAnalyzerStatics<R, F: FnOnce(&IJapanesePhoneticAnalyzerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2658,13 +2658,13 @@ impl Language {
         let this = &windows_core::Interface::cast::<ILanguageExtensionSubtags>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetExtensionSubtags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(singleton), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetExtensionSubtags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(singleton), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateLanguage(languagetag: &windows_core::HSTRING) -> windows_core::Result<Language> {
         Self::ILanguageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn IsWellFormed(languagetag: &windows_core::HSTRING) -> windows_core::Result<bool> {
@@ -2691,7 +2691,7 @@ impl Language {
     {
         Self::ILanguageStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetMuiCompatibleLanguageListFromLanguageTags)(windows_core::Interface::as_raw(this), languagetags.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ILanguageFactory<R, F: FnOnce(&ILanguageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

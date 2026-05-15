@@ -493,7 +493,7 @@ impl Type {
             let tokens = self.write_name(config);
 
             if matches!(self, Self::Generic(_)) {
-                quote! { <#tokens as windows_core::Type<#tokens>>::Default }
+                quote! { <#tokens as windows_core::imp::Type<#tokens>>::Default }
             } else if self.is_interface() {
                 quote! { Option<#tokens> }
             } else {
@@ -915,7 +915,7 @@ impl Type {
         if self.is_copyable(reader) {
             quote! { map(|| result__) }
         } else if self.is_convertible() {
-            quote! { and_then(||windows_core::Type::from_abi(result__)) }
+            quote! { and_then(||windows_core::imp::Type::from_abi(result__)) }
         } else {
             quote! { map(|| core::mem::transmute(result__)) }
         }

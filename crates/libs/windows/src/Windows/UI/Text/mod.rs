@@ -55,7 +55,7 @@ impl ContentLinkInfo {
     pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Uri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -583,7 +583,7 @@ impl ITextCharacterFormat {
     pub fn GetClone(&self) -> windows_core::Result<ITextCharacterFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsEqual<P0>(&self, format: P0) -> windows_core::Result<bool>
@@ -1269,7 +1269,7 @@ impl ITextDocument {
     pub fn Selection(&self) -> windows_core::Result<ITextSelection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UndoLimit(&self) -> windows_core::Result<u32> {
@@ -1326,25 +1326,25 @@ impl ITextDocument {
     pub fn GetDefaultCharacterFormat(&self) -> windows_core::Result<ITextCharacterFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultCharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultCharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefaultParagraphFormat(&self) -> windows_core::Result<ITextParagraphFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetRange(&self, startposition: i32, endposition: i32) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), startposition, endposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), startposition, endposition, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRangeFromPoint)(windows_core::Interface::as_raw(self), point, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRangeFromPoint)(windows_core::Interface::as_raw(self), point, options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1983,7 +1983,7 @@ impl ITextParagraphFormat {
     pub fn GetClone(&self) -> windows_core::Result<ITextParagraphFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader) -> windows_core::Result<()> {
@@ -2626,7 +2626,7 @@ impl ITextRange {
     pub fn CharacterFormat(&self) -> windows_core::Result<ITextCharacterFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCharacterFormat<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2638,7 +2638,7 @@ impl ITextRange {
     pub fn FormattedText(&self) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FormattedText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FormattedText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetFormattedText<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2683,7 +2683,7 @@ impl ITextRange {
     pub fn ParagraphFormat(&self) -> windows_core::Result<ITextParagraphFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetParagraphFormat<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -2764,7 +2764,7 @@ impl ITextRange {
     pub fn GetClone(&self) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetIndex(&self, unit: TextRangeUnit) -> windows_core::Result<i32> {
@@ -3608,7 +3608,7 @@ impl ITextSelection {
         let this = &windows_core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CharacterFormat)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CharacterFormat)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCharacterFormat<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3622,7 +3622,7 @@ impl ITextSelection {
         let this = &windows_core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FormattedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FormattedText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetFormattedText<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3676,7 +3676,7 @@ impl ITextSelection {
         let this = &windows_core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParagraphFormat)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ParagraphFormat)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetParagraphFormat<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -3774,7 +3774,7 @@ impl ITextSelection {
         let this = &windows_core::Interface::cast::<ITextRange>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetClone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetClone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetIndex(&self, unit: TextRangeUnit) -> windows_core::Result<i32> {
@@ -4335,7 +4335,7 @@ impl RichEditTextDocument {
     pub fn Selection(&self) -> windows_core::Result<ITextSelection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UndoLimit(&self) -> windows_core::Result<u32> {
@@ -4392,25 +4392,25 @@ impl RichEditTextDocument {
     pub fn GetDefaultCharacterFormat(&self) -> windows_core::Result<ITextCharacterFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultCharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultCharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefaultParagraphFormat(&self) -> windows_core::Result<ITextParagraphFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetRange(&self, startposition: i32, endposition: i32) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), startposition, endposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRange)(windows_core::Interface::as_raw(self), startposition, endposition, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRangeFromPoint)(windows_core::Interface::as_raw(self), point, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRangeFromPoint)(windows_core::Interface::as_raw(self), point, options, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()> {
@@ -4511,7 +4511,7 @@ impl RichEditTextRange {
         let this = &windows_core::Interface::cast::<IRichEditTextRange>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentLinkInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ContentLinkInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetContentLinkInfo<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -4533,7 +4533,7 @@ impl RichEditTextRange {
     pub fn CharacterFormat(&self) -> windows_core::Result<ITextCharacterFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CharacterFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCharacterFormat<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -4545,7 +4545,7 @@ impl RichEditTextRange {
     pub fn FormattedText(&self) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FormattedText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FormattedText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetFormattedText<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -4590,7 +4590,7 @@ impl RichEditTextRange {
     pub fn ParagraphFormat(&self) -> windows_core::Result<ITextParagraphFormat> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ParagraphFormat)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetParagraphFormat<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -4671,7 +4671,7 @@ impl RichEditTextRange {
     pub fn GetClone(&self) -> windows_core::Result<ITextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetClone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetIndex(&self, unit: TextRangeUnit) -> windows_core::Result<i32> {

@@ -227,13 +227,13 @@ impl IUPnPDescriptionDocument {
     pub unsafe fn RootDevice(&self) -> windows_core::Result<IUPnPDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RootDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RootDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeviceByUDN(&self, bstrudn: &windows_core::BSTR) -> windows_core::Result<IUPnPDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeviceByUDN)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeviceByUDN)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -399,13 +399,13 @@ impl IUPnPDevice {
     pub unsafe fn RootDevice(&self) -> windows_core::Result<IUPnPDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RootDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RootDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ParentDevice(&self) -> windows_core::Result<IUPnPDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParentDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ParentDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn HasChildren(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
@@ -417,7 +417,7 @@ impl IUPnPDevice {
     pub unsafe fn Children(&self) -> windows_core::Result<IUPnPDevices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn UniqueDeviceName(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -501,7 +501,7 @@ impl IUPnPDevice {
     pub unsafe fn Services(&self) -> windows_core::Result<IUPnPServices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Services)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Services)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -822,7 +822,7 @@ impl IUPnPDeviceControl {
     pub unsafe fn GetServiceObject(&self, bstrudn: &windows_core::BSTR, bstrserviceid: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetServiceObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), core::mem::transmute_copy(bstrserviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetServiceObject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), core::mem::transmute_copy(bstrserviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1010,7 +1010,7 @@ impl IUPnPDeviceFinder {
     pub unsafe fn FindByType(&self, bstrtypeuri: &windows_core::BSTR, dwflags: u32) -> windows_core::Result<IUPnPDevices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindByType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtypeuri), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindByType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtypeuri), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateAsyncFind<P2>(&self, bstrtypeuri: &windows_core::BSTR, dwflags: u32, punkdevicefindercallback: P2) -> windows_core::Result<i32>
@@ -1031,7 +1031,7 @@ impl IUPnPDeviceFinder {
     pub unsafe fn FindByUDN(&self, bstrudn: &windows_core::BSTR) -> windows_core::Result<IUPnPDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindByUDN)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindByUDN)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1293,13 +1293,13 @@ impl IUPnPDevices {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_Item(&self, bstrudn: &windows_core::BSTR) -> windows_core::Result<IUPnPDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrudn), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2308,13 +2308,13 @@ impl IUPnPServices {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_Item(&self, bstrserviceid: &windows_core::BSTR) -> windows_core::Result<IUPnPService> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrserviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

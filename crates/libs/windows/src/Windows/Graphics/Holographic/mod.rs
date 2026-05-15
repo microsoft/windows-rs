@@ -52,21 +52,21 @@ impl HolographicCamera {
         let this = &windows_core::Interface::cast::<IHolographicCamera2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LeftViewportParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LeftViewportParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RightViewportParameters(&self) -> windows_core::Result<HolographicCameraViewportParameters> {
         let this = &windows_core::Interface::cast::<IHolographicCamera2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RightViewportParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RightViewportParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Display(&self) -> windows_core::Result<HolographicDisplay> {
         let this = &windows_core::Interface::cast::<IHolographicCamera2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Display)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Display)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsPrimaryLayerEnabled(&self) -> windows_core::Result<bool> {
@@ -91,7 +91,7 @@ impl HolographicCamera {
         let this = &windows_core::Interface::cast::<IHolographicCamera3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).QuadLayers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).QuadLayers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CanOverrideViewport(&self) -> windows_core::Result<bool> {
@@ -123,7 +123,7 @@ impl HolographicCamera {
         let this = &windows_core::Interface::cast::<IHolographicCamera6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ViewConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ViewConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -147,7 +147,7 @@ impl HolographicCameraPose {
     pub fn HolographicCamera(&self) -> windows_core::Result<HolographicCamera> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HolographicCamera)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HolographicCamera)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Viewport(&self) -> windows_core::Result<super::super::Foundation::Rect> {
@@ -163,7 +163,7 @@ impl HolographicCameraPose {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetViewTransform)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetViewTransform)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ProjectionTransform(&self) -> windows_core::Result<HolographicStereoTransform> {
@@ -179,7 +179,7 @@ impl HolographicCameraPose {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetCullingFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetCullingFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -189,7 +189,7 @@ impl HolographicCameraPose {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetVisibleFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetVisibleFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn NearPlaneDistance(&self) -> windows_core::Result<f64> {
@@ -263,14 +263,14 @@ impl HolographicCameraRenderingParameters {
     pub fn Direct3D11Device(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Direct3D11Device)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Direct3D11Device)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Direct3D11BackBuffer(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Direct3D11BackBuffer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Direct3D11BackBuffer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ReprojectionMode(&self) -> windows_core::Result<HolographicReprojectionMode> {
@@ -409,7 +409,7 @@ impl HolographicDisplay {
     pub fn SpatialLocator(&self) -> windows_core::Result<super::super::Perception::Spatial::SpatialLocator> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SpatialLocator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SpatialLocator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RefreshRate(&self) -> windows_core::Result<f64> {
@@ -423,13 +423,13 @@ impl HolographicDisplay {
         let this = &windows_core::Interface::cast::<IHolographicDisplay3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryGetViewConfiguration)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryGetViewConfiguration)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<HolographicDisplay> {
         Self::IHolographicDisplayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IHolographicDisplayStatics<R, F: FnOnce(&IHolographicDisplayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -457,13 +457,13 @@ impl HolographicFrame {
     pub fn AddedCameras(&self) -> windows_core::Result<windows_collections::IVectorView<HolographicCamera>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddedCameras)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddedCameras)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RemovedCameras(&self) -> windows_core::Result<windows_collections::IVectorView<HolographicCamera>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemovedCameras)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemovedCameras)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetRenderingParameters<P0>(&self, camerapose: P0) -> windows_core::Result<HolographicCameraRenderingParameters>
@@ -472,7 +472,7 @@ impl HolographicFrame {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRenderingParameters)(windows_core::Interface::as_raw(self), camerapose.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRenderingParameters)(windows_core::Interface::as_raw(self), camerapose.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -484,7 +484,7 @@ impl HolographicFrame {
     pub fn CurrentPrediction(&self) -> windows_core::Result<HolographicFramePrediction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentPrediction)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CurrentPrediction)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UpdateCurrentPrediction(&self) -> windows_core::Result<()> {
@@ -512,7 +512,7 @@ impl HolographicFrame {
         let this = &windows_core::Interface::cast::<IHolographicFrame2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetQuadLayerUpdateParameters)(windows_core::Interface::as_raw(this), layer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetQuadLayerUpdateParameters)(windows_core::Interface::as_raw(this), layer.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<HolographicFrameId> {
@@ -554,14 +554,14 @@ impl HolographicFramePrediction {
     pub fn CameraPoses(&self) -> windows_core::Result<windows_collections::IVectorView<HolographicCameraPose>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CameraPoses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CameraPoses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Perception")]
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Perception::PerceptionTimestamp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -616,7 +616,7 @@ impl HolographicFramePresentationMonitor {
     pub fn ReadReports(&self) -> windows_core::Result<windows_collections::IVectorView<HolographicFramePresentationReport>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadReports)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ReadReports)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -741,7 +741,7 @@ impl HolographicFrameScanoutMonitor {
     pub fn ReadReports(&self) -> windows_core::Result<windows_collections::IVector<HolographicFrameScanoutReport>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadReports)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ReadReports)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -765,7 +765,7 @@ impl HolographicFrameScanoutReport {
     pub fn RenderingReport(&self) -> windows_core::Result<HolographicFrameRenderingReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RenderingReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RenderingReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MissedScanoutCount(&self) -> windows_core::Result<u32> {
@@ -831,14 +831,14 @@ impl HolographicQuadLayer {
     pub fn Create(size: super::super::Foundation::Size) -> windows_core::Result<HolographicQuadLayer> {
         Self::IHolographicQuadLayerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), size, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateWithPixelFormat(size: super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat) -> windows_core::Result<HolographicQuadLayer> {
         Self::IHolographicQuadLayerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithPixelFormat)(windows_core::Interface::as_raw(this), size, pixelformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithPixelFormat)(windows_core::Interface::as_raw(this), size, pixelformat, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IHolographicQuadLayerFactory<R, F: FnOnce(&IHolographicQuadLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -867,7 +867,7 @@ impl HolographicQuadLayerUpdateParameters {
     pub fn AcquireBufferToUpdateContent(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AcquireBufferToUpdateContent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AcquireBufferToUpdateContent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UpdateViewport(&self, value: super::super::Foundation::Rect) -> windows_core::Result<()> {
@@ -902,7 +902,7 @@ impl HolographicQuadLayerUpdateParameters {
         let this = &windows_core::Interface::cast::<IHolographicQuadLayerUpdateParameters2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcquireBufferToUpdateContentWithHardwareProtection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AcquireBufferToUpdateContentWithHardwareProtection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -977,7 +977,7 @@ impl HolographicSpace {
     pub fn CreateNextFrame(&self) -> windows_core::Result<HolographicFrame> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateNextFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateNextFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn UserPresence(&self) -> windows_core::Result<HolographicSpaceUserPresence> {
@@ -1013,14 +1013,14 @@ impl HolographicSpace {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFramePresentationMonitor)(windows_core::Interface::as_raw(this), maxqueuedreports, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFramePresentationMonitor)(windows_core::Interface::as_raw(this), maxqueuedreports, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateFrameScanoutMonitor(&self, maxqueuedreports: u32) -> windows_core::Result<HolographicFrameScanoutMonitor> {
         let this = &windows_core::Interface::cast::<IHolographicSpace3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFrameScanoutMonitor)(windows_core::Interface::as_raw(this), maxqueuedreports, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFrameScanoutMonitor)(windows_core::Interface::as_raw(this), maxqueuedreports, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Core")]
@@ -1030,7 +1030,7 @@ impl HolographicSpace {
     {
         Self::IHolographicSpaceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForCoreWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForCoreWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
@@ -1096,13 +1096,13 @@ impl HolographicSpaceCameraAddedEventArgs {
     pub fn Camera(&self) -> windows_core::Result<HolographicCamera> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Camera)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Camera)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1126,7 +1126,7 @@ impl HolographicSpaceCameraRemovedEventArgs {
     pub fn Camera(&self) -> windows_core::Result<HolographicCamera> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Camera)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Camera)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1195,7 +1195,7 @@ impl HolographicViewConfiguration {
     pub fn SupportedPixelFormats(&self) -> windows_core::Result<windows_collections::IVectorView<super::DirectX::DirectXPixelFormat>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportedPixelFormats)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SupportedPixelFormats)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_DirectX")]
@@ -1230,7 +1230,7 @@ impl HolographicViewConfiguration {
     pub fn Display(&self) -> windows_core::Result<HolographicDisplay> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Display)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Display)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsEnabled(&self) -> windows_core::Result<bool> {
@@ -1246,7 +1246,7 @@ impl HolographicViewConfiguration {
         let this = &windows_core::Interface::cast::<IHolographicViewConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SupportedDepthReprojectionMethods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SupportedDepthReprojectionMethods)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

@@ -6,7 +6,7 @@ impl AppRecordingManager {
     pub fn GetStatus(&self) -> windows_core::Result<AppRecordingStatus> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -16,7 +16,7 @@ impl AppRecordingManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartRecordingToFileAsync)(windows_core::Interface::as_raw(self), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartRecordingToFileAsync)(windows_core::Interface::as_raw(self), file.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -26,13 +26,13 @@ impl AppRecordingManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(self), starttime, duration, file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RecordTimeSpanToFileAsync)(windows_core::Interface::as_raw(self), starttime, duration, file.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportedScreenshotMediaEncodingSubtypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SupportedScreenshotMediaEncodingSubtypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Search")]
@@ -43,13 +43,13 @@ impl AppRecordingManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveScreenshotToFilesAsync)(windows_core::Interface::as_raw(self), folder.param().abi(), core::mem::transmute_copy(filenameprefix), option, requestedformats.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveScreenshotToFilesAsync)(windows_core::Interface::as_raw(self), folder.param().abi(), core::mem::transmute_copy(filenameprefix), option, requestedformats.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<AppRecordingManager> {
         Self::IAppRecordingManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IAppRecordingManagerStatics<R, F: FnOnce(&IAppRecordingManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -144,7 +144,7 @@ impl AppRecordingSaveScreenshotResult {
     pub fn SavedScreenshotInfos(&self) -> windows_core::Result<windows_collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SavedScreenshotInfos)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SavedScreenshotInfos)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -169,7 +169,7 @@ impl AppRecordingSavedScreenshotInfo {
     pub fn File(&self) -> windows_core::Result<super::super::Storage::StorageFile> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).File)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).File)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MediaEncodingSubtype(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -217,7 +217,7 @@ impl AppRecordingStatus {
     pub fn Details(&self) -> windows_core::Result<AppRecordingStatusDetails> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Details)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Details)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

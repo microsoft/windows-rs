@@ -32,7 +32,7 @@ impl IWindowsMediaLibrarySharingDevice {
     pub unsafe fn Properties(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -128,7 +128,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -140,7 +140,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     pub unsafe fn GetProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -305,7 +305,7 @@ impl IWindowsMediaLibrarySharingDevices {
     pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsMediaLibrarySharingDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<i32> {
@@ -317,7 +317,7 @@ impl IWindowsMediaLibrarySharingDevices {
     pub unsafe fn GetDevice(&self, deviceid: &windows_core::BSTR) -> windows_core::Result<IWindowsMediaLibrarySharingDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -476,7 +476,7 @@ impl IWindowsMediaLibrarySharingServices {
     pub unsafe fn getAllDevices(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDevices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getAllDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getAllDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn customSettingsApplied(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {

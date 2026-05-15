@@ -1654,21 +1654,21 @@ impl IAzApplication {
     pub unsafe fn Scopes(&self) -> windows_core::Result<IAzScopes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Scopes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Scopes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenScope(&self, bstrscopename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzScope> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenScope)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenScope)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateScope(&self, bstrscopename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzScope> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateScope)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateScope)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1678,21 +1678,21 @@ impl IAzApplication {
     pub unsafe fn Operations(&self) -> windows_core::Result<IAzOperations> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Operations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Operations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenOperation(&self, bstroperationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzOperation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstroperationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstroperationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateOperation(&self, bstroperationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzOperation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstroperationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateOperation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstroperationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1702,21 +1702,21 @@ impl IAzApplication {
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tasks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Tasks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzTask> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzTask> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1726,21 +1726,21 @@ impl IAzApplication {
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplicationGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ApplicationGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplicationGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplicationGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1750,21 +1750,21 @@ impl IAzApplication {
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Roles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Roles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzRole> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzRole> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1775,7 +1775,7 @@ impl IAzApplication {
     pub unsafe fn InitializeClientContextFromToken(&self, ulltokenhandle: u64, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InitializeClientContextFromToken)(windows_core::Interface::as_raw(self), ulltokenhandle, core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1794,7 +1794,7 @@ impl IAzApplication {
     pub unsafe fn InitializeClientContextFromName(&self, clientname: &windows_core::BSTR, domainname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeClientContextFromName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clientname), core::mem::transmute_copy(domainname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InitializeClientContextFromName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clientname), core::mem::transmute_copy(domainname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1816,7 +1816,7 @@ impl IAzApplication {
     pub unsafe fn InitializeClientContextFromStringSid(&self, sidstring: &windows_core::BSTR, loptions: i32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sidstring), loptions, core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InitializeClientContextFromStringSid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sidstring), loptions, core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -2774,14 +2774,14 @@ impl IAzApplication2 {
     pub unsafe fn InitializeClientContextFromToken2(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeClientContextFromToken2)(windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InitializeClientContextFromToken2)(windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn InitializeClientContext2(&self, identifyingstring: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzClientContext2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitializeClientContext2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifyingstring), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InitializeClientContext2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifyingstring), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2865,13 +2865,13 @@ impl IAzApplication3 {
     pub unsafe fn OpenScope2(&self, bstrscopename: &windows_core::BSTR) -> windows_core::Result<IAzScope2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenScope2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenScope2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateScope2(&self, bstrscopename: &windows_core::BSTR) -> windows_core::Result<IAzScope2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateScope2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateScope2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteScope2(&self, bstrscopename: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -2880,19 +2880,19 @@ impl IAzApplication3 {
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<IAzRoleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OpenRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<IAzRoleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -2901,19 +2901,19 @@ impl IAzApplication3 {
     pub unsafe fn RoleAssignments(&self) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<IAzRoleAssignment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OpenRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<IAzRoleAssignment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -3800,7 +3800,7 @@ impl IAzApplicationGroup2 {
     pub unsafe fn RoleAssignments(&self, bstrscopename: &windows_core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3942,7 +3942,7 @@ impl IAzApplicationGroups {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4045,7 +4045,7 @@ impl IAzApplications {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4256,21 +4256,21 @@ impl IAzAuthorizationStore {
     pub unsafe fn Applications(&self) -> windows_core::Result<IAzApplications> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Applications)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Applications)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenApplication(&self, bstrapplicationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplication> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateApplication(&self, bstrapplicationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplication> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -4280,21 +4280,21 @@ impl IAzAuthorizationStore {
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplicationGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ApplicationGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplicationGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplicationGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5110,14 +5110,14 @@ impl IAzAuthorizationStore2 {
     pub unsafe fn OpenApplication2(&self, bstrapplicationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplication2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenApplication2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenApplication2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateApplication2(&self, bstrapplicationname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplication2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateApplication2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateApplication2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6148,25 +6148,25 @@ impl IAzClientContext3 {
     pub unsafe fn GetOperations(&self, bstrscopename: &windows_core::BSTR) -> windows_core::Result<IAzOperations> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOperations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOperations)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetTasks(&self, bstrscopename: &windows_core::BSTR) -> windows_core::Result<IAzTasks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTasks)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTasks)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn BizRuleParameters(&self) -> windows_core::Result<IAzBizRuleParameters> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BizRuleParameters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BizRuleParameters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn BizRuleInterfaces(&self) -> windows_core::Result<IAzBizRuleInterfaces> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BizRuleInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BizRuleInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -6731,7 +6731,7 @@ impl IAzOperation2 {
     pub unsafe fn RoleAssignments(&self, bstrscopename: &windows_core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6798,7 +6798,7 @@ impl IAzOperations {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6888,13 +6888,13 @@ impl IAzPrincipalLocator {
     pub unsafe fn NameResolver(&self) -> windows_core::Result<IAzNameResolver> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NameResolver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).NameResolver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ObjectPicker(&self) -> windows_core::Result<IAzObjectPicker> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ObjectPicker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ObjectPicker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7502,13 +7502,13 @@ impl IAzRoleAssignment {
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Scope(&self) -> windows_core::Result<IAzScope> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Scope)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Scope)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7611,7 +7611,7 @@ impl IAzRoleAssignments {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7701,7 +7701,7 @@ impl IAzRoleDefinition {
     pub unsafe fn RoleAssignments(&self, bstrscopename: &windows_core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddRoleDefinition(&self, bstrroledefinition: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -7713,7 +7713,7 @@ impl IAzRoleDefinition {
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7816,7 +7816,7 @@ impl IAzRoleDefinitions {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7919,7 +7919,7 @@ impl IAzRoles {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8091,21 +8091,21 @@ impl IAzScope {
     pub unsafe fn ApplicationGroups(&self) -> windows_core::Result<IAzApplicationGroups> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplicationGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ApplicationGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplicationGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateApplicationGroup(&self, bstrgroupname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzApplicationGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateApplicationGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8115,21 +8115,21 @@ impl IAzScope {
     pub unsafe fn Roles(&self) -> windows_core::Result<IAzRoles> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Roles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Roles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzRole> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateRole(&self, bstrrolename: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzRole> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRole)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrolename), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8139,21 +8139,21 @@ impl IAzScope {
     pub unsafe fn Tasks(&self) -> windows_core::Result<IAzTasks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tasks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Tasks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OpenTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzTask> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateTask(&self, bstrtaskname: &windows_core::BSTR, varreserved: &super::super::System::Variant::VARIANT) -> windows_core::Result<IAzTask> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrtaskname), core::mem::transmute_copy(varreserved), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -8785,19 +8785,19 @@ impl IAzScope2 {
     pub unsafe fn RoleDefinitions(&self) -> windows_core::Result<IAzRoleDefinitions> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<IAzRoleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OpenRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<IAzRoleDefinition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenRoleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroledefinitionname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteRoleDefinition(&self, bstrroledefinitionname: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -8806,19 +8806,19 @@ impl IAzScope2 {
     pub unsafe fn RoleAssignments(&self) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<IAzRoleAssignment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OpenRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<IAzRoleAssignment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OpenRoleAssignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrroleassignmentname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteRoleAssignment(&self, bstrroleassignmentname: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -8984,7 +8984,7 @@ impl IAzScopes {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -9565,7 +9565,7 @@ impl IAzTask2 {
     pub unsafe fn RoleAssignments(&self, bstrscopename: &windows_core::BSTR, brecursive: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IAzRoleAssignments> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RoleAssignments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrscopename), brecursive, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -9632,7 +9632,7 @@ impl IAzTasks {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

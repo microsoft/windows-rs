@@ -1945,7 +1945,7 @@ impl ITraceEvent {
     pub unsafe fn Clone(&self) -> windows_core::Result<ITraceEvent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetUserContext(&self) -> windows_core::Result<*mut core::ffi::c_void> {
@@ -2231,7 +2231,7 @@ impl ITraceRelogger {
     pub unsafe fn CreateEventInstance(&self, tracestreamid: u64, flags: u32) -> windows_core::Result<ITraceEvent> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEventInstance)(windows_core::Interface::as_raw(self), tracestreamid, flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEventInstance)(windows_core::Interface::as_raw(self), tracestreamid, flags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ProcessTrace(&self) -> windows_core::Result<()> {

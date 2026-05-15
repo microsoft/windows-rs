@@ -3,7 +3,7 @@ pub unsafe fn MLCreateOperatorRegistry() -> windows_core::Result<IMLOperatorRegi
     windows_core::link!("windows.ai.machinelearning.dll" "system" fn MLCreateOperatorRegistry(registry : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MLCreateOperatorRegistry(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        MLCreateOperatorRegistry(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn WinMLCreateRuntime() -> windows_core::Result<IWinMLRuntime> {
     windows_core::link!("winml.dll" "system" fn WinMLCreateRuntime(runtime : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinMLCreateRuntime(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        WinMLCreateRuntime(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 windows_core::imp::define_interface!(IMLOperatorAttributes, IMLOperatorAttributes_Vtbl, 0x4b1b1759_ec40_466c_aab4_beb5347fd24c);
@@ -154,32 +154,32 @@ impl IMLOperatorKernelContext {
     pub unsafe fn GetInputTensor(&self, inputindex: u32) -> windows_core::Result<IMLOperatorTensor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputTensor)(windows_core::Interface::as_raw(self), inputindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputTensor)(windows_core::Interface::as_raw(self), inputindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetOutputTensor(&self, outputindex: u32, dimensionsizes: &[u32]) -> windows_core::Result<IMLOperatorTensor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputTensor)(windows_core::Interface::as_raw(self), outputindex, dimensionsizes.len().try_into().unwrap(), core::mem::transmute(dimensionsizes.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputTensor)(windows_core::Interface::as_raw(self), outputindex, dimensionsizes.len().try_into().unwrap(), core::mem::transmute(dimensionsizes.as_ptr()), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetOutputTensor2(&self, outputindex: u32) -> windows_core::Result<IMLOperatorTensor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetOutputTensor2)(windows_core::Interface::as_raw(self), outputindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetOutputTensor2)(windows_core::Interface::as_raw(self), outputindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AllocateTemporaryData(&self, size: usize) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AllocateTemporaryData)(windows_core::Interface::as_raw(self), size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AllocateTemporaryData)(windows_core::Interface::as_raw(self), size, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetExecutionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetExecutionInterface)(windows_core::Interface::as_raw(self), &mut result__);
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
 }
@@ -309,14 +309,14 @@ impl IMLOperatorKernelCreationContext {
     pub unsafe fn GetTensorShapeDescription(&self) -> windows_core::Result<IMLOperatorTensorShapeDescription> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTensorShapeDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTensorShapeDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetExecutionInterface(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetExecutionInterface)(windows_core::Interface::as_raw(self), &mut result__);
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
 }
@@ -446,7 +446,7 @@ impl IMLOperatorKernelFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateKernel)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateKernel)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -735,7 +735,7 @@ impl IMLOperatorTensor {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDataInterface)(windows_core::Interface::as_raw(self), &mut result__);
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
 }
@@ -1250,7 +1250,7 @@ impl IWinMLRuntime {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LoadModel)(windows_core::Interface::as_raw(self), path.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1260,7 +1260,7 @@ impl IWinMLRuntime {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEvaluationContext)(windows_core::Interface::as_raw(self), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEvaluationContext)(windows_core::Interface::as_raw(self), device.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EvaluateModel<P0>(&self, pcontext: P0) -> windows_core::Result<()>
@@ -1339,7 +1339,7 @@ impl IWinMLRuntimeFactory {
     pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> windows_core::Result<IWinMLRuntime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRuntime)(windows_core::Interface::as_raw(self), runtimetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRuntime)(windows_core::Interface::as_raw(self), runtimetype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

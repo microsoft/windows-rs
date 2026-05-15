@@ -45,20 +45,20 @@ impl HttpBaseProtocolFilter {
     pub fn CacheControl(&self) -> windows_core::Result<HttpCacheControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CacheControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CacheControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CookieManager(&self) -> windows_core::Result<super::HttpCookieManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CookieManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CookieManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ClientCertificate(&self) -> windows_core::Result<super::super::super::Security::Cryptography::Certificates::Certificate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ClientCertificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ClientCertificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -72,7 +72,7 @@ impl HttpBaseProtocolFilter {
     pub fn IgnorableServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IgnorableServerCertificateErrors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IgnorableServerCertificateErrors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn MaxConnectionsPerServer(&self) -> windows_core::Result<u32> {
@@ -88,7 +88,7 @@ impl HttpBaseProtocolFilter {
     pub fn ProxyCredential(&self) -> windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProxyCredential)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ProxyCredential)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -102,7 +102,7 @@ impl HttpBaseProtocolFilter {
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServerCredential)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ServerCredential)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Credentials")]
@@ -166,7 +166,7 @@ impl HttpBaseProtocolFilter {
         let this = &windows_core::Interface::cast::<IHttpBaseProtocolFilter5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
@@ -176,7 +176,7 @@ impl HttpBaseProtocolFilter {
     {
         Self::IHttpBaseProtocolFilterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>
@@ -186,7 +186,7 @@ impl HttpBaseProtocolFilter {
         let this = &windows_core::Interface::cast::<IHttpFilter>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendRequestAsync)(windows_core::Interface::as_raw(this), request.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     fn IHttpBaseProtocolFilterStatics<R, F: FnOnce(&IHttpBaseProtocolFilterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -291,14 +291,14 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn RequestMessage(&self) -> windows_core::Result<super::HttpRequestMessage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestMessage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestMessage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> windows_core::Result<super::super::super::Security::Cryptography::Certificates::Certificate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServerCertificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ServerCertificate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking_Sockets")]
@@ -312,14 +312,14 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn ServerCertificateErrors(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServerCertificateErrors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ServerCertificateErrors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerIntermediateCertificates(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServerIntermediateCertificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ServerIntermediateCertificates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Reject(&self) -> windows_core::Result<()> {
@@ -328,7 +328,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDeferral)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -479,7 +479,7 @@ impl IHttpFilter {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendRequestAsync)(windows_core::Interface::as_raw(self), request.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendRequestAsync)(windows_core::Interface::as_raw(self), request.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {

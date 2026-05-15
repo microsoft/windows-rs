@@ -237,7 +237,7 @@ impl IProvideWinSATResultsInfo {
     pub unsafe fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> windows_core::Result<IProvideWinSATAssessmentInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAssessmentInfo)(windows_core::Interface::as_raw(self), assessment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAssessmentInfo)(windows_core::Interface::as_raw(self), assessment, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AssessmentState(&self) -> windows_core::Result<WINSAT_ASSESSMENT_STATE> {
@@ -430,7 +430,7 @@ impl IQueryAllWinSATAssessments {
     pub unsafe fn get_AllXML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_AllXML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xpath), core::mem::transmute_copy(namespaces), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_AllXML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xpath), core::mem::transmute_copy(namespaces), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -528,13 +528,13 @@ impl IQueryRecentWinSATAssessment {
     pub unsafe fn get_XML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_XML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xpath), core::mem::transmute_copy(namespaces), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_XML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xpath), core::mem::transmute_copy(namespaces), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Info(&self) -> windows_core::Result<IProvideWinSATResultsInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

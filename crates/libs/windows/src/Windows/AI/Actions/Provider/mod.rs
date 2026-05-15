@@ -11,7 +11,7 @@ impl IActionFeedbackHandler {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProcessFeedbackAsync)(windows_core::Interface::as_raw(self), context.param().abi(), feedback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ProcessFeedbackAsync)(windows_core::Interface::as_raw(self), context.param().abi(), feedback.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -63,7 +63,7 @@ impl IActionProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InvokeAsync)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InvokeAsync)(windows_core::Interface::as_raw(self), context.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

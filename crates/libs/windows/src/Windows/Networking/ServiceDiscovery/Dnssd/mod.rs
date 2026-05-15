@@ -20,7 +20,7 @@ impl DnssdRegistrationResult {
     pub fn IPAddress(&self) -> windows_core::Result<super::super::HostName> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IPAddress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IPAddress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn HasInstanceNameChanged(&self) -> windows_core::Result<bool> {
@@ -82,7 +82,7 @@ impl DnssdServiceInstance {
     pub fn HostName(&self) -> windows_core::Result<super::super::HostName> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HostName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HostName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetHostName<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -121,7 +121,7 @@ impl DnssdServiceInstance {
     pub fn TextAttributes(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TextAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking_Sockets")]
@@ -131,7 +131,7 @@ impl DnssdServiceInstance {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterStreamSocketListenerAsync)(windows_core::Interface::as_raw(self), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterStreamSocketListenerAsync)(windows_core::Interface::as_raw(self), socket.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
@@ -142,7 +142,7 @@ impl DnssdServiceInstance {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterStreamSocketListenerAsync2)(windows_core::Interface::as_raw(self), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterStreamSocketListenerAsync2)(windows_core::Interface::as_raw(self), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Networking_Sockets")]
@@ -152,7 +152,7 @@ impl DnssdServiceInstance {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterDatagramSocketAsync)(windows_core::Interface::as_raw(self), socket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterDatagramSocketAsync)(windows_core::Interface::as_raw(self), socket.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
@@ -163,7 +163,7 @@ impl DnssdServiceInstance {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterDatagramSocketAsync2)(windows_core::Interface::as_raw(self), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterDatagramSocketAsync2)(windows_core::Interface::as_raw(self), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Create<P1>(dnssdserviceinstancename: &windows_core::HSTRING, hostname: P1, port: u16) -> windows_core::Result<DnssdServiceInstance>
@@ -172,7 +172,7 @@ impl DnssdServiceInstance {
     {
         Self::IDnssdServiceInstanceFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(dnssdserviceinstancename), hostname.param().abi(), port, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(dnssdserviceinstancename), hostname.param().abi(), port, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -209,13 +209,13 @@ impl DnssdServiceInstanceCollection {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<DnssdServiceInstance>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetAt(&self, index: u32) -> windows_core::Result<DnssdServiceInstance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {

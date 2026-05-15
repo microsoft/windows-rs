@@ -30,7 +30,7 @@ impl FocusEnteredEventArgs {
     pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -439,7 +439,7 @@ impl KeyEventReceivedEventArgs {
     pub fn EditSession(&self) -> windows_core::Result<TextEditSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Handled(&self) -> windows_core::Result<bool> {
@@ -496,19 +496,19 @@ impl KeyboardInputProcessor {
     pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ConversionMode(&self) -> windows_core::Result<TextConversionMode> {
@@ -523,7 +523,7 @@ impl KeyboardInputProcessor {
     pub fn CreateEditSession(&self) -> windows_core::Result<TextEditSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -882,7 +882,7 @@ impl TextBoxInfoChangedEventArgs {
     pub fn TextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -979,13 +979,13 @@ impl TextComposition {
     pub fn FirstSegment(&self) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FirstSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FirstSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SelectedSegment(&self) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectedSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SelectedSegment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CaretPosition(&self) -> windows_core::Result<u32> {
@@ -1000,7 +1000,7 @@ impl TextComposition {
     pub fn InsertText(&self, text: &windows_core::HSTRING) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InsertText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InsertText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Complete(&self) -> windows_core::Result<()> {
@@ -1078,13 +1078,13 @@ impl TextCompositionSegment {
     pub fn Next(&self) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Previous(&self) -> windows_core::Result<TextCompositionSegment> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Previous)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Previous)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text")]
@@ -1162,7 +1162,7 @@ impl TextEditSession {
     pub fn PopulateAsync(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PopulateAsync)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PopulateAsync)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text_Core")]
@@ -1193,20 +1193,20 @@ impl TextEditSession {
     pub fn Composition(&self) -> windows_core::Result<TextComposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Composition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Composition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StartComposition(&self) -> windows_core::Result<TextComposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartComposition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartComposition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_Text_Core")]
     pub fn StartReconversion(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<TextComposition> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartReconversion)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartReconversion)(windows_core::Interface::as_raw(self), range, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SubmitPayload(&self) -> windows_core::Result<bool> {
@@ -1218,7 +1218,7 @@ impl TextEditSession {
     pub fn SubmitPayloadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PayloadResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SubmitPayloadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SubmitPayloadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1263,25 +1263,25 @@ impl TextInputProvider {
     pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateEditSession(&self) -> windows_core::Result<TextEditSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEditSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryStartDelegation(&self) -> windows_core::Result<bool> {
@@ -1398,19 +1398,19 @@ impl TextInputService {
     pub fn CreateKeyboardInputProcessor(&self, inputprofile: &windows_core::HSTRING) -> windows_core::Result<KeyboardInputProcessor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateKeyboardInputProcessor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateKeyboardInputProcessor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateTextInputProvider(&self, inputprofile: &windows_core::HSTRING) -> windows_core::Result<TextInputProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTextInputProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTextInputProvider)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentThread() -> windows_core::Result<TextInputService> {
         Self::ITextInputServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn ITextInputServiceStatics<R, F: FnOnce(&ITextInputServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

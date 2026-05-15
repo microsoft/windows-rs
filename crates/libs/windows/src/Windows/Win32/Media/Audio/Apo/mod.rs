@@ -494,7 +494,7 @@ impl IApoAuxiliaryInputConfiguration {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -733,7 +733,7 @@ impl IAudioProcessingObject {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsInputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedinputformat.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> windows_core::Result<IAudioMediaType>
@@ -743,7 +743,7 @@ impl IAudioProcessingObject {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedoutputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsOutputFormatSupported)(windows_core::Interface::as_raw(self), poppositeformat.param().abi(), prequestedoutputformat.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetInputChannelCount(&self) -> windows_core::Result<u32> {
@@ -1049,7 +1049,7 @@ impl IAudioProcessingObjectPreferredFormatSupport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreferredInputFormat)(windows_core::Interface::as_raw(self), outputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreferredInputFormat)(windows_core::Interface::as_raw(self), outputformat.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPreferredOutputFormat<P0>(&self, inputformat: P0) -> windows_core::Result<IAudioMediaType>
@@ -1058,7 +1058,7 @@ impl IAudioProcessingObjectPreferredFormatSupport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreferredOutputFormat)(windows_core::Interface::as_raw(self), inputformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreferredOutputFormat)(windows_core::Interface::as_raw(self), inputformat.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1390,7 +1390,7 @@ impl IAudioSystemEffectsCustomFormats {
     pub unsafe fn GetFormat(&self, nformat: u32) -> windows_core::Result<IAudioMediaType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), nformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), nformat, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> windows_core::Result<windows_core::PWSTR> {

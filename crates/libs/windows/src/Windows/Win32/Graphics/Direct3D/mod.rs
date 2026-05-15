@@ -1007,7 +1007,7 @@ impl ID3DShaderCacheApplication {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).RegisterComponent)(windows_core::Interface::as_raw(self), pname.param().abi(), pstateobjectdbpath.param().abi(), ppsdbs.len().try_into().unwrap(), core::mem::transmute(ppsdbs.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterComponent)(windows_core::Interface::as_raw(self), pname.param().abi(), pstateobjectdbpath.param().abi(), ppsdbs.len().try_into().unwrap(), core::mem::transmute(ppsdbs.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn RemoveComponent<P0>(&self, pcomponent: P0) -> windows_core::Result<()>
     where
@@ -1023,7 +1023,7 @@ impl ID3DShaderCacheApplication {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), index, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetComponent)(windows_core::Interface::as_raw(self), index, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetPrecompileTargetCount(&self, flags: D3D_SHADER_CACHE_TARGET_FLAGS) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetPrecompileTargetCount)(windows_core::Interface::as_raw(self), flags) }
@@ -1265,7 +1265,7 @@ impl ID3DShaderCacheExplorer {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetApplicationFromExePath)(windows_core::Interface::as_raw(self), pfullexepath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetApplicationFromExePath)(windows_core::Interface::as_raw(self), pfullexepath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -1317,7 +1317,7 @@ impl ID3DShaderCacheInstaller {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).RegisterApplication)(windows_core::Interface::as_raw(self), pexepath.param().abi(), papplicationdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterApplication)(windows_core::Interface::as_raw(self), pexepath.param().abi(), papplicationdesc, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn RemoveApplication<P0>(&self, papplication: P0) -> windows_core::Result<()>
     where
@@ -1333,7 +1333,7 @@ impl ID3DShaderCacheInstaller {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetApplication)(windows_core::Interface::as_raw(self), index, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetApplication)(windows_core::Interface::as_raw(self), index, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn ClearAllState(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearAllState)(windows_core::Interface::as_raw(self)).ok() }
@@ -1552,7 +1552,7 @@ impl ID3DShaderCacheInstallerFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateInstaller)(windows_core::Interface::as_raw(self), pclient.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateInstaller)(windows_core::Interface::as_raw(self), pclient.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateExplorer<P0, T>(&self, punknown: P0) -> windows_core::Result<T>
     where
@@ -1560,7 +1560,7 @@ impl ID3DShaderCacheInstallerFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateExplorer)(windows_core::Interface::as_raw(self), punknown.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateExplorer)(windows_core::Interface::as_raw(self), punknown.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

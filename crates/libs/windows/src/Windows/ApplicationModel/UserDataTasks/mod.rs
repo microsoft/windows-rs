@@ -247,7 +247,7 @@ impl UserDataTask {
     pub fn CompletedDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompletedDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CompletedDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetCompletedDate<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -277,7 +277,7 @@ impl UserDataTask {
     pub fn DueDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DueDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DueDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDueDate<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -304,7 +304,7 @@ impl UserDataTask {
     pub fn RecurrenceProperties(&self) -> windows_core::Result<UserDataTaskRecurrenceProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecurrenceProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RecurrenceProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetRecurrenceProperties<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -316,7 +316,7 @@ impl UserDataTask {
     pub fn RegenerationProperties(&self) -> windows_core::Result<UserDataTaskRegenerationProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegenerationProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegenerationProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetRegenerationProperties<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -328,7 +328,7 @@ impl UserDataTask {
     pub fn Reminder(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Reminder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Reminder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetReminder<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -358,7 +358,7 @@ impl UserDataTask {
     pub fn StartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetStartDate<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -388,7 +388,7 @@ impl UserDataTaskBatch {
     pub fn Tasks(&self) -> windows_core::Result<windows_collections::IVectorView<UserDataTask>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tasks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Tasks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -536,25 +536,25 @@ impl UserDataTaskList {
     pub fn LimitedWriteOperations(&self) -> windows_core::Result<UserDataTaskListLimitedWriteOperations> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LimitedWriteOperations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LimitedWriteOperations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SyncManager(&self) -> windows_core::Result<UserDataTaskListSyncManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SyncManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SyncManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RegisterSyncManagerAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterSyncManagerAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterSyncManagerAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetTaskReader(&self) -> windows_core::Result<UserDataTaskReader> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTaskReader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTaskReader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetTaskReaderWithOptions<P0>(&self, options: P0) -> windows_core::Result<UserDataTaskReader>
@@ -563,13 +563,13 @@ impl UserDataTaskList {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTaskReaderWithOptions)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTaskReaderWithOptions)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetTaskAsync(&self, userdatatask: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataTask>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatatask), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatatask), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SaveTaskAsync<P0>(&self, userdatatask: P0) -> windows_core::Result<windows_future::IAsyncAction>
@@ -578,25 +578,25 @@ impl UserDataTaskList {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveTaskAsync)(windows_core::Interface::as_raw(self), userdatatask.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveTaskAsync)(windows_core::Interface::as_raw(self), userdatatask.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DeleteTaskAsync(&self, userdatataskid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeleteTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeleteTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeleteAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DeleteAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SaveAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -620,7 +620,7 @@ impl UserDataTaskListLimitedWriteOperations {
     pub fn TryCompleteTaskAsync(&self, userdatataskid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryCompleteTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryCompleteTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryCreateOrUpdateTaskAsync<P0>(&self, userdatatask: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -629,19 +629,19 @@ impl UserDataTaskListLimitedWriteOperations {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryCreateOrUpdateTaskAsync)(windows_core::Interface::as_raw(self), userdatatask.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryCreateOrUpdateTaskAsync)(windows_core::Interface::as_raw(self), userdatatask.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TryDeleteTaskAsync(&self, userdatataskid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryDeleteTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryDeleteTaskAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TrySkipOccurrenceAsync(&self, userdatataskid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TrySkipOccurrenceAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TrySkipOccurrenceAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(userdatataskid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -719,7 +719,7 @@ impl UserDataTaskListSyncManager {
     pub fn SyncAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SyncAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SyncAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -772,20 +772,20 @@ impl UserDataTaskManager {
     pub fn RequestStoreAsync(&self, accesstype: UserDataTaskStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<UserDataTaskStore>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestStoreAsync)(windows_core::Interface::as_raw(self), accesstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestStoreAsync)(windows_core::Interface::as_raw(self), accesstype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetDefault() -> windows_core::Result<UserDataTaskManager> {
         Self::IUserDataTaskManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -795,7 +795,7 @@ impl UserDataTaskManager {
     {
         Self::IUserDataTaskManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IUserDataTaskManagerStatics<R, F: FnOnce(&IUserDataTaskManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -906,7 +906,7 @@ impl UserDataTaskReader {
     pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<UserDataTaskBatch>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadBatchAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ReadBatchAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -946,7 +946,7 @@ impl UserDataTaskRecurrenceProperties {
     pub fn Occurrences(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Occurrences)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Occurrences)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetOccurrences<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -958,7 +958,7 @@ impl UserDataTaskRecurrenceProperties {
     pub fn Until(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Until)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Until)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetUntil<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -979,7 +979,7 @@ impl UserDataTaskRecurrenceProperties {
     pub fn DaysOfWeek(&self) -> windows_core::Result<super::super::Foundation::IReference<UserDataTaskDaysOfWeek>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DaysOfWeek)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DaysOfWeek)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDaysOfWeek<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -991,7 +991,7 @@ impl UserDataTaskRecurrenceProperties {
     pub fn WeekOfMonth(&self) -> windows_core::Result<super::super::Foundation::IReference<UserDataTaskWeekOfMonth>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WeekOfMonth)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).WeekOfMonth)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetWeekOfMonth<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1003,7 +1003,7 @@ impl UserDataTaskRecurrenceProperties {
     pub fn Month(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Month)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Month)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetMonth<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1015,7 +1015,7 @@ impl UserDataTaskRecurrenceProperties {
     pub fn Day(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Day)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Day)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDay<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1078,7 +1078,7 @@ impl UserDataTaskRegenerationProperties {
     pub fn Occurrences(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Occurrences)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Occurrences)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetOccurrences<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1090,7 +1090,7 @@ impl UserDataTaskRegenerationProperties {
     pub fn Until(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Until)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Until)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetUntil<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1157,25 +1157,25 @@ impl UserDataTaskStore {
     pub fn CreateListAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataTaskList>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateListAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateListAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateListInAccountAsync(&self, name: &windows_core::HSTRING, userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataTaskList>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateListInAccountAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(userdataaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateListInAccountAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(userdataaccountid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FindListsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<UserDataTaskList>>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindListsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindListsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetListAsync(&self, tasklistid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataTaskList>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetListAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(tasklistid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetListAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(tasklistid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

@@ -81,7 +81,7 @@ impl PlatformDiagnosticActions {
     pub fn GetActiveScenarioList() -> windows_core::Result<windows_collections::IVectorView<windows_core::GUID>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetActiveScenarioList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetActiveScenarioList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn ForceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool) -> windows_core::Result<PlatformDiagnosticActionState> {
@@ -99,13 +99,13 @@ impl PlatformDiagnosticActions {
     pub fn GetActiveTraceRuntime(slottype: PlatformDiagnosticTraceSlotType) -> windows_core::Result<PlatformDiagnosticTraceRuntimeInfo> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetActiveTraceRuntime)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetActiveTraceRuntime)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> windows_core::Result<windows_collections::IVectorView<PlatformDiagnosticTraceInfo>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetKnownTraceList)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetKnownTraceList)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPlatformDiagnosticActionsStatics<R, F: FnOnce(&IPlatformDiagnosticActionsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

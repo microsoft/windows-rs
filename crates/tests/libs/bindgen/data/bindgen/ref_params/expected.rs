@@ -541,7 +541,7 @@ impl IModelObject {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn TryCastToRuntimeType(&self) -> windows_core::Result<IModelObject> {
@@ -551,7 +551,7 @@ impl IModelObject {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetConcept(
@@ -753,7 +753,7 @@ impl IModelObject {
                 datamodelobject.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Compare<P0>(

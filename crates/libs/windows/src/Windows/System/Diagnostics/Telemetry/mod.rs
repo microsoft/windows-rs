@@ -37,7 +37,7 @@ impl PlatformTelemetryClient {
     pub fn Register(id: &windows_core::HSTRING) -> windows_core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn RegisterWithSettings<P1>(id: &windows_core::HSTRING, settings: P1) -> windows_core::Result<PlatformTelemetryRegistrationResult>
@@ -46,7 +46,7 @@ impl PlatformTelemetryClient {
     {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), settings.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPlatformTelemetryClientStatics<R, F: FnOnce(&IPlatformTelemetryClientStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

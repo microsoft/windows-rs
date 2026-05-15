@@ -58,19 +58,19 @@ impl HdmiDisplayInformation {
     pub fn GetSupportedDisplayModes(&self) -> windows_core::Result<windows_collections::IVectorView<HdmiDisplayMode>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSupportedDisplayModes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSupportedDisplayModes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetCurrentDisplayMode(&self) -> windows_core::Result<HdmiDisplayMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentDisplayMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentDisplayMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDefaultDisplayModeAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetDefaultDisplayModeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetDefaultDisplayModeAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RequestSetCurrentDisplayModeAsync<P0>(&self, mode: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -79,7 +79,7 @@ impl HdmiDisplayInformation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestSetCurrentDisplayModeAsync)(windows_core::Interface::as_raw(self), mode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestSetCurrentDisplayModeAsync)(windows_core::Interface::as_raw(self), mode.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RequestSetCurrentDisplayModeWithHdrAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -88,7 +88,7 @@ impl HdmiDisplayInformation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestSetCurrentDisplayModeWithHdrAsync)(windows_core::Interface::as_raw(self), mode.param().abi(), hdroption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestSetCurrentDisplayModeWithHdrAsync)(windows_core::Interface::as_raw(self), mode.param().abi(), hdroption, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
@@ -97,7 +97,7 @@ impl HdmiDisplayInformation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(windows_core::Interface::as_raw(self), mode.param().abi(), hdroption, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(windows_core::Interface::as_raw(self), mode.param().abi(), hdroption, hdrmetadata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DisplayModesChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
@@ -115,7 +115,7 @@ impl HdmiDisplayInformation {
     pub fn GetForCurrentView() -> windows_core::Result<HdmiDisplayInformation> {
         Self::IHdmiDisplayInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IHdmiDisplayInformationStatics<R, F: FnOnce(&IHdmiDisplayInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

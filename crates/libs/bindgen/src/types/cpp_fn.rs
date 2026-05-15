@@ -140,7 +140,7 @@ impl CppFn {
                     pub unsafe fn #name<#generics T>(#params) -> #result Result<T> #where_clause {
                         #link
                         let mut result__ = core::ptr::null_mut();
-                        unsafe { #name(#args).and_then(||windows_core::Type::from_abi(result__)) }
+                        unsafe { #name(#args).and_then(||windows_core::imp::Type::from_abi(result__)) }
                     }
                 }
             }
@@ -203,7 +203,7 @@ impl CppFn {
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 #name(#args);
-                                windows_core::Type::from_abi(result__)
+                                windows_core::imp::Type::from_abi(result__)
                             }
                         }
                     }

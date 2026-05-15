@@ -112,7 +112,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Id(&self) -> windows_core::Result<u32> {

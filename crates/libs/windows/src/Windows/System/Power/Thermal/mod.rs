@@ -186,7 +186,7 @@ impl PowerThermalChannelDataConsumer {
     pub fn GetChannelConfigurations(&self) -> windows_core::Result<windows_collections::IMapView<PowerThermalChannelId, PowerThermalChannelConfiguration>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
@@ -228,7 +228,7 @@ impl PowerThermalChannelDataConsumer {
     pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<PowerThermalChannelDataConsumer> {
         Self::IPowerThermalChannelDataConsumerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPowerThermalChannelDataConsumerFactory<R, F: FnOnce(&IPowerThermalChannelDataConsumerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -267,7 +267,7 @@ impl PowerThermalChannelDataProducer {
     pub fn GetChannelConfigurations(&self) -> windows_core::Result<windows_collections::IMapView<PowerThermalChannelId, PowerThermalChannelConfiguration>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetChannelConfigurations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DisableChannel(&self, channelid: PowerThermalChannelId) -> windows_core::Result<()> {
@@ -303,7 +303,7 @@ impl PowerThermalChannelDataProducer {
     pub fn CreateInstance(channelids: &[PowerThermalChannelId]) -> windows_core::Result<PowerThermalChannelDataProducer> {
         Self::IPowerThermalChannelDataProducerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), channelids.len().try_into().unwrap(), channelids.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPowerThermalChannelDataProducerFactory<R, F: FnOnce(&IPowerThermalChannelDataProducerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -355,7 +355,7 @@ impl PowerThermalChannelDiagnostics {
     pub fn Current() -> windows_core::Result<PowerThermalChannelDiagnostics> {
         Self::IPowerThermalChannelDiagnosticsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDataForChannels(channelids: &[PowerThermalChannelId]) -> windows_core::Result<windows_core::Array<PowerThermalChannelData>> {

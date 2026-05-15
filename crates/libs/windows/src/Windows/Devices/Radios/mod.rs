@@ -34,7 +34,7 @@ impl Radio {
     pub fn SetStateAsync(&self, value: RadioState) -> windows_core::Result<windows_future::IAsyncOperation<RadioAccessStatus>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetStateAsync)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetStateAsync)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -70,7 +70,7 @@ impl Radio {
     pub fn GetRadiosAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Radio>>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetRadiosAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetRadiosAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -82,13 +82,13 @@ impl Radio {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Radio>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<RadioAccessStatus>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IRadioStatics<R, F: FnOnce(&IRadioStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

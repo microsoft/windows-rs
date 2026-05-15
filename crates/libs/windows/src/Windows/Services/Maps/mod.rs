@@ -13,7 +13,7 @@ impl EnhancedWaypoint {
     pub fn Point(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Point)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Point)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Kind(&self) -> windows_core::Result<WaypointKind> {
@@ -29,7 +29,7 @@ impl EnhancedWaypoint {
     {
         Self::IEnhancedWaypointFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), point.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), point.param().abi(), kind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -767,7 +767,7 @@ impl MapLocation {
     pub fn Point(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Point)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Point)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -785,7 +785,7 @@ impl MapLocation {
     pub fn Address(&self) -> windows_core::Result<MapAddress> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Address)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Address)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -823,7 +823,7 @@ impl MapLocationFinder {
     {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindLocationsAtAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindLocationsAtAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -833,7 +833,7 @@ impl MapLocationFinder {
     {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindLocationsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchtext), referencepoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindLocationsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchtext), referencepoint.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -843,7 +843,7 @@ impl MapLocationFinder {
     {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindLocationsWithMaxCountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchtext), referencepoint.param().abi(), maxcount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindLocationsWithMaxCountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(searchtext), referencepoint.param().abi(), maxcount, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -853,7 +853,7 @@ impl MapLocationFinder {
     {
         Self::IMapLocationFinderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), accuracy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), accuracy, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMapLocationFinderStatics<R, F: FnOnce(&IMapLocationFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -876,7 +876,7 @@ impl MapLocationFinderResult {
     pub fn Locations(&self) -> windows_core::Result<windows_collections::IVectorView<MapLocation>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Locations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Locations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<MapLocationFinderStatus> {
@@ -988,7 +988,7 @@ impl MapRoute {
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn LengthInMeters(&self) -> windows_core::Result<f64> {
@@ -1007,13 +1007,13 @@ impl MapRoute {
     pub fn Path(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopath> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Legs(&self) -> windows_core::Result<windows_collections::IVectorView<MapRouteLeg>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Legs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Legs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsTrafficBased(&self) -> windows_core::Result<bool> {
@@ -1094,7 +1094,7 @@ impl MapRouteDrivingOptions {
     pub fn InitialHeading(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitialHeading)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InitialHeading)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetInitialHeading<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1125,7 +1125,7 @@ impl MapRouteDrivingOptions {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetDepartureTime<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -1158,7 +1158,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1169,7 +1169,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptimizationAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), optimization, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptimizationAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), optimization, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1180,7 +1180,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), optimization, restrictions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), optimization, restrictions, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1191,7 +1191,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), optimization, restrictions, headingindegrees, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), optimization, restrictions, headingindegrees, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1201,7 +1201,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1211,7 +1211,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), optimization, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), optimization, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1221,7 +1221,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), optimization, restrictions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), optimization, restrictions, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1231,7 +1231,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), optimization, restrictions, headingindegrees, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), optimization, restrictions, headingindegrees, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1242,7 +1242,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWalkingRouteAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetWalkingRouteAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1252,7 +1252,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetWalkingRouteFromWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetWalkingRouteFromWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1264,7 +1264,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptionsAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteWithOptionsAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDrivingRouteFromEnhancedWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
@@ -1273,7 +1273,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<P0, P1>(waypoints: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
@@ -1283,7 +1283,7 @@ impl MapRouteFinder {
     {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMapRouteFinderStatics<R, F: FnOnce(&IMapRouteFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1310,7 +1310,7 @@ impl MapRouteFinderResult {
     pub fn Route(&self) -> windows_core::Result<MapRoute> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Route)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Route)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Status(&self) -> windows_core::Result<MapRouteFinderStatus> {
@@ -1323,7 +1323,7 @@ impl MapRouteFinderResult {
         let this = &windows_core::Interface::cast::<IMapRouteFinderResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AlternateRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AlternateRoutes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1369,14 +1369,14 @@ impl MapRouteLeg {
     pub fn BoundingBox(&self) -> windows_core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Path(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopath> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn LengthInMeters(&self) -> windows_core::Result<f64> {
@@ -1394,7 +1394,7 @@ impl MapRouteLeg {
     pub fn Maneuvers(&self) -> windows_core::Result<windows_collections::IVectorView<MapRouteManeuver>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Maneuvers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Maneuvers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DurationWithoutTraffic(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -1433,7 +1433,7 @@ impl MapRouteManeuver {
     pub fn StartingPoint(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartingPoint)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartingPoint)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn LengthInMeters(&self) -> windows_core::Result<f64> {
@@ -1491,7 +1491,7 @@ impl MapRouteManeuver {
         let this = &windows_core::Interface::cast::<IMapRouteManeuver3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Warnings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Warnings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1708,7 +1708,7 @@ impl PlaceInfo {
     pub fn Geoshape(&self) -> windows_core::Result<super::super::Devices::Geolocation::IGeoshape> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Geoshape)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Geoshape)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1718,7 +1718,7 @@ impl PlaceInfo {
     {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), referencepoint.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), referencepoint.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1729,13 +1729,13 @@ impl PlaceInfo {
     {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithGeopointAndOptions)(windows_core::Interface::as_raw(this), referencepoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithGeopointAndOptions)(windows_core::Interface::as_raw(this), referencepoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateFromIdentifier(identifier: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIdentifier)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIdentifier)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
@@ -1746,7 +1746,7 @@ impl PlaceInfo {
     {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromIdentifierWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), defaultpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromIdentifierWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), defaultpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateFromMapLocation<P0>(location: P0) -> windows_core::Result<PlaceInfo>
@@ -1755,7 +1755,7 @@ impl PlaceInfo {
     {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromMapLocation)(windows_core::Interface::as_raw(this), location.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromMapLocation)(windows_core::Interface::as_raw(this), location.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn IsShowSupported() -> windows_core::Result<bool> {
@@ -1767,13 +1767,13 @@ impl PlaceInfo {
     pub fn CreateFromAddress(displayaddress: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn CreateFromAddressWithName(displayaddress: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromAddressWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromAddressWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IPlaceInfoStatics<R, F: FnOnce(&IPlaceInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

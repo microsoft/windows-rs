@@ -3178,7 +3178,7 @@ impl IAssemblyCache {
     pub unsafe fn Reserved(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Reserved)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Reserved)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn InstallAssembly<P1>(&self, dwflags: u32, pszmanifestfilepath: P1, prefdata: *mut FUSION_INSTALL_REFERENCE) -> windows_core::Result<()>
@@ -3363,7 +3363,7 @@ impl IAssemblyName {
     pub unsafe fn Clone(&self) -> windows_core::Result<IAssemblyName> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3488,7 +3488,7 @@ impl IEnumMsmDependency {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMsmDependency> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3574,7 +3574,7 @@ impl IEnumMsmError {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMsmError> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3659,7 +3659,7 @@ impl IEnumMsmString {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMsmString> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3739,7 +3739,7 @@ impl IMsmDependencies {
     pub unsafe fn get_Item(&self, item: i32) -> windows_core::Result<IMsmDependency> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self, count: *mut i32) -> windows_core::Result<()> {
@@ -3748,7 +3748,7 @@ impl IMsmDependencies {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3913,7 +3913,7 @@ impl IMsmError {
     pub unsafe fn DatabaseKeys(&self) -> windows_core::Result<IMsmStrings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DatabaseKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DatabaseKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ModuleTable(&self, errortable: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -3922,7 +3922,7 @@ impl IMsmError {
     pub unsafe fn ModuleKeys(&self) -> windows_core::Result<IMsmStrings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ModuleKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ModuleKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4039,7 +4039,7 @@ impl IMsmErrors {
     pub unsafe fn get_Item(&self, item: i32) -> windows_core::Result<IMsmError> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self, count: *mut i32) -> windows_core::Result<()> {
@@ -4048,7 +4048,7 @@ impl IMsmErrors {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4129,7 +4129,7 @@ impl IMsmGetFiles {
     pub unsafe fn ModuleFiles(&self) -> windows_core::Result<IMsmStrings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ModuleFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ModuleFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4204,13 +4204,13 @@ impl IMsmMerge {
     pub unsafe fn Errors(&self) -> windows_core::Result<IMsmErrors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Errors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Errors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Dependencies(&self) -> windows_core::Result<IMsmDependencies> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Dependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Merge(&self, feature: &windows_core::BSTR, redirectdir: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -4399,7 +4399,7 @@ impl IMsmStrings {
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5634,7 +5634,7 @@ impl IPMApplicationInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMApplicationInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5918,7 +5918,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMBackgroundServiceAgentInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6088,7 +6088,7 @@ impl IPMBackgroundWorkerInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMBackgroundWorkerInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6655,19 +6655,19 @@ impl IPMEnumerationManager {
     pub unsafe fn get_ApplicationInfo(&self, productid: windows_core::GUID) -> windows_core::Result<IPMApplicationInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_ApplicationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_ApplicationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_TileInfo(&self, productid: windows_core::GUID, tileid: &windows_core::BSTR) -> windows_core::Result<IPMTileInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_TileInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_TileInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_TaskInfo(&self, productid: windows_core::GUID, taskid: &windows_core::BSTR) -> windows_core::Result<IPMTaskInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_TaskInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(taskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_TaskInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(taskid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_TaskInfoEx<P1>(&self, productid: windows_core::GUID, taskid: P1) -> windows_core::Result<IPMTaskInfo>
@@ -6676,31 +6676,31 @@ impl IPMEnumerationManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_TaskInfoEx)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), taskid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_TaskInfoEx)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), taskid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> windows_core::Result<IPMBackgroundServiceAgentInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_BackgroundServiceAgentInfo)(windows_core::Interface::as_raw(self), bsaid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_BackgroundServiceAgentInfo)(windows_core::Interface::as_raw(self), bsaid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AllLiveTileJobs(&self) -> windows_core::Result<IPMLiveTileJobInfoEnumerator> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AllLiveTileJobs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AllLiveTileJobs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_LiveTileJob(&self, productid: windows_core::GUID, tileid: &windows_core::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> windows_core::Result<IPMLiveTileJobInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_LiveTileJob)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(tileid), recurrencetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_LiveTileJob)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(tileid), recurrencetype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_ApplicationInfoExternal(&self, productid: windows_core::GUID) -> windows_core::Result<IPMApplicationInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_ApplicationInfoExternal)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_ApplicationInfoExternal)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_FileHandlerGenericLogo(&self, filetype: &windows_core::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -6709,7 +6709,7 @@ impl IPMEnumerationManager {
     pub unsafe fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &windows_core::BSTR, sysappid1: &windows_core::BSTR) -> windows_core::Result<IPMApplicationInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_ApplicationInfoFromAccessClaims)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sysappid0), core::mem::transmute_copy(sysappid1), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_ApplicationInfoFromAccessClaims)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sysappid0), core::mem::transmute_copy(sysappid1), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_StartTileEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> windows_core::Result<()> {
@@ -7349,7 +7349,7 @@ impl IPMExtensionInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMExtensionInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7902,7 +7902,7 @@ impl IPMLiveTileJobInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMLiveTileJobInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8324,7 +8324,7 @@ impl IPMTaskInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMTaskInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8418,7 +8418,7 @@ impl IPMTileInfo {
     pub unsafe fn get_PropertyById(&self, propid: u32) -> windows_core::Result<IPMTilePropertyInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_PropertyById)(windows_core::Interface::as_raw(self), propid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_PropertyById)(windows_core::Interface::as_raw(self), propid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -8427,7 +8427,7 @@ impl IPMTileInfo {
     pub unsafe fn PropertyEnum(&self) -> windows_core::Result<IPMTilePropertyEnumerator> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PropertyEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PropertyEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> windows_core::Result<PM_TILE_SIZE> {
@@ -8791,7 +8791,7 @@ impl IPMTileInfoEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMTileInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8831,7 +8831,7 @@ impl IPMTilePropertyEnumerator {
     pub unsafe fn Next(&self) -> windows_core::Result<IPMTilePropertyInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

@@ -12,7 +12,7 @@ impl Direct3D11CaptureFrame {
     pub fn Surface(&self) -> windows_core::Result<super::DirectX::Direct3D11::IDirect3DSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Surface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Surface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -31,7 +31,7 @@ impl Direct3D11CaptureFrame {
         let this = &windows_core::Interface::cast::<IDirect3D11CaptureFrame2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DirtyRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DirtyRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn DirtyRegionMode(&self) -> windows_core::Result<GraphicsCaptureDirtyRegionMode> {
@@ -74,7 +74,7 @@ impl Direct3D11CaptureFramePool {
     pub fn TryGetNextFrame(&self) -> windows_core::Result<Direct3D11CaptureFrame> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetNextFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetNextFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FrameArrived<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -95,14 +95,14 @@ impl Direct3D11CaptureFramePool {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateCaptureSession)(windows_core::Interface::as_raw(self), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateCaptureSession)(windows_core::Interface::as_raw(self), item.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DispatcherQueue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DispatcherQueue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -112,7 +112,7 @@ impl Direct3D11CaptureFramePool {
     {
         Self::IDirect3D11CaptureFramePoolStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -122,7 +122,7 @@ impl Direct3D11CaptureFramePool {
     {
         Self::IDirect3D11CaptureFramePoolStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFreeThreaded)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFreeThreaded)(windows_core::Interface::as_raw(this), device.param().abi(), pixelformat, numberofbuffers, size, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDirect3D11CaptureFramePoolStatics<R, F: FnOnce(&IDirect3D11CaptureFramePoolStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -152,7 +152,7 @@ impl GraphicsCaptureAccess {
     pub fn RequestAccessAsync(request: GraphicsCaptureAccessKind) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Security::Authorization::AppCapabilityAccess::AppCapabilityAccessStatus>> {
         Self::IGraphicsCaptureAccessStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), request, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), request, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IGraphicsCaptureAccessStatics<R, F: FnOnce(&IGraphicsCaptureAccessStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -225,20 +225,20 @@ impl GraphicsCaptureItem {
     {
         Self::IGraphicsCaptureItemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromVisual)(windows_core::Interface::as_raw(this), visual.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI")]
     pub fn TryCreateFromWindowId(windowid: super::super::UI::WindowId) -> windows_core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromWindowId)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromWindowId)(windows_core::Interface::as_raw(this), windowid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     pub fn TryCreateFromDisplayId(displayid: super::DisplayId) -> windows_core::Result<GraphicsCaptureItem> {
         Self::IGraphicsCaptureItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromDisplayId)(windows_core::Interface::as_raw(this), displayid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromDisplayId)(windows_core::Interface::as_raw(this), displayid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IGraphicsCaptureItemStatics<R, F: FnOnce(&IGraphicsCaptureItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -277,7 +277,7 @@ impl GraphicsCapturePicker {
     pub fn PickSingleItemAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GraphicsCaptureItem>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PickSingleItemAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PickSingleItemAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

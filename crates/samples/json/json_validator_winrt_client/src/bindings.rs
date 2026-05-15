@@ -77,7 +77,7 @@ impl JsonValidator {
                 core::mem::transmute_copy(schema),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IJsonValidatorFactory<R, F: FnOnce(&IJsonValidatorFactory) -> windows_core::Result<R>>(

@@ -823,7 +823,7 @@ impl IActiveIME {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRegisterWord)(windows_core::Interface::as_raw(self), szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCodePageA(&self) -> windows_core::Result<u32> {
@@ -1119,7 +1119,7 @@ impl IActiveIMMApp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -1130,7 +1130,7 @@ impl IActiveIMMApp {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -1402,7 +1402,7 @@ impl IActiveIMMApp {
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> windows_core::Result<IEnumInputContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), idthread, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), idthread, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2253,7 +2253,7 @@ impl IActiveIMMIME {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRegisterWordA)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -2264,7 +2264,7 @@ impl IActiveIMMIME {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumRegisterWordW)(windows_core::Interface::as_raw(self), hkl, szreading.param().abi(), dwstyle, szregister.param().abi(), pdata, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -2602,7 +2602,7 @@ impl IActiveIMMIME {
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> windows_core::Result<IEnumInputContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), idthread, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumInputContext)(windows_core::Interface::as_raw(self), idthread, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RequestMessageA(&self, himc: HIMC, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> windows_core::Result<super::super::super::Foundation::LRESULT> {
@@ -3849,7 +3849,7 @@ impl IEnumInputContext {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumInputContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Next(&self, ulcount: u32, rginputcontext: *mut HIMC, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -3928,7 +3928,7 @@ impl IEnumRegisterWordA {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordA> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> windows_core::Result<()> {
@@ -4007,7 +4007,7 @@ impl IEnumRegisterWordW {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumRegisterWordW> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> windows_core::Result<()> {

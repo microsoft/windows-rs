@@ -58,7 +58,7 @@ impl AgentProvisioningProgressReport {
     pub fn Batches(&self) -> windows_core::Result<windows_collections::IVector<DeploymentWorkloadBatch>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Batches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Batches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CurrentBatchIndex(&self) -> windows_core::Result<u32> {
@@ -274,7 +274,7 @@ impl DeploymentWorkload {
     pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetStartTime<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -286,7 +286,7 @@ impl DeploymentWorkload {
     pub fn EndTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetEndTime<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -352,7 +352,7 @@ impl DeploymentWorkload {
     pub fn CreateInstance(id: &windows_core::HSTRING) -> windows_core::Result<DeploymentWorkload> {
         Self::IDeploymentWorkloadFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDeploymentWorkloadFactory<R, F: FnOnce(&IDeploymentWorkloadFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -393,13 +393,13 @@ impl DeploymentWorkloadBatch {
     pub fn BatchWorkloads(&self) -> windows_core::Result<windows_collections::IVector<DeploymentWorkload>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BatchWorkloads)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BatchWorkloads)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateInstance(id: u32) -> windows_core::Result<DeploymentWorkloadBatch> {
         Self::IDeploymentWorkloadBatchFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IDeploymentWorkloadBatchFactory<R, F: FnOnce(&IDeploymentWorkloadBatchFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -668,7 +668,7 @@ impl MachineProvisioningProgressReporter {
     pub fn GetDevicePreparationExecutionContextAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DevicePreparationExecutionContext>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDevicePreparationExecutionContextAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDevicePreparationExecutionContextAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetForLaunchUri<P0, P1>(launchuri: P0, heartbeathandler: P1) -> windows_core::Result<MachineProvisioningProgressReporter>
@@ -678,7 +678,7 @@ impl MachineProvisioningProgressReporter {
     {
         Self::IMachineProvisioningProgressReporterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), heartbeathandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), heartbeathandler.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IMachineProvisioningProgressReporterStatics<R, F: FnOnce(&IMachineProvisioningProgressReporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

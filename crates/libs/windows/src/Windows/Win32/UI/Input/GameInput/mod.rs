@@ -3,7 +3,7 @@ pub unsafe fn GameInputCreate() -> windows_core::Result<IGameInput> {
     windows_core::link!("gameinput.dll" "system" fn GameInputCreate(gameinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GameInputCreate(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        GameInputCreate(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 pub const FACILITY_GAMEINPUT: u32 = 906u32;
@@ -1527,7 +1527,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCurrentReading)(windows_core::Interface::as_raw(self), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCurrentReading)(windows_core::Interface::as_raw(self), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNextReading<P0, P2>(&self, referencereading: P0, inputkind: GameInputKind, device: P2) -> windows_core::Result<IGameInputReading>
@@ -1537,7 +1537,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNextReading)(windows_core::Interface::as_raw(self), referencereading.param().abi(), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNextReading)(windows_core::Interface::as_raw(self), referencereading.param().abi(), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetPreviousReading<P0, P2>(&self, referencereading: P0, inputkind: GameInputKind, device: P2) -> windows_core::Result<IGameInputReading>
@@ -1547,7 +1547,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPreviousReading)(windows_core::Interface::as_raw(self), referencereading.param().abi(), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetPreviousReading)(windows_core::Interface::as_raw(self), referencereading.param().abi(), inputkind, device.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetTemporalReading<P1>(&self, timestamp: u64, device: P1) -> windows_core::Result<IGameInputReading>
@@ -1556,7 +1556,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTemporalReading)(windows_core::Interface::as_raw(self), timestamp, device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTemporalReading)(windows_core::Interface::as_raw(self), timestamp, device.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RegisterReadingCallback<P0>(&self, device: P0, inputkind: GameInputKind, analogthreshold: f32, context: Option<*const core::ffi::c_void>, callbackfunc: GameInputReadingCallback, callbacktoken: Option<*mut u64>) -> windows_core::Result<()>
@@ -1592,19 +1592,19 @@ impl IGameInput {
     pub unsafe fn CreateDispatcher(&self) -> windows_core::Result<IGameInputDispatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDispatcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateAggregateDevice(&self, inputkind: GameInputKind) -> windows_core::Result<IGameInputDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateAggregateDevice)(windows_core::Interface::as_raw(self), inputkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateAggregateDevice)(windows_core::Interface::as_raw(self), inputkind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindDeviceFromId(&self, value: *const super::super::super::Foundation::APP_LOCAL_DEVICE_ID) -> windows_core::Result<IGameInputDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDeviceFromId)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindDeviceFromId)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindDeviceFromObject<P0>(&self, value: P0) -> windows_core::Result<IGameInputDevice>
@@ -1613,13 +1613,13 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDeviceFromObject)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindDeviceFromObject)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindDeviceFromPlatformHandle(&self, value: super::super::super::Foundation::HANDLE) -> windows_core::Result<IGameInputDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDeviceFromPlatformHandle)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindDeviceFromPlatformHandle)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindDeviceFromPlatformString<P0>(&self, value: P0) -> windows_core::Result<IGameInputDevice>
@@ -1628,7 +1628,7 @@ impl IGameInput {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDeviceFromPlatformString)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindDeviceFromPlatformString)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn EnableOemDeviceSupport(&self, vendorid: u16, productid: u16, interfacenumber: u8, collectionnumber: u8) -> windows_core::Result<()> {
@@ -1902,7 +1902,7 @@ impl IGameInputDevice {
     pub unsafe fn CreateForceFeedbackEffect(&self, motorindex: u32, params: *const GameInputForceFeedbackParams) -> windows_core::Result<IGameInputForceFeedbackEffect> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateForceFeedbackEffect)(windows_core::Interface::as_raw(self), motorindex, params, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateForceFeedbackEffect)(windows_core::Interface::as_raw(self), motorindex, params, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn IsForceFeedbackMotorPoweredOn(&self, motorindex: u32) -> bool {
@@ -1929,13 +1929,13 @@ impl IGameInputDevice {
     pub unsafe fn CreateRawDeviceReport(&self, reportid: u32, reportkind: GameInputRawDeviceReportKind) -> windows_core::Result<IGameInputRawDeviceReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateRawDeviceReport)(windows_core::Interface::as_raw(self), reportid, reportkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateRawDeviceReport)(windows_core::Interface::as_raw(self), reportid, reportkind, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetRawDeviceFeature(&self, reportid: u32) -> windows_core::Result<IGameInputRawDeviceReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRawDeviceFeature)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRawDeviceFeature)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetRawDeviceFeature<P0>(&self, report: P0) -> windows_core::Result<()>
@@ -1956,7 +1956,7 @@ impl IGameInputDevice {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendRawDeviceOutputWithResponse)(windows_core::Interface::as_raw(self), requestreport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendRawDeviceOutputWithResponse)(windows_core::Interface::as_raw(self), requestreport.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ExecuteRawDeviceIoControl(&self, controlcode: u32, inputbuffersize: usize, inputbuffer: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: Option<*mut core::ffi::c_void>, outputsize: Option<*mut usize>) -> windows_core::Result<()> {
@@ -2244,7 +2244,7 @@ impl IGameInputForceFeedbackEffect {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__);
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
     pub unsafe fn GetMotorIndex(&self) -> u32 {
@@ -2366,7 +2366,7 @@ impl IGameInputRawDeviceReport {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__);
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
     pub unsafe fn GetReportInfo(&self) -> *mut GameInputRawDeviceReportInfo {
@@ -2509,7 +2509,7 @@ impl IGameInputReading {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__);
-            windows_core::Type::from_abi(result__)
+            windows_core::imp::Type::from_abi(result__)
         }
     }
     pub unsafe fn GetRawReport(&self, report: *mut Option<IGameInputRawDeviceReport>) -> bool {

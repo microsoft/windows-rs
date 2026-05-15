@@ -119,4 +119,7 @@ macro_rules! define_interface {
 pub use define_interface;
 
 #[doc(hidden)]
+pub use crate::r#type::Type;
+
+#[doc(hidden)]
 pub use alloc::boxed::Box;

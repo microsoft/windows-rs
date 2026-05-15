@@ -10,7 +10,7 @@ pub unsafe fn CreateDDrawSurfaceOnDIB(hbmdib: super::super::Graphics::Gdi::HBITM
     windows_core::link!("imgutil.dll" "system" fn CreateDDrawSurfaceOnDIB(hbmdib : super::super::Graphics::Gdi:: HBITMAP, ppsurface : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateDDrawSurfaceOnDIB(hbmdib, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateDDrawSurfaceOnDIB(hbmdib, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -18,7 +18,7 @@ pub unsafe fn CreateMIMEMap() -> windows_core::Result<IMapMIMEToCLSID> {
     windows_core::link!("imgutil.dll" "system" fn CreateMIMEMap(ppmap : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateMIMEMap(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateMIMEMap(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -719,7 +719,7 @@ impl IActiveXUIHandlerSite {
     pub unsafe fn CreateScrollableContextMenu(&self) -> windows_core::Result<IScrollableContextMenu> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateScrollableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateScrollableContextMenu)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn PickFileAndGetResult<P0>(&self, filepicker: P0, allowmultipleselections: bool) -> windows_core::Result<windows_core::IUnknown>
@@ -728,7 +728,7 @@ impl IActiveXUIHandlerSite {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PickFileAndGetResult)(windows_core::Interface::as_raw(self), filepicker.param().abi(), allowmultipleselections.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PickFileAndGetResult)(windows_core::Interface::as_raw(self), filepicker.param().abi(), allowmultipleselections.into(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1327,7 +1327,7 @@ impl IEnumManagerFrames {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumManagerFrames> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1421,7 +1421,7 @@ impl IEnumOpenServiceActivity {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivity> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1500,7 +1500,7 @@ impl IEnumOpenServiceActivityCategory {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumOpenServiceActivityCategory> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1579,7 +1579,7 @@ impl IEnumSTATURL {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumSTATURL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFilter<P0>(&self, poszfilter: P0, dwflags: u32) -> windows_core::Result<()>
@@ -1783,7 +1783,7 @@ impl IHTMLPersistDataOM {
     pub unsafe fn XMLDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1893,7 +1893,7 @@ impl IHTMLUserDataOM {
     pub unsafe fn XMLDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn save(&self, strname: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -2827,7 +2827,7 @@ impl IImageDecodeEventSink {
     pub unsafe fn GetSurface(&self, nwidth: i32, nheight: i32, bfid: *const windows_core::GUID, npasses: u32, dwhints: u32) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSurface)(windows_core::Interface::as_raw(self), nwidth, nheight, bfid, npasses, dwhints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSurface)(windows_core::Interface::as_raw(self), nwidth, nheight, bfid, npasses, dwhints, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OnBeginDecode(&self, pdwevents: *mut u32, pnformats: *mut u32, ppformats: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -3119,7 +3119,7 @@ impl IInternetExplorerManager {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), dwconfig, pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateObject)(windows_core::Interface::as_raw(self), dwconfig, pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -3152,7 +3152,7 @@ impl IInternetExplorerManager2 {
     pub unsafe fn EnumFrameWindows(&self) -> windows_core::Result<IEnumManagerFrames> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumFrameWindows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumFrameWindows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3246,13 +3246,13 @@ impl ILayoutRect {
     pub unsafe fn nextRectElement(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).nextRectElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).nextRectElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn contentDocument(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).contentDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).contentDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4036,7 +4036,7 @@ impl IOpenServiceActivityCategory {
     pub unsafe fn GetDefaultActivity(&self) -> windows_core::Result<IOpenServiceActivity> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetDefaultActivity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetDefaultActivity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetDefaultActivity<P0>(&self, pactivity: P0, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()>
@@ -4058,7 +4058,7 @@ impl IOpenServiceActivityCategory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActivityEnumerator)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetActivityEnumerator)(windows_core::Interface::as_raw(self), pinput.param().abi(), poutput.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4248,7 +4248,7 @@ impl IOpenServiceActivityManager {
     pub unsafe fn GetCategoryEnumerator(&self, etype: OpenServiceActivityContentType) -> windows_core::Result<IEnumOpenServiceActivityCategory> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCategoryEnumerator)(windows_core::Interface::as_raw(self), etype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCategoryEnumerator)(windows_core::Interface::as_raw(self), etype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetActivityByID<P0>(&self, pwzactivityid: P0) -> windows_core::Result<IOpenServiceActivity>
@@ -4257,7 +4257,7 @@ impl IOpenServiceActivityManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActivityByID)(windows_core::Interface::as_raw(self), pwzactivityid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetActivityByID)(windows_core::Interface::as_raw(self), pwzactivityid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetActivityByHomepageAndCategory<P0, P1>(&self, pwzhomepage: P0, pwzcategory: P1) -> windows_core::Result<IOpenServiceActivity>
@@ -4267,7 +4267,7 @@ impl IOpenServiceActivityManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActivityByHomepageAndCategory)(windows_core::Interface::as_raw(self), pwzhomepage.param().abi(), pwzcategory.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetActivityByHomepageAndCategory)(windows_core::Interface::as_raw(self), pwzhomepage.param().abi(), pwzcategory.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetVersionCookie(&self) -> windows_core::Result<u32> {
@@ -4442,7 +4442,7 @@ impl IOpenServiceManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstallService)(windows_core::Interface::as_raw(self), pwzserviceurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InstallService)(windows_core::Interface::as_raw(self), pwzserviceurl.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn UninstallService<P0>(&self, pservice: P0) -> windows_core::Result<()>
@@ -4457,7 +4457,7 @@ impl IOpenServiceManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetServiceByID)(windows_core::Interface::as_raw(self), pwzid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetServiceByID)(windows_core::Interface::as_raw(self), pwzid.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4996,7 +4996,7 @@ impl ITargetContainer {
     pub unsafe fn GetFramesContainer(&self) -> windows_core::Result<super::super::System::Ole::IOleContainer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5060,7 +5060,7 @@ impl ITargetEmbedding {
     pub unsafe fn GetTargetFrame(&self) -> windows_core::Result<ITargetFrame> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTargetFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTargetFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5112,7 +5112,7 @@ impl ITargetFrame {
     pub unsafe fn GetParentFrame(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindFrame<P0, P1>(&self, psztargetname: P0, ppunkcontextframe: P1, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
@@ -5122,7 +5122,7 @@ impl ITargetFrame {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), ppunkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), ppunkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFrameSrc<P0>(&self, pszframesrc: P0) -> windows_core::Result<()>
@@ -5141,7 +5141,7 @@ impl ITargetFrame {
     pub unsafe fn GetFramesContainer(&self) -> windows_core::Result<super::super::System::Ole::IOleContainer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFrameOptions(&self, dwflags: u32) -> windows_core::Result<()> {
@@ -5379,7 +5379,7 @@ impl ITargetFrame2 {
     pub unsafe fn GetParentFrame(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetParentFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFrameSrc<P0>(&self, pszframesrc: P0) -> windows_core::Result<()>
@@ -5398,7 +5398,7 @@ impl ITargetFrame2 {
     pub unsafe fn GetFramesContainer(&self) -> windows_core::Result<super::super::System::Ole::IOleContainer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFramesContainer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetFrameOptions(&self, dwflags: u32) -> windows_core::Result<()> {
@@ -5422,7 +5422,7 @@ impl ITargetFrame2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFrame)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetTargetAlias<P0>(&self, psztargetname: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -5618,7 +5618,7 @@ impl ITargetFramePriv {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFrameDownwards)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFrameDownwards)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FindFrameInContext<P0, P1>(&self, psztargetname: P0, punkcontextframe: P1, dwflags: u32) -> windows_core::Result<windows_core::IUnknown>
@@ -5628,7 +5628,7 @@ impl ITargetFramePriv {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindFrameInContext)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), punkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindFrameInContext)(windows_core::Interface::as_raw(self), psztargetname.param().abi(), punkcontextframe.param().abi(), dwflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn OnChildFrameActivate<P0>(&self, punkchildframe: P0) -> windows_core::Result<()>
@@ -5657,7 +5657,7 @@ impl ITargetFramePriv {
     pub unsafe fn FindBrowserByIndex(&self, dwid: u32) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindBrowserByIndex)(windows_core::Interface::as_raw(self), dwid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6044,13 +6044,13 @@ impl ITimerService {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTimer)(windows_core::Interface::as_raw(self), preferencetimer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTimer)(windows_core::Interface::as_raw(self), preferencetimer.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNamedTimer(&self, rguidname: *const windows_core::GUID) -> windows_core::Result<ITimer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNamedTimer)(windows_core::Interface::as_raw(self), rguidname, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNamedTimer)(windows_core::Interface::as_raw(self), rguidname, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetNamedTimerReference<P1>(&self, rguidname: *const windows_core::GUID, preferencetimer: P1) -> windows_core::Result<()>
@@ -6268,12 +6268,12 @@ impl IUrlHistoryStg {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).BindToObject)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).BindToObject)(windows_core::Interface::as_raw(self), pocsurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn EnumUrls(&self) -> windows_core::Result<IEnumSTATURL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

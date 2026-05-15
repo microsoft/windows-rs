@@ -124,7 +124,7 @@ pub unsafe fn AVIGetFromClipboard() -> windows_core::Result<IAVIFile> {
     windows_core::link!("avifil32.dll" "system" fn AVIGetFromClipboard(lppf : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        AVIGetFromClipboard(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        AVIGetFromClipboard(&mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -145,7 +145,7 @@ pub unsafe fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::F
     windows_core::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        AVIMakeStreamFromClipboard(cfformat, hglobal, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        AVIMakeStreamFromClipboard(cfformat, hglobal, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -496,7 +496,7 @@ where
     windows_core::link!("avifil32.dll" "system" fn EditStreamClone(pavi : * mut core::ffi::c_void, ppresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        EditStreamClone(pavi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        EditStreamClone(pavi.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -1827,7 +1827,7 @@ impl IAVIEditStream {
     pub unsafe fn Clone(&self) -> windows_core::Result<IAVIStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()> {

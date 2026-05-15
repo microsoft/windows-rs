@@ -45,7 +45,7 @@ impl NamedPolicy {
     pub fn GetPolicyFromPath(area: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPolicyFromPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPolicyFromPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -55,7 +55,7 @@ impl NamedPolicy {
     {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPolicyFromPathForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPolicyFromPathForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn INamedPolicyStatics<R, F: FnOnce(&INamedPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -105,7 +105,7 @@ impl NamedPolicyData {
     pub fn User(&self) -> windows_core::Result<super::super::System::User> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).User)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetBoolean(&self) -> windows_core::Result<bool> {
@@ -118,7 +118,7 @@ impl NamedPolicyData {
     pub fn GetBinary(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBinary)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBinary)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetInt32(&self) -> windows_core::Result<i32> {

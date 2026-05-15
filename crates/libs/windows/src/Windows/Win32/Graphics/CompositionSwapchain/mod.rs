@@ -6,7 +6,7 @@ where
 {
     windows_core::link!("dcomp.dll" "system" fn CreatePresentationFactory(d3ddevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, presentationfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { CreatePresentationFactory(d3ddevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { CreatePresentationFactory(d3ddevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -403,7 +403,7 @@ impl IPresentationFactory {
     pub unsafe fn CreatePresentationManager(&self) -> windows_core::Result<IPresentationManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePresentationManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePresentationManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -484,13 +484,13 @@ impl IPresentationManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), resource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddBufferFromResource)(windows_core::Interface::as_raw(self), resource.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreatePresentationSurface(&self, compositionsurfacehandle: super::super::Foundation::HANDLE) -> windows_core::Result<IPresentationSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), compositionsurfacehandle, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePresentationSurface)(windows_core::Interface::as_raw(self), compositionsurfacehandle, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
@@ -513,7 +513,7 @@ impl IPresentationManager {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPresentRetiringFence)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPresentRetiringFence)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CancelPresentsFrom)(windows_core::Interface::as_raw(self), presentidtocancelfrom).ok() }
@@ -536,7 +536,7 @@ impl IPresentationManager {
     pub unsafe fn GetNextPresentStatistics(&self) -> windows_core::Result<IPresentStatistics> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNextPresentStatistics)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNextPresentStatistics)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

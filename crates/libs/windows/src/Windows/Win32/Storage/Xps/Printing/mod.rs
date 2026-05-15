@@ -81,7 +81,7 @@ impl IPrintDocumentPackageTarget {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetPackageTarget)(windows_core::Interface::as_raw(self), guidtargettype, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPackageTarget)(windows_core::Interface::as_raw(self), guidtargettype, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
@@ -146,7 +146,7 @@ impl IPrintDocumentPackageTarget2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetTargetIppPrintDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetTargetIppPrintDevice)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -204,7 +204,7 @@ impl IPrintDocumentPackageTargetFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(windows_core::Interface::as_raw(self), printername.param().abi(), jobname.param().abi(), joboutputstream.param().abi(), jobprintticketstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(windows_core::Interface::as_raw(self), printername.param().abi(), jobname.param().abi(), joboutputstream.param().abi(), jobprintticketstream.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

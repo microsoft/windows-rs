@@ -252,14 +252,14 @@ impl IDOManager {
     pub unsafe fn CreateDownload(&self) -> windows_core::Result<IDODownload> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDownload)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDownload)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDownloads(&self, category: *const DO_DOWNLOAD_ENUM_CATEGORY) -> windows_core::Result<super::super::System::Com::IEnumUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnumDownloads)(windows_core::Interface::as_raw(self), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnumDownloads)(windows_core::Interface::as_raw(self), category, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

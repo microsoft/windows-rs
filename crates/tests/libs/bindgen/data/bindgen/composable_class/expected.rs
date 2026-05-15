@@ -20,7 +20,7 @@ pub mod Test {
                     &mut core::ptr::null_mut(),
                     &mut result__,
                 )
-                .and_then(|| windows_core::Type::from_abi(result__))
+                .and_then(|| windows_core::imp::Type::from_abi(result__))
             })
         }
         pub fn CreateInstance_compose<T>(name: i32, compose: T) -> windows_result::Result<Foo>
@@ -39,7 +39,7 @@ pub mod Test {
                 )
                 .ok()?;
                 let _ = &derived__;
-                windows_core::Type::from_abi(result__)
+                windows_core::imp::Type::from_abi(result__)
             })
         }
         pub fn new() -> windows_result::Result<Foo> {
@@ -51,7 +51,7 @@ pub mod Test {
                     &mut core::ptr::null_mut(),
                     &mut result__,
                 )
-                .and_then(|| windows_core::Type::from_abi(result__))
+                .and_then(|| windows_core::imp::Type::from_abi(result__))
             })
         }
         pub fn compose<T>(compose: T) -> windows_result::Result<Foo>
@@ -69,7 +69,7 @@ pub mod Test {
                 )
                 .ok()?;
                 let _ = &derived__;
-                windows_core::Type::from_abi(result__)
+                windows_core::imp::Type::from_abi(result__)
             })
         }
         fn IFooFactory<R, F: FnOnce(&IFooFactory) -> windows_result::Result<R>>(
@@ -153,7 +153,7 @@ pub mod Test {
                     inner as *mut _ as _,
                     &mut result__,
                 )
-                .and_then(|| windows_core::Type::from_abi(result__))
+                .and_then(|| windows_core::imp::Type::from_abi(result__))
             }
         }
         pub fn Default<P0>(
@@ -172,7 +172,7 @@ pub mod Test {
                     inner as *mut _ as _,
                     &mut result__,
                 )
-                .and_then(|| windows_core::Type::from_abi(result__))
+                .and_then(|| windows_core::imp::Type::from_abi(result__))
             }
         }
     }

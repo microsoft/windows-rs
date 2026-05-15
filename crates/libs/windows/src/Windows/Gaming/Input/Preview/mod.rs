@@ -279,7 +279,7 @@ impl LegacyGipGameControllerProvider {
     pub fn PreferredTypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreferredTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PreferredTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ExecuteCommand(&self, command: DeviceCommand) -> windows_core::Result<()> {
@@ -324,7 +324,7 @@ impl LegacyGipGameControllerProvider {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(self), user.param().abi(), previous, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(self), user.param().abi(), previous, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn FromGameController<P0>(controller: P0) -> windows_core::Result<LegacyGipGameControllerProvider>
@@ -333,7 +333,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), controller.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromGameController)(windows_core::Interface::as_raw(this), controller.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
@@ -343,7 +343,7 @@ impl LegacyGipGameControllerProvider {
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromGameControllerProvider)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromGameControllerProvider)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]

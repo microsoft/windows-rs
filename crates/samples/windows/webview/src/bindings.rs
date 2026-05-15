@@ -353,7 +353,7 @@ where
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_28_get_Find_Proxy(this.param().abi(), &mut result__)
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -1318,7 +1318,7 @@ impl ICoreWebView2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Source(&self) -> windows_core::Result<LPWSTR> {
@@ -1776,7 +1776,7 @@ impl ICoreWebView2 {
                 eventname,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Stop(&self) -> windows_core::Result<()> {
@@ -3999,7 +3999,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -4028,7 +4028,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4736,7 +4736,7 @@ impl ICoreWebView2BrowserExtensionList {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5361,7 +5361,7 @@ impl ICoreWebView2Certificate {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5787,7 +5787,7 @@ impl ICoreWebView2ClientCertificate {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Kind(&self) -> windows_core::Result<COREWEBVIEW2_CLIENT_CERTIFICATE_KIND> {
@@ -6063,7 +6063,7 @@ impl ICoreWebView2ClientCertificateCollection {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6193,7 +6193,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn MutuallyTrustedCertificates(
@@ -6205,7 +6205,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SelectedCertificate(
@@ -6217,7 +6217,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetSelectedCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -6277,7 +6277,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6680,7 +6680,7 @@ impl ICoreWebView2CompositionController {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetRootVisualTarget<P0>(&self, target: P0) -> windows_core::Result<()>
@@ -7040,7 +7040,7 @@ impl ICoreWebView2CompositionController2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -7375,7 +7375,7 @@ impl ICoreWebView2CompositionController4 {
                 kind,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn add_NonClientRegionChanged<P0>(
@@ -7978,7 +7978,7 @@ impl ICoreWebView2ContextMenuItem {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Kind(&self) -> windows_core::Result<COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND> {
@@ -8036,7 +8036,7 @@ impl ICoreWebView2ContextMenuItem {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn add_CustomItemSelected<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
@@ -8429,7 +8429,7 @@ impl ICoreWebView2ContextMenuItemCollection {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveValueAtIndex(&self, index: UINT32) -> windows_core::Result<()> {
@@ -8599,7 +8599,7 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ContextMenuTarget(&self) -> windows_core::Result<ICoreWebView2ContextMenuTarget> {
@@ -8609,7 +8609,7 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Location(&self) -> windows_core::Result<windows::Win32::Foundation::POINT> {
@@ -8667,7 +8667,7 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -9683,7 +9683,7 @@ impl ICoreWebView2Controller {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11785,7 +11785,7 @@ impl ICoreWebView2CookieList {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11884,7 +11884,7 @@ impl ICoreWebView2CookieManager {
                 path,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CopyCookie<P0>(
@@ -11901,7 +11901,7 @@ impl ICoreWebView2CookieManager {
                 cookieparam.param().abi(),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetCookies<P1>(&self, uri: LPCWSTR, handler: P1) -> windows_core::Result<()>
@@ -14176,7 +14176,7 @@ impl ICoreWebView2DownloadStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -14243,7 +14243,7 @@ impl ICoreWebView2DownloadStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -14556,7 +14556,7 @@ impl ICoreWebView2DragStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Handled(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -14595,7 +14595,7 @@ impl ICoreWebView2DragStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -14882,7 +14882,7 @@ impl ICoreWebView2Environment {
                 headers,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn BrowserVersionString(&self) -> windows_core::Result<LPWSTR> {
@@ -15126,7 +15126,7 @@ impl ICoreWebView2Environment10 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateCoreWebView2ControllerWithOptions<P1, P2>(
@@ -15433,7 +15433,7 @@ impl ICoreWebView2Environment12 {
                 size,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -15635,7 +15635,7 @@ impl ICoreWebView2Environment14 {
                 permission,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateWebFileSystemDirectoryHandle(
@@ -15651,7 +15651,7 @@ impl ICoreWebView2Environment14 {
                 permission,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateObjectCollection(
@@ -15667,7 +15667,7 @@ impl ICoreWebView2Environment14 {
                 core::mem::transmute(items),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -15853,7 +15853,7 @@ impl ICoreWebView2Environment15 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -15951,7 +15951,7 @@ impl ICoreWebView2Environment2 {
                 headers,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -16065,7 +16065,7 @@ impl ICoreWebView2Environment3 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -16180,7 +16180,7 @@ impl ICoreWebView2Environment4 {
                 hwnd,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -16386,7 +16386,7 @@ impl ICoreWebView2Environment6 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -16573,7 +16573,7 @@ impl ICoreWebView2Environment8 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -16723,7 +16723,7 @@ impl ICoreWebView2Environment9 {
                 kind,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -18064,7 +18064,7 @@ impl ICoreWebView2ExecuteScriptResult {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -21090,7 +21090,7 @@ impl ICoreWebView2FrameCreatedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -21480,7 +21480,7 @@ impl ICoreWebView2FrameInfo2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FrameId(&self) -> windows_core::Result<UINT32> {
@@ -21612,7 +21612,7 @@ impl ICoreWebView2FrameInfoCollection {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -21687,7 +21687,7 @@ impl ICoreWebView2FrameInfoCollectionIterator {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn MoveNext(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -22830,7 +22830,7 @@ impl ICoreWebView2HttpRequestHeaders {
                 name,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Contains(&self, name: LPCWSTR) -> windows_core::Result<windows_core::BOOL> {
@@ -22872,7 +22872,7 @@ impl ICoreWebView2HttpRequestHeaders {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -23110,7 +23110,7 @@ impl ICoreWebView2HttpResponseHeaders {
                 name,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetIterator(
@@ -23122,7 +23122,7 @@ impl ICoreWebView2HttpResponseHeaders {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -23587,7 +23587,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -24380,7 +24380,7 @@ impl ICoreWebView2NavigationStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -24980,7 +24980,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
@@ -25019,7 +25019,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn WindowFeatures(&self) -> windows_core::Result<ICoreWebView2WindowFeatures> {
@@ -25029,7 +25029,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -25349,7 +25349,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs3 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -26348,7 +26348,7 @@ impl ICoreWebView2NotificationReceivedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
@@ -26377,7 +26377,7 @@ impl ICoreWebView2NotificationReceivedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -26741,7 +26741,7 @@ impl ICoreWebView2ObjectCollectionView {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -26886,7 +26886,7 @@ impl ICoreWebView2PermissionRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -27503,7 +27503,7 @@ impl ICoreWebView2PermissionSettingCollectionView {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Count(&self) -> windows_core::Result<UINT32> {
@@ -31147,7 +31147,7 @@ impl ICoreWebView2ProcessExtendedInfo {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AssociatedFrameInfos(
@@ -31159,7 +31159,7 @@ impl ICoreWebView2ProcessExtendedInfo {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -31263,7 +31263,7 @@ impl ICoreWebView2ProcessExtendedInfoCollection {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -31467,7 +31467,7 @@ impl ICoreWebView2ProcessFailedEventArgs2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -31860,7 +31860,7 @@ impl ICoreWebView2ProcessInfoCollection {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -32746,7 +32746,7 @@ impl ICoreWebView2Profile5 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -33743,7 +33743,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetSaveAsFilePath(&self, value: LPCWSTR) -> windows_core::Result<()> {
@@ -34268,7 +34268,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -34615,7 +34615,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDeferral(&self) -> windows_core::Result<ICoreWebView2Deferral> {
@@ -34625,7 +34625,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -34956,7 +34956,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -35463,7 +35463,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Action(
@@ -35497,7 +35497,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -37495,7 +37495,7 @@ impl ICoreWebView2SharedBuffer {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn FileMappingHandle(
@@ -38345,7 +38345,7 @@ impl ICoreWebView2WebMessageReceivedEventArgs2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -38526,7 +38526,7 @@ impl ICoreWebView2WebResourceRequest {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetContent<P0>(&self, content: P0) -> windows_core::Result<()>
@@ -38548,7 +38548,7 @@ impl ICoreWebView2WebResourceRequest {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -38748,7 +38748,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Response(&self) -> windows_core::Result<ICoreWebView2WebResourceResponse> {
@@ -38758,7 +38758,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetResponse<P0>(&self, response: P0) -> windows_core::Result<()>
@@ -38780,7 +38780,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ResourceContext(
@@ -39114,7 +39114,7 @@ impl ICoreWebView2WebResourceResponse {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetContent<P0>(&self, content: P0) -> windows_core::Result<()>
@@ -39136,7 +39136,7 @@ impl ICoreWebView2WebResourceResponse {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
@@ -39378,7 +39378,7 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Response(&self) -> windows_core::Result<ICoreWebView2WebResourceResponseView> {
@@ -39388,7 +39388,7 @@ impl ICoreWebView2WebResourceResponseReceivedEventArgs {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -39560,7 +39560,7 @@ impl ICoreWebView2WebResourceResponseView {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
@@ -40849,7 +40849,7 @@ impl ICoreWebView2_13 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -42012,7 +42012,7 @@ impl ICoreWebView2_2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Environment(&self) -> windows_core::Result<ICoreWebView2Environment> {
@@ -42022,7 +42022,7 @@ impl ICoreWebView2_2 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -43511,7 +43511,7 @@ impl ICoreWebView2_28 {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

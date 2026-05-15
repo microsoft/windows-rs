@@ -88,7 +88,7 @@ impl ITest {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SetTest<P0>(&self, value: P0) -> windows_core::Result<()>

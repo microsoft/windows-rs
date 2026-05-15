@@ -177,7 +177,7 @@ impl NotesWindowManagerPreview {
     pub fn GetNotePlacement(&self, noteviewid: i32) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNotePlacement)(windows_core::Interface::as_raw(self), noteviewid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNotePlacement)(windows_core::Interface::as_raw(self), noteviewid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TrySetNoteSize(&self, noteviewid: i32, size: super::super::super::Foundation::Size) -> windows_core::Result<bool> {
@@ -196,7 +196,7 @@ impl NotesWindowManagerPreview {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SetNotesThumbnailAsync)(windows_core::Interface::as_raw(self), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SetNotesThumbnailAsync)(windows_core::Interface::as_raw(self), thumbnail.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SystemLockStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -263,13 +263,13 @@ impl NotesWindowManagerPreview {
         let this = &windows_core::Interface::cast::<INotesWindowManagerPreview2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetThumbnailImageForTaskSwitcherAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetForCurrentApp() -> windows_core::Result<NotesWindowManagerPreview> {
         Self::INotesWindowManagerPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentApp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForCurrentApp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn INotesWindowManagerPreviewStatics<R, F: FnOnce(&INotesWindowManagerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {

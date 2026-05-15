@@ -627,7 +627,7 @@ impl IFeed {
     pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn LastWriteTime(&self) -> windows_core::Result<f64> {
@@ -681,13 +681,13 @@ impl IFeed {
     pub unsafe fn Items(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetItem(&self, itemid: i32) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), itemid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), itemid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -795,7 +795,7 @@ impl IFeed {
     pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn UnreadItemCount(&self) -> windows_core::Result<i32> {
@@ -1431,7 +1431,7 @@ impl IFeed2 {
     pub unsafe fn GetItemByEffectiveId(&self, itemeffectiveid: i32) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetItemByEffectiveId)(windows_core::Interface::as_raw(self), itemeffectiveid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetItemByEffectiveId)(windows_core::Interface::as_raw(self), itemeffectiveid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn LastItemDownloadTime(&self) -> windows_core::Result<f64> {
@@ -1617,7 +1617,7 @@ impl IFeedEnclosure {
     pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -1980,25 +1980,25 @@ impl IFeedFolder {
     pub unsafe fn Feeds(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Feeds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Feeds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Subfolders(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Subfolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Subfolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateFeed(&self, feedname: &windows_core::BSTR, feedurl: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedname), core::mem::transmute_copy(feedurl), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedname), core::mem::transmute_copy(feedurl), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateSubfolder(&self, foldername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(foldername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(foldername), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ExistsFeed(&self, feedname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -2010,7 +2010,7 @@ impl IFeedFolder {
     pub unsafe fn GetFeed(&self, feedname: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ExistsSubfolder(&self, foldername: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -2022,7 +2022,7 @@ impl IFeedFolder {
     pub unsafe fn GetSubfolder(&self, foldername: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(foldername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(foldername), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
@@ -2049,7 +2049,7 @@ impl IFeedFolder {
     pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn IsRoot(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -2073,7 +2073,7 @@ impl IFeedFolder {
     pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -2643,7 +2643,7 @@ impl IFeedItem {
     pub unsafe fn Enclosure(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enclosure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Enclosure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn IsRead(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -2664,7 +2664,7 @@ impl IFeedItem {
     pub unsafe fn Parent(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
@@ -3030,14 +3030,14 @@ impl IFeedsEnum {
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -3127,7 +3127,7 @@ impl IFeedsManager {
     pub unsafe fn RootFolder(&self) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RootFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RootFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn IsSubscribed(&self, feedurl: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -3145,13 +3145,13 @@ impl IFeedsManager {
     pub unsafe fn GetFeed(&self, feedpath: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedpath), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFeedByUrl(&self, feedurl: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFeedByUrl)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedurl), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFeedByUrl)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feedurl), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ExistsFolder(&self, folderpath: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
@@ -3163,7 +3163,7 @@ impl IFeedsManager {
     pub unsafe fn GetFolder(&self, folderpath: &windows_core::BSTR) -> windows_core::Result<super::super::System::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(folderpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(folderpath), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteFeed(&self, feedpath: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -3505,7 +3505,7 @@ impl IWMPCdrom {
     pub unsafe fn playlist(&self) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).playlist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).playlist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn eject(&self) -> windows_core::Result<()> {
@@ -3592,7 +3592,7 @@ impl IWMPCdromBurn {
     pub unsafe fn burnPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).burnPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).burnPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
@@ -3799,13 +3799,13 @@ impl IWMPCdromCollection {
     pub unsafe fn item(&self, lindex: i32) -> windows_core::Result<IWMPCdrom> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByDriveSpecifier(&self, bstrdrivespecifier: &windows_core::BSTR) -> windows_core::Result<IWMPCdrom> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByDriveSpecifier)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdrivespecifier), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByDriveSpecifier)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdrivespecifier), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4334,7 +4334,7 @@ impl IWMPContentContainerList {
     pub unsafe fn GetContainer(&self, idxcontainer: u32) -> windows_core::Result<IWMPContentContainer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), idxcontainer, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), idxcontainer, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5044,7 +5044,7 @@ impl IWMPControls {
     pub unsafe fn currentItem(&self) -> windows_core::Result<IWMPMedia> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).currentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).currentItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetcurrentItem<P0>(&self, piwmpmedia: P0) -> windows_core::Result<()>
@@ -5516,19 +5516,19 @@ impl IWMPCore {
     pub unsafe fn controls(&self) -> windows_core::Result<IWMPControls> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).controls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn settings(&self) -> windows_core::Result<IWMPSettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn currentMedia(&self) -> windows_core::Result<IWMPMedia> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).currentMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetcurrentMedia<P0>(&self, pmedia: P0) -> windows_core::Result<()>
@@ -5540,13 +5540,13 @@ impl IWMPCore {
     pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn playlistCollection(&self) -> windows_core::Result<IWMPPlaylistCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).playlistCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -5558,13 +5558,13 @@ impl IWMPCore {
     pub unsafe fn network(&self) -> windows_core::Result<IWMPNetwork> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).network)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn currentPlaylist(&self) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).currentPlaylist)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn SetcurrentPlaylist<P0>(&self, ppl: P0) -> windows_core::Result<()>
@@ -5576,13 +5576,13 @@ impl IWMPCore {
     pub unsafe fn cdromCollection(&self) -> windows_core::Result<IWMPCdromCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).cdromCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn closedCaption(&self) -> windows_core::Result<IWMPClosedCaption> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).closedCaption)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn isOnline(&self, pfonline: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
@@ -5591,7 +5591,7 @@ impl IWMPCore {
     pub unsafe fn error(&self) -> windows_core::Result<IWMPError> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn status(&self, pbstrstatus: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -5885,7 +5885,7 @@ impl IWMPCore2 {
     pub unsafe fn dvd(&self) -> windows_core::Result<IWMPDVD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).dvd)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).dvd)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5939,13 +5939,13 @@ impl IWMPCore3 {
     pub unsafe fn newPlaylist(&self, bstrname: &windows_core::BSTR, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).newPlaylist)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrurl), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).newPlaylist)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrurl), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn newMedia(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPMedia> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).newMedia)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).newMedia)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6127,13 +6127,13 @@ impl IWMPDownloadCollection {
     pub unsafe fn item(&self, litem: i32) -> windows_core::Result<IWMPDownloadItem2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).item)(windows_core::Interface::as_raw(self), litem, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).item)(windows_core::Interface::as_raw(self), litem, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn startDownload(&self, bstrsourceurl: &windows_core::BSTR, bstrtype: &windows_core::BSTR) -> windows_core::Result<IWMPDownloadItem2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).startDownload)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceurl), core::mem::transmute_copy(bstrtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).startDownload)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceurl), core::mem::transmute_copy(bstrtype), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn removeItem(&self, litem: i32) -> windows_core::Result<()> {
@@ -6424,13 +6424,13 @@ impl IWMPDownloadManager {
     pub unsafe fn getDownloadCollection(&self, lcollectionid: i32) -> windows_core::Result<IWMPDownloadCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getDownloadCollection)(windows_core::Interface::as_raw(self), lcollectionid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getDownloadCollection)(windows_core::Interface::as_raw(self), lcollectionid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn createDownloadCollection(&self) -> windows_core::Result<IWMPDownloadCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).createDownloadCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).createDownloadCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -6786,7 +6786,7 @@ impl IWMPError {
     pub unsafe fn get_item(&self, dwindex: i32) -> windows_core::Result<IWMPErrorItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), dwindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn webHelp(&self) -> windows_core::Result<()> {
@@ -8218,7 +8218,7 @@ impl IWMPLibrary {
     pub unsafe fn mediaCollection(&self) -> windows_core::Result<IWMPMediaCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).mediaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn isIdentical<P0>(&self, piwmplibrary: P0, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
@@ -8343,7 +8343,7 @@ impl IWMPLibraryServices {
     pub unsafe fn getLibraryByType(&self, wmplt: WMPLibraryType, lindex: i32) -> windows_core::Result<IWMPLibrary> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getLibraryByType)(windows_core::Interface::as_raw(self), wmplt, lindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getLibraryByType)(windows_core::Interface::as_raw(self), wmplt, lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8721,7 +8721,7 @@ impl IWMPMedia2 {
     pub unsafe fn error(&self) -> windows_core::Result<IWMPErrorItem> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -8839,43 +8839,43 @@ impl IWMPMediaCollection {
     pub unsafe fn add(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<IWMPMedia> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrurl), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getAll(&self) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByGenre(&self, bstrgenre: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByGenre)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgenre), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByGenre)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgenre), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByAuthor(&self, bstrauthor: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByAuthor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrauthor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByAuthor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrauthor), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByAlbum(&self, bstralbum: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByAlbum)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstralbum), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByAlbum)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstralbum), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByAttribute(&self, bstrattribute: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstrvalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByAttribute)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstrvalue), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn remove<P0>(&self, pitem: P0, varfdeletefile: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
@@ -8887,7 +8887,7 @@ impl IWMPMediaCollection {
     pub unsafe fn getAttributeStringCollection(&self, bstrattribute: &windows_core::BSTR, bstrmediatype: &windows_core::BSTR) -> windows_core::Result<IWMPStringCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getAttributeStringCollection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstrmediatype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getAttributeStringCollection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstrmediatype), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getMediaAtom(&self, bstritemname: &windows_core::BSTR, platom: *mut i32) -> windows_core::Result<()> {
@@ -9100,7 +9100,7 @@ impl IWMPMediaCollection2 {
     pub unsafe fn createQuery(&self) -> windows_core::Result<IWMPQuery> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).createQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).createQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getPlaylistByQuery<P0>(&self, pquery: P0, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPPlaylist>
@@ -9109,7 +9109,7 @@ impl IWMPMediaCollection2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getPlaylistByQuery)(windows_core::Interface::as_raw(self), pquery.param().abi(), core::mem::transmute_copy(bstrmediatype), core::mem::transmute_copy(bstrsortattribute), fsortascending, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getPlaylistByQuery)(windows_core::Interface::as_raw(self), pquery.param().abi(), core::mem::transmute_copy(bstrmediatype), core::mem::transmute_copy(bstrsortattribute), fsortascending, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getStringCollectionByQuery<P1>(&self, bstrattribute: &windows_core::BSTR, pquery: P1, bstrmediatype: &windows_core::BSTR, bstrsortattribute: &windows_core::BSTR, fsortascending: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IWMPStringCollection>
@@ -9118,13 +9118,13 @@ impl IWMPMediaCollection2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getStringCollectionByQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), pquery.param().abi(), core::mem::transmute_copy(bstrmediatype), core::mem::transmute_copy(bstrsortattribute), fsortascending, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getStringCollectionByQuery)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), pquery.param().abi(), core::mem::transmute_copy(bstrmediatype), core::mem::transmute_copy(bstrsortattribute), fsortascending, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByAttributeAndMediaType(&self, bstrattribute: &windows_core::BSTR, bstrvalue: &windows_core::BSTR, bstrmediatype: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByAttributeAndMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstrvalue), core::mem::transmute_copy(bstrmediatype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByAttributeAndMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribute), core::mem::transmute_copy(bstrvalue), core::mem::transmute_copy(bstrmediatype), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -10621,7 +10621,7 @@ impl IWMPPlayer4 {
     pub unsafe fn playerApplication(&self) -> windows_core::Result<IWMPPlayerApplication> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).playerApplication)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).playerApplication)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn openPlayer(&self, bstrurl: &windows_core::BSTR) -> windows_core::Result<()> {
@@ -11001,7 +11001,7 @@ impl IWMPPlaylist {
     pub unsafe fn get_item(&self, lindex: i32) -> windows_core::Result<IWMPMedia> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getItemInfo(&self, bstrname: &windows_core::BSTR, pbstrval: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -11214,7 +11214,7 @@ impl IWMPPlaylistArray {
     pub unsafe fn item(&self, lindex: i32) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -11276,19 +11276,19 @@ impl IWMPPlaylistCollection {
     pub unsafe fn newPlaylist(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylist> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).newPlaylist)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).newPlaylist)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getAll(&self) -> windows_core::Result<IWMPPlaylistArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn getByName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<IWMPPlaylistArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getByName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn remove<P0>(&self, pitem: P0) -> windows_core::Result<()>
@@ -11315,7 +11315,7 @@ impl IWMPPlaylistCollection {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).importPlaylist)(windows_core::Interface::as_raw(self), pitem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).importPlaylist)(windows_core::Interface::as_raw(self), pitem.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -13032,7 +13032,7 @@ impl IWMPSyncServices {
     pub unsafe fn getDevice(&self, lindex: i32) -> windows_core::Result<IWMPSyncDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).getDevice)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).getDevice)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -13219,7 +13219,7 @@ impl IXFeed {
     pub unsafe fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> windows_core::Result<super::super::System::Com::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Xml)(windows_core::Interface::as_raw(self), uiitemcount, sortproperty, sortorder, filterflags, includeflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Xml)(windows_core::Interface::as_raw(self), uiitemcount, sortproperty, sortorder, filterflags, includeflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -13269,7 +13269,7 @@ impl IXFeed {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn LastWriteTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         unsafe {
@@ -13322,7 +13322,7 @@ impl IXFeed {
     pub unsafe fn Items(&self) -> windows_core::Result<IXFeedsEnum> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Items)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetItem<T>(&self, uiid: u32) -> windows_core::Result<T>
@@ -13330,7 +13330,7 @@ impl IXFeed {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), uiid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), uiid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn MarkAllItemsRead(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MarkAllItemsRead)(windows_core::Interface::as_raw(self)).ok() }
@@ -13444,7 +13444,7 @@ impl IXFeed {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn UnreadItemCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -14064,7 +14064,7 @@ impl IXFeed2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetItemByEffectiveId)(windows_core::Interface::as_raw(self), uieffectiveid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItemByEffectiveId)(windows_core::Interface::as_raw(self), uieffectiveid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn LastItemDownloadTime(&self) -> windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         unsafe {
@@ -14238,7 +14238,7 @@ impl IXFeedEnclosure {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -14595,13 +14595,13 @@ impl IXFeedFolder {
     pub unsafe fn Feeds(&self) -> windows_core::Result<IXFeedsEnum> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Feeds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Feeds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Subfolders(&self) -> windows_core::Result<IXFeedsEnum> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Subfolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Subfolders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateFeed<P0, P1, T>(&self, pszname: P0, pszurl: P1) -> windows_core::Result<T>
@@ -14611,7 +14611,7 @@ impl IXFeedFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateSubfolder<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
     where
@@ -14619,7 +14619,7 @@ impl IXFeedFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn ExistsFeed<P0>(&self, pszname: P0, pbfeedexists: *const windows_core::BOOL) -> windows_core::Result<()>
     where
@@ -14639,7 +14639,7 @@ impl IXFeedFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSubfolder<P0, T>(&self, pszname: P0) -> windows_core::Result<T>
     where
@@ -14647,7 +14647,7 @@ impl IXFeedFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSubfolder)(windows_core::Interface::as_raw(self), pszname.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
@@ -14681,7 +14681,7 @@ impl IXFeedFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn IsRoot(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -14694,7 +14694,7 @@ impl IXFeedFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetWatcher)(windows_core::Interface::as_raw(self), scope, mask, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn TotalUnreadItemCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -15203,7 +15203,7 @@ impl IXFeedItem {
     pub unsafe fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> windows_core::Result<super::super::System::Com::IStream> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Xml)(windows_core::Interface::as_raw(self), fxif, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Xml)(windows_core::Interface::as_raw(self), fxif, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Title(&self) -> windows_core::Result<windows_core::PWSTR> {
@@ -15253,7 +15253,7 @@ impl IXFeedItem {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Enclosure)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Enclosure)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn IsRead(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -15275,7 +15275,7 @@ impl IXFeedItem {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
@@ -15617,7 +15617,7 @@ impl IXFeedsEnum {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), uiindex, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -15666,7 +15666,7 @@ impl IXFeedsManager {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).RootFolder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).RootFolder)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn IsSubscribed<P0>(&self, pszurl: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -15692,7 +15692,7 @@ impl IXFeedsManager {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFeed)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn GetFeedByUrl<P0, T>(&self, pszurl: P0) -> windows_core::Result<T>
     where
@@ -15700,7 +15700,7 @@ impl IXFeedsManager {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFeedByUrl)(windows_core::Interface::as_raw(self), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFeedByUrl)(windows_core::Interface::as_raw(self), pszurl.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn ExistsFolder<P0>(&self, pszpath: P0) -> windows_core::Result<windows_core::BOOL>
     where
@@ -15717,7 +15717,7 @@ impl IXFeedsManager {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), pszpath.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
     pub unsafe fn DeleteFeed<P0>(&self, pszpath: P0) -> windows_core::Result<()>
     where
@@ -15759,7 +15759,7 @@ impl IXFeedsManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Normalize)(windows_core::Interface::as_raw(self), pstreamin.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Normalize)(windows_core::Interface::as_raw(self), pstreamin.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ItemCountLimit(&self) -> windows_core::Result<u32> {

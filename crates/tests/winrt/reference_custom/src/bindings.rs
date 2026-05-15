@@ -177,7 +177,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -283,7 +283,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn HasCurrent(&self) -> windows_core::Result<bool> {
@@ -308,7 +308,7 @@ impl<T: windows_core::RuntimeType + 'static> IIterator<T> {
     }
     pub fn GetMany(
         &self,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -334,7 +334,7 @@ where
     fn MoveNext(&self) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32>;
 }
 impl<T: windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
@@ -513,7 +513,7 @@ impl ITest {
                 windows_core::Interface::as_raw(self),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Windows<P0>(&self, s: P0) -> windows_core::Result<()>
@@ -660,7 +660,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
                 index,
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> windows_core::Result<u32> {
@@ -752,7 +752,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetMany(
         &self,
         startindex: u32,
-        items: &mut [<T as windows_core::Type<T>>::Default],
+        items: &mut [<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -768,7 +768,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     }
     pub fn ReplaceAll(
         &self,
-        items: &[<T as windows_core::Type<T>>::Default],
+        items: &[<T as windows_core::imp::Type<T>>::Default],
     ) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ReplaceAll)(
@@ -787,7 +787,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
                 windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

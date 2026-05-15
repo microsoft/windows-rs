@@ -33,7 +33,7 @@ impl HidBooleanControl {
     pub fn ControlDescription(&self) -> windows_core::Result<HidBooleanControlDescription> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ControlDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -87,7 +87,7 @@ impl HidBooleanControlDescription {
     pub fn ParentCollections(&self) -> windows_core::Result<windows_collections::IVectorView<HidCollection>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParentCollections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ParentCollections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn IsAbsolute(&self) -> windows_core::Result<bool> {
@@ -214,49 +214,49 @@ impl HidDevice {
     pub fn GetInputReportAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<HidInputReport>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputReportAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputReportAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetInputReportByIdAsync(&self, reportid: u16) -> windows_core::Result<windows_future::IAsyncOperation<HidInputReport>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInputReportByIdAsync)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInputReportByIdAsync)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetFeatureReportAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<HidFeatureReport>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFeatureReportAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFeatureReportAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetFeatureReportByIdAsync(&self, reportid: u16) -> windows_core::Result<windows_future::IAsyncOperation<HidFeatureReport>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetFeatureReportByIdAsync)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetFeatureReportByIdAsync)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateOutputReport(&self) -> windows_core::Result<HidOutputReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateOutputReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateOutputReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateOutputReportById(&self, reportid: u16) -> windows_core::Result<HidOutputReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateOutputReportById)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateOutputReportById)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateFeatureReport(&self) -> windows_core::Result<HidFeatureReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFeatureReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFeatureReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CreateFeatureReportById(&self, reportid: u16) -> windows_core::Result<HidFeatureReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateFeatureReportById)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateFeatureReportById)(windows_core::Interface::as_raw(self), reportid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SendOutputReportAsync<P0>(&self, outputreport: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
@@ -265,7 +265,7 @@ impl HidDevice {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendOutputReportAsync)(windows_core::Interface::as_raw(self), outputreport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendOutputReportAsync)(windows_core::Interface::as_raw(self), outputreport.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn SendFeatureReportAsync<P0>(&self, featurereport: P0) -> windows_core::Result<windows_future::IAsyncOperation<u32>>
@@ -274,19 +274,19 @@ impl HidDevice {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SendFeatureReportAsync)(windows_core::Interface::as_raw(self), featurereport.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SendFeatureReportAsync)(windows_core::Interface::as_raw(self), featurereport.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<HidBooleanControlDescription>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBooleanControlDescriptions)(windows_core::Interface::as_raw(self), reporttype, usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBooleanControlDescriptions)(windows_core::Interface::as_raw(self), reporttype, usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<HidNumericControlDescription>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumericControlDescriptions)(windows_core::Interface::as_raw(self), reporttype, usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNumericControlDescriptions)(windows_core::Interface::as_raw(self), reporttype, usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn InputReportReceived<P0>(&self, reporthandler: P0) -> windows_core::Result<i64>
@@ -317,7 +317,7 @@ impl HidDevice {
     pub fn FromIdAsync(deviceid: &windows_core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> windows_core::Result<windows_future::IAsyncOperation<HidDevice>> {
         Self::IHidDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), accessmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), accessmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         })
     }
     fn IHidDeviceStatics<R, F: FnOnce(&IHidDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -352,7 +352,7 @@ impl HidFeatureReport {
     pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -365,7 +365,7 @@ impl HidFeatureReport {
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidBooleanControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBooleanControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBooleanControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidBooleanControl>
@@ -374,13 +374,13 @@ impl HidFeatureReport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBooleanControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBooleanControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidNumericControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumericControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNumericControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidNumericControl>
@@ -389,7 +389,7 @@ impl HidFeatureReport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumericControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNumericControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -420,25 +420,25 @@ impl HidInputReport {
     pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ActivatedBooleanControls(&self) -> windows_core::Result<windows_collections::IVectorView<HidBooleanControl>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ActivatedBooleanControls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ActivatedBooleanControls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn TransitionedBooleanControls(&self) -> windows_core::Result<windows_collections::IVectorView<HidBooleanControl>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TransitionedBooleanControls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TransitionedBooleanControls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidBooleanControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBooleanControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBooleanControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidBooleanControl>
@@ -447,13 +447,13 @@ impl HidInputReport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBooleanControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBooleanControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidNumericControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumericControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNumericControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidNumericControl>
@@ -462,7 +462,7 @@ impl HidInputReport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumericControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNumericControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -486,7 +486,7 @@ impl HidInputReportReceivedEventArgs {
     pub fn Report(&self) -> windows_core::Result<HidInputReport> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Report)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Report)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -552,7 +552,7 @@ impl HidNumericControl {
     pub fn ControlDescription(&self) -> windows_core::Result<HidNumericControlDescription> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ControlDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ControlDescription)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -666,7 +666,7 @@ impl HidNumericControlDescription {
     pub fn ParentCollections(&self) -> windows_core::Result<windows_collections::IVectorView<HidCollection>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParentCollections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ParentCollections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -697,7 +697,7 @@ impl HidOutputReport {
     pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -710,7 +710,7 @@ impl HidOutputReport {
     pub fn GetBooleanControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidBooleanControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBooleanControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBooleanControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidBooleanControl>
@@ -719,13 +719,13 @@ impl HidOutputReport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetBooleanControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetBooleanControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> windows_core::Result<HidNumericControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumericControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNumericControl)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> windows_core::Result<HidNumericControl>
@@ -734,7 +734,7 @@ impl HidOutputReport {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNumericControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNumericControlByDescription)(windows_core::Interface::as_raw(self), controldescription.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

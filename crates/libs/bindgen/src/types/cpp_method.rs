@@ -269,7 +269,7 @@ impl CppMethod {
                 quote! {
                     pub unsafe fn #name<#generics T>(&self, #params) -> #result Result<T> #where_clause {
                         let mut result__ = core::ptr::null_mut();
-                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__)) }
+                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::imp::Type::from_abi(result__)) }
                     }
                 }
             }
@@ -321,7 +321,7 @@ impl CppMethod {
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
-                                windows_core::Type::from_abi(result__)
+                                windows_core::imp::Type::from_abi(result__)
                             }
                         }
                     }

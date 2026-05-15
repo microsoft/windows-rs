@@ -16,7 +16,7 @@ pub unsafe fn CreateRobotFromHandle(
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateRobotFromHandle(handle, &mut result__)
-            .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 windows_core::imp::define_interface!(IRobot, IRobot_Vtbl, 0xd93d56c9_37a7_537e_becc_236d421cc48f);

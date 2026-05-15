@@ -1407,7 +1407,7 @@ where
     windows_core::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : * mut core::ffi::c_void, callback : * mut core::ffi::c_void, appstate : * mut core::ffi::c_void, asyncresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        RtwqCreateAsyncResult(appobject.param().abi(), callback.param().abi(), appstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        RtwqCreateAsyncResult(appobject.param().abi(), callback.param().abi(), appstate.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -2283,7 +2283,7 @@ impl IRtwqAsyncResult {
     pub unsafe fn GetState(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetStatus(&self) -> windows_core::Result<()> {
@@ -2295,7 +2295,7 @@ impl IRtwqAsyncResult {
     pub unsafe fn GetObject(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetStateNoAddRef(&self) -> Option<windows_core::IUnknown> {

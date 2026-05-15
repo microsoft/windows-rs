@@ -18,7 +18,7 @@ impl CompositorController {
     pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Compositor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Compositor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Commit(&self) -> windows_core::Result<()> {
@@ -27,7 +27,7 @@ impl CompositorController {
     pub fn EnsurePreviousCommitCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnsurePreviousCommitCompletedAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).EnsurePreviousCommitCompletedAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn CommitNeeded<P0>(&self, handler: P0) -> windows_core::Result<i64>

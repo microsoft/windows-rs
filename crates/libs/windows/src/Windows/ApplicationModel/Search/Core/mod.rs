@@ -113,7 +113,7 @@ impl SearchSuggestion {
     pub fn Image(&self) -> windows_core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ImageAlternateText(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -198,7 +198,7 @@ impl SearchSuggestionManager {
     pub fn Suggestions(&self) -> windows_core::Result<windows_collections::IObservableVector<SearchSuggestion>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Suggestions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Suggestions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn AddToHistory(&self, querytext: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -265,13 +265,13 @@ impl SearchSuggestionsRequestedEventArgs {
     pub fn LinguisticDetails(&self) -> windows_core::Result<super::SearchQueryLinguisticDetails> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LinguisticDetails)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LinguisticDetails)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn Request(&self) -> windows_core::Result<super::SearchSuggestionsRequest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Request)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

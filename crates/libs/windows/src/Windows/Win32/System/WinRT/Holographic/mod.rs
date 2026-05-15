@@ -8,7 +8,7 @@ impl IHolographicCameraInterop {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -19,7 +19,7 @@ impl IHolographicCameraInterop {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, pprotectedresourcesession.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, pprotectedresourcesession.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -216,7 +216,7 @@ impl IHolographicQuadLayerInterop {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -227,7 +227,7 @@ impl IHolographicQuadLayerInterop {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, pprotectedresourcesession.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(windows_core::Interface::as_raw(self), pdevice.param().abi(), ptexture2ddesc, pprotectedresourcesession.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]

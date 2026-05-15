@@ -4237,19 +4237,19 @@ impl IDot11AdHocInterface {
     pub unsafe fn GetActiveNetwork(&self) -> windows_core::Result<IDot11AdHocNetwork> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetActiveNetwork)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetActiveNetwork)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetIEnumSecuritySettings(&self) -> windows_core::Result<IEnumDot11AdHocSecuritySettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIEnumSecuritySettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIEnumSecuritySettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const windows_core::GUID) -> windows_core::Result<IEnumDot11AdHocNetworks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(windows_core::Interface::as_raw(self), pfilterguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(windows_core::Interface::as_raw(self), pfilterguid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()> {
@@ -4422,7 +4422,7 @@ impl IDot11AdHocManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateNetwork)(windows_core::Interface::as_raw(self), name.param().abi(), password.param().abi(), geographicalid, pinterface.param().abi(), psecurity.param().abi(), pcontextguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateNetwork)(windows_core::Interface::as_raw(self), name.param().abi(), password.param().abi(), geographicalid, pinterface.param().abi(), psecurity.param().abi(), pcontextguid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn CommitCreatedNetwork<P0>(&self, piadhoc: P0, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>
@@ -4434,19 +4434,19 @@ impl IDot11AdHocManager {
     pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const windows_core::GUID) -> windows_core::Result<IEnumDot11AdHocNetworks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(windows_core::Interface::as_raw(self), pcontextguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(windows_core::Interface::as_raw(self), pcontextguid, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetIEnumDot11AdHocInterfaces(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIEnumDot11AdHocInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetIEnumDot11AdHocInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNetwork(&self, networksignature: *const windows_core::GUID) -> windows_core::Result<IDot11AdHocNetwork> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNetwork)(windows_core::Interface::as_raw(self), networksignature, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNetwork)(windows_core::Interface::as_raw(self), networksignature, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -4643,7 +4643,7 @@ impl IDot11AdHocNetwork {
     pub unsafe fn GetSecuritySetting(&self) -> windows_core::Result<IDot11AdHocSecuritySettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSecuritySetting)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetSecuritySetting)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetContextGuid(&self, pcontextguid: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -4655,7 +4655,7 @@ impl IDot11AdHocNetwork {
     pub unsafe fn GetInterface(&self) -> windows_core::Result<IDot11AdHocInterface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Connect<P0>(&self, passphrase: P0, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>
@@ -4925,7 +4925,7 @@ impl IEnumDot11AdHocInterfaces {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5004,7 +5004,7 @@ impl IEnumDot11AdHocNetworks {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocNetworks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -5083,7 +5083,7 @@ impl IEnumDot11AdHocSecuritySettings {
     pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocSecuritySettings> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

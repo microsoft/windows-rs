@@ -168,7 +168,7 @@ impl IDedupChunkLibrary {
     pub unsafe fn StartChunking(&self, iiditeratorinterfaceid: windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartChunking)(windows_core::Interface::as_raw(self), core::mem::transmute(iiditeratorinterfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).StartChunking)(windows_core::Interface::as_raw(self), core::mem::transmute(iiditeratorinterfaceid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -508,7 +508,7 @@ impl IDedupDataPortManager {
     pub unsafe fn GetVolumeDataPort(&self, options: u32, path: &windows_core::BSTR) -> windows_core::Result<IDedupDataPort> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetVolumeDataPort)(windows_core::Interface::as_raw(self), options, core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetVolumeDataPort)(windows_core::Interface::as_raw(self), options, core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }

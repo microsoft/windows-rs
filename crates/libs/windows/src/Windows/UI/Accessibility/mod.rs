@@ -66,7 +66,7 @@ impl ScreenReaderService {
     pub fn CurrentScreenReaderPosition(&self) -> windows_core::Result<ScreenReaderPositionChangedEventArgs> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentScreenReaderPosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CurrentScreenReaderPosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub fn ScreenReaderPositionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
