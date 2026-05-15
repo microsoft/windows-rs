@@ -70,16 +70,20 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if !method.dependencies.included(config) {
+                if !config.filter.includes_method(type_name, def.name()) {
+                    // Method-level `--filter` excluded this slot. The slot is
+                    // omitted from the callable surface; `Vtbl::new` installs
+                    // an `E_NOTIMPL` stub thunk in its place. If the method's
+                    // dependent types are not in the binding set we still
+                    // classify it as `Filtered`, but the emitter falls back
+                    // to an opaque `usize` slot (no stub thunk) so the
+                    // interface's `_Impl` trait can still be emitted.
+                    MethodOrName::Filtered(method)
+                } else if !method.dependencies.included(config) {
                     config
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
-                } else if !config.filter.includes_method(type_name, def.name()) {
-                    // Method-level `--filter` excluded this slot. All dependencies
-                    // are in scope, so we can still describe the slot and synthesise
-                    // an `E_NOTIMPL` stub thunk in `Vtbl::new` (option 1).
-                    MethodOrName::Filtered(method)
                 } else {
                     MethodOrName::Method(method)
                 }
@@ -92,9 +96,14 @@ impl Interface {
     // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
     // base `_Impl` that wasn't emitted. Method-level `--filter` exclusions do NOT
     // poison `_Impl` emission: filtered methods are stubbed with `E_NOTIMPL` thunks
-    // in the generated `Vtbl::new` instead.
+    // in the generated `Vtbl::new` instead (or, if their dependencies are also out
+    // of scope, demoted to an opaque `usize` slot with no stub thunk).
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
+        let type_name = self.def.type_name();
         self.def.methods().any(|def| {
+            if !config.filter.includes_method(type_name, def.name()) {
+                return false;
+            }
             let method = Method::new(def, &self.generics, config.reader);
             !method.dependencies.included(config)
         })
@@ -149,11 +158,17 @@ impl Interface {
                     // Filtered methods get a real (private) ABI slot. There is no
                     // public Rust caller, but the slot is targeted by the stub
                     // thunk that `Vtbl::new` installs so the layout is preserved
-                    // and `E_NOTIMPL` is returned at runtime.
+                    // and `E_NOTIMPL` is returned at runtime. If dependent types
+                    // are not in the binding set, fall back to an opaque `usize`
+                    // slot — `Vtbl::new` will initialize it to `0`.
                     let name = virtual_names.add(method.def);
-                    let vtbl = method.write_abi(config, false);
-                    quote! {
-                        #name: unsafe extern "system" fn(#vtbl) -> #result HRESULT,
+                    if method.dependencies.included(config) {
+                        let vtbl = method.write_abi(config, false);
+                        quote! {
+                            #name: unsafe extern "system" fn(#vtbl) -> #result HRESULT,
+                        }
+                    } else {
+                        quote! { #name: usize, }
                     }
                 }
                 MethodOrName::Name(method) => {
@@ -454,7 +469,11 @@ impl Interface {
                             }
                             MethodOrName::Filtered(method) => {
                                 let name = names.add(method.def);
-                                quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                                if method.dependencies.included(config) {
+                                    quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                                } else {
+                                    quote! { #name: 0, }
+                                }
                             }
                             MethodOrName::Name(method) => {
                                 let name = names.add(*method);
@@ -486,13 +505,19 @@ impl Interface {
                     // signature matches the original method (all dependencies
                     // are in scope), but the body simply returns `E_NOTIMPL`
                     // without invoking any user code. Parameters are unused.
+                    // If dependencies are missing, no thunk is emitted; the
+                    // slot is left as an opaque `0`.
                     let name = names.add(method.def);
-                    let signature = method.write_abi(config, true);
-                    quote! {
-                        #[allow(unused_variables)]
-                        unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
-                            windows_core::HRESULT(0x80004001_u32 as i32)
+                    if method.dependencies.included(config) {
+                        let signature = method.write_abi(config, true);
+                        quote! {
+                            #[allow(unused_variables)]
+                            unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
+                                windows_core::HRESULT(0x80004001_u32 as i32)
+                            }
                         }
+                    } else {
+                        quote! {}
                     }
                 }
                 _ => quote! {},

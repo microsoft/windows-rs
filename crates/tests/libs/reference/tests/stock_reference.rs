@@ -43,16 +43,6 @@ fn guid_value() -> Result<()> {
 }
 
 #[test]
-fn date_time_value() -> Result<()> {
-    let dt = DateTime {
-        UniversalTime: 12345,
-    };
-    let r = IReference::<DateTime>::from(dt);
-    assert_eq!(r.Value()?.UniversalTime, dt.UniversalTime);
-    Ok(())
-}
-
-#[test]
 fn query_property_value() -> Result<()> {
     // The stock IReference also implements IPropertyValue (because IReference derives from
     // it). The Type() accessor returns `OtherType` and the typed `Get*` accessors return

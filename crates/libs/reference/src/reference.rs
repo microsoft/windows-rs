@@ -84,21 +84,6 @@ where
     fn GetGuid(&self) -> Result<GUID> {
         Err(Error::from(E_NOTIMPL))
     }
-    fn GetDateTime(&self) -> Result<DateTime> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetTimeSpan(&self) -> Result<TimeSpan> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetPoint(&self) -> Result<Point> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetSize(&self) -> Result<Size> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetRect(&self) -> Result<Rect> {
-        Err(Error::from(E_NOTIMPL))
-    }
     fn GetUInt8Array(&self, _value: &mut Array<u8>) -> Result<()> {
         Err(Error::from(E_NOTIMPL))
     }
@@ -139,21 +124,6 @@ where
         Err(Error::from(E_NOTIMPL))
     }
     fn GetGuidArray(&self, _value: &mut Array<GUID>) -> Result<()> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetDateTimeArray(&self, _value: &mut Array<DateTime>) -> Result<()> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetTimeSpanArray(&self, _value: &mut Array<TimeSpan>) -> Result<()> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetPointArray(&self, _value: &mut Array<Point>) -> Result<()> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetSizeArray(&self, _value: &mut Array<Size>) -> Result<()> {
-        Err(Error::from(E_NOTIMPL))
-    }
-    fn GetRectArray(&self, _value: &mut Array<Rect>) -> Result<()> {
         Err(Error::from(E_NOTIMPL))
     }
 }

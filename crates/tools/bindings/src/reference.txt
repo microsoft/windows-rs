@@ -2,11 +2,16 @@
 --flat --no-comment --no-allow
 
 --filter
-    Windows.Foundation.DateTime
     Windows.Foundation.IPropertyValue
     Windows.Foundation.IReference
-    Windows.Foundation.Point
     Windows.Foundation.PropertyType
-    Windows.Foundation.Rect
-    Windows.Foundation.Size
-    Windows.Foundation.TimeSpan
+    !Windows.Foundation.IPropertyValue::GetDateTime
+    !Windows.Foundation.IPropertyValue::GetTimeSpan
+    !Windows.Foundation.IPropertyValue::GetPoint
+    !Windows.Foundation.IPropertyValue::GetSize
+    !Windows.Foundation.IPropertyValue::GetRect
+    !Windows.Foundation.IPropertyValue::GetDateTimeArray
+    !Windows.Foundation.IPropertyValue::GetTimeSpanArray
+    !Windows.Foundation.IPropertyValue::GetPointArray
+    !Windows.Foundation.IPropertyValue::GetSizeArray
+    !Windows.Foundation.IPropertyValue::GetRectArray
