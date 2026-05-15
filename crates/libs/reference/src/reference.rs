@@ -8,10 +8,9 @@ use windows_core::*;
 /// when they need an optional or reference value.
 struct StockReference<T>
 where
-    T: RuntimeType + 'static,
-    T::Default: Clone,
+    T: RuntimeType + Clone + 'static,
 {
-    value: T::Default,
+    value: T,
 }
 
 implement_decl! {
@@ -19,16 +18,15 @@ implement_decl! {
         IReference<T>,
         IPropertyValue,
     ]
-    where T: RuntimeType + 'static, T::Default: Clone
+    where T: RuntimeType + Clone + 'static
 }
 
 impl<T> IReference_Impl<T> for StockReference_Impl<T>
 where
-    T: RuntimeType,
-    T::Default: Clone,
+    T: RuntimeType + Clone,
 {
     fn Value(&self) -> Result<T> {
-        T::from_default(&self.value)
+        Ok(self.value.clone())
     }
 }
 
@@ -39,8 +37,7 @@ where
 // retrieve the underlying value.
 impl<T> IPropertyValue_Impl for StockReference_Impl<T>
 where
-    T: RuntimeType,
-    T::Default: Clone,
+    T: RuntimeType + Clone,
 {
     fn Type(&self) -> Result<PropertyType> {
         Ok(PropertyType::OtherType)
@@ -163,15 +160,12 @@ where
 
 /// Box a value into an `IReference<T>`.
 ///
-/// The `Type<T, Default = T>` constraint selects the common cases where `T`'s storage
-/// representation is the same as the value type — primitives, enums, `GUID`, `HSTRING`,
-/// and the `Windows.Foundation` value types (`DateTime`, `TimeSpan`, `Point`, `Size`,
-/// `Rect`). The full bound is `T: RuntimeType + Type<T, Default = T>` so that we can both
-/// box the value and project it back through `IReference::Value`.
+/// This is intended for WinRT value types (primitives, enums, `GUID`, `HSTRING`, and the
+/// `Windows.Foundation` value structs like `DateTime`, `TimeSpan`, `Point`, `Size`, and
+/// `Rect`) — i.e. types where `T` is itself the storage representation.
 impl<T> From<T> for IReference<T>
 where
-    T: RuntimeType + Type<T, Default = T>,
-    T::Default: Clone,
+    T: RuntimeType + Clone + 'static,
 {
     fn from(value: T) -> Self {
         ComObject::new(StockReference::<T> { value }).into_interface()
