@@ -1,0 +1,35 @@
+// Exercises `#[Windows::Foundation::Metadata::NoException]` on factory and
+// static methods (in addition to the already-supported instance method case).
+// noexcept methods must:
+//   * be emitted with a non-`Result` return type (panicking on failure),
+//   * still flow through the `Self::IFooFactory(|this| …)` /
+//     `Self::IFooStatics(|this| …)` factory-cache helpers, which themselves
+//     return `Result<R>` because retrieving the activation factory can fail.
+// The bindgen output therefore wraps the closure body in `Result::Ok(…)` and
+// `.unwrap()`s the outer call.
+
+#[winrt]
+mod Test {
+    #[Windows::Foundation::Metadata::Activatable(IFooFactory, 1)]
+    #[Windows::Foundation::Metadata::Static(IFooStatics, 1)]
+    class Foo {
+        IFoo,
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFoo {
+        #[Windows::Foundation::Metadata::NoException]
+        fn Direct(&self) -> i32;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFooFactory {
+        #[Windows::Foundation::Metadata::NoException]
+        fn CreateFoo(&self) -> Foo;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
+    interface IFooStatics {
+        #[Windows::Foundation::Metadata::NoException]
+        fn StaticInt(&self) -> i32;
+        #[Windows::Foundation::Metadata::NoException]
+        fn StaticVoid(&self);
+    }
+}
