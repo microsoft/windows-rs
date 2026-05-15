@@ -33,9 +33,12 @@ pub mod Test {
     impl windows_core::RuntimeName for IBase {
         const NAME: &'static str = "Test.IBase";
     }
-    pub trait IBase_Impl: windows_core::IUnknownImpl {}
+    pub trait IBase_Impl {}
     impl IBase_Vtbl {
-        pub const fn new<Identity: IBase_Impl, const OFFSET: isize>() -> Self {
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IBase_Impl,
+        {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IBase, OFFSET>(),
             }
@@ -62,9 +65,12 @@ pub mod Test {
     impl windows_core::RuntimeName for ILeaf {
         const NAME: &'static str = "Test.ILeaf";
     }
-    pub trait ILeaf_Impl: windows_core::IUnknownImpl {}
+    pub trait ILeaf_Impl {}
     impl ILeaf_Vtbl {
-        pub const fn new<Identity: ILeaf_Impl, const OFFSET: isize>() -> Self {
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: ILeaf_Impl,
+        {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, ILeaf, OFFSET>(),
             }
@@ -95,9 +101,12 @@ pub mod Test {
     impl windows_core::RuntimeName for IMiddle {
         const NAME: &'static str = "Test.IMiddle";
     }
-    pub trait IMiddle_Impl: windows_core::IUnknownImpl {}
+    pub trait IMiddle_Impl {}
     impl IMiddle_Vtbl {
-        pub const fn new<Identity: IMiddle_Impl, const OFFSET: isize>() -> Self {
+        pub const fn new<Identity: windows_core::IUnknownImpl, const OFFSET: isize>() -> Self
+        where
+            <Identity as windows_core::IUnknownImpl>::Impl: IMiddle_Impl,
+        {
             Self {
                 base__: windows_core::IInspectable_Vtbl::new::<Identity, IMiddle, OFFSET>(),
             }
