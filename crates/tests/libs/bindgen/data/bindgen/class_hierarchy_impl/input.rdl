@@ -1,0 +1,29 @@
+// Verifies that the `_Impl` trait of an exclusive default interface of a derived class
+// requires the `_Impl` traits of its base classes' default interfaces. This means a caller
+// implementing the leaf class no longer has to manually list every base class as a separate
+// argument to `#[implement(...)]` to satisfy the trait bounds.
+
+#[winrt]
+mod Test {
+    class Base {
+        IBase,
+    }
+    class Middle: Base {
+        IMiddle,
+    }
+    class Leaf: Middle {
+        ILeaf,
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Base)]
+    interface IBase {
+        fn BaseMethod(&self) -> i32;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Middle)]
+    interface IMiddle {
+        fn MiddleMethod(&self) -> i32;
+    }
+    #[Windows::Foundation::Metadata::ExclusiveTo(Leaf)]
+    interface ILeaf {
+        fn LeafMethod(&self) -> i32;
+    }
+}

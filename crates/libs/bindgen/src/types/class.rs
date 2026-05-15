@@ -246,7 +246,7 @@ impl Class {
         self.type_name().write(config, &[])
     }
 
-    fn default_interface(&self, reader: &Reader) -> Option<Type> {
+    pub fn default_interface(&self, reader: &Reader) -> Option<Type> {
         self.def
             .interface_impls()
             .find(|imp| imp.has_attribute("DefaultAttribute"))
@@ -263,7 +263,7 @@ impl Class {
         )
     }
 
-    fn bases(&self, reader: &Reader) -> Vec<Self> {
+    pub fn bases(&self, reader: &Reader) -> Vec<Self> {
         let mut bases = Vec::new();
         let mut def = self.def;
 

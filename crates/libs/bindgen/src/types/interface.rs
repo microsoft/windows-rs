@@ -95,7 +95,20 @@ impl Interface {
         let type_name = self.def.type_name();
         let methods = self.get_methods(config);
 
-        let required_interfaces = self.required_interfaces(config.reader);
+        let mut required_interfaces = self.required_interfaces(config.reader);
+        // For an interface that is the default interface of a class which extends a base class,
+        // surface the base class's default interface(s) so the generated `_Impl` trait requires
+        // their `_Impl` traits. This means implementing the default interface of a derived class
+        // automatically pulls in the obligation to implement the default interfaces of its base
+        // classes, without the caller having to list every base in `#[implement(...)]`.
+        for extra in self.base_class_default_interfaces(config.reader) {
+            if !required_interfaces
+                .iter()
+                .any(|existing| existing.def == extra.def)
+            {
+                required_interfaces.push(extra);
+            }
+        }
         let name = self.write_name(config);
 
         let vtbl_name = self.write_vtbl_name(config);
@@ -584,6 +597,45 @@ impl Interface {
 
     pub fn is_exclusive(&self) -> bool {
         self.def.has_attribute("ExclusiveToAttribute")
+    }
+
+    /// If this interface is exclusive to a class and is that class's default interface, returns
+    /// the default interfaces of every base class up the class hierarchy. Used to extend the
+    /// `_Impl` trait super-trait bounds so that implementing the default interface of a derived
+    /// class transitively requires implementing the default interfaces of its base classes.
+    pub fn base_class_default_interfaces(&self, reader: &Reader) -> Vec<Self> {
+        let Some(attribute) = self.def.find_attribute("ExclusiveToAttribute") else {
+            return vec![];
+        };
+        let value = attribute.value();
+        let Some((_, Value::TypeName(class_tn))) = value.first() else {
+            return vec![];
+        };
+        let Some(Type::Class(class)) = reader
+            .with_full_name(class_tn.namespace.as_str(), class_tn.name.as_str())
+            .next()
+        else {
+            return vec![];
+        };
+
+        // Only walk the class hierarchy if this interface is the class's default interface.
+        // Non-default exclusive interfaces (e.g. factories, statics) don't participate in the
+        // class hierarchy in the same way.
+        let is_default = match class.default_interface(reader) {
+            Some(Type::Interface(default)) => default.def == self.def,
+            _ => false,
+        };
+        if !is_default {
+            return vec![];
+        }
+
+        let mut result = vec![];
+        for base in class.bases(reader) {
+            if let Some(Type::Interface(interface)) = base.default_interface(reader) {
+                result.push(interface);
+            }
+        }
+        result
     }
 
     // An exclusive interface is a "factory" interface when its owning class references it via
