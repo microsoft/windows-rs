@@ -1,5 +1,5 @@
 --out crates/libs/reference/src/bindings.rs
---flat --no-comment --no-allow
+--flat --no-comment --no-allow --minimal
 
 --filter
     Windows.Foundation.DateTime
