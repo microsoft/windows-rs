@@ -1,7 +1,6 @@
 use super::bindings;
+use bindings::E_NOTIMPL;
 use windows_core::*;
-
-const E_NOTIMPL: HRESULT = HRESULT(0x80004001_u32 as _);
 
 /// A boxed reference to a value of type `T`.
 ///

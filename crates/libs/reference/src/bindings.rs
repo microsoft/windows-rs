@@ -10,6 +10,7 @@ impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
 }
+pub const E_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0x80004001_u32 as _);
 windows_core::imp::define_interface!(
     IPropertyValue,
     IPropertyValue_Vtbl,
