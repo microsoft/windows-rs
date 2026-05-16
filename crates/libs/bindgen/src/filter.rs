@@ -34,11 +34,25 @@ impl Filter {
         let mut trait_only: BTreeSet<(String, String)> = BTreeSet::new();
 
         for filter in include {
-            push_filter(reader, &mut rules, &mut methods, &mut trait_only, filter, true);
+            push_filter(
+                reader,
+                &mut rules,
+                &mut methods,
+                &mut trait_only,
+                filter,
+                true,
+            );
         }
 
         for filter in exclude {
-            push_filter(reader, &mut rules, &mut methods, &mut trait_only, filter, false);
+            push_filter(
+                reader,
+                &mut rules,
+                &mut methods,
+                &mut trait_only,
+                filter,
+                false,
+            );
         }
 
         debug_assert!(!rules.is_empty() || !methods.is_empty());
@@ -135,10 +149,8 @@ impl Filter {
     /// stub its methods and the ABI is preserved; only the caller-side
     /// `impl IFace { fn X(&self) -> Result<T> { ... } }` block is skipped.
     pub fn is_trait_only(&self, name: TypeName) -> bool {
-        self.trait_only.contains(&(
-            name.namespace().to_string(),
-            name.name().to_string(),
-        ))
+        self.trait_only
+            .contains(&(name.namespace().to_string(), name.name().to_string()))
     }
 }
 

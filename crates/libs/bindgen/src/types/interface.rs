@@ -288,13 +288,12 @@ impl Interface {
                         let virtual_names = &mut MethodNames::new();
 
                         for method in
-                            interface
-                                .get_methods(config)
-                                .iter()
-                                .filter_map(|method| match &method {
+                            interface.get_methods(config).iter().filter_map(
+                                |method| match &method {
                                     MethodOrName::Method(method) => Some(method),
                                     _ => None,
-                                })
+                                },
+                            )
                         {
                             let cfg = method.write_cfg(config, &class_cfg, false);
 
