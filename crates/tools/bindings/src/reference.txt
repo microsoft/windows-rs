@@ -3,7 +3,7 @@
 
 --filter
     Windows.Foundation.DateTime
-    Windows.Foundation.IPropertyValue
+    ?Windows.Foundation.IPropertyValue
     Windows.Foundation.IReference
     Windows.Foundation.Point
     Windows.Foundation.PropertyType

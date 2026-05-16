@@ -150,10 +150,17 @@ pub fn builder() -> Bindgen {
 /// | Entry                         | Meaning                                                                         |
 /// |-------------------------------|---------------------------------------------------------------------------------|
 /// | `Ns.Type`                     | Keep the type and all its methods (existing behavior; backwards-compatible).    |
+/// | `?Ns.Type`                    | Trait-only emit: vtable + `_Impl` trait + thunks, but no inherent `impl IFace { fn X(&self) … }` caller-side wrapper block. |
 /// | `Ns.Type::Method`             | Allowlist mode: only listed methods are kept; the rest demote to `Slot: usize`. |
 /// | `!Ns.Type::Method`            | Denylist mode: the listed methods demote to `Slot: usize`; the rest are kept.   |
 /// | `Ns.Type::Property`           | Sugar for `Ns.Type::get_Property` + `Ns.Type::put_Property` (whichever exist).  |
 /// | `Ns.Type::Event`              | Sugar for `Ns.Type::add_Event` + `Ns.Type::remove_Event` (whichever exist).     |
+///
+/// The `?Ns.Type` prefix is for required-but-uncalled interfaces (e.g. `IPropertyValue` on
+/// an `IReference<T>` implementation): callers never invoke the methods through this projection,
+/// but implementers must still stub them (typically with `E_NOTIMPL`) to satisfy the WinRT
+/// required-interface contract. Trait-only emission preserves ABI, the `_Impl` super-trait chain,
+/// and `QueryInterface` support; it only drops the caller-side wrappers that nobody calls.
 ///
 /// When `Ns.Type` is a runtime class, the entry resolves against the class's required interfaces
 /// (instance default, static factory, activation/composable factory, base interfaces) and registers

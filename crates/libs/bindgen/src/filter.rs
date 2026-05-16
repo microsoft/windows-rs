@@ -5,6 +5,15 @@ use std::collections::{BTreeSet, HashMap};
 pub struct Filter {
     rules: Vec<(String, bool)>,
     methods: HashMap<(String, String), MethodFilter>,
+    /// Types marked with the `?Ns.Type` prefix in `--filter`. Such types are
+    /// still emitted (struct, vtable, `_Impl` trait, vtable thunks, IID,
+    /// `Interface` impl) so they can be implemented and queried, but the
+    /// inherent `impl IFace { fn Method(&self) -> Result<T> { ... } }`
+    /// call-side wrapper block is suppressed. Useful for required-but-uncalled
+    /// interfaces (e.g. `IPropertyValue` on an `IReference<T>` implementation)
+    /// where implementers stub the methods (typically with `E_NOTIMPL`) but
+    /// no caller invokes them through this projection.
+    trait_only: BTreeSet<(String, String)>,
 }
 
 /// Per-type method filter. Entries are exact method names (after sugar
@@ -22,13 +31,14 @@ impl Filter {
     pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> Self {
         let mut rules = vec![];
         let mut methods: HashMap<(String, String), MethodFilter> = HashMap::new();
+        let mut trait_only: BTreeSet<(String, String)> = BTreeSet::new();
 
         for filter in include {
-            push_filter(reader, &mut rules, &mut methods, filter, true);
+            push_filter(reader, &mut rules, &mut methods, &mut trait_only, filter, true);
         }
 
         for filter in exclude {
-            push_filter(reader, &mut rules, &mut methods, filter, false);
+            push_filter(reader, &mut rules, &mut methods, &mut trait_only, filter, false);
         }
 
         debug_assert!(!rules.is_empty() || !methods.is_empty());
@@ -39,7 +49,11 @@ impl Filter {
             left.cmp(&right).reverse()
         });
 
-        Self { rules, methods }
+        Self {
+            rules,
+            methods,
+            trait_only,
+        }
     }
 
     /// Validate that no method-level filter entry targets a type matched by
@@ -113,6 +127,19 @@ impl Filter {
             Some(MethodFilter::Exclude(set)) => !set.contains(method),
         }
     }
+
+    /// Returns `true` if `name` was marked with the `?Ns.Type` prefix in
+    /// `--filter`, indicating that its inherent method-wrapper block should
+    /// be suppressed. The type is still emitted (struct, vtable, `_Impl`
+    /// trait, vtable thunks, IID, `Interface` impl) so implementers can
+    /// stub its methods and the ABI is preserved; only the caller-side
+    /// `impl IFace { fn X(&self) -> Result<T> { ... } }` block is skipped.
+    pub fn is_trait_only(&self, name: TypeName) -> bool {
+        self.trait_only.contains(&(
+            name.namespace().to_string(),
+            name.name().to_string(),
+        ))
+    }
 }
 
 #[track_caller]
@@ -120,15 +147,43 @@ fn push_filter(
     reader: &Reader,
     rules: &mut Vec<(String, bool)>,
     methods: &mut HashMap<(String, String), MethodFilter>,
+    trait_only: &mut BTreeSet<(String, String)>,
     filter: &str,
     include: bool,
 ) {
+    // `?Ns.Type` marks a type as "trait-only": included in the closure with
+    // its `_Impl` trait and vtable but without the caller-side method wrapper
+    // block. Only valid on include entries — exclusion is orthogonal.
+    let (filter, mark_trait_only) = if let Some(rest) = filter.strip_prefix('?') {
+        if !include {
+            panic!("cannot combine `?` (trait-only) with `!` (exclude) on the same filter entry: `{filter}`");
+        }
+        if rest.contains("::") {
+            panic!("`?` (trait-only) cannot be combined with a method-level filter: `{filter}`");
+        }
+        (rest, true)
+    } else {
+        (filter, false)
+    };
+
     if let Some((type_part, method_part)) = filter.split_once("::") {
         push_method_filter(reader, methods, type_part, method_part, include, filter);
         return;
     }
 
+    let record_trait_only = |trait_only: &mut BTreeSet<(String, String)>, full: &str| {
+        if !mark_trait_only {
+            return;
+        }
+        if let Some((ns, name)) = full.rsplit_once('.') {
+            trait_only.insert((ns.to_string(), name.to_string()));
+        }
+    };
+
     if reader.contains_key(filter) {
+        if mark_trait_only {
+            panic!("`?` (trait-only) requires a fully-qualified `Namespace.Type` entry, not a namespace: `{filter}`");
+        }
         rules.push((filter.to_string(), include));
         return;
     }
@@ -136,10 +191,14 @@ fn push_filter(
     if let Some((namespace, name)) = filter.rsplit_once('.') {
         if reader.with_full_name(namespace, name).next().is_some() {
             rules.push((filter.to_string(), include));
+            record_trait_only(trait_only, filter);
             return;
         }
 
         if let Some(starts_with) = name.strip_suffix('*') {
+            if mark_trait_only {
+                panic!("`?` (trait-only) cannot be combined with a wildcard filter: `{filter}`");
+            }
             if let Some(types) = reader.get(namespace) {
                 let prev_len = rules.len();
 
@@ -161,6 +220,9 @@ fn push_filter(
     for (namespace, types) in reader.iter() {
         if types.get(filter).is_some() {
             rules.push((format!("{namespace}.{filter}"), include));
+            if mark_trait_only {
+                trait_only.insert((namespace.to_string(), filter.to_string()));
+            }
             pushed = true;
         }
     }
@@ -173,6 +235,9 @@ fn push_filter(
         .keys()
         .any(|namespace| namespace_starts_with(namespace, filter))
     {
+        if mark_trait_only {
+            panic!("`?` (trait-only) requires a fully-qualified `Namespace.Type` entry, not a namespace: `?{filter}`");
+        }
         rules.push((filter.to_string(), include));
         return;
     }
