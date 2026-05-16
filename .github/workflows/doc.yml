@@ -99,6 +99,7 @@ jobs:
               windows-threading \
               windows-future \
               windows-collections \
+              windows-reference \
               windows-metadata \
               windows-rdl \
               windows-bindgen \

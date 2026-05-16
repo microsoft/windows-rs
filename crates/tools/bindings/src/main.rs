@@ -10,6 +10,7 @@ fn main() {
     bindgen(["--etc", "crates/tools/bindings/src/future.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/metadata.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/numerics.txt"]).unwrap();
+    bindgen(["--etc", "crates/tools/bindings/src/reference.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/registry.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/result.txt"]).unwrap();
     bindgen(["--etc", "crates/tools/bindings/src/strings.txt"]).unwrap();

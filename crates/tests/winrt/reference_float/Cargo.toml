@@ -16,6 +16,9 @@ windows-rdl = { workspace = true }
 [dependencies.windows-core]
 workspace = true
 
+[dependencies.windows-reference]
+workspace = true
+
 [dependencies.windows]
 workspace = true
 features = [

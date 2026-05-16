@@ -936,6 +936,17 @@ impl Bindgen {
                 );
             }
 
+            if reader.contains_key("Windows.Foundation") {
+                references.insert(
+                    0,
+                    ReferenceStage::new(
+                        "windows_reference",
+                        ReferenceStyle::Flat,
+                        "Windows.Foundation.IReference",
+                    ),
+                );
+            }
+
             if reader.contains_key("Windows.Foundation.Numerics") {
                 references.insert(
                     0,
