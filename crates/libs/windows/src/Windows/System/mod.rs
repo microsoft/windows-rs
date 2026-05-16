@@ -3080,7 +3080,7 @@ unsafe impl Sync for LauncherOptions {}
 pub struct LauncherUIOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LauncherUIOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl LauncherUIOptions {
-    pub fn InvocationPoint(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::Point>> {
+    pub fn InvocationPoint(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::Point>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InvocationPoint)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3088,11 +3088,11 @@ impl LauncherUIOptions {
     }
     pub fn SetInvocationPoint<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::Foundation::IReference<super::Foundation::Point>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Foundation::Point>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInvocationPoint)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn SelectionRect(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::Rect>> {
+    pub fn SelectionRect(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectionRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3100,7 +3100,7 @@ impl LauncherUIOptions {
     }
     pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::Foundation::IReference<super::Foundation::Rect>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Foundation::Rect>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSelectionRect)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

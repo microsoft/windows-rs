@@ -1238,7 +1238,7 @@ impl SmartCardAutomaticResponseApdu {
     {
         unsafe { (windows_core::Interface::vtable(self).SetResponseApdu)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InputState(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn InputState(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1247,12 +1247,12 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetInputState<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInputState)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn OutputState(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn OutputState(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1261,7 +1261,7 @@ impl SmartCardAutomaticResponseApdu {
     }
     pub fn SetOutputState<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOutputState)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -2495,7 +2495,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     pub fn TryRespondWithStateAsync<P0, P1>(&self, responseapdu: P0, nextstate: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
-        P1: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P1: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
         unsafe {
@@ -2520,7 +2520,7 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
-        P2: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P2: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {

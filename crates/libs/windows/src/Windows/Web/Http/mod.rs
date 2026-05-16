@@ -409,7 +409,7 @@ impl HttpCookie {
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Expires(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn Expires(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Expires)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -417,7 +417,7 @@ impl HttpCookie {
     }
     pub fn SetExpires<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetExpires)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1231,9 +1231,9 @@ impl IntoIterator for &HttpMultipartFormDataContent {
 pub struct HttpProgress {
     pub Stage: HttpProgressStage,
     pub BytesSent: u64,
-    pub TotalBytesToSend: Option<super::super::Foundation::IReference<u64>>,
+    pub TotalBytesToSend: Option<windows_reference::IReference<u64>>,
     pub BytesReceived: u64,
-    pub TotalBytesToReceive: Option<super::super::Foundation::IReference<u64>>,
+    pub TotalBytesToReceive: Option<windows_reference::IReference<u64>>,
     pub Retries: u32,
 }
 impl windows_core::TypeKind for HttpProgress {

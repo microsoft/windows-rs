@@ -2565,7 +2565,7 @@ impl InkStroke {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StrokeStartedTime(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn StrokeStartedTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2574,12 +2574,12 @@ impl InkStroke {
     }
     pub fn SetStrokeStartedTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
     {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStrokeStartedTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn StrokeDuration(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn StrokeDuration(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2588,7 +2588,7 @@ impl InkStroke {
     }
     pub fn SetStrokeDuration<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IInkStroke3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStrokeDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -2677,8 +2677,8 @@ impl InkStrokeBuilder {
     pub fn CreateStrokeFromInkPoints2<P0, P2, P3>(&self, inkpoints: P0, transform: windows_numerics::Matrix3x2, strokestartedtime: P2, strokeduration: P3) -> windows_core::Result<InkStroke>
     where
         P0: windows_core::Param<windows_collections::IIterable<InkPoint>>,
-        P2: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
-        P3: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P2: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
+        P3: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IInkStrokeBuilder3>(self)?;
         unsafe {

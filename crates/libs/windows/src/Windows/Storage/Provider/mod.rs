@@ -2602,7 +2602,7 @@ impl StorageProviderQuotaUI {
         unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedLabel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn QuotaUsedColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
+    pub fn QuotaUsedColor(&self) -> windows_core::Result<windows_reference::IReference<super::super::UI::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuotaUsedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2611,7 +2611,7 @@ impl StorageProviderQuotaUI {
     #[cfg(feature = "UI")]
     pub fn SetQuotaUsedColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::UI::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::UI::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

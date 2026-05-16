@@ -930,7 +930,7 @@ impl DisplayPath {
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn SourceResolution(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
+    pub fn SourceResolution(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Graphics::SizeInt32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SourceResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -939,7 +939,7 @@ impl DisplayPath {
     #[cfg(feature = "Graphics")]
     pub fn SetSourceResolution<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Graphics::SizeInt32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSourceResolution)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -964,7 +964,7 @@ impl DisplayPath {
         unsafe { (windows_core::Interface::vtable(self).SetIsStereo)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "Graphics")]
-    pub fn TargetResolution(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
+    pub fn TargetResolution(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Graphics::SizeInt32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TargetResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -973,12 +973,12 @@ impl DisplayPath {
     #[cfg(feature = "Graphics")]
     pub fn SetTargetResolution<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Graphics::SizeInt32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetTargetResolution)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn PresentationRate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
+    pub fn PresentationRate(&self) -> windows_core::Result<windows_reference::IReference<DisplayPresentationRate>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PresentationRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -987,11 +987,11 @@ impl DisplayPath {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPresentationRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<DisplayPresentationRate>>,
+        P0: windows_core::Param<windows_reference::IReference<DisplayPresentationRate>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPresentationRate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn IsInterlaced(&self) -> windows_core::Result<super::super::super::Foundation::IReference<bool>> {
+    pub fn IsInterlaced(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsInterlaced)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -999,7 +999,7 @@ impl DisplayPath {
     }
     pub fn SetIsInterlaced<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<windows_reference::IReference<bool>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIsInterlaced)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1052,7 +1052,7 @@ impl DisplayPath {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn PhysicalPresentationRate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
+    pub fn PhysicalPresentationRate(&self) -> windows_core::Result<windows_reference::IReference<DisplayPresentationRate>> {
         let this = &windows_core::Interface::cast::<IDisplayPath2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1062,7 +1062,7 @@ impl DisplayPath {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPhysicalPresentationRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<DisplayPresentationRate>>,
+        P0: windows_core::Param<windows_reference::IReference<DisplayPresentationRate>>,
     {
         let this = &windows_core::Interface::cast::<IDisplayPath2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -1925,7 +1925,7 @@ impl DisplayView {
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn ContentResolution(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
+    pub fn ContentResolution(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Graphics::SizeInt32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ContentResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1934,7 +1934,7 @@ impl DisplayView {
     #[cfg(feature = "Graphics")]
     pub fn SetContentResolution<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Graphics::SizeInt32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetContentResolution)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

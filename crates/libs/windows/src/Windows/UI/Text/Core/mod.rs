@@ -297,27 +297,27 @@ impl CoreTextFormatUpdatingEventArgs {
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    pub fn TextColor(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
+    pub fn TextColor(&self) -> windows_core::Result<windows_reference::IReference<super::super::ViewManagement::UIElementType>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TextColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
+    pub fn BackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::super::ViewManagement::UIElementType>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI_ViewManagement")]
-    pub fn UnderlineColor(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
+    pub fn UnderlineColor(&self) -> windows_core::Result<windows_reference::IReference<super::super::ViewManagement::UIElementType>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UnderlineColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UnderlineType(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::UnderlineType>> {
+    pub fn UnderlineType(&self) -> windows_core::Result<windows_reference::IReference<super::UnderlineType>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UnderlineType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

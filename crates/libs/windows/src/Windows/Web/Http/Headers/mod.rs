@@ -4,7 +4,7 @@ pub struct HttpCacheDirectiveHeaderValueCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpCacheDirectiveHeaderValueCollection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCacheDirectiveHeaderValueCollection, windows_collections::IIterable<HttpNameValueHeaderValue>, super::super::super::Foundation::IStringable, windows_collections::IVector<HttpNameValueHeaderValue>);
 impl HttpCacheDirectiveHeaderValueCollection {
-    pub fn MaxAge(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn MaxAge(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxAge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12,11 +12,11 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     pub fn SetMaxAge<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxAge)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxStale(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn MaxStale(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxStale)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -24,11 +24,11 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     pub fn SetMaxStale<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxStale)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MinFresh(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn MinFresh(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinFresh)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -36,11 +36,11 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     pub fn SetMinFresh<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMinFresh)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn SharedMaxAge(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn SharedMaxAge(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SharedMaxAge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -48,7 +48,7 @@ impl HttpCacheDirectiveHeaderValueCollection {
     }
     pub fn SetSharedMaxAge<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSharedMaxAge)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -774,7 +774,7 @@ impl HttpContentCodingWithQualityHeaderValue {
             (windows_core::Interface::vtable(self).ContentCoding)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Quality(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f64>> {
+    pub fn Quality(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Quality)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1011,7 +1011,7 @@ impl HttpContentDispositionHeaderValue {
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u64>> {
+    pub fn Size(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1019,7 +1019,7 @@ impl HttpContentDispositionHeaderValue {
     }
     pub fn SetSize<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<u64>>,
+        P0: windows_core::Param<windows_reference::IReference<u64>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1107,7 +1107,7 @@ impl HttpContentHeaderCollection {
             (windows_core::Interface::vtable(self).ContentLanguage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContentLength(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u64>> {
+    pub fn ContentLength(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ContentLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1115,7 +1115,7 @@ impl HttpContentHeaderCollection {
     }
     pub fn SetContentLength<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<u64>>,
+        P0: windows_core::Param<windows_reference::IReference<u64>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetContentLength)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1169,7 +1169,7 @@ impl HttpContentHeaderCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).SetContentType)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Expires(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn Expires(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Expires)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1177,11 +1177,11 @@ impl HttpContentHeaderCollection {
     }
     pub fn SetExpires<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetExpires)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn LastModified(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn LastModified(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModified)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1189,7 +1189,7 @@ impl HttpContentHeaderCollection {
     }
     pub fn SetLastModified<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetLastModified)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1292,19 +1292,19 @@ pub struct HttpContentRangeHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentRangeHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpContentRangeHeaderValue, super::super::super::Foundation::IStringable);
 impl HttpContentRangeHeaderValue {
-    pub fn FirstBytePosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u64>> {
+    pub fn FirstBytePosition(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FirstBytePosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LastBytePosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u64>> {
+    pub fn LastBytePosition(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastBytePosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Length(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u64>> {
+    pub fn Length(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Length)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1663,13 +1663,13 @@ pub struct HttpDateOrDeltaHeaderValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpDateOrDeltaHeaderValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDateOrDeltaHeaderValue, super::super::super::Foundation::IStringable);
 impl HttpDateOrDeltaHeaderValue {
-    pub fn Date(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn Date(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Delta(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn Delta(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Delta)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2075,7 +2075,7 @@ impl HttpLanguageRangeWithQualityHeaderValue {
             (windows_core::Interface::vtable(self).LanguageRange)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Quality(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f64>> {
+    pub fn Quality(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Quality)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2370,7 +2370,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Quality(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f64>> {
+    pub fn Quality(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Quality)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2378,7 +2378,7 @@ impl HttpMediaTypeWithQualityHeaderValue {
     }
     pub fn SetQuality<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<f64>>,
+        P0: windows_core::Param<windows_reference::IReference<f64>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetQuality)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -3094,7 +3094,7 @@ impl HttpRequestHeaderCollection {
             (windows_core::Interface::vtable(self).Cookie)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn Date(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3102,7 +3102,7 @@ impl HttpRequestHeaderCollection {
     }
     pub fn SetDate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -3135,7 +3135,7 @@ impl HttpRequestHeaderCollection {
     {
         unsafe { (windows_core::Interface::vtable(self).SetHost)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn IfModifiedSince(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn IfModifiedSince(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IfModifiedSince)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3143,11 +3143,11 @@ impl HttpRequestHeaderCollection {
     }
     pub fn SetIfModifiedSince<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIfModifiedSince)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn IfUnmodifiedSince(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn IfUnmodifiedSince(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IfUnmodifiedSince)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3155,11 +3155,11 @@ impl HttpRequestHeaderCollection {
     }
     pub fn SetIfUnmodifiedSince<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetIfUnmodifiedSince)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxForwards(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u32>> {
+    pub fn MaxForwards(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxForwards)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3167,7 +3167,7 @@ impl HttpRequestHeaderCollection {
     }
     pub fn SetMaxForwards<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxForwards)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -3306,7 +3306,7 @@ pub struct HttpResponseHeaderCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpResponseHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( HttpResponseHeaderCollection , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
 impl HttpResponseHeaderCollection {
-    pub fn Age(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn Age(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Age)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3314,7 +3314,7 @@ impl HttpResponseHeaderCollection {
     }
     pub fn SetAge<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetAge)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -3336,7 +3336,7 @@ impl HttpResponseHeaderCollection {
             (windows_core::Interface::vtable(self).Connection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn Date(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3344,7 +3344,7 @@ impl HttpResponseHeaderCollection {
     }
     pub fn SetDate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

@@ -17,6 +17,7 @@ windows-collections = { workspace = true }
 windows-core = { workspace = true }
 windows-future = { workspace = true }
 windows-numerics = { workspace = true }
+windows-reference = { workspace = true }
 
 [lib]
 test = false

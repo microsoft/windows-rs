@@ -358,13 +358,13 @@ unsafe impl Sync for LocalLocationHoursOfOperationItem {}
 pub struct LocalLocationRatingInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LocalLocationRatingInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl LocalLocationRatingInfo {
-    pub fn AggregateRating(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f64>> {
+    pub fn AggregateRating(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AggregateRating)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RatingCount(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
+    pub fn RatingCount(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RatingCount)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

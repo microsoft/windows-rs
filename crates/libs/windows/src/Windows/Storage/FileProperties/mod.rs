@@ -490,13 +490,13 @@ impl ImageProperties {
     pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Latitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn Latitude(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Latitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Longitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn Longitude(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Longitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1181,13 +1181,13 @@ impl VideoProperties {
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Latitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn Latitude(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Latitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Longitude(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn Longitude(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Longitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

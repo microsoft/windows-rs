@@ -499,13 +499,13 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn SelectionBounds(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1266,13 +1266,13 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(self).FocusedTextBoxInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FocusedTextBoxBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn SelectionBounds(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectionBounds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

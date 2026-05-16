@@ -1091,7 +1091,7 @@ impl MapRouteDrivingOptions {
     pub fn SetMaxAlternateRouteCount(&self, value: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxAlternateRouteCount)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn InitialHeading(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn InitialHeading(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InitialHeading)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1099,7 +1099,7 @@ impl MapRouteDrivingOptions {
     }
     pub fn SetInitialHeading<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f64>>,
+        P0: windows_core::Param<windows_reference::IReference<f64>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInitialHeading)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1121,7 +1121,7 @@ impl MapRouteDrivingOptions {
     pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRouteRestrictions)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DepartureTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn DepartureTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1130,7 +1130,7 @@ impl MapRouteDrivingOptions {
     }
     pub fn SetDepartureTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
     {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDepartureTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }

@@ -706,7 +706,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
     pub fn SetAvailability(&self, value: WiFiOnDemandHotspotAvailability) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAvailability)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn RemainingBatteryPercent(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn RemainingBatteryPercent(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemainingBatteryPercent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -714,11 +714,11 @@ impl WiFiOnDemandHotspotNetworkProperties {
     }
     pub fn SetRemainingBatteryPercent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CellularBars(&self) -> windows_core::Result<super::super::Foundation::IReference<WiFiOnDemandHotspotCellularBars>> {
+    pub fn CellularBars(&self) -> windows_core::Result<windows_reference::IReference<WiFiOnDemandHotspotCellularBars>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CellularBars)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -726,7 +726,7 @@ impl WiFiOnDemandHotspotNetworkProperties {
     }
     pub fn SetCellularBars<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<WiFiOnDemandHotspotCellularBars>>,
+        P0: windows_core::Param<windows_reference::IReference<WiFiOnDemandHotspotCellularBars>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCellularBars)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

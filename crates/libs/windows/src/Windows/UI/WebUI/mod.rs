@@ -1495,7 +1495,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn InstanceStartDate(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

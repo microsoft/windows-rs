@@ -30,7 +30,7 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
             (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedTransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn SelectedTransmitPowerLevelInDBm(&self) -> windows_core::Result<windows_reference::IReference<i16>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

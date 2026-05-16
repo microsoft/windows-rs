@@ -1612,7 +1612,7 @@ impl BluetoothSignalStrengthFilter {
         static SHARED: windows_core::imp::FactoryCache<BluetoothSignalStrengthFilter, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn InRangeThresholdInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<i16>> {
+    pub fn InRangeThresholdInDBm(&self) -> windows_core::Result<windows_reference::IReference<i16>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InRangeThresholdInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1620,11 +1620,11 @@ impl BluetoothSignalStrengthFilter {
     }
     pub fn SetInRangeThresholdInDBm<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i16>>,
+        P0: windows_core::Param<windows_reference::IReference<i16>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInRangeThresholdInDBm)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn OutOfRangeThresholdInDBm(&self) -> windows_core::Result<super::super::Foundation::IReference<i16>> {
+    pub fn OutOfRangeThresholdInDBm(&self) -> windows_core::Result<windows_reference::IReference<i16>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OutOfRangeThresholdInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1632,11 +1632,11 @@ impl BluetoothSignalStrengthFilter {
     }
     pub fn SetOutOfRangeThresholdInDBm<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i16>>,
+        P0: windows_core::Param<windows_reference::IReference<i16>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetOutOfRangeThresholdInDBm)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn OutOfRangeTimeout(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn OutOfRangeTimeout(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OutOfRangeTimeout)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1644,11 +1644,11 @@ impl BluetoothSignalStrengthFilter {
     }
     pub fn SetOutOfRangeTimeout<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetOutOfRangeTimeout)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn SamplingInterval(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn SamplingInterval(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SamplingInterval)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1656,7 +1656,7 @@ impl BluetoothSignalStrengthFilter {
     }
     pub fn SetSamplingInterval<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSamplingInterval)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1681,7 +1681,7 @@ impl BluetoothUuidHelper {
             (windows_core::Interface::vtable(this).FromShortId)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    pub fn TryGetShortId(uuid: windows_core::GUID) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn TryGetShortId(uuid: windows_core::GUID) -> windows_core::Result<windows_reference::IReference<u32>> {
         Self::IBluetoothUuidHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetShortId)(windows_core::Interface::as_raw(this), uuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

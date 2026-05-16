@@ -311,7 +311,7 @@ impl AppInstallerInfo {
             (windows_core::Interface::vtable(this).LastChecked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PausedUntil(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::DateTime>> {
+    pub fn PausedUntil(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IAppInstallerInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1722,7 +1722,7 @@ impl LimitedAccessFeatureRequestResult {
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn EstimatedRemovalDate(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::DateTime>> {
+    pub fn EstimatedRemovalDate(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EstimatedRemovalDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

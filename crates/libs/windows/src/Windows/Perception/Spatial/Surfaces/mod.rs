@@ -157,7 +157,7 @@ impl SpatialSurfaceInfo {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>
+    pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::SpatialBoundingOrientedBox>>
     where
         P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {

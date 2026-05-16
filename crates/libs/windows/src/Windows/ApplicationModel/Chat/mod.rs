@@ -1525,19 +1525,19 @@ impl windows_core::RuntimeType for ChatMessageTransportKind {
 pub struct ChatMessageValidationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChatMessageValidationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ChatMessageValidationResult {
-    pub fn MaxPartCount(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn MaxPartCount(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxPartCount)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PartCount(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn PartCount(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PartCount)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemainingCharacterCountInPart(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn RemainingCharacterCountInPart(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemainingCharacterCountInPart)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1642,7 +1642,7 @@ impl ChatRecipientDeliveryInfo {
     pub fn SetTransportAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransportAddress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DeliveryTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn DeliveryTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeliveryTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1650,11 +1650,11 @@ impl ChatRecipientDeliveryInfo {
     }
     pub fn SetDeliveryTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDeliveryTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ReadTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ReadTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1662,7 +1662,7 @@ impl ChatRecipientDeliveryInfo {
     }
     pub fn SetReadTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetReadTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

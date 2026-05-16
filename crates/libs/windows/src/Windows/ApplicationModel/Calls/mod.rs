@@ -1880,7 +1880,7 @@ impl PhoneCallHistoryEntry {
     {
         unsafe { (windows_core::Interface::vtable(self).SetAddress)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1888,7 +1888,7 @@ impl PhoneCallHistoryEntry {
     }
     pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

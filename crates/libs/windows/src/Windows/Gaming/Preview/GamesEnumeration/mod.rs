@@ -317,7 +317,7 @@ impl GameModeConfiguration {
             (windows_core::Interface::vtable(self).RelatedProcessNames)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PercentGpuTimeAllocatedToGame(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
+    pub fn PercentGpuTimeAllocatedToGame(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PercentGpuTimeAllocatedToGame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -325,11 +325,11 @@ impl GameModeConfiguration {
     }
     pub fn SetPercentGpuTimeAllocatedToGame<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPercentGpuTimeAllocatedToGame)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn PercentGpuMemoryAllocatedToGame(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
+    pub fn PercentGpuMemoryAllocatedToGame(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PercentGpuMemoryAllocatedToGame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -337,11 +337,11 @@ impl GameModeConfiguration {
     }
     pub fn SetPercentGpuMemoryAllocatedToGame<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPercentGpuMemoryAllocatedToGame)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn PercentGpuMemoryAllocatedToSystemCompositor(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
+    pub fn PercentGpuMemoryAllocatedToSystemCompositor(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PercentGpuMemoryAllocatedToSystemCompositor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -349,11 +349,11 @@ impl GameModeConfiguration {
     }
     pub fn SetPercentGpuMemoryAllocatedToSystemCompositor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPercentGpuMemoryAllocatedToSystemCompositor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxCpuCount(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
+    pub fn MaxCpuCount(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxCpuCount)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -361,11 +361,11 @@ impl GameModeConfiguration {
     }
     pub fn SetMaxCpuCount<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxCpuCount)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CpuExclusivityMaskLow(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
+    pub fn CpuExclusivityMaskLow(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CpuExclusivityMaskLow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -373,11 +373,11 @@ impl GameModeConfiguration {
     }
     pub fn SetCpuExclusivityMaskLow<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCpuExclusivityMaskLow)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CpuExclusivityMaskHigh(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i32>> {
+    pub fn CpuExclusivityMaskHigh(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CpuExclusivityMaskHigh)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -385,7 +385,7 @@ impl GameModeConfiguration {
     }
     pub fn SetCpuExclusivityMaskHigh<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCpuExclusivityMaskHigh)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

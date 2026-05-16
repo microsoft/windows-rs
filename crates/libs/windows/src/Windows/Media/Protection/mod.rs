@@ -143,7 +143,7 @@ impl HdcpSession {
             (windows_core::Interface::vtable(self).IsEffectiveProtectionAtLeast)(windows_core::Interface::as_raw(self), protection, &mut result__).map(|| result__)
         }
     }
-    pub fn GetEffectiveProtection(&self) -> windows_core::Result<super::super::Foundation::IReference<HdcpProtection>> {
+    pub fn GetEffectiveProtection(&self) -> windows_core::Result<windows_reference::IReference<HdcpProtection>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEffectiveProtection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

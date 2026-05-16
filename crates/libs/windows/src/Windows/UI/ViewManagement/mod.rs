@@ -681,11 +681,11 @@ windows_core::imp::interface_hierarchy!(ApplicationViewTitleBar, windows_core::I
 impl ApplicationViewTitleBar {
     pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -693,11 +693,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn BackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -705,11 +705,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -717,11 +717,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -729,11 +729,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonHoverForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -741,11 +741,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonHoverBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -753,11 +753,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonPressedForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -765,11 +765,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonPressedBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -777,11 +777,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInactiveForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn InactiveForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InactiveForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -789,11 +789,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn InactiveBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InactiveBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -801,11 +801,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonInactiveForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -813,11 +813,11 @@ impl ApplicationViewTitleBar {
     }
     pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

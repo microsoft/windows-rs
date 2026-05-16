@@ -667,7 +667,7 @@ impl DisplayInformation {
             (windows_core::Interface::vtable(this).RawPixelsPerViewPixel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DiagonalSizeInInches(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn DiagonalSizeInInches(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<IDisplayInformation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

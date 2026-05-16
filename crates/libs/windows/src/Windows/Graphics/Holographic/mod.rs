@@ -157,7 +157,7 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Foundation::IReference<HolographicStereoTransform>>
+    pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<HolographicStereoTransform>>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -173,7 +173,7 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetCullingFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
+    pub fn TryGetCullingFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -183,7 +183,7 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetVisibleFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
+    pub fn TryGetVisibleFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {

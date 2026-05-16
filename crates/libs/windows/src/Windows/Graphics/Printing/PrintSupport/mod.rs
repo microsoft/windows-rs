@@ -460,7 +460,7 @@ impl PrintSupportAppInfo {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetPrintJobShowsUI<P1>(printername: &windows_core::HSTRING, printticket: P1) -> windows_core::Result<super::super::super::Foundation::IReference<bool>>
+    pub fn GetPrintJobShowsUI<P1>(printername: &windows_core::HSTRING, printticket: P1) -> windows_core::Result<windows_reference::IReference<bool>>
     where
         P1: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {

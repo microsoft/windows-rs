@@ -10,7 +10,7 @@ impl BluetoothLEAdvertisement {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisement, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Flags(&self) -> windows_core::Result<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>> {
+    pub fn Flags(&self) -> windows_core::Result<windows_reference::IReference<BluetoothLEAdvertisementFlags>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -18,7 +18,7 @@ impl BluetoothLEAdvertisement {
     }
     pub fn SetFlags<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>,
+        P0: windows_core::Param<windows_reference::IReference<BluetoothLEAdvertisementFlags>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -499,7 +499,7 @@ impl BluetoothLEAdvertisementPublisher {
     pub fn RemoveStatusChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn PreferredTransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn PreferredTransmitPowerLevelInDBm(&self) -> windows_core::Result<windows_reference::IReference<i16>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -508,7 +508,7 @@ impl BluetoothLEAdvertisementPublisher {
     }
     pub fn SetPreferredTransmitPowerLevelInDBm<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<i16>>,
+        P0: windows_core::Param<windows_reference::IReference<i16>>,
     {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPreferredTransmitPowerLevelInDBm)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -628,7 +628,7 @@ impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
             (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedTransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn SelectedTransmitPowerLevelInDBm(&self) -> windows_core::Result<windows_reference::IReference<i16>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -690,7 +690,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (windows_core::Interface::vtable(this).BluetoothAddressType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TransmitPowerLevelInDBm(&self) -> windows_core::Result<super::super::super::Foundation::IReference<i16>> {
+    pub fn TransmitPowerLevelInDBm(&self) -> windows_core::Result<windows_reference::IReference<i16>> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

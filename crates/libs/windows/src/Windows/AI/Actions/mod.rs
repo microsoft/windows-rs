@@ -1792,7 +1792,7 @@ impl RemoteFileActionEntity {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCreator)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn LastUpdatedTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn LastUpdatedTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1801,7 +1801,7 @@ impl RemoteFileActionEntity {
     }
     pub fn SetLastUpdatedTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
     {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLastUpdatedTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }

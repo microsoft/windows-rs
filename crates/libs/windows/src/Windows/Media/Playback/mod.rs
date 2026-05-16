@@ -1288,7 +1288,7 @@ impl MediaBreak {
             (windows_core::Interface::vtable(self).PlaybackList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PresentationPosition(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn PresentationPosition(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PresentationPosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2506,7 +2506,7 @@ impl MediaPlaybackItem {
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DurationLimit(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn DurationLimit(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackItem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2851,7 +2851,7 @@ impl MediaPlaybackList {
             (windows_core::Interface::vtable(self).MoveTo)(windows_core::Interface::as_raw(self), itemindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MaxPrefetchTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn MaxPrefetchTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2860,7 +2860,7 @@ impl MediaPlaybackList {
     }
     pub fn SetMaxPrefetchTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMaxPrefetchTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -2893,7 +2893,7 @@ impl MediaPlaybackList {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetShuffledItems)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn MaxPlayedItemsToKeepOpen(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn MaxPlayedItemsToKeepOpen(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2902,7 +2902,7 @@ impl MediaPlaybackList {
     }
     pub fn SetMaxPlayedItemsToKeepOpen<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMaxPlayedItemsToKeepOpen)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }

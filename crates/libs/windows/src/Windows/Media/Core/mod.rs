@@ -44,12 +44,12 @@ impl AudioStreamDescriptor {
     }
     pub fn SetLeadingEncoderPadding<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLeadingEncoderPadding)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn LeadingEncoderPadding(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn LeadingEncoderPadding(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -58,12 +58,12 @@ impl AudioStreamDescriptor {
     }
     pub fn SetTrailingEncoderPadding<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTrailingEncoderPadding)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn TrailingEncoderPadding(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn TrailingEncoderPadding(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<IAudioStreamDescriptor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1061,12 +1061,12 @@ impl FaceDetectionEffectFrame {
     }
     pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RelativeTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1075,12 +1075,12 @@ impl FaceDetectionEffectFrame {
     }
     pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SystemRelativeTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1089,12 +1089,12 @@ impl FaceDetectionEffectFrame {
     }
     pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3826,7 +3826,7 @@ impl MediaSource {
             (windows_core::Interface::vtable(self).CustomProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4631,12 +4631,12 @@ impl MediaStreamSource {
     }
     pub fn SetMaxSupportedPlaybackRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f64>>,
+        P0: windows_core::Param<windows_reference::IReference<f64>>,
     {
         let this = &windows_core::Interface::cast::<IMediaStreamSource3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMaxSupportedPlaybackRate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn MaxSupportedPlaybackRate(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn MaxSupportedPlaybackRate(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<IMediaStreamSource3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4918,7 +4918,7 @@ unsafe impl Sync for MediaStreamSourceStartingEventArgs {}
 pub struct MediaStreamSourceStartingRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaStreamSourceStartingRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaStreamSourceStartingRequest {
-    pub fn StartPosition(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn StartPosition(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartPosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5208,7 +5208,7 @@ impl MseSourceBuffer {
     pub fn SetAppendWindowStart(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAppendWindowStart)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn AppendWindowEnd(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn AppendWindowEnd(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppendWindowEnd)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5216,7 +5216,7 @@ impl MseSourceBuffer {
     }
     pub fn SetAppendWindowEnd<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetAppendWindowEnd)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -5246,7 +5246,7 @@ impl MseSourceBuffer {
     }
     pub fn Remove<P1>(&self, start: super::super::Foundation::TimeSpan, end: P1) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P1: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), start, end.param().abi()).ok() }
     }
@@ -5378,7 +5378,7 @@ impl MseStreamSource {
             (windows_core::Interface::vtable(self).ReadyState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5386,7 +5386,7 @@ impl MseStreamSource {
     }
     pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -5405,7 +5405,7 @@ impl MseStreamSource {
     pub fn EndOfStream(&self, status: MseEndOfStreamStatus) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndOfStream)(windows_core::Interface::as_raw(self), status).ok() }
     }
-    pub fn LiveSeekableRange(&self) -> windows_core::Result<super::super::Foundation::IReference<MseTimeRange>> {
+    pub fn LiveSeekableRange(&self) -> windows_core::Result<windows_reference::IReference<MseTimeRange>> {
         let this = &windows_core::Interface::cast::<IMseStreamSource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5414,7 +5414,7 @@ impl MseStreamSource {
     }
     pub fn SetLiveSeekableRange<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<MseTimeRange>>,
+        P0: windows_core::Param<windows_reference::IReference<MseTimeRange>>,
     {
         let this = &windows_core::Interface::cast::<IMseStreamSource2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLiveSeekableRange)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -5580,12 +5580,12 @@ impl SceneAnalysisEffectFrame {
     }
     pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RelativeTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5594,12 +5594,12 @@ impl SceneAnalysisEffectFrame {
     }
     pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SystemRelativeTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5608,12 +5608,12 @@ impl SceneAnalysisEffectFrame {
     }
     pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<super::IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5765,7 +5765,7 @@ impl SpeechCue {
     pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn StartPositionInInput(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn StartPositionInInput(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartPositionInInput)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5773,11 +5773,11 @@ impl SpeechCue {
     }
     pub fn SetStartPositionInInput<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetStartPositionInInput)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn EndPositionInInput(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn EndPositionInInput(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EndPositionInInput)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5785,7 +5785,7 @@ impl SpeechCue {
     }
     pub fn SetEndPositionInInput<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetEndPositionInInput)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
