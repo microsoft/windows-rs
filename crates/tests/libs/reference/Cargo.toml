@@ -8,6 +8,9 @@ publish = false
 doc = false
 doctest = false
 
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
 [dependencies.windows-core]
 workspace = true
 features = ["proc-macros"]
