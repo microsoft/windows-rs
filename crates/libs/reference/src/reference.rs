@@ -64,6 +64,20 @@ where
     }
 }
 
+/// Box a string slice into an `IReference<HSTRING>`.
+impl From<&str> for IReference<HSTRING> {
+    fn from(value: &str) -> Self {
+        HSTRING::from(value).into()
+    }
+}
+
+/// Box a `String` into an `IReference<HSTRING>`.
+impl From<String> for IReference<HSTRING> {
+    fn from(value: String) -> Self {
+        HSTRING::from(value).into()
+    }
+}
+
 // Internal stock implementation used to back `IReference::from`.
 struct StockReference<T>
 where
