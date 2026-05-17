@@ -19,6 +19,33 @@ impl Param {
         self.is_input() && self.ty.is_convertible()
     }
 
+    /// If this parameter is an input `Windows.Foundation.IReference<T>` whose inner
+    /// type `T` is `Copy`-like (primitives, enums, copyable structs, GUID), returns
+    /// `Some(&T)`. Such parameters are projected as `Option<T>` in the rust signature
+    /// rather than as a generic `Param<IReference<T>>`.
+    pub fn ireference_inner(&self, reader: &Reader) -> Option<&Type> {
+        if !self.is_input() {
+            return None;
+        }
+        let inner = self.ty.as_ireference_inner()?;
+        // Restrict to value-like inner types so the projection stays unambiguous.
+        // Interfaces / classes / generics / strings are deliberately excluded.
+        match inner {
+            Type::Generic(_)
+            | Type::String
+            | Type::BSTR
+            | Type::Object
+            | Type::IUnknown
+            | Type::Interface(_)
+            | Type::CppInterface(_)
+            | Type::Class(_)
+            | Type::Delegate(_)
+            | Type::CppDelegate(_) => None,
+            _ if inner.is_copyable(reader) => Some(inner),
+            _ => None,
+        }
+    }
+
     pub fn is_input(&self) -> bool {
         !self.def.flags().contains(ParamAttributes::Out)
     }

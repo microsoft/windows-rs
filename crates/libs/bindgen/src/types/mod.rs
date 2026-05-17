@@ -689,6 +689,18 @@ impl Type {
         matches!(self, Self::ConstRef(_))
     }
 
+    /// If this is `Windows.Foundation.IReference<T>` returns `Some(&T)`.
+    pub fn as_ireference_inner(&self) -> Option<&Type> {
+        if let Self::Interface(iface) = self {
+            if iface.generics.len() == 1
+                && iface.type_name() == TypeName("Windows.Foundation", "IReference")
+            {
+                return Some(&iface.generics[0]);
+            }
+        }
+        None
+    }
+
     pub fn is_primitive(&self, reader: &Reader) -> bool {
         match self {
             Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,

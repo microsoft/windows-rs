@@ -945,14 +945,12 @@ impl MediaFrameSourceController {
             (windows_core::Interface::vtable(self).VideoDeviceController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPropertyByExtendedIdAsync<P1>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P1) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceGetPropertyResult>>
-    where
-        P1: windows_core::Param<windows_reference::IReference<u32>>,
-    {
+    pub fn GetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Option<u32>) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceGetPropertyResult>> {
         let this = &windows_core::Interface::cast::<IMediaFrameSourceController2>(self)?;
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPropertyByExtendedIdAsync)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetPropertyByExtendedIdAsync(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<MediaFrameSourceSetPropertyStatus>> {

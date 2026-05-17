@@ -1398,11 +1398,9 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(self).PositionInertiaDecayRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPositionInertiaDecayRate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetPositionInertiaDecayRate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetPositionInertiaDecayRate(&self, value: Option<windows_numerics::Vector3>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_numerics::Vector3> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetPositionInertiaDecayRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn PositionVelocityInPixelsPerSecond(&self) -> windows_core::Result<windows_numerics::Vector3> {
         unsafe {
@@ -1422,11 +1420,9 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(self).ScaleInertiaDecayRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetScaleInertiaDecayRate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<f32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetScaleInertiaDecayRate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetScaleInertiaDecayRate(&self, value: Option<f32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<f32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetScaleInertiaDecayRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ScaleVelocityInPercentPerSecond(&self) -> windows_core::Result<f32> {
         unsafe {

@@ -2858,12 +2858,10 @@ impl MediaPlaybackList {
             (windows_core::Interface::vtable(this).MaxPrefetchTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetMaxPrefetchTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
-    {
+    pub fn SetMaxPrefetchTime(&self, value: Option<super::super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxPrefetchTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetMaxPrefetchTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn StartingItem(&self) -> windows_core::Result<MediaPlaybackItem> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList2>(self)?;
@@ -2900,12 +2898,10 @@ impl MediaPlaybackList {
             (windows_core::Interface::vtable(this).MaxPlayedItemsToKeepOpen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetMaxPlayedItemsToKeepOpen<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
+    pub fn SetMaxPlayedItemsToKeepOpen(&self, value: Option<u32>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaPlaybackList3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetMaxPlayedItemsToKeepOpen)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetMaxPlayedItemsToKeepOpen)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for MediaPlaybackList {

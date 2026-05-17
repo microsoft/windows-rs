@@ -1097,11 +1097,9 @@ impl MapRouteDrivingOptions {
             (windows_core::Interface::vtable(self).InitialHeading)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInitialHeading<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<f64>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetInitialHeading)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetInitialHeading(&self, value: Option<f64>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<f64> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetInitialHeading)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RouteOptimization(&self) -> windows_core::Result<MapRouteOptimization> {
         unsafe {
@@ -1128,12 +1126,10 @@ impl MapRouteDrivingOptions {
             (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDepartureTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
-    {
+    pub fn SetDepartureTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDepartureTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetDepartureTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for MapRouteDrivingOptions {

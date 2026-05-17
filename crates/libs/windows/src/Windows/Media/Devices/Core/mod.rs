@@ -263,11 +263,9 @@ impl FrameController {
             (windows_core::Interface::vtable(self).PhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPhotoConfirmationEnabled<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<bool>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetPhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetPhotoConfirmationEnabled(&self, value: Option<bool>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetPhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn FlashControl(&self) -> windows_core::Result<FrameFlashControl> {
         let this = &windows_core::Interface::cast::<IFrameController2>(self)?;
@@ -380,11 +378,9 @@ impl FrameExposureCompensationControl {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<f32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetValue(&self, value: Option<f32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<f32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameExposureCompensationControl {
@@ -417,11 +413,9 @@ impl FrameExposureControl {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetValue(&self, value: Option<super::super::super::Foundation::TimeSpan>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameExposureControl {
@@ -585,11 +579,9 @@ impl FrameFocusControl {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameFocusControl {
@@ -662,11 +654,9 @@ impl FrameIsoSpeedControl {
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for FrameIsoSpeedControl {

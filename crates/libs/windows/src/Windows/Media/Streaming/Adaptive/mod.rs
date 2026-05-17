@@ -56,11 +56,9 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(self).DesiredMinBitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDesiredMinBitrate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredMinBitrate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetDesiredMinBitrate(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredMinBitrate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn DesiredMaxBitrate(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
@@ -68,11 +66,9 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(self).DesiredMaxBitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDesiredMaxBitrate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredMaxBitrate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetDesiredMaxBitrate(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredMaxBitrate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn AudioOnlyPlayback(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -183,12 +179,10 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(this).DesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDesiredSeekableWindowSize<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
-    {
+    pub fn SetDesiredSeekableWindowSize(&self, value: Option<super::super::super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetDesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Diagnostics(&self) -> windows_core::Result<AdaptiveMediaSourceDiagnostics> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
@@ -299,11 +293,9 @@ impl AdaptiveMediaSourceAdvancedSettings {
             (windows_core::Interface::vtable(self).DesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDesiredBitrateHeadroomRatio<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<f64>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetDesiredBitrateHeadroomRatio(&self, value: Option<f64>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<f64> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn BitrateDowngradeTriggerRatio(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
@@ -311,11 +303,9 @@ impl AdaptiveMediaSourceAdvancedSettings {
             (windows_core::Interface::vtable(self).BitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetBitrateDowngradeTriggerRatio<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<f64>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetBitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetBitrateDowngradeTriggerRatio(&self, value: Option<f64>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<f64> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetBitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceAdvancedSettings {
@@ -975,12 +965,10 @@ impl AdaptiveMediaSourceDownloadResult {
             (windows_core::Interface::vtable(this).ResourceByteRangeOffset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetResourceByteRangeOffset<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u64>>,
-    {
+    pub fn SetResourceByteRangeOffset(&self, value: Option<u64>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeOffset)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<u64> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeOffset)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ResourceByteRangeLength(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
@@ -989,12 +977,10 @@ impl AdaptiveMediaSourceDownloadResult {
             (windows_core::Interface::vtable(this).ResourceByteRangeLength)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetResourceByteRangeLength<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u64>>,
-    {
+    pub fn SetResourceByteRangeLength(&self, value: Option<u64>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeLength)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<u64> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeLength)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceDownloadResult {

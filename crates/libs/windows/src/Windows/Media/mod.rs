@@ -147,12 +147,10 @@ impl AudioFrame {
             (windows_core::Interface::vtable(this).IsReadOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
+    pub fn SetRelativeTime(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -161,12 +159,10 @@ impl AudioFrame {
             (windows_core::Interface::vtable(this).RelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
+    pub fn SetSystemRelativeTime(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -175,12 +171,10 @@ impl AudioFrame {
             (windows_core::Interface::vtable(this).SystemRelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
+    pub fn SetDuration(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -476,11 +470,9 @@ impl IMediaFrame {
             (windows_core::Interface::vtable(self).IsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetRelativeTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetRelativeTime(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetRelativeTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         unsafe {
@@ -488,11 +480,9 @@ impl IMediaFrame {
             (windows_core::Interface::vtable(self).RelativeTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSystemRelativeTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetSystemRelativeTime(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetSystemRelativeTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         unsafe {
@@ -500,11 +490,9 @@ impl IMediaFrame {
             (windows_core::Interface::vtable(self).SystemRelativeTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetDuration(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         unsafe {
@@ -1735,12 +1723,10 @@ impl MediaTimelineController {
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
+    pub fn SetDuration(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsLoopingEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -2590,12 +2576,10 @@ impl VideoFrame {
             (windows_core::Interface::vtable(this).IsReadOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
+    pub fn SetRelativeTime(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -2604,12 +2588,10 @@ impl VideoFrame {
             (windows_core::Interface::vtable(this).RelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
+    pub fn SetSystemRelativeTime(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -2618,12 +2600,10 @@ impl VideoFrame {
             (windows_core::Interface::vtable(this).SystemRelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::TimeSpan>>,
-    {
+    pub fn SetDuration(&self, value: Option<super::Foundation::TimeSpan>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::TimeSpan> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
@@ -2675,16 +2655,16 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CopyToWithBoundsAsync<P0, P1, P2>(&self, frame: P0, sourcebounds: P1, destinationbounds: P2) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn CopyToWithBoundsAsync<P0>(&self, frame: P0, sourcebounds: Option<super::Graphics::Imaging::BitmapBounds>, destinationbounds: Option<super::Graphics::Imaging::BitmapBounds>) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<VideoFrame>,
-        P1: windows_core::Param<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds>>,
-        P2: windows_core::Param<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds>>,
     {
         let this = &windows_core::Interface::cast::<IVideoFrame2>(self)?;
+        let sourcebounds__ = sourcebounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as core::convert::From<_>>::from);
+        let destinationbounds__ = destinationbounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as core::convert::From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(windows_core::Interface::as_raw(this), frame.param().abi(), sourcebounds.param().abi(), destinationbounds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(windows_core::Interface::as_raw(this), frame.param().abi(), windows_core::Param::param(sourcebounds__.as_ref()).abi(), windows_core::Param::param(destinationbounds__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_Imaging")]

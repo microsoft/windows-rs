@@ -3086,11 +3086,9 @@ impl LauncherUIOptions {
             (windows_core::Interface::vtable(self).InvocationPoint)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInvocationPoint<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::Point>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetInvocationPoint)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetInvocationPoint(&self, value: Option<super::Foundation::Point>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::Point> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetInvocationPoint)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SelectionRect(&self) -> windows_core::Result<windows_reference::IReference<super::Foundation::Rect>> {
         unsafe {
@@ -3098,11 +3096,9 @@ impl LauncherUIOptions {
             (windows_core::Interface::vtable(self).SelectionRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::Foundation::Rect>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSelectionRect)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetSelectionRect(&self, value: Option<super::Foundation::Rect>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::Foundation::Rect> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetSelectionRect)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "UI_Popups")]
     pub fn PreferredPlacement(&self) -> windows_core::Result<super::UI::Popups::Placement> {

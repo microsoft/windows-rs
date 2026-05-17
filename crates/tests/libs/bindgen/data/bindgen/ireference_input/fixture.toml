@@ -1,0 +1,1 @@
+args = "--no-comment --in default --flat --filter Windows.Services.Maps.MapRouteDrivingOptions --reference windows_reference,flat,Windows.Foundation.IReference --reference windows,skip-root,Windows"

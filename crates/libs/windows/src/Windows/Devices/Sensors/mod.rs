@@ -2009,11 +2009,9 @@ impl HumanPresenceSensorReadingUpdate {
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTimestamp<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetTimestamp)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetTimestamp(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetTimestamp)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Presence(&self) -> windows_core::Result<windows_reference::IReference<HumanPresence>> {
         unsafe {
@@ -2021,11 +2019,9 @@ impl HumanPresenceSensorReadingUpdate {
             (windows_core::Interface::vtable(self).Presence)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPresence<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<HumanPresence>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetPresence)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetPresence(&self, value: Option<HumanPresence>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<HumanPresence> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetPresence)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Engagement(&self) -> windows_core::Result<windows_reference::IReference<HumanEngagement>> {
         unsafe {
@@ -2033,11 +2029,9 @@ impl HumanPresenceSensorReadingUpdate {
             (windows_core::Interface::vtable(self).Engagement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetEngagement<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<HumanEngagement>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetEngagement)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetEngagement(&self, value: Option<HumanEngagement>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<HumanEngagement> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetEngagement)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn DistanceInMillimeters(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
@@ -2045,11 +2039,9 @@ impl HumanPresenceSensorReadingUpdate {
             (windows_core::Interface::vtable(self).DistanceInMillimeters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDistanceInMillimeters<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDistanceInMillimeters)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetDistanceInMillimeters(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetDistanceInMillimeters)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn OnlookerPresence(&self) -> windows_core::Result<windows_reference::IReference<HumanPresence>> {
         let this = &windows_core::Interface::cast::<IHumanPresenceSensorReadingUpdate2>(self)?;
@@ -2058,12 +2050,10 @@ impl HumanPresenceSensorReadingUpdate {
             (windows_core::Interface::vtable(this).OnlookerPresence)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetOnlookerPresence<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<HumanPresence>>,
-    {
+    pub fn SetOnlookerPresence(&self, value: Option<HumanPresence>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IHumanPresenceSensorReadingUpdate2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetOnlookerPresence)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<HumanPresence> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetOnlookerPresence)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for HumanPresenceSensorReadingUpdate {
@@ -2107,11 +2097,9 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(self).WakeOnApproachDistanceInMillimeters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetWakeOnApproachDistanceInMillimeters<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetWakeOnApproachDistanceInMillimeters)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetWakeOnApproachDistanceInMillimeters(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetWakeOnApproachDistanceInMillimeters)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsLockOnLeaveEnabled(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -2128,11 +2116,9 @@ impl HumanPresenceSettings {
             (windows_core::Interface::vtable(self).LockOnLeaveDistanceInMillimeters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetLockOnLeaveDistanceInMillimeters<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetLockOnLeaveDistanceInMillimeters)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetLockOnLeaveDistanceInMillimeters(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetLockOnLeaveDistanceInMillimeters)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn LockOnLeaveTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         unsafe {

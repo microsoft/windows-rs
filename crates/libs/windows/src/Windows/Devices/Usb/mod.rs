@@ -955,11 +955,9 @@ impl UsbDeviceClass {
             (windows_core::Interface::vtable(self).SubclassCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSubclassCode<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u8>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSubclassCode)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetSubclassCode(&self, value: Option<u8>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u8> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetSubclassCode)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ProtocolCode(&self) -> windows_core::Result<windows_reference::IReference<u8>> {
         unsafe {
@@ -967,11 +965,9 @@ impl UsbDeviceClass {
             (windows_core::Interface::vtable(self).ProtocolCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetProtocolCode<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u8>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetProtocolCode)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetProtocolCode(&self, value: Option<u8>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u8> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetProtocolCode)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for UsbDeviceClass {

@@ -1648,11 +1648,9 @@ impl ChatRecipientDeliveryInfo {
             (windows_core::Interface::vtable(self).DeliveryTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDeliveryTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDeliveryTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetDeliveryTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetDeliveryTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ReadTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
@@ -1660,11 +1658,9 @@ impl ChatRecipientDeliveryInfo {
             (windows_core::Interface::vtable(self).ReadTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetReadTime<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetReadTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetReadTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetReadTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn TransportErrorCodeCategory(&self) -> windows_core::Result<ChatTransportErrorCodeCategory> {
         unsafe {

@@ -2609,11 +2609,9 @@ impl StorageProviderQuotaUI {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetQuotaUsedColor<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::UI::Color>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetQuotaUsedColor(&self, value: Option<super::super::UI::Color>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for StorageProviderQuotaUI {

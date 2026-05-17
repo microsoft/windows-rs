@@ -327,6 +327,12 @@ impl Method {
                     } else {
                         quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                     }
+                } else if param.ireference_inner(config.reader).is_some() {
+                    // Sugared `Option<T>` -> materialized `Option<IReference<T>>` in
+                    // the local `name__` (see prelude below). `Param<T> for Option<&T>`
+                    // turns `None` into a null abi pointer.
+                    let local: TokenStream = format!("{}__", name.as_str()).into();
+                    quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
                 } else if param.is_copyable(config.reader) {
@@ -389,7 +395,7 @@ impl Method {
             .iter()
             .enumerate()
             .filter_map(|(position, param)| {
-                if param.is_convertible() {
+                if param.is_convertible() && param.ireference_inner(config.reader).is_none() {
                     let name: TokenStream = format!("P{position}").into();
                     Some(name)
                 } else {
@@ -403,7 +409,7 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    if param.is_convertible() {
+                    if param.is_convertible() && param.ireference_inner(config.reader).is_none() {
                         let name: TokenStream = format!("P{position}").into();
                         let ty = param.write_name(config);
 
@@ -426,7 +432,7 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    if param.is_convertible() {
+                    if param.is_convertible() && param.ireference_inner(config.reader).is_none() {
                         let name: TokenStream = format!("P{position}").into();
                         let ty = param.write_name(config);
                         Some(quote! { #name: windows_core::Param<#ty>, })
@@ -440,6 +446,23 @@ impl Method {
             TokenStream::new()
         };
 
+        // Prelude statements that materialize IReference<T> wrappers for sugared
+        // `Option<T>` parameters. Bound just outside the unsafe block so the
+        // wrapper is dropped *after* the vtable call returns.
+        let prelude = {
+            let lines: Vec<_> = params
+                .iter()
+                .filter_map(|param| {
+                    param.ireference_inner(config.reader)?;
+                    let name = param.write_ident();
+                    let local: TokenStream = format!("{}__", name.as_str()).into();
+                    let iref = param.ty.write_name(config);
+                    Some(quote! { let #local = #name.map(<#iref as core::convert::From<_>>::from); })
+                })
+                .collect();
+            quote! { #(#lines)* }
+        };
+
         let params: Vec<TokenStream> = params
             .iter()
             .enumerate()
@@ -451,6 +474,9 @@ impl Method {
                 if param.is_input() {
                     if param.is_winrt_array() {
                         quote! { #name: &[#default_type], }
+                    } else if let Some(inner) = param.ireference_inner(config.reader) {
+                        let inner_name = inner.write_name(config);
+                        quote! { #name: Option<#inner_name>, }
                     } else if param.is_convertible() {
                         let kind: TokenStream = format!("P{position}").into();
                         quote! { #name: #kind, }
@@ -468,6 +494,7 @@ impl Method {
                 }
             })
             .collect();
+
 
         let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
@@ -571,6 +598,7 @@ impl Method {
         match kind {
             InterfaceKind::Default => quote! {
                 pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
+                    #prelude
                     unsafe {
                         #vcall
                     }
@@ -588,6 +616,7 @@ impl Method {
                 quote! {
                     pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
+                        #prelude
                         unsafe {
                             #vcall
                         }
@@ -599,6 +628,7 @@ impl Method {
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                        #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
                 }
@@ -612,9 +642,11 @@ impl Method {
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                        #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
                     pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                        #prelude
                         Self::#interface_name(|this| unsafe {
                             let (derived__, base__) = windows_core::Compose::compose(compose);
                             let mut result__ = core::mem::zeroed();

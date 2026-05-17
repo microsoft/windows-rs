@@ -712,11 +712,9 @@ impl WiFiOnDemandHotspotNetworkProperties {
             (windows_core::Interface::vtable(self).RemainingBatteryPercent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetRemainingBatteryPercent<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetRemainingBatteryPercent(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn CellularBars(&self) -> windows_core::Result<windows_reference::IReference<WiFiOnDemandHotspotCellularBars>> {
         unsafe {
@@ -724,11 +722,9 @@ impl WiFiOnDemandHotspotNetworkProperties {
             (windows_core::Interface::vtable(self).CellularBars)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCellularBars<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<WiFiOnDemandHotspotCellularBars>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetCellularBars)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetCellularBars(&self, value: Option<WiFiOnDemandHotspotCellularBars>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<WiFiOnDemandHotspotCellularBars> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetCellularBars)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn IsMetered(&self) -> windows_core::Result<bool> {
         unsafe {
