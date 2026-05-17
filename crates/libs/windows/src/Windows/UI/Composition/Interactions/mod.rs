@@ -1392,7 +1392,7 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PositionInertiaDecayRate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn PositionInertiaDecayRate(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PositionInertiaDecayRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1400,7 +1400,7 @@ impl InteractionTracker {
     }
     pub fn SetPositionInertiaDecayRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<windows_numerics::Vector3>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPositionInertiaDecayRate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -1416,7 +1416,7 @@ impl InteractionTracker {
             (windows_core::Interface::vtable(self).Scale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ScaleInertiaDecayRate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn ScaleInertiaDecayRate(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScaleInertiaDecayRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1424,7 +1424,7 @@ impl InteractionTracker {
     }
     pub fn SetScaleInertiaDecayRate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetScaleInertiaDecayRate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -2303,13 +2303,13 @@ unsafe impl Sync for InteractionTrackerInertiaRestingValue {}
 pub struct InteractionTrackerInertiaStateEnteredArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InteractionTrackerInertiaStateEnteredArgs {
-    pub fn ModifiedRestingPosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn ModifiedRestingPosition(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModifiedRestingPosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ModifiedRestingScale(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn ModifiedRestingScale(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModifiedRestingScale)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

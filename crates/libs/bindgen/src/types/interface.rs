@@ -245,54 +245,31 @@ impl Interface {
             // wrappers entirely. Exclusive factory interfaces (those referenced from the class
             // via Activatable/Static/Composable) are already exposed through the class, so we
             // can suppress their methods here to keep call sites concise.
+            //
+            // Types marked with `?Ns.Type` in `--filter` are "trait-only": their `_Impl` trait
+            // and vtable are still emitted (so implementers can stub the methods and the ABI is
+            // preserved), but the inherent `impl IFace { ... }` caller-side wrapper block is
+            // suppressed. This is used for required-but-uncalled interfaces (e.g.
+            // `IPropertyValue` on an `IReference<T>` impl) where no projection caller invokes
+            // the methods through this type.
             let is_factory = is_exclusive && config.minimal && self.is_factory(config.reader);
+            let is_trait_only = config.filter.is_trait_only(type_name);
             if !is_exclusive || (config.minimal && !is_factory) {
-                let method_names = &mut MethodNames::new();
-                let virtual_names = &mut MethodNames::new();
-                let mut method_tokens = TokenStream::new();
-
-                for method in methods.iter().filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
-                    _ => None,
-                }) {
-                    let cfg = method.write_cfg(config, &class_cfg, false);
-
-                    let method = method.write(
-                        config,
-                        Some(self),
-                        InterfaceKind::Default,
-                        method_names,
-                        virtual_names,
-                    );
-
-                    method_tokens.combine(quote! {
-                        #cfg
-                        #method
-                    });
-                }
-
-                for interface in &required_interfaces {
-                    // In `minimal` mode callers `cast` to the owning interface explicitly.
-                    if config.minimal {
-                        continue;
-                    }
+                if !is_trait_only {
+                    let method_names = &mut MethodNames::new();
                     let virtual_names = &mut MethodNames::new();
+                    let mut method_tokens = TokenStream::new();
 
-                    for method in
-                        interface
-                            .get_methods(config)
-                            .iter()
-                            .filter_map(|method| match &method {
-                                MethodOrName::Method(method) => Some(method),
-                                _ => None,
-                            })
-                    {
+                    for method in methods.iter().filter_map(|method| match &method {
+                        MethodOrName::Method(method) => Some(method),
+                        _ => None,
+                    }) {
                         let cfg = method.write_cfg(config, &class_cfg, false);
 
                         let method = method.write(
                             config,
-                            Some(interface),
-                            interface.kind,
+                            Some(self),
+                            InterfaceKind::Default,
                             method_names,
                             virtual_names,
                         );
@@ -302,15 +279,47 @@ impl Interface {
                             #method
                         });
                     }
-                }
 
-                if !method_tokens.is_empty() {
-                    result.combine(quote! {
-                        #cfg
-                        impl<#constraints> #name {
-                            #method_tokens
+                    for interface in &required_interfaces {
+                        // In `minimal` mode callers `cast` to the owning interface explicitly.
+                        if config.minimal {
+                            continue;
                         }
-                    });
+                        let virtual_names = &mut MethodNames::new();
+
+                        for method in
+                            interface.get_methods(config).iter().filter_map(
+                                |method| match &method {
+                                    MethodOrName::Method(method) => Some(method),
+                                    _ => None,
+                                },
+                            )
+                        {
+                            let cfg = method.write_cfg(config, &class_cfg, false);
+
+                            let method = method.write(
+                                config,
+                                Some(interface),
+                                interface.kind,
+                                method_names,
+                                virtual_names,
+                            );
+
+                            method_tokens.combine(quote! {
+                                #cfg
+                                #method
+                            });
+                        }
+                    }
+
+                    if !method_tokens.is_empty() {
+                        result.combine(quote! {
+                            #cfg
+                            impl<#constraints> #name {
+                                #method_tokens
+                            }
+                        });
+                    }
                 }
 
                 if self.def.is_agile() {

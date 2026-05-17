@@ -1405,7 +1405,7 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1414,12 +1414,12 @@ impl BounceScalarNaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1428,7 +1428,7 @@ impl BounceScalarNaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -1697,7 +1697,7 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1706,12 +1706,12 @@ impl BounceVector2NaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1720,7 +1720,7 @@ impl BounceVector2NaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -1989,7 +1989,7 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1998,12 +1998,12 @@ impl BounceVector3NaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2012,7 +2012,7 @@ impl BounceVector3NaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -20754,7 +20754,7 @@ impl ScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FinalValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -20762,11 +20762,11 @@ impl ScalarNaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFinalValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InitialValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -20774,7 +20774,7 @@ impl ScalarNaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInitialValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -21854,7 +21854,7 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -21863,12 +21863,12 @@ impl SpringScalarNaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -21877,7 +21877,7 @@ impl SpringScalarNaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         let this = &windows_core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -22164,7 +22164,7 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPeriod)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -22173,12 +22173,12 @@ impl SpringVector2NaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector2>> {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -22187,7 +22187,7 @@ impl SpringVector2NaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector2>>,
     {
         let this = &windows_core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -22456,7 +22456,7 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPeriod)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -22465,12 +22465,12 @@ impl SpringVector3NaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFinalValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -22479,7 +22479,7 @@ impl SpringVector3NaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
     {
         let this = &windows_core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetInitialValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -23610,7 +23610,7 @@ impl Vector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector2>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FinalValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -23618,11 +23618,11 @@ impl Vector2NaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector2>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFinalValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector2>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector2>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InitialValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -23630,7 +23630,7 @@ impl Vector2NaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector2>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector2>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInitialValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -24184,7 +24184,7 @@ impl Vector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FinalValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn FinalValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FinalValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -24192,11 +24192,11 @@ impl Vector3NaturalMotionAnimation {
     }
     pub fn SetFinalValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFinalValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InitialValue(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn InitialValue(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InitialValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -24204,7 +24204,7 @@ impl Vector3NaturalMotionAnimation {
     }
     pub fn SetInitialValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<windows_numerics::Vector3>>,
+        P0: windows_core::Param<windows_reference::IReference<windows_numerics::Vector3>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetInitialValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

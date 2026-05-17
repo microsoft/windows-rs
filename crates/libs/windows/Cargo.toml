@@ -17,6 +17,7 @@ windows-collections = { workspace = true }
 windows-core = { workspace = true }
 windows-future = { workspace = true }
 windows-numerics = { workspace = true }
+windows-reference = { workspace = true }
 
 [lib]
 test = false
@@ -33,7 +34,7 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["std", "windows-core/proc-macros"]
 docs = []
-std = ["windows-collections/std", "windows-core/std", "windows-future/std", "windows-numerics/std"]
+std = ["windows-collections/std", "windows-core/std", "windows-future/std", "windows-numerics/std", "windows-reference/std"]
 # generated features
 AI = ["Foundation"]
 AI_Actions = ["AI"]

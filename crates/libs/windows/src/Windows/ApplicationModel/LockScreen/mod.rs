@@ -150,7 +150,7 @@ impl LockScreenBadge {
             (windows_core::Interface::vtable(self).Glyph)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Number(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Number(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Number)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

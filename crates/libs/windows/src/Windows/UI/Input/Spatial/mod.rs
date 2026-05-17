@@ -1480,20 +1480,20 @@ impl windows_core::RuntimeType for SpatialInteractionSourceKind {
 pub struct SpatialInteractionSourceLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceLocation {
-    pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn Position(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Velocity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn Velocity(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Velocity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn Orientation(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>> {
+    pub fn Orientation(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::Numerics::Quaternion>> {
         let this = &windows_core::Interface::cast::<ISpatialInteractionSourceLocation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1507,7 +1507,7 @@ impl SpatialInteractionSourceLocation {
             (windows_core::Interface::vtable(this).PositionAccuracy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AngularVelocity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>> {
+    pub fn AngularVelocity(&self) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>> {
         let this = &windows_core::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1553,7 +1553,7 @@ pub struct SpatialInteractionSourceProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialInteractionSourceProperties {
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetSourceLossMitigationDirection<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::IReference<windows_numerics::Vector3>>
+    pub fn TryGetSourceLossMitigationDirection<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<windows_numerics::Vector3>>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {

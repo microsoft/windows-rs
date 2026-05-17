@@ -1256,13 +1256,13 @@ impl PhotoImportSource {
             (windows_core::Interface::vtable(self).PowerSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn BatteryLevelPercent(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn BatteryLevelPercent(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BatteryLevelPercent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DateTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn DateTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DateTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1274,7 +1274,7 @@ impl PhotoImportSource {
             (windows_core::Interface::vtable(self).StorageMedia)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsLocked(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
+    pub fn IsLocked(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLocked)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

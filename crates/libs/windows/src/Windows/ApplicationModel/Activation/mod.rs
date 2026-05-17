@@ -298,7 +298,7 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn InstanceStartDate(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2305,7 +2305,7 @@ impl windows_core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsAc
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn InstanceStartDate(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2356,7 +2356,7 @@ impl windows_core::RuntimeName for IAppointmentsProviderShowAppointmentDetailsAc
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
 pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl: IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
-    fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>>;
+    fn InstanceStartDate(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>>;
     fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }

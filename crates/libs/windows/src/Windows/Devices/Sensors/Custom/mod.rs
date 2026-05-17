@@ -106,7 +106,7 @@ impl CustomSensorReading {
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PerformanceCount(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn PerformanceCount(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<ICustomSensorReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

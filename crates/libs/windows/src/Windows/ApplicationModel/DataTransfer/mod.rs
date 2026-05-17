@@ -2415,7 +2415,7 @@ impl ShareUIOptions {
     pub fn SetTheme(&self, value: ShareUITheme) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTheme)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn SelectionRect(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
+    pub fn SelectionRect(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::Rect>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelectionRect)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2423,7 +2423,7 @@ impl ShareUIOptions {
     }
     pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Rect>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::Rect>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSelectionRect)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

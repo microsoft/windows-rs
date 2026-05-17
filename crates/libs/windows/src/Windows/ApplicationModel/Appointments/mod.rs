@@ -59,7 +59,7 @@ impl Appointment {
     pub fn SetDetails(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDetails)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Reminder(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Reminder(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Reminder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -67,7 +67,7 @@ impl Appointment {
     }
     pub fn SetReminder<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetReminder)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -165,7 +165,7 @@ impl Appointment {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRoamingId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn OriginalStartTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn OriginalStartTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -205,7 +205,7 @@ impl Appointment {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOnlineMeetingLink)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ReplyTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ReplyTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -214,7 +214,7 @@ impl Appointment {
     }
     pub fn SetReplyTime<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
     {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetReplyTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
@@ -1504,7 +1504,7 @@ impl AppointmentRecurrence {
     pub fn SetUnit(&self, value: AppointmentRecurrenceUnit) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUnit)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Occurrences(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Occurrences(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Occurrences)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1512,11 +1512,11 @@ impl AppointmentRecurrence {
     }
     pub fn SetOccurrences<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetOccurrences)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Until(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn Until(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Until)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1524,7 +1524,7 @@ impl AppointmentRecurrence {
     }
     pub fn SetUntil<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::Foundation::DateTime>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetUntil)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

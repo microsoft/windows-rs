@@ -27,7 +27,7 @@ impl AdvancedCapturedPhoto {
             (windows_core::Interface::vtable(self).Context)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FrameBoundsRelativeToReferencePhoto(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
+    pub fn FrameBoundsRelativeToReferencePhoto(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::Rect>> {
         let this = &windows_core::Interface::cast::<IAdvancedCapturedPhoto2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -952,7 +952,7 @@ impl AppBroadcastPreview {
             (windows_core::Interface::vtable(self).PreviewState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ErrorCode(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn ErrorCode(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ErrorCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2491,13 +2491,13 @@ impl AppCaptureRecordOperation {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ErrorCode(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn ErrorCode(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ErrorCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2510,7 +2510,7 @@ impl AppCaptureRecordOperation {
             (windows_core::Interface::vtable(self).File)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsFileTruncated(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
+    pub fn IsFileTruncated(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsFileTruncated)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3466,77 +3466,77 @@ unsafe impl Sync for CapturedFrame {}
 pub struct CapturedFrameControlValues(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CapturedFrameControlValues, windows_core::IUnknown, windows_core::IInspectable);
 impl CapturedFrameControlValues {
-    pub fn Exposure(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Exposure(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Exposure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExposureCompensation(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn ExposureCompensation(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExposureCompensation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsoSpeed(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn IsoSpeed(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsoSpeed)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Focus(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Focus(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Focus)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Devices")]
-    pub fn SceneMode(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Devices::CaptureSceneMode>> {
+    pub fn SceneMode(&self) -> windows_core::Result<windows_reference::IReference<super::Devices::CaptureSceneMode>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SceneMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Flashed(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
+    pub fn Flashed(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flashed)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlashPowerPercent(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn FlashPowerPercent(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FlashPowerPercent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WhiteBalance(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn WhiteBalance(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WhiteBalance)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ZoomFactor(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn ZoomFactor(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ZoomFactor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Devices")]
-    pub fn FocusState(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Devices::MediaCaptureFocusState>> {
+    pub fn FocusState(&self) -> windows_core::Result<windows_reference::IReference<super::Devices::MediaCaptureFocusState>> {
         let this = &windows_core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsoDigitalGain(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn IsoDigitalGain(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsoDigitalGain)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsoAnalogGain(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn IsoAnalogGain(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3551,7 +3551,7 @@ impl CapturedFrameControlValues {
             (windows_core::Interface::vtable(this).SensorFrameRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WhiteBalanceGain(&self) -> windows_core::Result<super::super::Foundation::IReference<WhiteBalanceGain>> {
+    pub fn WhiteBalanceGain(&self) -> windows_core::Result<windows_reference::IReference<WhiteBalanceGain>> {
         let this = &windows_core::Interface::cast::<ICapturedFrameControlValues2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -7117,21 +7117,21 @@ impl MediaCaptureSettings {
             (windows_core::Interface::vtable(this).CameraSoundRequiredForRegion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Horizontal35mmEquivalentFocalLength(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Horizontal35mmEquivalentFocalLength(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Horizontal35mmEquivalentFocalLength)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PitchOffsetDegrees(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn PitchOffsetDegrees(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         let this = &windows_core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PitchOffsetDegrees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Vertical35mmEquivalentFocalLength(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Vertical35mmEquivalentFocalLength(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<IMediaCaptureSettings2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

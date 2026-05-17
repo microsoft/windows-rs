@@ -257,7 +257,7 @@ impl FrameController {
             (windows_core::Interface::vtable(self).FocusControl)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PhotoConfirmationEnabled(&self) -> windows_core::Result<super::super::super::Foundation::IReference<bool>> {
+    pub fn PhotoConfirmationEnabled(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -265,7 +265,7 @@ impl FrameController {
     }
     pub fn SetPhotoConfirmationEnabled<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<bool>>,
+        P0: windows_core::Param<windows_reference::IReference<bool>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPhotoConfirmationEnabled)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -374,7 +374,7 @@ impl windows_core::RuntimeName for FrameExposureCompensationCapabilities {
 pub struct FrameExposureCompensationControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FrameExposureCompensationControl, windows_core::IUnknown, windows_core::IInspectable);
 impl FrameExposureCompensationControl {
-    pub fn Value(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn Value(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -382,7 +382,7 @@ impl FrameExposureCompensationControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<f32>>,
+        P0: windows_core::Param<windows_reference::IReference<f32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -411,7 +411,7 @@ impl FrameExposureControl {
     pub fn SetAuto(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAuto)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Value(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn Value(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -419,7 +419,7 @@ impl FrameExposureControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::super::Foundation::TimeSpan>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -579,7 +579,7 @@ impl windows_core::RuntimeName for FrameFocusCapabilities {
 pub struct FrameFocusControl(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FrameFocusControl, windows_core::IUnknown, windows_core::IInspectable);
 impl FrameFocusControl {
-    pub fn Value(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u32>> {
+    pub fn Value(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -587,7 +587,7 @@ impl FrameFocusControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -656,7 +656,7 @@ impl FrameIsoSpeedControl {
     pub fn SetAuto(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAuto)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Value(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u32>> {
+    pub fn Value(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -664,7 +664,7 @@ impl FrameIsoSpeedControl {
     }
     pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

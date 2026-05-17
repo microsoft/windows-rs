@@ -61,7 +61,7 @@ impl DisplayMonitor {
             (windows_core::Interface::vtable(self).NativeResolutionInRawPixels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PhysicalSizeInInches(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Size>> {
+    pub fn PhysicalSizeInInches(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::Size>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PhysicalSizeInInches)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))

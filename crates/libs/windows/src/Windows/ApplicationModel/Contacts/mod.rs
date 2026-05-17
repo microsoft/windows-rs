@@ -1231,7 +1231,7 @@ impl ContactDate {
         static SHARED: windows_core::imp::FactoryCache<ContactDate, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Day(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Day(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Day)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1239,11 +1239,11 @@ impl ContactDate {
     }
     pub fn SetDay<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDay)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Month(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Month(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Month)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1251,11 +1251,11 @@ impl ContactDate {
     }
     pub fn SetMonth<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMonth)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Year(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn Year(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Year)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1263,7 +1263,7 @@ impl ContactDate {
     }
     pub fn SetYear<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetYear)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -2159,7 +2159,7 @@ impl ContactListSyncConstraints {
     pub fn SetCanSyncDescriptions(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCanSyncDescriptions)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn MaxHomePhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxHomePhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxHomePhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2167,11 +2167,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxHomePhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxHomePhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxMobilePhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxMobilePhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxMobilePhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2179,11 +2179,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxMobilePhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxMobilePhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxWorkPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxWorkPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxWorkPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2191,11 +2191,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxWorkPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxWorkPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxOtherPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxOtherPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxOtherPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2203,11 +2203,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxOtherPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxPagerPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxPagerPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxPagerPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2215,11 +2215,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxPagerPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxPagerPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxBusinessFaxPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxBusinessFaxPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxBusinessFaxPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2227,11 +2227,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxBusinessFaxPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxBusinessFaxPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxHomeFaxPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxHomeFaxPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxHomeFaxPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2239,11 +2239,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxHomeFaxPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxHomeFaxPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxCompanyPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxCompanyPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxCompanyPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2251,11 +2251,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxCompanyPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxCompanyPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxAssistantPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxAssistantPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxAssistantPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2263,11 +2263,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxAssistantPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxAssistantPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxRadioPhoneNumbers(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxRadioPhoneNumbers(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxRadioPhoneNumbers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2275,11 +2275,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxRadioPhoneNumbers<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxRadioPhoneNumbers)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxPersonalEmailAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxPersonalEmailAddresses(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxPersonalEmailAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2287,11 +2287,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxPersonalEmailAddresses<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxPersonalEmailAddresses)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxWorkEmailAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxWorkEmailAddresses(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxWorkEmailAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2299,11 +2299,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxWorkEmailAddresses<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxWorkEmailAddresses)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxOtherEmailAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxOtherEmailAddresses(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxOtherEmailAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2311,11 +2311,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxOtherEmailAddresses<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherEmailAddresses)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxHomeAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxHomeAddresses(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxHomeAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2323,11 +2323,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxHomeAddresses<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxHomeAddresses)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxWorkAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxWorkAddresses(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxWorkAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2335,11 +2335,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxWorkAddresses<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxWorkAddresses)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxOtherAddresses(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxOtherAddresses(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxOtherAddresses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2347,11 +2347,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxOtherAddresses<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherAddresses)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxBirthdayDates(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxBirthdayDates(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxBirthdayDates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2359,11 +2359,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxBirthdayDates<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxBirthdayDates)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxAnniversaryDates(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxAnniversaryDates(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxAnniversaryDates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2371,11 +2371,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxAnniversaryDates<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxAnniversaryDates)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxOtherDates(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxOtherDates(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxOtherDates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2383,11 +2383,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxOtherDates<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherDates)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxOtherRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxOtherRelationships(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxOtherRelationships)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2395,11 +2395,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxOtherRelationships<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxOtherRelationships)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxSpouseRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxSpouseRelationships(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxSpouseRelationships)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2407,11 +2407,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxSpouseRelationships<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxSpouseRelationships)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxPartnerRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxPartnerRelationships(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxPartnerRelationships)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2419,11 +2419,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxPartnerRelationships<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxPartnerRelationships)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxSiblingRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxSiblingRelationships(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxSiblingRelationships)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2431,11 +2431,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxSiblingRelationships<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxSiblingRelationships)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxParentRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxParentRelationships(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxParentRelationships)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2443,11 +2443,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxParentRelationships<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxParentRelationships)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxChildRelationships(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxChildRelationships(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxChildRelationships)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2455,11 +2455,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxChildRelationships<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxChildRelationships)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxJobInfo(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxJobInfo(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxJobInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2467,11 +2467,11 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxJobInfo<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxJobInfo)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn MaxWebsites(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn MaxWebsites(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxWebsites)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2479,7 +2479,7 @@ impl ContactListSyncConstraints {
     }
     pub fn SetMaxWebsites<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P0: windows_core::Param<windows_reference::IReference<i32>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMaxWebsites)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
@@ -3032,7 +3032,7 @@ impl ContactPanel {
         unsafe { (windows_core::Interface::vtable(self).ClosePanel)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn HeaderColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
+    pub fn HeaderColor(&self) -> windows_core::Result<windows_reference::IReference<super::super::UI::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HeaderColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3041,7 +3041,7 @@ impl ContactPanel {
     #[cfg(feature = "UI")]
     pub fn SetHeaderColor<P0>(&self, value: P0) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::super::UI::Color>>,
+        P0: windows_core::Param<windows_reference::IReference<super::super::UI::Color>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetHeaderColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }

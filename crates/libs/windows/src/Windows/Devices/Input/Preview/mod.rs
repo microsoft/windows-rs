@@ -406,13 +406,13 @@ impl GazePointPreview {
             (windows_core::Interface::vtable(self).SourceDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EyeGazePosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
+    pub fn EyeGazePosition(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::Point>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EyeGazePosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HeadGazePosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
+    pub fn HeadGazePosition(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::Point>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HeadGazePosition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
