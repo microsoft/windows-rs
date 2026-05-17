@@ -903,10 +903,10 @@ impl ContentPrefetcher {
             (windows_core::Interface::vtable(this).IndirectContentUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LastSuccessfulPrefetchTime() -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
+    pub fn LastSuccessfulPrefetchTime() -> windows_core::Result<super::super::Foundation::DateTime> {
         Self::IContentPrefetcherTime(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastSuccessfulPrefetchTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LastSuccessfulPrefetchTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
         })
     }
     fn IContentPrefetcher<R, F: FnOnce(&IContentPrefetcher) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1086,11 +1086,11 @@ impl DownloadOperation {
         }
     }
     #[cfg(feature = "Web")]
-    pub fn CurrentWebErrorStatus(&self) -> windows_core::Result<windows_reference::IReference<super::super::Web::WebErrorStatus>> {
+    pub fn CurrentWebErrorStatus(&self) -> windows_core::Result<super::super::Web::WebErrorStatus> {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentWebErrorStatus)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CurrentWebErrorStatus)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Web::WebErrorStatus>| r__.Value())
         }
     }
     pub fn MakeCurrentInTransferGroup(&self) -> windows_core::Result<()> {

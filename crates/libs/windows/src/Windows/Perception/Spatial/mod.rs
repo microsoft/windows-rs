@@ -839,13 +839,13 @@ unsafe impl Sync for SpatialBoundingVolume {}
 pub struct SpatialCoordinateSystem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialCoordinateSystem, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialCoordinateSystem {
-    pub fn TryGetTransformTo<P0>(&self, target: P0) -> windows_core::Result<windows_reference::IReference<windows_numerics::Matrix4x4>>
+    pub fn TryGetTransformTo<P0>(&self, target: P0) -> windows_core::Result<windows_numerics::Matrix4x4>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetTransformTo)(windows_core::Interface::as_raw(self), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetTransformTo)(windows_core::Interface::as_raw(self), target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_numerics::Matrix4x4>| r__.Value())
         }
     }
 }
@@ -1395,13 +1395,13 @@ impl SpatialLocatorAttachedFrameOfReference {
             (windows_core::Interface::vtable(self).GetStationaryCoordinateSystemAtTimestamp)(windows_core::Interface::as_raw(self), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetRelativeHeadingAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<windows_reference::IReference<f64>>
+    pub fn TryGetRelativeHeadingAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<f64>
     where
         P0: windows_core::Param<super::PerceptionTimestamp>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetRelativeHeadingAtTimestamp)(windows_core::Interface::as_raw(self), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetRelativeHeadingAtTimestamp)(windows_core::Interface::as_raw(self), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
         }
     }
 }

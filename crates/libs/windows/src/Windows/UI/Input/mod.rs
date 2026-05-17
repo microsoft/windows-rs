@@ -2851,11 +2851,11 @@ impl PointerPointProperties {
             (windows_core::Interface::vtable(self).GetUsageValue)(windows_core::Interface::as_raw(self), usagepage, usageid, &mut result__).map(|| result__)
         }
     }
-    pub fn ZDistance(&self) -> windows_core::Result<windows_reference::IReference<f32>> {
+    pub fn ZDistance(&self) -> windows_core::Result<f32> {
         let this = &windows_core::Interface::cast::<IPointerPointProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ZDistance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ZDistance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f32>| r__.Value())
         }
     }
 }

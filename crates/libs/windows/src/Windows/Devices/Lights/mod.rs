@@ -552,10 +552,10 @@ impl LampInfo {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn FixedColor(&self) -> windows_core::Result<windows_reference::IReference<super::super::UI::Color>> {
+    pub fn FixedColor(&self) -> windows_core::Result<super::super::UI::Color> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FixedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FixedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::UI::Color>| r__.Value())
         }
     }
     #[cfg(feature = "UI")]

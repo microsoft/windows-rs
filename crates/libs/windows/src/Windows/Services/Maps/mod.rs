@@ -1091,10 +1091,10 @@ impl MapRouteDrivingOptions {
     pub fn SetMaxAlternateRouteCount(&self, value: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxAlternateRouteCount)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn InitialHeading(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
+    pub fn InitialHeading(&self) -> windows_core::Result<f64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InitialHeading)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).InitialHeading)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
         }
     }
     pub fn SetInitialHeading(&self, value: Option<f64>) -> windows_core::Result<()> {
@@ -1119,11 +1119,11 @@ impl MapRouteDrivingOptions {
     pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRouteRestrictions)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DepartureTime(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
+    pub fn DepartureTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
         }
     }
     pub fn SetDepartureTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {

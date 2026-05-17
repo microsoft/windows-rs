@@ -157,13 +157,13 @@ impl SpatialSurfaceInfo {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::SpatialBoundingOrientedBox>>
+    pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::SpatialBoundingOrientedBox>
     where
         P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetBounds)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetBounds)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::SpatialBoundingOrientedBox>| r__.Value())
         }
     }
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> windows_core::Result<windows_future::IAsyncOperation<SpatialSurfaceMesh>> {

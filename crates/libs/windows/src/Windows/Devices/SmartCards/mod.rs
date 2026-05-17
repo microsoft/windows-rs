@@ -1238,11 +1238,11 @@ impl SmartCardAutomaticResponseApdu {
     {
         unsafe { (windows_core::Interface::vtable(self).SetResponseApdu)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InputState(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
+    pub fn InputState(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
         }
     }
     pub fn SetInputState(&self, value: Option<u32>) -> windows_core::Result<()> {
@@ -1250,11 +1250,11 @@ impl SmartCardAutomaticResponseApdu {
         let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetInputState)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn OutputState(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
+    pub fn OutputState(&self) -> windows_core::Result<u32> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OutputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OutputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
         }
     }
     pub fn SetOutputState(&self, value: Option<u32>) -> windows_core::Result<()> {

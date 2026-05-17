@@ -49,7 +49,7 @@ impl MapRouteDrivingOptions {
             .ok()
         }
     }
-    pub fn InitialHeading(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
+    pub fn InitialHeading(&self) -> windows_core::Result<f64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InitialHeading)(
@@ -57,6 +57,7 @@ impl MapRouteDrivingOptions {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(|r__: windows_reference::IReference<f64>| r__.Value())
         }
     }
     pub fn SetInitialHeading(&self, value: Option<f64>) -> windows_core::Result<()> {
@@ -118,9 +119,7 @@ impl MapRouteDrivingOptions {
             .ok()
         }
     }
-    pub fn DepartureTime(
-        &self,
-    ) -> windows_core::Result<windows_reference::IReference<windows::Foundation::DateTime>> {
+    pub fn DepartureTime(&self) -> windows_core::Result<windows::Foundation::DateTime> {
         let this = &windows_core::Interface::cast::<
             windows::Services::Maps::IMapRouteDrivingOptions2,
         >(self)?;
@@ -131,6 +130,9 @@ impl MapRouteDrivingOptions {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
+            .and_then(
+                |r__: windows_reference::IReference<windows::Foundation::DateTime>| r__.Value(),
+            )
         }
     }
     pub fn SetDepartureTime(
