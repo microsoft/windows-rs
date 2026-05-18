@@ -3833,12 +3833,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
@@ -3896,12 +3896,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
@@ -3951,12 +3951,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
@@ -4106,12 +4106,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
@@ -4196,12 +4196,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
@@ -4275,12 +4275,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
@@ -4323,12 +4323,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
@@ -4375,12 +4375,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
@@ -4484,12 +4484,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
@@ -4568,12 +4568,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
@@ -4647,12 +4647,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANS
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
@@ -4702,12 +4702,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
@@ -4803,12 +4803,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
@@ -4874,12 +4874,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
@@ -5010,12 +5010,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
@@ -5061,12 +5061,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_D
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
@@ -5123,12 +5123,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
@@ -5214,12 +5214,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
@@ -5297,12 +5297,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
@@ -5333,12 +5333,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
@@ -5573,12 +5573,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
@@ -5684,12 +5684,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
@@ -5733,12 +5733,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_FLAGS {
@@ -5790,12 +5790,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
@@ -5964,12 +5964,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
@@ -6201,12 +6201,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
@@ -6267,12 +6267,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
@@ -6405,12 +6405,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_F
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
@@ -6554,12 +6554,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_F
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
@@ -6634,12 +6634,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
@@ -6873,12 +6873,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
@@ -6919,12 +6919,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPO
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
@@ -7157,12 +7157,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
@@ -7262,12 +7262,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
@@ -7328,12 +7328,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
@@ -7407,12 +7407,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
@@ -7534,12 +7534,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS 
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
@@ -7576,12 +7576,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
@@ -7638,12 +7638,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
@@ -7684,12 +7684,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
@@ -7723,12 +7723,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
@@ -7774,12 +7774,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
@@ -7896,12 +7896,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
@@ -8014,12 +8014,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
@@ -8059,12 +8059,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
@@ -8111,12 +8111,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
@@ -10301,60 +10301,84 @@ impl ID3D12VideoDecodeCommandList {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), pallocator.param().abi()).ok() }
     }
     pub unsafe fn ClearState(&self) {
-        unsafe { (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
-        unsafe { (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+        }
     }
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
     }
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
     }
     pub unsafe fn ResolveQueryData<P0, P4>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P4, aligneddestinationbufferoffset: u64)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
         P4: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset);
+        }
     }
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation);
+        }
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        unsafe { (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        unsafe { (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
     }
     pub unsafe fn EndEvent(&self) {
-        unsafe { (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self));
+        }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn DecodeFrame<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
         P0: windows_core::Param<ID3D12VideoDecoder>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DecodeFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DecodeFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        unsafe { (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -10419,73 +10443,73 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
         unsafe extern "system" fn ClearState<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::ClearState(this)
+                ID3D12VideoDecodeCommandList_Impl::ClearState(this);
             }
         }
         unsafe extern "system" fn ResourceBarrier<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers))
+                ID3D12VideoDecodeCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers));
             }
         }
         unsafe extern "system" fn DiscardResource<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion))
+                ID3D12VideoDecodeCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion));
             }
         }
         unsafe extern "system" fn BeginQuery<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
+                ID3D12VideoDecodeCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn EndQuery<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
+                ID3D12VideoDecodeCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn ResolveQueryData<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: *mut core::ffi::c_void, aligneddestinationbufferoffset: u64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset))
+                ID3D12VideoDecodeCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset));
             }
         }
         unsafe extern "system" fn SetPredication<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation))
+                ID3D12VideoDecodeCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation));
             }
         }
         unsafe extern "system" fn SetMarker<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
+                ID3D12VideoDecodeCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
             }
         }
         unsafe extern "system" fn BeginEvent<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
+                ID3D12VideoDecodeCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
             }
         }
         unsafe extern "system" fn EndEvent<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::EndEvent(this)
+                ID3D12VideoDecodeCommandList_Impl::EndEvent(this);
             }
         }
         unsafe extern "system" fn DecodeFrame<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdecoder: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::DecodeFrame(this, core::mem::transmute_copy(&pdecoder), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments))
+                ID3D12VideoDecodeCommandList_Impl::DecodeFrame(this, core::mem::transmute_copy(&pdecoder), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
             }
         }
         unsafe extern "system" fn WriteBufferImmediate<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes))
+                ID3D12VideoDecodeCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes));
             }
         }
         Self {
@@ -10530,7 +10554,9 @@ impl ID3D12VideoDecodeCommandList1 {
     where
         P0: windows_core::Param<ID3D12VideoDecoder>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DecodeFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DecodeFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -10557,7 +10583,7 @@ impl ID3D12VideoDecodeCommandList1_Vtbl {
         unsafe extern "system" fn DecodeFrame1<Identity: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdecoder: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList1_Impl::DecodeFrame1(this, core::mem::transmute_copy(&pdecoder), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments))
+                ID3D12VideoDecodeCommandList1_Impl::DecodeFrame1(this, core::mem::transmute_copy(&pdecoder), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
             }
         }
         Self { base__: ID3D12VideoDecodeCommandList_Vtbl::new::<Identity, OFFSET>(), DecodeFrame1: DecodeFrame1::<Identity, OFFSET> }
@@ -10585,19 +10611,25 @@ impl ID3D12VideoDecodeCommandList2 {
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi());
+        }
     }
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
         P0: windows_core::Param<ID3D12VideoExtensionCommand>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes) }
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes);
+        }
     }
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
         P0: windows_core::Param<ID3D12VideoExtensionCommand>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes);
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -10625,19 +10657,19 @@ impl ID3D12VideoDecodeCommandList2_Vtbl {
         unsafe extern "system" fn SetProtectedResourceSession<Identity: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprotectedresourcesession: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList2_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession))
+                ID3D12VideoDecodeCommandList2_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession));
             }
         }
         unsafe extern "system" fn InitializeExtensionCommand<Identity: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList2_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes))
+                ID3D12VideoDecodeCommandList2_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes));
             }
         }
         unsafe extern "system" fn ExecuteExtensionCommand<Identity: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList2_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes))
+                ID3D12VideoDecodeCommandList2_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes));
             }
         }
         Self {
@@ -10667,7 +10699,9 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList3, windows_c
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList3 {
     pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
-        unsafe { (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -10691,7 +10725,7 @@ impl ID3D12VideoDecodeCommandList3_Vtbl {
         unsafe extern "system" fn Barrier<Identity: ID3D12VideoDecodeCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoDecodeCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups))
+                ID3D12VideoDecodeCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups));
             }
         }
         Self { base__: ID3D12VideoDecodeCommandList2_Vtbl::new::<Identity, OFFSET>(), Barrier: Barrier::<Identity, OFFSET> }
@@ -10744,7 +10778,7 @@ impl ID3D12VideoDecoder_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D12VideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = ID3D12VideoDecoder_Impl::GetDesc(this)
+                *result__ = ID3D12VideoDecoder_Impl::GetDesc(this);
             }
         }
         Self { base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
@@ -10853,7 +10887,7 @@ impl ID3D12VideoDecoderHeap_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D12VideoDecoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = ID3D12VideoDecoderHeap_Impl::GetDesc(this)
+                *result__ = ID3D12VideoDecoderHeap_Impl::GetDesc(this);
             }
         }
         Self { base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
@@ -11360,68 +11394,96 @@ impl ID3D12VideoEncodeCommandList {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), pallocator.param().abi()).ok() }
     }
     pub unsafe fn ClearState(&self) {
-        unsafe { (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
-        unsafe { (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+        }
     }
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
     }
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
     }
     pub unsafe fn ResolveQueryData<P0, P4>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P4, aligneddestinationbufferoffset: u64)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
         P4: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset);
+        }
     }
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation);
+        }
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        unsafe { (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        unsafe { (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
     }
     pub unsafe fn EndEvent(&self) {
-        unsafe { (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn EstimateMotion<P0>(&self, pmotionestimator: P0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT)
     where
         P0: windows_core::Param<ID3D12VideoMotionEstimator>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EstimateMotion)(windows_core::Interface::as_raw(self), pmotionestimator.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EstimateMotion)(windows_core::Interface::as_raw(self), pmotionestimator.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
     }
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
-        unsafe { (windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        unsafe { (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi());
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11487,85 +11549,85 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
         unsafe extern "system" fn ClearState<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::ClearState(this)
+                ID3D12VideoEncodeCommandList_Impl::ClearState(this);
             }
         }
         unsafe extern "system" fn ResourceBarrier<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers))
+                ID3D12VideoEncodeCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers));
             }
         }
         unsafe extern "system" fn DiscardResource<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion))
+                ID3D12VideoEncodeCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion));
             }
         }
         unsafe extern "system" fn BeginQuery<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
+                ID3D12VideoEncodeCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn EndQuery<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
+                ID3D12VideoEncodeCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn ResolveQueryData<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: *mut core::ffi::c_void, aligneddestinationbufferoffset: u64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset))
+                ID3D12VideoEncodeCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset));
             }
         }
         unsafe extern "system" fn SetPredication<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation))
+                ID3D12VideoEncodeCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation));
             }
         }
         unsafe extern "system" fn SetMarker<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
+                ID3D12VideoEncodeCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
             }
         }
         unsafe extern "system" fn BeginEvent<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
+                ID3D12VideoEncodeCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
             }
         }
         unsafe extern "system" fn EndEvent<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::EndEvent(this)
+                ID3D12VideoEncodeCommandList_Impl::EndEvent(this);
             }
         }
         unsafe extern "system" fn EstimateMotion<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmotionestimator: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::EstimateMotion(this, core::mem::transmute_copy(&pmotionestimator), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments))
+                ID3D12VideoEncodeCommandList_Impl::EstimateMotion(this, core::mem::transmute_copy(&pmotionestimator), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
             }
         }
         unsafe extern "system" fn ResolveMotionVectorHeap<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::ResolveMotionVectorHeap(this, core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments))
+                ID3D12VideoEncodeCommandList_Impl::ResolveMotionVectorHeap(this, core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
             }
         }
         unsafe extern "system" fn WriteBufferImmediate<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes))
+                ID3D12VideoEncodeCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes));
             }
         }
         unsafe extern "system" fn SetProtectedResourceSession<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprotectedresourcesession: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession))
+                ID3D12VideoEncodeCommandList_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession));
             }
         }
         Self {
@@ -11611,13 +11673,17 @@ impl ID3D12VideoEncodeCommandList1 {
     where
         P0: windows_core::Param<ID3D12VideoExtensionCommand>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes) }
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes);
+        }
     }
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
         P0: windows_core::Param<ID3D12VideoExtensionCommand>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes);
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11643,13 +11709,13 @@ impl ID3D12VideoEncodeCommandList1_Vtbl {
         unsafe extern "system" fn InitializeExtensionCommand<Identity: ID3D12VideoEncodeCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList1_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes))
+                ID3D12VideoEncodeCommandList1_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes));
             }
         }
         unsafe extern "system" fn ExecuteExtensionCommand<Identity: ID3D12VideoEncodeCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList1_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes))
+                ID3D12VideoEncodeCommandList1_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes));
             }
         }
         Self {
@@ -11683,11 +11749,15 @@ impl ID3D12VideoEncodeCommandList2 {
         P0: windows_core::Param<ID3D12VideoEncoder>,
         P1: windows_core::Param<ID3D12VideoEncoderHeap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncodeFrame)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EncodeFrame)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
-        unsafe { (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11719,13 +11789,13 @@ impl ID3D12VideoEncodeCommandList2_Vtbl {
         unsafe extern "system" fn EncodeFrame<Identity: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pencoder: *mut core::ffi::c_void, pheap: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList2_Impl::EncodeFrame(this, core::mem::transmute_copy(&pencoder), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+                ID3D12VideoEncodeCommandList2_Impl::EncodeFrame(this, core::mem::transmute_copy(&pencoder), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
             }
         }
         unsafe extern "system" fn ResolveEncoderOutputMetadata<Identity: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList2_Impl::ResolveEncoderOutputMetadata(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+                ID3D12VideoEncodeCommandList2_Impl::ResolveEncoderOutputMetadata(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
             }
         }
         Self {
@@ -11754,7 +11824,9 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList3, windows_c
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList3 {
     pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
-        unsafe { (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11778,7 +11850,7 @@ impl ID3D12VideoEncodeCommandList3_Vtbl {
         unsafe extern "system" fn Barrier<Identity: ID3D12VideoEncodeCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups))
+                ID3D12VideoEncodeCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups));
             }
         }
         Self { base__: ID3D12VideoEncodeCommandList2_Vtbl::new::<Identity, OFFSET>(), Barrier: Barrier::<Identity, OFFSET> }
@@ -11808,15 +11880,21 @@ impl ID3D12VideoEncodeCommandList4 {
         P0: windows_core::Param<ID3D12VideoEncoder>,
         P1: windows_core::Param<ID3D12VideoEncoderHeap1>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveEncoderOutputMetadata1(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
-        unsafe { (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResolveInputParamLayout(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
-        unsafe { (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -11853,19 +11931,19 @@ impl ID3D12VideoEncodeCommandList4_Vtbl {
         unsafe extern "system" fn EncodeFrame1<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pencoder: *mut core::ffi::c_void, pheap: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList4_Impl::EncodeFrame1(this, core::mem::transmute_copy(&pencoder), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+                ID3D12VideoEncodeCommandList4_Impl::EncodeFrame1(this, core::mem::transmute_copy(&pencoder), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
             }
         }
         unsafe extern "system" fn ResolveEncoderOutputMetadata1<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList4_Impl::ResolveEncoderOutputMetadata1(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+                ID3D12VideoEncodeCommandList4_Impl::ResolveEncoderOutputMetadata1(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
             }
         }
         unsafe extern "system" fn ResolveInputParamLayout<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoEncodeCommandList4_Impl::ResolveInputParamLayout(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments))
+                ID3D12VideoEncodeCommandList4_Impl::ResolveInputParamLayout(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
             }
         }
         Self {
@@ -12232,7 +12310,7 @@ impl ID3D12VideoExtensionCommand_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = ID3D12VideoExtensionCommand_Impl::GetDesc(this)
+                *result__ = ID3D12VideoExtensionCommand_Impl::GetDesc(this);
             }
         }
         unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12307,7 +12385,7 @@ impl ID3D12VideoMotionEstimator_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = ID3D12VideoMotionEstimator_Impl::GetDesc(this)
+                *result__ = ID3D12VideoMotionEstimator_Impl::GetDesc(this);
             }
         }
         unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12382,7 +12460,7 @@ impl ID3D12VideoMotionVectorHeap_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = ID3D12VideoMotionVectorHeap_Impl::GetDesc(this)
+                *result__ = ID3D12VideoMotionVectorHeap_Impl::GetDesc(this);
             }
         }
         unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -12426,59 +12504,83 @@ impl ID3D12VideoProcessCommandList {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), pallocator.param().abi()).ok() }
     }
     pub unsafe fn ClearState(&self) {
-        unsafe { (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
-        unsafe { (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+        }
     }
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
     }
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
     }
     pub unsafe fn ResolveQueryData<P0, P4>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P4, aligneddestinationbufferoffset: u64)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12QueryHeap>,
         P4: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset);
+        }
     }
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation);
+        }
     }
     pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        unsafe { (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
     }
     pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
-        unsafe { (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
     }
     pub unsafe fn EndEvent(&self) {
-        unsafe { (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
     where
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr()));
+        }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
-        unsafe { (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12540,73 +12642,73 @@ impl ID3D12VideoProcessCommandList_Vtbl {
         unsafe extern "system" fn ClearState<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::ClearState(this)
+                ID3D12VideoProcessCommandList_Impl::ClearState(this);
             }
         }
         unsafe extern "system" fn ResourceBarrier<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers))
+                ID3D12VideoProcessCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers));
             }
         }
         unsafe extern "system" fn DiscardResource<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion))
+                ID3D12VideoProcessCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion));
             }
         }
         unsafe extern "system" fn BeginQuery<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
+                ID3D12VideoProcessCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn EndQuery<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index))
+                ID3D12VideoProcessCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn ResolveQueryData<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: *mut core::ffi::c_void, aligneddestinationbufferoffset: u64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset))
+                ID3D12VideoProcessCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset));
             }
         }
         unsafe extern "system" fn SetPredication<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation))
+                ID3D12VideoProcessCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation));
             }
         }
         unsafe extern "system" fn SetMarker<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
+                ID3D12VideoProcessCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
             }
         }
         unsafe extern "system" fn BeginEvent<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size))
+                ID3D12VideoProcessCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
             }
         }
         unsafe extern "system" fn EndEvent<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::EndEvent(this)
+                ID3D12VideoProcessCommandList_Impl::EndEvent(this);
             }
         }
         unsafe extern "system" fn ProcessFrames<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideoprocessor: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::ProcessFrames(this, core::mem::transmute_copy(&pvideoprocessor), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&numinputstreams), core::mem::transmute_copy(&pinputarguments))
+                ID3D12VideoProcessCommandList_Impl::ProcessFrames(this, core::mem::transmute_copy(&pvideoprocessor), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&numinputstreams), core::mem::transmute_copy(&pinputarguments));
             }
         }
         unsafe extern "system" fn WriteBufferImmediate<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes))
+                ID3D12VideoProcessCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes));
             }
         }
         Self {
@@ -12650,7 +12752,9 @@ impl ID3D12VideoProcessCommandList1 {
     where
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr()));
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12674,7 +12778,7 @@ impl ID3D12VideoProcessCommandList1_Vtbl {
         unsafe extern "system" fn ProcessFrames1<Identity: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideoprocessor: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList1_Impl::ProcessFrames1(this, core::mem::transmute_copy(&pvideoprocessor), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&numinputstreams), core::mem::transmute_copy(&pinputarguments))
+                ID3D12VideoProcessCommandList1_Impl::ProcessFrames1(this, core::mem::transmute_copy(&pvideoprocessor), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&numinputstreams), core::mem::transmute_copy(&pinputarguments));
             }
         }
         Self { base__: ID3D12VideoProcessCommandList_Vtbl::new::<Identity, OFFSET>(), ProcessFrames1: ProcessFrames1::<Identity, OFFSET> }
@@ -12702,19 +12806,25 @@ impl ID3D12VideoProcessCommandList2 {
     where
         P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi());
+        }
     }
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
         P0: windows_core::Param<ID3D12VideoExtensionCommand>,
     {
-        unsafe { (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes) }
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes);
+        }
     }
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
         P0: windows_core::Param<ID3D12VideoExtensionCommand>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes);
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12742,19 +12852,19 @@ impl ID3D12VideoProcessCommandList2_Vtbl {
         unsafe extern "system" fn SetProtectedResourceSession<Identity: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprotectedresourcesession: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList2_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession))
+                ID3D12VideoProcessCommandList2_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession));
             }
         }
         unsafe extern "system" fn InitializeExtensionCommand<Identity: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList2_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes))
+                ID3D12VideoProcessCommandList2_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes));
             }
         }
         unsafe extern "system" fn ExecuteExtensionCommand<Identity: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList2_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes))
+                ID3D12VideoProcessCommandList2_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes));
             }
         }
         Self {
@@ -12784,7 +12894,9 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList3, windows_
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList3 {
     pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
-        unsafe { (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+        }
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -12808,7 +12920,7 @@ impl ID3D12VideoProcessCommandList3_Vtbl {
         unsafe extern "system" fn Barrier<Identity: ID3D12VideoProcessCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12VideoProcessCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups))
+                ID3D12VideoProcessCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups));
             }
         }
         Self { base__: ID3D12VideoProcessCommandList2_Vtbl::new::<Identity, OFFSET>(), Barrier: Barrier::<Identity, OFFSET> }
@@ -12902,7 +13014,7 @@ impl ID3D12VideoProcessor_Vtbl {
         unsafe extern "system" fn GetOutputStreamDesc<Identity: ID3D12VideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = ID3D12VideoProcessor_Impl::GetOutputStreamDesc(this)
+                *result__ = ID3D12VideoProcessor_Impl::GetOutputStreamDesc(this);
             }
         }
         Self {
@@ -17804,10 +17916,14 @@ windows_core::imp::define_interface!(IMFBufferListNotify, IMFBufferListNotify_Vt
 windows_core::imp::interface_hierarchy!(IMFBufferListNotify, windows_core::IUnknown);
 impl IMFBufferListNotify {
     pub unsafe fn OnAddSourceBuffer(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnAddSourceBuffer)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnAddSourceBuffer)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnRemoveSourceBuffer(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnRemoveSourceBuffer)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnRemoveSourceBuffer)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -17826,13 +17942,13 @@ impl IMFBufferListNotify_Vtbl {
         unsafe extern "system" fn OnAddSourceBuffer<Identity: IMFBufferListNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFBufferListNotify_Impl::OnAddSourceBuffer(this)
+                IMFBufferListNotify_Impl::OnAddSourceBuffer(this);
             }
         }
         unsafe extern "system" fn OnRemoveSourceBuffer<Identity: IMFBufferListNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFBufferListNotify_Impl::OnRemoveSourceBuffer(this)
+                IMFBufferListNotify_Impl::OnRemoveSourceBuffer(this);
             }
         }
         Self {
@@ -18518,7 +18634,9 @@ impl IMFCameraConfigurationManager {
         unsafe { (windows_core::Interface::vtable(self).SaveDefaults)(windows_core::Interface::as_raw(self), configurations.param().abi()).ok() }
     }
     pub unsafe fn Shutdown(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -18557,7 +18675,7 @@ impl IMFCameraConfigurationManager_Vtbl {
         unsafe extern "system" fn Shutdown<Identity: IMFCameraConfigurationManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCameraConfigurationManager_Impl::Shutdown(this)
+                IMFCameraConfigurationManager_Impl::Shutdown(this);
             }
         }
         Self {
@@ -18797,7 +18915,9 @@ impl IMFCameraControlMonitor {
         unsafe { (windows_core::Interface::vtable(self).RemoveControlSubscription)(windows_core::Interface::as_raw(self), core::mem::transmute(controlset), id).ok() }
     }
     pub unsafe fn Shutdown(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -18846,7 +18966,7 @@ impl IMFCameraControlMonitor_Vtbl {
         unsafe extern "system" fn Shutdown<Identity: IMFCameraControlMonitor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCameraControlMonitor_Impl::Shutdown(this)
+                IMFCameraControlMonitor_Impl::Shutdown(this);
             }
         }
         Self {
@@ -18867,10 +18987,14 @@ windows_core::imp::define_interface!(IMFCameraControlNotify, IMFCameraControlNot
 windows_core::imp::interface_hierarchy!(IMFCameraControlNotify, windows_core::IUnknown);
 impl IMFCameraControlNotify {
     pub unsafe fn OnChange(&self, controlset: *const windows_core::GUID, id: u32) {
-        unsafe { (windows_core::Interface::vtable(self).OnChange)(windows_core::Interface::as_raw(self), controlset, id) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnChange)(windows_core::Interface::as_raw(self), controlset, id);
+        }
     }
     pub unsafe fn OnError(&self, hrstatus: windows_core::HRESULT) {
-        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), hrstatus) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), hrstatus);
+        }
     }
 }
 #[repr(C)]
@@ -18889,13 +19013,13 @@ impl IMFCameraControlNotify_Vtbl {
         unsafe extern "system" fn OnChange<Identity: IMFCameraControlNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, controlset: *const windows_core::GUID, id: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCameraControlNotify_Impl::OnChange(this, core::mem::transmute_copy(&controlset), core::mem::transmute_copy(&id))
+                IMFCameraControlNotify_Impl::OnChange(this, core::mem::transmute_copy(&controlset), core::mem::transmute_copy(&id));
             }
         }
         unsafe extern "system" fn OnError<Identity: IMFCameraControlNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrstatus: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCameraControlNotify_Impl::OnError(this, core::mem::transmute_copy(&hrstatus))
+                IMFCameraControlNotify_Impl::OnError(this, core::mem::transmute_copy(&hrstatus));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnChange: OnChange::<Identity, OFFSET>, OnError: OnError::<Identity, OFFSET> }
@@ -19044,7 +19168,9 @@ impl IMFCameraSyncObject {
         unsafe { (windows_core::Interface::vtable(self).WaitOnSignal)(windows_core::Interface::as_raw(self), timeoutinms).ok() }
     }
     pub unsafe fn Shutdown(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -19069,7 +19195,7 @@ impl IMFCameraSyncObject_Vtbl {
         unsafe extern "system" fn Shutdown<Identity: IMFCameraSyncObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFCameraSyncObject_Impl::Shutdown(this)
+                IMFCameraSyncObject_Impl::Shutdown(this);
             }
         }
         Self {
@@ -21923,10 +22049,14 @@ impl IMFDesiredSample {
         unsafe { (windows_core::Interface::vtable(self).GetDesiredSampleTimeAndDuration)(windows_core::Interface::as_raw(self), phnssampletime as _, phnssampleduration as _).ok() }
     }
     pub unsafe fn SetDesiredSampleTimeAndDuration(&self, hnssampletime: i64, hnssampleduration: i64) {
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredSampleTimeAndDuration)(windows_core::Interface::as_raw(self), hnssampletime, hnssampleduration) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetDesiredSampleTimeAndDuration)(windows_core::Interface::as_raw(self), hnssampletime, hnssampleduration);
+        }
     }
     pub unsafe fn Clear(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -21953,13 +22083,13 @@ impl IMFDesiredSample_Vtbl {
         unsafe extern "system" fn SetDesiredSampleTimeAndDuration<Identity: IMFDesiredSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hnssampletime: i64, hnssampleduration: i64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDesiredSample_Impl::SetDesiredSampleTimeAndDuration(this, core::mem::transmute_copy(&hnssampletime), core::mem::transmute_copy(&hnssampleduration))
+                IMFDesiredSample_Impl::SetDesiredSampleTimeAndDuration(this, core::mem::transmute_copy(&hnssampletime), core::mem::transmute_copy(&hnssampleduration));
             }
         }
         unsafe extern "system" fn Clear<Identity: IMFDesiredSample_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFDesiredSample_Impl::Clear(this)
+                IMFDesiredSample_Impl::Clear(this);
             }
         }
         Self {
@@ -22913,7 +23043,9 @@ windows_core::imp::define_interface!(IMFFaceDetectionTransformCallback, IMFFaceD
 windows_core::imp::interface_hierarchy!(IMFFaceDetectionTransformCallback, windows_core::IUnknown);
 impl IMFFaceDetectionTransformCallback {
     pub unsafe fn OnFaceDetectionResult(&self, detectedfacebounds: &[DetectedFaceBound]) {
-        unsafe { (windows_core::Interface::vtable(self).OnFaceDetectionResult)(windows_core::Interface::as_raw(self), detectedfacebounds.len().try_into().unwrap(), core::mem::transmute(detectedfacebounds.as_ptr())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnFaceDetectionResult)(windows_core::Interface::as_raw(self), detectedfacebounds.len().try_into().unwrap(), core::mem::transmute(detectedfacebounds.as_ptr()));
+        }
     }
 }
 #[repr(C)]
@@ -22930,7 +23062,7 @@ impl IMFFaceDetectionTransformCallback_Vtbl {
         unsafe extern "system" fn OnFaceDetectionResult<Identity: IMFFaceDetectionTransformCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, countofbounds: u32, detectedfacebounds: *const DetectedFaceBound) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFFaceDetectionTransformCallback_Impl::OnFaceDetectionResult(this, core::mem::transmute_copy(&countofbounds), core::mem::transmute_copy(&detectedfacebounds))
+                IMFFaceDetectionTransformCallback_Impl::OnFaceDetectionResult(this, core::mem::transmute_copy(&countofbounds), core::mem::transmute_copy(&detectedfacebounds));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnFaceDetectionResult: OnFaceDetectionResult::<Identity, OFFSET> }
@@ -24893,10 +25025,14 @@ windows_core::imp::define_interface!(IMFMediaEngineEMENotify, IMFMediaEngineEMEN
 windows_core::imp::interface_hierarchy!(IMFMediaEngineEMENotify, windows_core::IUnknown);
 impl IMFMediaEngineEMENotify {
     pub unsafe fn Encrypted(&self, pbinitdata: Option<&[u8]>, bstrinitdatatype: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), core::mem::transmute(pbinitdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(bstrinitdatatype)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), core::mem::transmute(pbinitdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(bstrinitdatatype));
+        }
     }
     pub unsafe fn WaitingForKey(&self) {
-        unsafe { (windows_core::Interface::vtable(self).WaitingForKey)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).WaitingForKey)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -24915,13 +25051,13 @@ impl IMFMediaEngineEMENotify_Vtbl {
         unsafe extern "system" fn Encrypted<Identity: IMFMediaEngineEMENotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbinitdata: *const u8, cb: u32, bstrinitdatatype: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngineEMENotify_Impl::Encrypted(this, core::mem::transmute_copy(&pbinitdata), core::mem::transmute_copy(&cb), core::mem::transmute(&bstrinitdatatype))
+                IMFMediaEngineEMENotify_Impl::Encrypted(this, core::mem::transmute_copy(&pbinitdata), core::mem::transmute_copy(&cb), core::mem::transmute(&bstrinitdatatype));
             }
         }
         unsafe extern "system" fn WaitingForKey<Identity: IMFMediaEngineEMENotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngineEMENotify_Impl::WaitingForKey(this)
+                IMFMediaEngineEMENotify_Impl::WaitingForKey(this);
             }
         }
         Self {
@@ -25660,7 +25796,9 @@ windows_core::imp::define_interface!(IMFMediaEngineNeedKeyNotify, IMFMediaEngine
 windows_core::imp::interface_hierarchy!(IMFMediaEngineNeedKeyNotify, windows_core::IUnknown);
 impl IMFMediaEngineNeedKeyNotify {
     pub unsafe fn NeedKey(&self, initdata: Option<&[u8]>) {
-        unsafe { (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), core::mem::transmute(initdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe {
+            (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), core::mem::transmute(initdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()));
+        }
     }
 }
 #[repr(C)]
@@ -25677,7 +25815,7 @@ impl IMFMediaEngineNeedKeyNotify_Vtbl {
         unsafe extern "system" fn NeedKey<Identity: IMFMediaEngineNeedKeyNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initdata: *const u8, cb: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaEngineNeedKeyNotify_Impl::NeedKey(this, core::mem::transmute_copy(&initdata), core::mem::transmute_copy(&cb))
+                IMFMediaEngineNeedKeyNotify_Impl::NeedKey(this, core::mem::transmute_copy(&initdata), core::mem::transmute_copy(&cb));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), NeedKey: NeedKey::<Identity, OFFSET> }
@@ -26882,13 +27020,19 @@ windows_core::imp::define_interface!(IMFMediaKeySessionNotify, IMFMediaKeySessio
 windows_core::imp::interface_hierarchy!(IMFMediaKeySessionNotify, windows_core::IUnknown);
 impl IMFMediaKeySessionNotify {
     pub unsafe fn KeyMessage(&self, destinationurl: &windows_core::BSTR, message: &[u8]) {
-        unsafe { (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destinationurl), core::mem::transmute(message.as_ptr()), message.len().try_into().unwrap()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destinationurl), core::mem::transmute(message.as_ptr()), message.len().try_into().unwrap());
+        }
     }
     pub unsafe fn KeyAdded(&self) {
-        unsafe { (windows_core::Interface::vtable(self).KeyAdded)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyAdded)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn KeyError(&self, code: u16, systemcode: u32) {
-        unsafe { (windows_core::Interface::vtable(self).KeyError)(windows_core::Interface::as_raw(self), code, systemcode) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyError)(windows_core::Interface::as_raw(self), code, systemcode);
+        }
     }
 }
 #[repr(C)]
@@ -26909,19 +27053,19 @@ impl IMFMediaKeySessionNotify_Vtbl {
         unsafe extern "system" fn KeyMessage<Identity: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationurl: *mut core::ffi::c_void, message: *const u8, cb: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaKeySessionNotify_Impl::KeyMessage(this, core::mem::transmute(&destinationurl), core::mem::transmute_copy(&message), core::mem::transmute_copy(&cb))
+                IMFMediaKeySessionNotify_Impl::KeyMessage(this, core::mem::transmute(&destinationurl), core::mem::transmute_copy(&message), core::mem::transmute_copy(&cb));
             }
         }
         unsafe extern "system" fn KeyAdded<Identity: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaKeySessionNotify_Impl::KeyAdded(this)
+                IMFMediaKeySessionNotify_Impl::KeyAdded(this);
             }
         }
         unsafe extern "system" fn KeyError<Identity: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, code: u16, systemcode: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaKeySessionNotify_Impl::KeyError(this, core::mem::transmute_copy(&code), core::mem::transmute_copy(&systemcode))
+                IMFMediaKeySessionNotify_Impl::KeyError(this, core::mem::transmute_copy(&code), core::mem::transmute_copy(&systemcode));
             }
         }
         Self {
@@ -26946,10 +27090,14 @@ impl core::ops::Deref for IMFMediaKeySessionNotify2 {
 windows_core::imp::interface_hierarchy!(IMFMediaKeySessionNotify2, windows_core::IUnknown, IMFMediaKeySessionNotify);
 impl IMFMediaKeySessionNotify2 {
     pub unsafe fn KeyMessage2(&self, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: &windows_core::BSTR, pbmessage: &[u8]) {
-        unsafe { (windows_core::Interface::vtable(self).KeyMessage2)(windows_core::Interface::as_raw(self), emessagetype, core::mem::transmute_copy(destinationurl), core::mem::transmute(pbmessage.as_ptr()), pbmessage.len().try_into().unwrap()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyMessage2)(windows_core::Interface::as_raw(self), emessagetype, core::mem::transmute_copy(destinationurl), core::mem::transmute(pbmessage.as_ptr()), pbmessage.len().try_into().unwrap());
+        }
     }
     pub unsafe fn KeyStatusChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).KeyStatusChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyStatusChange)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -26968,13 +27116,13 @@ impl IMFMediaKeySessionNotify2_Vtbl {
         unsafe extern "system" fn KeyMessage2<Identity: IMFMediaKeySessionNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: *mut core::ffi::c_void, pbmessage: *const u8, cbmessage: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaKeySessionNotify2_Impl::KeyMessage2(this, core::mem::transmute_copy(&emessagetype), core::mem::transmute(&destinationurl), core::mem::transmute_copy(&pbmessage), core::mem::transmute_copy(&cbmessage))
+                IMFMediaKeySessionNotify2_Impl::KeyMessage2(this, core::mem::transmute_copy(&emessagetype), core::mem::transmute(&destinationurl), core::mem::transmute_copy(&pbmessage), core::mem::transmute_copy(&cbmessage));
             }
         }
         unsafe extern "system" fn KeyStatusChange<Identity: IMFMediaKeySessionNotify2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaKeySessionNotify2_Impl::KeyStatusChange(this)
+                IMFMediaKeySessionNotify2_Impl::KeyStatusChange(this);
             }
         }
         Self {
@@ -28224,13 +28372,19 @@ windows_core::imp::define_interface!(IMFMediaSourceExtensionNotify, IMFMediaSour
 windows_core::imp::interface_hierarchy!(IMFMediaSourceExtensionNotify, windows_core::IUnknown);
 impl IMFMediaSourceExtensionNotify {
     pub unsafe fn OnSourceOpen(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnSourceOpen)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnSourceOpen)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnSourceEnded(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnSourceEnded)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnSourceEnded)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnSourceClose(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnSourceClose)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnSourceClose)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -28251,19 +28405,19 @@ impl IMFMediaSourceExtensionNotify_Vtbl {
         unsafe extern "system" fn OnSourceOpen<Identity: IMFMediaSourceExtensionNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaSourceExtensionNotify_Impl::OnSourceOpen(this)
+                IMFMediaSourceExtensionNotify_Impl::OnSourceOpen(this);
             }
         }
         unsafe extern "system" fn OnSourceEnded<Identity: IMFMediaSourceExtensionNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaSourceExtensionNotify_Impl::OnSourceEnded(this)
+                IMFMediaSourceExtensionNotify_Impl::OnSourceEnded(this);
             }
         }
         unsafe extern "system" fn OnSourceClose<Identity: IMFMediaSourceExtensionNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFMediaSourceExtensionNotify_Impl::OnSourceClose(this)
+                IMFMediaSourceExtensionNotify_Impl::OnSourceClose(this);
             }
         }
         Self {
@@ -31543,7 +31697,9 @@ windows_core::imp::interface_hierarchy!(IMFPMediaPlayerCallback, windows_core::I
 impl IMFPMediaPlayerCallback {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER) {
-        unsafe { (windows_core::Interface::vtable(self).OnMediaPlayerEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(peventheader)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnMediaPlayerEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(peventheader));
+        }
     }
 }
 #[repr(C)]
@@ -31565,7 +31721,7 @@ impl IMFPMediaPlayerCallback_Vtbl {
         unsafe extern "system" fn OnMediaPlayerEvent<Identity: IMFPMediaPlayerCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventheader: *const MFP_EVENT_HEADER) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFPMediaPlayerCallback_Impl::OnMediaPlayerEvent(this, core::mem::transmute_copy(&peventheader))
+                IMFPMediaPlayerCallback_Impl::OnMediaPlayerEvent(this, core::mem::transmute_copy(&peventheader));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnMediaPlayerEvent: OnMediaPlayerEvent::<Identity, OFFSET> }
@@ -34874,10 +35030,14 @@ impl IMFSensorProfileCollection {
         }
     }
     pub unsafe fn RemoveProfileByIndex(&self, index: u32) {
-        unsafe { (windows_core::Interface::vtable(self).RemoveProfileByIndex)(windows_core::Interface::as_raw(self), index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).RemoveProfileByIndex)(windows_core::Interface::as_raw(self), index);
+        }
     }
     pub unsafe fn RemoveProfile(&self, profileid: *const SENSORPROFILEID) {
-        unsafe { (windows_core::Interface::vtable(self).RemoveProfile)(windows_core::Interface::as_raw(self), profileid) }
+        unsafe {
+            (windows_core::Interface::vtable(self).RemoveProfile)(windows_core::Interface::as_raw(self), profileid);
+        }
     }
 }
 #[repr(C)]
@@ -34940,13 +35100,13 @@ impl IMFSensorProfileCollection_Vtbl {
         unsafe extern "system" fn RemoveProfileByIndex<Identity: IMFSensorProfileCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSensorProfileCollection_Impl::RemoveProfileByIndex(this, core::mem::transmute_copy(&index))
+                IMFSensorProfileCollection_Impl::RemoveProfileByIndex(this, core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn RemoveProfile<Identity: IMFSensorProfileCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, profileid: *const SENSORPROFILEID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSensorProfileCollection_Impl::RemoveProfile(this, core::mem::transmute_copy(&profileid))
+                IMFSensorProfileCollection_Impl::RemoveProfile(this, core::mem::transmute_copy(&profileid));
             }
         }
         Self {
@@ -36129,19 +36289,29 @@ windows_core::imp::define_interface!(IMFSourceBufferNotify, IMFSourceBufferNotif
 windows_core::imp::interface_hierarchy!(IMFSourceBufferNotify, windows_core::IUnknown);
 impl IMFSourceBufferNotify {
     pub unsafe fn OnUpdateStart(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnUpdateStart)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnUpdateStart)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnAbort(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnAbort)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnAbort)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnError(&self, hr: windows_core::HRESULT) {
-        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), hr) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), hr);
+        }
     }
     pub unsafe fn OnUpdate(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnUpdate)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnUpdate)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnUpdateEnd(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnUpdateEnd)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnUpdateEnd)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -36166,31 +36336,31 @@ impl IMFSourceBufferNotify_Vtbl {
         unsafe extern "system" fn OnUpdateStart<Identity: IMFSourceBufferNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSourceBufferNotify_Impl::OnUpdateStart(this)
+                IMFSourceBufferNotify_Impl::OnUpdateStart(this);
             }
         }
         unsafe extern "system" fn OnAbort<Identity: IMFSourceBufferNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSourceBufferNotify_Impl::OnAbort(this)
+                IMFSourceBufferNotify_Impl::OnAbort(this);
             }
         }
         unsafe extern "system" fn OnError<Identity: IMFSourceBufferNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSourceBufferNotify_Impl::OnError(this, core::mem::transmute_copy(&hr))
+                IMFSourceBufferNotify_Impl::OnError(this, core::mem::transmute_copy(&hr));
             }
         }
         unsafe extern "system" fn OnUpdate<Identity: IMFSourceBufferNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSourceBufferNotify_Impl::OnUpdate(this)
+                IMFSourceBufferNotify_Impl::OnUpdate(this);
             }
         }
         unsafe extern "system" fn OnUpdateEnd<Identity: IMFSourceBufferNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFSourceBufferNotify_Impl::OnUpdateEnd(this)
+                IMFSourceBufferNotify_Impl::OnUpdateEnd(this);
             }
         }
         Self {
@@ -38223,28 +38393,42 @@ windows_core::imp::define_interface!(IMFTimedTextNotify, IMFTimedTextNotify_Vtbl
 windows_core::imp::interface_hierarchy!(IMFTimedTextNotify, windows_core::IUnknown);
 impl IMFTimedTextNotify {
     pub unsafe fn TrackAdded(&self, trackid: u32) {
-        unsafe { (windows_core::Interface::vtable(self).TrackAdded)(windows_core::Interface::as_raw(self), trackid) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TrackAdded)(windows_core::Interface::as_raw(self), trackid);
+        }
     }
     pub unsafe fn TrackRemoved(&self, trackid: u32) {
-        unsafe { (windows_core::Interface::vtable(self).TrackRemoved)(windows_core::Interface::as_raw(self), trackid) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TrackRemoved)(windows_core::Interface::as_raw(self), trackid);
+        }
     }
     pub unsafe fn TrackSelected(&self, trackid: u32, selected: bool) {
-        unsafe { (windows_core::Interface::vtable(self).TrackSelected)(windows_core::Interface::as_raw(self), trackid, selected.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TrackSelected)(windows_core::Interface::as_raw(self), trackid, selected.into());
+        }
     }
     pub unsafe fn TrackReadyStateChanged(&self, trackid: u32) {
-        unsafe { (windows_core::Interface::vtable(self).TrackReadyStateChanged)(windows_core::Interface::as_raw(self), trackid) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TrackReadyStateChanged)(windows_core::Interface::as_raw(self), trackid);
+        }
     }
     pub unsafe fn Error(&self, errorcode: MF_TIMED_TEXT_ERROR_CODE, extendederrorcode: windows_core::HRESULT, sourcetrackid: u32) {
-        unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), errorcode, extendederrorcode, sourcetrackid) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), errorcode, extendederrorcode, sourcetrackid);
+        }
     }
     pub unsafe fn Cue<P2>(&self, cueevent: MF_TIMED_TEXT_CUE_EVENT, currenttime: f64, cue: P2)
     where
         P2: windows_core::Param<IMFTimedTextCue>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Cue)(windows_core::Interface::as_raw(self), cueevent, currenttime, cue.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Cue)(windows_core::Interface::as_raw(self), cueevent, currenttime, cue.param().abi());
+        }
     }
     pub unsafe fn Reset(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -38273,43 +38457,43 @@ impl IMFTimedTextNotify_Vtbl {
         unsafe extern "system" fn TrackAdded<Identity: IMFTimedTextNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackid: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTimedTextNotify_Impl::TrackAdded(this, core::mem::transmute_copy(&trackid))
+                IMFTimedTextNotify_Impl::TrackAdded(this, core::mem::transmute_copy(&trackid));
             }
         }
         unsafe extern "system" fn TrackRemoved<Identity: IMFTimedTextNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackid: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTimedTextNotify_Impl::TrackRemoved(this, core::mem::transmute_copy(&trackid))
+                IMFTimedTextNotify_Impl::TrackRemoved(this, core::mem::transmute_copy(&trackid));
             }
         }
         unsafe extern "system" fn TrackSelected<Identity: IMFTimedTextNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackid: u32, selected: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTimedTextNotify_Impl::TrackSelected(this, core::mem::transmute_copy(&trackid), core::mem::transmute_copy(&selected))
+                IMFTimedTextNotify_Impl::TrackSelected(this, core::mem::transmute_copy(&trackid), core::mem::transmute_copy(&selected));
             }
         }
         unsafe extern "system" fn TrackReadyStateChanged<Identity: IMFTimedTextNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, trackid: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTimedTextNotify_Impl::TrackReadyStateChanged(this, core::mem::transmute_copy(&trackid))
+                IMFTimedTextNotify_Impl::TrackReadyStateChanged(this, core::mem::transmute_copy(&trackid));
             }
         }
         unsafe extern "system" fn Error<Identity: IMFTimedTextNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorcode: MF_TIMED_TEXT_ERROR_CODE, extendederrorcode: windows_core::HRESULT, sourcetrackid: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTimedTextNotify_Impl::Error(this, core::mem::transmute_copy(&errorcode), core::mem::transmute_copy(&extendederrorcode), core::mem::transmute_copy(&sourcetrackid))
+                IMFTimedTextNotify_Impl::Error(this, core::mem::transmute_copy(&errorcode), core::mem::transmute_copy(&extendederrorcode), core::mem::transmute_copy(&sourcetrackid));
             }
         }
         unsafe extern "system" fn Cue<Identity: IMFTimedTextNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cueevent: MF_TIMED_TEXT_CUE_EVENT, currenttime: f64, cue: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTimedTextNotify_Impl::Cue(this, core::mem::transmute_copy(&cueevent), core::mem::transmute_copy(&currenttime), core::mem::transmute_copy(&cue))
+                IMFTimedTextNotify_Impl::Cue(this, core::mem::transmute_copy(&cueevent), core::mem::transmute_copy(&currenttime), core::mem::transmute_copy(&cue));
             }
         }
         unsafe extern "system" fn Reset<Identity: IMFTimedTextNotify_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTimedTextNotify_Impl::Reset(this)
+                IMFTimedTextNotify_Impl::Reset(this);
             }
         }
         Self {
@@ -45342,12 +45526,12 @@ impl core::ops::BitAnd for MFCameraOcclusionState {
 }
 impl core::ops::BitOrAssign for MFCameraOcclusionState {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MFCameraOcclusionState {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MFCameraOcclusionState {
@@ -46196,12 +46380,12 @@ impl core::ops::BitAnd for MFT_ENUM_FLAG {
 }
 impl core::ops::BitOrAssign for MFT_ENUM_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MFT_ENUM_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MFT_ENUM_FLAG {
@@ -48109,12 +48293,12 @@ impl core::ops::BitAnd for MF_RESOLUTION_FLAGS {
 }
 impl core::ops::BitOrAssign for MF_RESOLUTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MF_RESOLUTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MF_RESOLUTION_FLAGS {
@@ -48275,12 +48459,12 @@ impl core::ops::BitAnd for MF_SOURCE_READER_CONTROL_FLAG {
 }
 impl core::ops::BitOrAssign for MF_SOURCE_READER_CONTROL_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MF_SOURCE_READER_CONTROL_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MF_SOURCE_READER_CONTROL_FLAG {
@@ -48325,12 +48509,12 @@ impl core::ops::BitAnd for MF_SOURCE_READER_FLAG {
 }
 impl core::ops::BitOrAssign for MF_SOURCE_READER_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MF_SOURCE_READER_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MF_SOURCE_READER_FLAG {
@@ -48728,12 +48912,12 @@ impl core::ops::BitAnd for MPEG2VIDEOINFO_FLAGS {
 }
 impl core::ops::BitOrAssign for MPEG2VIDEOINFO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MPEG2VIDEOINFO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MPEG2VIDEOINFO_FLAGS {
@@ -49013,12 +49197,12 @@ impl core::ops::BitAnd for OPM_HDCP_FLAGS {
 }
 impl core::ops::BitOrAssign for OPM_HDCP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OPM_HDCP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OPM_HDCP_FLAGS {
@@ -49275,12 +49459,12 @@ impl core::ops::BitAnd for PLAYTO_SOURCE_CREATEFLAGS {
 }
 impl core::ops::BitOrAssign for PLAYTO_SOURCE_CREATEFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PLAYTO_SOURCE_CREATEFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PLAYTO_SOURCE_CREATEFLAGS {

@@ -792,12 +792,12 @@ impl core::ops::BitAnd for FileAttributes {
 }
 impl core::ops::BitOrAssign for FileAttributes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FileAttributes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FileAttributes {
@@ -5038,12 +5038,12 @@ impl core::ops::BitAnd for StorageItemTypes {
 }
 impl core::ops::BitOrAssign for StorageItemTypes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for StorageItemTypes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for StorageItemTypes {
@@ -5391,12 +5391,12 @@ impl core::ops::BitAnd for StorageOpenOptions {
 }
 impl core::ops::BitOrAssign for StorageOpenOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for StorageOpenOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for StorageOpenOptions {

@@ -6843,12 +6843,12 @@ impl core::ops::BitAnd for NTCREATEFILE_CREATE_OPTIONS {
 }
 impl core::ops::BitOrAssign for NTCREATEFILE_CREATE_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NTCREATEFILE_CREATE_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NTCREATEFILE_CREATE_OPTIONS {

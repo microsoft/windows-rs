@@ -182,7 +182,7 @@ impl Ord for HSTRING {
 
 impl core::hash::Hash for HSTRING {
     fn hash<H: core::hash::Hasher>(&self, hasher: &mut H) {
-        self.deref().hash(hasher)
+        self.deref().hash(hasher);
     }
 }
 

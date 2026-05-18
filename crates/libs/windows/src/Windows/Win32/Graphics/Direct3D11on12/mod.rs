@@ -42,11 +42,15 @@ impl ID3D11On12Device {
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn ReleaseWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap());
+        }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
     pub unsafe fn AcquireWrappedResources(&self, ppresources: &[Option<super::Direct3D11::ID3D11Resource>]) {
-        unsafe { (windows_core::Interface::vtable(self).AcquireWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).AcquireWrappedResources)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), ppresources.len().try_into().unwrap());
+        }
     }
 }
 #[repr(C)]
@@ -86,13 +90,13 @@ impl ID3D11On12Device_Vtbl {
         unsafe extern "system" fn ReleaseWrappedResources<Identity: ID3D11On12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresources: *const *mut core::ffi::c_void, numresources: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11On12Device_Impl::ReleaseWrappedResources(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&numresources))
+                ID3D11On12Device_Impl::ReleaseWrappedResources(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&numresources));
             }
         }
         unsafe extern "system" fn AcquireWrappedResources<Identity: ID3D11On12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresources: *const *mut core::ffi::c_void, numresources: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11On12Device_Impl::AcquireWrappedResources(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&numresources))
+                ID3D11On12Device_Impl::AcquireWrappedResources(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&numresources));
             }
         }
         Self {

@@ -794,12 +794,12 @@ impl core::ops::BitAnd for TextBoxFeatures {
 }
 impl core::ops::BitOrAssign for TextBoxFeatures {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TextBoxFeatures {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TextBoxFeatures {
@@ -932,12 +932,12 @@ impl core::ops::BitAnd for TextBoxSettings {
 }
 impl core::ops::BitOrAssign for TextBoxSettings {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TextBoxSettings {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TextBoxSettings {
@@ -1492,12 +1492,12 @@ impl core::ops::BitAnd for TextStyleAttributes {
 }
 impl core::ops::BitOrAssign for TextStyleAttributes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TextStyleAttributes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TextStyleAttributes {

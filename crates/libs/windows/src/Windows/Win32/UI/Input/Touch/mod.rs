@@ -77,12 +77,12 @@ impl core::ops::BitAnd for GESTURECONFIG_ID {
 }
 impl core::ops::BitOrAssign for GESTURECONFIG_ID {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GESTURECONFIG_ID {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GESTURECONFIG_ID {
@@ -1375,12 +1375,12 @@ impl core::ops::BitAnd for MANIPULATION_PROCESSOR_MANIPULATIONS {
 }
 impl core::ops::BitOrAssign for MANIPULATION_PROCESSOR_MANIPULATIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MANIPULATION_PROCESSOR_MANIPULATIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MANIPULATION_PROCESSOR_MANIPULATIONS {
@@ -1420,12 +1420,12 @@ impl core::ops::BitAnd for TOUCHEVENTF_FLAGS {
 }
 impl core::ops::BitOrAssign for TOUCHEVENTF_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TOUCHEVENTF_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TOUCHEVENTF_FLAGS {
@@ -1479,12 +1479,12 @@ impl core::ops::BitAnd for TOUCHINPUTMASKF_MASK {
 }
 impl core::ops::BitOrAssign for TOUCHINPUTMASKF_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TOUCHINPUTMASKF_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TOUCHINPUTMASKF_MASK {

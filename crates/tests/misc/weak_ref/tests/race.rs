@@ -25,7 +25,7 @@ fn test_race() {
     for i in 0..CONCURRENCY {
         let ref_count = ref_count.clone();
         threads.push(std::thread::spawn(move || {
-            run_increment(ref_count, &PROGRESS[i])
+            run_increment(ref_count, &PROGRESS[i]);
         }));
     }
 

@@ -1879,7 +1879,9 @@ impl IMemoryAllocator {
         unsafe { (windows_core::Interface::vtable(self).Allocate)(windows_core::Interface::as_raw(self), cbsize) }
     }
     pub unsafe fn Free(&self, pv: *mut core::ffi::c_void) {
-        unsafe { (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pv as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pv as _);
+        }
     }
 }
 #[repr(C)]
@@ -1905,7 +1907,7 @@ impl IMemoryAllocator_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IMemoryAllocator_Impl::Free(this, core::mem::transmute_copy(&pv))
+                IMemoryAllocator_Impl::Free(this, core::mem::transmute_copy(&pv));
             }
         }
         Self { Allocate: Allocate::<Identity>, Free: Free::<Identity> }
@@ -3091,12 +3093,12 @@ impl core::ops::BitAnd for PROPVAR_CHANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPVAR_CHANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPVAR_CHANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPVAR_CHANGE_FLAGS {
@@ -3127,12 +3129,12 @@ impl core::ops::BitAnd for PROPVAR_COMPARE_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPVAR_COMPARE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPVAR_COMPARE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPVAR_COMPARE_FLAGS {

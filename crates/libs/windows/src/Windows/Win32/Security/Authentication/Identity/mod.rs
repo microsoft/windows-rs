@@ -1470,12 +1470,12 @@ impl core::ops::BitAnd for ASC_REQ_FLAGS {
 }
 impl core::ops::BitOrAssign for ASC_REQ_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ASC_REQ_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ASC_REQ_FLAGS {
@@ -1508,12 +1508,12 @@ impl core::ops::BitAnd for ASC_REQ_HIGH_FLAGS {
 }
 impl core::ops::BitOrAssign for ASC_REQ_HIGH_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ASC_REQ_HIGH_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ASC_REQ_HIGH_FLAGS {
@@ -1809,12 +1809,12 @@ impl core::ops::BitAnd for DOMAIN_PASSWORD_PROPERTIES {
 }
 impl core::ops::BitOrAssign for DOMAIN_PASSWORD_PROPERTIES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DOMAIN_PASSWORD_PROPERTIES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DOMAIN_PASSWORD_PROPERTIES {
@@ -1865,12 +1865,12 @@ impl core::ops::BitAnd for EXPORT_SECURITY_CONTEXT_FLAGS {
 }
 impl core::ops::BitOrAssign for EXPORT_SECURITY_CONTEXT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for EXPORT_SECURITY_CONTEXT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for EXPORT_SECURITY_CONTEXT_FLAGS {
@@ -1977,12 +1977,12 @@ impl core::ops::BitAnd for ISC_REQ_FLAGS {
 }
 impl core::ops::BitOrAssign for ISC_REQ_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ISC_REQ_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ISC_REQ_FLAGS {
@@ -2016,12 +2016,12 @@ impl core::ops::BitAnd for ISC_REQ_HIGH_FLAGS {
 }
 impl core::ops::BitOrAssign for ISC_REQ_HIGH_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ISC_REQ_HIGH_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ISC_REQ_HIGH_FLAGS {
@@ -2922,12 +2922,12 @@ impl core::ops::BitAnd for KERB_TICKET_FLAGS {
 }
 impl core::ops::BitOrAssign for KERB_TICKET_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for KERB_TICKET_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for KERB_TICKET_FLAGS {
@@ -3966,12 +3966,12 @@ impl core::ops::BitAnd for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
 }
 impl core::ops::BitOrAssign for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
@@ -4005,12 +4005,12 @@ impl core::ops::BitAnd for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
 }
 impl core::ops::BitOrAssign for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
@@ -4812,12 +4812,12 @@ impl core::ops::BitAnd for SCHANNEL_CRED_FLAGS {
 }
 impl core::ops::BitOrAssign for SCHANNEL_CRED_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SCHANNEL_CRED_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SCHANNEL_CRED_FLAGS {
@@ -6970,12 +6970,12 @@ impl core::ops::BitAnd for SchGetExtensionsOptions {
 }
 impl core::ops::BitOrAssign for SchGetExtensionsOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SchGetExtensionsOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SchGetExtensionsOptions {

@@ -426,12 +426,12 @@ impl core::ops::BitAnd for BluetoothLEAdvertisementFlags {
 }
 impl core::ops::BitOrAssign for BluetoothLEAdvertisementFlags {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BluetoothLEAdvertisementFlags {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BluetoothLEAdvertisementFlags {

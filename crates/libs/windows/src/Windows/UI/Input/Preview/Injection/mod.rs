@@ -322,12 +322,12 @@ impl core::ops::BitAnd for InjectedInputKeyOptions {
 }
 impl core::ops::BitOrAssign for InjectedInputKeyOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for InjectedInputKeyOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for InjectedInputKeyOptions {
@@ -499,12 +499,12 @@ impl core::ops::BitAnd for InjectedInputMouseOptions {
 }
 impl core::ops::BitOrAssign for InjectedInputMouseOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for InjectedInputMouseOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for InjectedInputMouseOptions {
@@ -547,12 +547,12 @@ impl core::ops::BitAnd for InjectedInputPenButtons {
 }
 impl core::ops::BitOrAssign for InjectedInputPenButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for InjectedInputPenButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for InjectedInputPenButtons {
@@ -682,12 +682,12 @@ impl core::ops::BitAnd for InjectedInputPenParameters {
 }
 impl core::ops::BitOrAssign for InjectedInputPenParameters {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for InjectedInputPenParameters {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for InjectedInputPenParameters {
@@ -766,12 +766,12 @@ impl core::ops::BitAnd for InjectedInputPointerOptions {
 }
 impl core::ops::BitOrAssign for InjectedInputPointerOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for InjectedInputPointerOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for InjectedInputPointerOptions {
@@ -910,12 +910,12 @@ impl core::ops::BitAnd for InjectedInputTouchParameters {
 }
 impl core::ops::BitOrAssign for InjectedInputTouchParameters {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for InjectedInputTouchParameters {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for InjectedInputTouchParameters {

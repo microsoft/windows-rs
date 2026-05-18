@@ -1117,7 +1117,9 @@ impl IMetaDataAssemblyImport {
         unsafe { (windows_core::Interface::vtable(self).FindManifestResourceByName)(windows_core::Interface::as_raw(self), szname.param().abi(), ptkmanifestresource as _).ok() }
     }
     pub unsafe fn CloseEnum(&self, henum: *mut core::ffi::c_void) {
-        unsafe { (windows_core::Interface::vtable(self).CloseEnum)(windows_core::Interface::as_raw(self), henum as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CloseEnum)(windows_core::Interface::as_raw(self), henum as _);
+        }
     }
     pub unsafe fn FindAssembliesByName<P0, P1, P2>(&self, szappbase: P0, szprivatebin: P1, szassemblyname: P2, ppiunk: *mut Option<windows_core::IUnknown>, cmax: u32, pcassemblies: *mut u32) -> windows_core::Result<()>
     where
@@ -1240,7 +1242,7 @@ impl IMetaDataAssemblyImport_Vtbl {
         unsafe extern "system" fn CloseEnum<Identity: IMetaDataAssemblyImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, henum: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMetaDataAssemblyImport_Impl::CloseEnum(this, core::mem::transmute_copy(&henum))
+                IMetaDataAssemblyImport_Impl::CloseEnum(this, core::mem::transmute_copy(&henum));
             }
         }
         unsafe extern "system" fn FindAssembliesByName<Identity: IMetaDataAssemblyImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, szappbase: windows_core::PCWSTR, szprivatebin: windows_core::PCWSTR, szassemblyname: windows_core::PCWSTR, ppiunk: *mut *mut core::ffi::c_void, cmax: u32, pcassemblies: *mut u32) -> windows_core::HRESULT {
@@ -2432,7 +2434,9 @@ windows_core::imp::define_interface!(IMetaDataImport, IMetaDataImport_Vtbl, 0x7d
 windows_core::imp::interface_hierarchy!(IMetaDataImport, windows_core::IUnknown);
 impl IMetaDataImport {
     pub unsafe fn CloseEnum(&self, henum: *mut core::ffi::c_void) {
-        unsafe { (windows_core::Interface::vtable(self).CloseEnum)(windows_core::Interface::as_raw(self), henum as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CloseEnum)(windows_core::Interface::as_raw(self), henum as _);
+        }
     }
     pub unsafe fn CountEnum(&self, henum: *mut core::ffi::c_void, pulcount: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CountEnum)(windows_core::Interface::as_raw(self), henum as _, pulcount as _).ok() }
@@ -2790,7 +2794,7 @@ impl IMetaDataImport_Vtbl {
         unsafe extern "system" fn CloseEnum<Identity: IMetaDataImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, henum: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMetaDataImport_Impl::CloseEnum(this, core::mem::transmute_copy(&henum))
+                IMetaDataImport_Impl::CloseEnum(this, core::mem::transmute_copy(&henum));
             }
         }
         unsafe extern "system" fn CountEnum<Identity: IMetaDataImport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, henum: *mut core::ffi::c_void, pulcount: *mut u32) -> windows_core::HRESULT {

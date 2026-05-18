@@ -4113,12 +4113,12 @@ impl core::ops::BitAnd for OPC_READ_FLAGS {
 }
 impl core::ops::BitOrAssign for OPC_READ_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OPC_READ_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OPC_READ_FLAGS {
@@ -4185,12 +4185,12 @@ impl core::ops::BitAnd for OPC_WRITE_FLAGS {
 }
 impl core::ops::BitOrAssign for OPC_WRITE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OPC_WRITE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OPC_WRITE_FLAGS {

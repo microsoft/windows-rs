@@ -224,12 +224,12 @@ impl core::ops::BitAnd for APO_REFERENCE_STREAM_PROPERTIES {
 }
 impl core::ops::BitOrAssign for APO_REFERENCE_STREAM_PROPERTIES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for APO_REFERENCE_STREAM_PROPERTIES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for APO_REFERENCE_STREAM_PROPERTIES {
@@ -553,7 +553,9 @@ windows_core::imp::define_interface!(IApoAuxiliaryInputRT, IApoAuxiliaryInputRT_
 windows_core::imp::interface_hierarchy!(IApoAuxiliaryInputRT, windows_core::IUnknown);
 impl IApoAuxiliaryInputRT {
     pub unsafe fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY) {
-        unsafe { (windows_core::Interface::vtable(self).AcceptInput)(windows_core::Interface::as_raw(self), dwinputid, pinputconnection) }
+        unsafe {
+            (windows_core::Interface::vtable(self).AcceptInput)(windows_core::Interface::as_raw(self), dwinputid, pinputconnection);
+        }
     }
 }
 #[repr(C)]
@@ -570,7 +572,7 @@ impl IApoAuxiliaryInputRT_Vtbl {
         unsafe extern "system" fn AcceptInput<Identity: IApoAuxiliaryInputRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApoAuxiliaryInputRT_Impl::AcceptInput(this, core::mem::transmute_copy(&dwinputid), core::mem::transmute_copy(&pinputconnection))
+                IApoAuxiliaryInputRT_Impl::AcceptInput(this, core::mem::transmute_copy(&dwinputid), core::mem::transmute_copy(&pinputconnection));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AcceptInput: AcceptInput::<Identity, OFFSET> }
@@ -917,7 +919,9 @@ impl IAudioProcessingObjectLoggingService {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, format.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ApoLog)(windows_core::Interface::as_raw(self), level, format.param().abi());
+        }
     }
 }
 #[repr(C)]
@@ -934,7 +938,7 @@ impl IAudioProcessingObjectLoggingService_Vtbl {
         unsafe extern "system" fn ApoLog<Identity: IAudioProcessingObjectLoggingService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: APO_LOG_LEVEL, format: windows_core::PCWSTR) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioProcessingObjectLoggingService_Impl::ApoLog(this, core::mem::transmute_copy(&level), core::mem::transmute(&format))
+                IAudioProcessingObjectLoggingService_Impl::ApoLog(this, core::mem::transmute_copy(&level), core::mem::transmute(&format));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ApoLog: ApoLog::<Identity, OFFSET> }
@@ -952,7 +956,9 @@ impl IAudioProcessingObjectNotifications {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn HandleNotification(&self, aponotification: *const APO_NOTIFICATION) {
-        unsafe { (windows_core::Interface::vtable(self).HandleNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(aponotification)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).HandleNotification)(windows_core::Interface::as_raw(self), core::mem::transmute(aponotification));
+        }
     }
 }
 #[repr(C)]
@@ -982,7 +988,7 @@ impl IAudioProcessingObjectNotifications_Vtbl {
         unsafe extern "system" fn HandleNotification<Identity: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aponotification: *const APO_NOTIFICATION) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioProcessingObjectNotifications_Impl::HandleNotification(this, core::mem::transmute_copy(&aponotification))
+                IAudioProcessingObjectNotifications_Impl::HandleNotification(this, core::mem::transmute_copy(&aponotification));
             }
         }
         Self {
@@ -1114,7 +1120,9 @@ windows_core::imp::define_interface!(IAudioProcessingObjectRT, IAudioProcessingO
 windows_core::imp::interface_hierarchy!(IAudioProcessingObjectRT, windows_core::IUnknown);
 impl IAudioProcessingObjectRT {
     pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY) {
-        unsafe { (windows_core::Interface::vtable(self).APOProcess)(windows_core::Interface::as_raw(self), u32numinputconnections, ppinputconnections, u32numoutputconnections, ppoutputconnections as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).APOProcess)(windows_core::Interface::as_raw(self), u32numinputconnections, ppinputconnections, u32numoutputconnections, ppoutputconnections as _);
+        }
     }
     pub unsafe fn CalcInputFrames(&self, u32outputframecount: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).CalcInputFrames)(windows_core::Interface::as_raw(self), u32outputframecount) }
@@ -1141,7 +1149,7 @@ impl IAudioProcessingObjectRT_Vtbl {
         unsafe extern "system" fn APOProcess<Identity: IAudioProcessingObjectRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioProcessingObjectRT_Impl::APOProcess(this, core::mem::transmute_copy(&u32numinputconnections), core::mem::transmute_copy(&ppinputconnections), core::mem::transmute_copy(&u32numoutputconnections), core::mem::transmute_copy(&ppoutputconnections))
+                IAudioProcessingObjectRT_Impl::APOProcess(this, core::mem::transmute_copy(&u32numinputconnections), core::mem::transmute_copy(&ppinputconnections), core::mem::transmute_copy(&u32numoutputconnections), core::mem::transmute_copy(&ppoutputconnections));
             }
         }
         unsafe extern "system" fn CalcInputFrames<Identity: IAudioProcessingObjectRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32outputframecount: u32) -> u32 {

@@ -627,12 +627,12 @@ impl core::ops::BitAnd for IsolatedWindowsEnvironmentAllowedClipboardFormats {
 }
 impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
@@ -676,12 +676,12 @@ impl core::ops::BitAnd for IsolatedWindowsEnvironmentAvailablePrinters {
 }
 impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentAvailablePrinters {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentAvailablePrinters {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
@@ -723,12 +723,12 @@ impl core::ops::BitAnd for IsolatedWindowsEnvironmentClipboardCopyPasteDirection
 }
 impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {

@@ -44,7 +44,9 @@ impl ICompositionFramePresentStatistics {
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayInstanceArray)(windows_core::Interface::as_raw(self), displayinstancearraycount as _, displayinstancearray as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetDisplayInstanceArray)(windows_core::Interface::as_raw(self), displayinstancearraycount as _, displayinstancearray as _);
+        }
     }
 }
 #[repr(C)]
@@ -82,7 +84,7 @@ impl ICompositionFramePresentStatistics_Vtbl {
         unsafe extern "system" fn GetDisplayInstanceArray<Identity: ICompositionFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICompositionFramePresentStatistics_Impl::GetDisplayInstanceArray(this, core::mem::transmute_copy(&displayinstancearraycount), core::mem::transmute_copy(&displayinstancearray))
+                ICompositionFramePresentStatistics_Impl::GetDisplayInstanceArray(this, core::mem::transmute_copy(&displayinstancearraycount), core::mem::transmute_copy(&displayinstancearray));
             }
         }
         Self {
@@ -157,7 +159,7 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         unsafe extern "system" fn GetOutputAdapterLUID<Identity: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = IIndependentFlipFramePresentStatistics_Impl::GetOutputAdapterLUID(this)
+                *result__ = IIndependentFlipFramePresentStatistics_Impl::GetOutputAdapterLUID(this);
             }
         }
         unsafe extern "system" fn GetOutputVidPnSourceId<Identity: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
@@ -175,13 +177,13 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
         unsafe extern "system" fn GetDisplayedTime<Identity: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SystemInterruptTime) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = IIndependentFlipFramePresentStatistics_Impl::GetDisplayedTime(this)
+                *result__ = IIndependentFlipFramePresentStatistics_Impl::GetDisplayedTime(this);
             }
         }
         unsafe extern "system" fn GetPresentDuration<Identity: IIndependentFlipFramePresentStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut SystemInterruptTime) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = IIndependentFlipFramePresentStatistics_Impl::GetPresentDuration(this)
+                *result__ = IIndependentFlipFramePresentStatistics_Impl::GetPresentDuration(this);
             }
         }
         Self {
@@ -364,7 +366,9 @@ windows_core::imp::define_interface!(IPresentationContent, IPresentationContent_
 windows_core::imp::interface_hierarchy!(IPresentationContent, windows_core::IUnknown);
 impl IPresentationContent {
     pub unsafe fn SetTag(&self, tag: usize) {
-        unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), tag) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), tag);
+        }
     }
 }
 #[repr(C)]
@@ -381,7 +385,7 @@ impl IPresentationContent_Vtbl {
         unsafe extern "system" fn SetTag<Identity: IPresentationContent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tag: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPresentationContent_Impl::SetTag(this, core::mem::transmute_copy(&tag))
+                IPresentationContent_Impl::SetTag(this, core::mem::transmute_copy(&tag));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTag: SetTag::<Identity, OFFSET> }
@@ -856,7 +860,9 @@ impl core::ops::Deref for IPresentationSurface2 {
 windows_core::imp::interface_hierarchy!(IPresentationSurface2, windows_core::IUnknown, IPresentationContent, IPresentationSurface);
 impl IPresentationSurface2 {
     pub unsafe fn SetIsHdrContent(&self, ishdrcontent: u8) {
-        unsafe { (windows_core::Interface::vtable(self).SetIsHdrContent)(windows_core::Interface::as_raw(self), ishdrcontent) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsHdrContent)(windows_core::Interface::as_raw(self), ishdrcontent);
+        }
     }
 }
 #[repr(C)]
@@ -875,7 +881,7 @@ impl IPresentationSurface2_Vtbl {
         unsafe extern "system" fn SetIsHdrContent<Identity: IPresentationSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ishdrcontent: u8) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPresentationSurface2_Impl::SetIsHdrContent(this, core::mem::transmute_copy(&ishdrcontent))
+                IPresentationSurface2_Impl::SetIsHdrContent(this, core::mem::transmute_copy(&ishdrcontent));
             }
         }
         Self { base__: IPresentationSurface_Vtbl::new::<Identity, OFFSET>(), SetIsHdrContent: SetIsHdrContent::<Identity, OFFSET> }

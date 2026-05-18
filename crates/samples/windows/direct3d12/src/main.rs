@@ -326,7 +326,7 @@ mod imp {
                                 D3D12_CPU_DESCRIPTOR_HANDLE {
                                     ptr: rtv_handle.ptr + i * rtv_descriptor_size,
                                 },
-                            )
+                            );
                         };
                         Ok(render_target)
                     })?;
@@ -742,7 +742,7 @@ mod imp {
                     D3D12_RESOURCE_STATE_GENERIC_READ,
                     None,
                     &mut vertex_buffer,
-                )?
+                )?;
             };
             let vertex_buffer = vertex_buffer.unwrap();
 

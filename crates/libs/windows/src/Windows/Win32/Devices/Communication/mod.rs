@@ -206,12 +206,12 @@ impl core::ops::BitAnd for CLEAR_COMM_ERROR_FLAGS {
 }
 impl core::ops::BitOrAssign for CLEAR_COMM_ERROR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CLEAR_COMM_ERROR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
@@ -289,12 +289,12 @@ impl core::ops::BitAnd for COMMPROP_STOP_PARITY {
 }
 impl core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COMMPROP_STOP_PARITY {
@@ -334,12 +334,12 @@ impl core::ops::BitAnd for COMM_EVENT_MASK {
 }
 impl core::ops::BitOrAssign for COMM_EVENT_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COMM_EVENT_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COMM_EVENT_MASK {
@@ -561,12 +561,12 @@ impl core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
 }
 impl core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
@@ -597,12 +597,12 @@ impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
 }
 impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
@@ -633,12 +633,12 @@ impl core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
 }
 impl core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
@@ -696,12 +696,12 @@ impl core::ops::BitAnd for MODEM_STATUS_FLAGS {
 }
 impl core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MODEM_STATUS_FLAGS {
@@ -745,12 +745,12 @@ impl core::ops::BitAnd for PURGE_COMM_FLAGS {
 }
 impl core::ops::BitOrAssign for PURGE_COMM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PURGE_COMM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PURGE_COMM_FLAGS {

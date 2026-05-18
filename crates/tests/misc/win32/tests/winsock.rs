@@ -46,7 +46,7 @@ fn in6_addr() {
     assert_eq!(unsafe { in6_addr.u.Byte }, IPV6_ADDR.octets());
 
     // Compare the round-trip
-    assert_eq!(std::net::Ipv6Addr::from(in6_addr), IPV6_ADDR)
+    assert_eq!(std::net::Ipv6Addr::from(in6_addr), IPV6_ADDR);
 }
 
 #[test]

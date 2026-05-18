@@ -2474,12 +2474,12 @@ impl core::ops::BitAnd for WindowsUpdateAdministratorOptions {
 }
 impl core::ops::BitOrAssign for WindowsUpdateAdministratorOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WindowsUpdateAdministratorOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WindowsUpdateAdministratorOptions {

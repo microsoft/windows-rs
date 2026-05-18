@@ -650,12 +650,12 @@ impl core::ops::BitAnd for DRAWPROGRESSFLAGS {
 }
 impl core::ops::BitOrAssign for DRAWPROGRESSFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DRAWPROGRESSFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DRAWPROGRESSFLAGS {
@@ -688,12 +688,12 @@ impl core::ops::BitAnd for PSTIME_FLAGS {
 }
 impl core::ops::BitOrAssign for PSTIME_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PSTIME_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PSTIME_FLAGS {
@@ -724,12 +724,12 @@ impl core::ops::BitAnd for VARENUM {
 }
 impl core::ops::BitOrAssign for VARENUM {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VARENUM {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VARENUM {
@@ -893,12 +893,12 @@ impl core::ops::BitAnd for VAR_CHANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for VAR_CHANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VAR_CHANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VAR_CHANGE_FLAGS {

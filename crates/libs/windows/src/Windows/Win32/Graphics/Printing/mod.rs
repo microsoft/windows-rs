@@ -9083,7 +9083,9 @@ impl IPrintWriteStream {
         }
     }
     pub unsafe fn Close(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -9114,7 +9116,7 @@ impl IPrintWriteStream_Vtbl {
         unsafe extern "system" fn Close<Identity: IPrintWriteStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintWriteStream_Impl::Close(this)
+                IPrintWriteStream_Impl::Close(this);
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), WriteBytes: WriteBytes::<Identity, OFFSET>, Close: Close::<Identity, OFFSET> }
@@ -11072,7 +11074,9 @@ windows_core::imp::define_interface!(IXpsPartIterator, IXpsPartIterator_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IXpsPartIterator, windows_core::IUnknown);
 impl IXpsPartIterator {
     pub unsafe fn Reset(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Current(&self, puri: *mut windows_core::BSTR, ppxpspart: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Current)(windows_core::Interface::as_raw(self), core::mem::transmute(puri), core::mem::transmute(ppxpspart)).ok() }
@@ -11081,7 +11085,9 @@ impl IXpsPartIterator {
         unsafe { (windows_core::Interface::vtable(self).IsDone)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Next(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -11104,7 +11110,7 @@ impl IXpsPartIterator_Vtbl {
         unsafe extern "system" fn Reset<Identity: IXpsPartIterator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXpsPartIterator_Impl::Reset(this)
+                IXpsPartIterator_Impl::Reset(this);
             }
         }
         unsafe extern "system" fn Current<Identity: IXpsPartIterator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puri: *mut *mut core::ffi::c_void, ppxpspart: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11122,7 +11128,7 @@ impl IXpsPartIterator_Vtbl {
         unsafe extern "system" fn Next<Identity: IXpsPartIterator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IXpsPartIterator_Impl::Next(this)
+                IXpsPartIterator_Impl::Next(this);
             }
         }
         Self {
@@ -12478,12 +12484,12 @@ impl core::ops::BitAnd for PRINTER_ACCESS_RIGHTS {
 }
 impl core::ops::BitOrAssign for PRINTER_ACCESS_RIGHTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRINTER_ACCESS_RIGHTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRINTER_ACCESS_RIGHTS {

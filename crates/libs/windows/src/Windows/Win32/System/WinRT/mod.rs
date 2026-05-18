@@ -738,7 +738,9 @@ windows_core::imp::define_interface!(IApartmentShutdown, IApartmentShutdown_Vtbl
 windows_core::imp::interface_hierarchy!(IApartmentShutdown, windows_core::IUnknown);
 impl IApartmentShutdown {
     pub unsafe fn OnUninitialize(&self, ui64apartmentidentifier: u64) {
-        unsafe { (windows_core::Interface::vtable(self).OnUninitialize)(windows_core::Interface::as_raw(self), ui64apartmentidentifier) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnUninitialize)(windows_core::Interface::as_raw(self), ui64apartmentidentifier);
+        }
     }
 }
 #[repr(C)]
@@ -755,7 +757,7 @@ impl IApartmentShutdown_Vtbl {
         unsafe extern "system" fn OnUninitialize<Identity: IApartmentShutdown_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ui64apartmentidentifier: u64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IApartmentShutdown_Impl::OnUninitialize(this, core::mem::transmute_copy(&ui64apartmentidentifier))
+                IApartmentShutdown_Impl::OnUninitialize(this, core::mem::transmute_copy(&ui64apartmentidentifier));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUninitialize: OnUninitialize::<Identity, OFFSET> }
@@ -2545,12 +2547,12 @@ impl core::ops::BitAnd for RO_ERROR_REPORTING_FLAGS {
 }
 impl core::ops::BitOrAssign for RO_ERROR_REPORTING_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RO_ERROR_REPORTING_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RO_ERROR_REPORTING_FLAGS {

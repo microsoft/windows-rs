@@ -2749,12 +2749,12 @@ impl core::ops::BitAnd for HTTP_ADDREQ_FLAG {
 }
 impl core::ops::BitOrAssign for HTTP_ADDREQ_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HTTP_ADDREQ_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HTTP_ADDREQ_FLAG {
@@ -3600,12 +3600,12 @@ impl core::ops::BitAnd for INTERNET_CONNECTION {
 }
 impl core::ops::BitOrAssign for INTERNET_CONNECTION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for INTERNET_CONNECTION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for INTERNET_CONNECTION {
@@ -4544,12 +4544,12 @@ impl core::ops::BitAnd for PROXY_AUTO_DETECT_TYPE {
 }
 impl core::ops::BitOrAssign for PROXY_AUTO_DETECT_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROXY_AUTO_DETECT_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROXY_AUTO_DETECT_TYPE {

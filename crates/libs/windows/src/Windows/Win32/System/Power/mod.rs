@@ -910,12 +910,12 @@ impl core::ops::BitAnd for DEVICE_POWER_CAPABILITIES {
 }
 impl core::ops::BitOrAssign for DEVICE_POWER_CAPABILITIES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DEVICE_POWER_CAPABILITIES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DEVICE_POWER_CAPABILITIES {
@@ -1034,12 +1034,12 @@ impl core::ops::BitAnd for EXECUTION_STATE {
 }
 impl core::ops::BitOrAssign for EXECUTION_STATE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for EXECUTION_STATE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for EXECUTION_STATE {
@@ -1344,12 +1344,12 @@ impl core::ops::BitAnd for POWER_ACTION_POLICY_EVENT_CODE {
 }
 impl core::ops::BitOrAssign for POWER_ACTION_POLICY_EVENT_CODE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for POWER_ACTION_POLICY_EVENT_CODE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {

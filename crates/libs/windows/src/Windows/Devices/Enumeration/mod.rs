@@ -760,12 +760,12 @@ impl core::ops::BitAnd for DevicePairingKinds {
 }
 impl core::ops::BitOrAssign for DevicePairingKinds {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DevicePairingKinds {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DevicePairingKinds {
@@ -1181,12 +1181,12 @@ impl core::ops::BitAnd for DevicePickerDisplayStatusOptions {
 }
 impl core::ops::BitOrAssign for DevicePickerDisplayStatusOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DevicePickerDisplayStatusOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DevicePickerDisplayStatusOptions {

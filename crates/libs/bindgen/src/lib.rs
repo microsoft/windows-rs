@@ -1104,7 +1104,7 @@ where
     // This function is needed to avoid a recursion limit in the Rust compiler.
     #[track_caller]
     fn from_string(result: &mut Vec<String>, value: &str) {
-        expand_args(result, value.split_whitespace().map(|arg| arg.to_string()))
+        expand_args(result, value.split_whitespace().map(|arg| arg.to_string()));
     }
 
     #[track_caller]

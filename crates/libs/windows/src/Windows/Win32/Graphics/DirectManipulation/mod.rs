@@ -34,12 +34,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_CONFIGURATION {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_CONFIGURATION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_CONFIGURATION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_CONFIGURATION {
@@ -85,12 +85,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
@@ -134,12 +134,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
@@ -175,12 +175,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_HITTEST_TYPE {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_HITTEST_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_HITTEST_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_HITTEST_TYPE {
@@ -214,12 +214,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
@@ -278,12 +278,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_MOTION_TYPES {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_MOTION_TYPES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_MOTION_TYPES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_MOTION_TYPES {
@@ -318,12 +318,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
@@ -365,12 +365,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_VERTICALALIGNMENT {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_VERTICALALIGNMENT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_VERTICALALIGNMENT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_VERTICALALIGNMENT {
@@ -406,12 +406,12 @@ impl core::ops::BitAnd for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
 }
 impl core::ops::BitOrAssign for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTMANIPULATION_VIEWPORT_OPTIONS {

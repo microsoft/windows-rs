@@ -2424,16 +2424,22 @@ impl IRDPSRAPITransportStreamEvents {
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnWriteCompleted)(windows_core::Interface::as_raw(self), pbuffer.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnWriteCompleted)(windows_core::Interface::as_raw(self), pbuffer.param().abi());
+        }
     }
     pub unsafe fn OnReadCompleted<P0>(&self, pbuffer: P0)
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnReadCompleted)(windows_core::Interface::as_raw(self), pbuffer.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnReadCompleted)(windows_core::Interface::as_raw(self), pbuffer.param().abi());
+        }
     }
     pub unsafe fn OnStreamClosed(&self, hrreason: windows_core::HRESULT) {
-        unsafe { (windows_core::Interface::vtable(self).OnStreamClosed)(windows_core::Interface::as_raw(self), hrreason) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnStreamClosed)(windows_core::Interface::as_raw(self), hrreason);
+        }
     }
 }
 #[repr(C)]
@@ -2454,19 +2460,19 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
         unsafe extern "system" fn OnWriteCompleted<Identity: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStreamEvents_Impl::OnWriteCompleted(this, core::mem::transmute_copy(&pbuffer))
+                IRDPSRAPITransportStreamEvents_Impl::OnWriteCompleted(this, core::mem::transmute_copy(&pbuffer));
             }
         }
         unsafe extern "system" fn OnReadCompleted<Identity: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStreamEvents_Impl::OnReadCompleted(this, core::mem::transmute_copy(&pbuffer))
+                IRDPSRAPITransportStreamEvents_Impl::OnReadCompleted(this, core::mem::transmute_copy(&pbuffer));
             }
         }
         unsafe extern "system" fn OnStreamClosed<Identity: IRDPSRAPITransportStreamEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrreason: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRDPSRAPITransportStreamEvents_Impl::OnStreamClosed(this, core::mem::transmute_copy(&hrreason))
+                IRDPSRAPITransportStreamEvents_Impl::OnStreamClosed(this, core::mem::transmute_copy(&hrreason));
             }
         }
         Self {

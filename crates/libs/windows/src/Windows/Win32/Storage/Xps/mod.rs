@@ -12564,12 +12564,12 @@ impl core::ops::BitAnd for PSINJECT_POINT {
 }
 impl core::ops::BitOrAssign for PSINJECT_POINT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PSINJECT_POINT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PSINJECT_POINT {
@@ -12886,12 +12886,12 @@ impl core::ops::BitAnd for XPS_SIGN_FLAGS {
 }
 impl core::ops::BitOrAssign for XPS_SIGN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for XPS_SIGN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for XPS_SIGN_FLAGS {
@@ -12924,12 +12924,12 @@ impl core::ops::BitAnd for XPS_SIGN_POLICY {
 }
 impl core::ops::BitOrAssign for XPS_SIGN_POLICY {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for XPS_SIGN_POLICY {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for XPS_SIGN_POLICY {

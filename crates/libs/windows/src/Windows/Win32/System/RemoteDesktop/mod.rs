@@ -1462,10 +1462,14 @@ windows_core::imp::define_interface!(IAudioEndpointRT, IAudioEndpointRT_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IAudioEndpointRT, windows_core::IUnknown);
 impl IAudioEndpointRT {
     pub unsafe fn GetCurrentPadding(&self, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION) {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentPadding)(windows_core::Interface::as_raw(self), ppadding as _, paecurrentposition as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetCurrentPadding)(windows_core::Interface::as_raw(self), ppadding as _, paecurrentposition as _);
+        }
     }
     pub unsafe fn ProcessingComplete(&self) {
-        unsafe { (windows_core::Interface::vtable(self).ProcessingComplete)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ProcessingComplete)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn SetPinInactive(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPinInactive)(windows_core::Interface::as_raw(self)).ok() }
@@ -1494,13 +1498,13 @@ impl IAudioEndpointRT_Vtbl {
         unsafe extern "system" fn GetCurrentPadding<Identity: IAudioEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioEndpointRT_Impl::GetCurrentPadding(this, core::mem::transmute_copy(&ppadding), core::mem::transmute_copy(&paecurrentposition))
+                IAudioEndpointRT_Impl::GetCurrentPadding(this, core::mem::transmute_copy(&ppadding), core::mem::transmute_copy(&paecurrentposition));
             }
         }
         unsafe extern "system" fn ProcessingComplete<Identity: IAudioEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioEndpointRT_Impl::ProcessingComplete(this)
+                IAudioEndpointRT_Impl::ProcessingComplete(this);
             }
         }
         unsafe extern "system" fn SetPinInactive<Identity: IAudioEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1533,13 +1537,19 @@ windows_core::imp::interface_hierarchy!(IAudioInputEndpointRT, windows_core::IUn
 impl IAudioInputEndpointRT {
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub unsafe fn GetInputDataPointer(&self, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION) {
-        unsafe { (windows_core::Interface::vtable(self).GetInputDataPointer)(windows_core::Interface::as_raw(self), pconnectionproperty as _, paetimestamp as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetInputDataPointer)(windows_core::Interface::as_raw(self), pconnectionproperty as _, paetimestamp as _);
+        }
     }
     pub unsafe fn ReleaseInputDataPointer(&self, u32framecount: u32, pdatapointer: usize) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseInputDataPointer)(windows_core::Interface::as_raw(self), u32framecount, pdatapointer) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseInputDataPointer)(windows_core::Interface::as_raw(self), u32framecount, pdatapointer);
+        }
     }
     pub unsafe fn PulseEndpoint(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PulseEndpoint)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PulseEndpoint)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -1565,19 +1575,19 @@ impl IAudioInputEndpointRT_Vtbl {
         unsafe extern "system" fn GetInputDataPointer<Identity: IAudioInputEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputEndpointRT_Impl::GetInputDataPointer(this, core::mem::transmute_copy(&pconnectionproperty), core::mem::transmute_copy(&paetimestamp))
+                IAudioInputEndpointRT_Impl::GetInputDataPointer(this, core::mem::transmute_copy(&pconnectionproperty), core::mem::transmute_copy(&paetimestamp));
             }
         }
         unsafe extern "system" fn ReleaseInputDataPointer<Identity: IAudioInputEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, u32framecount: u32, pdatapointer: usize) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputEndpointRT_Impl::ReleaseInputDataPointer(this, core::mem::transmute_copy(&u32framecount), core::mem::transmute_copy(&pdatapointer))
+                IAudioInputEndpointRT_Impl::ReleaseInputDataPointer(this, core::mem::transmute_copy(&u32framecount), core::mem::transmute_copy(&pdatapointer));
             }
         }
         unsafe extern "system" fn PulseEndpoint<Identity: IAudioInputEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioInputEndpointRT_Impl::PulseEndpoint(this)
+                IAudioInputEndpointRT_Impl::PulseEndpoint(this);
             }
         }
         Self {
@@ -1601,10 +1611,14 @@ impl IAudioOutputEndpointRT {
     }
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub unsafe fn ReleaseOutputDataPointer(&self, pconnectionproperty: *const super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseOutputDataPointer)(windows_core::Interface::as_raw(self), pconnectionproperty) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseOutputDataPointer)(windows_core::Interface::as_raw(self), pconnectionproperty);
+        }
     }
     pub unsafe fn PulseEndpoint(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PulseEndpoint)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PulseEndpoint)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -1636,13 +1650,13 @@ impl IAudioOutputEndpointRT_Vtbl {
         unsafe extern "system" fn ReleaseOutputDataPointer<Identity: IAudioOutputEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectionproperty: *const super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioOutputEndpointRT_Impl::ReleaseOutputDataPointer(this, core::mem::transmute_copy(&pconnectionproperty))
+                IAudioOutputEndpointRT_Impl::ReleaseOutputDataPointer(this, core::mem::transmute_copy(&pconnectionproperty));
             }
         }
         unsafe extern "system" fn PulseEndpoint<Identity: IAudioOutputEndpointRT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioOutputEndpointRT_Impl::PulseEndpoint(this)
+                IAudioOutputEndpointRT_Impl::PulseEndpoint(this);
             }
         }
         Self {
@@ -11699,12 +11713,12 @@ impl core::ops::BitAnd for WTS_SECURITY_FLAGS {
 }
 impl core::ops::BitOrAssign for WTS_SECURITY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WTS_SECURITY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WTS_SECURITY_FLAGS {

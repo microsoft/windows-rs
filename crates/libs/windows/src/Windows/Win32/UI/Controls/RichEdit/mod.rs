@@ -83,12 +83,12 @@ impl core::ops::BitAnd for CFE_EFFECTS {
 }
 impl core::ops::BitOrAssign for CFE_EFFECTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CFE_EFFECTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CFE_EFFECTS {
@@ -163,12 +163,12 @@ impl core::ops::BitAnd for CFM_MASK {
 }
 impl core::ops::BitOrAssign for CFM_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CFM_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CFM_MASK {
@@ -907,12 +907,12 @@ impl core::ops::BitAnd for GETTEXTLENGTHEX_FLAGS {
 }
 impl core::ops::BitOrAssign for GETTEXTLENGTHEX_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GETTEXTLENGTHEX_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GETTEXTLENGTHEX_FLAGS {
@@ -4896,10 +4896,14 @@ impl ITextHost {
         unsafe { (windows_core::Interface::vtable(self).TxSetScrollPos)(windows_core::Interface::as_raw(self), fnbar, npos, fredraw.into()) }
     }
     pub unsafe fn TxInvalidateRect(&self, prc: *mut super::super::super::Foundation::RECT, fmode: bool) {
-        unsafe { (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), prc as _, fmode.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxInvalidateRect)(windows_core::Interface::as_raw(self), prc as _, fmode.into());
+        }
     }
     pub unsafe fn TxViewChange(&self, fupdate: bool) {
-        unsafe { (windows_core::Interface::vtable(self).TxViewChange)(windows_core::Interface::as_raw(self), fupdate.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxViewChange)(windows_core::Interface::as_raw(self), fupdate.into());
+        }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxCreateCaret(&self, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> windows_core::BOOL {
@@ -4915,21 +4919,31 @@ impl ITextHost {
         unsafe { (windows_core::Interface::vtable(self).TxSetTimer)(windows_core::Interface::as_raw(self), idtimer, utimeout) }
     }
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
-        unsafe { (windows_core::Interface::vtable(self).TxKillTimer)(windows_core::Interface::as_raw(self), idtimer) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxKillTimer)(windows_core::Interface::as_raw(self), idtimer);
+        }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxScrollWindowEx(&self, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS) {
-        unsafe { (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), dx, dy, lprcscroll as _, lprcclip as _, hrgnupdate, lprcupdate as _, fuscroll) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxScrollWindowEx)(windows_core::Interface::as_raw(self), dx, dy, lprcscroll as _, lprcclip as _, hrgnupdate, lprcupdate as _, fuscroll);
+        }
     }
     pub unsafe fn TxSetCapture(&self, fcapture: bool) {
-        unsafe { (windows_core::Interface::vtable(self).TxSetCapture)(windows_core::Interface::as_raw(self), fcapture.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxSetCapture)(windows_core::Interface::as_raw(self), fcapture.into());
+        }
     }
     pub unsafe fn TxSetFocus(&self) {
-        unsafe { (windows_core::Interface::vtable(self).TxSetFocus)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxSetFocus)(windows_core::Interface::as_raw(self));
+        }
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn TxSetCursor(&self, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: bool) {
-        unsafe { (windows_core::Interface::vtable(self).TxSetCursor)(windows_core::Interface::as_raw(self), hcur, ftext.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxSetCursor)(windows_core::Interface::as_raw(self), hcur, ftext.into());
+        }
     }
     pub unsafe fn TxScreenToClient(&self, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).TxScreenToClient)(windows_core::Interface::as_raw(self), lppt as _) }
@@ -5000,7 +5014,9 @@ impl ITextHost {
     }
     #[cfg(feature = "Win32_UI_Input_Ime")]
     pub unsafe fn TxImmReleaseContext(&self, himc: super::super::Input::Ime::HIMC) {
-        unsafe { (windows_core::Interface::vtable(self).TxImmReleaseContext)(windows_core::Interface::as_raw(self), himc) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxImmReleaseContext)(windows_core::Interface::as_raw(self), himc);
+        }
     }
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: *mut i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxGetSelectionBarWidth)(windows_core::Interface::as_raw(self), lselbarwidth as _).ok() }
@@ -5167,13 +5183,13 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxInvalidateRect<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prc: *mut super::super::super::Foundation::RECT, fmode: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxInvalidateRect(this, core::mem::transmute_copy(&prc), core::mem::transmute_copy(&fmode))
+                ITextHost_Impl::TxInvalidateRect(this, core::mem::transmute_copy(&prc), core::mem::transmute_copy(&fmode));
             }
         }
         unsafe extern "system" fn TxViewChange<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fupdate: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxViewChange(this, core::mem::transmute_copy(&fupdate))
+                ITextHost_Impl::TxViewChange(this, core::mem::transmute_copy(&fupdate));
             }
         }
         unsafe extern "system" fn TxCreateCaret<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hbmp: super::super::super::Graphics::Gdi::HBITMAP, xwidth: i32, yheight: i32) -> windows_core::BOOL {
@@ -5203,31 +5219,31 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxKillTimer<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, idtimer: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxKillTimer(this, core::mem::transmute_copy(&idtimer))
+                ITextHost_Impl::TxKillTimer(this, core::mem::transmute_copy(&idtimer));
             }
         }
         unsafe extern "system" fn TxScrollWindowEx<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dx: i32, dy: i32, lprcscroll: *mut super::super::super::Foundation::RECT, lprcclip: *mut super::super::super::Foundation::RECT, hrgnupdate: super::super::super::Graphics::Gdi::HRGN, lprcupdate: *mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SCROLL_WINDOW_FLAGS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxScrollWindowEx(this, core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&lprcscroll), core::mem::transmute_copy(&lprcclip), core::mem::transmute_copy(&hrgnupdate), core::mem::transmute_copy(&lprcupdate), core::mem::transmute_copy(&fuscroll))
+                ITextHost_Impl::TxScrollWindowEx(this, core::mem::transmute_copy(&dx), core::mem::transmute_copy(&dy), core::mem::transmute_copy(&lprcscroll), core::mem::transmute_copy(&lprcclip), core::mem::transmute_copy(&hrgnupdate), core::mem::transmute_copy(&lprcupdate), core::mem::transmute_copy(&fuscroll));
             }
         }
         unsafe extern "system" fn TxSetCapture<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fcapture: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxSetCapture(this, core::mem::transmute_copy(&fcapture))
+                ITextHost_Impl::TxSetCapture(this, core::mem::transmute_copy(&fcapture));
             }
         }
         unsafe extern "system" fn TxSetFocus<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxSetFocus(this)
+                ITextHost_Impl::TxSetFocus(this);
             }
         }
         unsafe extern "system" fn TxSetCursor<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hcur: super::super::WindowsAndMessaging::HCURSOR, ftext: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxSetCursor(this, core::mem::transmute_copy(&hcur), core::mem::transmute_copy(&ftext))
+                ITextHost_Impl::TxSetCursor(this, core::mem::transmute_copy(&hcur), core::mem::transmute_copy(&ftext));
             }
         }
         unsafe extern "system" fn TxScreenToClient<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lppt: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
@@ -5359,7 +5375,7 @@ impl ITextHost_Vtbl {
         unsafe extern "system" fn TxImmReleaseContext<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, himc: super::super::Input::Ime::HIMC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost_Impl::TxImmReleaseContext(this, core::mem::transmute_copy(&himc))
+                ITextHost_Impl::TxImmReleaseContext(this, core::mem::transmute_copy(&himc));
             }
         }
         unsafe extern "system" fn TxGetSelectionBarWidth<Identity: ITextHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lselbarwidth: *mut i32) -> windows_core::HRESULT {
@@ -5447,7 +5463,9 @@ impl ITextHost2 {
         unsafe { (windows_core::Interface::vtable(self).TxSetCursor2)(windows_core::Interface::as_raw(self), hcur, btext.into()) }
     }
     pub unsafe fn TxFreeTextServicesNotification(&self) {
-        unsafe { (windows_core::Interface::vtable(self).TxFreeTextServicesNotification)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).TxFreeTextServicesNotification)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn TxGetEditStyle(&self, dwitem: u32, pdwdata: *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TxGetEditStyle)(windows_core::Interface::as_raw(self), dwitem, pdwdata as _).ok() }
@@ -5549,7 +5567,7 @@ impl ITextHost2_Vtbl {
         unsafe extern "system" fn TxFreeTextServicesNotification<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITextHost2_Impl::TxFreeTextServicesNotification(this)
+                ITextHost2_Impl::TxFreeTextServicesNotification(this);
             }
         }
         unsafe extern "system" fn TxGetEditStyle<Identity: ITextHost2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwitem: u32, pdwdata: *mut u32) -> windows_core::HRESULT {
@@ -10655,12 +10673,12 @@ impl core::ops::BitAnd for PARAFORMAT_BORDERS {
 }
 impl core::ops::BitOrAssign for PARAFORMAT_BORDERS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PARAFORMAT_BORDERS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PARAFORMAT_BORDERS {
@@ -10698,12 +10716,12 @@ impl core::ops::BitAnd for PARAFORMAT_MASK {
 }
 impl core::ops::BitOrAssign for PARAFORMAT_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PARAFORMAT_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PARAFORMAT_MASK {
@@ -10734,12 +10752,12 @@ impl core::ops::BitAnd for PARAFORMAT_NUMBERING {
 }
 impl core::ops::BitOrAssign for PARAFORMAT_NUMBERING {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PARAFORMAT_NUMBERING {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PARAFORMAT_NUMBERING {
@@ -10879,12 +10897,12 @@ impl core::ops::BitAnd for REOBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for REOBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REOBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REOBJECT_FLAGS {
@@ -11000,12 +11018,12 @@ impl core::ops::BitAnd for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
 }
 impl core::ops::BitOrAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
@@ -11036,12 +11054,12 @@ impl core::ops::BitAnd for RICH_EDIT_GET_OBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for RICH_EDIT_GET_OBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RICH_EDIT_GET_OBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RICH_EDIT_GET_OBJECT_FLAGS {

@@ -30,7 +30,7 @@ impl TokenStream {
     /// note: a space will be inserted before the other stream
     pub fn combine<T: AsRef<Self>>(&mut self, other: T) {
         self.push_space();
-        self.0.push_str(&other.as_ref().0)
+        self.0.push_str(&other.as_ref().0);
     }
 
     #[must_use]
@@ -67,11 +67,11 @@ impl TokenStream {
     }
 
     pub fn push(&mut self, c: char) {
-        self.0.push(c)
+        self.0.push(c);
     }
 
     pub fn push_str(&mut self, str: &str) {
-        self.0.push_str(str)
+        self.0.push_str(str);
     }
 
     fn last_char(&self) -> Option<char> {

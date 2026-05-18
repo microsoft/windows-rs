@@ -6001,12 +6001,12 @@ impl core::ops::BitAnd for WLAN_NOTIFICATION_SOURCES {
 }
 impl core::ops::BitOrAssign for WLAN_NOTIFICATION_SOURCES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WLAN_NOTIFICATION_SOURCES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WLAN_NOTIFICATION_SOURCES {

@@ -140,12 +140,12 @@ impl core::ops::BitAnd for PSS_CAPTURE_FLAGS {
 }
 impl core::ops::BitOrAssign for PSS_CAPTURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PSS_CAPTURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PSS_CAPTURE_FLAGS {
@@ -199,12 +199,12 @@ impl core::ops::BitAnd for PSS_DUPLICATE_FLAGS {
 }
 impl core::ops::BitOrAssign for PSS_DUPLICATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PSS_DUPLICATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PSS_DUPLICATE_FLAGS {
@@ -341,12 +341,12 @@ impl core::ops::BitAnd for PSS_HANDLE_FLAGS {
 }
 impl core::ops::BitOrAssign for PSS_HANDLE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PSS_HANDLE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PSS_HANDLE_FLAGS {
@@ -420,12 +420,12 @@ impl core::ops::BitAnd for PSS_PROCESS_FLAGS {
 }
 impl core::ops::BitOrAssign for PSS_PROCESS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PSS_PROCESS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PSS_PROCESS_FLAGS {
@@ -538,12 +538,12 @@ impl core::ops::BitAnd for PSS_THREAD_FLAGS {
 }
 impl core::ops::BitOrAssign for PSS_THREAD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PSS_THREAD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PSS_THREAD_FLAGS {

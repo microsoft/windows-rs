@@ -217,12 +217,12 @@ impl core::ops::BitAnd for ATF_FLAGS {
 }
 impl core::ops::BitOrAssign for ATF_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ATF_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ATF_FLAGS {
@@ -292,12 +292,12 @@ impl core::ops::BitAnd for CFE_UNDERLINE {
 }
 impl core::ops::BitOrAssign for CFE_UNDERLINE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CFE_UNDERLINE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CFE_UNDERLINE {
@@ -912,12 +912,12 @@ impl core::ops::BitAnd for GESTURECONFIG_FLAGS {
 }
 impl core::ops::BitOrAssign for GESTURECONFIG_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GESTURECONFIG_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GESTURECONFIG_FLAGS {
@@ -3098,12 +3098,12 @@ impl core::ops::BitAnd for MODIFIERKEYS_FLAGS {
 }
 impl core::ops::BitOrAssign for MODIFIERKEYS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MODIFIERKEYS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MODIFIERKEYS_FLAGS {
@@ -4065,12 +4065,12 @@ impl core::ops::BitAnd for RECO_FLAGS {
 }
 impl core::ops::BitOrAssign for RECO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RECO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RECO_FLAGS {
@@ -4754,12 +4754,12 @@ impl core::ops::BitAnd for SFGAO_FLAGS {
 }
 impl core::ops::BitOrAssign for SFGAO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SFGAO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SFGAO_FLAGS {
@@ -5294,12 +5294,12 @@ impl core::ops::BitAnd for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
 }
 impl core::ops::BitOrAssign for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
@@ -5638,12 +5638,12 @@ impl core::ops::BitAnd for WORD_WHEEL_OPEN_FLAGS {
 }
 impl core::ops::BitOrAssign for WORD_WHEEL_OPEN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WORD_WHEEL_OPEN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WORD_WHEEL_OPEN_FLAGS {

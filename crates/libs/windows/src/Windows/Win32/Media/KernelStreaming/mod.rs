@@ -403,7 +403,9 @@ impl IKsAllocator {
         unsafe { (windows_core::Interface::vtable(self).KsGetAllocatorStatus)(windows_core::Interface::as_raw(self), allocatorstatus as _).ok() }
     }
     pub unsafe fn KsSetAllocatorMode(&self, mode: KSALLOCATORMODE) {
-        unsafe { (windows_core::Interface::vtable(self).KsSetAllocatorMode)(windows_core::Interface::as_raw(self), mode) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KsSetAllocatorMode)(windows_core::Interface::as_raw(self), mode);
+        }
     }
 }
 #[repr(C)]
@@ -444,7 +446,7 @@ impl IKsAllocator_Vtbl {
         unsafe extern "system" fn KsSetAllocatorMode<Identity: IKsAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: KSALLOCATORMODE) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsAllocator_Impl::KsSetAllocatorMode(this, core::mem::transmute_copy(&mode))
+                IKsAllocator_Impl::KsSetAllocatorMode(this, core::mem::transmute_copy(&mode));
             }
         }
         Self {
@@ -473,10 +475,14 @@ impl IKsAllocatorEx {
         unsafe { (windows_core::Interface::vtable(self).KsGetProperties)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn KsSetProperties(&self, param0: *const ALLOCATOR_PROPERTIES_EX) {
-        unsafe { (windows_core::Interface::vtable(self).KsSetProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KsSetProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(param0));
+        }
     }
     pub unsafe fn KsSetAllocatorHandle(&self, allocatorhandle: super::super::Foundation::HANDLE) {
-        unsafe { (windows_core::Interface::vtable(self).KsSetAllocatorHandle)(windows_core::Interface::as_raw(self), allocatorhandle) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KsSetAllocatorHandle)(windows_core::Interface::as_raw(self), allocatorhandle);
+        }
     }
     pub unsafe fn KsCreateAllocatorAndGetHandle<P0>(&self, kspin: P0) -> super::super::Foundation::HANDLE
     where
@@ -511,13 +517,13 @@ impl IKsAllocatorEx_Vtbl {
         unsafe extern "system" fn KsSetProperties<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const ALLOCATOR_PROPERTIES_EX) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsAllocatorEx_Impl::KsSetProperties(this, core::mem::transmute_copy(&param0))
+                IKsAllocatorEx_Impl::KsSetProperties(this, core::mem::transmute_copy(&param0));
             }
         }
         unsafe extern "system" fn KsSetAllocatorHandle<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allocatorhandle: super::super::Foundation::HANDLE) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsAllocatorEx_Impl::KsSetAllocatorHandle(this, core::mem::transmute_copy(&allocatorhandle))
+                IKsAllocatorEx_Impl::KsSetAllocatorHandle(this, core::mem::transmute_copy(&allocatorhandle));
             }
         }
         unsafe extern "system" fn KsCreateAllocatorAndGetHandle<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kspin: *mut core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -1662,7 +1668,9 @@ impl IKsPinEx {
     where
         P0: windows_core::Param<super::DirectShow::IMediaSample>,
     {
-        unsafe { (windows_core::Interface::vtable(self).KsNotifyError)(windows_core::Interface::as_raw(self), sample.param().abi(), hr) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KsNotifyError)(windows_core::Interface::as_raw(self), sample.param().abi(), hr);
+        }
     }
 }
 #[repr(C)]
@@ -1684,7 +1692,7 @@ impl IKsPinEx_Vtbl {
         unsafe extern "system" fn KsNotifyError<Identity: IKsPinEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sample: *mut core::ffi::c_void, hr: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsPinEx_Impl::KsNotifyError(this, core::mem::transmute_copy(&sample), core::mem::transmute_copy(&hr))
+                IKsPinEx_Impl::KsNotifyError(this, core::mem::transmute_copy(&sample), core::mem::transmute_copy(&hr));
             }
         }
         Self { base__: IKsPin_Vtbl::new::<Identity, OFFSET>(), KsNotifyError: KsNotifyError::<Identity, OFFSET> }
@@ -1861,7 +1869,7 @@ impl IKsPinPipe_Vtbl {
         unsafe extern "system" fn KsGetPinBusCache<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = IKsPinPipe_Impl::KsGetPinBusCache(this)
+                *result__ = IKsPinPipe_Impl::KsGetPinBusCache(this);
             }
         }
         unsafe extern "system" fn KsSetPinBusCache<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bus: windows_core::GUID) -> windows_core::HRESULT {
@@ -1983,7 +1991,9 @@ impl IKsQualityForwarder {
     where
         P0: windows_core::Param<IKsPin>,
     {
-        unsafe { (windows_core::Interface::vtable(self).KsFlushClient)(windows_core::Interface::as_raw(self), pin.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KsFlushClient)(windows_core::Interface::as_raw(self), pin.param().abi());
+        }
     }
 }
 #[repr(C)]
@@ -2000,7 +2010,7 @@ impl IKsQualityForwarder_Vtbl {
         unsafe extern "system" fn KsFlushClient<Identity: IKsQualityForwarder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IKsQualityForwarder_Impl::KsFlushClient(this, core::mem::transmute_copy(&pin))
+                IKsQualityForwarder_Impl::KsFlushClient(this, core::mem::transmute_copy(&pin));
             }
         }
         Self { base__: IKsObject_Vtbl::new::<Identity, OFFSET>(), KsFlushClient: KsFlushClient::<Identity, OFFSET> }

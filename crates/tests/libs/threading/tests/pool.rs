@@ -50,7 +50,7 @@ fn multi() {
                 windows_threading::sleep(10);
                 let mut writer = set.write().unwrap();
                 writer.insert(windows_threading::thread_id());
-            })
+            });
         }
     });
     assert!(set.read().unwrap().len() > 1);
@@ -67,7 +67,7 @@ fn single() {
             pool.submit(|| {
                 let mut writer = set.write().unwrap();
                 writer.insert(windows_threading::thread_id());
-            })
+            });
         }
     });
     assert_eq!(set.read().unwrap().len(), 1);

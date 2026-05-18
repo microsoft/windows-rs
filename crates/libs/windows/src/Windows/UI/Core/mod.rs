@@ -801,12 +801,12 @@ impl core::ops::BitAnd for CoreIndependentInputFilters {
 }
 impl core::ops::BitOrAssign for CoreIndependentInputFilters {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CoreIndependentInputFilters {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CoreIndependentInputFilters {
@@ -1156,12 +1156,12 @@ impl core::ops::BitAnd for CoreInputDeviceTypes {
 }
 impl core::ops::BitOrAssign for CoreInputDeviceTypes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CoreInputDeviceTypes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CoreInputDeviceTypes {
@@ -1259,12 +1259,12 @@ impl core::ops::BitAnd for CoreVirtualKeyStates {
 }
 impl core::ops::BitOrAssign for CoreVirtualKeyStates {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CoreVirtualKeyStates {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CoreVirtualKeyStates {

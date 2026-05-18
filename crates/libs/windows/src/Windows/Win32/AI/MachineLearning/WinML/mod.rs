@@ -253,7 +253,7 @@ impl IMLOperatorKernelContext_Vtbl {
         unsafe extern "system" fn GetExecutionInterface<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionobject: *mut *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorKernelContext_Impl::GetExecutionInterface(this, core::mem::transmute_copy(&executionobject))
+                IMLOperatorKernelContext_Impl::GetExecutionInterface(this, core::mem::transmute_copy(&executionobject));
             }
         }
         Self {
@@ -416,7 +416,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
         unsafe extern "system" fn GetExecutionInterface<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, executionobject: *mut *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorKernelCreationContext_Impl::GetExecutionInterface(this, core::mem::transmute_copy(&executionobject))
+                IMLOperatorKernelCreationContext_Impl::GetExecutionInterface(this, core::mem::transmute_copy(&executionobject));
             }
         }
         Self {
@@ -801,7 +801,7 @@ impl IMLOperatorTensor_Vtbl {
         unsafe extern "system" fn GetDataInterface<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datainterface: *mut *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMLOperatorTensor_Impl::GetDataInterface(this, core::mem::transmute_copy(&datainterface))
+                IMLOperatorTensor_Impl::GetDataInterface(this, core::mem::transmute_copy(&datainterface));
             }
         }
         Self {
@@ -1514,12 +1514,12 @@ impl core::ops::BitAnd for MLOperatorKernelOptions {
 }
 impl core::ops::BitOrAssign for MLOperatorKernelOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MLOperatorKernelOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MLOperatorKernelOptions {
@@ -1555,12 +1555,12 @@ impl core::ops::BitAnd for MLOperatorParameterOptions {
 }
 impl core::ops::BitOrAssign for MLOperatorParameterOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MLOperatorParameterOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MLOperatorParameterOptions {

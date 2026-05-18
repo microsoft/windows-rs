@@ -7599,19 +7599,29 @@ windows_core::imp::define_interface!(ISystemMonitorEvents, ISystemMonitorEvents_
 windows_core::imp::interface_hierarchy!(ISystemMonitorEvents, windows_core::IUnknown);
 impl ISystemMonitorEvents {
     pub unsafe fn OnCounterSelected(&self, index: i32) {
-        unsafe { (windows_core::Interface::vtable(self).OnCounterSelected)(windows_core::Interface::as_raw(self), index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnCounterSelected)(windows_core::Interface::as_raw(self), index);
+        }
     }
     pub unsafe fn OnCounterAdded(&self, index: i32) {
-        unsafe { (windows_core::Interface::vtable(self).OnCounterAdded)(windows_core::Interface::as_raw(self), index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnCounterAdded)(windows_core::Interface::as_raw(self), index);
+        }
     }
     pub unsafe fn OnCounterDeleted(&self, index: i32) {
-        unsafe { (windows_core::Interface::vtable(self).OnCounterDeleted)(windows_core::Interface::as_raw(self), index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnCounterDeleted)(windows_core::Interface::as_raw(self), index);
+        }
     }
     pub unsafe fn OnSampleCollected(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnSampleCollected)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnSampleCollected)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnDblClick(&self, index: i32) {
-        unsafe { (windows_core::Interface::vtable(self).OnDblClick)(windows_core::Interface::as_raw(self), index) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnDblClick)(windows_core::Interface::as_raw(self), index);
+        }
     }
 }
 #[repr(C)]
@@ -7636,31 +7646,31 @@ impl ISystemMonitorEvents_Vtbl {
         unsafe extern "system" fn OnCounterSelected<Identity: ISystemMonitorEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemMonitorEvents_Impl::OnCounterSelected(this, core::mem::transmute_copy(&index))
+                ISystemMonitorEvents_Impl::OnCounterSelected(this, core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn OnCounterAdded<Identity: ISystemMonitorEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemMonitorEvents_Impl::OnCounterAdded(this, core::mem::transmute_copy(&index))
+                ISystemMonitorEvents_Impl::OnCounterAdded(this, core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn OnCounterDeleted<Identity: ISystemMonitorEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemMonitorEvents_Impl::OnCounterDeleted(this, core::mem::transmute_copy(&index))
+                ISystemMonitorEvents_Impl::OnCounterDeleted(this, core::mem::transmute_copy(&index));
             }
         }
         unsafe extern "system" fn OnSampleCollected<Identity: ISystemMonitorEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemMonitorEvents_Impl::OnSampleCollected(this)
+                ISystemMonitorEvents_Impl::OnSampleCollected(this);
             }
         }
         unsafe extern "system" fn OnDblClick<Identity: ISystemMonitorEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISystemMonitorEvents_Impl::OnDblClick(this, core::mem::transmute_copy(&index))
+                ISystemMonitorEvents_Impl::OnDblClick(this, core::mem::transmute_copy(&index));
             }
         }
         Self {

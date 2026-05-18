@@ -7268,7 +7268,9 @@ impl IMTSActivity {
         unsafe { (windows_core::Interface::vtable(self).AsyncCall)(windows_core::Interface::as_raw(self), pcall.param().abi()).ok() }
     }
     pub unsafe fn Reserved1(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn BindToCurrentThread(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BindToCurrentThread)(windows_core::Interface::as_raw(self)).ok() }
@@ -7311,7 +7313,7 @@ impl IMTSActivity_Vtbl {
         unsafe extern "system" fn Reserved1<Identity: IMTSActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMTSActivity_Impl::Reserved1(this)
+                IMTSActivity_Impl::Reserved1(this);
             }
         }
         unsafe extern "system" fn BindToCurrentThread<Identity: IMTSActivity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8161,28 +8163,42 @@ windows_core::imp::define_interface!(IObjPool, IObjPool_Vtbl, 0x7d8805a0_2ea7_11
 windows_core::imp::interface_hierarchy!(IObjPool, windows_core::IUnknown);
 impl IObjPool {
     pub unsafe fn Reserved1(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved2(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved2)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved2)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved3(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved3)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved3)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved4(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved4)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved4)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn PutEndTx<P0>(&self, pobj: P0)
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PutEndTx)(windows_core::Interface::as_raw(self), pobj.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PutEndTx)(windows_core::Interface::as_raw(self), pobj.param().abi());
+        }
     }
     pub unsafe fn Reserved5(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved5)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved5)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved6(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved6)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved6)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -8211,43 +8227,43 @@ impl IObjPool_Vtbl {
         unsafe extern "system" fn Reserved1<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::Reserved1(this)
+                IObjPool_Impl::Reserved1(this);
             }
         }
         unsafe extern "system" fn Reserved2<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::Reserved2(this)
+                IObjPool_Impl::Reserved2(this);
             }
         }
         unsafe extern "system" fn Reserved3<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::Reserved3(this)
+                IObjPool_Impl::Reserved3(this);
             }
         }
         unsafe extern "system" fn Reserved4<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::Reserved4(this)
+                IObjPool_Impl::Reserved4(this);
             }
         }
         unsafe extern "system" fn PutEndTx<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobj: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::PutEndTx(this, core::mem::transmute_copy(&pobj))
+                IObjPool_Impl::PutEndTx(this, core::mem::transmute_copy(&pobj));
             }
         }
         unsafe extern "system" fn Reserved5<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::Reserved5(this)
+                IObjPool_Impl::Reserved5(this);
             }
         }
         unsafe extern "system" fn Reserved6<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::Reserved6(this)
+                IObjPool_Impl::Reserved6(this);
             }
         }
         Self {
@@ -8694,7 +8710,9 @@ impl IObjectControl {
         unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self)).ok() }
     }
     pub unsafe fn Deactivate(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Deactivate)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn CanBePooled(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).CanBePooled)(windows_core::Interface::as_raw(self)) }
@@ -8724,7 +8742,7 @@ impl IObjectControl_Vtbl {
         unsafe extern "system" fn Deactivate<Identity: IObjectControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjectControl_Impl::Deactivate(this)
+                IObjectControl_Impl::Deactivate(this);
             }
         }
         unsafe extern "system" fn CanBePooled<Identity: IObjectControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -10879,31 +10897,49 @@ windows_core::imp::define_interface!(ITransactionProperty, ITransactionProperty_
 windows_core::imp::interface_hierarchy!(ITransactionProperty, windows_core::IUnknown);
 impl ITransactionProperty {
     pub unsafe fn Reserved1(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved2(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved2)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved2)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved3(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved3)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved3)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved4(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved4)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved4)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved5(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved5)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved5)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved6(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved6)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved6)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved7(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved7)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved7)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved8(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved8)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved8)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved9(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved9)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved9)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn GetTransactionResourcePool(&self) -> windows_core::Result<ITransactionResourcePool> {
         unsafe {
@@ -10912,28 +10948,44 @@ impl ITransactionProperty {
         }
     }
     pub unsafe fn Reserved10(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved10)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved10)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved11(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved11)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved11)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved12(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved12)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved12)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved13(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved13)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved13)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved14(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved14)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved14)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved15(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved15)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved15)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved16(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved16)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved16)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Reserved17(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Reserved17)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Reserved17)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -10984,55 +11036,55 @@ impl ITransactionProperty_Vtbl {
         unsafe extern "system" fn Reserved1<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved1(this)
+                ITransactionProperty_Impl::Reserved1(this);
             }
         }
         unsafe extern "system" fn Reserved2<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved2(this)
+                ITransactionProperty_Impl::Reserved2(this);
             }
         }
         unsafe extern "system" fn Reserved3<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved3(this)
+                ITransactionProperty_Impl::Reserved3(this);
             }
         }
         unsafe extern "system" fn Reserved4<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved4(this)
+                ITransactionProperty_Impl::Reserved4(this);
             }
         }
         unsafe extern "system" fn Reserved5<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved5(this)
+                ITransactionProperty_Impl::Reserved5(this);
             }
         }
         unsafe extern "system" fn Reserved6<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved6(this)
+                ITransactionProperty_Impl::Reserved6(this);
             }
         }
         unsafe extern "system" fn Reserved7<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved7(this)
+                ITransactionProperty_Impl::Reserved7(this);
             }
         }
         unsafe extern "system" fn Reserved8<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved8(this)
+                ITransactionProperty_Impl::Reserved8(this);
             }
         }
         unsafe extern "system" fn Reserved9<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved9(this)
+                ITransactionProperty_Impl::Reserved9(this);
             }
         }
         unsafe extern "system" fn GetTransactionResourcePool<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptxpool: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -11050,49 +11102,49 @@ impl ITransactionProperty_Vtbl {
         unsafe extern "system" fn Reserved10<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved10(this)
+                ITransactionProperty_Impl::Reserved10(this);
             }
         }
         unsafe extern "system" fn Reserved11<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved11(this)
+                ITransactionProperty_Impl::Reserved11(this);
             }
         }
         unsafe extern "system" fn Reserved12<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved12(this)
+                ITransactionProperty_Impl::Reserved12(this);
             }
         }
         unsafe extern "system" fn Reserved13<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved13(this)
+                ITransactionProperty_Impl::Reserved13(this);
             }
         }
         unsafe extern "system" fn Reserved14<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved14(this)
+                ITransactionProperty_Impl::Reserved14(this);
             }
         }
         unsafe extern "system" fn Reserved15<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved15(this)
+                ITransactionProperty_Impl::Reserved15(this);
             }
         }
         unsafe extern "system" fn Reserved16<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved16(this)
+                ITransactionProperty_Impl::Reserved16(this);
             }
         }
         unsafe extern "system" fn Reserved17<Identity: ITransactionProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITransactionProperty_Impl::Reserved17(this)
+                ITransactionProperty_Impl::Reserved17(this);
             }
         }
         Self {
@@ -11372,7 +11424,9 @@ windows_core::imp::define_interface!(ITxProxyHolder, ITxProxyHolder_Vtbl, 0x13d8
 windows_core::imp::interface_hierarchy!(ITxProxyHolder, windows_core::IUnknown);
 impl ITxProxyHolder {
     pub unsafe fn GetIdentifier(&self, pguidltx: *mut windows_core::GUID) {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), pguidltx as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), pguidltx as _);
+        }
     }
 }
 #[repr(C)]
@@ -11389,7 +11443,7 @@ impl ITxProxyHolder_Vtbl {
         unsafe extern "system" fn GetIdentifier<Identity: ITxProxyHolder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidltx: *mut windows_core::GUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITxProxyHolder_Impl::GetIdentifier(this, core::mem::transmute_copy(&pguidltx))
+                ITxProxyHolder_Impl::GetIdentifier(this, core::mem::transmute_copy(&pguidltx));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentifier: GetIdentifier::<Identity, OFFSET> }

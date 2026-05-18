@@ -754,12 +754,12 @@ impl core::ops::BitAnd for ACC_UTILITY_STATE_FLAGS {
 }
 impl core::ops::BitOrAssign for ACC_UTILITY_STATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ACC_UTILITY_STATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ACC_UTILITY_STATE_FLAGS {
@@ -1122,12 +1122,12 @@ impl core::ops::BitAnd for HIGHCONTRASTW_FLAGS {
 }
 impl core::ops::BitOrAssign for HIGHCONTRASTW_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HIGHCONTRASTW_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HIGHCONTRASTW_FLAGS {
@@ -19809,12 +19809,12 @@ impl core::ops::BitAnd for ProviderOptions {
 }
 impl core::ops::BitOrAssign for ProviderOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ProviderOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ProviderOptions {
@@ -19969,12 +19969,12 @@ impl core::ops::BitAnd for SERIALKEYS_FLAGS {
 }
 impl core::ops::BitOrAssign for SERIALKEYS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SERIALKEYS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SERIALKEYS_FLAGS {
@@ -20067,12 +20067,12 @@ impl core::ops::BitAnd for SOUNDSENTRY_FLAGS {
 }
 impl core::ops::BitOrAssign for SOUNDSENTRY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SOUNDSENTRY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SOUNDSENTRY_FLAGS {
@@ -20134,12 +20134,12 @@ impl core::ops::BitAnd for STICKYKEYS_FLAGS {
 }
 impl core::ops::BitOrAssign for STICKYKEYS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for STICKYKEYS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for STICKYKEYS_FLAGS {
@@ -20308,12 +20308,12 @@ impl core::ops::BitAnd for SynchronizedInputType {
 }
 impl core::ops::BitOrAssign for SynchronizedInputType {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SynchronizedInputType {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SynchronizedInputType {
@@ -20952,12 +20952,12 @@ impl core::ops::BitAnd for UIAutomationType {
 }
 impl core::ops::BitOrAssign for UIAutomationType {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for UIAutomationType {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for UIAutomationType {

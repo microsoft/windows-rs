@@ -3928,12 +3928,12 @@ impl core::ops::BitAnd for CM_CDFLAGS {
 }
 impl core::ops::BitOrAssign for CM_CDFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CM_CDFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CM_CDFLAGS {
@@ -3967,12 +3967,12 @@ impl core::ops::BitAnd for CM_CDMASK {
 }
 impl core::ops::BitOrAssign for CM_CDMASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CM_CDMASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CM_CDMASK {
@@ -4043,12 +4043,12 @@ impl core::ops::BitAnd for CM_DEVCAP {
 }
 impl core::ops::BitOrAssign for CM_DEVCAP {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CM_DEVCAP {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CM_DEVCAP {
@@ -4112,12 +4112,12 @@ impl core::ops::BitAnd for CM_DEVNODE_STATUS_FLAGS {
 }
 impl core::ops::BitOrAssign for CM_DEVNODE_STATUS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CM_DEVNODE_STATUS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CM_DEVNODE_STATUS_FLAGS {
@@ -4196,12 +4196,12 @@ impl core::ops::BitAnd for CM_ENUMERATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CM_ENUMERATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CM_ENUMERATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CM_ENUMERATE_FLAGS {
@@ -4476,12 +4476,12 @@ impl core::ops::BitAnd for CM_REENUMERATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CM_REENUMERATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CM_REENUMERATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CM_REENUMERATE_FLAGS {
@@ -4761,12 +4761,12 @@ impl core::ops::BitAnd for DD_FLAGS {
 }
 impl core::ops::BitOrAssign for DD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DD_FLAGS {
@@ -4900,12 +4900,12 @@ impl core::ops::BitAnd for DIINSTALLDEVICE_FLAGS {
 }
 impl core::ops::BitOrAssign for DIINSTALLDEVICE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIINSTALLDEVICE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIINSTALLDEVICE_FLAGS {
@@ -4936,12 +4936,12 @@ impl core::ops::BitAnd for DIINSTALLDRIVER_FLAGS {
 }
 impl core::ops::BitOrAssign for DIINSTALLDRIVER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIINSTALLDRIVER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIINSTALLDRIVER_FLAGS {
@@ -5027,12 +5027,12 @@ impl core::ops::BitAnd for DIROLLBACKDRIVER_FLAGS {
 }
 impl core::ops::BitOrAssign for DIROLLBACKDRIVER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIROLLBACKDRIVER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIROLLBACKDRIVER_FLAGS {
@@ -5063,12 +5063,12 @@ impl core::ops::BitAnd for DIUNINSTALLDRIVER_FLAGS {
 }
 impl core::ops::BitOrAssign for DIUNINSTALLDRIVER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIUNINSTALLDRIVER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
@@ -5391,12 +5391,12 @@ impl core::ops::BitAnd for FILE_COMPRESSION_TYPE {
 }
 impl core::ops::BitOrAssign for FILE_COMPRESSION_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_COMPRESSION_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_COMPRESSION_TYPE {
@@ -6064,12 +6064,12 @@ impl core::ops::BitAnd for INF_STYLE {
 }
 impl core::ops::BitOrAssign for INF_STYLE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for INF_STYLE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for INF_STYLE {
@@ -6111,12 +6111,12 @@ impl core::ops::BitAnd for IOD_DESFLAGS {
 }
 impl core::ops::BitOrAssign for IOD_DESFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IOD_DESFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IOD_DESFLAGS {
@@ -6181,12 +6181,12 @@ impl core::ops::BitAnd for IRQD_FLAGS {
 }
 impl core::ops::BitOrAssign for IRQD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IRQD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IRQD_FLAGS {
@@ -6310,12 +6310,12 @@ impl core::ops::BitAnd for MD_FLAGS {
 }
 impl core::ops::BitOrAssign for MD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MD_FLAGS {
@@ -6483,12 +6483,12 @@ impl core::ops::BitAnd for PCD_FLAGS {
 }
 impl core::ops::BitOrAssign for PCD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PCD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PCD_FLAGS {
@@ -6523,12 +6523,12 @@ impl core::ops::BitAnd for PMF_FLAGS {
 }
 impl core::ops::BitOrAssign for PMF_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PMF_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PMF_FLAGS {
@@ -6606,12 +6606,12 @@ impl core::ops::BitAnd for SETUPSCANFILEQUEUE_FLAGS {
 }
 impl core::ops::BitOrAssign for SETUPSCANFILEQUEUE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETUPSCANFILEQUEUE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
@@ -6642,12 +6642,12 @@ impl core::ops::BitAnd for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
 }
 impl core::ops::BitOrAssign for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETUP_DI_DEVICE_CONFIGURATION_FLAGS {
@@ -6678,12 +6678,12 @@ impl core::ops::BitAnd for SETUP_DI_DEVICE_CREATION_FLAGS {
 }
 impl core::ops::BitOrAssign for SETUP_DI_DEVICE_CREATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETUP_DI_DEVICE_CREATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETUP_DI_DEVICE_CREATION_FLAGS {
@@ -6714,12 +6714,12 @@ impl core::ops::BitAnd for SETUP_DI_DEVICE_INSTALL_FLAGS {
 }
 impl core::ops::BitOrAssign for SETUP_DI_DEVICE_INSTALL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETUP_DI_DEVICE_INSTALL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS {
@@ -6750,12 +6750,12 @@ impl core::ops::BitAnd for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
 }
 impl core::ops::BitOrAssign for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETUP_DI_DEVICE_INSTALL_FLAGS_EX {
@@ -6786,12 +6786,12 @@ impl core::ops::BitAnd for SETUP_DI_DRIVER_INSTALL_FLAGS {
 }
 impl core::ops::BitOrAssign for SETUP_DI_DRIVER_INSTALL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETUP_DI_DRIVER_INSTALL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETUP_DI_DRIVER_INSTALL_FLAGS {
@@ -6825,12 +6825,12 @@ impl core::ops::BitAnd for SETUP_DI_GET_CLASS_DEVS_FLAGS {
 }
 impl core::ops::BitOrAssign for SETUP_DI_GET_CLASS_DEVS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETUP_DI_GET_CLASS_DEVS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETUP_DI_GET_CLASS_DEVS_FLAGS {
@@ -7078,12 +7078,12 @@ impl core::ops::BitAnd for SPSVCINST_FLAGS {
 }
 impl core::ops::BitOrAssign for SPSVCINST_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SPSVCINST_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SPSVCINST_FLAGS {
@@ -7478,12 +7478,12 @@ impl core::ops::BitAnd for SP_COPY_STYLE {
 }
 impl core::ops::BitOrAssign for SP_COPY_STYLE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SP_COPY_STYLE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SP_COPY_STYLE {
@@ -8737,12 +8737,12 @@ impl core::ops::BitAnd for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
 }
 impl core::ops::BitOrAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {

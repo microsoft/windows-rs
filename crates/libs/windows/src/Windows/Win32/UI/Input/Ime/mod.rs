@@ -5378,12 +5378,12 @@ impl core::ops::BitAnd for IME_COMPOSITION_STRING {
 }
 impl core::ops::BitOrAssign for IME_COMPOSITION_STRING {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IME_COMPOSITION_STRING {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IME_COMPOSITION_STRING {
@@ -5417,12 +5417,12 @@ impl core::ops::BitAnd for IME_CONVERSION_MODE {
 }
 impl core::ops::BitOrAssign for IME_CONVERSION_MODE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IME_CONVERSION_MODE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IME_CONVERSION_MODE {
@@ -5504,12 +5504,12 @@ impl core::ops::BitAnd for IME_SENTENCE_MODE {
 }
 impl core::ops::BitOrAssign for IME_SENTENCE_MODE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IME_SENTENCE_MODE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IME_SENTENCE_MODE {

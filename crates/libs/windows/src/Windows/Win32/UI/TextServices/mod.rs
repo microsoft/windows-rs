@@ -35,12 +35,12 @@ impl core::ops::BitAnd for ANCHOR_CHANGE_HISTORY_FLAGS {
 }
 impl core::ops::BitOrAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
@@ -97,12 +97,12 @@ impl core::ops::BitAnd for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
 }
 impl core::ops::BitOrAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
@@ -14484,12 +14484,12 @@ impl core::ops::BitAnd for TEXT_STORE_CHANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for TEXT_STORE_CHANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TEXT_STORE_CHANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
@@ -14523,12 +14523,12 @@ impl core::ops::BitAnd for TEXT_STORE_TEXT_CHANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for TEXT_STORE_TEXT_CHANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TEXT_STORE_TEXT_CHANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
@@ -14580,12 +14580,12 @@ impl core::ops::BitAnd for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
 }
 impl core::ops::BitOrAssign for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
