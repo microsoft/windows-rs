@@ -5,7 +5,8 @@
     non_snake_case,
     non_camel_case_types,
     non_upper_case_globals,
-    clippy::missing_transmute_annotations
+    clippy::missing_transmute_annotations,
+    clippy::type_complexity
 )]
 
 mod bindings;

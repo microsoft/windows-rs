@@ -186,7 +186,7 @@ impl Layout {
 impl std::fmt::Display for Layout {
     fn fmt(&self, fmt: &mut std::fmt::Formatter) -> std::fmt::Result {
         for (name, module) in &self.modules {
-            write!(fmt, "{}", &module.to_module(name))?;
+            write!(fmt, "{}", module.to_module(name))?;
         }
 
         Ok(())

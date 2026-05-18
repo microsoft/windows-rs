@@ -24,7 +24,7 @@ impl<'a> Index<'a> {
                 let namespace = if namespace.is_empty() {
                     name.clone()
                 } else {
-                    format!("{namespace}.{}", &name)
+                    format!("{namespace}.{}", name)
                 };
                 self.insert(file, &namespace, item);
             }
