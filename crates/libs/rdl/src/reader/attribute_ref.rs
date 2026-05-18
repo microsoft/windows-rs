@@ -239,14 +239,11 @@ impl Encoder<'_> {
             }
         }
 
-        let mut result = match ctor_values {
-            Some(v) => v,
-            None => {
-                if let Some(err) = last_type_error {
-                    return Err(err);
-                } else {
-                    return self.err(attr, "no matching attribute constructor found");
-                }
+        let Some(mut result) = ctor_values else {
+            if let Some(err) = last_type_error {
+                return Err(err);
+            } else {
+                return self.err(attr, "no matching attribute constructor found");
             }
         };
 
@@ -299,14 +296,9 @@ impl Encoder<'_> {
                         let mut combined: i32 = 0;
                         for name in &names {
                             let inner = self.find_enum_variant_value(tn, name, value)?;
-                            let v = match inner {
-                                metadata::Value::I32(v) => v,
-                                _ => {
-                                    return self.err(
-                                        value,
-                                        &format!("expected `{}` variant name", tn.name),
-                                    )
-                                }
+                            let metadata::Value::I32(v) = inner else {
+                                return self
+                                    .err(value, &format!("expected `{}` variant name", tn.name));
                             };
                             combined |= v;
                         }
