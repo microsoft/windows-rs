@@ -416,7 +416,7 @@ impl CppMethod {
                     .map(|p| write_invoke_arg(p, reader));
 
                 quote! {
-                    *result__ = #parent_impl::#name(this, #(#invoke_args,)*)
+                    *result__ = #parent_impl::#name(this, #(#invoke_args,)*);
                 }
             }
             _ => {
@@ -427,7 +427,7 @@ impl CppMethod {
                     .map(|p| write_invoke_arg(p, reader));
 
                 quote! {
-                    #parent_impl::#name(this, #(#invoke_args,)*)
+                    #parent_impl::#name(this, #(#invoke_args,)*);
                 }
             }
         }
