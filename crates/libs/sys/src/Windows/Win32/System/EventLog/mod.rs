@@ -1,9 +1,9 @@
-windows_link::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CloseEventLog(heventlog : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn DeregisterEventSource(heventlog : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn CloseEventLog(heventlog : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn DeregisterEventSource(heventlog : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : windows_sys::core::PCWSTR, locale : u32, flags : u32) -> windows_sys::core::BOOL);
 windows_link::link!("wevtapi.dll" "system" fn EvtCancel(object : EVT_HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : windows_sys::core::PCWSTR, targetfilepath : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::BOOL);
@@ -46,24 +46,24 @@ windows_link::link!("wevtapi.dll" "system" fn EvtSaveChannelConfig(channelconfig
 windows_link::link!("wevtapi.dll" "system" fn EvtSeek(resultset : EVT_HANDLE, position : i64, bookmark : EVT_HANDLE, timeout : u32, flags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvalue : *const EVT_VARIANT) -> windows_sys::core::BOOL);
-windows_link::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
+windows_link::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation::HANDLE, channelpath : windows_sys::core::PCWSTR, query : windows_sys::core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
 windows_link::link!("wevtapi.dll" "system" fn EvtUpdateBookmark(bookmark : EVT_HANDLE, event : EVT_HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : super::super::Foundation:: HANDLE, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn GetNumberOfEventLogRecords(heventlog : super::super::Foundation:: HANDLE, numberofrecords : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn GetOldestEventLogRecord(heventlog : super::super::Foundation:: HANDLE, oldestrecord : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn NotifyChangeEventLog(heventlog : super::super::Foundation:: HANDLE, hevent : super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : windows_sys::core::PCSTR, lpfilename : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-windows_link::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-windows_link::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : windows_sys::core::PCSTR, lpsourcename : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-windows_link::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : windows_sys::core::PCWSTR, lpsourcename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
-windows_link::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : windows_sys::core::PCSTR, lpsourcename : windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-windows_link::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : windows_sys::core::PCWSTR, lpsourcename : windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+windows_link::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : super::super::Foundation::HANDLE, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn GetNumberOfEventLogRecords(heventlog : super::super::Foundation::HANDLE, numberofrecords : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn GetOldestEventLogRecord(heventlog : super::super::Foundation::HANDLE, oldestrecord : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn NotifyChangeEventLog(heventlog : super::super::Foundation::HANDLE, hevent : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : windows_sys::core::PCSTR, lpfilename : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
+windows_link::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
+windows_link::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : windows_sys::core::PCSTR, lpsourcename : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
+windows_link::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : windows_sys::core::PCWSTR, lpsourcename : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
+windows_link::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : super::super::Foundation::HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : super::super::Foundation::HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : windows_sys::core::PCSTR, lpsourcename : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
+windows_link::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : windows_sys::core::PCWSTR, lpsourcename : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
-windows_link::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCSTR, lprawdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation::HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security::PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCSTR, lprawdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
-windows_link::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCWSTR, lprawdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation::HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security::PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_sys::core::PCWSTR, lprawdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct EVENTLOGRECORD {

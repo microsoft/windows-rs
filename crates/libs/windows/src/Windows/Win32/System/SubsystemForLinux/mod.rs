@@ -28,7 +28,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunch(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, stdin : super::super::Foundation:: HANDLE, stdout : super::super::Foundation:: HANDLE, stderr : super::super::Foundation:: HANDLE, process : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunch(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, stdin : super::super::Foundation::HANDLE, stdout : super::super::Foundation::HANDLE, stderr : super::super::Foundation::HANDLE, process : *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), stdin, stdout, stderr, &mut result__).map(|| result__)

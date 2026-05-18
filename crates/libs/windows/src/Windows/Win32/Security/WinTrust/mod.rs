@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn OpenPersonalTrustDBDialog(hwndparent: Option<super::super::Foundation::HWND>) -> windows_core::BOOL {
-    windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation:: HWND) -> windows_core::BOOL);
+    windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialog(hwndparent : super::super::Foundation::HWND) -> windows_core::BOOL);
     unsafe { OpenPersonalTrustDBDialog(hwndparent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OpenPersonalTrustDBDialogEx(hwndparent: Option<super::super::Foundation::HWND>, dwflags: u32, pvreserved: Option<*mut *mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation::HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { OpenPersonalTrustDBDialogEx(hwndparent.unwrap_or(core::mem::zeroed()) as _, dwflags, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
@@ -17,7 +17,7 @@ pub unsafe fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DAT
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::Cryptography::CERT_INFO) -> windows_core::BOOL {
-    windows_core::link!("wintrust.dll" "system" fn WTHelperCertIsSelfSigned(dwencoding : u32, pcert : *mut super::Cryptography:: CERT_INFO) -> windows_core::BOOL);
+    windows_core::link!("wintrust.dll" "system" fn WTHelperCertIsSelfSigned(dwencoding : u32, pcert : *mut super::Cryptography::CERT_INFO) -> windows_core::BOOL);
     unsafe { WTHelperCertIsSelfSigned(dwencoding, pcert as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -41,18 +41,18 @@ pub unsafe fn WTHelperGetProvSignerFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
 pub unsafe fn WTHelperProvDataFromStateData(hstatedata: super::super::Foundation::HANDLE) -> *mut CRYPT_PROVIDER_DATA {
-    windows_core::link!("wintrust.dll" "system" fn WTHelperProvDataFromStateData(hstatedata : super::super::Foundation:: HANDLE) -> *mut CRYPT_PROVIDER_DATA);
+    windows_core::link!("wintrust.dll" "system" fn WTHelperProvDataFromStateData(hstatedata : super::super::Foundation::HANDLE) -> *mut CRYPT_PROVIDER_DATA);
     unsafe { WTHelperProvDataFromStateData(hstatedata) }
 }
 #[inline]
 pub unsafe fn WinVerifyTrust(hwnd: super::super::Foundation::HWND, pgactionid: *mut windows_core::GUID, pwvtdata: *mut core::ffi::c_void) -> i32 {
-    windows_core::link!("wintrust.dll" "system" fn WinVerifyTrust(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwvtdata : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("wintrust.dll" "system" fn WinVerifyTrust(hwnd : super::super::Foundation::HWND, pgactionid : *mut windows_core::GUID, pwvtdata : *mut core::ffi::c_void) -> i32);
     unsafe { WinVerifyTrust(hwnd, pgactionid as _, pwvtdata as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn WinVerifyTrustEx(hwnd: super::super::Foundation::HWND, pgactionid: *mut windows_core::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32 {
-    windows_core::link!("wintrust.dll" "system" fn WinVerifyTrustEx(hwnd : super::super::Foundation:: HWND, pgactionid : *mut windows_core::GUID, pwintrustdata : *mut WINTRUST_DATA) -> i32);
+    windows_core::link!("wintrust.dll" "system" fn WinVerifyTrustEx(hwnd : super::super::Foundation::HWND, pgactionid : *mut windows_core::GUID, pwintrustdata : *mut WINTRUST_DATA) -> i32);
     unsafe { WinVerifyTrustEx(hwnd, pgactionid as _, pwintrustdata as _) }
 }
 #[inline]

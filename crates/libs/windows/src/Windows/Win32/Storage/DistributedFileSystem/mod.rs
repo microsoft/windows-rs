@@ -64,7 +64,7 @@ pub unsafe fn NetDfsGetFtContainerSecurity<P0>(domainname: P0, securityinformati
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetDfsGetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetDfsGetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     unsafe { NetDfsGetFtContainerSecurity(domainname.param().abi(), securityinformation, ppsecuritydescriptor as _, lpcbsecuritydescriptor as _) }
 }
 #[inline]
@@ -83,7 +83,7 @@ pub unsafe fn NetDfsGetSecurity<P0>(dfsentrypath: P0, securityinformation: u32, 
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetDfsGetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetDfsGetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     unsafe { NetDfsGetSecurity(dfsentrypath.param().abi(), securityinformation, ppsecuritydescriptor as _, lpcbsecuritydescriptor as _) }
 }
 #[cfg(feature = "Win32_Security")]
@@ -92,7 +92,7 @@ pub unsafe fn NetDfsGetStdContainerSecurity<P0>(machinename: P0, securityinforma
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetDfsGetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetDfsGetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     unsafe { NetDfsGetStdContainerSecurity(machinename.param().abi(), securityinformation, ppsecuritydescriptor as _, lpcbsecuritydescriptor as _) }
 }
 #[inline]
@@ -177,7 +177,7 @@ pub unsafe fn NetDfsSetFtContainerSecurity<P0>(domainname: P0, securityinformati
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetDfsSetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetDfsSetFtContainerSecurity(domainname : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> u32);
     unsafe { NetDfsSetFtContainerSecurity(domainname.param().abi(), securityinformation, psecuritydescriptor) }
 }
 #[inline]
@@ -196,7 +196,7 @@ pub unsafe fn NetDfsSetSecurity<P0>(dfsentrypath: P0, securityinformation: u32, 
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> u32);
     unsafe { NetDfsSetSecurity(dfsentrypath.param().abi(), securityinformation, psecuritydescriptor) }
 }
 #[cfg(feature = "Win32_Security")]
@@ -205,7 +205,7 @@ pub unsafe fn NetDfsSetStdContainerSecurity<P0>(machinename: P0, securityinforma
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetDfsSetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetDfsSetStdContainerSecurity(machinename : windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> u32);
     unsafe { NetDfsSetStdContainerSecurity(machinename.param().abi(), securityinformation, psecuritydescriptor) }
 }
 pub const DFS_ADD_VOLUME: u32 = 1u32;

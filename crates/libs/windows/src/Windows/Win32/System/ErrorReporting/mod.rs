@@ -17,7 +17,7 @@ where
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
-    windows_core::link!("faultrep.dll" "system" fn ReportFault(pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
+    windows_core::link!("faultrep.dll" "system" fn ReportFault(pep : *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
     unsafe { ReportFault(pep, dwopt) }
 }
 #[inline]
@@ -38,7 +38,7 @@ where
 }
 #[inline]
 pub unsafe fn WerGetFlags(hprocess: super::super::Foundation::HANDLE) -> windows_core::Result<WER_FAULT_REPORTING> {
-    windows_core::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> windows_core::HRESULT);
+    windows_core::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation::HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WerGetFlags(hprocess, &mut result__).map(|| result__)
@@ -103,7 +103,7 @@ where
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn WerReportAddDump(hreporthandle: HREPORT, hprocess: super::super::Foundation::HANDLE, hthread: Option<super::super::Foundation::HANDLE>, dumptype: WER_DUMP_TYPE, pexceptionparam: Option<*const WER_EXCEPTION_INFORMATION>, pdumpcustomoptions: Option<*const WER_DUMP_CUSTOM_OPTIONS>, dwflags: u32) -> windows_core::Result<()> {
-    windows_core::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation:: HANDLE, hthread : super::super::Foundation:: HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_core::HRESULT);
+    windows_core::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation::HANDLE, hthread : super::super::Foundation::HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_core::HRESULT);
     unsafe { WerReportAddDump(hreporthandle, hprocess, hthread.unwrap_or(core::mem::zeroed()) as _, dumptype, pexceptionparam.unwrap_or(core::mem::zeroed()) as _, pdumpcustomoptions.unwrap_or(core::mem::zeroed()) as _, dwflags).ok() }
 }
 #[inline]
@@ -135,7 +135,7 @@ pub unsafe fn WerReportHang<P1>(hwndhungapp: super::super::Foundation::HWND, pwz
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("faultrep.dll" "system" fn WerReportHang(hwndhungapp : super::super::Foundation:: HWND, pwzhungapplicationname : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("faultrep.dll" "system" fn WerReportHang(hwndhungapp : super::super::Foundation::HWND, pwzhungapplicationname : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WerReportHang(hwndhungapp, pwzhungapplicationname.param().abi()).ok() }
 }
 #[inline]

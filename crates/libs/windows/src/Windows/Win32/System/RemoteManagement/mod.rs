@@ -130,7 +130,7 @@ pub unsafe fn WSManPluginAuthzUserComplete<P6>(senderdetails: *const WSMAN_SENDE
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : windows_core::BOOL, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
+    windows_core::link!("wsmsvc.dll" "system" fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const core::ffi::c_void, impersonationtoken : super::super::Foundation::HANDLE, userisadministrator : windows_core::BOOL, errorcode : u32, extendederrorinformation : windows_core::PCWSTR) -> u32);
     unsafe { WSManPluginAuthzUserComplete(senderdetails, flags, userauthorizationcontext.unwrap_or(core::mem::zeroed()) as _, impersonationtoken.unwrap_or(core::mem::zeroed()) as _, userisadministrator.into(), errorcode, extendederrorinformation.param().abi()) }
 }
 #[inline]

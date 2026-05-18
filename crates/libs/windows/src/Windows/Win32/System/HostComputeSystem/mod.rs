@@ -3,7 +3,7 @@ pub unsafe fn HcsAddResourceToOperation<P2>(operation: HCS_OPERATION, r#type: HC
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("computecore.dll" "system" fn HcsAddResourceToOperation(operation : HCS_OPERATION, r#type : HCS_RESOURCE_TYPE, uri : windows_core::PCWSTR, handle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("computecore.dll" "system" fn HcsAddResourceToOperation(operation : HCS_OPERATION, r#type : HCS_RESOURCE_TYPE, uri : windows_core::PCWSTR, handle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { HcsAddResourceToOperation(operation, r#type, uri.param().abi(), handle).ok() }
 }
 #[inline]
@@ -59,7 +59,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
+    windows_core::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security::SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -110,7 +110,7 @@ pub unsafe fn HcsCreateProcess<P1>(computesystem: HCS_SYSTEM, processparameters:
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> windows_core::HRESULT);
+    windows_core::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security::SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         HcsCreateProcess(computesystem, processparameters.param().abi(), operation, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -190,7 +190,7 @@ where
 }
 #[inline]
 pub unsafe fn HcsFormatWritableLayerVhd(vhdhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("computestorage.dll" "system" fn HcsFormatWritableLayerVhd(vhdhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("computestorage.dll" "system" fn HcsFormatWritableLayerVhd(vhdhandle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { HcsFormatWritableLayerVhd(vhdhandle).ok() }
 }
 #[inline]
@@ -208,7 +208,7 @@ where
 }
 #[inline]
 pub unsafe fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDLE) -> windows_core::Result<windows_core::PWSTR> {
-    windows_core::link!("computestorage.dll" "system" fn HcsGetLayerVhdMountPath(vhdhandle : super::super::Foundation:: HANDLE, mountpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_core::link!("computestorage.dll" "system" fn HcsGetLayerVhdMountPath(vhdhandle : super::super::Foundation::HANDLE, mountpath : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         HcsGetLayerVhdMountPath(vhdhandle, &mut result__).map(|| result__)
@@ -348,7 +348,7 @@ pub unsafe fn HcsModifyComputeSystem<P2>(computesystem: HCS_SYSTEM, operation: H
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("computecore.dll" "system" fn HcsModifyComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, configuration : windows_core::PCWSTR, identity : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("computecore.dll" "system" fn HcsModifyComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, configuration : windows_core::PCWSTR, identity : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { HcsModifyComputeSystem(computesystem, operation, configuration.param().abi(), identity.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -465,7 +465,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("computestorage.dll" "system" fn HcsSetupBaseOSLayer(layerpath : windows_core::PCWSTR, vhdhandle : super::super::Foundation:: HANDLE, options : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("computestorage.dll" "system" fn HcsSetupBaseOSLayer(layerpath : windows_core::PCWSTR, vhdhandle : super::super::Foundation::HANDLE, options : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { HcsSetupBaseOSLayer(layerpath.param().abi(), vhdhandle, options.param().abi()).ok() }
 }
 #[inline]

@@ -9,7 +9,7 @@ windows_link::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAl
 windows_link::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagement(pszupn : windows_sys::core::PCWSTR, ppszmdmserviceuri : windows_sys::core::PCWSTR, ppzsaccesstoken : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADCredentials(usertoken : super::super::Foundation:: HANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADCredentials(usertoken : super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADDeviceCredentials() -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADDeviceCredentials2(mdmapplicationid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("mdmregistration.dll" "system" fn SetDeviceManagementConfigInfo(providerid : windows_sys::core::PCWSTR, configstring : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);

@@ -28,7 +28,7 @@ where
 }
 #[inline]
 pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    windows_core::link!("ondemandconnroutehelper.dll" "system" fn OnDemandRegisterNotification(callback : ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext : *const core::ffi::c_void, registrationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("ondemandconnroutehelper.dll" "system" fn OnDemandRegisterNotification(callback : ONDEMAND_NOTIFICATION_CALLBACK, callbackcontext : *const core::ffi::c_void, registrationhandle : *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         OnDemandRegisterNotification(callback, callbackcontext.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -36,7 +36,7 @@ pub unsafe fn OnDemandRegisterNotification(callback: ONDEMAND_NOTIFICATION_CALLB
 }
 #[inline]
 pub unsafe fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("ondemandconnroutehelper.dll" "system" fn OnDemandUnRegisterNotification(registrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("ondemandconnroutehelper.dll" "system" fn OnDemandUnRegisterNotification(registrationhandle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { OnDemandUnRegisterNotification(registrationhandle).ok() }
 }
 #[inline]

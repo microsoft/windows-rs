@@ -1,8 +1,8 @@
-windows_link::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation::HANDLE, remotename : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
 windows_link::link!("davclnt.dll" "system" fn DavCancelConnectionsToServer(lpname : windows_sys::core::PCWSTR, fforce : windows_sys::core::BOOL) -> u32);
-windows_link::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
-windows_link::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : windows_sys::core::PWSTR, cchsize : *mut u32) -> u32);
+windows_link::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation::HANDLE) -> u32);
+windows_link::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation::HANDLE) -> u32);
+windows_link::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation::HANDLE, exterror : *mut u32, exterrorstring : windows_sys::core::PWSTR, cchsize : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn DavGetHTTPFromUNCPath(uncpath : windows_sys::core::PCWSTR, url : windows_sys::core::PWSTR, lpsize : *mut u32) -> u32);
 windows_link::link!("davclnt.dll" "system" fn DavGetTheLockOwnerOfTheFile(filename : windows_sys::core::PCWSTR, lockownername : windows_sys::core::PWSTR, lockownernamelengthinbytes : *mut u32) -> u32);
 windows_link::link!("netapi32.dll" "system" fn DavGetUNCFromHTTPPath(url : windows_sys::core::PCWSTR, uncpath : windows_sys::core::PWSTR, lpsize : *mut u32) -> u32);

@@ -41,7 +41,7 @@ pub unsafe fn GetIntegratedDisplaySize() -> windows_core::Result<f64> {
 }
 #[inline]
 pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
-    windows_core::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
+    windows_core::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::super::Foundation::SYSTEMTIME));
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetLocalTime(&mut result__);
@@ -95,7 +95,7 @@ pub unsafe fn GetRuntimeAttestationReport(nonce: Option<&[u8; 32]>, packageversi
 }
 #[inline]
 pub unsafe fn GetSystemCpuSetInformation(information: Option<*mut SYSTEM_CPU_SET_INFORMATION>, bufferlength: u32, returnedlength: *mut u32, process: Option<super::super::Foundation::HANDLE>, flags: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemCpuSetInformation(information : *mut SYSTEM_CPU_SET_INFORMATION, bufferlength : u32, returnedlength : *mut u32, process : super::super::Foundation:: HANDLE, flags : u32) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetSystemCpuSetInformation(information : *mut SYSTEM_CPU_SET_INFORMATION, bufferlength : u32, returnedlength : *mut u32, process : super::super::Foundation::HANDLE, flags : u32) -> windows_core::BOOL);
     unsafe { GetSystemCpuSetInformation(information.unwrap_or(core::mem::zeroed()) as _, bufferlength, returnedlength as _, process.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -130,7 +130,7 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut windows_core::BOOL, f
 }
 #[inline]
 pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
+    windows_core::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::super::Foundation::SYSTEMTIME));
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetSystemTime(&mut result__);
@@ -149,7 +149,7 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
 }
 #[inline]
 pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
+    windows_core::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation::FILETIME));
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetSystemTimeAsFileTime(&mut result__);
@@ -158,7 +158,7 @@ pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
 }
 #[inline]
 pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::super::Foundation::FILETIME {
-    windows_core::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
+    windows_core::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation::FILETIME));
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetSystemTimePreciseAsFileTime(&mut result__);
@@ -325,12 +325,12 @@ where
 }
 #[inline]
 pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *const super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL);
     unsafe { SetLocalTime(lpsystemtime).ok() }
 }
 #[inline]
 pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *const super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL);
     unsafe { SetSystemTime(lpsystemtime).ok() }
 }
 #[inline]

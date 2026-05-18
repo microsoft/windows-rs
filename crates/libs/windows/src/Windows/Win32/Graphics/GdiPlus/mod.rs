@@ -191,7 +191,7 @@ pub unsafe fn GdipBeginContainerI(graphics: *mut GpGraphics, dstrect: *const Rec
 }
 #[inline]
 pub unsafe fn GdipBitmapApplyEffect(bitmap: *mut GpBitmap, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, useauxdata: bool, auxdata: *mut *mut core::ffi::c_void, auxdatasize: *mut i32) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, useauxdata : windows_core::BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipBitmapApplyEffect(bitmap : *mut GpBitmap, effect : *mut CGpEffect, roi : *mut super::super::Foundation::RECT, useauxdata : windows_core::BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
     unsafe { GdipBitmapApplyEffect(bitmap as _, effect as _, roi as _, useauxdata.into(), auxdata as _, auxdatasize as _) }
 }
 #[inline]
@@ -201,7 +201,7 @@ pub unsafe fn GdipBitmapConvertFormat(pinputbitmap: *mut GpBitmap, format: i32, 
 }
 #[inline]
 pub unsafe fn GdipBitmapCreateApplyEffect(inputbitmaps: *mut *mut GpBitmap, numinputs: i32, effect: *mut CGpEffect, roi: *mut super::super::Foundation::RECT, outputrect: *mut super::super::Foundation::RECT, outputbitmap: *mut *mut GpBitmap, useauxdata: bool, auxdata: *mut *mut core::ffi::c_void, auxdatasize: *mut i32) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation:: RECT, outputrect : *mut super::super::Foundation:: RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : windows_core::BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipBitmapCreateApplyEffect(inputbitmaps : *mut *mut GpBitmap, numinputs : i32, effect : *mut CGpEffect, roi : *mut super::super::Foundation::RECT, outputrect : *mut super::super::Foundation::RECT, outputbitmap : *mut *mut GpBitmap, useauxdata : windows_core::BOOL, auxdata : *mut *mut core::ffi::c_void, auxdatasize : *mut i32) -> Status);
     unsafe { GdipBitmapCreateApplyEffect(inputbitmaps as _, numinputs, effect as _, roi as _, outputrect as _, outputbitmap as _, useauxdata.into(), auxdata as _, auxdatasize as _) }
 }
 #[inline]
@@ -368,7 +368,7 @@ where
     P3: windows_core::Param<super::super::System::Com::IStream>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : * mut core::ffi::c_void, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : *mut core::ffi::c_void, emftype : EmfType, description : windows_core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipConvertToEmfPlusToStream(refgraphics, metafile as _, conversionfailureflag as _, stream.param().abi(), emftype, description.param().abi(), out_metafile as _) }
 }
 #[inline]
@@ -382,7 +382,7 @@ pub unsafe fn GdipCreateBitmapFromDirectDrawSurface<P0>(surface: P0, bitmap: *mu
 where
     P0: windows_core::Param<super::DirectDraw::IDirectDrawSurface7>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     unsafe { GdipCreateBitmapFromDirectDrawSurface(surface.param().abi(), bitmap as _) }
 }
 #[inline]
@@ -404,7 +404,7 @@ where
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateBitmapFromGdiDib(gdibitmapinfo: *const super::Gdi::BITMAPINFO, gdibitmapdata: *mut core::ffi::c_void, bitmap: *mut *mut GpBitmap) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGdiDib(gdibitmapinfo : *const super::Gdi:: BITMAPINFO, gdibitmapdata : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromGdiDib(gdibitmapinfo : *const super::Gdi::BITMAPINFO, gdibitmapdata : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     unsafe { GdipCreateBitmapFromGdiDib(gdibitmapinfo, gdibitmapdata as _, bitmap as _) }
 }
 #[inline]
@@ -415,13 +415,13 @@ pub unsafe fn GdipCreateBitmapFromGraphics(width: i32, height: i32, target: *mut
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateBitmapFromHBITMAP(hbm: super::Gdi::HBITMAP, hpal: super::Gdi::HPALETTE, bitmap: *mut *mut GpBitmap) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHBITMAP(hbm : super::Gdi:: HBITMAP, hpal : super::Gdi:: HPALETTE, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHBITMAP(hbm : super::Gdi::HBITMAP, hpal : super::Gdi::HPALETTE, bitmap : *mut *mut GpBitmap) -> Status);
     unsafe { GdipCreateBitmapFromHBITMAP(hbm, hpal, bitmap as _) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GdipCreateBitmapFromHICON(hicon: super::super::UI::WindowsAndMessaging::HICON, bitmap: *mut *mut GpBitmap) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging:: HICON, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging::HICON, bitmap : *mut *mut GpBitmap) -> Status);
     unsafe { GdipCreateBitmapFromHICON(hicon, bitmap as _) }
 }
 #[inline]
@@ -429,7 +429,7 @@ pub unsafe fn GdipCreateBitmapFromResource<P1>(hinstance: super::super::Foundati
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation::HINSTANCE, lpbitmapname : windows_core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
     unsafe { GdipCreateBitmapFromResource(hinstance, lpbitmapname.param().abi(), bitmap as _) }
 }
 #[inline]
@@ -443,7 +443,7 @@ pub unsafe fn GdipCreateBitmapFromStream<P0>(stream: P0, bitmap: *mut *mut GpBit
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     unsafe { GdipCreateBitmapFromStream(stream.param().abi(), bitmap as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -452,7 +452,7 @@ pub unsafe fn GdipCreateBitmapFromStreamICM<P0>(stream: P0, bitmap: *mut *mut Gp
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : * mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : *mut core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
     unsafe { GdipCreateBitmapFromStreamICM(stream.param().abi(), bitmap as _) }
 }
 #[inline]
@@ -486,59 +486,59 @@ where
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateFontFromDC(hdc: super::Gdi::HDC, font: *mut *mut GpFont) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFontFromDC(hdc : super::Gdi:: HDC, font : *mut *mut GpFont) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFontFromDC(hdc : super::Gdi::HDC, font : *mut *mut GpFont) -> Status);
     unsafe { GdipCreateFontFromDC(hdc, font as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateFontFromLogfontA(hdc: super::Gdi::HDC, logfont: *const super::Gdi::LOGFONTA, font: *mut *mut GpFont) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontA(hdc : super::Gdi:: HDC, logfont : *const super::Gdi:: LOGFONTA, font : *mut *mut GpFont) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontA(hdc : super::Gdi::HDC, logfont : *const super::Gdi::LOGFONTA, font : *mut *mut GpFont) -> Status);
     unsafe { GdipCreateFontFromLogfontA(hdc, logfont, font as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateFontFromLogfontW(hdc: super::Gdi::HDC, logfont: *const super::Gdi::LOGFONTW, font: *mut *mut GpFont) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontW(hdc : super::Gdi:: HDC, logfont : *const super::Gdi:: LOGFONTW, font : *mut *mut GpFont) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFontFromLogfontW(hdc : super::Gdi::HDC, logfont : *const super::Gdi::LOGFONTW, font : *mut *mut GpFont) -> Status);
     unsafe { GdipCreateFontFromLogfontW(hdc, logfont, font as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateFromHDC(hdc: super::Gdi::HDC, graphics: *mut *mut GpGraphics) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHDC(hdc : super::Gdi:: HDC, graphics : *mut *mut GpGraphics) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHDC(hdc : super::Gdi::HDC, graphics : *mut *mut GpGraphics) -> Status);
     unsafe { GdipCreateFromHDC(hdc, graphics as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateFromHDC2(hdc: super::Gdi::HDC, hdevice: super::super::Foundation::HANDLE, graphics: *mut *mut GpGraphics) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHDC2(hdc : super::Gdi:: HDC, hdevice : super::super::Foundation:: HANDLE, graphics : *mut *mut GpGraphics) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHDC2(hdc : super::Gdi::HDC, hdevice : super::super::Foundation::HANDLE, graphics : *mut *mut GpGraphics) -> Status);
     unsafe { GdipCreateFromHDC2(hdc, hdevice, graphics as _) }
 }
 #[inline]
 pub unsafe fn GdipCreateFromHWND(hwnd: super::super::Foundation::HWND, graphics: *mut *mut GpGraphics) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHWND(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHWND(hwnd : super::super::Foundation::HWND, graphics : *mut *mut GpGraphics) -> Status);
     unsafe { GdipCreateFromHWND(hwnd, graphics as _) }
 }
 #[inline]
 pub unsafe fn GdipCreateFromHWNDICM(hwnd: super::super::Foundation::HWND, graphics: *mut *mut GpGraphics) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHWNDICM(hwnd : super::super::Foundation:: HWND, graphics : *mut *mut GpGraphics) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateFromHWNDICM(hwnd : super::super::Foundation::HWND, graphics : *mut *mut GpGraphics) -> Status);
     unsafe { GdipCreateFromHWNDICM(hwnd, graphics as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateHBITMAPFromBitmap(bitmap: *mut GpBitmap, hbmreturn: *mut super::Gdi::HBITMAP, background: u32) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateHBITMAPFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::Gdi:: HBITMAP, background : u32) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateHBITMAPFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::Gdi::HBITMAP, background : u32) -> Status);
     unsafe { GdipCreateHBITMAPFromBitmap(bitmap as _, hbmreturn as _, background) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GdipCreateHICONFromBitmap(bitmap: *mut GpBitmap, hbmreturn: *mut super::super::UI::WindowsAndMessaging::HICON) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateHICONFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::super::UI::WindowsAndMessaging:: HICON) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateHICONFromBitmap(bitmap : *mut GpBitmap, hbmreturn : *mut super::super::UI::WindowsAndMessaging::HICON) -> Status);
     unsafe { GdipCreateHICONFromBitmap(bitmap as _, hbmreturn as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateHalftonePalette() -> super::Gdi::HPALETTE {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateHalftonePalette() -> super::Gdi:: HPALETTE);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateHalftonePalette() -> super::Gdi::HPALETTE);
     unsafe { GdipCreateHalftonePalette() }
 }
 #[inline]
@@ -604,7 +604,7 @@ pub unsafe fn GdipCreateMatrix3I(rect: *const Rect, dstplg: *const Point, matrix
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateMetafileFromEmf(hemf: super::Gdi::HENHMETAFILE, deleteemf: bool, metafile: *mut *mut GpMetafile) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : windows_core::BOOL, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromEmf(hemf : super::Gdi::HENHMETAFILE, deleteemf : windows_core::BOOL, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipCreateMetafileFromEmf(hemf, deleteemf.into(), metafile as _) }
 }
 #[inline]
@@ -621,13 +621,13 @@ pub unsafe fn GdipCreateMetafileFromStream<P0>(stream: P0, metafile: *mut *mut G
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : * mut core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : *mut core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipCreateMetafileFromStream(stream.param().abi(), metafile as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateMetafileFromWmf(hwmf: super::Gdi::HMETAFILE, deletewmf: bool, wmfplaceablefileheader: *const WmfPlaceableFileHeader, metafile: *mut *mut GpMetafile) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : windows_core::BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmf(hwmf : super::Gdi::HMETAFILE, deletewmf : windows_core::BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipCreateMetafileFromWmf(hwmf, deletewmf.into(), wmfplaceablefileheader, metafile as _) }
 }
 #[inline]
@@ -691,7 +691,7 @@ pub unsafe fn GdipCreateRegion(region: *mut *mut GpRegion) -> Status {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipCreateRegionHrgn(hrgn: super::Gdi::HRGN, region: *mut *mut GpRegion) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateRegionHrgn(hrgn : super::Gdi:: HRGN, region : *mut *mut GpRegion) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateRegionHrgn(hrgn : super::Gdi::HRGN, region : *mut *mut GpRegion) -> Status);
     unsafe { GdipCreateRegionHrgn(hrgn, region as _) }
 }
 #[inline]
@@ -725,7 +725,7 @@ pub unsafe fn GdipCreateStreamOnFile<P0>(filename: P0, access: u32, stream: *mut
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : windows_core::PCWSTR, access : u32, stream : *mut * mut core::ffi::c_void) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : windows_core::PCWSTR, access : u32, stream : *mut *mut core::ffi::c_void) -> Status);
     unsafe { GdipCreateStreamOnFile(filename.param().abi(), access, core::mem::transmute(stream)) }
 }
 #[inline]
@@ -1079,7 +1079,7 @@ where
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipEmfToWmfBits(hemf: super::Gdi::HENHMETAFILE, pdata16: Option<&mut [u8]>, imapmode: i32, eflags: i32) -> u32 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipEmfToWmfBits(hemf : super::Gdi:: HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, eflags : i32) -> u32);
+    windows_core::link!("gdiplus.dll" "system" fn GdipEmfToWmfBits(hemf : super::Gdi::HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, eflags : i32) -> u32);
     unsafe { GdipEmfToWmfBits(hemf, pdata16.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pdata16.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), imapmode, eflags) }
 }
 #[inline]
@@ -1360,7 +1360,7 @@ pub unsafe fn GdipGetCustomLineCapWidthScale(customcap: *mut GpCustomLineCap, wi
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetDC(graphics: *mut GpGraphics, hdc: *mut super::Gdi::HDC) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetDC(graphics : *mut GpGraphics, hdc : *mut super::Gdi:: HDC) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetDC(graphics : *mut GpGraphics, hdc : *mut super::Gdi::HDC) -> Status);
     unsafe { GdipGetDC(graphics as _, hdc as _) }
 }
 #[inline]
@@ -1476,7 +1476,7 @@ pub unsafe fn GdipGetHatchStyle(brush: *mut GpHatch, hatchstyle: *mut HatchStyle
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetHemfFromMetafile(metafile: *mut GpMetafile, hemf: *mut super::Gdi::HENHMETAFILE) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetHemfFromMetafile(metafile : *mut GpMetafile, hemf : *mut super::Gdi:: HENHMETAFILE) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetHemfFromMetafile(metafile : *mut GpMetafile, hemf : *mut super::Gdi::HENHMETAFILE) -> Status);
     unsafe { GdipGetHemfFromMetafile(metafile as _, hemf as _) }
 }
 #[inline]
@@ -1642,13 +1642,13 @@ pub unsafe fn GdipGetLineWrapMode(brush: *mut GpLineGradient, wrapmode: *mut Wra
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetLogFontA(font: *mut GpFont, graphics: *mut GpGraphics, logfonta: *mut super::Gdi::LOGFONTA) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetLogFontA(font : *mut GpFont, graphics : *mut GpGraphics, logfonta : *mut super::Gdi:: LOGFONTA) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetLogFontA(font : *mut GpFont, graphics : *mut GpGraphics, logfonta : *mut super::Gdi::LOGFONTA) -> Status);
     unsafe { GdipGetLogFontA(font as _, graphics as _, logfonta as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetLogFontW(font: *mut GpFont, graphics: *mut GpGraphics, logfontw: *mut super::Gdi::LOGFONTW) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetLogFontW(font : *mut GpFont, graphics : *mut GpGraphics, logfontw : *mut super::Gdi:: LOGFONTW) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetLogFontW(font : *mut GpFont, graphics : *mut GpGraphics, logfontw : *mut super::Gdi::LOGFONTW) -> Status);
     unsafe { GdipGetLogFontW(font as _, graphics as _, logfontw as _) }
 }
 #[inline]
@@ -1664,7 +1664,7 @@ pub unsafe fn GdipGetMetafileDownLevelRasterizationLimit(metafile: *const GpMeta
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetMetafileHeaderFromEmf(hemf: super::Gdi::HENHMETAFILE, header: *mut MetafileHeader) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromEmf(hemf : super::Gdi:: HENHMETAFILE, header : *mut MetafileHeader) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromEmf(hemf : super::Gdi::HENHMETAFILE, header : *mut MetafileHeader) -> Status);
     unsafe { GdipGetMetafileHeaderFromEmf(hemf, header as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1688,13 +1688,13 @@ pub unsafe fn GdipGetMetafileHeaderFromStream<P0>(stream: P0, header: *mut Metaf
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : * mut core::ffi::c_void, header : *mut MetafileHeader) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromStream(stream : *mut core::ffi::c_void, header : *mut MetafileHeader) -> Status);
     unsafe { GdipGetMetafileHeaderFromStream(stream.param().abi(), header as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetMetafileHeaderFromWmf(hwmf: super::Gdi::HMETAFILE, wmfplaceablefileheader: *const WmfPlaceableFileHeader, header: *mut MetafileHeader) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi::HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
     unsafe { GdipGetMetafileHeaderFromWmf(hwmf, wmfplaceablefileheader, header as _) }
 }
 #[inline]
@@ -1995,7 +1995,7 @@ pub unsafe fn GdipGetRegionDataSize(region: *mut GpRegion, buffersize: *mut u32)
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipGetRegionHRgn(region: *mut GpRegion, graphics: *mut GpGraphics, hrgn: *mut super::Gdi::HRGN) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGetRegionHRgn(region : *mut GpRegion, graphics : *mut GpGraphics, hrgn : *mut super::Gdi:: HRGN) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGetRegionHRgn(region : *mut GpRegion, graphics : *mut GpGraphics, hrgn : *mut super::Gdi::HRGN) -> Status);
     unsafe { GdipGetRegionHRgn(region as _, graphics as _, hrgn as _) }
 }
 #[inline]
@@ -2123,7 +2123,7 @@ pub unsafe fn GdipGraphicsSetAbort<P1>(pgraphics: *mut GpGraphics, piabort: P1) 
 where
     P1: windows_core::Param<GdiplusAbort>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : * mut core::ffi::c_void) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : *mut core::ffi::c_void) -> Status);
     unsafe { GdipGraphicsSetAbort(pgraphics as _, piabort.param().abi()) }
 }
 #[inline]
@@ -2161,7 +2161,7 @@ pub unsafe fn GdipImageSetAbort<P1>(pimage: *mut GpImage, piabort: P1) -> Status
 where
     P1: windows_core::Param<GdiplusAbort>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : * mut core::ffi::c_void) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : *mut core::ffi::c_void) -> Status);
     unsafe { GdipImageSetAbort(pimage as _, piabort.param().abi()) }
 }
 #[inline]
@@ -2301,7 +2301,7 @@ pub unsafe fn GdipLoadImageFromStream<P0>(stream: P0, image: *mut *mut GpImage) 
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : *mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
     unsafe { GdipLoadImageFromStream(stream.param().abi(), image as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2310,7 +2310,7 @@ pub unsafe fn GdipLoadImageFromStreamICM<P0>(stream: P0, image: *mut *mut GpImag
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : * mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : *mut core::ffi::c_void, image : *mut *mut GpImage) -> Status);
     unsafe { GdipLoadImageFromStreamICM(stream.param().abi(), image as _) }
 }
 #[inline]
@@ -2458,7 +2458,7 @@ pub unsafe fn GdipRecordMetafile<P4>(referencehdc: super::Gdi::HDC, r#type: EmfT
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafile(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafile(referencehdc : super::Gdi::HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipRecordMetafile(referencehdc, r#type, framerect, frameunit, description.param().abi(), metafile as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2468,7 +2468,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileName(filename : windows_core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileName(filename : windows_core::PCWSTR, referencehdc : super::Gdi::HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipRecordMetafileFileName(filename.param().abi(), referencehdc, r#type, framerect, frameunit, description.param().abi(), metafile as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2478,7 +2478,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileNameI(filename : windows_core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileFileNameI(filename : windows_core::PCWSTR, referencehdc : super::Gdi::HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipRecordMetafileFileNameI(filename.param().abi(), referencehdc, r#type, framerect, frameunit, description.param().abi(), metafile as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2487,7 +2487,7 @@ pub unsafe fn GdipRecordMetafileI<P4>(referencehdc: super::Gdi::HDC, r#type: Emf
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileI(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileI(referencehdc : super::Gdi::HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipRecordMetafileI(referencehdc, r#type, framerect, frameunit, description.param().abi(), metafile as _) }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -2497,7 +2497,7 @@ where
     P0: windows_core::Param<super::super::System::Com::IStream>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileStream(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileStream(stream : *mut core::ffi::c_void, referencehdc : super::Gdi::HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipRecordMetafileStream(stream.param().abi(), referencehdc, r#type, framerect, frameunit, description.param().abi(), metafile as _) }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
@@ -2507,13 +2507,13 @@ where
     P0: windows_core::Param<super::super::System::Com::IStream>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileStreamI(stream : * mut core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipRecordMetafileStreamI(stream : *mut core::ffi::c_void, referencehdc : super::Gdi::HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : windows_core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
     unsafe { GdipRecordMetafileStreamI(stream.param().abi(), referencehdc, r#type, framerect, frameunit, description.param().abi(), metafile as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipReleaseDC(graphics: *mut GpGraphics, hdc: super::Gdi::HDC) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipReleaseDC(graphics : *mut GpGraphics, hdc : super::Gdi:: HDC) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipReleaseDC(graphics : *mut GpGraphics, hdc : super::Gdi::HDC) -> Status);
     unsafe { GdipReleaseDC(graphics as _, hdc) }
 }
 #[inline]
@@ -2635,7 +2635,7 @@ pub unsafe fn GdipSaveImageToStream<P1>(image: *mut GpImage, stream: P1, clsiden
 where
     P1: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_core::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : * mut core::ffi::c_void, clsidencoder : *const windows_core::GUID, encoderparams : *const EncoderParameters) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : *mut core::ffi::c_void, clsidencoder : *const windows_core::GUID, encoderparams : *const EncoderParameters) -> Status);
     unsafe { GdipSaveImageToStream(image as _, stream.param().abi(), clsidencoder, encoderparams) }
 }
 #[inline]
@@ -2696,7 +2696,7 @@ pub unsafe fn GdipSetClipGraphics(graphics: *mut GpGraphics, srcgraphics: *mut G
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GdipSetClipHrgn(graphics: *mut GpGraphics, hrgn: super::Gdi::HRGN, combinemode: CombineMode) -> Status {
-    windows_core::link!("gdiplus.dll" "system" fn GdipSetClipHrgn(graphics : *mut GpGraphics, hrgn : super::Gdi:: HRGN, combinemode : CombineMode) -> Status);
+    windows_core::link!("gdiplus.dll" "system" fn GdipSetClipHrgn(graphics : *mut GpGraphics, hrgn : super::Gdi::HRGN, combinemode : CombineMode) -> Status);
     unsafe { GdipSetClipHrgn(graphics as _, hrgn, combinemode) }
 }
 #[inline]

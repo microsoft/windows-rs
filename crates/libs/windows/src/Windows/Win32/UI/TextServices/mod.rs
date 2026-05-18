@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> windows_core::BOOL {
-    windows_core::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { DoMsCtfMonitor(dwflags, heventforservicestop) }
 }
 #[inline]

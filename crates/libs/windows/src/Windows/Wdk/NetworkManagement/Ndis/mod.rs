@@ -45,7 +45,7 @@ pub unsafe fn NdisClDropParty(ndispartyhandle: *const core::ffi::c_void, buffer:
 }
 #[inline]
 pub unsafe fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid: super::super::super::Win32::Foundation::UNICODE_STRING, protocolvccontext: *mut *mut core::ffi::c_void) -> i32 {
-    windows_core::link!("ndis.sys" "system" fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid : super::super::super::Win32::Foundation:: UNICODE_STRING, protocolvccontext : *mut *mut core::ffi::c_void) -> i32);
+    windows_core::link!("ndis.sys" "system" fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid : super::super::super::Win32::Foundation::UNICODE_STRING, protocolvccontext : *mut *mut core::ffi::c_void) -> i32);
     unsafe { NdisClGetProtocolVcContextFromTapiCallId(core::mem::transmute(tapicallid), protocolvccontext as _) }
 }
 #[inline]
@@ -160,7 +160,7 @@ pub unsafe fn NdisCmRegisterSapComplete(status: i32, ndissaphandle: *const core:
 }
 #[inline]
 pub unsafe fn NdisCoAssignInstanceName(ndisvchandle: *const core::ffi::c_void, baseinstancename: *const super::super::super::Win32::Foundation::UNICODE_STRING, vcinstancename: Option<*mut super::super::super::Win32::Foundation::UNICODE_STRING>) -> i32 {
-    windows_core::link!("ndis.sys" "system" fn NdisCoAssignInstanceName(ndisvchandle : *const core::ffi::c_void, baseinstancename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, vcinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
+    windows_core::link!("ndis.sys" "system" fn NdisCoAssignInstanceName(ndisvchandle : *const core::ffi::c_void, baseinstancename : *const super::super::super::Win32::Foundation::UNICODE_STRING, vcinstancename : *mut super::super::super::Win32::Foundation::UNICODE_STRING) -> i32);
     unsafe { NdisCoAssignInstanceName(ndisvchandle, baseinstancename, vcinstancename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -181,13 +181,13 @@ pub unsafe fn NdisCoGetTapiCallId(ndisvchandle: *const core::ffi::c_void, tapica
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn NdisCompleteDmaTransfer(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: bool) {
-    windows_core::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : bool));
+    windows_core::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation::MDL, offset : u32, length : u32, writetodevice : bool));
     unsafe { NdisCompleteDmaTransfer(status as _, ndisdmahandle as _, buffer as _, offset, length, writetodevice) }
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn NdisCopyBuffer(status: *mut i32, buffer: *mut *mut super::super::Foundation::MDL, poolhandle: *const core::ffi::c_void, memorydescriptor: *const core::ffi::c_void, offset: u32, length: u32) {
-    windows_core::link!("ndis.sys" "system" fn NdisCopyBuffer(status : *mut i32, buffer : *mut *mut super::super::Foundation:: MDL, poolhandle : *const core::ffi::c_void, memorydescriptor : *const core::ffi::c_void, offset : u32, length : u32));
+    windows_core::link!("ndis.sys" "system" fn NdisCopyBuffer(status : *mut i32, buffer : *mut *mut super::super::Foundation::MDL, poolhandle : *const core::ffi::c_void, memorydescriptor : *const core::ffi::c_void, offset : u32, length : u32));
     unsafe { NdisCopyBuffer(status as _, buffer as _, poolhandle, memorydescriptor, offset, length) }
 }
 #[inline]
@@ -221,7 +221,7 @@ pub unsafe fn NdisGetCurrentProcessorCpuUsage() -> u32 {
 }
 #[inline]
 pub unsafe fn NdisGetRoutineAddress(ndisroutinename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> *mut core::ffi::c_void {
-    windows_core::link!("ndis.sys" "system" fn NdisGetRoutineAddress(ndisroutinename : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> *mut core::ffi::c_void);
+    windows_core::link!("ndis.sys" "system" fn NdisGetRoutineAddress(ndisroutinename : *const super::super::super::Win32::Foundation::UNICODE_STRING) -> *mut core::ffi::c_void);
     unsafe { NdisGetRoutineAddress(ndisroutinename) }
 }
 #[inline]
@@ -241,7 +241,7 @@ pub unsafe fn NdisIMAssociateMiniport(driverhandle: *const core::ffi::c_void, pr
 }
 #[inline]
 pub unsafe fn NdisIMCancelInitializeDeviceInstance(driverhandle: *const core::ffi::c_void, deviceinstance: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> i32 {
-    windows_core::link!("ndis.sys" "system" fn NdisIMCancelInitializeDeviceInstance(driverhandle : *const core::ffi::c_void, deviceinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
+    windows_core::link!("ndis.sys" "system" fn NdisIMCancelInitializeDeviceInstance(driverhandle : *const core::ffi::c_void, deviceinstance : *const super::super::super::Win32::Foundation::UNICODE_STRING) -> i32);
     unsafe { NdisIMCancelInitializeDeviceInstance(driverhandle, deviceinstance) }
 }
 #[inline]
@@ -256,7 +256,7 @@ pub unsafe fn NdisIMGetBindingContext(ndisbindinghandle: *const core::ffi::c_voi
 }
 #[inline]
 pub unsafe fn NdisIMInitializeDeviceInstanceEx(driverhandle: *const core::ffi::c_void, driverinstance: *const super::super::super::Win32::Foundation::UNICODE_STRING, devicecontext: Option<*const core::ffi::c_void>) -> i32 {
-    windows_core::link!("ndis.sys" "system" fn NdisIMInitializeDeviceInstanceEx(driverhandle : *const core::ffi::c_void, driverinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING, devicecontext : *const core::ffi::c_void) -> i32);
+    windows_core::link!("ndis.sys" "system" fn NdisIMInitializeDeviceInstanceEx(driverhandle : *const core::ffi::c_void, driverinstance : *const super::super::super::Win32::Foundation::UNICODE_STRING, devicecontext : *const core::ffi::c_void) -> i32);
     unsafe { NdisIMInitializeDeviceInstanceEx(driverhandle, driverinstance, devicecontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
@@ -272,7 +272,7 @@ pub unsafe fn NdisInitializeReadWriteLock(lock: *mut NDIS_RW_LOCK) {
 }
 #[inline]
 pub unsafe fn NdisInitializeString(destination: *mut super::super::super::Win32::Foundation::UNICODE_STRING, source: *const u8) {
-    windows_core::link!("ndis.sys" "system" fn NdisInitializeString(destination : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, source : *const u8));
+    windows_core::link!("ndis.sys" "system" fn NdisInitializeString(destination : *mut super::super::super::Win32::Foundation::UNICODE_STRING, source : *const u8));
     unsafe { NdisInitializeString(destination as _, source) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
@@ -369,7 +369,7 @@ pub unsafe fn NdisMFreeSharedMemory(miniportadapterhandle: *const core::ffi::c_v
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
 pub unsafe fn NdisMGetDeviceProperty(miniportadapterhandle: *const core::ffi::c_void, physicaldeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, functionaldeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, nextdeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, allocatedresources: Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>, allocatedresourcestranslated: Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>) {
-    windows_core::link!("ndis.sys" "system" fn NdisMGetDeviceProperty(miniportadapterhandle : *const core::ffi::c_void, physicaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, functionaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, nextdeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, allocatedresources : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST, allocatedresourcestranslated : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST));
+    windows_core::link!("ndis.sys" "system" fn NdisMGetDeviceProperty(miniportadapterhandle : *const core::ffi::c_void, physicaldeviceobject : *mut *mut super::super::Foundation::DEVICE_OBJECT, functionaldeviceobject : *mut *mut super::super::Foundation::DEVICE_OBJECT, nextdeviceobject : *mut *mut super::super::Foundation::DEVICE_OBJECT, allocatedresources : *mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST, allocatedresourcestranslated : *mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST));
     unsafe { NdisMGetDeviceProperty(miniportadapterhandle, physicaldeviceobject.unwrap_or(core::mem::zeroed()) as _, functionaldeviceobject.unwrap_or(core::mem::zeroed()) as _, nextdeviceobject.unwrap_or(core::mem::zeroed()) as _, allocatedresources.unwrap_or(core::mem::zeroed()) as _, allocatedresourcestranslated.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -390,7 +390,7 @@ pub unsafe fn NdisMMapIoSpace(virtualaddress: *mut *mut core::ffi::c_void, minip
 }
 #[inline]
 pub unsafe fn NdisMQueryAdapterInstanceName(padapterinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, miniporthandle: *const core::ffi::c_void) -> i32 {
-    windows_core::link!("ndis.sys" "system" fn NdisMQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, miniporthandle : *const core::ffi::c_void) -> i32);
+    windows_core::link!("ndis.sys" "system" fn NdisMQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation::UNICODE_STRING, miniporthandle : *const core::ffi::c_void) -> i32);
     unsafe { NdisMQueryAdapterInstanceName(padapterinstancename as _, miniporthandle) }
 }
 #[inline]
@@ -442,27 +442,27 @@ pub unsafe fn NdisMapFile(status: *mut i32, mappedbuffer: *mut *mut core::ffi::c
 }
 #[inline]
 pub unsafe fn NdisOpenConfigurationKeyByIndex(status: *mut i32, configurationhandle: *const core::ffi::c_void, index: u32, keyname: *mut super::super::super::Win32::Foundation::UNICODE_STRING, keyhandle: *mut *mut core::ffi::c_void) {
-    windows_core::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByIndex(status : *mut i32, configurationhandle : *const core::ffi::c_void, index : u32, keyname : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, keyhandle : *mut *mut core::ffi::c_void));
+    windows_core::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByIndex(status : *mut i32, configurationhandle : *const core::ffi::c_void, index : u32, keyname : *mut super::super::super::Win32::Foundation::UNICODE_STRING, keyhandle : *mut *mut core::ffi::c_void));
     unsafe { NdisOpenConfigurationKeyByIndex(status as _, configurationhandle, index, keyname as _, keyhandle as _) }
 }
 #[inline]
 pub unsafe fn NdisOpenConfigurationKeyByName(status: *mut i32, configurationhandle: *const core::ffi::c_void, subkeyname: *const super::super::super::Win32::Foundation::UNICODE_STRING, subkeyhandle: *mut *mut core::ffi::c_void) {
-    windows_core::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByName(status : *mut i32, configurationhandle : *const core::ffi::c_void, subkeyname : *const super::super::super::Win32::Foundation:: UNICODE_STRING, subkeyhandle : *mut *mut core::ffi::c_void));
+    windows_core::link!("ndis.sys" "system" fn NdisOpenConfigurationKeyByName(status : *mut i32, configurationhandle : *const core::ffi::c_void, subkeyname : *const super::super::super::Win32::Foundation::UNICODE_STRING, subkeyhandle : *mut *mut core::ffi::c_void));
     unsafe { NdisOpenConfigurationKeyByName(status as _, configurationhandle, subkeyname, subkeyhandle as _) }
 }
 #[inline]
 pub unsafe fn NdisOpenFile(status: *mut i32, filehandle: *mut *mut core::ffi::c_void, filelength: *mut u32, filename: *const super::super::super::Win32::Foundation::UNICODE_STRING, highestacceptableaddress: i64) {
-    windows_core::link!("ndis.sys" "system" fn NdisOpenFile(status : *mut i32, filehandle : *mut *mut core::ffi::c_void, filelength : *mut u32, filename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, highestacceptableaddress : i64));
+    windows_core::link!("ndis.sys" "system" fn NdisOpenFile(status : *mut i32, filehandle : *mut *mut core::ffi::c_void, filelength : *mut u32, filename : *const super::super::super::Win32::Foundation::UNICODE_STRING, highestacceptableaddress : i64));
     unsafe { NdisOpenFile(status as _, filehandle as _, filelength as _, filename, highestacceptableaddress) }
 }
 #[inline]
 pub unsafe fn NdisQueryAdapterInstanceName(padapterinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, ndisbindinghandle: *const core::ffi::c_void) -> i32 {
-    windows_core::link!("ndis.sys" "system" fn NdisQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, ndisbindinghandle : *const core::ffi::c_void) -> i32);
+    windows_core::link!("ndis.sys" "system" fn NdisQueryAdapterInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation::UNICODE_STRING, ndisbindinghandle : *const core::ffi::c_void) -> i32);
     unsafe { NdisQueryAdapterInstanceName(padapterinstancename as _, ndisbindinghandle) }
 }
 #[inline]
 pub unsafe fn NdisQueryBindInstanceName(padapterinstancename: *mut super::super::super::Win32::Foundation::UNICODE_STRING, bindingcontext: *const core::ffi::c_void) -> i32 {
-    windows_core::link!("ndis.sys" "system" fn NdisQueryBindInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, bindingcontext : *const core::ffi::c_void) -> i32);
+    windows_core::link!("ndis.sys" "system" fn NdisQueryBindInstanceName(padapterinstancename : *mut super::super::super::Win32::Foundation::UNICODE_STRING, bindingcontext : *const core::ffi::c_void) -> i32);
     unsafe { NdisQueryBindInstanceName(padapterinstancename as _, bindingcontext) }
 }
 #[inline]
@@ -472,7 +472,7 @@ pub unsafe fn NdisReEnumerateProtocolBindings(ndisprotocolhandle: *const core::f
 }
 #[inline]
 pub unsafe fn NdisReadConfiguration(status: *mut i32, parametervalue: *mut *mut NDIS_CONFIGURATION_PARAMETER, configurationhandle: *const core::ffi::c_void, keyword: *const super::super::super::Win32::Foundation::UNICODE_STRING, parametertype: NDIS_PARAMETER_TYPE) {
-    windows_core::link!("ndis.sys" "system" fn NdisReadConfiguration(status : *mut i32, parametervalue : *mut *mut NDIS_CONFIGURATION_PARAMETER, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametertype : NDIS_PARAMETER_TYPE));
+    windows_core::link!("ndis.sys" "system" fn NdisReadConfiguration(status : *mut i32, parametervalue : *mut *mut NDIS_CONFIGURATION_PARAMETER, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation::UNICODE_STRING, parametertype : NDIS_PARAMETER_TYPE));
     unsafe { NdisReadConfiguration(status as _, parametervalue as _, configurationhandle, keyword, parametertype) }
 }
 #[inline]
@@ -523,7 +523,7 @@ pub unsafe fn NdisSetTimerEx(ndistimer: *const NDIS_TIMER, millisecondstodelay: 
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn NdisSetupDmaTransfer(status: *mut i32, ndisdmahandle: *mut core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: bool) {
-    windows_core::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : bool));
+    windows_core::link!("ndis.sys" "system" fn NdisSetupDmaTransfer(status : *mut i32, ndisdmahandle : *mut core::ffi::c_void, buffer : *mut super::super::Foundation::MDL, offset : u32, length : u32, writetodevice : bool));
     unsafe { NdisSetupDmaTransfer(status as _, ndisdmahandle as _, buffer as _, offset, length, writetodevice) }
 }
 #[inline]
@@ -549,7 +549,7 @@ pub unsafe fn NdisWaitEvent(event: *const NDIS_EVENT, mstowait: u32) -> bool {
 }
 #[inline]
 pub unsafe fn NdisWriteConfiguration(status: *mut i32, configurationhandle: *const core::ffi::c_void, keyword: *const super::super::super::Win32::Foundation::UNICODE_STRING, parametervalue: *const NDIS_CONFIGURATION_PARAMETER) {
-    windows_core::link!("ndis.sys" "system" fn NdisWriteConfiguration(status : *mut i32, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation:: UNICODE_STRING, parametervalue : *const NDIS_CONFIGURATION_PARAMETER));
+    windows_core::link!("ndis.sys" "system" fn NdisWriteConfiguration(status : *mut i32, configurationhandle : *const core::ffi::c_void, keyword : *const super::super::super::Win32::Foundation::UNICODE_STRING, parametervalue : *const NDIS_CONFIGURATION_PARAMETER));
     unsafe { NdisWriteConfiguration(status as _, configurationhandle, keyword, parametervalue) }
 }
 #[inline]

@@ -1305,7 +1305,7 @@ unsafe impl Sync for SceneMesh {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SceneMeshMaterialAttributeMap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SceneMeshMaterialAttributeMap, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( SceneMeshMaterialAttributeMap , super:: IAnimationObject , super::super::super::Foundation:: IClosable , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , SceneAttributeSemantic > > , windows_collections:: IMap < windows_core::HSTRING , SceneAttributeSemantic > , SceneObject , super:: CompositionObject );
+windows_core::imp::required_hierarchy!(SceneMeshMaterialAttributeMap, super::IAnimationObject, super::super::super::Foundation::IClosable, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, SceneAttributeSemantic > >, windows_collections::IMap < windows_core::HSTRING, SceneAttributeSemantic >, SceneObject, super::CompositionObject);
 impl SceneMeshMaterialAttributeMap {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where

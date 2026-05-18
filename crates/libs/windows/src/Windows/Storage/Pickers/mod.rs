@@ -232,7 +232,7 @@ unsafe impl Sync for FileOpenPicker {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FilePickerFileTypesOrderedMap(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( FilePickerFileTypesOrderedMap , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::HSTRING , windows_collections:: IVector < windows_core::HSTRING > > );
+windows_core::imp::interface_hierarchy!(FilePickerFileTypesOrderedMap, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMap < windows_core::HSTRING, windows_collections::IVector < windows_core::HSTRING > >);
 windows_core::imp::required_hierarchy!(FilePickerFileTypesOrderedMap, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>>);
 impl FilePickerFileTypesOrderedMap {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_collections::IVector<windows_core::HSTRING>>>> {

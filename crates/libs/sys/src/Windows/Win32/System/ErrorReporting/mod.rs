@@ -1,10 +1,10 @@
 windows_link::link!("faultrep.dll" "system" fn AddERExcludedApplicationA(szapplication : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-windows_link::link!("faultrep.dll" "system" fn ReportFault(pep : *const super::Diagnostics::Debug:: EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
+windows_link::link!("faultrep.dll" "system" fn ReportFault(pep : *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt : u32) -> EFaultRepRetVal);
 windows_link::link!("wer.dll" "system" fn WerAddExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerFreeString(pwszstr : windows_sys::core::PCWSTR));
-windows_link::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> windows_sys::core::HRESULT);
+windows_link::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation::HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerRegisterAdditionalProcess(processid : u32, captureextrainfoforthreadid : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerRegisterAppLocalDump(localappdatarelativepath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn WerRegisterCustomMetadata(key : windows_sys::core::PCWSTR, value : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
@@ -14,11 +14,11 @@ windows_link::link!("kernel32.dll" "system" fn WerRegisterMemoryBlock(pvaddress 
 windows_link::link!("kernel32.dll" "system" fn WerRegisterRuntimeExceptionModule(pwszoutofprocesscallbackdll : windows_sys::core::PCWSTR, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : windows_sys::core::PCWSTR, ballusers : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-windows_link::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation:: HANDLE, hthread : super::super::Foundation:: HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_sys::core::HRESULT);
+windows_link::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation::HANDLE, hthread : super::super::Foundation::HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerReportAddFile(hreporthandle : HREPORT, pwzpath : windows_sys::core::PCWSTR, repfiletype : WER_FILE_TYPE, dwfileflags : WER_FILE) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerReportCloseHandle(hreporthandle : HREPORT) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : windows_sys::core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> windows_sys::core::HRESULT);
-windows_link::link!("faultrep.dll" "system" fn WerReportHang(hwndhungapp : super::super::Foundation:: HWND, pwzhungapplicationname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+windows_link::link!("faultrep.dll" "system" fn WerReportHang(hwndhungapp : super::super::Foundation::HWND, pwzhungapplicationname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerReportSetParameter(hreporthandle : HREPORT, dwparamid : u32, pwzname : windows_sys::core::PCWSTR, pwzvalue : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerReportSetUIOption(hreporthandle : HREPORT, repuitypeid : WER_REPORT_UI, pwzvalue : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : WER_SUBMIT_FLAGS, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_sys::core::HRESULT);

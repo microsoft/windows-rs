@@ -9,9 +9,9 @@ windows_link::link!("advapi32.dll" "system" fn InitiateSystemShutdownExA(lpmachi
 windows_link::link!("advapi32.dll" "system" fn InitiateSystemShutdownExW(lpmachinename : windows_sys::core::PCWSTR, lpmessage : windows_sys::core::PCWSTR, dwtimeout : u32, bforceappsclosed : windows_sys::core::BOOL, brebootaftershutdown : windows_sys::core::BOOL, dwreason : SHUTDOWN_REASON) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn InitiateSystemShutdownW(lpmachinename : windows_sys::core::PCWSTR, lpmessage : windows_sys::core::PCWSTR, dwtimeout : u32, bforceappsclosed : windows_sys::core::BOOL, brebootaftershutdown : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn LockWorkStation() -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::super::Foundation:: HWND, pwszreason : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : windows_sys::core::PWSTR, pcchbuff : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::super::Foundation::HWND, pwszreason : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::super::Foundation::HWND) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation::HWND, pwszbuff : windows_sys::core::PWSTR, pcchbuff : *mut u32) -> windows_sys::core::BOOL);
 pub const EWX_ARSO: EXIT_WINDOWS_FLAGS = 67108864u32;
 pub const EWX_BOOTOPTIONS: EXIT_WINDOWS_FLAGS = 16777216u32;
 pub const EWX_CHECK_SAFE_FOR_SERVER: EXIT_WINDOWS_FLAGS = 134217728u32;

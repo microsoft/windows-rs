@@ -48,7 +48,7 @@ pub unsafe fn CorBindToRuntimeByCfg<P0>(pcfgstream: P0, reserved: u32, startupfl
 where
     P0: windows_core::Param<super::Com::IStream>,
 {
-    windows_core::link!("mscoree.dll" "system" fn CorBindToRuntimeByCfg(pcfgstream : * mut core::ffi::c_void, reserved : u32, startupflags : u32, rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mscoree.dll" "system" fn CorBindToRuntimeByCfg(pcfgstream : *mut core::ffi::c_void, reserved : u32, startupflags : u32, rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CorBindToRuntimeByCfg(pcfgstream.param().abi(), reserved, startupflags, rclsid, riid, ppv as _).ok() }
 }
 #[inline]
@@ -81,7 +81,7 @@ pub unsafe fn CorLaunchApplication<P1>(dwclickoncehost: HOST_TYPE, pwzappfullnam
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : windows_core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const windows_core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const windows_core::PCWSTR, lpprocessinformation : *mut super::Threading:: PROCESS_INFORMATION) -> windows_core::HRESULT);
+    windows_core::link!("mscoree.dll" "system" fn CorLaunchApplication(dwclickoncehost : HOST_TYPE, pwzappfullname : windows_core::PCWSTR, dwmanifestpaths : u32, ppwzmanifestpaths : *const windows_core::PCWSTR, dwactivationdata : u32, ppwzactivationdata : *const windows_core::PCWSTR, lpprocessinformation : *mut super::Threading::PROCESS_INFORMATION) -> windows_core::HRESULT);
     unsafe { CorLaunchApplication(dwclickoncehost, pwzappfullname.param().abi(), dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, lpprocessinformation as _).ok() }
 }
 #[inline]
@@ -94,7 +94,7 @@ pub unsafe fn CreateDebuggingInterfaceFromVersion<P1>(idebuggerversion: i32, szd
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : windows_core::PCWSTR, ppcordb : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mscoree.dll" "system" fn CreateDebuggingInterfaceFromVersion(idebuggerversion : i32, szdebuggeeversion : windows_core::PCWSTR, ppcordb : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateDebuggingInterfaceFromVersion(idebuggerversion, szdebuggeeversion.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -102,7 +102,7 @@ where
 }
 #[inline]
 pub unsafe fn GetCLRIdentityManager(riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
-    windows_core::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const windows_core::GUID, ppmanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mscoree.dll" "system" fn GetCLRIdentityManager(riid : *const windows_core::GUID, ppmanager : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetCLRIdentityManager(riid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -179,7 +179,7 @@ pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const windows_core::GU
 }
 #[inline]
 pub unsafe fn GetVersionFromProcess(hprocess: super::super::Foundation::HANDLE, pversion: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation:: HANDLE, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mscoree.dll" "system" fn GetVersionFromProcess(hprocess : super::super::Foundation::HANDLE, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32) -> windows_core::HRESULT);
     unsafe { GetVersionFromProcess(hprocess, core::mem::transmute(pversion.as_ptr()), pversion.len().try_into().unwrap(), dwlength as _).ok() }
 }
 #[inline]
@@ -188,7 +188,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mscoree.dll" "system" fn LoadLibraryShim(szdllname : windows_core::PCWSTR, szversion : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void, phmoddll : *mut super::super::Foundation:: HMODULE) -> windows_core::HRESULT);
+    windows_core::link!("mscoree.dll" "system" fn LoadLibraryShim(szdllname : windows_core::PCWSTR, szversion : windows_core::PCWSTR, pvreserved : *mut core::ffi::c_void, phmoddll : *mut super::super::Foundation::HMODULE) -> windows_core::HRESULT);
     unsafe { LoadLibraryShim(szdllname.param().abi(), szversion.param().abi(), pvreserved as _, phmoddll as _).ok() }
 }
 #[inline]
@@ -211,7 +211,7 @@ pub unsafe fn RunDll32ShimW<P2>(hwnd: super::super::Foundation::HWND, hinst: sup
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation:: HWND, hinst : super::super::Foundation:: HINSTANCE, lpszcmdline : windows_core::PCWSTR, ncmdshow : i32) -> windows_core::HRESULT);
+    windows_core::link!("mscoree.dll" "system" fn RunDll32ShimW(hwnd : super::super::Foundation::HWND, hinst : super::super::Foundation::HINSTANCE, lpszcmdline : windows_core::PCWSTR, ncmdshow : i32) -> windows_core::HRESULT);
     unsafe { RunDll32ShimW(hwnd, hinst, lpszcmdline.param().abi(), ncmdshow).ok() }
 }
 pub const APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(8i32);

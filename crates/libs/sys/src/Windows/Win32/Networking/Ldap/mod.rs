@@ -1,5 +1,5 @@
 windows_link::link!("wldap32.dll" "C" fn LdapGetLastError() -> u32);
-windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> super::super::Foundation:: WIN32_ERROR);
+windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> super::super::Foundation::WIN32_ERROR);
 windows_link::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
 windows_link::link!("wldap32.dll" "C" fn ber_alloc_t(options : i32) -> *mut BerElement);
@@ -39,7 +39,7 @@ windows_link::link!("wldap32.dll" "C" fn ldap_bind_sA(ld : *mut LDAP, dn : windo
 windows_link::link!("wldap32.dll" "C" fn ldap_bind_sW(ld : *mut LDAP, dn : windows_sys::core::PCWSTR, cred : windows_sys::core::PCWSTR, method : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_check_filterA(ld : *mut LDAP, searchfilter : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_check_filterW(ld : *mut LDAP, searchfilter : windows_sys::core::PCWSTR) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_cleanup(hinstance : super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_cleanup(hinstance : super::super::Foundation::HANDLE) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_close_extended_op(ld : *mut LDAP, messagenumber : u32) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_compare(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_compareA(ld : *mut LDAP, dn : windows_sys::core::PCSTR, attr : windows_sys::core::PCSTR, value : windows_sys::core::PCSTR) -> u32);
@@ -230,7 +230,7 @@ windows_link::link!("wldap32.dll" "C" fn ldap_sslinitA(hostname : windows_sys::c
 windows_link::link!("wldap32.dll" "C" fn ldap_sslinitW(hostname : windows_sys::core::PCWSTR, portnumber : u32, secure : i32) -> *mut LDAP);
 windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sA(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut *mut LDAPControlA, clientcontrols : *mut *mut LDAPControlA) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_start_tls_sW(externalhandle : *mut LDAP, serverreturnvalue : *mut u32, result : *mut *mut LDAPMessage, servercontrols : *mut *mut LDAPControlW, clientcontrols : *mut *mut LDAPControlW) -> u32);
-windows_link::link!("wldap32.dll" "C" fn ldap_startup(version : *mut LDAP_VERSION_INFO, instance : *mut super::super::Foundation:: HANDLE) -> u32);
+windows_link::link!("wldap32.dll" "C" fn ldap_startup(version : *mut LDAP_VERSION_INFO, instance : *mut super::super::Foundation::HANDLE) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_stop_tls_s(externalhandle : *mut LDAP) -> bool);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dn(ufn : windows_sys::core::PCSTR, pdn : *mut windows_sys::core::PSTR) -> u32);
 windows_link::link!("wldap32.dll" "C" fn ldap_ufn2dnA(ufn : windows_sys::core::PCSTR, pdn : *mut windows_sys::core::PSTR) -> u32);

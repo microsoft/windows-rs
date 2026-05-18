@@ -3,7 +3,7 @@ pub unsafe fn MatchEnumTag<P1>(hmodule: super::super::Foundation::HANDLE, pwcarg
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
+    windows_core::link!("netsh.dll" "system" fn MatchEnumTag(hmodule : super::super::Foundation::HANDLE, pwcarg : windows_core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
     unsafe { MatchEnumTag(hmodule, pwcarg.param().abi(), dwnumarg, penumtable, pdwvalue as _) }
 }
 #[inline]
@@ -17,12 +17,12 @@ where
 }
 #[inline]
 pub unsafe fn PreprocessCommand(hmodule: Option<super::super::Foundation::HANDLE>, ppwcarguments: &mut [windows_core::PWSTR], dwcurrentindex: u32, ptttags: Option<&mut [TAG_TYPE]>, dwminargs: u32, dwmaxargs: u32, pdwtagtype: Option<*mut u32>) -> u32 {
-    windows_core::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
+    windows_core::link!("netsh.dll" "system" fn PreprocessCommand(hmodule : super::super::Foundation::HANDLE, ppwcarguments : *mut windows_core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
     unsafe { PreprocessCommand(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppwcarguments.as_ptr()), dwcurrentindex, ppwcarguments.len().try_into().unwrap(), core::mem::transmute(ptttags.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptttags.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwminargs, dwmaxargs, pdwtagtype.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32 {
-    windows_core::link!("netsh.dll" "C" fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32) -> u32);
+    windows_core::link!("netsh.dll" "C" fn PrintError(hmodule : super::super::Foundation::HANDLE, dwerrid : u32) -> u32);
     unsafe { PrintError(hmodule, dwerrid) }
 }
 #[inline]
@@ -35,7 +35,7 @@ where
 }
 #[inline]
 pub unsafe fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32 {
-    windows_core::link!("netsh.dll" "C" fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32) -> u32);
+    windows_core::link!("netsh.dll" "C" fn PrintMessageFromModule(hmodule : super::super::Foundation::HANDLE, dwmsgid : u32) -> u32);
     unsafe { PrintMessageFromModule(hmodule, dwmsgid) }
 }
 #[inline]

@@ -60,7 +60,7 @@ pub unsafe fn JsCreateContext<P1>(runtime: *const core::ffi::c_void, debugapplic
 where
     P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
 {
-    windows_core::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : *mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
     unsafe { JsCreateContext(runtime, debugapplication.param().abi(), newcontext as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -70,7 +70,7 @@ pub unsafe fn JsCreateContext<P1>(runtime: *const core::ffi::c_void, debugapplic
 where
     P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
-    windows_core::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : *mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
     unsafe { JsCreateContext(runtime, debugapplication.param().abi(), newcontext as _) }
 }
 #[inline]
@@ -161,7 +161,7 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const core::ffi::c_void) -> JsE
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
 pub unsafe fn JsEnumerateHeap(enumerator: *mut Option<super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
-    windows_core::link!("chakra.dll" "system" fn JsEnumerateHeap(enumerator : *mut * mut core::ffi::c_void) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsEnumerateHeap(enumerator : *mut *mut core::ffi::c_void) -> JsErrorCode);
     unsafe { JsEnumerateHeap(core::mem::transmute(enumerator)) }
 }
 #[inline]
@@ -433,7 +433,7 @@ pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
     P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
 {
-    windows_core::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : *mut core::ffi::c_void) -> JsErrorCode);
     unsafe { JsStartDebugging(debugapplication.param().abi()) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -443,7 +443,7 @@ pub unsafe fn JsStartDebugging<P0>(debugapplication: P0) -> JsErrorCode
 where
     P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
-    windows_core::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut core::ffi::c_void) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : *mut core::ffi::c_void) -> JsErrorCode);
     unsafe { JsStartDebugging(debugapplication.param().abi()) }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
@@ -452,7 +452,7 @@ pub unsafe fn JsStartProfiling<P0>(callback: P0, eventmask: super::Diagnostics::
 where
     P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IActiveScriptProfilerCallback>,
 {
-    windows_core::link!("chakra.dll" "system" fn JsStartProfiling(callback : * mut core::ffi::c_void, eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsStartProfiling(callback : *mut core::ffi::c_void, eventmask : super::Diagnostics::Debug::ActiveScript::PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
     unsafe { JsStartProfiling(callback.param().abi(), eventmask, context) }
 }
 #[inline]
@@ -473,13 +473,13 @@ pub unsafe fn JsStringToPointer(value: *const core::ffi::c_void, stringvalue: *m
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn JsValueToVariant(object: *const core::ffi::c_void, variant: *mut super::Variant::VARIANT) -> JsErrorCode {
-    windows_core::link!("chakra.dll" "system" fn JsValueToVariant(object : *const core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsValueToVariant(object : *const core::ffi::c_void, variant : *mut super::Variant::VARIANT) -> JsErrorCode);
     unsafe { JsValueToVariant(object, core::mem::transmute(variant)) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *mut *mut core::ffi::c_void) -> JsErrorCode {
-    windows_core::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
+    windows_core::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant::VARIANT, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
     unsafe { JsVariantToValue(core::mem::transmute(variant), value as _) }
 }
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;

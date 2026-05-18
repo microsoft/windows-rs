@@ -16760,7 +16760,7 @@ pub struct IVisualUnorderedCollection_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ImplicitAnimationCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ImplicitAnimationCollection, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( ImplicitAnimationCollection , IAnimationObject , super::super::Foundation:: IClosable , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , ICompositionAnimationBase > > , windows_collections:: IMap < windows_core::HSTRING , ICompositionAnimationBase > , CompositionObject );
+windows_core::imp::required_hierarchy!(ImplicitAnimationCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, ICompositionAnimationBase > >, windows_collections::IMap < windows_core::HSTRING, ICompositionAnimationBase >, CompositionObject);
 impl ImplicitAnimationCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
     where
@@ -16951,7 +16951,7 @@ impl IntoIterator for &ImplicitAnimationCollection {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InitialValueExpressionCollection(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( InitialValueExpressionCollection , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
+windows_core::imp::interface_hierarchy!(InitialValueExpressionCollection, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMap < windows_core::HSTRING, windows_core::HSTRING >);
 windows_core::imp::required_hierarchy!(InitialValueExpressionCollection, IAnimationObject, super::super::Foundation::IClosable, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>, CompositionObject);
 impl InitialValueExpressionCollection {
     pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>

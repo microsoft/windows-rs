@@ -85,7 +85,7 @@ where
 }
 #[inline]
 pub unsafe fn RegisterDeviceWithManagementUsingAADCredentials(usertoken: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADCredentials(usertoken : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADCredentials(usertoken : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { RegisterDeviceWithManagementUsingAADCredentials(usertoken).ok() }
 }
 #[inline]
