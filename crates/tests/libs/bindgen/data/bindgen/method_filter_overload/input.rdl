@@ -1,0 +1,23 @@
+// Exercises method-level `--filter` overload-name disambiguation.
+//
+// `IFoo` has two `InsertKeyFrame` MethodDef rows: the bare arity-1
+// overload, and an arity-2 overload that carries
+// `[Overload("InsertKeyFrameWithEasingFunction")]`. The disambiguated
+// Rust wrapper for the latter is named `InsertKeyFrameWithEasingFunction`.
+//
+//   * `!Test.IFoo::InsertKeyFrameWithEasingFunction` matches only the
+//     renamed row, demoting it to an opaque `InsertKeyFrameWithEasingFunction:
+//     usize,` slot while the bare `InsertKeyFrame` remains a real typed
+//     vtable slot with an `impl IFoo { pub fn InsertKeyFrame ... }`
+//     wrapper.
+//   * `Keep` is unaffected.
+
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn InsertKeyFrame(&self, progress: f32) -> i32;
+        #[Windows::Foundation::Metadata::Overload("InsertKeyFrameWithEasingFunction")]
+        fn InsertKeyFrame(&self, progress: f32, easing: i32) -> i32;
+        fn Keep(&self) -> i32;
+    }
+}

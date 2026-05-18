@@ -14,10 +14,23 @@ pub struct Filter {
     /// where implementers stub the methods (typically with `E_NOTIMPL`) but
     /// no caller invokes them through this projection.
     trait_only: BTreeSet<(String, String)>,
+    /// Warnings collected while parsing `--filter` entries — emitted
+    /// alongside the regular bindgen warnings once the `WarningBuilder`
+    /// is available. Currently used to flag deny entries that match more
+    /// than one `MethodDef` row (i.e. real CLR overloads), so consumers
+    /// don't silently lose methods they didn't intend to filter out.
+    warnings: Vec<String>,
 }
 
-/// Per-type method filter. Entries are exact method names (after sugar
-/// expansion, e.g. `Property` -> `get_Property` + `put_Property`).
+/// Per-type method filter. Entries may be either:
+/// * an exact `MethodDef` name (after property/event sugar expansion, e.g.
+///   `Property` -> `get_Property` + `put_Property`), or
+/// * an overload-disambiguated Rust name produced by `[overload("…")]`
+///   (e.g. `InsertKeyFrameWithEasingFunction` on the `InsertKeyFrame`
+///   MethodDef row).
+///
+/// At lookup time both the raw `MethodDef` name and any overload name are
+/// checked against the set, so a single entry can address either form.
 #[derive(Debug)]
 pub enum MethodFilter {
     /// Allowlist: only the listed methods are kept; others demote to `Slot: usize`.
@@ -32,6 +45,7 @@ impl Filter {
         let mut rules = vec![];
         let mut methods: HashMap<(String, String), MethodFilter> = HashMap::new();
         let mut trait_only: BTreeSet<(String, String)> = BTreeSet::new();
+        let mut warnings: Vec<String> = Vec::new();
 
         for filter in include {
             push_filter(
@@ -39,6 +53,7 @@ impl Filter {
                 &mut rules,
                 &mut methods,
                 &mut trait_only,
+                &mut warnings,
                 filter,
                 true,
             );
@@ -50,6 +65,7 @@ impl Filter {
                 &mut rules,
                 &mut methods,
                 &mut trait_only,
+                &mut warnings,
                 filter,
                 false,
             );
@@ -67,7 +83,15 @@ impl Filter {
             rules,
             methods,
             trait_only,
+            warnings,
         }
+    }
+
+    /// Warnings collected while parsing `--filter` entries. Surface these
+    /// through the regular `WarningBuilder` so the user sees them in the
+    /// final report.
+    pub fn warnings(&self) -> &[String] {
+        &self.warnings
     }
 
     /// Validate that no method-level filter entry targets a type matched by
@@ -131,14 +155,33 @@ impl Filter {
     /// Returns `true` if `method` on `type_name` should be emitted as a real
     /// vtable slot (rather than demoted to an opaque `Slot: usize`).
     /// In the absence of a method filter for this type, all methods are kept.
-    pub fn includes_method(&self, type_name: TypeName, method: &str) -> bool {
-        match self.methods.get(&(
+    ///
+    /// Matching considers both the raw `MethodDef` name and any
+    /// overload-disambiguated Rust name produced by `[overload("…")]`, so a
+    /// single filter entry can address either form. This lets callers write
+    /// e.g. `!IFoo::InsertKeyFrameWithEasingFunction` to deny only the
+    /// renamed overload while leaving the bare `InsertKeyFrame` slot intact.
+    pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
+        let Some(filter) = self.methods.get(&(
             type_name.namespace().to_string(),
             type_name.name().to_string(),
-        )) {
-            None => true,
-            Some(MethodFilter::Keep(set)) => set.contains(method),
-            Some(MethodFilter::Exclude(set)) => !set.contains(method),
+        )) else {
+            return true;
+        };
+
+        let raw = method.name();
+        let overload = method_overload_name(method);
+
+        let in_set = |set: &BTreeSet<String>| -> bool {
+            set.contains(raw)
+                || overload
+                    .as_ref()
+                    .is_some_and(|name| set.contains(name.as_str()))
+        };
+
+        match filter {
+            MethodFilter::Keep(set) => in_set(set),
+            MethodFilter::Exclude(set) => !in_set(set),
         }
     }
 
@@ -160,6 +203,7 @@ fn push_filter(
     rules: &mut Vec<(String, bool)>,
     methods: &mut HashMap<(String, String), MethodFilter>,
     trait_only: &mut BTreeSet<(String, String)>,
+    warnings: &mut Vec<String>,
     filter: &str,
     include: bool,
 ) {
@@ -179,7 +223,15 @@ fn push_filter(
     };
 
     if let Some((type_part, method_part)) = filter.split_once("::") {
-        push_method_filter(reader, methods, type_part, method_part, include, filter);
+        push_method_filter(
+            reader,
+            methods,
+            warnings,
+            type_part,
+            method_part,
+            include,
+            filter,
+        );
         return;
     }
 
@@ -258,11 +310,16 @@ fn push_filter(
 }
 
 /// Parse and record a `Ns.Type::Method` (or `!Ns.Type::Method`) entry,
-/// expanding property/event sugar against `reader`.
+/// expanding property/event sugar against `reader`. `method_part` may also
+/// be an overload-disambiguated Rust name produced by `[overload("…")]`
+/// (e.g. `InsertKeyFrameWithEasingFunction`), in which case it resolves to
+/// the single `MethodDef` row carrying that attribute value rather than
+/// every row that happens to share the metadata name.
 #[track_caller]
 fn push_method_filter(
     reader: &Reader,
     methods: &mut HashMap<(String, String), MethodFilter>,
+    warnings: &mut Vec<String>,
     type_part: &str,
     method_part: &str,
     include: bool,
@@ -299,14 +356,23 @@ fn push_method_filter(
         let mut searched: Vec<String> = Vec::new();
 
         for iface in &required {
-            let iface_methods: Vec<&'static str> = iface.def.methods().map(|m| m.name()).collect();
+            let defs: Vec<MethodDef> = iface.def.methods().collect();
             searched.push(format!("{}.{}", iface.def.namespace(), iface.def.name()));
 
-            let expanded = expand_method_part(method_part, &iface_methods);
+            let expanded = expand_method_part(method_part, &defs);
             if expanded.is_empty() {
                 continue;
             }
             any_match = true;
+            maybe_warn_ambiguous_overload(
+                warnings,
+                method_part,
+                iface.def.namespace(),
+                iface.def.name(),
+                &defs,
+                include,
+                raw,
+            );
             register_method_filter(
                 methods,
                 iface.def.namespace(),
@@ -334,9 +400,9 @@ fn push_method_filter(
         Type::Delegate(t) => t.def,
         _ => panic!("type not found: `{type_part}` (in method filter `{raw}`)"),
     };
-    let type_methods: Vec<&'static str> = def.methods().map(|m| m.name()).collect();
+    let defs: Vec<MethodDef> = def.methods().collect();
 
-    let expanded = expand_method_part(method_part, &type_methods);
+    let expanded = expand_method_part(method_part, &defs);
     if expanded.is_empty() {
         panic!(
             "method `{method_part}` not found on `{type_part}` \
@@ -344,18 +410,38 @@ fn push_method_filter(
         );
     }
 
+    maybe_warn_ambiguous_overload(
+        warnings,
+        method_part,
+        namespace,
+        type_name,
+        &defs,
+        include,
+        raw,
+    );
     register_method_filter(
         methods, namespace, type_name, expanded, include, type_part, raw,
     );
 }
 
-/// Resolve `method_part` against `type_methods`. Returns the metadata names
-/// to register on this type's filter, after sugar expansion. Empty when no
-/// match is found.
-fn expand_method_part(method_part: &str, type_methods: &[&'static str]) -> Vec<String> {
-    if type_methods.contains(&method_part) {
-        // Exact match against a metadata method name (e.g.
-        // `IFoo::get_Value` or `IFoo::Bar`). No sugar expansion needed.
+/// Resolve `method_part` against `defs`. Returns the names to register on
+/// this type's filter, after sugar / overload-name expansion. Empty when
+/// no match is found.
+///
+/// Resolution order:
+/// 1. Exact match against a raw `MethodDef` name (e.g. `IFoo::get_Value`
+///    or `IFoo::Bar`).
+/// 2. Property/event sugar: `Bar` -> `get_Bar` + `put_Bar`, falling back
+///    to `add_Bar` + `remove_Bar`.
+/// 3. Overload-disambiguated Rust name produced by `[overload("…")]`
+///    (e.g. `InsertKeyFrameWithEasingFunction`). This addresses a single
+///    `MethodDef` row even when several rows share the same metadata name.
+fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
+    if defs.iter().any(|m| m.name() == method_part) {
+        // Exact match against a metadata method name. No sugar expansion
+        // needed. Even if the same metadata name covers several overload
+        // rows, the entry intentionally applies to all of them — this
+        // preserves the historical behavior of `!Iface::Method`.
         return vec![method_part.to_string()];
     }
 
@@ -370,21 +456,81 @@ fn expand_method_part(method_part: &str, type_methods: &[&'static str]) -> Vec<S
     let remover = format!("remove_{method_part}");
 
     let mut expanded = Vec::new();
-    if type_methods.iter().any(|m| *m == getter) {
+    if defs.iter().any(|m| m.name() == getter) {
         expanded.push(getter);
     }
-    if type_methods.iter().any(|m| *m == setter) {
+    if defs.iter().any(|m| m.name() == setter) {
         expanded.push(setter);
     }
     if expanded.is_empty() {
-        if type_methods.iter().any(|m| *m == adder) {
+        if defs.iter().any(|m| m.name() == adder) {
             expanded.push(adder);
         }
-        if type_methods.iter().any(|m| *m == remover) {
+        if defs.iter().any(|m| m.name() == remover) {
             expanded.push(remover);
         }
     }
-    expanded
+    if !expanded.is_empty() {
+        return expanded;
+    }
+
+    // Overload-disambiguated name match. The set entry is the overload
+    // name itself — `Filter::includes_method` checks the overload name of
+    // each `MethodDef` alongside its raw name, so this addresses exactly
+    // the row whose `[overload("…")]` attribute carries this value.
+    if defs
+        .iter()
+        .any(|m| method_overload_name(*m).as_deref() == Some(method_part))
+    {
+        return vec![method_part.to_string()];
+    }
+
+    Vec::new()
+}
+
+/// If a deny filter entry collapses onto a raw `MethodDef` name that is
+/// shared by multiple rows (real CLR overloads), warn the user listing the
+/// disambiguated Rust names so they can use the precise form to keep the
+/// overloads they actually consume.
+fn maybe_warn_ambiguous_overload(
+    warnings: &mut Vec<String>,
+    method_part: &str,
+    namespace: &str,
+    type_name: &str,
+    defs: &[MethodDef],
+    include: bool,
+    raw: &str,
+) {
+    if include {
+        return;
+    }
+    // Only flag exact raw-name matches. Sugar and overload-name resolution
+    // already address specific rows (or all property/event accessors), so
+    // their multi-row behavior is intentional.
+    let matching: Vec<MethodDef> = defs
+        .iter()
+        .copied()
+        .filter(|m| m.name() == method_part)
+        .collect();
+    if matching.len() < 2 {
+        return;
+    }
+    let names: Vec<String> = matching
+        .iter()
+        .map(|m| method_overload_name(*m).unwrap_or_else(|| m.name().to_string()))
+        .collect();
+    warnings.push(format!(
+        "filter `{raw}` denies {n} overloads of `{namespace}.{type_name}::{method_part}`: \
+         [{names}]; use the overload-disambiguated name (e.g. \
+         `!{namespace}.{type_name}::{first}`) to address a single overload\n",
+        n = matching.len(),
+        names = names.join(", "),
+        first = names
+            .iter()
+            .find(|n| n.as_str() != method_part)
+            .map(String::as_str)
+            .unwrap_or(method_part),
+    ));
 }
 
 #[track_caller]
