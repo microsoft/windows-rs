@@ -20,7 +20,7 @@ fn handle() {
     let default = HANDLE::default();
     assert!(default.is_invalid());
 
-    assert_eq!(format!("{:?}", handle), "HANDLE(0x7b)");
+    assert_eq!(format!("{handle:?}"), "HANDLE(0x7b)");
 }
 
 #[test]
@@ -38,7 +38,7 @@ fn psid() {
     let default = PSID::default();
     assert!(default.is_invalid());
 
-    assert_eq!(format!("{:?}", handle), "PSID(0x0)");
+    assert_eq!(format!("{handle:?}"), "PSID(0x0)");
 }
 
 #[test]

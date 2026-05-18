@@ -113,5 +113,5 @@ fn from_result() {
 #[test]
 fn display() {
     assert_eq!(E_INVALIDARG.to_string(), "0x80070057");
-    assert_eq!(format!("{:?}", E_INVALIDARG), "HRESULT(0x80070057)");
+    assert_eq!(format!("{E_INVALIDARG:?}"), "HRESULT(0x80070057)");
 }

@@ -335,14 +335,14 @@ fn construct_with_into() {
 #[test]
 fn com_object_debug() {
     let app = MyApp::new(100);
-    let s = format!("{:?}", app);
+    let s = format!("{app:?}");
     assert_eq!(s, "x = 100");
 }
 
 #[test]
 fn display() {
     let app = MyApp::new(200);
-    let s = format!("{}", app);
+    let s = format!("{app}");
     assert_eq!(s, "x = 200");
 }
 

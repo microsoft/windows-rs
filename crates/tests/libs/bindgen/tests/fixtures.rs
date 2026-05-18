@@ -506,12 +506,11 @@ fn run_error_bindgen(f: &Fixture) {
     }));
     std::panic::set_hook(prev_hook);
 
-    let payload = match result {
-        Ok(_) => panic!(
+    let Err(payload) = result else {
+        panic!(
             "[{}/{}] expected `bindgen` to panic but it succeeded",
             f.group, f.name
-        ),
-        Err(e) => e,
+        )
     };
 
     let message = if let Some(s) = payload.downcast_ref::<&'static str>() {

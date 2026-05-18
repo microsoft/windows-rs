@@ -28,9 +28,8 @@ impl Callback {
         };
 
         // We only handle pointer-to-function typedefs.
-        let fn_type = match underlying.function_pointee() {
-            Some(ft) => ft,
-            None => return Ok(None),
+        let Some(fn_type) = underlying.function_pointee() else {
+            return Ok(None);
         };
 
         // Variadic function-pointer typedefs (e.g. `typedef int (*printf_t)(const char*, ...)`)
@@ -58,7 +57,7 @@ impl Callback {
                 .get(i as usize)
                 .cloned()
                 .filter(|n| !n.is_empty())
-                .unwrap_or_else(|| format!("param_{}", i));
+                .unwrap_or_else(|| format!("param_{i}"));
             params.push(Param {
                 name: pname,
                 ty,

@@ -35,9 +35,8 @@ impl Const {
         // Body tokens = everything after the name token.
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
-        let value = match parse_body(&body, parser.namespace, parser.ref_map) {
-            Some(v) => v,
-            None => return Ok(None),
+        let Some(value) = parse_body(&body, parser.namespace, parser.ref_map) else {
+            return Ok(None);
         };
 
         Ok(Some(Self { name, value }))
