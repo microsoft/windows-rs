@@ -635,8 +635,7 @@ impl Type {
                 let ns = parser
                     .ref_map
                     .get(&name)
-                    .map(|s| s.as_str())
-                    .unwrap_or(parser.namespace);
+                    .map_or(parser.namespace, |s| s.as_str());
                 metadata::Type::value_named(ns, &name)
             }
             CXType_Elaborated => self.underlying_type().to_type(parser),

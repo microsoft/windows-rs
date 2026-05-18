@@ -838,14 +838,13 @@ fn delegate_guid_output(
     item: &metadata::reader::TypeDef,
     generics: &[metadata::Type],
 ) -> Result<GuidOutput, Error> {
-    let (types, return_type) = item
-        .methods()
-        .find(|m| m.name() == "Invoke")
-        .map(|invoke| {
+    let (types, return_type) = item.methods().find(|m| m.name() == "Invoke").map_or_else(
+        || (vec![], metadata::Type::Void),
+        |invoke| {
             let sig = invoke.signature(generics);
             (sig.types, sig.return_type)
-        })
-        .unwrap_or_else(|| (vec![], metadata::Type::Void));
+        },
+    );
     guid_output(item, &[("Invoke", types.as_slice(), &return_type)])
 }
 
