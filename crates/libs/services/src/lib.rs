@@ -3,7 +3,6 @@
 #![expect(
     non_camel_case_types,
     non_snake_case,
-    clippy::needless_doctest_main,
     clippy::upper_case_acronyms,
     clippy::type_complexity
 )]
