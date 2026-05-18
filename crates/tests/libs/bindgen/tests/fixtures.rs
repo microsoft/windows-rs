@@ -641,10 +641,15 @@ fn run_merge(f: &Fixture) {
             merger.input(winmd.to_str().unwrap());
         } else {
             let basename = rdl.file_name().and_then(|s| s.to_str()).unwrap();
-            let bits = arch_map.iter().find(|(k, _)| k == basename).map_or_else(|| panic!(
-                    "[{}/{}] arch_inputs missing entry for {basename}; declare it as `\"{basename}=<arch>\"`",
-                    f.group, f.name
-                ), |(_, v)| *v);
+            let bits = arch_map.iter().find(|(k, _)| k == basename).map_or_else(
+                || {
+                    panic!(
+                        "[{}/{}] arch_inputs missing entry for {basename}; declare it as `\"{basename}=<arch>\"`",
+                        f.group, f.name
+                    )
+                },
+                |(_, v)| *v,
+            );
             merger.arch_input(winmd.to_str().unwrap(), bits);
         }
     }
