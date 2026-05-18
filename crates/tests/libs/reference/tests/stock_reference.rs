@@ -99,23 +99,22 @@ use test_libs_reference::{IPropertyValue, PropertyType};
 const E_NOTIMPL: HRESULT = HRESULT(0x80004001_u32 as _);
 
 #[test]
-fn property_value_abi() -> Result<()> {
+fn property_value_abi() {
     let r = IReference::<i32>::from(123);
 
     // QueryInterface for IPropertyValue must succeed: IReference<T> derives from it.
-    let pv: IPropertyValue = r.cast()?;
+    let pv: IPropertyValue = r.cast().unwrap();
 
     // `Type()` must report `OtherType` per the stock implementation contract.
-    assert_eq!(pv.Type()?, PropertyType::OtherType);
+    assert_eq!(pv.Type().unwrap(), PropertyType::OtherType);
 
-    // `IsNumericScalar()` must report `false`.
-    assert!(!pv.IsNumericScalar()?);
+    assert_eq!(pv.GetInt32().unwrap(), 123);
 
     // Typed accessors must return E_NOTIMPL — callers should use `Value()`.
+    assert_eq!(pv.IsNumericScalar().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetUInt8().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetInt16().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetUInt16().unwrap_err().code(), E_NOTIMPL);
-    assert_eq!(pv.GetInt32().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetUInt32().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetInt64().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetUInt64().unwrap_err().code(), E_NOTIMPL);
@@ -130,6 +129,4 @@ fn property_value_abi() -> Result<()> {
     assert_eq!(pv.GetPoint().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetSize().unwrap_err().code(), E_NOTIMPL);
     assert_eq!(pv.GetRect().unwrap_err().code(), E_NOTIMPL);
-
-    Ok(())
 }
