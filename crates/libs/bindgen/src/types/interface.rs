@@ -162,7 +162,9 @@ impl Interface {
 
             if !config.package {
                 if let Some(guid) = self.def.guid_attribute() {
-                    let name: TokenStream = format!("IID_{}", trim_tick(self.def.name())).into();
+                    let name: TokenStream = format!("IID_{}", trim_tick(self.def.name()))
+                        .parse()
+                        .unwrap();
                     result.combine(config.write_cpp_const_guid(name, &guid));
                 }
 
@@ -184,7 +186,7 @@ impl Interface {
                 }
             } else {
                 let guid = self.def.guid_attribute().unwrap();
-                let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
+                let pinterface = Literal::byte_string(format!("pinterface({{{guid}}}").as_bytes());
 
                 let generics = self.generics.iter().map(|generic| {
                     let name = generic.write_name(config);
@@ -370,7 +372,9 @@ impl Interface {
             }
 
             if config.should_implement(type_name, !is_exclusive) {
-                let impl_name: TokenStream = format!("{}_Impl", trim_tick(self.def.name())).into();
+                let impl_name: TokenStream = format!("{}_Impl", trim_tick(self.def.name()))
+                    .parse()
+                    .unwrap();
 
                 let generics: Vec<_> = self
                     .generics
@@ -568,7 +572,9 @@ impl Interface {
     }
 
     fn write_vtbl_name(&self, config: &Config) -> TokenStream {
-        let name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name())).into();
+        let name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name()))
+            .parse()
+            .unwrap();
 
         if self.generics.is_empty() {
             name
@@ -579,7 +585,9 @@ impl Interface {
     }
 
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
-        let name: TokenStream = format!("{}_Impl", trim_tick(self.def.name())).into();
+        let name: TokenStream = format!("{}_Impl", trim_tick(self.def.name()))
+            .parse()
+            .unwrap();
         let namespace = config.write_namespace(self.def.type_name());
 
         if self.generics.is_empty() {

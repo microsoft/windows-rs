@@ -217,7 +217,7 @@ impl CppMethod {
 
         for (position, hint) in self.param_hints.iter().enumerate() {
             if *hint == ParamHint::IntoParam {
-                let name: TokenStream = format!("P{position},").into();
+                let name: TokenStream = format!("P{position},").parse().unwrap();
                 tokens.combine(name);
             }
         }
@@ -230,7 +230,7 @@ impl CppMethod {
 
         for (position, param) in self.signature.params.iter().enumerate() {
             if self.param_hints[position] == ParamHint::IntoParam {
-                let name: TokenStream = format!("P{position}").into();
+                let name: TokenStream = format!("P{position}").parse().unwrap();
                 let into = param.write_name(config);
                 tokens.combine(quote! { #name: windows_core::Param<#into>, });
             }
@@ -596,7 +596,7 @@ impl CppMethod {
                 }
                 ParamHint::ArrayRelativePtr(_) => {}
                 ParamHint::IntoParam => {
-                    let kind: TokenStream = format!("P{position}").into();
+                    let kind: TokenStream = format!("P{position}").parse().unwrap();
                     tokens.combine(&quote! { #name: #kind, });
                 }
                 ParamHint::Optional => {
