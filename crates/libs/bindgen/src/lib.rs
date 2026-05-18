@@ -1041,6 +1041,9 @@ impl Bindgen {
         let implements = Implements::new(&implements_str);
         filter.validate_implements(&implements);
         let warnings = WarningBuilder::default();
+        for message in filter.warnings() {
+            warnings.add(message.clone());
+        }
 
         let config = Config {
             reader: &reader,
