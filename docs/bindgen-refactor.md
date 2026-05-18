@@ -1,396 +1,514 @@
-# windows-bindgen: usage survey and simplification report
+# windows-bindgen: implementation overhaul report
 
-This report analyses how `windows-bindgen` (`crates/libs/bindgen`) is used to
-generate the `bindings.rs` files that ship inside this workspace, identifies
-what makes the crate complicated today, and proposes how it could be
-simplified — with and without breaking changes — including a discussion of
-whether a fresh implementation would be worthwhile.
+This report focuses on **simplifying and making the `windows-bindgen`
+implementation more manageable**, not on simplifying its CLI / builder
+surface. The CLI is treated here as essentially fixed; the question is
+whether the ~8.1 kLOC under `crates/libs/bindgen/src/` can be reorganised
+so that the next person who has to fix a codegen bug, add a new metadata
+attribute, or teach the emitter a new sugar can do so quickly and
+confidently.
 
-The focus is deliberately on **in-repo usage** (the `crates/libs/*` crates
-that ship to crates.io), not on the test/sample build scripts under
-`crates/tests/*` or `crates/samples/*`. Those are also considered, but only
-as a sanity check that the in-repo lib usage represents the dominant use
-case.
+The shape of `crates/libs/bindgen/src/` today:
 
-## 1. What windows-bindgen does
+```
+lib.rs                      1241   builder, arg parsing, references seeding
+types/mod.rs                1071   Type enum + write_name/default/abi/sig
+types/cpp_method.rs          793   Win32 free-fn + COM method emitter
+types/method.rs              713   WinRT method emitter
+types/interface.rs           695   WinRT interface + _Impl emitter
+types/cpp_interface.rs       516   COM interface + _Impl emitter
+filter.rs                    579   include/exclude/method/?-prefix rules
+tokens/{mod,runtime,        1050   hand-rolled quote!/ToTokens/TokenStream
+   to_tokens,token_stream}
+types/cpp_struct.rs          396   nested Win32 structs + handle types
+types/class.rs               386   WinRT runtime classes
+types/cpp_fn.rs              347   Win32 free function wrappers
+tokens/runtime.rs            275   ext traits supporting `quote!`
+config/{mod,names,cfg,       620   Config struct, package writer, cfg
+  format,value,cpp_handle}        emission, name resolution
+types/{cpp_const, delegate,
+  struct, cpp_enum, enum,
+  cpp_delegate}              ~800  remaining variant emitters
+type_map / type_tree         ~210  dependency closure + namespace tree
+references.rs                 111  cross-crate reference table
+winmd/reader.rs               201  static-lifetime wrapper over
+                                   windows-metadata::reader::TypeIndex
+... small modules            ~700  filter parsing, derive DSL, IO, etc.
+                            -----
+                            ~8100  total
+```
 
-`crates/libs/bindgen` is a ~8.1 kLOC code generator (across `src/`,
-`src/types/`, `src/tokens/`, `src/config/`, `src/winmd/`) that takes:
+The complexity is not in the volume — every file individually is
+reasonable — it is in the **redundant abstractions, parallel hierarchies,
+and the way state flows through the emitter**. The rest of this document
+catalogues those, ordered by the ROI of cleaning them up.
 
-1. One or more `.winmd` files (Windows metadata: ECMA‑335 with WinRT
-   extensions), read by a small in-tree winmd reader in
-   `src/winmd/reader.rs` (~200 lines). The crate also bundles a default
-   metadata set under `crates/libs/bindgen/default/` (`Windows.winmd`,
-   `Windows.Win32.winmd`, `Windows.Wdk.winmd`) via `include_bytes!`, so that
-   `bindgen([...])` works without any external file references.
-2. A `--filter` list with include/exclude rules at namespace, type, or
-   `Type::Method` granularity, plus the `?Type` prefix that denotes
-   "trait-only" emission.
-3. An output destination — either a single file via `--out`, or a
-   `--package` tree of `mod.rs` files plus a feature graph appended to a
-   `Cargo.toml`.
-4. Roughly 15 boolean shape switches that influence the emitted code.
+## 1. The hand-rolled `tokens/` crate is a thousand-line accident
 
-It then walks the metadata into a `TypeMap`/`TypeTree`, emits a `TokenStream`
-(through a hand-rolled mini quote/`ToTokens` in `src/tokens/`), and shells
-out to `rustfmt`.
+`crates/libs/bindgen/src/tokens/` (446 + 275 + 149 + 180 = **1050 lines**)
+reimplements the `quote` crate from scratch on top of a
+`TokenStream(pub String)`:
 
-## 2. How `crates/libs/*` actually uses it
+- `tokens/mod.rs` is a 446-line `macro_rules!` reimplementation of
+  `quote!` (`quote_each_token`, `quote_each_token_with_context`,
+  `pounded_var_names`, repetition handling, etc.).
+- `tokens/runtime.rs` is a 275-line port of `quote::__private::ext`
+  (`HasIterator` / `ThereIsNoIteratorInRepetition`, the `BitOr` lattice,
+  the `RepIteratorExt` / `RepToTokensExt` / `RepAsIteratorExt` family).
+  Its module docstring literally describes the same trick the upstream
+  `quote` crate documents.
+- `tokens/token_stream.rs` makes `TokenStream` a transparent wrapper
+  around `String`. `combine` pushes a single space and then concatenates.
+- `tokens/to_tokens.rs` is the `ToTokens` boilerplate for that string
+  type.
 
-The orchestrator is `crates/tools/bindings/src/main.rs`, which runs
-`bindgen(["--etc", "<file>.txt"])` once per argfile in
-`crates/tools/bindings/src/`. There are 15 of these argfiles:
-`collections.txt`, `core.txt`, `core_com.txt`, `future.txt`,
-`future_impl.txt`, `metadata.txt`, `numerics.txt`, `reference.txt`,
-`registry.txt`, `result.txt`, `services.txt`, `strings.txt`, `sys.txt`,
-`threading.txt`, `version.txt`, `windows.txt`.
+The workspace already declares `proc-macro2 = "1"` and `quote = "1"` in
+the root `Cargo.toml` for other crates, but `windows-bindgen/Cargo.toml`
+does **not** depend on them; instead it keeps the bespoke clone.
 
-Reading all 15, every in-repo lib invocation falls into exactly **three
-shapes**:
+What this costs us:
 
-| Shape | Used for | Flags (besides `--out` / `--filter`) |
-|---|---|---|
-| **A. Single-file `sys` bindings** for the leaf "support" crates that `windows-core` itself depends on | `crates/libs/{core/imp/bindings, future/bindings_impl, metadata, registry, result, services, strings, threading, version}` | `--flat --sys --no-comment --no-allow --no-deps` (`strings.txt` omits `--no-allow`) |
-| **B. Single-file WinRT bindings, flat, no comment, no allow** | `crates/libs/{collections, future, numerics, core/imp/com_bindings}` and `reference` (the only `--minimal` user) | `--flat --no-comment --no-allow` (+ `--minimal` for `reference.txt`, `--no-deps` for `core_com.txt`) |
-| **C. Big package outputs** for the user-facing umbrella crates | `crates/libs/sys`, `crates/libs/windows` | `--package` + `--no-comment --no-allow --rustfmt max_width=800,newline_style=Unix`; `windows.txt` adds `--index`, `sys.txt` adds `--sys` |
+- **No actual token tree.** The emitter is a string builder. Bugs like
+  "missing space between tokens" are real (`combine` exists precisely to
+  prepend a space). A real `TokenStream` would make these
+  unrepresentable.
+- **Output goes through `rustfmt` as its only sanity check.** If the
+  emitter mis-balances a brace, the failure mode is a parse error in the
+  generated file, not at the bindgen layer.
+- **The `quote!` macro is the most expensive part of this crate to read.**
+  Reviewers have to mentally diff against upstream `quote` to know which
+  features are supported.
 
-Notable observations from this usage survey:
+**Action:** delete `tokens/` entirely and depend on `proc-macro2` +
+`quote` from crates.io. The replacement is mechanical (the call sites
+already use `quote! { ... }` with the same `#var` / `#(...)*` syntax
+upstream supports) and removes ~1 kLOC of code we own and test. The only
+deliberate semantic difference today appears to be `TokenStream::combine`
+inserting a space — that becomes free with a real token tree.
 
-- **No in-repo lib uses `--specific-deps`.** It exists only so external
-  downstream consumers can carve a smaller dependency tree.
-- **No in-repo lib uses `--implement`** in its own `bindings.rs`.
-  `--implement` only appears in `crates/tests/winrt/*/build.rs` (component
-  scaffolding tests) and in external consumers; the in-tree libs implement
-  WinRT interfaces through hand-written `implement_decl!` instead.
-- **No in-repo lib uses `--implements`** (the finer-grained sibling of
-  `--implement`).
-- **No in-repo lib uses `--sys-fn-ptrs`, `--sys-fn-extern`, or `--typedef`.**
-- **No in-repo lib uses `--link`.** The default (`windows_link` for
-  `--sys`/`--specific-deps`, otherwise `windows_core`) suffices.
-- **No in-repo lib uses non-`--flat` single-file output.** Single-file
-  output is always `--flat`. Module-nested output is exclusive to
-  `--package`.
-- **Only `reference.txt` uses `--minimal`**, to drop wrapper methods and
-  `interface_hierarchy!` machinery while keeping vtables, GUIDs, and
-  `RuntimeType` signatures intact.
-- **Both `--no-comment` and `--no-allow` are toggled on for every in-repo
-  invocation.** The defaults are tuned for one-shot external consumers, not
-  for the workspace itself.
-- `--no-deps` only appears together with `--sys`. Code-side,
-  `Type::write_no_deps` (`src/types/mod.rs:822`) is gated by
-  `!config.no_deps || !config.sys`, so the flag's only practical meaning is
-  "when in `--sys` mode, additionally inline `HRESULT` / `BOOL` / `PWSTR` /
-  `HSTRING` / `GUID` / `IUnknown` typedefs."
-- The two `--package` callers (`sys.txt`, `windows.txt`) are the only ones
-  that exercise the namespace-feature-graph emitter, the Cargo.toml feature
-  appender, and `--index`.
+## 2. The `Type` enum is two enums in a trench coat
 
-## 3. What makes windows-bindgen complicated
+`types/mod.rs:31` declares one big enum with parallel COM/Win32-flavoured
+and WinRT-flavoured variants for every category:
 
-Walking the code, the 45 distinct `config.<flag>` branch sites across
-`src/types/*.rs` and `src/tokens/runtime.rs` cluster into a handful of
-overlapping concerns, none of which is inherently large but whose
-combination is.
+| Win32 / COM        | WinRT          | Shared (kind-neutral) |
+|--------------------|----------------|-----------------------|
+| `CppFn`            | —              |                       |
+| `CppInterface`     | `Interface`    |                       |
+| `CppStruct`        | `Struct`       |                       |
+| `CppEnum`          | `Enum`         |                       |
+| `CppDelegate`      | `Delegate`     |                       |
+| `CppConst`         | —              |                       |
+|                    | `Class`        |                       |
+|                    |                | primitives, ptrs,     |
+|                    |                | arrays, `Generic`, …  |
 
-### 3.1 The "shape" axis is really 3–4 modes pretending to be N booleans
+Each pair has its own `types/<name>.rs` file with substantially the same
+shape (`type_name`, `write_name`, `write_cfg`, `write`, `dependencies`,
+`PartialEq`/`Hash`/`Ord` boilerplate that always delegates to
+`self.def`). Some of the duplication is genuinely warranted (a WinRT
+method emission is very different from a Win32 free-fn emission), but a
+lot of it is mechanical:
 
-`Config` carries 14 booleans (`flat`, `no_allow`, `no_comment`, `no_deps`,
-`no_toml`, `package`, `sys`, `minimal`, `typedef`, `sys_fn_ptrs`,
-`sys_fn_extern`, `implement`, `specific_deps`, plus `implements:
-&Implements`). In practice they collapse to a small set of **modes**:
+- `Hash`/`Ord`/`Eq` on every variant delegating to a `def: TypeDef` field.
+- `type_name(&self) -> TypeName` returning `TypeName(def.namespace(),
+  def.name())`.
+- `combine(&self, deps, reader)` walking required interfaces / fields.
 
-- `sys` vs `safe`. This is the dominant axis. It changes
-  `write_name` / `write_default` / `write_abi`, the `cpp_fn`, `cpp_enum`,
-  `cpp_struct`, `cpp_interface`, `cpp_const`, `enum`, `struct`,
-  `interface`, and `method` emitters, and the namespace lookup in
-  `config/names.rs::write_specific`. Roughly half of all flag branches are
-  `if config.sys`.
-- `minimal` is a strict *subset* of `safe` (it's "safe-mode without
-  wrappers"), explicitly rejected as combinable with `sys`
-  (`src/lib.rs:799-801`), and used today by exactly one consumer.
-- `package` vs `single-file` (and `flat` only makes sense without
-  `package`). The combinations `package && flat` and `sys && minimal` are
-  explicit panics.
-- `sys_fn_ptrs` and `sys_fn_extern` only mean anything under `sys`. They
-  produce branches like `if config.sys && config.sys_fn_ptrs`.
-- `typedef` is documented as "sys-style type aliases" — yet
-  `grep config\.typedef` finds it referenced only in `lib.rs` and
-  `config/mod.rs`, not consumed inside the emitters anywhere. It is
-  effectively dead in this workspace and likely only kept for one external
-  pattern.
-- `no_deps` only changes behaviour with `sys` (see `Type::write_no_deps`).
-- `no_allow`, `no_comment`, `no_toml` are formatter/wrapper-only concerns
-  confined to `config/format.rs` and `config/mod.rs::write_package`.
+And in `types/mod.rs` we then pay for the duplication a second time:
 
-So the *real* shape matrix is much smaller than 2¹⁴:
-**`{sys, safe, minimal-safe} × {single-file-flat, package}`** =
-~6 meaningful combinations, plus a handful of orthogonal preamble switches.
+- `write_name` is a 100-line `match` that dispatches by variant
+  (`types/mod.rs:~330-480`).
+- `write_default`, `write_abi`, `write_impl_name`, `runtime_signature`,
+  `set_generics`, `type_name`, `write_no_deps`, `write`, `is_core`,
+  `is_intrinsic` are all parallel giant matches.
 
-### 3.2 Emission-time conditionals scattered across files
+What this costs us:
 
-Every emitter (`types/interface.rs`, `types/cpp_struct.rs`,
-`types/cpp_fn.rs`, `types/cpp_interface.rs`, `types/enum.rs`,
-`types/cpp_enum.rs`, `types/class.rs`, …) inlines its own `if config.sys`,
-`if config.minimal`, `if config.package` ladder, often interleaved with
-metadata-driven branches (`is_exclusive`, `is_factory`, `is_trait_only`,
-`is_agile`, `has_explicit_layout`, …). Result: each "what does sys mode
-actually emit" question requires reading 10+ files. There is no single
-place where the shape contract is stated.
+- Adding a new variant means touching ~10 matches in `types/mod.rs`,
+  plus a new file, plus the `Reader` builder in `winmd/reader.rs`.
+- Reviewers have to keep "what does Cpp* do that the WinRT counterpart
+  doesn't" in their head while reading any emitter.
+- The "kind-neutral" tail of `Type` (primitives + `Ptr*` + `Array*` +
+  `PrimitiveOrEnum`) lives alongside the "real" variants, complicating
+  ownership: those leaf types are values that can appear in signatures,
+  not categories that get emitted.
 
-The naming helpers (`config/names.rs::write_specific`, the `write_core` /
-`write_result` / `write_strings` family) bake the cartesian product of
-`sys × package × no_deps × flat × specific_deps × namespace-relative-paths`
-into one ~20-line function that is invoked from dozens of places. This is
-one of the densest knots.
+**Action — two independently useful refactors:**
 
-### 3.3 The `--package` path duplicates the single-file path
+1. **Split `Type` into `Item` (emittable) and `Sig` (signature
+   leaf).** `Item` would only hold `CppFn`, `Class`, `Interface`,
+   `CppInterface`, `Struct`, `CppStruct`, `Enum`, `CppEnum`, `Delegate`,
+   `CppDelegate`, `CppConst`. `Sig` would hold the primitives, pointer
+   wrappers, array shapes, generic params, and remappable named handles
+   (`PSTR`, `HRESULT`, etc.). Lifts the "leaves shouldn't appear in
+   emission matches" invariant out of the comment in `is_intrinsic` and
+   into the type system. Most of the giant `match` ladders in
+   `types/mod.rs` lose a branch as a result.
 
-`config/mod.rs::write_package` re-walks the tree, splices a Cargo.toml
-feature graph, and reformulates `cfg` attributes against per-namespace
-boundaries (`Cfg::new`, `class_cfg`). Many emitters carry a
-`let cfg = if config.package { … } else { … };` shim. Combined with
-`--specific-deps` namespacing rules in `write_specific`, this is the
-second-biggest source of branching.
+2. **Replace the giant `match` ladders with a small `trait
+   ItemEmitter`.** Each variant's `write_name` / `write_default` /
+   `write_abi` / `write_impl_name` / `runtime_signature` lives once on
+   the struct itself, not at the enum level. `Type::write_name` becomes a
+   3-line `match self` that calls `ty.write_name(config)` for every
+   variant — exactly mirroring what `write` already does
+   (`types/mod.rs:878`). This is a mechanical refactor enforced by the
+   compiler.
 
-### 3.4 The `--implement` / `--implements` / `?Type` "trait-only" axis
+These two combined kill several hundred lines from `types/mod.rs` and
+make each variant a self-contained unit.
 
-Three knobs control `_Impl` emission:
+## 3. `Config` is a 20-field bag threaded by reference everywhere
 
-1. `--implement` (emit `_Impl` for all WinRT interfaces in the filter set);
-2. `--implements <name…>` (emit `_Impl` only for matching types);
-3. the `?` prefix on filter entries (`Filter::is_trait_only`) which
-   suppresses the inherent `impl IFoo` wrapper block but keeps the `_Impl`
-   trait.
+`config/mod.rs:11` defines:
 
-`Config::should_implement` (`src/config/mod.rs:52`) reconciles (1) and (2).
-The `?` axis is essentially "don't emit caller-side wrappers for this
-required-but-uncalled interface" and is used in only one in-repo place
-(`reference.txt`'s `?Windows.Foundation.IPropertyValue`). Conceptually
-these knobs are answering one question — "for which types should we emit
-which of {ABI vtable, caller wrappers, `_Impl` trait}?" — but they are
-spread across three input syntaxes and reconciled in two files.
-
-### 3.5 References / cross-crate gluing
-
-`src/references.rs` (`ReferenceStage` / `ReferenceStyle`) and the giant
-`references.insert(0, …)` block in `src/lib.rs:805-1032` hard-code the
-layout knowledge of `windows_future`, `windows_collections`,
-`windows_reference`, `windows_numerics`, `windows_core`, `windows_result`.
-This block is ~230 lines of literally enumerated namespace-to-crate-name
-mappings, conditionally added unless the user passed `--no-deps`/`--sys`.
-It is configuration-as-code in the worst sense: every new `windows-*`
-split-crate has to be added here, and every breaking change to one of
-those crates has to ripple through.
-
-### 3.6 Side concerns
-
-- `src/derive.rs` / `src/derive_writer.rs` (a small derives DSL parsed from
-  `--derive` strings).
-- `src/warnings.rs` (a side-channel `WarningBuilder` for non-fatal
-  messages).
-- `src/index.rs` (the `features.json` writer, only used by `windows.txt`).
-- The bundled `default/Windows*.winmd` files (~MB of metadata embedded into
-  the binary via `include_bytes!`).
-- The `--etc <file>` argfile expander (`expand_args`), which is the only
-  reason the libs orchestration works at all.
-- `expand_args` panics rather than returning errors. The entire CLI surface
-  panics on user error.
-
-## 4. What could be consolidated, even with breaking changes
-
-Working from "what does the workspace actually need" + "what do external
-builds in this repo demonstrate":
-
-### 4.1 High-confidence simplifications (low / no behaviour loss)
-
-1. **Collapse `--sys-fn-ptrs`, `--sys-fn-extern`, `--typedef` into a single
-   explicit mode (or remove).** None of them are exercised by any
-   `crates/libs/*` argfile, nor by any in-repo build script.
-   `--typedef` appears to be effectively dead (no `config.typedef` reads in
-   `types/`). These three switches are pure tax on the matrix.
-2. **Make `--flat` implicit when not using `--package`, and forbid the
-   other combination instead of panicking.** Every in-repo single-file
-   output uses `--flat`. The non-flat single-file path is preserved only
-   for backwards compatibility with downstream users and adds a separate
-   `write_modules` recursion path in `config/mod.rs`.
-3. **Merge `--no-allow` / `--no-comment` / `--no-toml` into one
-   `--preamble=<minimal|default>`.** Every in-repo invocation passes both
-   `--no-allow --no-comment`. Most of the matrix has only two used corners.
-4. **Fold `--implement` into `--implements <pattern>`.** `--implement` is
-   exactly `--implements <every WinRT interface in the filter set>`. A
-   single switch with namespace wildcards (e.g. `--implements Windows.**`,
-   the empty-list default = today's behaviour) subsumes it and removes the
-   `config.implement` vs `config.implements` reconciliation in
-   `Config::should_implement`.
-5. **Merge the `?Ns.Type` "trait-only" syntax into `--implements`.**
-   Conceptually they answer the same question (which types get caller
-   wrappers vs trait-only scaffolding). One combined option matrix removes
-   a parser branch in `Filter` and an extra call site.
-6. **Drop `--no-deps`'s overload of "also inline primitive typedefs."**
-   Make that an explicit `--sys-prelude=embed` mode (or just always embed
-   for `--sys`, conditionally use externally-imported names otherwise).
-   Today `--no-deps` is silently a no-op outside `--sys` because of
-   `write_no_deps`'s gate.
-7. **Hide the cross-crate references table behind data, not code.** The
-   230-line block of `references.insert(0, …)` should be a single
-   `&'static [(crate_name, style, namespace)]` array (or read from a small
-   TOML next to the crate). This both removes most of
-   `src/lib.rs:805-1032` and makes adding/removing a `windows-*` support
-   crate a one-line change.
-
-These ~7 cleanups alone would remove most of the option-permutation
-problem without losing any capability the workspace itself uses.
-
-### 4.2 Plausible-but-larger simplifications (with breaking changes)
-
-8. **Promote `sys` / `safe` / `minimal` to a single enum** (`--mode=sys |
-   safe | safe-minimal`), and forbid the orthogonal-boolean style
-   entirely. Most of the 45 `config.<flag>` branch sites today can become
-   `match config.mode { Mode::Sys => …, Mode::Safe => …, Mode::Minimal =>
-   … }` (or, better, dispatched through a small `Mode` trait so each
-   emitter has one impl per mode). This is what the code already does
-   emergently via panics on incompatible flag combinations.
-9. **Move `--package` into a separate `bindgen-package` entry point** (or
-   even a thin wrapper crate). It is a fundamentally different operation
-   (writes many files + mutates `Cargo.toml` + emits `cfg(feature = "…")`
-   per type) and lives behind a few `if config.package` branches that
-   bleed into emitters that do not otherwise care. Separating it would let
-   `Config` drop `package`, `no_toml`, and the Cargo.toml feature graph
-   code; the package writer would invoke the single-file emitter per
-   namespace.
-10. **Replace the `&str`-everywhere CLI builder with a structured `Config`
-    literal** and downgrade `bindgen(args)` to a thin parser sitting on
-    top. The current `pub struct Bindgen { 23 fields }` plus mirror
-    `pub struct Config<'a> { 21 fields }` plus the `ArgKind` state machine
-    is three representations of the same data. A `serde`-able `Config`
-    struct (TOML or in-process literal) would let
-    `crates/tools/bindings/src/*.txt` become `*.toml` with strong typing,
-    and would obviate `expand_args`.
-11. **Type-driven dispatch in emitters.** Replace the central `Type`
-    enum's `write_name` / `write_default` / `write_abi` /
-    `write_impl_name` family — which inline `if config.sys` branches across
-    ~1,000 lines in `types/mod.rs` — with a small trait per mode
-    (`SysEmitter`, `SafeEmitter`) so each primitive's rules live in one
-    place per mode. This is mechanical refactoring but pays back in every
-    emitter file.
-12. **Consider splitting "metadata loading + filtering + type-tree" from
-    "rendering."** Today both live in one crate. The metadata side
-    (`src/winmd/`, `src/index.rs`, `src/type_map.rs`, `src/references.rs`,
-    `src/filter.rs`) is essentially a winmd parser specialized for
-    windows-rs. The rendering side (`src/types/`, `src/tokens/`,
-    `src/config/`) is the actual codegen. There is already a
-    `crates/libs/metadata` crate (separate from bindgen's `winmd/`!), so
-    there is some duplication worth investigating.
-
-### 4.3 Things that look complicated but probably should stay
-
-- The `Filter` grammar, including `Type::Method`, `Type::Property`,
-  `Type::Event`, and `?Type`. The grammar is genuinely needed because
-  in-repo argfiles use it heavily and the API surface of WinRT/Win32 is
-  too coarse-grained for whole-type-only filters.
-- The `derive` mini-DSL — small, isolated to `derive.rs` /
-  `derive_writer.rs`, and used by external consumers.
-- The bundled `Windows*.winmd` in `default/`. Distributing them inside the
-  crate is the only thing that makes one-line `bindgen([...])` calls work
-  without external dependencies. The size cost is real but the UX wins.
-- The `WarningBuilder` channel — small and useful.
-
-## 5. Fresh implementation vs. refactor
-
-Once the "important options" are pared down to roughly:
-
-```text
-windows_bindgen::Config {
-    inputs: [WinMd | "default"],
-    outputs: SingleFile { path, preamble } | Package { root, index },
-    filter: FilterSet,         // include/exclude + method-level + trait-only
-    mode: Sys | Safe | SafeMinimal,
-    derive: [String],
-    implements: Pattern,       // wildcard set; empty = legacy default
-    references: ReferenceTable, // data-driven, not code
-    rustfmt: Option<String>,
-    link_override: Option<String>,
+```rust
+pub struct Config<'a> {
+    pub reader: &'a Reader,
+    pub types: &'a TypeMap,
+    pub references: &'a References,
+    pub filter: &'a Filter,
+    pub output: &'a str,
+    pub flat: bool, pub no_allow: bool, pub no_comment: bool,
+    pub no_deps: bool, pub no_toml: bool, pub package: bool,
+    pub rustfmt: &'a str, pub sys: bool, pub minimal: bool,
+    pub typedef: bool, pub sys_fn_ptrs: bool, pub sys_fn_extern: bool,
+    pub implement: bool, pub implements: &'a Implements,
+    pub specific_deps: bool, pub derive: &'a Derive,
+    pub link: &'a str, pub warnings: &'a WarningBuilder,
+    pub namespace: &'static str,
 }
 ```
 
-…the case for a green-field rewrite is **weaker than it first looks**,
-because the *hard* parts of bindgen are not the option matrix:
+Every emitter — there are ~30 of them — takes `&Config` and inspects a
+specific subset of its fields. This is the entire reason every
+`types/*.rs` file ends up with `if config.sys`, `if config.minimal`,
+`if config.package`, `if config.implement || …` scattered through it,
+and why `config/names.rs::write_specific` (the namespace-to-path
+resolver) crams six switches into ~20 lines.
 
-- **The winmd reader and the type-tree builder are correct and
-  battle-tested.** Rewriting them risks regressions in WinRT/Win32 edge
-  cases (generic instantiations, fixed buffers, agility, exclusive
-  interfaces, factory/composable detection, `IReference` sugar, scoped vs
-  flag enums, calling conventions, vararg, COM vs WinRT inheritance, …)
-  that are encoded across thousands of test fixtures
-  (`crates/tests/libs/bindgen/data/bindgen/**/expected.rs`).
-- **The emitter's behaviour is locked down by those golden fixtures.** A
-  rewrite would either have to reproduce them bit-for-bit (in which case
-  it's a refactor) or accept large diffs (in which case every downstream
-  consumer rebuilds and re-reviews their bindings).
-- **The option-matrix complexity is concentrated in three places**:
-  `config/names.rs::write_specific`, the cross-crate `references.insert`
-  block in `lib.rs`, and the ~45 `if config.<flag>` branches in
-  `types/*.rs`. Each is independently refactorable in place behind the
-  golden tests.
+What this costs us:
 
-So the more durable plan is:
+- **Behaviour is non-local.** Any flag in `Config` can be read by any
+  emitter, so the only way to reason about "what does `--sys` do" is to
+  grep for `config.sys`.
+- **Three orthogonal concerns are conflated**: identity of inputs
+  (`reader`, `types`, `references`, `filter`), output target
+  (`output`, `package`, `flat`, `no_toml`, `rustfmt`), and emission mode
+  (`sys`, `minimal`, `typedef`, `sys_fn_ptrs`, `sys_fn_extern`,
+  `implement`, `implements`, `no_deps`, `specific_deps`, `no_allow`,
+  `no_comment`, `link`, `derive`).
 
-- **(a) First pass — *breaking-but-mechanical* cleanup.** Drop unused
-  flags (`--typedef`, `--sys-fn-ptrs`, `--sys-fn-extern` if no consumers
-  depend on them; `--no-toml` if `--package` always emits the same file
-  shape), merge `--implement` + `--implements` + `?` into one wildcard,
-  collapse `--no-allow` / `--no-comment` into a preamble enum, make
-  `--flat` implicit, data-drive the references table. Bindgen golden tests
-  (`cargo test -p test_bindgen --test fixtures`) catch regressions
-  per-mode.
-- **(b) Second pass — *internal refactor behind the new surface*.**
-  Replace `Config`'s flat booleans with a `Mode` enum + a `Preamble`
-  struct; collapse `write_specific` to a single per-mode strategy; split
-  `--package` writer into a thin caller of the single-file writer.
-- **(c) Only then**, if the per-emitter `if mode` dispatch is still
-  painful, consider the emitter-trait extraction in 4.2(11). That is the
-  one change that is almost a rewrite, but it is still strictly local to
-  `types/` and `tokens/`.
+**Action — separate `Config` into three structs and pass each one only
+where it's used:**
 
-A *fresh* implementation only really pays off if the goal is to also
-rethink the metadata layer (a new IR, a different filter language, a
-typed config schema, an asynchronous incremental codegen pipeline, …).
-Without those goals, the existing 8 kLOC is small enough and constrained
-enough by golden tests that incremental simplification will land more
-reliably and with less risk than a parallel implementation.
+```text
+Inputs<'a>    = { reader, types, references, filter, derive }
+Output<'a>    = { output, package, flat, no_toml, rustfmt,
+                  no_allow, no_comment, namespace }
+Mode          = enum Sys | Safe | SafeMinimal
+                + bitflags for the cross-cutting toggles that survive
+                  (implement / implements / no_deps / specific_deps / link)
+```
 
-## 6. Concrete first cut, ordered by ROI
+Inputs are immutable for the whole run. Output flows only to
+`config/mod.rs` (the file/package writer). Mode flows into every
+emitter. The crucial win is **the `Mode` enum** — it captures the
+*intent* of `sys` / `minimal` / "plain safe" and lets each variant's
+`ItemEmitter` impl decide its own branching, instead of every variant
+reading raw booleans.
 
-If you wanted to act on this, the suggested sequencing is:
+## 4. The `Reference` table is imperative configuration in `lib.rs`
 
-1. Audit external usage of `--typedef`, `--sys-fn-ptrs`, `--sys-fn-extern`,
-   and the non-`--flat` single-file path; delete the ones with no
-   consumers.
-2. Replace the `references.insert(0, …)` block in `lib.rs` with a static
-   table; this alone shrinks `lib.rs` by ~20%.
-3. Collapse `--no-allow` / `--no-comment` to a `--preamble` enum and make
-   `--flat` the default for non-package output.
-4. Unify `--implement` / `--implements` / `?` filter prefix into a single
-   `--implements <pattern>` switch.
-5. Introduce `enum Mode { Sys, Safe, SafeMinimal }` on `Config`, route all
-   current `if config.sys` / `if config.minimal` through it, and remove
-   the now-unused booleans.
-6. Lift the `--package` writer into its own module (or sub-crate) that
-   calls into the single-file pipeline namespace by namespace, and remove
-   `config.package` from emitters.
-7. (Optional / largest) split per-mode emission into trait impls
-   (`SysEmitter` / `SafeEmitter`) so each `Type` variant's rules live in
-   one place per mode.
+`lib.rs:805-1032` (~230 lines) is one block of:
 
-Items 1–4 are roughly a day each and are mostly mechanical against the
-existing fixture tests
-(`cargo test -p test_bindgen --test fixtures`). Items 5–6 are a week or
-two of careful refactoring. Item 7 is the only one that approaches
-"partial rewrite."
+```rust
+references.insert(0, ReferenceStage::new("windows_future",
+    ReferenceStyle::Flat, "Windows.Foundation.Async*"));
+references.insert(0, ReferenceStage::new("windows_future",
+    ReferenceStyle::Flat, "Windows.Foundation.IAsync*"));
+references.insert(0, ReferenceStage::new("windows_collections", ...));
+...  // x ~30
+```
 
-The net effect would be roughly: ~14 boolean flags → 1 mode enum + 3–4
-booleans, `Config` shrinks from 21 fields to ~10, the 45 branch sites
-collapse toward a single mode-dispatch in each emitter, and `lib.rs`
-drops by ~40%, all without losing any capability that any in-repo lib
-(or, judging from how the existing flags compose, any external consumer
-the repo's tests demonstrate) actually uses.
+This is *configuration*, hand-written as control flow, branching on
+`!self.sys && !self.no_deps && reader.contains_key(<namespace>)`. Every
+time a `windows-*` crate is split out, a contributor must add a stanza
+here; every typo silently mis-routes references; the giant block is
+hostile to review.
+
+**Action:** replace with a static `[(crate, style, glob, requires_namespace)]`
+table at the top of `references.rs`, e.g.:
+
+```text
+const DEFAULT_REFERENCES: &[Reference] = &[
+    Reference { crate_: "windows_future", style: Flat,
+        path: "Windows.Foundation.IAsync*",
+        gated_on: Some("Windows.Foundation") },
+    ...
+];
+```
+
+`lib.rs` reduces to a single iteration over that table. The same change
+makes adding a new split-crate a one-line edit and makes diffing the
+*default* references trivial.
+
+## 5. `winmd/reader.rs` duplicates `windows-metadata`'s `TypeIndex`
+
+`crates/libs/bindgen/src/winmd/reader.rs` (~200 lines):
+
+- Wraps `windows_metadata::reader::TypeIndex` in a `Reader`.
+- `Box::leak`s the `TypeIndex` to extend its lifetime to `'static`
+  (`reader.rs:27-28`), explicitly so that no lifetime parameter has to
+  ride along with `Reader` / `Type` / `TypeMap`.
+- Re-categorises every `TypeDef` into the local `Type` enum
+  (`reader.rs:51-…`), duplicating the categorisation that
+  `windows-metadata` already does (`TypeCategory::{Class, Delegate,
+  Enum, Interface, Struct}`).
+
+The unsafe `'static`-leak is load-bearing for almost every type in the
+crate: `TypeName`, `MethodDef`, `TypeDef`, `Field` are all `'static`
+references into the leaked `TypeIndex`.
+
+What this costs us:
+
+- **Running bindgen twice in the same process leaks the metadata
+  arena.** For build-script consumers this is fine; for library use
+  (and for our own `crates/tests/libs/bindgen/tests/fixtures.rs`, which
+  invokes bindgen many times) it is a real, measurable leak.
+- **There are now two sources of truth for the metadata model**:
+  `windows-metadata` and `windows-bindgen::winmd`. Anyone fixing a
+  metadata bug has to know which file to look at.
+
+**Action — two-phase:**
+
+1. **Short term**: thread an `Arena<'a>` lifetime through `Reader`,
+   `Type`, and `TypeMap`. This is invasive but mechanical (the leak only
+   exists to avoid the lifetime parameter; once `Reader` carries it,
+   `'a` propagates by signature). Removes one `unsafe impl Send/Sync`
+   and the leak.
+
+2. **Longer term**: collapse `winmd/reader.rs` into a small wrapper that
+   only adds bindgen-specific indexing (`nested` map,
+   `Type::remap`-aware filtering) and reuses `windows-metadata`'s
+   `TypeIndex` API directly. The 12-arm `match` over `TypeCategory` in
+   `reader.rs:60-…` should not exist twice.
+
+## 6. The `_Impl` story is decided in three different places
+
+The "should this type emit a Rust trait that downstream `#[implement]`
+crates can implement?" question is decided by:
+
+- `Config::should_implement` (`config/mod.rs:52`) — reconciles the
+  `--implement` and `--implements <list>` flags.
+- The `?Ns.Type` prefix in `--filter`, parsed in `filter.rs` into a
+  `trait_only: BTreeSet<…>` and consulted from
+  `Filter::is_trait_only`.
+- The per-emitter checks: `types/interface.rs`'s `kind` analysis,
+  `types/cpp_interface.rs`'s `is_exclusive` check, and the base-class
+  default-interface bound chain
+  (`types/interface.rs::base_class_default_interfaces`).
+
+What this costs us:
+
+- Three places to look when an `_Impl` is emitted that shouldn't be
+  (or vice-versa).
+- Three places where regressions can land.
+
+**Action:** centralise the decision into a single
+`fn implement_policy(name: TypeName, kind: InterfaceKind, …) ->
+ImplementMode` (where `ImplementMode = { None, TraitOnly, Full }`),
+compute it once per type at `TypeMap` time, store it on the type, and
+have emitters consult `self.implement_mode` instead of recomputing.
+Emitters become smaller; the policy is testable in isolation.
+
+## 7. Per-namespace `cfg` emission is duplicated in every emitter
+
+Every type emitter has its own `write_cfg` method that follows the same
+pattern:
+
+```rust
+fn write_cfg(&self, config: &Config) -> TokenStream {
+    if !config.package { return quote! {}; }
+    Cfg::new(&self.dependencies(config.reader), config).write(config, false)
+}
+```
+
+`types/mod.rs` already has helpers (`write_simple_cfg`, `write_full_cfg`,
+`types/mod.rs:1053-1071`) acknowledging the duplication, but every
+emitter still calls its own `write_cfg` and threads `cfg` tokens through
+its own emission.
+
+What this costs us:
+
+- The `cfg` annotation logic lives inside each emitter, so a bug there
+  (e.g. mis-handling `Windows.Foundation` exclusion) needs ~12 fixes.
+- The "is packaging enabled" guard appears 12+ times.
+
+**Action:** lift `cfg` annotation out of emitters entirely. The package
+writer (`config/mod.rs::write_package`) already wraps emission per
+namespace; have it emit the `cfg` attribute by *post*-decorating the
+generated `TokenStream` for each `Item`, using a single
+`fn cfg_for(item: &Item, config) -> TokenStream`. Emitters never see
+`config.package` again.
+
+## 8. Token writing is one big string-build with stitched-in helpers
+
+Beyond the bespoke `quote!` (issue #1), the actual emission path is
+shaped like:
+
+```text
+Config::write
+  ├── if package: write_package -> for each tree -> ty.write(&config)
+  └── else:       write_file    -> ty.write(&config)
+                                    ├── write_flat
+                                    └── write_modules (recursive)
+```
+
+But the per-`ty.write()` path calls back into `config.write_core()`,
+`config.write_specific(...)`, `config.write_namespace(...)`,
+`config.write_strings()`, `config.write_result()`,
+`config.write_generic_phantoms()`, etc. (`config/names.rs`). These
+helpers each compute *paths* into other crates based on `sys` /
+`flat` / `specific_deps` / `package` / `no_deps`. They're invoked
+from dozens of places.
+
+What this costs us:
+
+- The path-resolution policy is split between
+  `config/names.rs::write_specific` (6 booleans → 4 outcomes) and
+  `config/names.rs::write_namespace` (`flat` vs nested + ancestor
+  walk). Both are stringly-typed; both are read by every emitter.
+- Renaming a sibling crate (e.g. `windows_core::IUnknown` →
+  `windows_com::IUnknown`) requires understanding the matrix.
+
+**Action:** model "where do we name this type from?" as a single
+`enum PathOrigin { Core, Result, Strings, Sibling(&'static str),
+LocalReference(&References), LocalNamespace }` computed once per
+reference at `References::new` time, and use it as a typed input to a
+single path renderer. The renderer's *only* output is a `Path`, no
+booleans involved.
+
+## 9. The argument expander + builder is duplicated state
+
+`lib.rs:56-1241` declares both a `pub fn builder() -> Bindgen` returning
+a builder struct with 23 fields, **and** a `pub fn bindgen<I, S>(args)`
+free-function that parses string arguments (`expand_args`, lib.rs:1093)
+into the same 23 fields by hand. Every flag has two parallel
+implementations: one on `Bindgen::<flag>(&mut self)` and one on the
+`ArgKind` state machine.
+
+Adding a new flag means updating both code paths and the builder docs
+table at the top of `lib.rs`.
+
+**Action — keep both entry points, but make one the source of truth:**
+
+- Define `Bindgen` as a plain (serde-derivable) settings struct.
+- `bindgen(args)` becomes "parse `args` into `Bindgen`, then call
+  `bindgen.write()`."
+- The builder methods become thin setters.
+
+This drops `expand_args`'s panic-on-error semantics in favour of a real
+parse-result, and removes the dual-maintenance burden for every new
+flag.
+
+## 10. Other smaller knots worth picking apart
+
+The above eight items are the bulk of the win. These are smaller pieces
+that are still worth addressing once the big refactors land:
+
+- **`for_each` in `config/mod.rs:180`** is a one-off
+  `std::thread::scope` wrapper used only by `write_package`. Should
+  either be inlined or replaced with `rayon` (which the workspace does
+  not currently use; this is the only parallelism in the crate).
+- **`derive` and `derive_writer`** are isolated mini-DSL files that are
+  fine on their own, but `derive_writer::write_derive` exists only to
+  format the result of `derive::parse` and could fold into one file.
+- **`io.rs` (34 lines)** wraps `std::fs::read_to_string` with `panic!`
+  on failure. It exists because the top-level API panics on user error
+  anyway; once the builder returns `Result`, this can collapse to a
+  `std::io::Result` re-export.
+- **`warnings.rs` is a non-fatal side channel** that is fine, but it is
+  threaded through `&Config` rather than returned by emitters.
+  Returning it through the call graph (as the entry-point already does
+  via `Warnings`) would let `&Config` drop one more field.
+- **`signature.rs`, `param.rs`, `value.rs`, `guid.rs`, `libraries.rs`**
+  are all small leaf modules — they don't need refactoring but they do
+  expose internals via `pub use` at the crate root, which makes the
+  module map look bigger than it is. Tighter `pub(crate)` would help.
+- **`method_names.rs`** is a static map of overload-disambiguation
+  names. Fine as data, but it lives at the crate root with no obvious
+  owner; would sit better next to the method emitter.
+
+## 11. Refactor in place, do not rewrite
+
+The hard parts of `windows-bindgen` are not the structures listed
+above — they are the **semantic decisions** encoded in the emitters
+(WinRT method ABI rules, the `IReference<T>` sugar paths, the
+exclusive-interface vs default-interface logic on classes, the
+agility/factory/composable detection, fixed buffers, calling
+conventions, vararg, `repr(C)` layout rules, COM vs WinRT inheritance,
+`PrimitiveOrEnum` propagation through generics, …). These are pinned
+down by the golden fixtures under
+`crates/tests/libs/bindgen/data/bindgen/**/expected.rs` — thousands of
+lines of "this exact input must produce this exact output."
+
+A fresh implementation would have to reproduce all of that semantic
+behaviour bit-for-bit (otherwise every downstream `bindings.rs` in the
+workspace and in external consumers churns), or accept that downstream
+review costs explode. The fixture suite makes incremental refactoring
+**very safe**, but offers no leverage for a rewrite.
+
+The recommended path is therefore strictly incremental, ordered roughly
+by independence:
+
+1. **Delete `tokens/`; depend on `proc-macro2` + `quote` from
+   crates.io** (#1). Largest single LOC reduction (~1000 lines) and the
+   refactor with the smallest semantic surface — golden tests catch any
+   spacing/ordering regressions.
+2. **Data-drive the references table** (#4). Local, low-risk, ~230
+   lines of `lib.rs` collapse to ~30. Test by re-running the workspace
+   bindings.
+3. **Centralise `_Impl` policy** (#6). Three call sites become one; the
+   golden tests catch any miscategorisation immediately.
+4. **Per-mode `Mode` enum + split `Config`** (#3). Mechanical but
+   touches every emitter; trivial to validate via fixtures.
+5. **Lift `cfg` emission out of emitters** (#7). Local to
+   `config/mod.rs` once mode is split.
+6. **Typed `PathOrigin`** (#8). Replaces `config/names.rs` policy code.
+7. **`ItemEmitter` trait + `Item`/`Sig` split** (#2). The largest
+   internal restructuring; do this *after* steps 1, 3, 4, because each
+   of those simplifies what the trait has to abstract over.
+8. **Lifetime through `Reader`** (#5 phase 1). Removes the
+   `Box::leak`/`unsafe impl Send`. Confined to `winmd/` + `type_map.rs`
+   + a few signatures.
+9. **Settings-struct entry point** (#9). Last because it changes the
+   public API surface; do it after the internal cleanups so the new
+   surface reflects the new internals.
+
+After steps 1–4 alone the crate should drop to roughly 5.5–6 kLOC, with
+most emitters losing their `if config.<flag>` ladders, and `lib.rs`
+shrinking by ~25%. Steps 5–9 are gravy: they make the model coherent
+but each is independently small.
+
+## 12. Validation strategy throughout
+
+For every step above:
+
+- The golden fixtures
+  (`cargo test -p test_bindgen --test fixtures`) cover the emitted
+  output bit-for-bit. Any change that does not move the diff is by
+  definition behaviour-preserving.
+- Linux cross-compile (`rustup target add x86_64-pc-windows-gnu &&
+  cargo check --all --target x86_64-pc-windows-gnu --tests --exclude
+  windows_*_msvc/gnu/gnullvm`) catches consumer-side breakage in the
+  workspace's own `bindings.rs` files that the Linux-native check
+  hides.
+- `cargo fmt --all` is enforced by CI.
+- The package-writer path is only exercised by `crates/libs/sys` and
+  `crates/libs/windows`; rebuilding both is the regression test for
+  step 5.
+
+No rewrite is justified: the existing code is correct, the fixtures
+make refactoring strictly bounded, and every item above is a localised
+change with mechanical validation.
