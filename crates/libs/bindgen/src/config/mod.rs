@@ -109,13 +109,13 @@ impl<'a> Config<'a> {
 
     fn write_package(&self, tree: &TypeTree) {
         for name in tree.nested.keys() {
-            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.output));
+            _ = std::fs::remove_dir_all(format!("{}/src/{name}", self.output));
         }
 
         let trees = tree.flatten_trees();
 
         for_each(trees.iter(), |tree| {
-            let directory = format!("{}/src/{}", &self.output, tree.namespace.replace('.', "/"));
+            let directory = format!("{}/src/{}", self.output, tree.namespace.replace('.', "/"));
 
             let mut tokens = TokenStream::new();
 
@@ -143,7 +143,7 @@ impl<'a> Config<'a> {
             return;
         }
 
-        let toml_path = format!("{}/Cargo.toml", &self.output);
+        let toml_path = format!("{}/Cargo.toml", self.output);
         let mut toml = String::new();
 
         for line in read_file_lines(&toml_path) {

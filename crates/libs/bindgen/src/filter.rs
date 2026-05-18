@@ -353,7 +353,7 @@ fn push_method_filter(
 /// to register on this type's filter, after sugar expansion. Empty when no
 /// match is found.
 fn expand_method_part(method_part: &str, type_methods: &[&'static str]) -> Vec<String> {
-    if type_methods.iter().any(|m| *m == method_part) {
+    if type_methods.contains(&method_part) {
         // Exact match against a metadata method name (e.g.
         // `IFoo::get_Value` or `IFoo::Bar`). No sugar expansion needed.
         return vec![method_part.to_string()];

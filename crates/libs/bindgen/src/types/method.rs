@@ -152,10 +152,7 @@ impl Method {
                     quote! { &[#default_type] }
                 } else if p.is_primitive(config.reader) {
                     quote! { #default_type }
-                } else if p.is_interface() {
-                    let type_name = p.write_name(config);
-                    quote! { windows_core::Ref<#type_name> }
-                } else if matches!(&p.ty, Type::Generic(_)) {
+                } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
                     let type_name = p.write_name(config);
                     quote! { windows_core::Ref<#type_name> }
                 } else {
