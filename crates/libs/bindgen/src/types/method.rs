@@ -394,10 +394,7 @@ impl Method {
         // Helper: does this param need a generic `P{n}: Into<IReference<HSTRING>>`?
         // (only IReference<HSTRING> sugar; value-like inner doesn't need a generic).
         let is_ireference_string = |param: &Param| -> bool {
-            matches!(
-                param.ireference_inner(config.reader),
-                Some(Type::String)
-            )
+            matches!(param.ireference_inner(config.reader), Some(Type::String))
         };
 
         let generics: Vec<TokenStream> = params
@@ -424,7 +421,9 @@ impl Method {
                     if is_ireference_string(param) {
                         let iref = param.ty.write_name(config);
                         Some(quote! { #name: core::convert::Into<#iref>, })
-                    } else if param.is_convertible() && param.ireference_inner(config.reader).is_none() {
+                    } else if param.is_convertible()
+                        && param.ireference_inner(config.reader).is_none()
+                    {
                         let ty = param.write_name(config);
                         Some(quote! { #name: windows_core::Param<#ty>, })
                     } else {
@@ -449,7 +448,9 @@ impl Method {
                     if is_ireference_string(param) {
                         let iref = param.ty.write_name(config);
                         Some(quote! { #name: core::convert::Into<#iref>, })
-                    } else if param.is_convertible() && param.ireference_inner(config.reader).is_none() {
+                    } else if param.is_convertible()
+                        && param.ireference_inner(config.reader).is_none()
+                    {
                         let ty = param.write_name(config);
                         Some(quote! { #name: windows_core::Param<#ty>, })
                     } else {
@@ -520,7 +521,6 @@ impl Method {
             })
             .collect();
 
-
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
         let assert_success = quote! { debug_assert!(hresult__.0 == 0); };
 
@@ -528,9 +528,7 @@ impl Method {
         // sugarable `Windows.Foundation.IReference<T>`, unwrap to `Result<T>`
         // (or `Result<HSTRING>`) by chaining `.Value()` after `from_abi`.
         // Limited to non-noexcept, non-array returns.
-        let return_unwrap_inner = if !noexcept
-            && !self.signature.return_type.is_winrt_array()
-        {
+        let return_unwrap_inner = if !noexcept && !self.signature.return_type.is_winrt_array() {
             self.signature
                 .return_type
                 .ireference_inner_for_sugar(config.reader)
