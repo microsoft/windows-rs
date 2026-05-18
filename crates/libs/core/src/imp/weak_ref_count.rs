@@ -19,8 +19,10 @@ impl WeakRefCount {
             .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| {
                 bool::then_some(!is_weak_ref(count_or_pointer), count_or_pointer + 1)
             })
-            .map(|u| u as u32 + 1)
-            .unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
+            .map_or_else(
+                |pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() },
+                |u| u as u32 + 1,
+            )
     }
 
     #[inline(always)]
@@ -33,19 +35,21 @@ impl WeakRefCount {
             .fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| {
                 bool::then_some(!is_weak_ref(count_or_pointer), count_or_pointer - 1)
             })
-            .map(|u| u as u32 - 1)
-            .unwrap_or_else(|pointer| unsafe {
-                let tear_off = TearOff::decode(pointer);
-                let remaining = tear_off.strong_count.release();
+            .map_or_else(
+                |pointer| unsafe {
+                    let tear_off = TearOff::decode(pointer);
+                    let remaining = tear_off.strong_count.release();
 
-                // If this is the last strong reference, we can release the weak reference implied by the strong reference.
-                // There may still be weak references, so the WeakRelease is called to handle such possibilities.
-                if remaining == 0 {
-                    TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
-                }
+                    // If this is the last strong reference, we can release the weak reference implied by the strong reference.
+                    // There may still be weak references, so the WeakRelease is called to handle such possibilities.
+                    if remaining == 0 {
+                        TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
+                    }
 
-                remaining
-            })
+                    remaining
+                },
+                |u| u as u32 - 1,
+            )
     }
 
     /// # Safety
@@ -309,15 +313,17 @@ impl TearOff {
                     // Stabilize the object for the duration of the `QueryInterface` call.
                     bool::then_some(count != 0, count + 1)
                 })
-                .map(|_| {
-                    let result = this.query_interface(iid, interface);
-                    this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
-                    result
-                })
-                .unwrap_or_else(|_| {
-                    *interface = null_mut();
-                    HRESULT(0)
-                })
+                .map_or_else(
+                    |_| {
+                        *interface = null_mut();
+                        HRESULT(0)
+                    },
+                    |_| {
+                        let result = this.query_interface(iid, interface);
+                        this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
+                        result
+                    },
+                )
         }
     }
 }

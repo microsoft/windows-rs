@@ -520,14 +520,13 @@ impl Encoder<'_> {
 
     pub fn is_guid_attribute(&self, attr: &syn::Attribute) -> bool {
         self.find_attribute_type(attr.path())
-            .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
-            .unwrap_or(false)
+            .is_some_and(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
     }
 
     pub fn is_exclusive_to_attribute(&self, attr: &syn::Attribute) -> bool {
-        self.find_attribute_type(attr.path())
-            .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "ExclusiveToAttribute"))
-            .unwrap_or(false)
+        self.find_attribute_type(attr.path()).is_some_and(|info| {
+            &info.type_name == ("Windows.Foundation.Metadata", "ExclusiveToAttribute")
+        })
     }
 
     /// Processes `#[guid(0x…)]` and `#[no_guid]` pseudo-attributes in `attrs`, emitting a
