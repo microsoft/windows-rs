@@ -179,9 +179,6 @@ mod bench {
         let per = elapsed / n as u32;
         let per_us = per.as_secs_f64() * 1_000_000.0;
         let rate = n as f64 / elapsed.as_secs_f64();
-        println!(
-            "{:<10} {:<10} {:>11.3?}  {:>11.2}us  {:>12.0}/s",
-            workload, label, elapsed, per_us, rate
-        );
+        println!("{workload:<10} {label:<10} {elapsed:>11.3?}  {per_us:>11.2}us  {rate:>12.0}/s");
     }
 }

@@ -109,7 +109,7 @@ fn display_invalid_format() {
 #[test]
 fn debug_format() {
     let value = BSTR::from("Hello world");
-    assert!(format!("{:?}", value) == "Hello world");
+    assert!(format!("{value:?}") == "Hello world");
 }
 
 #[test]
