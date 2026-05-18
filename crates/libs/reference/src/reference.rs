@@ -110,11 +110,6 @@ where
     }
 }
 
-// `IReference<T>` derives from `IPropertyValue`, so we must provide an `IPropertyValue`
-// implementation as well. The stock implementation does not attempt to perform value
-// conversions between types the way the C++ implementation does — it simply reports
-// `PropertyType::OtherType` and rejects all of the typed accessors with `E_NOTIMPL`.
-// Callers should use `Value()` to retrieve the underlying value.
 impl<T> bindings::IPropertyValue_Impl for StockReference_Impl<T>
 where
     T: RuntimeType + Clone,
@@ -123,61 +118,61 @@ where
         Ok(bindings::PropertyType::OtherType)
     }
     fn IsNumericScalar(&self) -> Result<bool> {
-        Ok(false)
+        Err(Error::from_hresult(E_NOTIMPL))
     }
     fn GetUInt8(&self) -> Result<u8> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetInt16(&self) -> Result<i16> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetUInt16(&self) -> Result<u16> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetInt32(&self) -> Result<i32> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetUInt32(&self) -> Result<u32> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetInt64(&self) -> Result<i64> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetUInt64(&self) -> Result<u64> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetSingle(&self) -> Result<f32> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetDouble(&self) -> Result<f64> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetChar16(&self) -> Result<u16> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetBoolean(&self) -> Result<bool> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetString(&self) -> Result<HSTRING> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetGuid(&self) -> Result<GUID> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetDateTime(&self) -> Result<bindings::DateTime> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetTimeSpan(&self) -> Result<bindings::TimeSpan> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetPoint(&self) -> Result<bindings::Point> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetSize(&self) -> Result<bindings::Size> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetRect(&self) -> Result<bindings::Rect> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        cast_value(&self.value)
     }
     fn GetUInt8Array(&self, _value: &mut Array<u8>) -> Result<()> {
         Err(Error::from_hresult(E_NOTIMPL))
@@ -234,6 +229,16 @@ where
         Err(Error::from_hresult(E_NOTIMPL))
     }
     fn GetRectArray(&self, _value: &mut Array<bindings::Rect>) -> Result<()> {
+        Err(Error::from_hresult(E_NOTIMPL))
+    }
+}
+
+fn cast_value<T: 'static, U: Clone + 'static>(value: &T) -> Result<U> {
+    if core::any::TypeId::of::<T>() == core::any::TypeId::of::<U>() {
+        // Safety: we verified `T` and `U` have the same `TypeId`, which guarantees
+        // they are the same type. Reading `value` as `&U` is safe.
+        Ok(unsafe { &*(value as *const T as *const U) }.clone())
+    } else {
         Err(Error::from_hresult(E_NOTIMPL))
     }
 }
