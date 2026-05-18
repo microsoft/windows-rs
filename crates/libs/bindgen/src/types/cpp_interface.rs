@@ -60,8 +60,7 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            !method.dependencies.included(config)
-                || !config.filter.includes_method(type_name, def)
+            !method.dependencies.included(config) || !config.filter.includes_method(type_name, def)
         })
     }
 

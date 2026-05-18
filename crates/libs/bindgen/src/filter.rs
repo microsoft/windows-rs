@@ -410,7 +410,15 @@ fn push_method_filter(
         );
     }
 
-    maybe_warn_ambiguous_overload(warnings, method_part, namespace, type_name, &defs, include, raw);
+    maybe_warn_ambiguous_overload(
+        warnings,
+        method_part,
+        namespace,
+        type_name,
+        &defs,
+        include,
+        raw,
+    );
     register_method_filter(
         methods, namespace, type_name, expanded, include, type_part, raw,
     );
@@ -509,9 +517,7 @@ fn maybe_warn_ambiguous_overload(
     }
     let names: Vec<String> = matching
         .iter()
-        .map(|m| {
-            method_overload_name(*m).unwrap_or_else(|| m.name().to_string())
-        })
+        .map(|m| method_overload_name(*m).unwrap_or_else(|| m.name().to_string()))
         .collect();
     warnings.push(format!(
         "filter `{raw}` denies {n} overloads of `{namespace}.{type_name}::{method_part}`: \
