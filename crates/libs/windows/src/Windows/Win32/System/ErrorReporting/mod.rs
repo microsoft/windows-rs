@@ -464,12 +464,12 @@ impl core::ops::BitAnd for WER_FAULT_REPORTING {
 }
 impl core::ops::BitOrAssign for WER_FAULT_REPORTING {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WER_FAULT_REPORTING {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WER_FAULT_REPORTING {
@@ -511,12 +511,12 @@ impl core::ops::BitAnd for WER_FILE {
 }
 impl core::ops::BitOrAssign for WER_FILE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WER_FILE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WER_FILE {
@@ -775,12 +775,12 @@ impl core::ops::BitAnd for WER_SUBMIT_FLAGS {
 }
 impl core::ops::BitOrAssign for WER_SUBMIT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WER_SUBMIT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WER_SUBMIT_FLAGS {

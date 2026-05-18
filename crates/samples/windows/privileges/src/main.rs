@@ -38,7 +38,7 @@ fn main() -> windows::core::Result<()> {
             let name = PWSTR(name.as_mut_ptr());
             LookupPrivilegeNameW(None, &privilege.Luid, Some(name), &mut name_len)?;
 
-            println!("{}", name.display())
+            println!("{}", name.display());
         }
 
         Ok(())

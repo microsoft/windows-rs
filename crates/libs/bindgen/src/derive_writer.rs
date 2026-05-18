@@ -24,7 +24,7 @@ impl ToTokens for DeriveWriter {
             let derive = self.0.iter().map(|derive| to_ident(derive));
             tokens.combine(quote! {
                 #[derive(#(#derive),*)]
-            })
+            });
         }
     }
 }

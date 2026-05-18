@@ -1521,12 +1521,12 @@ impl core::ops::BitAnd for AUDCLNT_STREAMOPTIONS {
 }
 impl core::ops::BitOrAssign for AUDCLNT_STREAMOPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AUDCLNT_STREAMOPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AUDCLNT_STREAMOPTIONS {
@@ -1598,12 +1598,12 @@ impl core::ops::BitAnd for AUDIO_DUCKING_OPTIONS {
 }
 impl core::ops::BitOrAssign for AUDIO_DUCKING_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AUDIO_DUCKING_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AUDIO_DUCKING_OPTIONS {
@@ -1781,12 +1781,12 @@ impl core::ops::BitAnd for AudioObjectType {
 }
 impl core::ops::BitOrAssign for AudioObjectType {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AudioObjectType {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AudioObjectType {
@@ -8103,12 +8103,12 @@ impl core::ops::BitAnd for MIDI_WAVE_OPEN_TYPE {
 }
 impl core::ops::BitOrAssign for MIDI_WAVE_OPEN_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MIDI_WAVE_OPEN_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MIDI_WAVE_OPEN_TYPE {
@@ -8680,12 +8680,12 @@ impl core::ops::BitAnd for SND_FLAGS {
 }
 impl core::ops::BitOrAssign for SND_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SND_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SND_FLAGS {
@@ -8729,12 +8729,12 @@ impl core::ops::BitAnd for SPATIAL_AUDIO_STREAM_OPTIONS {
 }
 impl core::ops::BitOrAssign for SPATIAL_AUDIO_STREAM_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SPATIAL_AUDIO_STREAM_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SPATIAL_AUDIO_STREAM_OPTIONS {

@@ -1645,12 +1645,12 @@ impl core::ops::BitAnd for REG_NOTIFY_FILTER {
 }
 impl core::ops::BitOrAssign for REG_NOTIFY_FILTER {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REG_NOTIFY_FILTER {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REG_NOTIFY_FILTER {
@@ -1684,12 +1684,12 @@ impl core::ops::BitAnd for REG_OPEN_CREATE_OPTIONS {
 }
 impl core::ops::BitOrAssign for REG_OPEN_CREATE_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REG_OPEN_CREATE_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REG_OPEN_CREATE_OPTIONS {
@@ -1750,12 +1750,12 @@ impl core::ops::BitAnd for REG_ROUTINE_FLAGS {
 }
 impl core::ops::BitOrAssign for REG_ROUTINE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REG_ROUTINE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REG_ROUTINE_FLAGS {
@@ -1786,12 +1786,12 @@ impl core::ops::BitAnd for REG_SAM_FLAGS {
 }
 impl core::ops::BitOrAssign for REG_SAM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REG_SAM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REG_SAM_FLAGS {

@@ -11542,12 +11542,12 @@ impl core::ops::BitAnd for WBEM_GENERIC_FLAG_TYPE {
 }
 impl core::ops::BitOrAssign for WBEM_GENERIC_FLAG_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WBEM_GENERIC_FLAG_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WBEM_GENERIC_FLAG_TYPE {

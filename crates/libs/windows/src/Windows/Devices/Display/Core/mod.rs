@@ -127,12 +127,12 @@ impl core::ops::BitAnd for DisplayBitsPerChannel {
 }
 impl core::ops::BitOrAssign for DisplayBitsPerChannel {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayBitsPerChannel {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayBitsPerChannel {
@@ -572,12 +572,12 @@ impl core::ops::BitAnd for DisplayManagerOptions {
 }
 impl core::ops::BitOrAssign for DisplayManagerOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayManagerOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayManagerOptions {
@@ -790,12 +790,12 @@ impl core::ops::BitAnd for DisplayModeQueryOptions {
 }
 impl core::ops::BitOrAssign for DisplayModeQueryOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayModeQueryOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayModeQueryOptions {
@@ -1285,12 +1285,12 @@ impl core::ops::BitAnd for DisplayScanoutOptions {
 }
 impl core::ops::BitOrAssign for DisplayScanoutOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayScanoutOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayScanoutOptions {
@@ -1527,12 +1527,12 @@ impl core::ops::BitAnd for DisplayStateApplyOptions {
 }
 impl core::ops::BitOrAssign for DisplayStateApplyOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayStateApplyOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayStateApplyOptions {
@@ -1574,12 +1574,12 @@ impl core::ops::BitAnd for DisplayStateFunctionalizeOptions {
 }
 impl core::ops::BitOrAssign for DisplayStateFunctionalizeOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayStateFunctionalizeOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayStateFunctionalizeOptions {

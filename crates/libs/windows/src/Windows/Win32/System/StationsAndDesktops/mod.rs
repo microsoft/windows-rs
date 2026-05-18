@@ -229,12 +229,12 @@ impl core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_FLAGS {
 }
 impl core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
@@ -265,12 +265,12 @@ impl core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_INFO {
 }
 impl core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {

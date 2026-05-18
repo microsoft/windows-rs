@@ -1975,12 +1975,12 @@ impl core::ops::BitAnd for SmartCardCryptogramPlacementOptions {
 }
 impl core::ops::BitOrAssign for SmartCardCryptogramPlacementOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SmartCardCryptogramPlacementOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SmartCardCryptogramPlacementOptions {
@@ -2149,12 +2149,12 @@ impl core::ops::BitAnd for SmartCardCryptogramStorageKeyCapabilities {
 }
 impl core::ops::BitOrAssign for SmartCardCryptogramStorageKeyCapabilities {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SmartCardCryptogramStorageKeyCapabilities {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SmartCardCryptogramStorageKeyCapabilities {

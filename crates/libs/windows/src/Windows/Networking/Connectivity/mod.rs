@@ -1749,12 +1749,12 @@ impl core::ops::BitAnd for NetworkTypes {
 }
 impl core::ops::BitOrAssign for NetworkTypes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NetworkTypes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NetworkTypes {
@@ -1910,12 +1910,12 @@ impl core::ops::BitAnd for RoamingStates {
 }
 impl core::ops::BitOrAssign for RoamingStates {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RoamingStates {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RoamingStates {
@@ -2115,12 +2115,12 @@ impl core::ops::BitAnd for WwanDataClass {
 }
 impl core::ops::BitOrAssign for WwanDataClass {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WwanDataClass {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WwanDataClass {

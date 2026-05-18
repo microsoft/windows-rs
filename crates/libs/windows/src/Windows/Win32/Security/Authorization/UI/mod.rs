@@ -512,12 +512,12 @@ impl core::ops::BitAnd for SECURITY_INFO_PAGE_FLAGS {
 }
 impl core::ops::BitOrAssign for SECURITY_INFO_PAGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SECURITY_INFO_PAGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SECURITY_INFO_PAGE_FLAGS {
@@ -642,12 +642,12 @@ impl core::ops::BitAnd for SI_OBJECT_INFO_FLAGS {
 }
 impl core::ops::BitOrAssign for SI_OBJECT_INFO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SI_OBJECT_INFO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SI_OBJECT_INFO_FLAGS {

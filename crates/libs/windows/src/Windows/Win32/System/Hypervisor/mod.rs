@@ -874,12 +874,12 @@ impl core::ops::BitAnd for HDV_DEVICE_HOST_FLAGS {
 }
 impl core::ops::BitOrAssign for HDV_DEVICE_HOST_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HDV_DEVICE_HOST_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HDV_DEVICE_HOST_FLAGS {
@@ -922,12 +922,12 @@ impl core::ops::BitAnd for HDV_MMIO_MAPPING_FLAGS {
 }
 impl core::ops::BitOrAssign for HDV_MMIO_MAPPING_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HDV_MMIO_MAPPING_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
@@ -1271,12 +1271,12 @@ impl core::ops::BitAnd for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
 }
 impl core::ops::BitOrAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
@@ -1373,12 +1373,12 @@ impl core::ops::BitAnd for WHV_CREATE_VPCI_DEVICE_FLAGS {
 }
 impl core::ops::BitOrAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WHV_CREATE_VPCI_DEVICE_FLAGS {
@@ -1541,12 +1541,12 @@ impl core::ops::BitAnd for WHV_MAP_GPA_RANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for WHV_MAP_GPA_RANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WHV_MAP_GPA_RANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WHV_MAP_GPA_RANGE_FLAGS {
@@ -2068,12 +2068,12 @@ impl core::ops::BitAnd for WHV_TRANSLATE_GVA_FLAGS {
 }
 impl core::ops::BitOrAssign for WHV_TRANSLATE_GVA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WHV_TRANSLATE_GVA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WHV_TRANSLATE_GVA_FLAGS {
@@ -2257,12 +2257,12 @@ impl core::ops::BitAnd for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
 }
 impl core::ops::BitOrAssign for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
@@ -2307,12 +2307,12 @@ impl core::ops::BitAnd for WHV_VPCI_MMIO_RANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WHV_VPCI_MMIO_RANGE_FLAGS {
@@ -2465,12 +2465,12 @@ impl core::ops::BitAnd for WHV_X64_CPUID_RESULT2_FLAGS {
 }
 impl core::ops::BitOrAssign for WHV_X64_CPUID_RESULT2_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WHV_X64_CPUID_RESULT2_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WHV_X64_CPUID_RESULT2_FLAGS {

@@ -104,7 +104,7 @@ impl File {
             MemberForwarded: MemberForwarded::MethodDef(method),
             ImportName: self.strings.insert(import_name),
             ImportScope: scope,
-        })
+        });
     }
 
     /// Adds an `AssemblyRef` row for the given assembly name, returning the row offset.
@@ -349,14 +349,14 @@ impl File {
             PackingSize: packing_size,
             ClassSize: class_size,
             Parent: parent.0,
-        })
+        });
     }
 
     pub fn FieldLayout(&mut self, field: id::Field, offset: u32) {
         self.records.FieldLayout.push(rec::FieldLayout {
             Offset: offset,
             Field: field.0,
-        })
+        });
     }
 
     pub fn NestedClass(&mut self, inner: id::TypeDef, outer: id::TypeDef) {
@@ -365,7 +365,7 @@ impl File {
         self.records.NestedClass.push(rec::NestedClass {
             NestedClass: inner.0,
             EnclosingClass: outer.0,
-        })
+        });
     }
 
     pub fn InterfaceImpl(&mut self, class: id::TypeDef, interface: &Type) -> id::InterfaceImpl {
@@ -464,10 +464,10 @@ impl File {
             }
 
             Type::ClassName(ty) => {
-                self.TypeName(false, &ty.namespace, &ty.name, &ty.generics, buffer)
+                self.TypeName(false, &ty.namespace, &ty.name, &ty.generics, buffer);
             }
             Type::ValueName(ty) => {
-                self.TypeName(true, &ty.namespace, &ty.name, &ty.generics, buffer)
+                self.TypeName(true, &ty.namespace, &ty.name, &ty.generics, buffer);
             }
         }
     }

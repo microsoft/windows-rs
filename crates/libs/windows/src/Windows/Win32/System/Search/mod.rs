@@ -1842,12 +1842,12 @@ impl core::ops::BitAnd for CONDITION_CREATION_OPTIONS {
 }
 impl core::ops::BitOrAssign for CONDITION_CREATION_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CONDITION_CREATION_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CONDITION_CREATION_OPTIONS {
@@ -21959,12 +21959,12 @@ impl core::ops::BitAnd for STRUCTURED_QUERY_RESOLVE_OPTION {
 }
 impl core::ops::BitOrAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {

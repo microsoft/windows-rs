@@ -7963,12 +7963,12 @@ impl core::ops::BitAnd for PosConnectionTypes {
 }
 impl core::ops::BitOrAssign for PosConnectionTypes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PosConnectionTypes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PosConnectionTypes {
@@ -8250,12 +8250,12 @@ impl core::ops::BitAnd for PosPrinterCartridgeSensors {
 }
 impl core::ops::BitOrAssign for PosPrinterCartridgeSensors {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PosPrinterCartridgeSensors {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PosPrinterCartridgeSensors {
@@ -8334,12 +8334,12 @@ impl core::ops::BitAnd for PosPrinterColorCapabilities {
 }
 impl core::ops::BitOrAssign for PosPrinterColorCapabilities {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PosPrinterColorCapabilities {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PosPrinterColorCapabilities {
@@ -8484,12 +8484,12 @@ impl core::ops::BitAnd for PosPrinterMarkFeedCapabilities {
 }
 impl core::ops::BitOrAssign for PosPrinterMarkFeedCapabilities {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PosPrinterMarkFeedCapabilities {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PosPrinterMarkFeedCapabilities {
@@ -8734,12 +8734,12 @@ impl core::ops::BitAnd for PosPrinterRuledLineCapabilities {
 }
 impl core::ops::BitOrAssign for PosPrinterRuledLineCapabilities {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PosPrinterRuledLineCapabilities {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PosPrinterRuledLineCapabilities {

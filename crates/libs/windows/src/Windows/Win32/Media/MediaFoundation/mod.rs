@@ -3833,12 +3833,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
@@ -3896,12 +3896,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
@@ -3951,12 +3951,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
@@ -4106,12 +4106,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
@@ -4196,12 +4196,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS {
@@ -4275,12 +4275,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS {
@@ -4323,12 +4323,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS {
@@ -4375,12 +4375,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS {
@@ -4484,12 +4484,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS {
@@ -4568,12 +4568,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS {
@@ -4647,12 +4647,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANS
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS {
@@ -4702,12 +4702,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS {
@@ -4803,12 +4803,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS {
@@ -4874,12 +4874,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS {
@@ -5010,12 +5010,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
@@ -5061,12 +5061,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_D
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
@@ -5123,12 +5123,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
@@ -5214,12 +5214,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
@@ -5297,12 +5297,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
@@ -5333,12 +5333,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 {
@@ -5573,12 +5573,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS {
@@ -5684,12 +5684,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
@@ -5733,12 +5733,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_FLAGS {
@@ -5790,12 +5790,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS {
@@ -5964,12 +5964,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
@@ -6201,12 +6201,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS {
@@ -6267,12 +6267,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS {
@@ -6405,12 +6405,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_F
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
@@ -6554,12 +6554,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_F
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
@@ -6634,12 +6634,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
@@ -6873,12 +6873,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
@@ -6919,12 +6919,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPO
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS {
@@ -7157,12 +7157,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
@@ -7262,12 +7262,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
@@ -7328,12 +7328,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
@@ -7407,12 +7407,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
@@ -7534,12 +7534,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS 
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
@@ -7576,12 +7576,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
@@ -7638,12 +7638,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
@@ -7684,12 +7684,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
@@ -7723,12 +7723,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
@@ -7774,12 +7774,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
@@ -7896,12 +7896,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
@@ -8014,12 +8014,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
@@ -8059,12 +8059,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
@@ -8111,12 +8111,12 @@ impl core::ops::BitAnd for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
@@ -45342,12 +45342,12 @@ impl core::ops::BitAnd for MFCameraOcclusionState {
 }
 impl core::ops::BitOrAssign for MFCameraOcclusionState {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MFCameraOcclusionState {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MFCameraOcclusionState {
@@ -46196,12 +46196,12 @@ impl core::ops::BitAnd for MFT_ENUM_FLAG {
 }
 impl core::ops::BitOrAssign for MFT_ENUM_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MFT_ENUM_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MFT_ENUM_FLAG {
@@ -48109,12 +48109,12 @@ impl core::ops::BitAnd for MF_RESOLUTION_FLAGS {
 }
 impl core::ops::BitOrAssign for MF_RESOLUTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MF_RESOLUTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MF_RESOLUTION_FLAGS {
@@ -48275,12 +48275,12 @@ impl core::ops::BitAnd for MF_SOURCE_READER_CONTROL_FLAG {
 }
 impl core::ops::BitOrAssign for MF_SOURCE_READER_CONTROL_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MF_SOURCE_READER_CONTROL_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MF_SOURCE_READER_CONTROL_FLAG {
@@ -48325,12 +48325,12 @@ impl core::ops::BitAnd for MF_SOURCE_READER_FLAG {
 }
 impl core::ops::BitOrAssign for MF_SOURCE_READER_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MF_SOURCE_READER_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MF_SOURCE_READER_FLAG {
@@ -48728,12 +48728,12 @@ impl core::ops::BitAnd for MPEG2VIDEOINFO_FLAGS {
 }
 impl core::ops::BitOrAssign for MPEG2VIDEOINFO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MPEG2VIDEOINFO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MPEG2VIDEOINFO_FLAGS {
@@ -49013,12 +49013,12 @@ impl core::ops::BitAnd for OPM_HDCP_FLAGS {
 }
 impl core::ops::BitOrAssign for OPM_HDCP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OPM_HDCP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OPM_HDCP_FLAGS {
@@ -49275,12 +49275,12 @@ impl core::ops::BitAnd for PLAYTO_SOURCE_CREATEFLAGS {
 }
 impl core::ops::BitOrAssign for PLAYTO_SOURCE_CREATEFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PLAYTO_SOURCE_CREATEFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PLAYTO_SOURCE_CREATEFLAGS {

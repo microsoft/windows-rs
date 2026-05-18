@@ -966,12 +966,12 @@ impl core::ops::BitAnd for ACE_FLAGS {
 }
 impl core::ops::BitOrAssign for ACE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ACE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ACE_FLAGS {
@@ -1074,12 +1074,12 @@ impl core::ops::BitAnd for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
 }
 impl core::ops::BitOrAssign for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
@@ -1200,12 +1200,12 @@ impl core::ops::BitAnd for CREATE_RESTRICTED_TOKEN_FLAGS {
 }
 impl core::ops::BitOrAssign for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CREATE_RESTRICTED_TOKEN_FLAGS {
@@ -1349,12 +1349,12 @@ impl core::ops::BitAnd for OBJECT_SECURITY_INFORMATION {
 }
 impl core::ops::BitOrAssign for OBJECT_SECURITY_INFORMATION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OBJECT_SECURITY_INFORMATION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OBJECT_SECURITY_INFORMATION {
@@ -1479,12 +1479,12 @@ impl core::ops::BitAnd for SECURITY_AUTO_INHERIT_FLAGS {
 }
 impl core::ops::BitOrAssign for SECURITY_AUTO_INHERIT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SECURITY_AUTO_INHERIT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SECURITY_AUTO_INHERIT_FLAGS {
@@ -1545,12 +1545,12 @@ impl core::ops::BitAnd for SECURITY_DESCRIPTOR_CONTROL {
 }
 impl core::ops::BitOrAssign for SECURITY_DESCRIPTOR_CONTROL {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SECURITY_DESCRIPTOR_CONTROL {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SECURITY_DESCRIPTOR_CONTROL {
@@ -1870,12 +1870,12 @@ impl core::ops::BitAnd for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
 }
 impl core::ops::BitOrAssign for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
@@ -1971,12 +1971,12 @@ impl core::ops::BitAnd for TOKEN_ACCESS_MASK {
 }
 impl core::ops::BitOrAssign for TOKEN_ACCESS_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TOKEN_ACCESS_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TOKEN_ACCESS_MASK {
@@ -2152,12 +2152,12 @@ impl core::ops::BitAnd for TOKEN_PRIVILEGES_ATTRIBUTES {
 }
 impl core::ops::BitOrAssign for TOKEN_PRIVILEGES_ATTRIBUTES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TOKEN_PRIVILEGES_ATTRIBUTES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TOKEN_PRIVILEGES_ATTRIBUTES {

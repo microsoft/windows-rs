@@ -4950,12 +4950,12 @@ impl core::ops::BitAnd for SEND_RECV_FLAGS {
 }
 impl core::ops::BitOrAssign for SEND_RECV_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SEND_RECV_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SEND_RECV_FLAGS {
@@ -6646,12 +6646,12 @@ impl core::ops::BitAnd for WSAPOLL_EVENT_FLAGS {
 }
 impl core::ops::BitOrAssign for WSAPOLL_EVENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WSAPOLL_EVENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WSAPOLL_EVENT_FLAGS {

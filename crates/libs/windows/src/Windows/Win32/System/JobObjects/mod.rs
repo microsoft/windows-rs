@@ -476,12 +476,12 @@ impl core::ops::BitAnd for JOB_OBJECT_CPU_RATE_CONTROL {
 }
 impl core::ops::BitOrAssign for JOB_OBJECT_CPU_RATE_CONTROL {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for JOB_OBJECT_CPU_RATE_CONTROL {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
@@ -520,12 +520,12 @@ impl core::ops::BitAnd for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
@@ -560,12 +560,12 @@ impl core::ops::BitAnd for JOB_OBJECT_LIMIT {
 }
 impl core::ops::BitOrAssign for JOB_OBJECT_LIMIT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for JOB_OBJECT_LIMIT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for JOB_OBJECT_LIMIT {
@@ -622,12 +622,12 @@ impl core::ops::BitAnd for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
 }
 impl core::ops::BitOrAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
@@ -662,12 +662,12 @@ impl core::ops::BitAnd for JOB_OBJECT_SECURITY {
 }
 impl core::ops::BitOrAssign for JOB_OBJECT_SECURITY {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for JOB_OBJECT_SECURITY {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for JOB_OBJECT_SECURITY {
@@ -707,12 +707,12 @@ impl core::ops::BitAnd for JOB_OBJECT_UILIMIT {
 }
 impl core::ops::BitOrAssign for JOB_OBJECT_UILIMIT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for JOB_OBJECT_UILIMIT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for JOB_OBJECT_UILIMIT {

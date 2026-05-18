@@ -30,12 +30,12 @@ impl core::ops::BitAnd for DWRITE_AUTOMATIC_FONT_AXES {
 }
 impl core::ops::BitOrAssign for DWRITE_AUTOMATIC_FONT_AXES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWRITE_AUTOMATIC_FONT_AXES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWRITE_AUTOMATIC_FONT_AXES {
@@ -203,12 +203,12 @@ impl core::ops::BitAnd for DWRITE_FONT_AXIS_ATTRIBUTES {
 }
 impl core::ops::BitOrAssign for DWRITE_FONT_AXIS_ATTRIBUTES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWRITE_FONT_AXIS_ATTRIBUTES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWRITE_FONT_AXIS_ATTRIBUTES {
@@ -449,12 +449,12 @@ impl core::ops::BitAnd for DWRITE_FONT_SIMULATIONS {
 }
 impl core::ops::BitOrAssign for DWRITE_FONT_SIMULATIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWRITE_FONT_SIMULATIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWRITE_FONT_SIMULATIONS {
@@ -556,12 +556,12 @@ impl core::ops::BitAnd for DWRITE_GLYPH_IMAGE_FORMATS {
 }
 impl core::ops::BitOrAssign for DWRITE_GLYPH_IMAGE_FORMATS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWRITE_GLYPH_IMAGE_FORMATS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWRITE_GLYPH_IMAGE_FORMATS {
@@ -806,12 +806,12 @@ impl core::ops::BitAnd for DWRITE_PAINT_ATTRIBUTES {
 }
 impl core::ops::BitOrAssign for DWRITE_PAINT_ATTRIBUTES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWRITE_PAINT_ATTRIBUTES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWRITE_PAINT_ATTRIBUTES {
@@ -1466,12 +1466,12 @@ impl core::ops::BitAnd for DWRITE_SCRIPT_SHAPES {
 }
 impl core::ops::BitOrAssign for DWRITE_SCRIPT_SHAPES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWRITE_SCRIPT_SHAPES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWRITE_SCRIPT_SHAPES {

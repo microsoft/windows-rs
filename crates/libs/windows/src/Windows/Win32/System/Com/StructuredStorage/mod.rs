@@ -3091,12 +3091,12 @@ impl core::ops::BitAnd for PROPVAR_CHANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPVAR_CHANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPVAR_CHANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPVAR_CHANGE_FLAGS {
@@ -3127,12 +3127,12 @@ impl core::ops::BitAnd for PROPVAR_COMPARE_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPVAR_COMPARE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPVAR_COMPARE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPVAR_COMPARE_FLAGS {

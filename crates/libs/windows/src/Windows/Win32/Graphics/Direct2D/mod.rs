@@ -294,12 +294,12 @@ impl core::ops::BitAnd for D2D1_BITMAP_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_BITMAP_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_BITMAP_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_BITMAP_OPTIONS {
@@ -435,12 +435,12 @@ impl core::ops::BitAnd for D2D1_CHANGE_TYPE {
 }
 impl core::ops::BitOrAssign for D2D1_CHANGE_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_CHANGE_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_CHANGE_TYPE {
@@ -557,12 +557,12 @@ impl core::ops::BitAnd for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
@@ -681,12 +681,12 @@ impl core::ops::BitAnd for D2D1_DEVICE_CONTEXT_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_DEVICE_CONTEXT_OPTIONS {
@@ -824,12 +824,12 @@ impl core::ops::BitAnd for D2D1_DRAW_TEXT_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_DRAW_TEXT_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_DRAW_TEXT_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_DRAW_TEXT_OPTIONS {
@@ -1100,12 +1100,12 @@ impl core::ops::BitAnd for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
@@ -1138,12 +1138,12 @@ impl core::ops::BitAnd for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
@@ -1238,12 +1238,12 @@ impl core::ops::BitAnd for D2D1_LAYER_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_LAYER_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_LAYER_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_LAYER_OPTIONS {
@@ -1274,12 +1274,12 @@ impl core::ops::BitAnd for D2D1_LAYER_OPTIONS1 {
 }
 impl core::ops::BitOrAssign for D2D1_LAYER_OPTIONS1 {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_LAYER_OPTIONS1 {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_LAYER_OPTIONS1 {
@@ -1384,12 +1384,12 @@ impl core::ops::BitAnd for D2D1_MAP_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_MAP_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_MAP_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_MAP_OPTIONS {
@@ -1466,12 +1466,12 @@ impl core::ops::BitAnd for D2D1_PIXEL_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_PIXEL_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_PIXEL_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_PIXEL_OPTIONS {
@@ -1556,12 +1556,12 @@ impl core::ops::BitAnd for D2D1_PRESENT_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_PRESENT_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_PRESENT_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_PRESENT_OPTIONS {
@@ -1701,12 +1701,12 @@ impl core::ops::BitAnd for D2D1_RENDER_TARGET_USAGE {
 }
 impl core::ops::BitOrAssign for D2D1_RENDER_TARGET_USAGE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_RENDER_TARGET_USAGE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_RENDER_TARGET_USAGE {
@@ -1868,12 +1868,12 @@ impl core::ops::BitAnd for D2D1_SPRITE_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_SPRITE_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_SPRITE_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_SPRITE_OPTIONS {
@@ -2132,12 +2132,12 @@ impl core::ops::BitAnd for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
@@ -2214,12 +2214,12 @@ impl core::ops::BitAnd for D2D1_VERTEX_OPTIONS {
 }
 impl core::ops::BitOrAssign for D2D1_VERTEX_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_VERTEX_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_VERTEX_OPTIONS {
@@ -2276,12 +2276,12 @@ impl core::ops::BitAnd for D2D1_WINDOW_STATE {
 }
 impl core::ops::BitOrAssign for D2D1_WINDOW_STATE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D2D1_WINDOW_STATE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D2D1_WINDOW_STATE {

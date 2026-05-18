@@ -331,12 +331,12 @@ impl core::ops::BitAnd for DisplayBrightnessOverrideOptions {
 }
 impl core::ops::BitOrAssign for DisplayBrightnessOverrideOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayBrightnessOverrideOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayBrightnessOverrideOptions {
@@ -788,12 +788,12 @@ impl core::ops::BitAnd for DisplayOrientations {
 }
 impl core::ops::BitOrAssign for DisplayOrientations {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DisplayOrientations {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DisplayOrientations {

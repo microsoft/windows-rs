@@ -7321,12 +7321,12 @@ impl core::ops::BitAnd for COMPARE_STRING_FLAGS {
 }
 impl core::ops::BitOrAssign for COMPARE_STRING_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COMPARE_STRING_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COMPARE_STRING_FLAGS {
@@ -7641,12 +7641,12 @@ impl core::ops::BitAnd for FOLD_STRING_MAP_FLAGS {
 }
 impl core::ops::BitOrAssign for FOLD_STRING_MAP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FOLD_STRING_MAP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FOLD_STRING_MAP_FLAGS {
@@ -9954,12 +9954,12 @@ impl core::ops::BitAnd for IS_TEXT_UNICODE_RESULT {
 }
 impl core::ops::BitOrAssign for IS_TEXT_UNICODE_RESULT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IS_TEXT_UNICODE_RESULT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IS_TEXT_UNICODE_RESULT {
@@ -11489,12 +11489,12 @@ impl core::ops::BitAnd for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
 }
 impl core::ops::BitOrAssign for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
@@ -11820,12 +11820,12 @@ impl core::ops::BitAnd for TIME_FORMAT_FLAGS {
 }
 impl core::ops::BitOrAssign for TIME_FORMAT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TIME_FORMAT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TIME_FORMAT_FLAGS {

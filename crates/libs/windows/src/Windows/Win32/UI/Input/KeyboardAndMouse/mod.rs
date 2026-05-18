@@ -361,12 +361,12 @@ impl core::ops::BitAnd for HOT_KEY_MODIFIERS {
 }
 impl core::ops::BitOrAssign for HOT_KEY_MODIFIERS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HOT_KEY_MODIFIERS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HOT_KEY_MODIFIERS {
@@ -538,12 +538,12 @@ impl core::ops::BitAnd for KEYBD_EVENT_FLAGS {
 }
 impl core::ops::BitOrAssign for KEYBD_EVENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for KEYBD_EVENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for KEYBD_EVENT_FLAGS {
@@ -728,12 +728,12 @@ impl core::ops::BitAnd for MOUSE_EVENT_FLAGS {
 }
 impl core::ops::BitOrAssign for MOUSE_EVENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MOUSE_EVENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MOUSE_EVENT_FLAGS {
@@ -813,12 +813,12 @@ impl core::ops::BitAnd for TRACKMOUSEEVENT_FLAGS {
 }
 impl core::ops::BitOrAssign for TRACKMOUSEEVENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TRACKMOUSEEVENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TRACKMOUSEEVENT_FLAGS {

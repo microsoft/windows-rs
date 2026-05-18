@@ -584,12 +584,12 @@ impl core::ops::BitAnd for DML_CREATE_DEVICE_FLAGS {
 }
 impl core::ops::BitOrAssign for DML_CREATE_DEVICE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DML_CREATE_DEVICE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DML_CREATE_DEVICE_FLAGS {
@@ -1502,12 +1502,12 @@ impl core::ops::BitAnd for DML_EXECUTION_FLAGS {
 }
 impl core::ops::BitOrAssign for DML_EXECUTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DML_EXECUTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DML_EXECUTION_FLAGS {
@@ -2718,12 +2718,12 @@ impl core::ops::BitAnd for DML_TENSOR_FLAGS {
 }
 impl core::ops::BitOrAssign for DML_TENSOR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DML_TENSOR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DML_TENSOR_FLAGS {

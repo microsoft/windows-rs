@@ -200,7 +200,7 @@ impl CppInterface {
                 result.combine(quote! {
                     #cfg
                     windows_core::imp::interface_hierarchy!(#name, #(#bases),*);
-                })
+                });
             }
 
             let method_names = &mut MethodNames::new();

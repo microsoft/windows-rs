@@ -10,7 +10,7 @@ where
         use core::fmt::Write;
         let iter = self.0.clone();
         for c in iter().into_iter() {
-            f.write_char(c.unwrap_or(core::char::REPLACEMENT_CHARACTER))?
+            f.write_char(c.unwrap_or(core::char::REPLACEMENT_CHARACTER))?;
         }
         Ok(())
     }

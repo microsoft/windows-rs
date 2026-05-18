@@ -147,12 +147,12 @@ impl core::ops::BitAnd for DXGI_ADAPTER_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_ADAPTER_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_ADAPTER_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_ADAPTER_FLAG {
@@ -183,12 +183,12 @@ impl core::ops::BitAnd for DXGI_ADAPTER_FLAG3 {
 }
 impl core::ops::BitOrAssign for DXGI_ADAPTER_FLAG3 {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_ADAPTER_FLAG3 {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_ADAPTER_FLAG3 {
@@ -238,12 +238,12 @@ impl core::ops::BitAnd for DXGI_CREATE_FACTORY_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_CREATE_FACTORY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_CREATE_FACTORY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_CREATE_FACTORY_FLAGS {
@@ -281,12 +281,12 @@ impl core::ops::BitAnd for DXGI_DEBUG_RLO_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_DEBUG_RLO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_DEBUG_RLO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_DEBUG_RLO_FLAGS {
@@ -335,12 +335,12 @@ impl core::ops::BitAnd for DXGI_ENUM_MODES {
 }
 impl core::ops::BitOrAssign for DXGI_ENUM_MODES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_ENUM_MODES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_ENUM_MODES {
@@ -454,12 +454,12 @@ impl core::ops::BitAnd for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
@@ -598,12 +598,12 @@ impl core::ops::BitAnd for DXGI_MAP_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_MAP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_MAP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_MAP_FLAGS {
@@ -995,12 +995,12 @@ impl core::ops::BitAnd for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
@@ -1034,12 +1034,12 @@ impl core::ops::BitAnd for DXGI_MWA_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_MWA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_MWA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_MWA_FLAGS {
@@ -1077,12 +1077,12 @@ impl core::ops::BitAnd for DXGI_OFFER_RESOURCE_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_OFFER_RESOURCE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OFFER_RESOURCE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OFFER_RESOURCE_FLAGS {
@@ -1129,12 +1129,12 @@ impl core::ops::BitAnd for DXGI_OUTDUPL_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_OUTDUPL_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OUTDUPL_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OUTDUPL_FLAG {
@@ -1245,12 +1245,12 @@ impl core::ops::BitAnd for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
@@ -1282,12 +1282,12 @@ impl core::ops::BitAnd for DXGI_OVERLAY_SUPPORT_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_OVERLAY_SUPPORT_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OVERLAY_SUPPORT_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OVERLAY_SUPPORT_FLAG {
@@ -1320,12 +1320,12 @@ impl core::ops::BitAnd for DXGI_PRESENT {
 }
 impl core::ops::BitOrAssign for DXGI_PRESENT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_PRESENT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_PRESENT {
@@ -1426,12 +1426,12 @@ impl core::ops::BitAnd for DXGI_SHARED_RESOURCE_RW {
 }
 impl core::ops::BitOrAssign for DXGI_SHARED_RESOURCE_RW {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_SHARED_RESOURCE_RW {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_SHARED_RESOURCE_RW {
@@ -1472,12 +1472,12 @@ impl core::ops::BitAnd for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
@@ -1539,12 +1539,12 @@ impl core::ops::BitAnd for DXGI_SWAP_CHAIN_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_SWAP_CHAIN_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_SWAP_CHAIN_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_SWAP_CHAIN_FLAG {
@@ -1604,12 +1604,12 @@ impl core::ops::BitAnd for DXGI_USAGE {
 }
 impl core::ops::BitOrAssign for DXGI_USAGE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_USAGE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_USAGE {

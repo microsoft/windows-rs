@@ -21,7 +21,7 @@ impl Layout {
             self.modules
                 .entry(first.to_string())
                 .or_default()
-                .insert(rest, name, winrt, tokens)
+                .insert(rest, name, winrt, tokens);
         } else if winrt {
             self.modules
                 .entry(namespace.to_string())
@@ -144,7 +144,7 @@ impl Layout {
                 output.push_str(&module.to_module(name));
             }
 
-            output.push('}')
+            output.push('}');
         }
 
         if has_winrt {
@@ -160,7 +160,7 @@ impl Layout {
                 }
             }
 
-            output.push('}')
+            output.push('}');
         }
 
         if has_win32 {
@@ -176,7 +176,7 @@ impl Layout {
                 }
             }
 
-            output.push('}')
+            output.push('}');
         }
 
         output

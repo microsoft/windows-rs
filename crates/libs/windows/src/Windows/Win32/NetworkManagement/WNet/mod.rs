@@ -492,12 +492,12 @@ impl core::ops::BitAnd for CONNECTDLGSTRUCT_FLAGS {
 }
 impl core::ops::BitOrAssign for CONNECTDLGSTRUCT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CONNECTDLGSTRUCT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
@@ -565,12 +565,12 @@ impl core::ops::BitAnd for DISCDLGSTRUCT_FLAGS {
 }
 impl core::ops::BitOrAssign for DISCDLGSTRUCT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DISCDLGSTRUCT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DISCDLGSTRUCT_FLAGS {
@@ -624,12 +624,12 @@ impl core::ops::BitAnd for NETINFOSTRUCT_CHARACTERISTICS {
 }
 impl core::ops::BitOrAssign for NETINFOSTRUCT_CHARACTERISTICS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NETINFOSTRUCT_CHARACTERISTICS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
@@ -691,12 +691,12 @@ impl core::ops::BitAnd for NET_CONNECT_FLAGS {
 }
 impl core::ops::BitOrAssign for NET_CONNECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NET_CONNECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NET_CONNECT_FLAGS {
@@ -730,12 +730,12 @@ impl core::ops::BitAnd for NET_RESOURCE_TYPE {
 }
 impl core::ops::BitOrAssign for NET_RESOURCE_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NET_RESOURCE_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NET_RESOURCE_TYPE {
@@ -893,12 +893,12 @@ impl core::ops::BitAnd for WNET_OPEN_ENUM_USAGE {
 }
 impl core::ops::BitOrAssign for WNET_OPEN_ENUM_USAGE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WNET_OPEN_ENUM_USAGE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WNET_OPEN_ENUM_USAGE {

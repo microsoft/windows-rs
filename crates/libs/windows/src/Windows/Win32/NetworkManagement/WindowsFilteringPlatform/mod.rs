@@ -1627,12 +1627,12 @@ impl core::ops::BitAnd for FWPM_FILTER_FLAGS {
 }
 impl core::ops::BitOrAssign for FWPM_FILTER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FWPM_FILTER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FWPM_FILTER_FLAGS {
@@ -4129,12 +4129,12 @@ impl core::ops::BitAnd for IKEEXT_CERT_AUTH {
 }
 impl core::ops::BitOrAssign for IKEEXT_CERT_AUTH {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IKEEXT_CERT_AUTH {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IKEEXT_CERT_AUTH {
@@ -4203,12 +4203,12 @@ impl core::ops::BitAnd for IKEEXT_CERT_FLAGS {
 }
 impl core::ops::BitOrAssign for IKEEXT_CERT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IKEEXT_CERT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IKEEXT_CERT_FLAGS {
@@ -4459,12 +4459,12 @@ impl core::ops::BitAnd for IKEEXT_EAP_AUTHENTICATION_FLAGS {
 }
 impl core::ops::BitOrAssign for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IKEEXT_EAP_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IKEEXT_EAP_AUTHENTICATION_FLAGS {
@@ -4637,12 +4637,12 @@ impl core::ops::BitAnd for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
 }
 impl core::ops::BitOrAssign for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IKEEXT_KERBEROS_AUTHENTICATION_FLAGS {
@@ -4789,12 +4789,12 @@ impl core::ops::BitAnd for IKEEXT_POLICY_FLAG {
 }
 impl core::ops::BitOrAssign for IKEEXT_POLICY_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IKEEXT_POLICY_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IKEEXT_POLICY_FLAG {
@@ -4846,12 +4846,12 @@ impl core::ops::BitAnd for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
 }
 impl core::ops::BitOrAssign for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS {
@@ -4907,12 +4907,12 @@ impl core::ops::BitAnd for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
 }
 impl core::ops::BitOrAssign for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IKEEXT_RESERVED_AUTHENTICATION_FLAGS {
@@ -5254,12 +5254,12 @@ impl core::ops::BitAnd for IPSEC_DOSP_FLAGS {
 }
 impl core::ops::BitOrAssign for IPSEC_DOSP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IPSEC_DOSP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IPSEC_DOSP_FLAGS {
@@ -5527,12 +5527,12 @@ impl core::ops::BitAnd for IPSEC_POLICY_FLAG {
 }
 impl core::ops::BitOrAssign for IPSEC_POLICY_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IPSEC_POLICY_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IPSEC_POLICY_FLAG {
@@ -5703,12 +5703,12 @@ impl core::ops::BitAnd for IPSEC_SA_BUNDLE_FLAGS {
 }
 impl core::ops::BitOrAssign for IPSEC_SA_BUNDLE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IPSEC_SA_BUNDLE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IPSEC_SA_BUNDLE_FLAGS {

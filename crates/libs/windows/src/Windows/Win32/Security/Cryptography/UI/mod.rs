@@ -175,12 +175,12 @@ impl core::ops::BitAnd for CERT_SELECT_STRUCT_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_SELECT_STRUCT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_SELECT_STRUCT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_SELECT_STRUCT_FLAGS {
@@ -322,12 +322,12 @@ impl core::ops::BitAnd for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
@@ -457,12 +457,12 @@ impl core::ops::BitAnd for CRYPTUI_VIEWCERTIFICATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPTUI_VIEWCERTIFICATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPTUI_VIEWCERTIFICATE_FLAGS {
@@ -798,12 +798,12 @@ impl core::ops::BitAnd for CRYPTUI_WIZ_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPTUI_WIZ_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPTUI_WIZ_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPTUI_WIZ_FLAGS {

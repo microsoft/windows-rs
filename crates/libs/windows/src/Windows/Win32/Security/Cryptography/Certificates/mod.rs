@@ -297,12 +297,12 @@ impl core::ops::BitAnd for CERTADMIN_GET_ROLES_FLAGS {
 }
 impl core::ops::BitOrAssign for CERTADMIN_GET_ROLES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERTADMIN_GET_ROLES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERTADMIN_GET_ROLES_FLAGS {
@@ -381,12 +381,12 @@ impl core::ops::BitAnd for CERT_EXIT_EVENT_MASK {
 }
 impl core::ops::BitOrAssign for CERT_EXIT_EVENT_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_EXIT_EVENT_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_EXIT_EVENT_MASK {

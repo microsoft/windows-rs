@@ -47,12 +47,12 @@ impl core::ops::BitAnd for GameInputArcadeStickButtons {
 }
 impl core::ops::BitOrAssign for GameInputArcadeStickButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputArcadeStickButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputArcadeStickButtons {
@@ -199,12 +199,12 @@ impl core::ops::BitAnd for GameInputDeviceCapabilities {
 }
 impl core::ops::BitOrAssign for GameInputDeviceCapabilities {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputDeviceCapabilities {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputDeviceCapabilities {
@@ -306,12 +306,12 @@ impl core::ops::BitAnd for GameInputDeviceStatus {
 }
 impl core::ops::BitOrAssign for GameInputDeviceStatus {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputDeviceStatus {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputDeviceStatus {
@@ -360,12 +360,12 @@ impl core::ops::BitAnd for GameInputFeedbackAxes {
 }
 impl core::ops::BitOrAssign for GameInputFeedbackAxes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputFeedbackAxes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputFeedbackAxes {
@@ -410,12 +410,12 @@ impl core::ops::BitAnd for GameInputFlightStickButtons {
 }
 impl core::ops::BitOrAssign for GameInputFlightStickButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputFlightStickButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputFlightStickButtons {
@@ -470,12 +470,12 @@ impl core::ops::BitAnd for GameInputFocusPolicy {
 }
 impl core::ops::BitOrAssign for GameInputFocusPolicy {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputFocusPolicy {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputFocusPolicy {
@@ -628,12 +628,12 @@ impl core::ops::BitAnd for GameInputGamepadButtons {
 }
 impl core::ops::BitOrAssign for GameInputGamepadButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputGamepadButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputGamepadButtons {
@@ -770,12 +770,12 @@ impl core::ops::BitAnd for GameInputKind {
 }
 impl core::ops::BitOrAssign for GameInputKind {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputKind {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputKind {
@@ -1000,12 +1000,12 @@ impl core::ops::BitAnd for GameInputMouseButtons {
 }
 impl core::ops::BitOrAssign for GameInputMouseButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputMouseButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputMouseButtons {
@@ -1091,12 +1091,12 @@ impl core::ops::BitAnd for GameInputRacingWheelButtons {
 }
 impl core::ops::BitOrAssign for GameInputRacingWheelButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputRacingWheelButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputRacingWheelButtons {
@@ -1206,12 +1206,12 @@ impl core::ops::BitAnd for GameInputRawDeviceReportItemFlags {
 }
 impl core::ops::BitOrAssign for GameInputRawDeviceReportItemFlags {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputRawDeviceReportItemFlags {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputRawDeviceReportItemFlags {
@@ -1277,12 +1277,12 @@ impl core::ops::BitAnd for GameInputRumbleMotors {
 }
 impl core::ops::BitOrAssign for GameInputRumbleMotors {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputRumbleMotors {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputRumbleMotors {
@@ -1350,12 +1350,12 @@ impl core::ops::BitAnd for GameInputSystemButtons {
 }
 impl core::ops::BitOrAssign for GameInputSystemButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputSystemButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputSystemButtons {
@@ -1430,12 +1430,12 @@ impl core::ops::BitAnd for GameInputUiNavigationButtons {
 }
 impl core::ops::BitOrAssign for GameInputUiNavigationButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputUiNavigationButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputUiNavigationButtons {

@@ -83,12 +83,12 @@ impl core::ops::BitAnd for CFE_EFFECTS {
 }
 impl core::ops::BitOrAssign for CFE_EFFECTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CFE_EFFECTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CFE_EFFECTS {
@@ -163,12 +163,12 @@ impl core::ops::BitAnd for CFM_MASK {
 }
 impl core::ops::BitOrAssign for CFM_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CFM_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CFM_MASK {
@@ -907,12 +907,12 @@ impl core::ops::BitAnd for GETTEXTLENGTHEX_FLAGS {
 }
 impl core::ops::BitOrAssign for GETTEXTLENGTHEX_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GETTEXTLENGTHEX_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GETTEXTLENGTHEX_FLAGS {
@@ -10655,12 +10655,12 @@ impl core::ops::BitAnd for PARAFORMAT_BORDERS {
 }
 impl core::ops::BitOrAssign for PARAFORMAT_BORDERS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PARAFORMAT_BORDERS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PARAFORMAT_BORDERS {
@@ -10698,12 +10698,12 @@ impl core::ops::BitAnd for PARAFORMAT_MASK {
 }
 impl core::ops::BitOrAssign for PARAFORMAT_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PARAFORMAT_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PARAFORMAT_MASK {
@@ -10734,12 +10734,12 @@ impl core::ops::BitAnd for PARAFORMAT_NUMBERING {
 }
 impl core::ops::BitOrAssign for PARAFORMAT_NUMBERING {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PARAFORMAT_NUMBERING {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PARAFORMAT_NUMBERING {
@@ -10879,12 +10879,12 @@ impl core::ops::BitAnd for REOBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for REOBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REOBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REOBJECT_FLAGS {
@@ -11000,12 +11000,12 @@ impl core::ops::BitAnd for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
 }
 impl core::ops::BitOrAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
@@ -11036,12 +11036,12 @@ impl core::ops::BitAnd for RICH_EDIT_GET_OBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for RICH_EDIT_GET_OBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RICH_EDIT_GET_OBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RICH_EDIT_GET_OBJECT_FLAGS {

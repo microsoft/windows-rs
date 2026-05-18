@@ -1055,12 +1055,12 @@ impl core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
 }
 impl core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
@@ -5401,12 +5401,12 @@ impl core::ops::BitAnd for GENERIC_ACCESS_RIGHTS {
 }
 impl core::ops::BitOrAssign for GENERIC_ACCESS_RIGHTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GENERIC_ACCESS_RIGHTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GENERIC_ACCESS_RIGHTS {
@@ -5465,12 +5465,12 @@ impl core::ops::BitAnd for HANDLE_FLAGS {
 }
 impl core::ops::BitOrAssign for HANDLE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HANDLE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HANDLE_FLAGS {
@@ -6280,12 +6280,12 @@ impl core::ops::BitAnd for OBJECT_ATTRIBUTE_FLAGS {
 }
 impl core::ops::BitOrAssign for OBJECT_ATTRIBUTE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OBJECT_ATTRIBUTE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OBJECT_ATTRIBUTE_FLAGS {

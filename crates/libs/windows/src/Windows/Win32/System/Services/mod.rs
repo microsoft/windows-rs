@@ -436,12 +436,12 @@ impl core::ops::BitAnd for ENUM_SERVICE_TYPE {
 }
 impl core::ops::BitOrAssign for ENUM_SERVICE_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ENUM_SERVICE_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ENUM_SERVICE_TYPE {
@@ -775,12 +775,12 @@ impl core::ops::BitAnd for SERVICE_NOTIFY {
 }
 impl core::ops::BitOrAssign for SERVICE_NOTIFY {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SERVICE_NOTIFY {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SERVICE_NOTIFY {

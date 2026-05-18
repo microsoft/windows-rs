@@ -417,12 +417,12 @@ impl core::ops::BitAnd for D3D11_BIND_FLAG {
 }
 impl core::ops::BitOrAssign for D3D11_BIND_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_BIND_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_BIND_FLAG {
@@ -658,12 +658,12 @@ impl core::ops::BitAnd for D3D11_CLEAR_FLAG {
 }
 impl core::ops::BitOrAssign for D3D11_CLEAR_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_CLEAR_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_CLEAR_FLAG {
@@ -833,12 +833,12 @@ impl core::ops::BitAnd for D3D11_CPU_ACCESS_FLAG {
 }
 impl core::ops::BitOrAssign for D3D11_CPU_ACCESS_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_CPU_ACCESS_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_CPU_ACCESS_FLAG {
@@ -875,12 +875,12 @@ impl core::ops::BitAnd for D3D11_CREATE_DEVICE_FLAG {
 }
 impl core::ops::BitOrAssign for D3D11_CREATE_DEVICE_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_CREATE_DEVICE_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_CREATE_DEVICE_FLAG {
@@ -916,12 +916,12 @@ impl core::ops::BitAnd for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS {
@@ -1430,12 +1430,12 @@ impl core::ops::BitAnd for D3D11_FENCE_FLAG {
 }
 impl core::ops::BitOrAssign for D3D11_FENCE_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_FENCE_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_FENCE_FLAG {
@@ -3570,12 +3570,12 @@ impl core::ops::BitAnd for D3D11_RESOURCE_MISC_FLAG {
 }
 impl core::ops::BitOrAssign for D3D11_RESOURCE_MISC_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_RESOURCE_MISC_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_RESOURCE_MISC_FLAG {
@@ -3624,12 +3624,12 @@ impl core::ops::BitAnd for D3D11_RLDO_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D11_RLDO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_RLDO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_RLDO_FLAGS {
@@ -4858,12 +4858,12 @@ impl core::ops::BitAnd for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
 }
 impl core::ops::BitOrAssign for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS {

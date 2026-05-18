@@ -291,12 +291,12 @@ impl core::ops::BitAnd for PRJ_FILE_STATE {
 }
 impl core::ops::BitOrAssign for PRJ_FILE_STATE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRJ_FILE_STATE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRJ_FILE_STATE {
@@ -413,12 +413,12 @@ impl core::ops::BitAnd for PRJ_NOTIFY_TYPES {
 }
 impl core::ops::BitOrAssign for PRJ_NOTIFY_TYPES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRJ_NOTIFY_TYPES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRJ_NOTIFY_TYPES {
@@ -499,12 +499,12 @@ impl core::ops::BitAnd for PRJ_STARTVIRTUALIZING_FLAGS {
 }
 impl core::ops::BitOrAssign for PRJ_STARTVIRTUALIZING_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRJ_STARTVIRTUALIZING_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
@@ -554,12 +554,12 @@ impl core::ops::BitAnd for PRJ_UPDATE_FAILURE_CAUSES {
 }
 impl core::ops::BitOrAssign for PRJ_UPDATE_FAILURE_CAUSES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRJ_UPDATE_FAILURE_CAUSES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
@@ -599,12 +599,12 @@ impl core::ops::BitAnd for PRJ_UPDATE_TYPES {
 }
 impl core::ops::BitOrAssign for PRJ_UPDATE_TYPES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRJ_UPDATE_TYPES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRJ_UPDATE_TYPES {

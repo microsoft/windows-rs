@@ -681,12 +681,12 @@ impl core::ops::BitAnd for ETW_CONTEXT_REGISTER_TYPES {
 }
 impl core::ops::BitOrAssign for ETW_CONTEXT_REGISTER_TYPES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ETW_CONTEXT_REGISTER_TYPES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ETW_CONTEXT_REGISTER_TYPES {
@@ -1424,12 +1424,12 @@ impl core::ops::BitAnd for EVENT_TRACE_FLAG {
 }
 impl core::ops::BitOrAssign for EVENT_TRACE_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for EVENT_TRACE_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for EVENT_TRACE_FLAG {
@@ -2968,12 +2968,12 @@ impl core::ops::BitAnd for TRACE_LBR_CONFIGURATION {
 }
 impl core::ops::BitOrAssign for TRACE_LBR_CONFIGURATION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TRACE_LBR_CONFIGURATION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TRACE_LBR_CONFIGURATION {
@@ -3249,12 +3249,12 @@ impl core::ops::BitAnd for TRACE_MESSAGE_FLAGS {
 }
 impl core::ops::BitOrAssign for TRACE_MESSAGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TRACE_MESSAGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TRACE_MESSAGE_FLAGS {

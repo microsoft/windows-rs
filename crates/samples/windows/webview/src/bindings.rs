@@ -415,12 +415,12 @@ impl core::ops::BitAnd for COREWEBVIEW2_BROWSING_DATA_KINDS {
 }
 impl core::ops::BitOrAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COREWEBVIEW2_BROWSING_DATA_KINDS {
@@ -732,12 +732,12 @@ impl core::ops::BitAnd for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
 }
 impl core::ops::BitOrAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
@@ -817,12 +817,12 @@ impl core::ops::BitAnd for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
 }
 impl core::ops::BitOrAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
@@ -1069,12 +1069,12 @@ impl core::ops::BitAnd for COREWEBVIEW2_RELEASE_CHANNELS {
 }
 impl core::ops::BitOrAssign for COREWEBVIEW2_RELEASE_CHANNELS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COREWEBVIEW2_RELEASE_CHANNELS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COREWEBVIEW2_RELEASE_CHANNELS {
@@ -1274,12 +1274,12 @@ impl core::ops::BitAnd for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
 }
 impl core::ops::BitOrAssign for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {

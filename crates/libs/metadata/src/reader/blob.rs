@@ -73,7 +73,7 @@ impl<'a> Blob<'a> {
                     self.index,
                     self.file,
                     self.read_compressed(),
-                ))
+                ));
             }
         }
         mods

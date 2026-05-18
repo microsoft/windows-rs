@@ -3656,12 +3656,12 @@ impl core::ops::BitAnd for ACTIVEOBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for ACTIVEOBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ACTIVEOBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ACTIVEOBJECT_FLAGS {
@@ -3714,12 +3714,12 @@ impl core::ops::BitAnd for BUSY_DIALOG_FLAGS {
 }
 impl core::ops::BitOrAssign for BUSY_DIALOG_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BUSY_DIALOG_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BUSY_DIALOG_FLAGS {
@@ -3834,12 +3834,12 @@ impl core::ops::BitAnd for CHANGE_ICON_FLAGS {
 }
 impl core::ops::BitOrAssign for CHANGE_ICON_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CHANGE_ICON_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CHANGE_ICON_FLAGS {
@@ -3870,12 +3870,12 @@ impl core::ops::BitAnd for CHANGE_SOURCE_FLAGS {
 }
 impl core::ops::BitOrAssign for CHANGE_SOURCE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CHANGE_SOURCE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CHANGE_SOURCE_FLAGS {
@@ -4095,12 +4095,12 @@ impl core::ops::BitAnd for DROPEFFECT {
 }
 impl core::ops::BitOrAssign for DROPEFFECT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DROPEFFECT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DROPEFFECT {
@@ -4158,12 +4158,12 @@ impl core::ops::BitAnd for EDIT_LINKS_FLAGS {
 }
 impl core::ops::BitOrAssign for EDIT_LINKS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for EDIT_LINKS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for EDIT_LINKS_FLAGS {
@@ -4201,12 +4201,12 @@ impl core::ops::BitAnd for EMBDHLP_FLAGS {
 }
 impl core::ops::BitOrAssign for EMBDHLP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for EMBDHLP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for EMBDHLP_FLAGS {
@@ -4242,12 +4242,12 @@ impl core::ops::BitAnd for FDEX_PROP_FLAGS {
 }
 impl core::ops::BitOrAssign for FDEX_PROP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FDEX_PROP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FDEX_PROP_FLAGS {
@@ -7118,12 +7118,12 @@ impl core::ops::BitAnd for INSERT_OBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for INSERT_OBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for INSERT_OBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for INSERT_OBJECT_FLAGS {
@@ -13947,12 +13947,12 @@ impl core::ops::BitAnd for KEYMODIFIERS {
 }
 impl core::ops::BitOrAssign for KEYMODIFIERS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for KEYMODIFIERS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for KEYMODIFIERS {
@@ -14000,12 +14000,12 @@ impl core::ops::BitAnd for LOAD_PICTURE_FLAGS {
 }
 impl core::ops::BitOrAssign for LOAD_PICTURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for LOAD_PICTURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for LOAD_PICTURE_FLAGS {
@@ -14095,12 +14095,12 @@ impl core::ops::BitAnd for NUMPARSE_FLAGS {
 }
 impl core::ops::BitOrAssign for NUMPARSE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NUMPARSE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NUMPARSE_FLAGS {
@@ -14159,12 +14159,12 @@ impl core::ops::BitAnd for OBJECT_PROPERTIES_FLAGS {
 }
 impl core::ops::BitOrAssign for OBJECT_PROPERTIES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OBJECT_PROPERTIES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OBJECT_PROPERTIES_FLAGS {
@@ -15296,12 +15296,12 @@ impl core::ops::BitAnd for PARAMFLAGS {
 }
 impl core::ops::BitOrAssign for PARAMFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PARAMFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PARAMFLAGS {
@@ -15340,12 +15340,12 @@ impl core::ops::BitAnd for PASTE_SPECIAL_FLAGS {
 }
 impl core::ops::BitOrAssign for PASTE_SPECIAL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PASTE_SPECIAL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PASTE_SPECIAL_FLAGS {
@@ -15463,12 +15463,12 @@ impl core::ops::BitAnd for PRINTFLAG {
 }
 impl core::ops::BitOrAssign for PRINTFLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRINTFLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRINTFLAG {
@@ -15777,12 +15777,12 @@ impl core::ops::BitAnd for UI_CONVERT_FLAGS {
 }
 impl core::ops::BitOrAssign for UI_CONVERT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for UI_CONVERT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for UI_CONVERT_FLAGS {
@@ -15815,12 +15815,12 @@ impl core::ops::BitAnd for UPDFCACHE_FLAGS {
 }
 impl core::ops::BitOrAssign for UPDFCACHE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for UPDFCACHE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for UPDFCACHE_FLAGS {
@@ -15933,12 +15933,12 @@ impl core::ops::BitAnd for VIEW_OBJECT_PROPERTIES_FLAGS {
 }
 impl core::ops::BitOrAssign for VIEW_OBJECT_PROPERTIES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VIEW_OBJECT_PROPERTIES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VIEW_OBJECT_PROPERTIES_FLAGS {

@@ -852,12 +852,12 @@ impl core::ops::BitAnd for AppointmentDaysOfWeek {
 }
 impl core::ops::BitOrAssign for AppointmentDaysOfWeek {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AppointmentDaysOfWeek {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AppointmentDaysOfWeek {
@@ -2094,12 +2094,12 @@ impl core::ops::BitAnd for FindAppointmentCalendarsOptions {
 }
 impl core::ops::BitOrAssign for FindAppointmentCalendarsOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FindAppointmentCalendarsOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FindAppointmentCalendarsOptions {

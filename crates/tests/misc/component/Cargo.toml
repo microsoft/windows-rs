@@ -11,6 +11,7 @@ doctest = false
 
 [dependencies.windows-core]
 workspace = true
+default-features = true
 
 [dependencies.windows]
 workspace = true

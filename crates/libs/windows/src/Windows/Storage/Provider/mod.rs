@@ -32,12 +32,12 @@ impl core::ops::BitAnd for CachedFileOptions {
 }
 impl core::ops::BitOrAssign for CachedFileOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CachedFileOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CachedFileOptions {
@@ -2010,12 +2010,12 @@ impl core::ops::BitAnd for StorageProviderHardlinkPolicy {
 }
 impl core::ops::BitOrAssign for StorageProviderHardlinkPolicy {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for StorageProviderHardlinkPolicy {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for StorageProviderHardlinkPolicy {
@@ -2074,12 +2074,12 @@ impl core::ops::BitAnd for StorageProviderHydrationPolicyModifier {
 }
 impl core::ops::BitOrAssign for StorageProviderHydrationPolicyModifier {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for StorageProviderHydrationPolicyModifier {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for StorageProviderHydrationPolicyModifier {
@@ -2130,12 +2130,12 @@ impl core::ops::BitAnd for StorageProviderInSyncPolicy {
 }
 impl core::ops::BitOrAssign for StorageProviderInSyncPolicy {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for StorageProviderInSyncPolicy {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for StorageProviderInSyncPolicy {

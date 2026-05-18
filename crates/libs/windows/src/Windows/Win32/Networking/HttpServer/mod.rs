@@ -575,12 +575,12 @@ impl core::ops::BitAnd for HTTP_INITIALIZE {
 }
 impl core::ops::BitOrAssign for HTTP_INITIALIZE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HTTP_INITIALIZE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HTTP_INITIALIZE {
