@@ -32,9 +32,10 @@ impl TokenStreamExt for TokenStream {
     }
 
     fn join(&self, suffix: &str) -> TokenStream {
-        format!("{self}{suffix}")
-            .parse()
-            .expect("invalid Rust tokens")
+        let joined = format!("{self}{suffix}");
+        joined.parse().unwrap_or_else(|e| {
+            panic!("invalid Rust tokens when joining {self:?} with {suffix:?}: {e}")
+        })
     }
 
     fn into_string(self) -> String {

@@ -230,7 +230,7 @@ fn find_matching_delim(bytes: &[u8], open_idx: usize, open: u8, close: u8) -> us
             in_str = true;
         } else if c == open {
             depth += 1;
-        } else if c == close {
+        } else if c == close && depth > 0 {
             depth -= 1;
             if depth == 0 {
                 return i;
