@@ -460,13 +460,13 @@ impl PrintSupportAppInfo {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetPrintJobShowsUI<P1>(printername: &windows_core::HSTRING, printticket: P1) -> windows_core::Result<windows_reference::IReference<bool>>
+    pub fn GetPrintJobShowsUI<P1>(printername: &windows_core::HSTRING, printticket: P1) -> windows_core::Result<bool>
     where
         P1: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         Self::IPrintSupportAppInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPrintJobShowsUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPrintJobShowsUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         })
     }
     pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<PrintSupportAppInfo> {

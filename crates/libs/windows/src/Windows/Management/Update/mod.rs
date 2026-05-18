@@ -890,10 +890,10 @@ impl WindowsSoftwareUpdate {
             (windows_core::Interface::vtable(self).TargetVersion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProductCode(&self) -> windows_core::Result<windows_reference::IReference<windows_core::GUID>> {
+    pub fn ProductCode(&self) -> windows_core::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProductCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ProductCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_core::GUID>| r__.Value())
         }
     }
     pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -953,10 +953,10 @@ impl WindowsSoftwareUpdate {
             (windows_core::Interface::vtable(self).ActionProgress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RestartReason(&self) -> windows_core::Result<windows_reference::IReference<WindowsSoftwareUpdateRestartReason>> {
+    pub fn RestartReason(&self) -> windows_core::Result<WindowsSoftwareUpdateRestartReason> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RestartReason)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RestartReason)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<WindowsSoftwareUpdateRestartReason>| r__.Value())
         }
     }
     pub fn AppPackageInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateAppPackageInfo> {
@@ -991,16 +991,16 @@ impl WindowsSoftwareUpdate {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(providerid), installationtype, core::mem::transmute_copy(updateid), core::mem::transmute_copy(title), core::mem::transmute_copy(description), moreinfourl.param().abi(), downloadsizeinbytes, installsizeinbytes, sourceversion.param().abi(), targetversion.param().abi(), apppackageinfo.param().abi(), executioninfo.param().abi(), optionalinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P5, P8, P10, P11, P12, P13, P14>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, productcode: P8, packagefamilyname: &windows_core::HSTRING, sourceversion: P10, targetversion: P11, apppackageinfo: P12, executioninfo: P13, optionalinfo: P14) -> windows_core::Result<WindowsSoftwareUpdate>
+    pub fn CreateInstance2<P5, P10, P11, P12, P13, P14>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, productcode: Option<windows_core::GUID>, packagefamilyname: &windows_core::HSTRING, sourceversion: P10, targetversion: P11, apppackageinfo: P12, executioninfo: P13, optionalinfo: P14) -> windows_core::Result<WindowsSoftwareUpdate>
     where
         P5: windows_core::Param<super::super::Foundation::Uri>,
-        P8: windows_core::Param<windows_reference::IReference<windows_core::GUID>>,
         P10: windows_core::Param<WindowsSoftwareUpdateVersion>,
         P11: windows_core::Param<WindowsSoftwareUpdateVersion>,
         P12: windows_core::Param<WindowsSoftwareUpdateAppPackageInfo>,
         P13: windows_core::Param<WindowsSoftwareUpdateExecutionInfo>,
         P14: windows_core::Param<WindowsSoftwareUpdateOptionalInfo>,
     {
+        let productcode__ = productcode.map(<windows_reference::IReference<windows_core::GUID> as core::convert::From<_>>::from);
         Self::IWindowsSoftwareUpdateFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance2)(
@@ -1013,7 +1013,7 @@ impl WindowsSoftwareUpdate {
                 moreinfourl.param().abi(),
                 downloadsizeinbytes,
                 installsizeinbytes,
-                productcode.param().abi(),
+                windows_core::Param::param(productcode__.as_ref()).abi(),
                 core::mem::transmute_copy(packagefamilyname),
                 sourceversion.param().abi(),
                 targetversion.param().abi(),
@@ -1520,37 +1520,35 @@ impl WindowsSoftwareUpdateOptionalInfo {
             (windows_core::Interface::vtable(self).LocalizationInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ComplianceDeadlineInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ComplianceDeadlineInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn ComplianceGracePeriodInDays(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn ComplianceGracePeriodInDays(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn CreateInstance<P0, P1>(compliancedeadlineindays: P0, compliancegraceperiodindays: P1) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo>
-    where
-        P0: windows_core::Param<windows_reference::IReference<i32>>,
-        P1: windows_core::Param<windows_reference::IReference<i32>>,
-    {
+    pub fn CreateInstance(compliancedeadlineindays: Option<i32>, compliancegraceperiodindays: Option<i32>) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo> {
+        let compliancedeadlineindays__ = compliancedeadlineindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let compliancegraceperiodindays__ = compliancegraceperiodindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
         Self::IWindowsSoftwareUpdateOptionalInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), compliancedeadlineindays.param().abi(), compliancegraceperiodindays.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), windows_core::Param::param(compliancedeadlineindays__.as_ref()).abi(), windows_core::Param::param(compliancegraceperiodindays__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P0, P1, P2>(localizationinfo: P0, compliancedeadlineindays: P1, compliancegraceperiodindays: P2) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo>
+    pub fn CreateInstance2<P0>(localizationinfo: P0, compliancedeadlineindays: Option<i32>, compliancegraceperiodindays: Option<i32>) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo>
     where
         P0: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdateLocalizationInfo>>,
-        P1: windows_core::Param<windows_reference::IReference<i32>>,
-        P2: windows_core::Param<windows_reference::IReference<i32>>,
     {
+        let compliancedeadlineindays__ = compliancedeadlineindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        let compliancegraceperiodindays__ = compliancegraceperiodindays.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
         Self::IWindowsSoftwareUpdateOptionalInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), localizationinfo.param().abi(), compliancedeadlineindays.param().abi(), compliancegraceperiodindays.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), localizationinfo.param().abi(), windows_core::Param::param(compliancedeadlineindays__.as_ref()).abi(), windows_core::Param::param(compliancegraceperiodindays__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWindowsSoftwareUpdateOptionalInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateOptionalInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2194,10 +2192,10 @@ impl WindowsUpdate {
             (windows_core::Interface::vtable(self).EulaText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
+    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
         }
     }
     pub fn AttentionRequiredInfo(&self) -> windows_core::Result<WindowsUpdateAttentionRequiredInfo> {
@@ -2516,65 +2514,55 @@ impl WindowsUpdateApprovalData {
         static SHARED: windows_core::imp::FactoryCache<WindowsUpdateApprovalData, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Seeker(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
+    pub fn Seeker(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Seeker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Seeker)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         }
     }
-    pub fn SetSeeker<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<bool>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSeeker)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetSeeker(&self, value: Option<bool>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetSeeker)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn AllowDownloadOnMetered(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
+    pub fn AllowDownloadOnMetered(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AllowDownloadOnMetered)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AllowDownloadOnMetered)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         }
     }
-    pub fn SetAllowDownloadOnMetered<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<bool>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetAllowDownloadOnMetered)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetAllowDownloadOnMetered(&self, value: Option<bool>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetAllowDownloadOnMetered)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ComplianceDeadlineInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ComplianceDeadlineInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn SetComplianceDeadlineInDays<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<i32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetComplianceDeadlineInDays)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetComplianceDeadlineInDays(&self, value: Option<i32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetComplianceDeadlineInDays)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ComplianceGracePeriodInDays(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn ComplianceGracePeriodInDays(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn SetComplianceGracePeriodInDays<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<i32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetComplianceGracePeriodInDays(&self, value: Option<i32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<i32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetComplianceGracePeriodInDays)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn OptOutOfAutoReboot(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
+    pub fn OptOutOfAutoReboot(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OptOutOfAutoReboot)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).OptOutOfAutoReboot)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         }
     }
-    pub fn SetOptOutOfAutoReboot<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<bool>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetOptOutOfAutoReboot)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetOptOutOfAutoReboot(&self, value: Option<bool>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetOptOutOfAutoReboot)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for WindowsUpdateApprovalData {
@@ -2600,10 +2588,10 @@ impl WindowsUpdateAttentionRequiredInfo {
             (windows_core::Interface::vtable(self).Reason)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
+    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
         }
     }
 }
@@ -2881,10 +2869,10 @@ impl WindowsUpdateManager {
             (windows_core::Interface::vtable(self).IsWorking)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn LastSuccessfulScanTimestamp(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>> {
+    pub fn LastSuccessfulScanTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LastSuccessfulScanTimestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LastSuccessfulScanTimestamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
         }
     }
     pub fn GetApplicableUpdates(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsUpdate>> {

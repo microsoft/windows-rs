@@ -157,13 +157,13 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<HolographicStereoTransform>>
+    pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<HolographicStereoTransform>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetViewTransform)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetViewTransform)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<HolographicStereoTransform>| r__.Value())
         }
     }
     pub fn ProjectionTransform(&self) -> windows_core::Result<HolographicStereoTransform> {
@@ -173,23 +173,23 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetCullingFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
+    pub fn TryGetCullingFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Perception::Spatial::SpatialBoundingFrustum>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetCullingFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetCullingFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>| r__.Value())
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetVisibleFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
+    pub fn TryGetVisibleFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Perception::Spatial::SpatialBoundingFrustum>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetVisibleFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TryGetVisibleFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>| r__.Value())
         }
     }
     pub fn NearPlaneDistance(&self) -> windows_core::Result<f64> {

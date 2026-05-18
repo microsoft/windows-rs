@@ -300,10 +300,10 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (windows_core::Interface::vtable(self).AlbumTrackCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackType(&self) -> windows_core::Result<windows_reference::IReference<super::MediaPlaybackType>> {
+    pub fn PlaybackType(&self) -> windows_core::Result<super::MediaPlaybackType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::MediaPlaybackType>| r__.Value())
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -451,28 +451,28 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
             (windows_core::Interface::vtable(self).PlaybackStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackType(&self) -> windows_core::Result<windows_reference::IReference<super::MediaPlaybackType>> {
+    pub fn PlaybackType(&self) -> windows_core::Result<super::MediaPlaybackType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::MediaPlaybackType>| r__.Value())
         }
     }
-    pub fn AutoRepeatMode(&self) -> windows_core::Result<windows_reference::IReference<super::MediaPlaybackAutoRepeatMode>> {
+    pub fn AutoRepeatMode(&self) -> windows_core::Result<super::MediaPlaybackAutoRepeatMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoRepeatMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AutoRepeatMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::MediaPlaybackAutoRepeatMode>| r__.Value())
         }
     }
-    pub fn PlaybackRate(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
+    pub fn PlaybackRate(&self) -> windows_core::Result<f64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlaybackRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PlaybackRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
         }
     }
-    pub fn IsShuffleActive(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
+    pub fn IsShuffleActive(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsShuffleActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsShuffleActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         }
     }
 }

@@ -1438,29 +1438,25 @@ impl FocusSettings {
     pub fn SetAutoFocusRange(&self, value: AutoFocusRange) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoFocusRange)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Value(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
+    pub fn Value(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
         }
     }
-    pub fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<u32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetValue(&self, value: Option<u32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn Distance(&self) -> windows_core::Result<windows_reference::IReference<ManualFocusDistance>> {
+    pub fn Distance(&self) -> windows_core::Result<ManualFocusDistance> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Distance)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Distance)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<ManualFocusDistance>| r__.Value())
         }
     }
-    pub fn SetDistance<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<ManualFocusDistance>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDistance)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetDistance(&self, value: Option<ManualFocusDistance>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<ManualFocusDistance> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetDistance)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WaitForFocus(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -4033,14 +4029,12 @@ impl VideoDeviceController {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDevicePropertyById<P1>(&self, propertyid: &windows_core::HSTRING, maxpropertyvaluesize: P1) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
-    where
-        P1: windows_core::Param<windows_reference::IReference<u32>>,
-    {
+    pub fn GetDevicePropertyById(&self, propertyid: &windows_core::HSTRING, maxpropertyvaluesize: Option<u32>) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDevicePropertyById<P1>(&self, propertyid: &windows_core::HSTRING, propertyvalue: P1) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus>
@@ -4053,14 +4047,12 @@ impl VideoDeviceController {
             (windows_core::Interface::vtable(this).SetDevicePropertyById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyid), propertyvalue.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDevicePropertyByExtendedId<P1>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P1) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
-    where
-        P1: windows_core::Param<windows_reference::IReference<u32>>,
-    {
+    pub fn GetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Option<u32>) -> windows_core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &windows_core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
+        let maxpropertyvaluesize__ = maxpropertyvaluesize.map(<windows_reference::IReference<u32> as core::convert::From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), maxpropertyvaluesize.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDevicePropertyByExtendedId)(windows_core::Interface::as_raw(this), extendedpropertyid.len().try_into().unwrap(), extendedpropertyid.as_ptr(), windows_core::Param::param(maxpropertyvaluesize__.as_ref()).abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDevicePropertyByExtendedId(&self, extendedpropertyid: &[u8], propertyvalue: &[u8]) -> windows_core::Result<VideoDeviceControllerSetDevicePropertyStatus> {

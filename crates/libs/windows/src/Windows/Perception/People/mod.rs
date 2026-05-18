@@ -10,10 +10,10 @@ impl EyesPose {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn Gaze(&self) -> windows_core::Result<windows_reference::IReference<super::Spatial::SpatialRay>> {
+    pub fn Gaze(&self) -> windows_core::Result<super::Spatial::SpatialRay> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Gaze)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Gaze)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Spatial::SpatialRay>| r__.Value())
         }
     }
     pub fn UpdateTimestamp(&self) -> windows_core::Result<super::PerceptionTimestamp> {

@@ -35,6 +35,28 @@ fn hstring_value() -> Result<()> {
 }
 
 #[test]
+fn hstring_from_str() -> Result<()> {
+    let r = IReference::<HSTRING>::from("hello");
+    assert_eq!(r.Value()?, HSTRING::from("hello"));
+    Ok(())
+}
+
+#[test]
+fn hstring_from_string() -> Result<()> {
+    let r = IReference::<HSTRING>::from(String::from("hello"));
+    assert_eq!(r.Value()?, HSTRING::from("hello"));
+    Ok(())
+}
+
+#[test]
+fn hstring_from_hstring_ref() -> Result<()> {
+    let h = HSTRING::from("hello");
+    let r = IReference::<HSTRING>::from(&h);
+    assert_eq!(r.Value()?, h);
+    Ok(())
+}
+
+#[test]
 fn guid_value() -> Result<()> {
     let g = GUID::from_u128(0x11223344_5566_7788_99AA_BBCCDDEEFF00);
     let r = IReference::<GUID>::from(g);

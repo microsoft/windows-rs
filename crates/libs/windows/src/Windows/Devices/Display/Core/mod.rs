@@ -930,18 +930,16 @@ impl DisplayPath {
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn SourceResolution(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Graphics::SizeInt32>> {
+    pub fn SourceResolution(&self) -> windows_core::Result<super::super::super::Graphics::SizeInt32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).SourceResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Graphics::SizeInt32>| r__.Value())
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn SetSourceResolution<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::super::Graphics::SizeInt32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceResolution)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetSourceResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetSourceResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SourcePixelFormat(&self) -> windows_core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
@@ -964,44 +962,38 @@ impl DisplayPath {
         unsafe { (windows_core::Interface::vtable(self).SetIsStereo)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "Graphics")]
-    pub fn TargetResolution(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Graphics::SizeInt32>> {
+    pub fn TargetResolution(&self) -> windows_core::Result<super::super::super::Graphics::SizeInt32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TargetResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).TargetResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Graphics::SizeInt32>| r__.Value())
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn SetTargetResolution<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::super::Graphics::SizeInt32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetTargetResolution)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetTargetResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetTargetResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn PresentationRate(&self) -> windows_core::Result<windows_reference::IReference<DisplayPresentationRate>> {
+    pub fn PresentationRate(&self) -> windows_core::Result<DisplayPresentationRate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PresentationRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PresentationRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<DisplayPresentationRate>| r__.Value())
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPresentationRate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<DisplayPresentationRate>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetPresentationRate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetPresentationRate(&self, value: Option<DisplayPresentationRate>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetPresentationRate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn IsInterlaced(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
+    pub fn IsInterlaced(&self) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsInterlaced)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).IsInterlaced)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
         }
     }
-    pub fn SetIsInterlaced<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<bool>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetIsInterlaced)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetIsInterlaced(&self, value: Option<bool>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<bool> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetIsInterlaced)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn WireFormat(&self) -> windows_core::Result<DisplayWireFormat> {
         unsafe {
@@ -1052,20 +1044,18 @@ impl DisplayPath {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn PhysicalPresentationRate(&self) -> windows_core::Result<windows_reference::IReference<DisplayPresentationRate>> {
+    pub fn PhysicalPresentationRate(&self) -> windows_core::Result<DisplayPresentationRate> {
         let this = &windows_core::Interface::cast::<IDisplayPath2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PhysicalPresentationRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PhysicalPresentationRate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<DisplayPresentationRate>| r__.Value())
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPhysicalPresentationRate<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<DisplayPresentationRate>>,
-    {
+    pub fn SetPhysicalPresentationRate(&self, value: Option<DisplayPresentationRate>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IDisplayPath2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        let value__ = value.map(<windows_reference::IReference<DisplayPresentationRate> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for DisplayPath {
@@ -1925,18 +1915,16 @@ impl DisplayView {
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn ContentResolution(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Graphics::SizeInt32>> {
+    pub fn ContentResolution(&self) -> windows_core::Result<super::super::super::Graphics::SizeInt32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ContentResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ContentResolution)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Graphics::SizeInt32>| r__.Value())
         }
     }
     #[cfg(feature = "Graphics")]
-    pub fn SetContentResolution<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::super::Graphics::SizeInt32>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetContentResolution)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetContentResolution(&self, value: Option<super::super::super::Graphics::SizeInt32>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::super::Graphics::SizeInt32> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetContentResolution)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SetPrimaryPath<P0>(&self, path: P0) -> windows_core::Result<()>
     where

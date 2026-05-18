@@ -19,6 +19,18 @@ impl Param {
         self.is_input() && self.ty.is_convertible()
     }
 
+    /// If this parameter is an input `Windows.Foundation.IReference<T>` whose inner
+    /// type `T` is sugar-eligible (primitives, enums, copyable structs, GUID, or
+    /// `HSTRING`), returns `Some(&T)`. Such parameters are projected as `Option<T>`
+    /// (or an `Into<IReference<HSTRING>>` for `HSTRING`) in the rust signature
+    /// rather than as a generic `Param<IReference<T>>`.
+    pub fn ireference_inner(&self, reader: &Reader) -> Option<&Type> {
+        if !self.is_input() {
+            return None;
+        }
+        self.ty.ireference_inner_for_sugar(reader)
+    }
+
     pub fn is_input(&self) -> bool {
         !self.def.flags().contains(ParamAttributes::Out)
     }

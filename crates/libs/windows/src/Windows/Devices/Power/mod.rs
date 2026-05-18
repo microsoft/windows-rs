@@ -67,28 +67,28 @@ unsafe impl Sync for Battery {}
 pub struct BatteryReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BatteryReport, windows_core::IUnknown, windows_core::IInspectable);
 impl BatteryReport {
-    pub fn ChargeRateInMilliwatts(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn ChargeRateInMilliwatts(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChargeRateInMilliwatts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ChargeRateInMilliwatts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn DesignCapacityInMilliwattHours(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn DesignCapacityInMilliwattHours(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesignCapacityInMilliwattHours)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DesignCapacityInMilliwattHours)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn FullChargeCapacityInMilliwattHours(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn FullChargeCapacityInMilliwattHours(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FullChargeCapacityInMilliwattHours)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FullChargeCapacityInMilliwattHours)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
-    pub fn RemainingCapacityInMilliwattHours(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
+    pub fn RemainingCapacityInMilliwattHours(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemainingCapacityInMilliwattHours)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemainingCapacityInMilliwattHours)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
         }
     }
     #[cfg(feature = "System_Power")]

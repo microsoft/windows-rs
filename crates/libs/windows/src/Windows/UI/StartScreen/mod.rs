@@ -1091,17 +1091,15 @@ impl TileMixedRealityModel {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn SetBoundingBox<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetBoundingBox)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+    pub fn SetBoundingBox(&self, value: Option<super::super::Perception::Spatial::SpatialBoundingBox>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox> as core::convert::From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetBoundingBox)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn BoundingBox(&self) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox>> {
+    pub fn BoundingBox(&self) -> windows_core::Result<super::super::Perception::Spatial::SpatialBoundingBox> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox>| r__.Value())
         }
     }
     pub fn SetActivationBehavior(&self, value: TileMixedRealityModelActivationBehavior) -> windows_core::Result<()> {

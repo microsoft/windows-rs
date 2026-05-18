@@ -689,6 +689,43 @@ impl Type {
         matches!(self, Self::ConstRef(_))
     }
 
+    /// If this is `Windows.Foundation.IReference<T>` returns `Some(&T)`.
+    pub fn as_ireference_inner(&self) -> Option<&Type> {
+        if let Self::Interface(iface) = self {
+            if iface.generics.len() == 1
+                && iface.type_name() == TypeName("Windows.Foundation", "IReference")
+            {
+                return Some(&iface.generics[0]);
+            }
+        }
+        None
+    }
+
+    /// If this type is `Windows.Foundation.IReference<T>` whose inner `T` is
+    /// sugar-eligible (primitives, enums, copyable structs, GUID, or `HSTRING`),
+    /// returns `Some(&T)`. Used by both input-parameter and return-position
+    /// `Option`/unwrap sugar in bindgen.
+    pub fn ireference_inner_for_sugar(&self, reader: &Reader) -> Option<&Type> {
+        let inner = self.as_ireference_inner()?;
+        match inner {
+            // `HSTRING` is sugar-eligible: we accept `&str`/`String`/`HSTRING`
+            // for input via `Into<IReference<HSTRING>>`, and unwrap to `HSTRING`
+            // for return position.
+            Type::String => Some(inner),
+            Type::Generic(_)
+            | Type::BSTR
+            | Type::Object
+            | Type::IUnknown
+            | Type::Interface(_)
+            | Type::CppInterface(_)
+            | Type::Class(_)
+            | Type::Delegate(_)
+            | Type::CppDelegate(_) => None,
+            _ if inner.is_copyable(reader) => Some(inner),
+            _ => None,
+        }
+    }
+
     pub fn is_primitive(&self, reader: &Reader) -> bool {
         match self {
             Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,

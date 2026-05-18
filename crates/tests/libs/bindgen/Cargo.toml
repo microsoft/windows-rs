@@ -30,6 +30,10 @@ features = [
     "Win32_Security",
 ]
 
+[target.'cfg(windows)'.dependencies.windows-reference]
+workspace = true
+features = ["std"]
+
 [target.'cfg(windows)'.dependencies.windows-sys]
 workspace = true
 features = [

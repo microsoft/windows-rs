@@ -1,0 +1,3 @@
+filter = "Test.IThing"
+no_allow = true
+no_comment = true

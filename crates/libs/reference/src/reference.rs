@@ -78,6 +78,13 @@ impl From<String> for IReference<HSTRING> {
     }
 }
 
+/// Box an `&HSTRING` into an `IReference<HSTRING>`.
+impl From<&HSTRING> for IReference<HSTRING> {
+    fn from(value: &HSTRING) -> Self {
+        value.clone().into()
+    }
+}
+
 // Internal stock implementation used to back `IReference::from`.
 struct StockReference<T>
 where

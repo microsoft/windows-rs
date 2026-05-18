@@ -327,6 +327,12 @@ impl Method {
                     } else {
                         quote! { #name.len().try_into().unwrap(), core::mem::transmute(#name.as_ptr()) }
                     }
+                } else if param.ireference_inner(config.reader).is_some() {
+                    // Sugared `Option<T>` -> materialized `Option<IReference<T>>` in
+                    // the local `name__` (see prelude below). `Param<T> for Option<&T>`
+                    // turns `None` into a null abi pointer.
+                    let local: TokenStream = format!("{}__", name.as_str()).into();
+                    quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
                 } else if param.is_copyable(config.reader) {
@@ -385,11 +391,19 @@ impl Method {
             TokenStream::new()
         };
 
+        // Helper: does this param need a generic `P{n}: Into<IReference<HSTRING>>`?
+        // (only IReference<HSTRING> sugar; value-like inner doesn't need a generic).
+        let is_ireference_string = |param: &Param| -> bool {
+            matches!(param.ireference_inner(config.reader), Some(Type::String))
+        };
+
         let generics: Vec<TokenStream> = params
             .iter()
             .enumerate()
             .filter_map(|(position, param)| {
-                if param.is_convertible() {
+                if is_ireference_string(param)
+                    || (param.is_convertible() && param.ireference_inner(config.reader).is_none())
+                {
                     let name: TokenStream = format!("P{position}").into();
                     Some(name)
                 } else {
@@ -403,10 +417,14 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    if param.is_convertible() {
-                        let name: TokenStream = format!("P{position}").into();
+                    let name: TokenStream = format!("P{position}").into();
+                    if is_ireference_string(param) {
+                        let iref = param.ty.write_name(config);
+                        Some(quote! { #name: core::convert::Into<#iref>, })
+                    } else if param.is_convertible()
+                        && param.ireference_inner(config.reader).is_none()
+                    {
                         let ty = param.write_name(config);
-
                         Some(quote! { #name: windows_core::Param<#ty>, })
                     } else {
                         None
@@ -426,8 +444,13 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    if param.is_convertible() {
-                        let name: TokenStream = format!("P{position}").into();
+                    let name: TokenStream = format!("P{position}").into();
+                    if is_ireference_string(param) {
+                        let iref = param.ty.write_name(config);
+                        Some(quote! { #name: core::convert::Into<#iref>, })
+                    } else if param.is_convertible()
+                        && param.ireference_inner(config.reader).is_none()
+                    {
                         let ty = param.write_name(config);
                         Some(quote! { #name: windows_core::Param<#ty>, })
                     } else {
@@ -438,6 +461,29 @@ impl Method {
             quote! { where #(#constraints)* T: windows_core::Compose, }
         } else {
             TokenStream::new()
+        };
+
+        // Prelude statements that materialize IReference<T> wrappers for sugared
+        // `Option<T>` parameters. Bound just outside the unsafe block so the
+        // wrapper is dropped *after* the vtable call returns.
+        let prelude = {
+            let lines: Vec<_> = params
+                .iter()
+                .enumerate()
+                .filter_map(|(position, param)| {
+                    param.ireference_inner(config.reader)?;
+                    let name = param.write_ident();
+                    let local: TokenStream = format!("{}__", name.as_str()).into();
+                    let iref = param.ty.write_name(config);
+                    if is_ireference_string(param) {
+                        let pname: TokenStream = format!("P{position}").into();
+                        Some(quote! { let #local = #name.map(<#pname as core::convert::Into<#iref>>::into); })
+                    } else {
+                        Some(quote! { let #local = #name.map(<#iref as core::convert::From<_>>::from); })
+                    }
+                })
+                .collect();
+            quote! { #(#lines)* }
         };
 
         let params: Vec<TokenStream> = params
@@ -451,6 +497,12 @@ impl Method {
                 if param.is_input() {
                     if param.is_winrt_array() {
                         quote! { #name: &[#default_type], }
+                    } else if is_ireference_string(param) {
+                        let pname: TokenStream = format!("P{position}").into();
+                        quote! { #name: Option<#pname>, }
+                    } else if let Some(inner) = param.ireference_inner(config.reader) {
+                        let inner_name = inner.write_name(config);
+                        quote! { #name: Option<#inner_name>, }
                     } else if param.is_convertible() {
                         let kind: TokenStream = format!("P{position}").into();
                         quote! { #name: #kind, }
@@ -469,10 +521,29 @@ impl Method {
             })
             .collect();
 
+        let noexcept = self.def.has_attribute("NoExceptionAttribute");
+        let assert_success = quote! { debug_assert!(hresult__.0 == 0); };
+
+        // Detect return-position `IReference<T>` sugar: when the return type is a
+        // sugarable `Windows.Foundation.IReference<T>`, unwrap to `Result<T>`
+        // (or `Result<HSTRING>`) by chaining `.Value()` after `from_abi`.
+        // Limited to non-noexcept, non-array returns.
+        let return_unwrap_inner = if !noexcept && !self.signature.return_type.is_winrt_array() {
+            self.signature
+                .return_type
+                .ireference_inner_for_sugar(config.reader)
+        } else {
+            None
+        };
+
         let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
             _ => {
-                let tokens = self.signature.return_type.write_name(config);
+                let tokens = if let Some(inner) = return_unwrap_inner {
+                    inner.write_name(config)
+                } else {
+                    self.signature.return_type.write_name(config)
+                };
                 if self.signature.return_type.is_winrt_array() {
                     quote! { windows_core::Array<#tokens> }
                 } else {
@@ -480,9 +551,6 @@ impl Method {
                 }
             }
         };
-
-        let noexcept = self.def.has_attribute("NoExceptionAttribute");
-        let assert_success = quote! { debug_assert!(hresult__.0 == 0); };
 
         let return_type = if noexcept {
             if self.signature.return_type.is_interface() {
@@ -557,9 +625,20 @@ impl Method {
                     } else {
                         let map = self.signature.return_type.write_result_map(config.reader);
 
-                        quote! {
-                            let mut result__ = core::mem::zeroed();
-                            #vcall.#map
+                        if return_unwrap_inner.is_some() {
+                            // Sugared `Result<IReference<T>>` -> `Result<T>`:
+                            // materialize the IReference and then call `.Value()`.
+                            // Explicit type annotation pins `from_abi`'s generic.
+                            let iref = self.signature.return_type.write_name(config);
+                            quote! {
+                                let mut result__ = core::mem::zeroed();
+                                #vcall.#map.and_then(|r__: #iref| r__.Value())
+                            }
+                        } else {
+                            quote! {
+                                let mut result__ = core::mem::zeroed();
+                                #vcall.#map
+                            }
                         }
                     }
                 }
@@ -571,6 +650,7 @@ impl Method {
         match kind {
             InterfaceKind::Default => quote! {
                 pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
+                    #prelude
                     unsafe {
                         #vcall
                     }
@@ -588,6 +668,7 @@ impl Method {
                 quote! {
                     pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
+                        #prelude
                         unsafe {
                             #vcall
                         }
@@ -599,6 +680,7 @@ impl Method {
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                        #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
                 }
@@ -612,9 +694,11 @@ impl Method {
 
                 quote! {
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
+                        #prelude
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
                     pub fn #name_compose<#(#generics,)* T>(#(#params)* compose: T) #return_type #where_clause_compose {
+                        #prelude
                         Self::#interface_name(|this| unsafe {
                             let (derived__, base__) = windows_core::Compose::compose(compose);
                             let mut result__ = core::mem::zeroed();

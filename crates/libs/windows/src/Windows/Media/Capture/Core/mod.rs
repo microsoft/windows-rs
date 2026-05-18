@@ -58,10 +58,10 @@ impl VariablePhotoCapturedEventArgs {
             (windows_core::Interface::vtable(self).CaptureTimeOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn UsedFrameControllerIndex(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
+    pub fn UsedFrameControllerIndex(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UsedFrameControllerIndex)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UsedFrameControllerIndex)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
         }
     }
     pub fn CapturedFrameControlValues(&self) -> windows_core::Result<super::CapturedFrameControlValues> {
