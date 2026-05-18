@@ -21,6 +21,7 @@ missing_unsafe_on_extern = "warn"
 [workspace.lints.clippy]
 semicolon_if_nothing_returned = "warn"
 manual_let_else = "warn"
+uninlined_format_args = "warn"
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }

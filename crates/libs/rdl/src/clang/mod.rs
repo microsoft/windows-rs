@@ -458,7 +458,7 @@ impl Clang {
         let mut output = format!("#[win32] mod {} {{", namespace[0]);
 
         for namespace in &namespace[1..] {
-            output.push_str(&format!("mod {} {{", namespace));
+            output.push_str(&format!("mod {namespace} {{"));
         }
 
         for item in collector.values() {

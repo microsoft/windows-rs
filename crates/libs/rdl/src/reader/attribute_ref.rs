@@ -62,7 +62,7 @@ impl Encoder<'_> {
         let mut segments: Vec<String> = path.segments.iter().map(|s| s.ident.to_string()).collect();
 
         let name = segments.pop()?;
-        let attr_name = format!("{}Attribute", name);
+        let attr_name = format!("{name}Attribute");
 
         let explicit_namespace = if segments.is_empty() {
             None

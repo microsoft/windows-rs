@@ -57,7 +57,7 @@ impl Callback {
                 .get(i as usize)
                 .cloned()
                 .filter(|n| !n.is_empty())
-                .unwrap_or_else(|| format!("param_{}", i));
+                .unwrap_or_else(|| format!("param_{i}"));
             params.push(Param {
                 name: pname,
                 ty,
