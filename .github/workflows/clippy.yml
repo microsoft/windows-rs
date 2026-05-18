@@ -49,4 +49,4 @@ jobs:
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
         shell: bash
       - name: Check
-        run:  cargo clippy --all --tests
+        run:  cargo clippy --all --tests -- -D warnings
