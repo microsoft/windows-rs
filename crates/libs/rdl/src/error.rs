@@ -30,15 +30,15 @@ impl std::fmt::Display for Error {
             write!(
                 f,
                 "\nerror: {}\n --> {}:{}:{}",
-                &self.message,
-                &self.file_name,
+                self.message,
+                self.file_name,
                 self.line,
                 self.column + 1
             )
         } else if self.file_name.is_empty() {
-            write!(f, "\nerror: {}", &self.message)
+            write!(f, "\nerror: {}", self.message)
         } else {
-            write!(f, "\nerror: {}\n --> {}", &self.message, &self.file_name)
+            write!(f, "\nerror: {}\n --> {}", self.message, self.file_name)
         }
     }
 }

@@ -35,6 +35,6 @@ unsafe impl<T: Interface> Sync for AgileReference<T> {}
 
 impl<T> core::fmt::Debug for AgileReference<T> {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "AgileReference({:?})", &self.0)
+        write!(f, "AgileReference({:?})", self.0)
     }
 }

@@ -92,7 +92,7 @@ fn main() -> Result<()> {
     // points into the heap allocation that backs `outer`.
     let (outer, base_slot) = unsafe { Compose::compose(derived) };
 
-    let foo = factory.CreateInstance(&outer, base_slot)?;
+    let foo_outer = factory.CreateInstance(&outer, base_slot)?;
     // Keep `outer` alive until after the factory has populated `base_slot`.
     let _ = &outer;
 
@@ -104,14 +104,14 @@ fn main() -> Result<()> {
 
     // 1. Hello() on the returned Foo (outer's IFoo) dispatches to the derived
     //    implementation, not the inner.
-    let n = foo.Hello()?;
+    let n = foo_outer.Hello()?;
     assert_eq!(
         n, DERIVED_VALUE,
         "Hello() on outer should dispatch to derived (got {n}, expected {DERIVED_VALUE})"
     );
 
     // 2. QI for IInspectable from the outer succeeds locally (identity_query).
-    let _: IInspectable = foo.cast()?;
+    let _: IInspectable = foo_outer.cast()?;
 
     // 3. QI fall-through: the outer (Derived_Impl) has only IFoo + IInspectable
     //    + IUnknown in its interface chain. Issuing a raw QueryInterface for an
@@ -139,14 +139,14 @@ fn main() -> Result<()> {
         assert!(sink.is_null(), "failed QI must leave out-pointer null");
     }
 
-    // 4. Drop order: drop `foo` first (releases one strong ref on outer), then
+    // 4. Drop order: drop `foo_outer` first (releases one strong ref on outer), then
     //    drop `outer`. That last drop must run `Derived::drop` *and* release
     //    the inner stored in `ComposeBase`, which in turn runs `Inner::drop`.
-    drop(foo);
+    drop(foo_outer);
     assert_eq!(
         DERIVED_DROPS.load(Ordering::SeqCst),
         0,
-        "Derived must still be alive after dropping foo (outer still referenced)"
+        "Derived must still be alive after dropping foo_outer (outer still referenced)"
     );
     assert_eq!(
         INNER_DROPS.load(Ordering::SeqCst),
@@ -166,6 +166,6 @@ fn main() -> Result<()> {
         "Inner must be dropped as a side-effect of dropping the outer"
     );
 
-    println!("composable aggregation OK: foo.Hello() = {n}");
+    println!("composable aggregation OK: foo_outer.Hello() = {n}");
     Ok(())
 }
