@@ -343,7 +343,9 @@ windows_core::imp::define_interface!(IUIEventLogger, IUIEventLogger_Vtbl, 0xec3e
 windows_core::imp::interface_hierarchy!(IUIEventLogger, windows_core::IUnknown);
 impl IUIEventLogger {
     pub unsafe fn OnUIEvent(&self, peventparams: *const UI_EVENTPARAMS) {
-        unsafe { (windows_core::Interface::vtable(self).OnUIEvent)(windows_core::Interface::as_raw(self), peventparams) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnUIEvent)(windows_core::Interface::as_raw(self), peventparams);
+        }
     }
 }
 #[repr(C)]
@@ -360,7 +362,7 @@ impl IUIEventLogger_Vtbl {
         unsafe extern "system" fn OnUIEvent<Identity: IUIEventLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, peventparams: *const UI_EVENTPARAMS) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUIEventLogger_Impl::OnUIEvent(this, core::mem::transmute_copy(&peventparams))
+                IUIEventLogger_Impl::OnUIEvent(this, core::mem::transmute_copy(&peventparams));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUIEvent: OnUIEvent::<Identity, OFFSET> }
@@ -926,12 +928,12 @@ impl core::ops::BitAnd for UI_INVALIDATIONS {
 }
 impl core::ops::BitOrAssign for UI_INVALIDATIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for UI_INVALIDATIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for UI_INVALIDATIONS {

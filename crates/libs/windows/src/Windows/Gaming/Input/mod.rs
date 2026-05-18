@@ -198,12 +198,12 @@ impl core::ops::BitAnd for ArcadeStickButtons {
 }
 impl core::ops::BitOrAssign for ArcadeStickButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ArcadeStickButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ArcadeStickButtons {
@@ -410,12 +410,12 @@ impl core::ops::BitAnd for FlightStickButtons {
 }
 impl core::ops::BitOrAssign for FlightStickButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FlightStickButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FlightStickButtons {
@@ -765,12 +765,12 @@ impl core::ops::BitAnd for GamepadButtons {
 }
 impl core::ops::BitOrAssign for GamepadButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GamepadButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GamepadButtons {
@@ -1410,12 +1410,12 @@ impl core::ops::BitAnd for OptionalUINavigationButtons {
 }
 impl core::ops::BitOrAssign for OptionalUINavigationButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OptionalUINavigationButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OptionalUINavigationButtons {
@@ -1665,12 +1665,12 @@ impl core::ops::BitAnd for RacingWheelButtons {
 }
 impl core::ops::BitOrAssign for RacingWheelButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RacingWheelButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RacingWheelButtons {
@@ -1948,12 +1948,12 @@ impl core::ops::BitAnd for RequiredUINavigationButtons {
 }
 impl core::ops::BitOrAssign for RequiredUINavigationButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RequiredUINavigationButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RequiredUINavigationButtons {

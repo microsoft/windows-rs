@@ -1062,12 +1062,12 @@ impl core::ops::BitAnd for CREDUIWIN_FLAGS {
 }
 impl core::ops::BitOrAssign for CREDUIWIN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CREDUIWIN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CREDUIWIN_FLAGS {
@@ -1105,12 +1105,12 @@ impl core::ops::BitAnd for CREDUI_FLAGS {
 }
 impl core::ops::BitOrAssign for CREDUI_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CREDUI_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CREDUI_FLAGS {
@@ -1188,12 +1188,12 @@ impl core::ops::BitAnd for CRED_ENUMERATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CRED_ENUMERATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRED_ENUMERATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRED_ENUMERATE_FLAGS {
@@ -1224,12 +1224,12 @@ impl core::ops::BitAnd for CRED_FLAGS {
 }
 impl core::ops::BitOrAssign for CRED_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRED_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRED_FLAGS {
@@ -1283,12 +1283,12 @@ impl core::ops::BitAnd for CRED_PACK_FLAGS {
 }
 impl core::ops::BitOrAssign for CRED_PACK_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRED_PACK_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRED_PACK_FLAGS {
@@ -1418,12 +1418,12 @@ impl core::ops::BitAnd for KeyCredentialManagerOperationErrorStates {
 }
 impl core::ops::BitOrAssign for KeyCredentialManagerOperationErrorStates {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for KeyCredentialManagerOperationErrorStates {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for KeyCredentialManagerOperationErrorStates {

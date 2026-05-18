@@ -85,12 +85,12 @@ impl core::ops::BitAnd for WSL_DISTRIBUTION_FLAGS {
 }
 impl core::ops::BitOrAssign for WSL_DISTRIBUTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WSL_DISTRIBUTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WSL_DISTRIBUTION_FLAGS {

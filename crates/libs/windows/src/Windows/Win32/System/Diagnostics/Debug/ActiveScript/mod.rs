@@ -10716,12 +10716,12 @@ impl core::ops::BitAnd for PROFILER_EVENT_MASK {
 }
 impl core::ops::BitOrAssign for PROFILER_EVENT_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROFILER_EVENT_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROFILER_EVENT_MASK {
@@ -10757,12 +10757,12 @@ impl core::ops::BitAnd for PROFILER_HEAP_ENUM_FLAGS {
 }
 impl core::ops::BitOrAssign for PROFILER_HEAP_ENUM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROFILER_HEAP_ENUM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROFILER_HEAP_ENUM_FLAGS {
@@ -10823,12 +10823,12 @@ impl core::ops::BitAnd for PROFILER_HEAP_OBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for PROFILER_HEAP_OBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROFILER_HEAP_OBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROFILER_HEAP_OBJECT_FLAGS {
@@ -10958,12 +10958,12 @@ impl core::ops::BitAnd for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
 }
 impl core::ops::BitOrAssign for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
@@ -11162,12 +11162,12 @@ impl core::ops::BitAnd for SCRIPT_DEBUGGER_OPTIONS {
 }
 impl core::ops::BitOrAssign for SCRIPT_DEBUGGER_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SCRIPT_DEBUGGER_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SCRIPT_DEBUGGER_OPTIONS {

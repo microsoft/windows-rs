@@ -168,12 +168,12 @@ impl core::ops::BitAnd for CHANGER_ELEMENT_STATUS_FLAGS {
 }
 impl core::ops::BitOrAssign for CHANGER_ELEMENT_STATUS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CHANGER_ELEMENT_STATUS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CHANGER_ELEMENT_STATUS_FLAGS {
@@ -215,12 +215,12 @@ impl core::ops::BitAnd for CHANGER_FEATURES {
 }
 impl core::ops::BitOrAssign for CHANGER_FEATURES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CHANGER_FEATURES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CHANGER_FEATURES {
@@ -2363,12 +2363,12 @@ impl core::ops::BitAnd for FILE_STORAGE_TIER_FLAGS {
 }
 impl core::ops::BitOrAssign for FILE_STORAGE_TIER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_STORAGE_TIER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_STORAGE_TIER_FLAGS {
@@ -2871,12 +2871,12 @@ impl core::ops::BitAnd for FS_BPIO_INFLAGS {
 }
 impl core::ops::BitOrAssign for FS_BPIO_INFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FS_BPIO_INFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FS_BPIO_INFLAGS {
@@ -2939,12 +2939,12 @@ impl core::ops::BitAnd for FS_BPIO_OUTFLAGS {
 }
 impl core::ops::BitOrAssign for FS_BPIO_OUTFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FS_BPIO_OUTFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FS_BPIO_OUTFLAGS {
@@ -3095,12 +3095,12 @@ impl core::ops::BitAnd for GET_CHANGER_PARAMETERS_FEATURES1 {
 }
 impl core::ops::BitOrAssign for GET_CHANGER_PARAMETERS_FEATURES1 {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GET_CHANGER_PARAMETERS_FEATURES1 {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GET_CHANGER_PARAMETERS_FEATURES1 {
@@ -3188,12 +3188,12 @@ impl core::ops::BitAnd for GPT_ATTRIBUTES {
 }
 impl core::ops::BitOrAssign for GPT_ATTRIBUTES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GPT_ATTRIBUTES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GPT_ATTRIBUTES {
@@ -7522,12 +7522,12 @@ impl core::ops::BitAnd for TXFS_RMF_LAGS {
 }
 impl core::ops::BitOrAssign for TXFS_RMF_LAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TXFS_RMF_LAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TXFS_RMF_LAGS {
@@ -7661,12 +7661,12 @@ impl core::ops::BitAnd for USN_DELETE_FLAGS {
 }
 impl core::ops::BitOrAssign for USN_DELETE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for USN_DELETE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for USN_DELETE_FLAGS {

@@ -302,12 +302,12 @@ impl core::ops::BitAnd for DWM_SHOWCONTACT {
 }
 impl core::ops::BitOrAssign for DWM_SHOWCONTACT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWM_SHOWCONTACT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWM_SHOWCONTACT {
@@ -348,12 +348,12 @@ impl core::ops::BitAnd for DWM_TAB_WINDOW_REQUIREMENTS {
 }
 impl core::ops::BitOrAssign for DWM_TAB_WINDOW_REQUIREMENTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DWM_TAB_WINDOW_REQUIREMENTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {

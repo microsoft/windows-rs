@@ -7685,10 +7685,14 @@ windows_core::imp::interface_hierarchy!(_Application, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl _Application {
     pub unsafe fn Help(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Help)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Help)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Quit(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Quit)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Quit)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Document(&self) -> windows_core::Result<Document> {
         unsafe {
@@ -7778,13 +7782,13 @@ impl _Application_Vtbl {
         unsafe extern "system" fn Help<Identity: _Application_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _Application_Impl::Help(this)
+                _Application_Impl::Help(this);
             }
         }
         unsafe extern "system" fn Quit<Identity: _Application_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                _Application_Impl::Quit(this)
+                _Application_Impl::Quit(this);
             }
         }
         unsafe extern "system" fn Document<Identity: _Application_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, document: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

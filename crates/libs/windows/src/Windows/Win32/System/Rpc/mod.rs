@@ -4323,12 +4323,12 @@ impl core::ops::BitAnd for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
 }
 impl core::ops::BitOrAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
@@ -4718,12 +4718,12 @@ impl core::ops::BitAnd for RPC_C_HTTP_AUTHN_TARGET {
 }
 impl core::ops::BitOrAssign for RPC_C_HTTP_AUTHN_TARGET {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RPC_C_HTTP_AUTHN_TARGET {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
@@ -4756,12 +4756,12 @@ impl core::ops::BitAnd for RPC_C_HTTP_FLAGS {
 }
 impl core::ops::BitOrAssign for RPC_C_HTTP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RPC_C_HTTP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RPC_C_HTTP_FLAGS {
@@ -4857,12 +4857,12 @@ impl core::ops::BitAnd for RPC_C_QOS_CAPABILITIES {
 }
 impl core::ops::BitOrAssign for RPC_C_QOS_CAPABILITIES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RPC_C_QOS_CAPABILITIES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RPC_C_QOS_CAPABILITIES {

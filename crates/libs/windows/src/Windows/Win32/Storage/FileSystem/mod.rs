@@ -3085,12 +3085,12 @@ impl core::ops::BitAnd for CLFS_FLAG {
 }
 impl core::ops::BitOrAssign for CLFS_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CLFS_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CLFS_FLAG {
@@ -3593,12 +3593,12 @@ impl core::ops::BitAnd for COPYFILE2_V2_FLAGS {
 }
 impl core::ops::BitOrAssign for COPYFILE2_V2_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COPYFILE2_V2_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COPYFILE2_V2_FLAGS {
@@ -3629,12 +3629,12 @@ impl core::ops::BitAnd for COPYFILE_FLAGS {
 }
 impl core::ops::BitOrAssign for COPYFILE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COPYFILE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COPYFILE_FLAGS {
@@ -3665,12 +3665,12 @@ impl core::ops::BitAnd for COPYPROGRESSROUTINE_PROGRESS {
 }
 impl core::ops::BitOrAssign for COPYPROGRESSROUTINE_PROGRESS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COPYPROGRESSROUTINE_PROGRESS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COPYPROGRESSROUTINE_PROGRESS {
@@ -3759,12 +3759,12 @@ impl core::ops::BitAnd for CREATE_BIND_LINK_FLAGS {
 }
 impl core::ops::BitOrAssign for CREATE_BIND_LINK_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CREATE_BIND_LINK_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CREATE_BIND_LINK_FLAGS {
@@ -3869,12 +3869,12 @@ impl core::ops::BitAnd for DEFINE_DOS_DEVICE_FLAGS {
 }
 impl core::ops::BitOrAssign for DEFINE_DOS_DEVICE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DEFINE_DOS_DEVICE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
@@ -3906,12 +3906,12 @@ impl core::ops::BitAnd for DIRECTORY_FLAGS {
 }
 impl core::ops::BitOrAssign for DIRECTORY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DIRECTORY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DIRECTORY_FLAGS {
@@ -4200,12 +4200,12 @@ impl core::ops::BitAnd for FILE_ACCESS_RIGHTS {
 }
 impl core::ops::BitOrAssign for FILE_ACCESS_RIGHTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_ACCESS_RIGHTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_ACCESS_RIGHTS {
@@ -4361,12 +4361,12 @@ impl core::ops::BitAnd for FILE_FLAGS_AND_ATTRIBUTES {
 }
 impl core::ops::BitOrAssign for FILE_FLAGS_AND_ATTRIBUTES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_FLAGS_AND_ATTRIBUTES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
@@ -4550,12 +4550,12 @@ impl core::ops::BitAnd for FILE_INFO_FLAGS_PERMISSIONS {
 }
 impl core::ops::BitOrAssign for FILE_INFO_FLAGS_PERMISSIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_INFO_FLAGS_PERMISSIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
@@ -4605,12 +4605,12 @@ impl core::ops::BitAnd for FILE_NOTIFY_CHANGE {
 }
 impl core::ops::BitOrAssign for FILE_NOTIFY_CHANGE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_NOTIFY_CHANGE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_NOTIFY_CHANGE {
@@ -4796,12 +4796,12 @@ impl core::ops::BitAnd for FILE_SHARE_MODE {
 }
 impl core::ops::BitOrAssign for FILE_SHARE_MODE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_SHARE_MODE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_SHARE_MODE {
@@ -4903,12 +4903,12 @@ impl core::ops::BitAnd for FILE_WRITE_FLAGS {
 }
 impl core::ops::BitOrAssign for FILE_WRITE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_WRITE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_WRITE_FLAGS {
@@ -4948,12 +4948,12 @@ impl core::ops::BitAnd for FIND_FIRST_EX_FLAGS {
 }
 impl core::ops::BitOrAssign for FIND_FIRST_EX_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FIND_FIRST_EX_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FIND_FIRST_EX_FLAGS {
@@ -5040,12 +5040,12 @@ impl core::ops::BitAnd for GET_FILE_VERSION_INFO_FLAGS {
 }
 impl core::ops::BitOrAssign for GET_FILE_VERSION_INFO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GET_FILE_VERSION_INFO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
@@ -5958,12 +5958,12 @@ impl core::ops::BitAnd for IORING_CREATE_ADVISORY_FLAGS {
 }
 impl core::ops::BitOrAssign for IORING_CREATE_ADVISORY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IORING_CREATE_ADVISORY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IORING_CREATE_ADVISORY_FLAGS {
@@ -6001,12 +6001,12 @@ impl core::ops::BitAnd for IORING_CREATE_REQUIRED_FLAGS {
 }
 impl core::ops::BitOrAssign for IORING_CREATE_REQUIRED_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IORING_CREATE_REQUIRED_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IORING_CREATE_REQUIRED_FLAGS {
@@ -6039,12 +6039,12 @@ impl core::ops::BitAnd for IORING_FEATURE_FLAGS {
 }
 impl core::ops::BitOrAssign for IORING_FEATURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IORING_FEATURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IORING_FEATURE_FLAGS {
@@ -6131,12 +6131,12 @@ impl core::ops::BitAnd for IORING_SQE_FLAGS {
 }
 impl core::ops::BitOrAssign for IORING_SQE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IORING_SQE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IORING_SQE_FLAGS {
@@ -6216,12 +6216,12 @@ impl core::ops::BitAnd for LOCK_FILE_FLAGS {
 }
 impl core::ops::BitOrAssign for LOCK_FILE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for LOCK_FILE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for LOCK_FILE_FLAGS {
@@ -6279,12 +6279,12 @@ impl core::ops::BitAnd for LZOPENFILE_STYLE {
 }
 impl core::ops::BitOrAssign for LZOPENFILE_STYLE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for LZOPENFILE_STYLE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for LZOPENFILE_STYLE {
@@ -6326,12 +6326,12 @@ impl core::ops::BitAnd for MOVE_FILE_FLAGS {
 }
 impl core::ops::BitOrAssign for MOVE_FILE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MOVE_FILE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MOVE_FILE_FLAGS {
@@ -7663,12 +7663,12 @@ impl core::ops::BitAnd for REPLACE_FILE_FLAGS {
 }
 impl core::ops::BitOrAssign for REPLACE_FILE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REPLACE_FILE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REPLACE_FILE_FLAGS {
@@ -7884,12 +7884,12 @@ impl core::ops::BitAnd for SHARE_TYPE {
 }
 impl core::ops::BitOrAssign for SHARE_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SHARE_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SHARE_TYPE {
@@ -8032,12 +8032,12 @@ impl core::ops::BitAnd for SYMBOLIC_LINK_FLAGS {
 }
 impl core::ops::BitOrAssign for SYMBOLIC_LINK_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SYMBOLIC_LINK_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SYMBOLIC_LINK_FLAGS {
@@ -8310,12 +8310,12 @@ impl core::ops::BitAnd for VER_FIND_FILE_STATUS {
 }
 impl core::ops::BitOrAssign for VER_FIND_FILE_STATUS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VER_FIND_FILE_STATUS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VER_FIND_FILE_STATUS {
@@ -8349,12 +8349,12 @@ impl core::ops::BitAnd for VER_INSTALL_FILE_STATUS {
 }
 impl core::ops::BitOrAssign for VER_INSTALL_FILE_STATUS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VER_INSTALL_FILE_STATUS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VER_INSTALL_FILE_STATUS {
@@ -8620,12 +8620,12 @@ impl core::ops::BitAnd for VS_FIXEDFILEINFO_FILE_FLAGS {
 }
 impl core::ops::BitOrAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {

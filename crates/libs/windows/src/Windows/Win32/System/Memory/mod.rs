@@ -629,12 +629,12 @@ impl core::ops::BitAnd for FILE_MAP {
 }
 impl core::ops::BitOrAssign for FILE_MAP {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FILE_MAP {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FILE_MAP {
@@ -674,12 +674,12 @@ impl core::ops::BitAnd for GLOBAL_ALLOC_FLAGS {
 }
 impl core::ops::BitOrAssign for GLOBAL_ALLOC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GLOBAL_ALLOC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GLOBAL_ALLOC_FLAGS {
@@ -720,12 +720,12 @@ impl core::ops::BitAnd for HEAP_FLAGS {
 }
 impl core::ops::BitOrAssign for HEAP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for HEAP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for HEAP_FLAGS {
@@ -788,12 +788,12 @@ impl core::ops::BitAnd for LOCAL_ALLOC_FLAGS {
 }
 impl core::ops::BitOrAssign for LOCAL_ALLOC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for LOCAL_ALLOC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for LOCAL_ALLOC_FLAGS {
@@ -1036,12 +1036,12 @@ impl core::ops::BitAnd for PAGE_PROTECTION_FLAGS {
 }
 impl core::ops::BitOrAssign for PAGE_PROTECTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PAGE_PROTECTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PAGE_PROTECTION_FLAGS {
@@ -1077,12 +1077,12 @@ impl core::ops::BitAnd for PAGE_TYPE {
 }
 impl core::ops::BitOrAssign for PAGE_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PAGE_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PAGE_TYPE {
@@ -1173,12 +1173,12 @@ impl core::ops::BitAnd for SECTION_FLAGS {
 }
 impl core::ops::BitOrAssign for SECTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SECTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SECTION_FLAGS {
@@ -1225,12 +1225,12 @@ impl core::ops::BitAnd for SETPROCESSWORKINGSETSIZEEX_FLAGS {
 }
 impl core::ops::BitOrAssign for SETPROCESSWORKINGSETSIZEEX_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SETPROCESSWORKINGSETSIZEEX_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SETPROCESSWORKINGSETSIZEEX_FLAGS {
@@ -1264,12 +1264,12 @@ impl core::ops::BitAnd for VIRTUAL_ALLOCATION_TYPE {
 }
 impl core::ops::BitOrAssign for VIRTUAL_ALLOCATION_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VIRTUAL_ALLOCATION_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VIRTUAL_ALLOCATION_TYPE {

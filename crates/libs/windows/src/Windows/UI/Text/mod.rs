@@ -119,12 +119,12 @@ impl core::ops::BitAnd for FindOptions {
 }
 impl core::ops::BitOrAssign for FindOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FindOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FindOptions {
@@ -4266,12 +4266,12 @@ impl core::ops::BitAnd for PointOptions {
 }
 impl core::ops::BitOrAssign for PointOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PointOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PointOptions {
@@ -4830,12 +4830,12 @@ impl core::ops::BitAnd for SelectionOptions {
 }
 impl core::ops::BitOrAssign for SelectionOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SelectionOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SelectionOptions {
@@ -4984,12 +4984,12 @@ impl core::ops::BitAnd for TextDecorations {
 }
 impl core::ops::BitOrAssign for TextDecorations {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TextDecorations {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TextDecorations {
@@ -5037,12 +5037,12 @@ impl core::ops::BitAnd for TextGetOptions {
 }
 impl core::ops::BitOrAssign for TextGetOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TextGetOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TextGetOptions {
@@ -5207,12 +5207,12 @@ impl core::ops::BitAnd for TextSetOptions {
 }
 impl core::ops::BitOrAssign for TextSetOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TextSetOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TextSetOptions {

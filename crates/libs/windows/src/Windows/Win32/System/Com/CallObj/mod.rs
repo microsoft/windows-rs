@@ -97,10 +97,14 @@ impl ICallFrame {
         unsafe { (windows_core::Interface::vtable(self).GetStackLocation)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetStackLocation(&self, pvstack: *const core::ffi::c_void) {
-        unsafe { (windows_core::Interface::vtable(self).SetStackLocation)(windows_core::Interface::as_raw(self), pvstack) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetStackLocation)(windows_core::Interface::as_raw(self), pvstack);
+        }
     }
     pub unsafe fn SetReturnValue(&self, hr: windows_core::HRESULT) {
-        unsafe { (windows_core::Interface::vtable(self).SetReturnValue)(windows_core::Interface::as_raw(self), hr) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetReturnValue)(windows_core::Interface::as_raw(self), hr);
+        }
     }
     pub unsafe fn GetReturnValue(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetReturnValue)(windows_core::Interface::as_raw(self)).ok() }
@@ -256,13 +260,13 @@ impl ICallFrame_Vtbl {
         unsafe extern "system" fn SetStackLocation<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvstack: *const core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICallFrame_Impl::SetStackLocation(this, core::mem::transmute_copy(&pvstack))
+                ICallFrame_Impl::SetStackLocation(this, core::mem::transmute_copy(&pvstack));
             }
         }
         unsafe extern "system" fn SetReturnValue<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICallFrame_Impl::SetReturnValue(this, core::mem::transmute_copy(&hr))
+                ICallFrame_Impl::SetReturnValue(this, core::mem::transmute_copy(&hr));
             }
         }
         unsafe extern "system" fn GetReturnValue<Identity: ICallFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {

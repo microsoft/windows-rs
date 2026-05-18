@@ -38,12 +38,12 @@ impl core::ops::BitAnd for Direct3DBindings {
 }
 impl core::ops::BitOrAssign for Direct3DBindings {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for Direct3DBindings {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for Direct3DBindings {

@@ -35,12 +35,12 @@ impl core::ops::BitAnd for AddPackageByAppInstallerOptions {
 }
 impl core::ops::BitOrAssign for AddPackageByAppInstallerOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AddPackageByAppInstallerOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AddPackageByAppInstallerOptions {
@@ -642,12 +642,12 @@ impl core::ops::BitAnd for DeploymentOptions {
 }
 impl core::ops::BitOrAssign for DeploymentOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DeploymentOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DeploymentOptions {
@@ -2326,12 +2326,12 @@ impl core::ops::BitAnd for PackageStatus {
 }
 impl core::ops::BitOrAssign for PackageStatus {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PackageStatus {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PackageStatus {
@@ -2391,12 +2391,12 @@ impl core::ops::BitAnd for PackageTypes {
 }
 impl core::ops::BitOrAssign for PackageTypes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PackageTypes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PackageTypes {
@@ -2783,12 +2783,12 @@ impl core::ops::BitAnd for RemovalOptions {
 }
 impl core::ops::BitOrAssign for RemovalOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RemovalOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RemovalOptions {

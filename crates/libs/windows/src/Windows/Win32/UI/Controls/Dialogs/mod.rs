@@ -295,12 +295,12 @@ impl core::ops::BitAnd for CHOOSECOLOR_FLAGS {
 }
 impl core::ops::BitOrAssign for CHOOSECOLOR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CHOOSECOLOR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CHOOSECOLOR_FLAGS {
@@ -447,12 +447,12 @@ impl core::ops::BitAnd for CHOOSEFONT_FLAGS {
 }
 impl core::ops::BitOrAssign for CHOOSEFONT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CHOOSEFONT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CHOOSEFONT_FLAGS {
@@ -483,12 +483,12 @@ impl core::ops::BitAnd for CHOOSEFONT_FONT_TYPE {
 }
 impl core::ops::BitOrAssign for CHOOSEFONT_FONT_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CHOOSEFONT_FONT_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CHOOSEFONT_FONT_TYPE {
@@ -645,12 +645,12 @@ impl core::ops::BitAnd for FINDREPLACE_FLAGS {
 }
 impl core::ops::BitOrAssign for FINDREPLACE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FINDREPLACE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FINDREPLACE_FLAGS {
@@ -1238,12 +1238,12 @@ impl core::ops::BitAnd for OPEN_FILENAME_FLAGS {
 }
 impl core::ops::BitOrAssign for OPEN_FILENAME_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OPEN_FILENAME_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OPEN_FILENAME_FLAGS {
@@ -1274,12 +1274,12 @@ impl core::ops::BitAnd for OPEN_FILENAME_FLAGS_EX {
 }
 impl core::ops::BitOrAssign for OPEN_FILENAME_FLAGS_EX {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OPEN_FILENAME_FLAGS_EX {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OPEN_FILENAME_FLAGS_EX {
@@ -1386,12 +1386,12 @@ impl core::ops::BitAnd for PAGESETUPDLG_FLAGS {
 }
 impl core::ops::BitOrAssign for PAGESETUPDLG_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PAGESETUPDLG_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PAGESETUPDLG_FLAGS {
@@ -1650,12 +1650,12 @@ impl core::ops::BitAnd for PRINTDLGEX_FLAGS {
 }
 impl core::ops::BitOrAssign for PRINTDLGEX_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PRINTDLGEX_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PRINTDLGEX_FLAGS {

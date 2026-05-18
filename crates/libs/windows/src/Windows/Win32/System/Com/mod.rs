@@ -877,12 +877,12 @@ impl core::ops::BitAnd for ADVANCED_FEATURE_FLAGS {
 }
 impl core::ops::BitOrAssign for ADVANCED_FEATURE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ADVANCED_FEATURE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ADVANCED_FEATURE_FLAGS {
@@ -952,37 +952,57 @@ windows_core::imp::interface_hierarchy!(AsyncIAdviseSink, windows_core::IUnknown
 impl AsyncIAdviseSink {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
-        unsafe { (windows_core::Interface::vtable(self).Begin_OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pstgmed)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Begin_OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pstgmed));
+        }
     }
     pub unsafe fn Finish_OnDataChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Finish_OnDataChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Finish_OnDataChange)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        unsafe { (windows_core::Interface::vtable(self).Begin_OnViewChange)(windows_core::Interface::as_raw(self), dwaspect, lindex) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Begin_OnViewChange)(windows_core::Interface::as_raw(self), dwaspect, lindex);
+        }
     }
     pub unsafe fn Finish_OnViewChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Finish_OnViewChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Finish_OnViewChange)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Begin_OnRename<P0>(&self, pmk: P0)
     where
         P0: windows_core::Param<IMoniker>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Begin_OnRename)(windows_core::Interface::as_raw(self), pmk.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Begin_OnRename)(windows_core::Interface::as_raw(self), pmk.param().abi());
+        }
     }
     pub unsafe fn Finish_OnRename(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Finish_OnRename)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Finish_OnRename)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Begin_OnSave(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Begin_OnSave)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Begin_OnSave)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Finish_OnSave(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Finish_OnSave)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Finish_OnSave)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Begin_OnClose(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Begin_OnClose)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Begin_OnClose)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Finish_OnClose(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Finish_OnClose)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Finish_OnClose)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -1022,61 +1042,61 @@ impl AsyncIAdviseSink_Vtbl {
         unsafe extern "system" fn Begin_OnDataChange<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Begin_OnDataChange(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pstgmed))
+                AsyncIAdviseSink_Impl::Begin_OnDataChange(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pstgmed));
             }
         }
         unsafe extern "system" fn Finish_OnDataChange<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Finish_OnDataChange(this)
+                AsyncIAdviseSink_Impl::Finish_OnDataChange(this);
             }
         }
         unsafe extern "system" fn Begin_OnViewChange<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, lindex: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Begin_OnViewChange(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&lindex))
+                AsyncIAdviseSink_Impl::Begin_OnViewChange(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&lindex));
             }
         }
         unsafe extern "system" fn Finish_OnViewChange<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Finish_OnViewChange(this)
+                AsyncIAdviseSink_Impl::Finish_OnViewChange(this);
             }
         }
         unsafe extern "system" fn Begin_OnRename<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Begin_OnRename(this, core::mem::transmute_copy(&pmk))
+                AsyncIAdviseSink_Impl::Begin_OnRename(this, core::mem::transmute_copy(&pmk));
             }
         }
         unsafe extern "system" fn Finish_OnRename<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Finish_OnRename(this)
+                AsyncIAdviseSink_Impl::Finish_OnRename(this);
             }
         }
         unsafe extern "system" fn Begin_OnSave<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Begin_OnSave(this)
+                AsyncIAdviseSink_Impl::Begin_OnSave(this);
             }
         }
         unsafe extern "system" fn Finish_OnSave<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Finish_OnSave(this)
+                AsyncIAdviseSink_Impl::Finish_OnSave(this);
             }
         }
         unsafe extern "system" fn Begin_OnClose<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Begin_OnClose(this)
+                AsyncIAdviseSink_Impl::Begin_OnClose(this);
             }
         }
         unsafe extern "system" fn Finish_OnClose<Identity: AsyncIAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink_Impl::Finish_OnClose(this)
+                AsyncIAdviseSink_Impl::Finish_OnClose(this);
             }
         }
         Self {
@@ -1112,10 +1132,14 @@ impl AsyncIAdviseSink2 {
     where
         P0: windows_core::Param<IMoniker>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Begin_OnLinkSrcChange)(windows_core::Interface::as_raw(self), pmk.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Begin_OnLinkSrcChange)(windows_core::Interface::as_raw(self), pmk.param().abi());
+        }
     }
     pub unsafe fn Finish_OnLinkSrcChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Finish_OnLinkSrcChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Finish_OnLinkSrcChange)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -1136,13 +1160,13 @@ impl AsyncIAdviseSink2_Vtbl {
         unsafe extern "system" fn Begin_OnLinkSrcChange<Identity: AsyncIAdviseSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink2_Impl::Begin_OnLinkSrcChange(this, core::mem::transmute_copy(&pmk))
+                AsyncIAdviseSink2_Impl::Begin_OnLinkSrcChange(this, core::mem::transmute_copy(&pmk));
             }
         }
         unsafe extern "system" fn Finish_OnLinkSrcChange<Identity: AsyncIAdviseSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                AsyncIAdviseSink2_Impl::Finish_OnLinkSrcChange(this)
+                AsyncIAdviseSink2_Impl::Finish_OnLinkSrcChange(this);
             }
         }
         Self {
@@ -1683,12 +1707,12 @@ impl core::ops::BitAnd for CLSCTX {
 }
 impl core::ops::BitOrAssign for CLSCTX {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CLSCTX {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CLSCTX {
@@ -1784,12 +1808,12 @@ impl core::ops::BitAnd for COINIT {
 }
 impl core::ops::BitOrAssign for COINIT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COINIT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COINIT {
@@ -1897,12 +1921,12 @@ impl core::ops::BitAnd for COWAIT_FLAGS {
 }
 impl core::ops::BitOrAssign for COWAIT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COWAIT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COWAIT_FLAGS {
@@ -2047,12 +2071,12 @@ impl core::ops::BitAnd for CWMO_FLAGS {
 }
 impl core::ops::BitOrAssign for CWMO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CWMO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CWMO_FLAGS {
@@ -2146,12 +2170,12 @@ impl core::ops::BitAnd for DISPATCH_FLAGS {
 }
 impl core::ops::BitOrAssign for DISPATCH_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DISPATCH_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DISPATCH_FLAGS {
@@ -2605,22 +2629,32 @@ windows_core::imp::interface_hierarchy!(IAdviseSink, windows_core::IUnknown);
 impl IAdviseSink {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
-        unsafe { (windows_core::Interface::vtable(self).OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pstgmed)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pstgmed));
+        }
     }
     pub unsafe fn OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        unsafe { (windows_core::Interface::vtable(self).OnViewChange)(windows_core::Interface::as_raw(self), dwaspect, lindex) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnViewChange)(windows_core::Interface::as_raw(self), dwaspect, lindex);
+        }
     }
     pub unsafe fn OnRename<P0>(&self, pmk: P0)
     where
         P0: windows_core::Param<IMoniker>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRename)(windows_core::Interface::as_raw(self), pmk.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnRename)(windows_core::Interface::as_raw(self), pmk.param().abi());
+        }
     }
     pub unsafe fn OnSave(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnSave)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnSave)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnClose(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnClose)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnClose)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -2650,31 +2684,31 @@ impl IAdviseSink_Vtbl {
         unsafe extern "system" fn OnDataChange<Identity: IAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAdviseSink_Impl::OnDataChange(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pstgmed))
+                IAdviseSink_Impl::OnDataChange(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&pstgmed));
             }
         }
         unsafe extern "system" fn OnViewChange<Identity: IAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, lindex: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAdviseSink_Impl::OnViewChange(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&lindex))
+                IAdviseSink_Impl::OnViewChange(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&lindex));
             }
         }
         unsafe extern "system" fn OnRename<Identity: IAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAdviseSink_Impl::OnRename(this, core::mem::transmute_copy(&pmk))
+                IAdviseSink_Impl::OnRename(this, core::mem::transmute_copy(&pmk));
             }
         }
         unsafe extern "system" fn OnSave<Identity: IAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAdviseSink_Impl::OnSave(this)
+                IAdviseSink_Impl::OnSave(this);
             }
         }
         unsafe extern "system" fn OnClose<Identity: IAdviseSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAdviseSink_Impl::OnClose(this)
+                IAdviseSink_Impl::OnClose(this);
             }
         }
         Self {
@@ -2705,7 +2739,9 @@ impl IAdviseSink2 {
     where
         P0: windows_core::Param<IMoniker>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnLinkSrcChange)(windows_core::Interface::as_raw(self), pmk.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnLinkSrcChange)(windows_core::Interface::as_raw(self), pmk.param().abi());
+        }
     }
 }
 #[repr(C)]
@@ -2724,7 +2760,7 @@ impl IAdviseSink2_Vtbl {
         unsafe extern "system" fn OnLinkSrcChange<Identity: IAdviseSink2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmk: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAdviseSink2_Impl::OnLinkSrcChange(this, core::mem::transmute_copy(&pmk))
+                IAdviseSink2_Impl::OnLinkSrcChange(this, core::mem::transmute_copy(&pmk));
             }
         }
         Self { base__: IAdviseSink_Vtbl::new::<Identity, OFFSET>(), OnLinkSrcChange: OnLinkSrcChange::<Identity, OFFSET> }
@@ -3879,13 +3915,19 @@ impl IChannelHook {
         }
     }
     pub unsafe fn ClientFillBuffer(&self, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, pdatasize: *mut u32, pdatabuffer: *const core::ffi::c_void) {
-        unsafe { (windows_core::Interface::vtable(self).ClientFillBuffer)(windows_core::Interface::as_raw(self), uextent, riid, pdatasize as _, pdatabuffer) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClientFillBuffer)(windows_core::Interface::as_raw(self), uextent, riid, pdatasize as _, pdatabuffer);
+        }
     }
     pub unsafe fn ClientNotify(&self, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, cbdatasize: u32, pdatabuffer: *const core::ffi::c_void, ldatarep: u32, hrfault: windows_core::HRESULT) {
-        unsafe { (windows_core::Interface::vtable(self).ClientNotify)(windows_core::Interface::as_raw(self), uextent, riid, cbdatasize, pdatabuffer, ldatarep, hrfault) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClientNotify)(windows_core::Interface::as_raw(self), uextent, riid, cbdatasize, pdatabuffer, ldatarep, hrfault);
+        }
     }
     pub unsafe fn ServerNotify(&self, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, cbdatasize: u32, pdatabuffer: *const core::ffi::c_void, ldatarep: u32) {
-        unsafe { (windows_core::Interface::vtable(self).ServerNotify)(windows_core::Interface::as_raw(self), uextent, riid, cbdatasize, pdatabuffer, ldatarep) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ServerNotify)(windows_core::Interface::as_raw(self), uextent, riid, cbdatasize, pdatabuffer, ldatarep);
+        }
     }
     pub unsafe fn ServerGetSize(&self, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, hrfault: windows_core::HRESULT) -> u32 {
         unsafe {
@@ -3895,7 +3937,9 @@ impl IChannelHook {
         }
     }
     pub unsafe fn ServerFillBuffer(&self, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, pdatasize: *mut u32, pdatabuffer: *const core::ffi::c_void, hrfault: windows_core::HRESULT) {
-        unsafe { (windows_core::Interface::vtable(self).ServerFillBuffer)(windows_core::Interface::as_raw(self), uextent, riid, pdatasize as _, pdatabuffer, hrfault) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ServerFillBuffer)(windows_core::Interface::as_raw(self), uextent, riid, pdatasize as _, pdatabuffer, hrfault);
+        }
     }
 }
 #[repr(C)]
@@ -3922,37 +3966,37 @@ impl IChannelHook_Vtbl {
         unsafe extern "system" fn ClientGetSize<Identity: IChannelHook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, pdatasize: *mut u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelHook_Impl::ClientGetSize(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdatasize))
+                IChannelHook_Impl::ClientGetSize(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdatasize));
             }
         }
         unsafe extern "system" fn ClientFillBuffer<Identity: IChannelHook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, pdatasize: *mut u32, pdatabuffer: *const core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelHook_Impl::ClientFillBuffer(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdatabuffer))
+                IChannelHook_Impl::ClientFillBuffer(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdatabuffer));
             }
         }
         unsafe extern "system" fn ClientNotify<Identity: IChannelHook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, cbdatasize: u32, pdatabuffer: *const core::ffi::c_void, ldatarep: u32, hrfault: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelHook_Impl::ClientNotify(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cbdatasize), core::mem::transmute_copy(&pdatabuffer), core::mem::transmute_copy(&ldatarep), core::mem::transmute_copy(&hrfault))
+                IChannelHook_Impl::ClientNotify(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cbdatasize), core::mem::transmute_copy(&pdatabuffer), core::mem::transmute_copy(&ldatarep), core::mem::transmute_copy(&hrfault));
             }
         }
         unsafe extern "system" fn ServerNotify<Identity: IChannelHook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, cbdatasize: u32, pdatabuffer: *const core::ffi::c_void, ldatarep: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelHook_Impl::ServerNotify(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cbdatasize), core::mem::transmute_copy(&pdatabuffer), core::mem::transmute_copy(&ldatarep))
+                IChannelHook_Impl::ServerNotify(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&cbdatasize), core::mem::transmute_copy(&pdatabuffer), core::mem::transmute_copy(&ldatarep));
             }
         }
         unsafe extern "system" fn ServerGetSize<Identity: IChannelHook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, hrfault: windows_core::HRESULT, pdatasize: *mut u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelHook_Impl::ServerGetSize(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&hrfault), core::mem::transmute_copy(&pdatasize))
+                IChannelHook_Impl::ServerGetSize(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&hrfault), core::mem::transmute_copy(&pdatasize));
             }
         }
         unsafe extern "system" fn ServerFillBuffer<Identity: IChannelHook_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uextent: *const windows_core::GUID, riid: *const windows_core::GUID, pdatasize: *mut u32, pdatabuffer: *const core::ffi::c_void, hrfault: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IChannelHook_Impl::ServerFillBuffer(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdatabuffer), core::mem::transmute_copy(&hrfault))
+                IChannelHook_Impl::ServerFillBuffer(this, core::mem::transmute_copy(&uextent), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdatabuffer), core::mem::transmute_copy(&hrfault));
             }
         }
         Self {
@@ -4559,12 +4603,12 @@ impl core::ops::BitAnd for IDLFLAGS {
 }
 impl core::ops::BitOrAssign for IDLFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IDLFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IDLFLAGS {
@@ -6262,12 +6306,12 @@ impl core::ops::BitAnd for IMPLTYPEFLAGS {
 }
 impl core::ops::BitOrAssign for IMPLTYPEFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for IMPLTYPEFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for IMPLTYPEFLAGS {
@@ -6366,7 +6410,9 @@ impl IMalloc {
         unsafe { (windows_core::Interface::vtable(self).Realloc)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _, cb) }
     }
     pub unsafe fn Free(&self, pv: Option<*const core::ffi::c_void>) {
-        unsafe { (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     pub unsafe fn GetSize(&self, pv: Option<*const core::ffi::c_void>) -> usize {
         unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _) }
@@ -6375,7 +6421,9 @@ impl IMalloc {
         unsafe { (windows_core::Interface::vtable(self).DidAlloc)(windows_core::Interface::as_raw(self), pv.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn HeapMinimize(&self) {
-        unsafe { (windows_core::Interface::vtable(self).HeapMinimize)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).HeapMinimize)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -6414,7 +6462,7 @@ impl IMalloc_Vtbl {
         unsafe extern "system" fn Free<Identity: IMalloc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *const core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMalloc_Impl::Free(this, core::mem::transmute_copy(&pv))
+                IMalloc_Impl::Free(this, core::mem::transmute_copy(&pv));
             }
         }
         unsafe extern "system" fn GetSize<Identity: IMalloc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *const core::ffi::c_void) -> usize {
@@ -6432,7 +6480,7 @@ impl IMalloc_Vtbl {
         unsafe extern "system" fn HeapMinimize<Identity: IMalloc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMalloc_Impl::HeapMinimize(this)
+                IMalloc_Impl::HeapMinimize(this);
             }
         }
         Self {
@@ -6463,7 +6511,9 @@ impl IMallocSpy {
         unsafe { (windows_core::Interface::vtable(self).PreFree)(windows_core::Interface::as_raw(self), prequest, fspyed.into()) }
     }
     pub unsafe fn PostFree(&self, fspyed: bool) {
-        unsafe { (windows_core::Interface::vtable(self).PostFree)(windows_core::Interface::as_raw(self), fspyed.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PostFree)(windows_core::Interface::as_raw(self), fspyed.into());
+        }
     }
     pub unsafe fn PreRealloc(&self, prequest: *const core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut core::ffi::c_void, fspyed: bool) -> usize {
         unsafe { (windows_core::Interface::vtable(self).PreRealloc)(windows_core::Interface::as_raw(self), prequest, cbrequest, ppnewrequest as _, fspyed.into()) }
@@ -6484,10 +6534,14 @@ impl IMallocSpy {
         unsafe { (windows_core::Interface::vtable(self).PostDidAlloc)(windows_core::Interface::as_raw(self), prequest, fspyed.into(), factual) }
     }
     pub unsafe fn PreHeapMinimize(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PreHeapMinimize)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PreHeapMinimize)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn PostHeapMinimize(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PostHeapMinimize)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PostHeapMinimize)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -6544,7 +6598,7 @@ impl IMallocSpy_Vtbl {
         unsafe extern "system" fn PostFree<Identity: IMallocSpy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fspyed: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMallocSpy_Impl::PostFree(this, core::mem::transmute_copy(&fspyed))
+                IMallocSpy_Impl::PostFree(this, core::mem::transmute_copy(&fspyed));
             }
         }
         unsafe extern "system" fn PreRealloc<Identity: IMallocSpy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prequest: *const core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut core::ffi::c_void, fspyed: windows_core::BOOL) -> usize {
@@ -6586,13 +6640,13 @@ impl IMallocSpy_Vtbl {
         unsafe extern "system" fn PreHeapMinimize<Identity: IMallocSpy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMallocSpy_Impl::PreHeapMinimize(this)
+                IMallocSpy_Impl::PreHeapMinimize(this);
             }
         }
         unsafe extern "system" fn PostHeapMinimize<Identity: IMallocSpy_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMallocSpy_Impl::PostHeapMinimize(this)
+                IMallocSpy_Impl::PostHeapMinimize(this);
             }
         }
         Self {
@@ -8288,7 +8342,9 @@ impl IRpcProxyBuffer {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), prpcchannelbuffer.param().abi()).ok() }
     }
     pub unsafe fn Disconnect(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -8313,7 +8369,7 @@ impl IRpcProxyBuffer_Vtbl {
         unsafe extern "system" fn Disconnect<Identity: IRpcProxyBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRpcProxyBuffer_Impl::Disconnect(this)
+                IRpcProxyBuffer_Impl::Disconnect(this);
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Connect: Connect::<Identity, OFFSET>, Disconnect: Disconnect::<Identity, OFFSET> }
@@ -8333,7 +8389,9 @@ impl IRpcStubBuffer {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), punkserver.param().abi()).ok() }
     }
     pub unsafe fn Disconnect(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Invoke<P1>(&self, _prpcmsg: *mut RPCOLEMESSAGE, _prpcchannelbuffer: P1) -> windows_core::Result<()>
     where
@@ -8351,7 +8409,9 @@ impl IRpcStubBuffer {
         unsafe { (windows_core::Interface::vtable(self).DebugServerQueryInterface)(windows_core::Interface::as_raw(self), ppv as _).ok() }
     }
     pub unsafe fn DebugServerRelease(&self, pv: *const core::ffi::c_void) {
-        unsafe { (windows_core::Interface::vtable(self).DebugServerRelease)(windows_core::Interface::as_raw(self), pv) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DebugServerRelease)(windows_core::Interface::as_raw(self), pv);
+        }
     }
 }
 #[repr(C)]
@@ -8386,7 +8446,7 @@ impl IRpcStubBuffer_Vtbl {
         unsafe extern "system" fn Disconnect<Identity: IRpcStubBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRpcStubBuffer_Impl::Disconnect(this)
+                IRpcStubBuffer_Impl::Disconnect(this);
             }
         }
         unsafe extern "system" fn Invoke<Identity: IRpcStubBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _prpcmsg: *mut RPCOLEMESSAGE, _prpcchannelbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8416,7 +8476,7 @@ impl IRpcStubBuffer_Vtbl {
         unsafe extern "system" fn DebugServerRelease<Identity: IRpcStubBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pv: *const core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRpcStubBuffer_Impl::DebugServerRelease(this, core::mem::transmute_copy(&pv))
+                IRpcStubBuffer_Impl::DebugServerRelease(this, core::mem::transmute_copy(&pv));
             }
         }
         Self {
@@ -9759,15 +9819,21 @@ impl ITypeInfo {
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseTypeAttr)(windows_core::Interface::as_raw(self), ptypeattr) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseTypeAttr)(windows_core::Interface::as_raw(self), ptypeattr);
+        }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseFuncDesc)(windows_core::Interface::as_raw(self), pfuncdesc) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseFuncDesc)(windows_core::Interface::as_raw(self), pfuncdesc);
+        }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseVarDesc)(windows_core::Interface::as_raw(self), pvardesc) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseVarDesc)(windows_core::Interface::as_raw(self), pvardesc);
+        }
     }
 }
 #[repr(C)]
@@ -9987,19 +10053,19 @@ impl ITypeInfo_Vtbl {
         unsafe extern "system" fn ReleaseTypeAttr<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptypeattr: *const TYPEATTR) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::ReleaseTypeAttr(this, core::mem::transmute_copy(&ptypeattr))
+                ITypeInfo_Impl::ReleaseTypeAttr(this, core::mem::transmute_copy(&ptypeattr));
             }
         }
         unsafe extern "system" fn ReleaseFuncDesc<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuncdesc: *const FUNCDESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::ReleaseFuncDesc(this, core::mem::transmute_copy(&pfuncdesc))
+                ITypeInfo_Impl::ReleaseFuncDesc(this, core::mem::transmute_copy(&pfuncdesc));
             }
         }
         unsafe extern "system" fn ReleaseVarDesc<Identity: ITypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvardesc: *const VARDESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeInfo_Impl::ReleaseVarDesc(this, core::mem::transmute_copy(&pvardesc))
+                ITypeInfo_Impl::ReleaseVarDesc(this, core::mem::transmute_copy(&pvardesc));
             }
         }
         Self {
@@ -10454,7 +10520,9 @@ impl ITypeLib {
         unsafe { (windows_core::Interface::vtable(self).FindName)(windows_core::Interface::as_raw(self), core::mem::transmute(sznamebuf), lhashval, core::mem::transmute(pptinfo), rgmemid as _, pcfound as _).ok() }
     }
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseTLibAttr)(windows_core::Interface::as_raw(self), ptlibattr) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseTLibAttr)(windows_core::Interface::as_raw(self), ptlibattr);
+        }
     }
 }
 #[repr(C)]
@@ -10573,7 +10641,7 @@ impl ITypeLib_Vtbl {
         unsafe extern "system" fn ReleaseTLibAttr<Identity: ITypeLib_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptlibattr: *const TLIBATTR) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ITypeLib_Impl::ReleaseTLibAttr(this, core::mem::transmute_copy(&ptlibattr))
+                ITypeLib_Impl::ReleaseTLibAttr(this, core::mem::transmute_copy(&ptlibattr));
             }
         }
         Self {
@@ -12044,12 +12112,12 @@ impl core::ops::BitAnd for REGCLS {
 }
 impl core::ops::BitOrAssign for REGCLS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REGCLS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REGCLS {
@@ -12089,12 +12157,12 @@ impl core::ops::BitAnd for ROT_FLAGS {
 }
 impl core::ops::BitOrAssign for ROT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ROT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ROT_FLAGS {
@@ -12289,12 +12357,12 @@ impl core::ops::BitAnd for STGC {
 }
 impl core::ops::BitOrAssign for STGC {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for STGC {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for STGC {
@@ -12330,12 +12398,12 @@ impl core::ops::BitAnd for STGM {
 }
 impl core::ops::BitOrAssign for STGM {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for STGM {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for STGM {
@@ -12566,12 +12634,12 @@ impl core::ops::BitAnd for URI_CREATE_FLAGS {
 }
 impl core::ops::BitOrAssign for URI_CREATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for URI_CREATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for URI_CREATE_FLAGS {

@@ -122,12 +122,12 @@ impl core::ops::BitAnd for XINPUT_CAPABILITIES_FLAGS {
 }
 impl core::ops::BitOrAssign for XINPUT_CAPABILITIES_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for XINPUT_CAPABILITIES_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for XINPUT_CAPABILITIES_FLAGS {
@@ -184,12 +184,12 @@ impl core::ops::BitAnd for XINPUT_FLAG {
 }
 impl core::ops::BitOrAssign for XINPUT_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for XINPUT_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for XINPUT_FLAG {
@@ -236,12 +236,12 @@ impl core::ops::BitAnd for XINPUT_GAMEPAD_BUTTON_FLAGS {
 }
 impl core::ops::BitOrAssign for XINPUT_GAMEPAD_BUTTON_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for XINPUT_GAMEPAD_BUTTON_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for XINPUT_GAMEPAD_BUTTON_FLAGS {
@@ -295,12 +295,12 @@ impl core::ops::BitAnd for XINPUT_KEYSTROKE_FLAGS {
 }
 impl core::ops::BitOrAssign for XINPUT_KEYSTROKE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for XINPUT_KEYSTROKE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for XINPUT_KEYSTROKE_FLAGS {

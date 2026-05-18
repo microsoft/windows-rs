@@ -53,7 +53,9 @@ impl IAudioEndpointLastBufferControl {
     }
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub unsafe fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseOutputDataPointerForLastBuffer)(windows_core::Interface::as_raw(self), pconnectionproperty) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseOutputDataPointerForLastBuffer)(windows_core::Interface::as_raw(self), pconnectionproperty);
+        }
     }
 }
 #[repr(C)]
@@ -83,7 +85,7 @@ impl IAudioEndpointLastBufferControl_Vtbl {
         unsafe extern "system" fn ReleaseOutputDataPointerForLastBuffer<Identity: IAudioEndpointLastBufferControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioEndpointLastBufferControl_Impl::ReleaseOutputDataPointerForLastBuffer(this, core::mem::transmute_copy(&pconnectionproperty))
+                IAudioEndpointLastBufferControl_Impl::ReleaseOutputDataPointerForLastBuffer(this, core::mem::transmute_copy(&pconnectionproperty));
             }
         }
         Self {

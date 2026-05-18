@@ -992,7 +992,7 @@ impl Dependencies for Type {
         } {
             multi.for_each(|multi| {
                 if ty != multi {
-                    multi.combine(dependencies, reader)
+                    multi.combine(dependencies, reader);
                 }
             });
         }
@@ -1034,7 +1034,7 @@ pub fn interface_signature(def: TypeDef, generics: &[Type], reader: &Reader) -> 
 
         for generic in generics {
             signature.push(';');
-            signature.push_str(&generic.runtime_signature(reader))
+            signature.push_str(&generic.runtime_signature(reader));
         }
 
         signature.push(')');

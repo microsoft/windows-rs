@@ -154,12 +154,12 @@ impl core::ops::BitAnd for NAMED_PIPE_MODE {
 }
 impl core::ops::BitOrAssign for NAMED_PIPE_MODE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NAMED_PIPE_MODE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NAMED_PIPE_MODE {

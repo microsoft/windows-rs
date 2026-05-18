@@ -329,7 +329,7 @@ fn construct_with_into() {
     // Test that we can construct using ComObject::from().
     fn consume(_: ComObject<MyApp>) {}
 
-    consume(MyApp::default().into())
+    consume(MyApp::default().into());
 }
 
 #[test]

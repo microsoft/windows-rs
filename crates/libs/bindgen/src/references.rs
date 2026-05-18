@@ -25,7 +25,7 @@ impl ReferenceStage {
     #[track_caller]
     pub fn parse(mut arg: &str) -> Self {
         if arg == "windows" {
-            arg = "windows,skip-root,Windows"
+            arg = "windows,skip-root,Windows";
         }
 
         let arg: Vec<_> = arg.split(',').collect();

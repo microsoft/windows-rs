@@ -3691,7 +3691,9 @@ impl IDirect3DBaseTexture9 {
         unsafe { (windows_core::Interface::vtable(self).GetAutoGenFilterType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
-        unsafe { (windows_core::Interface::vtable(self).GenerateMipSubLevels)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GenerateMipSubLevels)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -3748,7 +3750,7 @@ impl IDirect3DBaseTexture9_Vtbl {
         unsafe extern "system" fn GenerateMipSubLevels<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DBaseTexture9_Impl::GenerateMipSubLevels(this)
+                IDirect3DBaseTexture9_Impl::GenerateMipSubLevels(this);
             }
         }
         Self {
@@ -3897,7 +3899,9 @@ impl IDirect3DDevice9 {
         unsafe { (windows_core::Interface::vtable(self).SetCursorProperties)(windows_core::Interface::as_raw(self), xhotspot, yhotspot, pcursorbitmap.param().abi()).ok() }
     }
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
-        unsafe { (windows_core::Interface::vtable(self).SetCursorPosition)(windows_core::Interface::as_raw(self), x, y, flags) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetCursorPosition)(windows_core::Interface::as_raw(self), x, y, flags);
+        }
     }
     pub unsafe fn ShowCursor(&self, bshow: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).ShowCursor)(windows_core::Interface::as_raw(self), bshow.into()) }
@@ -3934,10 +3938,14 @@ impl IDirect3DDevice9 {
         unsafe { (windows_core::Interface::vtable(self).SetDialogBoxMode)(windows_core::Interface::as_raw(self), benabledialogs.into()).ok() }
     }
     pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
-        unsafe { (windows_core::Interface::vtable(self).SetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, flags, pramp) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, flags, pramp);
+        }
     }
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
-        unsafe { (windows_core::Interface::vtable(self).GetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, pramp as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, pramp as _);
+        }
     }
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CreateTexture)(windows_core::Interface::as_raw(self), width, height, levels, usage, format, pool, core::mem::transmute(pptexture), psharedhandle as _).ok() }
@@ -4636,7 +4644,7 @@ impl IDirect3DDevice9_Vtbl {
         unsafe extern "system" fn SetCursorPosition<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, flags: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDevice9_Impl::SetCursorPosition(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&flags))
+                IDirect3DDevice9_Impl::SetCursorPosition(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&flags));
             }
         }
         unsafe extern "system" fn ShowCursor<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bshow: windows_core::BOOL) -> windows_core::BOOL {
@@ -4708,13 +4716,13 @@ impl IDirect3DDevice9_Vtbl {
         unsafe extern "system" fn SetGammaRamp<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDevice9_Impl::SetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pramp))
+                IDirect3DDevice9_Impl::SetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pramp));
             }
         }
         unsafe extern "system" fn GetGammaRamp<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DDevice9_Impl::GetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pramp))
+                IDirect3DDevice9_Impl::GetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pramp));
             }
         }
         unsafe extern "system" fn CreateTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT {
@@ -5953,7 +5961,9 @@ impl IDirect3DResource9 {
         unsafe { (windows_core::Interface::vtable(self).GetPriority)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn PreLoad(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
@@ -6029,7 +6039,7 @@ impl IDirect3DResource9_Vtbl {
         unsafe extern "system" fn PreLoad<Identity: IDirect3DResource9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirect3DResource9_Impl::PreLoad(this)
+                IDirect3DResource9_Impl::PreLoad(this);
             }
         }
         unsafe extern "system" fn GetType<Identity: IDirect3DResource9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {

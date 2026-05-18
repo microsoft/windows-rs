@@ -1129,7 +1129,9 @@ impl ISimilarityTraitsMappedView {
         }
     }
     pub unsafe fn GetView(&self, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8) {
-        unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), mappedpagebegin as _, mappedpageend as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), mappedpagebegin as _, mappedpageend as _);
+        }
     }
 }
 #[repr(C)]
@@ -1176,7 +1178,7 @@ impl ISimilarityTraitsMappedView_Vtbl {
         unsafe extern "system" fn GetView<Identity: ISimilarityTraitsMappedView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISimilarityTraitsMappedView_Impl::GetView(this, core::mem::transmute_copy(&mappedpagebegin), core::mem::transmute_copy(&mappedpageend))
+                ISimilarityTraitsMappedView_Impl::GetView(this, core::mem::transmute_copy(&mappedpagebegin), core::mem::transmute_copy(&mappedpageend));
             }
         }
         Self {
@@ -1196,7 +1198,9 @@ windows_core::imp::define_interface!(ISimilarityTraitsMapping, ISimilarityTraits
 windows_core::imp::interface_hierarchy!(ISimilarityTraitsMapping, windows_core::IUnknown);
 impl ISimilarityTraitsMapping {
     pub unsafe fn CloseMapping(&self) {
-        unsafe { (windows_core::Interface::vtable(self).CloseMapping)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CloseMapping)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn SetFileSize(&self, filesize: u64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFileSize)(windows_core::Interface::as_raw(self), filesize).ok() }
@@ -1259,7 +1263,7 @@ impl ISimilarityTraitsMapping_Vtbl {
         unsafe extern "system" fn CloseMapping<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISimilarityTraitsMapping_Impl::CloseMapping(this)
+                ISimilarityTraitsMapping_Impl::CloseMapping(this);
             }
         }
         unsafe extern "system" fn SetFileSize<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filesize: u64) -> windows_core::HRESULT {
@@ -1307,7 +1311,7 @@ impl ISimilarityTraitsMapping_Vtbl {
         unsafe extern "system" fn GetPageSize<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pagesize: *mut u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ISimilarityTraitsMapping_Impl::GetPageSize(this, core::mem::transmute_copy(&pagesize))
+                ISimilarityTraitsMapping_Impl::GetPageSize(this, core::mem::transmute_copy(&pagesize));
             }
         }
         unsafe extern "system" fn CreateView<Identity: ISimilarityTraitsMapping_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minimummappedpages: u32, accessmode: RdcMappingAccessMode, mappedview: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

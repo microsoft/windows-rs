@@ -202,12 +202,12 @@ impl core::ops::BitAnd for CROSS_SLIDE_FLAGS {
 }
 impl core::ops::BitOrAssign for CROSS_SLIDE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CROSS_SLIDE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CROSS_SLIDE_FLAGS {
@@ -318,12 +318,12 @@ impl core::ops::BitAnd for INTERACTION_CONFIGURATION_FLAGS {
 }
 impl core::ops::BitOrAssign for INTERACTION_CONFIGURATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for INTERACTION_CONFIGURATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for INTERACTION_CONFIGURATION_FLAGS {
@@ -463,12 +463,12 @@ impl core::ops::BitAnd for INTERACTION_FLAGS {
 }
 impl core::ops::BitOrAssign for INTERACTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for INTERACTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for INTERACTION_FLAGS {

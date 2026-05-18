@@ -7006,159 +7006,249 @@ windows_core::imp::define_interface!(IWMPEvents, IWMPEvents_Vtbl, 0x19a6627b_da9
 windows_core::imp::interface_hierarchy!(IWMPEvents, windows_core::IUnknown);
 impl IWMPEvents {
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        unsafe { (windows_core::Interface::vtable(self).OpenStateChange)(windows_core::Interface::as_raw(self), newstate) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OpenStateChange)(windows_core::Interface::as_raw(self), newstate);
+        }
     }
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        unsafe { (windows_core::Interface::vtable(self).PlayStateChange)(windows_core::Interface::as_raw(self), newstate) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlayStateChange)(windows_core::Interface::as_raw(self), newstate);
+        }
     }
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        unsafe { (windows_core::Interface::vtable(self).AudioLanguageChange)(windows_core::Interface::as_raw(self), langid) }
+        unsafe {
+            (windows_core::Interface::vtable(self).AudioLanguageChange)(windows_core::Interface::as_raw(self), langid);
+        }
     }
     pub unsafe fn StatusChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).StatusChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).StatusChange)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn ScriptCommand(&self, sctype: &windows_core::BSTR, param: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).ScriptCommand)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sctype), core::mem::transmute_copy(param)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ScriptCommand)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sctype), core::mem::transmute_copy(param));
+        }
     }
     pub unsafe fn NewStream(&self) {
-        unsafe { (windows_core::Interface::vtable(self).NewStream)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).NewStream)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Disconnect(&self, result: i32) {
-        unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), result) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self), result);
+        }
     }
     pub unsafe fn Buffering(&self, start: super::super::Foundation::VARIANT_BOOL) {
-        unsafe { (windows_core::Interface::vtable(self).Buffering)(windows_core::Interface::as_raw(self), start) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Buffering)(windows_core::Interface::as_raw(self), start);
+        }
     }
     pub unsafe fn Error(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Warning(&self, warningtype: i32, param: i32, description: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).Warning)(windows_core::Interface::as_raw(self), warningtype, param, core::mem::transmute_copy(description)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Warning)(windows_core::Interface::as_raw(self), warningtype, param, core::mem::transmute_copy(description));
+        }
     }
     pub unsafe fn EndOfStream(&self, result: i32) {
-        unsafe { (windows_core::Interface::vtable(self).EndOfStream)(windows_core::Interface::as_raw(self), result) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndOfStream)(windows_core::Interface::as_raw(self), result);
+        }
     }
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        unsafe { (windows_core::Interface::vtable(self).PositionChange)(windows_core::Interface::as_raw(self), oldposition, newposition) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PositionChange)(windows_core::Interface::as_raw(self), oldposition, newposition);
+        }
     }
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        unsafe { (windows_core::Interface::vtable(self).MarkerHit)(windows_core::Interface::as_raw(self), markernum) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MarkerHit)(windows_core::Interface::as_raw(self), markernum);
+        }
     }
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        unsafe { (windows_core::Interface::vtable(self).DurationUnitChange)(windows_core::Interface::as_raw(self), newdurationunit) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DurationUnitChange)(windows_core::Interface::as_raw(self), newdurationunit);
+        }
     }
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        unsafe { (windows_core::Interface::vtable(self).CdromMediaChange)(windows_core::Interface::as_raw(self), cdromnum) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CdromMediaChange)(windows_core::Interface::as_raw(self), cdromnum);
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<P0>(&self, playlist: P0, change: WMPPlaylistChangeEventType)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PlaylistChange)(windows_core::Interface::as_raw(self), playlist.param().abi(), change) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlaylistChange)(windows_core::Interface::as_raw(self), playlist.param().abi(), change);
+        }
     }
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        unsafe { (windows_core::Interface::vtable(self).CurrentPlaylistChange)(windows_core::Interface::as_raw(self), change) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CurrentPlaylistChange)(windows_core::Interface::as_raw(self), change);
+        }
     }
     pub unsafe fn CurrentPlaylistItemAvailable(&self, bstritemname: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).CurrentPlaylistItemAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CurrentPlaylistItemAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname));
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<P0>(&self, item: P0)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MediaChange)(windows_core::Interface::as_raw(self), item.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaChange)(windows_core::Interface::as_raw(self), item.param().abi());
+        }
     }
     pub unsafe fn CurrentMediaItemAvailable(&self, bstritemname: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).CurrentMediaItemAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CurrentMediaItemAvailable)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstritemname));
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<P0>(&self, pdispmedia: P0)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CurrentItemChange)(windows_core::Interface::as_raw(self), pdispmedia.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CurrentItemChange)(windows_core::Interface::as_raw(self), pdispmedia.param().abi());
+        }
     }
     pub unsafe fn MediaCollectionChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).MediaCollectionChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaCollectionChange)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn MediaCollectionAttributeStringAdded(&self, bstrattribname: &windows_core::BSTR, bstrattribval: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).MediaCollectionAttributeStringAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribname), core::mem::transmute_copy(bstrattribval)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaCollectionAttributeStringAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribname), core::mem::transmute_copy(bstrattribval));
+        }
     }
     pub unsafe fn MediaCollectionAttributeStringRemoved(&self, bstrattribname: &windows_core::BSTR, bstrattribval: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).MediaCollectionAttributeStringRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribname), core::mem::transmute_copy(bstrattribval)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaCollectionAttributeStringRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribname), core::mem::transmute_copy(bstrattribval));
+        }
     }
     pub unsafe fn MediaCollectionAttributeStringChanged(&self, bstrattribname: &windows_core::BSTR, bstroldattribval: &windows_core::BSTR, bstrnewattribval: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).MediaCollectionAttributeStringChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribname), core::mem::transmute_copy(bstroldattribval), core::mem::transmute_copy(bstrnewattribval)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaCollectionAttributeStringChanged)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrattribname), core::mem::transmute_copy(bstroldattribval), core::mem::transmute_copy(bstrnewattribval));
+        }
     }
     pub unsafe fn PlaylistCollectionChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PlaylistCollectionChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlaylistCollectionChange)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn PlaylistCollectionPlaylistAdded(&self, bstrplaylistname: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistAdded)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname));
+        }
     }
     pub unsafe fn PlaylistCollectionPlaylistRemoved(&self, bstrplaylistname: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistRemoved)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname));
+        }
     }
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted(&self, bstrplaylistname: &windows_core::BSTR, varfisdeleted: super::super::Foundation::VARIANT_BOOL) {
-        unsafe { (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistSetAsDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname), varfisdeleted) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlaylistCollectionPlaylistSetAsDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrplaylistname), varfisdeleted);
+        }
     }
     pub unsafe fn ModeChange(&self, modename: &windows_core::BSTR, newvalue: super::super::Foundation::VARIANT_BOOL) {
-        unsafe { (windows_core::Interface::vtable(self).ModeChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(modename), newvalue) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ModeChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(modename), newvalue);
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<P0>(&self, pmediaobject: P0)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MediaError)(windows_core::Interface::as_raw(self), pmediaobject.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaError)(windows_core::Interface::as_raw(self), pmediaobject.param().abi());
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<P0>(&self, pitem: P0)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OpenPlaylistSwitch)(windows_core::Interface::as_raw(self), pitem.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OpenPlaylistSwitch)(windows_core::Interface::as_raw(self), pitem.param().abi());
+        }
     }
     pub unsafe fn DomainChange(&self, strdomain: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).DomainChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strdomain)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DomainChange)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strdomain));
+        }
     }
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        unsafe { (windows_core::Interface::vtable(self).SwitchedToPlayerApplication)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SwitchedToPlayerApplication)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn SwitchedToControl(&self) {
-        unsafe { (windows_core::Interface::vtable(self).SwitchedToControl)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SwitchedToControl)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn PlayerDockedStateChange(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PlayerDockedStateChange)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlayerDockedStateChange)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn PlayerReconnect(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PlayerReconnect)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PlayerReconnect)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        unsafe { (windows_core::Interface::vtable(self).Click)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Click)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy);
+        }
     }
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        unsafe { (windows_core::Interface::vtable(self).DoubleClick)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DoubleClick)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy);
+        }
     }
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        unsafe { (windows_core::Interface::vtable(self).KeyDown)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyDown)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate);
+        }
     }
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        unsafe { (windows_core::Interface::vtable(self).KeyPress)(windows_core::Interface::as_raw(self), nkeyascii) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyPress)(windows_core::Interface::as_raw(self), nkeyascii);
+        }
     }
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        unsafe { (windows_core::Interface::vtable(self).KeyUp)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate) }
+        unsafe {
+            (windows_core::Interface::vtable(self).KeyUp)(windows_core::Interface::as_raw(self), nkeycode, nshiftstate);
+        }
     }
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        unsafe { (windows_core::Interface::vtable(self).MouseDown)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MouseDown)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy);
+        }
     }
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        unsafe { (windows_core::Interface::vtable(self).MouseMove)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MouseMove)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy);
+        }
     }
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        unsafe { (windows_core::Interface::vtable(self).MouseUp)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MouseUp)(windows_core::Interface::as_raw(self), nbutton, nshiftstate, fx, fy);
+        }
     }
 }
 #[repr(C)]
@@ -7280,271 +7370,271 @@ impl IWMPEvents_Vtbl {
         unsafe extern "system" fn OpenStateChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::OpenStateChange(this, core::mem::transmute_copy(&newstate))
+                IWMPEvents_Impl::OpenStateChange(this, core::mem::transmute_copy(&newstate));
             }
         }
         unsafe extern "system" fn PlayStateChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newstate: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlayStateChange(this, core::mem::transmute_copy(&newstate))
+                IWMPEvents_Impl::PlayStateChange(this, core::mem::transmute_copy(&newstate));
             }
         }
         unsafe extern "system" fn AudioLanguageChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, langid: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::AudioLanguageChange(this, core::mem::transmute_copy(&langid))
+                IWMPEvents_Impl::AudioLanguageChange(this, core::mem::transmute_copy(&langid));
             }
         }
         unsafe extern "system" fn StatusChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::StatusChange(this)
+                IWMPEvents_Impl::StatusChange(this);
             }
         }
         unsafe extern "system" fn ScriptCommand<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sctype: *mut core::ffi::c_void, param: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::ScriptCommand(this, core::mem::transmute(&sctype), core::mem::transmute(&param))
+                IWMPEvents_Impl::ScriptCommand(this, core::mem::transmute(&sctype), core::mem::transmute(&param));
             }
         }
         unsafe extern "system" fn NewStream<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::NewStream(this)
+                IWMPEvents_Impl::NewStream(this);
             }
         }
         unsafe extern "system" fn Disconnect<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::Disconnect(this, core::mem::transmute_copy(&result))
+                IWMPEvents_Impl::Disconnect(this, core::mem::transmute_copy(&result));
             }
         }
         unsafe extern "system" fn Buffering<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, start: super::super::Foundation::VARIANT_BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::Buffering(this, core::mem::transmute_copy(&start))
+                IWMPEvents_Impl::Buffering(this, core::mem::transmute_copy(&start));
             }
         }
         unsafe extern "system" fn Error<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::Error(this)
+                IWMPEvents_Impl::Error(this);
             }
         }
         unsafe extern "system" fn Warning<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, warningtype: i32, param: i32, description: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::Warning(this, core::mem::transmute_copy(&warningtype), core::mem::transmute_copy(&param), core::mem::transmute(&description))
+                IWMPEvents_Impl::Warning(this, core::mem::transmute_copy(&warningtype), core::mem::transmute_copy(&param), core::mem::transmute(&description));
             }
         }
         unsafe extern "system" fn EndOfStream<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::EndOfStream(this, core::mem::transmute_copy(&result))
+                IWMPEvents_Impl::EndOfStream(this, core::mem::transmute_copy(&result));
             }
         }
         unsafe extern "system" fn PositionChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oldposition: f64, newposition: f64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PositionChange(this, core::mem::transmute_copy(&oldposition), core::mem::transmute_copy(&newposition))
+                IWMPEvents_Impl::PositionChange(this, core::mem::transmute_copy(&oldposition), core::mem::transmute_copy(&newposition));
             }
         }
         unsafe extern "system" fn MarkerHit<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, markernum: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MarkerHit(this, core::mem::transmute_copy(&markernum))
+                IWMPEvents_Impl::MarkerHit(this, core::mem::transmute_copy(&markernum));
             }
         }
         unsafe extern "system" fn DurationUnitChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newdurationunit: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::DurationUnitChange(this, core::mem::transmute_copy(&newdurationunit))
+                IWMPEvents_Impl::DurationUnitChange(this, core::mem::transmute_copy(&newdurationunit));
             }
         }
         unsafe extern "system" fn CdromMediaChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cdromnum: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::CdromMediaChange(this, core::mem::transmute_copy(&cdromnum))
+                IWMPEvents_Impl::CdromMediaChange(this, core::mem::transmute_copy(&cdromnum));
             }
         }
         unsafe extern "system" fn PlaylistChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, playlist: *mut core::ffi::c_void, change: WMPPlaylistChangeEventType) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlaylistChange(this, core::mem::transmute_copy(&playlist), core::mem::transmute_copy(&change))
+                IWMPEvents_Impl::PlaylistChange(this, core::mem::transmute_copy(&playlist), core::mem::transmute_copy(&change));
             }
         }
         unsafe extern "system" fn CurrentPlaylistChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, change: WMPPlaylistChangeEventType) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::CurrentPlaylistChange(this, core::mem::transmute_copy(&change))
+                IWMPEvents_Impl::CurrentPlaylistChange(this, core::mem::transmute_copy(&change));
             }
         }
         unsafe extern "system" fn CurrentPlaylistItemAvailable<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritemname: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::CurrentPlaylistItemAvailable(this, core::mem::transmute(&bstritemname))
+                IWMPEvents_Impl::CurrentPlaylistItemAvailable(this, core::mem::transmute(&bstritemname));
             }
         }
         unsafe extern "system" fn MediaChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, item: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MediaChange(this, core::mem::transmute_copy(&item))
+                IWMPEvents_Impl::MediaChange(this, core::mem::transmute_copy(&item));
             }
         }
         unsafe extern "system" fn CurrentMediaItemAvailable<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstritemname: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::CurrentMediaItemAvailable(this, core::mem::transmute(&bstritemname))
+                IWMPEvents_Impl::CurrentMediaItemAvailable(this, core::mem::transmute(&bstritemname));
             }
         }
         unsafe extern "system" fn CurrentItemChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispmedia: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::CurrentItemChange(this, core::mem::transmute_copy(&pdispmedia))
+                IWMPEvents_Impl::CurrentItemChange(this, core::mem::transmute_copy(&pdispmedia));
             }
         }
         unsafe extern "system" fn MediaCollectionChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MediaCollectionChange(this)
+                IWMPEvents_Impl::MediaCollectionChange(this);
             }
         }
         unsafe extern "system" fn MediaCollectionAttributeStringAdded<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattribname: *mut core::ffi::c_void, bstrattribval: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MediaCollectionAttributeStringAdded(this, core::mem::transmute(&bstrattribname), core::mem::transmute(&bstrattribval))
+                IWMPEvents_Impl::MediaCollectionAttributeStringAdded(this, core::mem::transmute(&bstrattribname), core::mem::transmute(&bstrattribval));
             }
         }
         unsafe extern "system" fn MediaCollectionAttributeStringRemoved<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattribname: *mut core::ffi::c_void, bstrattribval: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MediaCollectionAttributeStringRemoved(this, core::mem::transmute(&bstrattribname), core::mem::transmute(&bstrattribval))
+                IWMPEvents_Impl::MediaCollectionAttributeStringRemoved(this, core::mem::transmute(&bstrattribname), core::mem::transmute(&bstrattribval));
             }
         }
         unsafe extern "system" fn MediaCollectionAttributeStringChanged<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrattribname: *mut core::ffi::c_void, bstroldattribval: *mut core::ffi::c_void, bstrnewattribval: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MediaCollectionAttributeStringChanged(this, core::mem::transmute(&bstrattribname), core::mem::transmute(&bstroldattribval), core::mem::transmute(&bstrnewattribval))
+                IWMPEvents_Impl::MediaCollectionAttributeStringChanged(this, core::mem::transmute(&bstrattribname), core::mem::transmute(&bstroldattribval), core::mem::transmute(&bstrnewattribval));
             }
         }
         unsafe extern "system" fn PlaylistCollectionChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlaylistCollectionChange(this)
+                IWMPEvents_Impl::PlaylistCollectionChange(this);
             }
         }
         unsafe extern "system" fn PlaylistCollectionPlaylistAdded<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrplaylistname: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlaylistCollectionPlaylistAdded(this, core::mem::transmute(&bstrplaylistname))
+                IWMPEvents_Impl::PlaylistCollectionPlaylistAdded(this, core::mem::transmute(&bstrplaylistname));
             }
         }
         unsafe extern "system" fn PlaylistCollectionPlaylistRemoved<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrplaylistname: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlaylistCollectionPlaylistRemoved(this, core::mem::transmute(&bstrplaylistname))
+                IWMPEvents_Impl::PlaylistCollectionPlaylistRemoved(this, core::mem::transmute(&bstrplaylistname));
             }
         }
         unsafe extern "system" fn PlaylistCollectionPlaylistSetAsDeleted<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrplaylistname: *mut core::ffi::c_void, varfisdeleted: super::super::Foundation::VARIANT_BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlaylistCollectionPlaylistSetAsDeleted(this, core::mem::transmute(&bstrplaylistname), core::mem::transmute_copy(&varfisdeleted))
+                IWMPEvents_Impl::PlaylistCollectionPlaylistSetAsDeleted(this, core::mem::transmute(&bstrplaylistname), core::mem::transmute_copy(&varfisdeleted));
             }
         }
         unsafe extern "system" fn ModeChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modename: *mut core::ffi::c_void, newvalue: super::super::Foundation::VARIANT_BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::ModeChange(this, core::mem::transmute(&modename), core::mem::transmute_copy(&newvalue))
+                IWMPEvents_Impl::ModeChange(this, core::mem::transmute(&modename), core::mem::transmute_copy(&newvalue));
             }
         }
         unsafe extern "system" fn MediaError<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmediaobject: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MediaError(this, core::mem::transmute_copy(&pmediaobject))
+                IWMPEvents_Impl::MediaError(this, core::mem::transmute_copy(&pmediaobject));
             }
         }
         unsafe extern "system" fn OpenPlaylistSwitch<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pitem: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::OpenPlaylistSwitch(this, core::mem::transmute_copy(&pitem))
+                IWMPEvents_Impl::OpenPlaylistSwitch(this, core::mem::transmute_copy(&pitem));
             }
         }
         unsafe extern "system" fn DomainChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strdomain: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::DomainChange(this, core::mem::transmute(&strdomain))
+                IWMPEvents_Impl::DomainChange(this, core::mem::transmute(&strdomain));
             }
         }
         unsafe extern "system" fn SwitchedToPlayerApplication<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::SwitchedToPlayerApplication(this)
+                IWMPEvents_Impl::SwitchedToPlayerApplication(this);
             }
         }
         unsafe extern "system" fn SwitchedToControl<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::SwitchedToControl(this)
+                IWMPEvents_Impl::SwitchedToControl(this);
             }
         }
         unsafe extern "system" fn PlayerDockedStateChange<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlayerDockedStateChange(this)
+                IWMPEvents_Impl::PlayerDockedStateChange(this);
             }
         }
         unsafe extern "system" fn PlayerReconnect<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::PlayerReconnect(this)
+                IWMPEvents_Impl::PlayerReconnect(this);
             }
         }
         unsafe extern "system" fn Click<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::Click(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy))
+                IWMPEvents_Impl::Click(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy));
             }
         }
         unsafe extern "system" fn DoubleClick<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::DoubleClick(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy))
+                IWMPEvents_Impl::DoubleClick(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy));
             }
         }
         unsafe extern "system" fn KeyDown<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nkeycode: i16, nshiftstate: i16) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::KeyDown(this, core::mem::transmute_copy(&nkeycode), core::mem::transmute_copy(&nshiftstate))
+                IWMPEvents_Impl::KeyDown(this, core::mem::transmute_copy(&nkeycode), core::mem::transmute_copy(&nshiftstate));
             }
         }
         unsafe extern "system" fn KeyPress<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nkeyascii: i16) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::KeyPress(this, core::mem::transmute_copy(&nkeyascii))
+                IWMPEvents_Impl::KeyPress(this, core::mem::transmute_copy(&nkeyascii));
             }
         }
         unsafe extern "system" fn KeyUp<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nkeycode: i16, nshiftstate: i16) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::KeyUp(this, core::mem::transmute_copy(&nkeycode), core::mem::transmute_copy(&nshiftstate))
+                IWMPEvents_Impl::KeyUp(this, core::mem::transmute_copy(&nkeycode), core::mem::transmute_copy(&nshiftstate));
             }
         }
         unsafe extern "system" fn MouseDown<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MouseDown(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy))
+                IWMPEvents_Impl::MouseDown(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy));
             }
         }
         unsafe extern "system" fn MouseMove<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MouseMove(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy))
+                IWMPEvents_Impl::MouseMove(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy));
             }
         }
         unsafe extern "system" fn MouseUp<Identity: IWMPEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents_Impl::MouseUp(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy))
+                IWMPEvents_Impl::MouseUp(this, core::mem::transmute_copy(&nbutton), core::mem::transmute_copy(&nshiftstate), core::mem::transmute_copy(&fx), core::mem::transmute_copy(&fy));
             }
         }
         Self {
@@ -7615,25 +7705,33 @@ impl IWMPEvents2 {
     where
         P0: windows_core::Param<IWMPSyncDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceConnect)(windows_core::Interface::as_raw(self), pdevice.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DeviceConnect)(windows_core::Interface::as_raw(self), pdevice.param().abi());
+        }
     }
     pub unsafe fn DeviceDisconnect<P0>(&self, pdevice: P0)
     where
         P0: windows_core::Param<IWMPSyncDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceDisconnect)(windows_core::Interface::as_raw(self), pdevice.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DeviceDisconnect)(windows_core::Interface::as_raw(self), pdevice.param().abi());
+        }
     }
     pub unsafe fn DeviceStatusChange<P0>(&self, pdevice: P0, newstatus: WMPDeviceStatus)
     where
         P0: windows_core::Param<IWMPSyncDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceStatusChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstatus) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DeviceStatusChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstatus);
+        }
     }
     pub unsafe fn DeviceSyncStateChange<P0>(&self, pdevice: P0, newstate: WMPSyncState)
     where
         P0: windows_core::Param<IWMPSyncDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceSyncStateChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstate) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DeviceSyncStateChange)(windows_core::Interface::as_raw(self), pdevice.param().abi(), newstate);
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSyncError<P0, P1>(&self, pdevice: P0, pmedia: P1)
@@ -7641,13 +7739,17 @@ impl IWMPEvents2 {
         P0: windows_core::Param<IWMPSyncDevice>,
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceSyncError)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pmedia.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DeviceSyncError)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pmedia.param().abi());
+        }
     }
     pub unsafe fn CreatePartnershipComplete<P0>(&self, pdevice: P0, hrresult: windows_core::HRESULT)
     where
         P0: windows_core::Param<IWMPSyncDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreatePartnershipComplete)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hrresult) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CreatePartnershipComplete)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hrresult);
+        }
     }
 }
 #[repr(C)]
@@ -7679,37 +7781,37 @@ impl IWMPEvents2_Vtbl {
         unsafe extern "system" fn DeviceConnect<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents2_Impl::DeviceConnect(this, core::mem::transmute_copy(&pdevice))
+                IWMPEvents2_Impl::DeviceConnect(this, core::mem::transmute_copy(&pdevice));
             }
         }
         unsafe extern "system" fn DeviceDisconnect<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents2_Impl::DeviceDisconnect(this, core::mem::transmute_copy(&pdevice))
+                IWMPEvents2_Impl::DeviceDisconnect(this, core::mem::transmute_copy(&pdevice));
             }
         }
         unsafe extern "system" fn DeviceStatusChange<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, newstatus: WMPDeviceStatus) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents2_Impl::DeviceStatusChange(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&newstatus))
+                IWMPEvents2_Impl::DeviceStatusChange(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&newstatus));
             }
         }
         unsafe extern "system" fn DeviceSyncStateChange<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, newstate: WMPSyncState) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents2_Impl::DeviceSyncStateChange(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&newstate))
+                IWMPEvents2_Impl::DeviceSyncStateChange(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&newstate));
             }
         }
         unsafe extern "system" fn DeviceSyncError<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents2_Impl::DeviceSyncError(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pmedia))
+                IWMPEvents2_Impl::DeviceSyncError(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&pmedia));
             }
         }
         unsafe extern "system" fn CreatePartnershipComplete<Identity: IWMPEvents2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hrresult: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents2_Impl::CreatePartnershipComplete(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hrresult))
+                IWMPEvents2_Impl::CreatePartnershipComplete(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hrresult));
             }
         }
         Self {
@@ -7741,7 +7843,9 @@ impl IWMPEvents3 {
     where
         P0: windows_core::Param<IWMPCdromRip>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CdromRipStateChange)(windows_core::Interface::as_raw(self), pcdromrip.param().abi(), wmprs) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CdromRipStateChange)(windows_core::Interface::as_raw(self), pcdromrip.param().abi(), wmprs);
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromRipMediaError<P0, P1>(&self, pcdromrip: P0, pmedia: P1)
@@ -7749,13 +7853,17 @@ impl IWMPEvents3 {
         P0: windows_core::Param<IWMPCdromRip>,
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CdromRipMediaError)(windows_core::Interface::as_raw(self), pcdromrip.param().abi(), pmedia.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CdromRipMediaError)(windows_core::Interface::as_raw(self), pcdromrip.param().abi(), pmedia.param().abi());
+        }
     }
     pub unsafe fn CdromBurnStateChange<P0>(&self, pcdromburn: P0, wmpbs: WMPBurnState)
     where
         P0: windows_core::Param<IWMPCdromBurn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CdromBurnStateChange)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), wmpbs) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CdromBurnStateChange)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), wmpbs);
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromBurnMediaError<P0, P1>(&self, pcdromburn: P0, pmedia: P1)
@@ -7763,49 +7871,65 @@ impl IWMPEvents3 {
         P0: windows_core::Param<IWMPCdromBurn>,
         P1: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CdromBurnMediaError)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), pmedia.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CdromBurnMediaError)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), pmedia.param().abi());
+        }
     }
     pub unsafe fn CdromBurnError<P0>(&self, pcdromburn: P0, hrerror: windows_core::HRESULT)
     where
         P0: windows_core::Param<IWMPCdromBurn>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CdromBurnError)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), hrerror) }
+        unsafe {
+            (windows_core::Interface::vtable(self).CdromBurnError)(windows_core::Interface::as_raw(self), pcdromburn.param().abi(), hrerror);
+        }
     }
     pub unsafe fn LibraryConnect<P0>(&self, plibrary: P0)
     where
         P0: windows_core::Param<IWMPLibrary>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LibraryConnect)(windows_core::Interface::as_raw(self), plibrary.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).LibraryConnect)(windows_core::Interface::as_raw(self), plibrary.param().abi());
+        }
     }
     pub unsafe fn LibraryDisconnect<P0>(&self, plibrary: P0)
     where
         P0: windows_core::Param<IWMPLibrary>,
     {
-        unsafe { (windows_core::Interface::vtable(self).LibraryDisconnect)(windows_core::Interface::as_raw(self), plibrary.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).LibraryDisconnect)(windows_core::Interface::as_raw(self), plibrary.param().abi());
+        }
     }
     pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        unsafe { (windows_core::Interface::vtable(self).FolderScanStateChange)(windows_core::Interface::as_raw(self), wmpfss) }
+        unsafe {
+            (windows_core::Interface::vtable(self).FolderScanStateChange)(windows_core::Interface::as_raw(self), wmpfss);
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StringCollectionChange<P0>(&self, pdispstringcollection: P0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).StringCollectionChange)(windows_core::Interface::as_raw(self), pdispstringcollection.param().abi(), change, lcollectionindex) }
+        unsafe {
+            (windows_core::Interface::vtable(self).StringCollectionChange)(windows_core::Interface::as_raw(self), pdispstringcollection.param().abi(), change, lcollectionindex);
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaAdded<P0>(&self, pdispmedia: P0)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MediaCollectionMediaAdded)(windows_core::Interface::as_raw(self), pdispmedia.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaCollectionMediaAdded)(windows_core::Interface::as_raw(self), pdispmedia.param().abi());
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaRemoved<P0>(&self, pdispmedia: P0)
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
     {
-        unsafe { (windows_core::Interface::vtable(self).MediaCollectionMediaRemoved)(windows_core::Interface::as_raw(self), pdispmedia.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).MediaCollectionMediaRemoved)(windows_core::Interface::as_raw(self), pdispmedia.param().abi());
+        }
     }
 }
 #[repr(C)]
@@ -7859,67 +7983,67 @@ impl IWMPEvents3_Vtbl {
         unsafe extern "system" fn CdromRipStateChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromrip: *mut core::ffi::c_void, wmprs: WMPRipState) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::CdromRipStateChange(this, core::mem::transmute_copy(&pcdromrip), core::mem::transmute_copy(&wmprs))
+                IWMPEvents3_Impl::CdromRipStateChange(this, core::mem::transmute_copy(&pcdromrip), core::mem::transmute_copy(&wmprs));
             }
         }
         unsafe extern "system" fn CdromRipMediaError<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromrip: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::CdromRipMediaError(this, core::mem::transmute_copy(&pcdromrip), core::mem::transmute_copy(&pmedia))
+                IWMPEvents3_Impl::CdromRipMediaError(this, core::mem::transmute_copy(&pcdromrip), core::mem::transmute_copy(&pmedia));
             }
         }
         unsafe extern "system" fn CdromBurnStateChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromburn: *mut core::ffi::c_void, wmpbs: WMPBurnState) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::CdromBurnStateChange(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&wmpbs))
+                IWMPEvents3_Impl::CdromBurnStateChange(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&wmpbs));
             }
         }
         unsafe extern "system" fn CdromBurnMediaError<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromburn: *mut core::ffi::c_void, pmedia: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::CdromBurnMediaError(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&pmedia))
+                IWMPEvents3_Impl::CdromBurnMediaError(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&pmedia));
             }
         }
         unsafe extern "system" fn CdromBurnError<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcdromburn: *mut core::ffi::c_void, hrerror: windows_core::HRESULT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::CdromBurnError(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&hrerror))
+                IWMPEvents3_Impl::CdromBurnError(this, core::mem::transmute_copy(&pcdromburn), core::mem::transmute_copy(&hrerror));
             }
         }
         unsafe extern "system" fn LibraryConnect<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plibrary: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::LibraryConnect(this, core::mem::transmute_copy(&plibrary))
+                IWMPEvents3_Impl::LibraryConnect(this, core::mem::transmute_copy(&plibrary));
             }
         }
         unsafe extern "system" fn LibraryDisconnect<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plibrary: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::LibraryDisconnect(this, core::mem::transmute_copy(&plibrary))
+                IWMPEvents3_Impl::LibraryDisconnect(this, core::mem::transmute_copy(&plibrary));
             }
         }
         unsafe extern "system" fn FolderScanStateChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wmpfss: WMPFolderScanState) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::FolderScanStateChange(this, core::mem::transmute_copy(&wmpfss))
+                IWMPEvents3_Impl::FolderScanStateChange(this, core::mem::transmute_copy(&wmpfss));
             }
         }
         unsafe extern "system" fn StringCollectionChange<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispstringcollection: *mut core::ffi::c_void, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::StringCollectionChange(this, core::mem::transmute_copy(&pdispstringcollection), core::mem::transmute_copy(&change), core::mem::transmute_copy(&lcollectionindex))
+                IWMPEvents3_Impl::StringCollectionChange(this, core::mem::transmute_copy(&pdispstringcollection), core::mem::transmute_copy(&change), core::mem::transmute_copy(&lcollectionindex));
             }
         }
         unsafe extern "system" fn MediaCollectionMediaAdded<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispmedia: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::MediaCollectionMediaAdded(this, core::mem::transmute_copy(&pdispmedia))
+                IWMPEvents3_Impl::MediaCollectionMediaAdded(this, core::mem::transmute_copy(&pdispmedia));
             }
         }
         unsafe extern "system" fn MediaCollectionMediaRemoved<Identity: IWMPEvents3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdispmedia: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents3_Impl::MediaCollectionMediaRemoved(this, core::mem::transmute_copy(&pdispmedia))
+                IWMPEvents3_Impl::MediaCollectionMediaRemoved(this, core::mem::transmute_copy(&pdispmedia));
             }
         }
         Self {
@@ -7956,7 +8080,9 @@ impl IWMPEvents4 {
     where
         P0: windows_core::Param<IWMPSyncDevice>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DeviceEstimation)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hrresult, qwestimatedusedspace, qwestimatedspace) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DeviceEstimation)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hrresult, qwestimatedusedspace, qwestimatedspace);
+        }
     }
 }
 #[repr(C)]
@@ -7975,7 +8101,7 @@ impl IWMPEvents4_Vtbl {
         unsafe extern "system" fn DeviceEstimation<Identity: IWMPEvents4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hrresult: windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMPEvents4_Impl::DeviceEstimation(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hrresult), core::mem::transmute_copy(&qwestimatedusedspace), core::mem::transmute_copy(&qwestimatedspace))
+                IWMPEvents4_Impl::DeviceEstimation(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&hrresult), core::mem::transmute_copy(&qwestimatedusedspace), core::mem::transmute_copy(&qwestimatedspace));
             }
         }
         Self { base__: IWMPEvents3_Vtbl::new::<Identity, OFFSET>(), DeviceEstimation: DeviceEstimation::<Identity, OFFSET> }

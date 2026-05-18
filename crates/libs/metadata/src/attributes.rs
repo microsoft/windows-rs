@@ -21,12 +21,12 @@ macro_rules! flags {
         }
         impl std::ops::BitOrAssign for $name {
             fn bitor_assign(&mut self, other: Self) {
-                self.0.bitor_assign(other.0)
+                self.0.bitor_assign(other.0);
             }
         }
         impl std::ops::BitAndAssign for $name {
             fn bitand_assign(&mut self, other: Self) {
-                self.0.bitand_assign(other.0)
+                self.0.bitand_assign(other.0);
             }
         }
         impl std::ops::Not for $name {

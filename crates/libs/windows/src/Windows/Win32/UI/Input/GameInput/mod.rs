@@ -47,12 +47,12 @@ impl core::ops::BitAnd for GameInputArcadeStickButtons {
 }
 impl core::ops::BitOrAssign for GameInputArcadeStickButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputArcadeStickButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputArcadeStickButtons {
@@ -199,12 +199,12 @@ impl core::ops::BitAnd for GameInputDeviceCapabilities {
 }
 impl core::ops::BitOrAssign for GameInputDeviceCapabilities {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputDeviceCapabilities {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputDeviceCapabilities {
@@ -306,12 +306,12 @@ impl core::ops::BitAnd for GameInputDeviceStatus {
 }
 impl core::ops::BitOrAssign for GameInputDeviceStatus {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputDeviceStatus {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputDeviceStatus {
@@ -360,12 +360,12 @@ impl core::ops::BitAnd for GameInputFeedbackAxes {
 }
 impl core::ops::BitOrAssign for GameInputFeedbackAxes {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputFeedbackAxes {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputFeedbackAxes {
@@ -410,12 +410,12 @@ impl core::ops::BitAnd for GameInputFlightStickButtons {
 }
 impl core::ops::BitOrAssign for GameInputFlightStickButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputFlightStickButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputFlightStickButtons {
@@ -470,12 +470,12 @@ impl core::ops::BitAnd for GameInputFocusPolicy {
 }
 impl core::ops::BitOrAssign for GameInputFocusPolicy {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputFocusPolicy {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputFocusPolicy {
@@ -628,12 +628,12 @@ impl core::ops::BitAnd for GameInputGamepadButtons {
 }
 impl core::ops::BitOrAssign for GameInputGamepadButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputGamepadButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputGamepadButtons {
@@ -770,12 +770,12 @@ impl core::ops::BitAnd for GameInputKind {
 }
 impl core::ops::BitOrAssign for GameInputKind {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputKind {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputKind {
@@ -1000,12 +1000,12 @@ impl core::ops::BitAnd for GameInputMouseButtons {
 }
 impl core::ops::BitOrAssign for GameInputMouseButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputMouseButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputMouseButtons {
@@ -1091,12 +1091,12 @@ impl core::ops::BitAnd for GameInputRacingWheelButtons {
 }
 impl core::ops::BitOrAssign for GameInputRacingWheelButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputRacingWheelButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputRacingWheelButtons {
@@ -1206,12 +1206,12 @@ impl core::ops::BitAnd for GameInputRawDeviceReportItemFlags {
 }
 impl core::ops::BitOrAssign for GameInputRawDeviceReportItemFlags {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputRawDeviceReportItemFlags {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputRawDeviceReportItemFlags {
@@ -1277,12 +1277,12 @@ impl core::ops::BitAnd for GameInputRumbleMotors {
 }
 impl core::ops::BitOrAssign for GameInputRumbleMotors {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputRumbleMotors {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputRumbleMotors {
@@ -1350,12 +1350,12 @@ impl core::ops::BitAnd for GameInputSystemButtons {
 }
 impl core::ops::BitOrAssign for GameInputSystemButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputSystemButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputSystemButtons {
@@ -1430,12 +1430,12 @@ impl core::ops::BitAnd for GameInputUiNavigationButtons {
 }
 impl core::ops::BitOrAssign for GameInputUiNavigationButtons {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GameInputUiNavigationButtons {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GameInputUiNavigationButtons {
@@ -1584,7 +1584,9 @@ impl IGameInput {
         unsafe { (windows_core::Interface::vtable(self).RegisterKeyboardLayoutCallback)(windows_core::Interface::as_raw(self), device.param().abi(), context.unwrap_or(core::mem::zeroed()) as _, callbackfunc, callbacktoken.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn StopCallback(&self, callbacktoken: u64) {
-        unsafe { (windows_core::Interface::vtable(self).StopCallback)(windows_core::Interface::as_raw(self), callbacktoken) }
+        unsafe {
+            (windows_core::Interface::vtable(self).StopCallback)(windows_core::Interface::as_raw(self), callbacktoken);
+        }
     }
     pub unsafe fn UnregisterCallback(&self, callbacktoken: u64, timeoutinmicroseconds: u64) -> bool {
         unsafe { (windows_core::Interface::vtable(self).UnregisterCallback)(windows_core::Interface::as_raw(self), callbacktoken, timeoutinmicroseconds) }
@@ -1635,7 +1637,9 @@ impl IGameInput {
         unsafe { (windows_core::Interface::vtable(self).EnableOemDeviceSupport)(windows_core::Interface::as_raw(self), vendorid, productid, interfacenumber, collectionnumber).ok() }
     }
     pub unsafe fn SetFocusPolicy(&self, policy: GameInputFocusPolicy) {
-        unsafe { (windows_core::Interface::vtable(self).SetFocusPolicy)(windows_core::Interface::as_raw(self), policy) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetFocusPolicy)(windows_core::Interface::as_raw(self), policy);
+        }
     }
 }
 #[repr(C)]
@@ -1766,7 +1770,7 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn StopCallback<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbacktoken: u64) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInput_Impl::StopCallback(this, core::mem::transmute_copy(&callbacktoken))
+                IGameInput_Impl::StopCallback(this, core::mem::transmute_copy(&callbacktoken));
             }
         }
         unsafe extern "system" fn UnregisterCallback<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbacktoken: u64, timeoutinmicroseconds: u64) -> bool {
@@ -1856,7 +1860,7 @@ impl IGameInput_Vtbl {
         unsafe extern "system" fn SetFocusPolicy<Identity: IGameInput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, policy: GameInputFocusPolicy) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInput_Impl::SetFocusPolicy(this, core::mem::transmute_copy(&policy))
+                IGameInput_Impl::SetFocusPolicy(this, core::mem::transmute_copy(&policy));
             }
         }
         Self {
@@ -1897,7 +1901,9 @@ impl IGameInputDevice {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetBatteryState(&self, state: *mut GameInputBatteryState) {
-        unsafe { (windows_core::Interface::vtable(self).GetBatteryState)(windows_core::Interface::as_raw(self), state as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetBatteryState)(windows_core::Interface::as_raw(self), state as _);
+        }
     }
     pub unsafe fn CreateForceFeedbackEffect(&self, motorindex: u32, params: *const GameInputForceFeedbackParams) -> windows_core::Result<IGameInputForceFeedbackEffect> {
         unsafe {
@@ -1909,22 +1915,32 @@ impl IGameInputDevice {
         unsafe { (windows_core::Interface::vtable(self).IsForceFeedbackMotorPoweredOn)(windows_core::Interface::as_raw(self), motorindex) }
     }
     pub unsafe fn SetForceFeedbackMotorGain(&self, motorindex: u32, mastergain: f32) {
-        unsafe { (windows_core::Interface::vtable(self).SetForceFeedbackMotorGain)(windows_core::Interface::as_raw(self), motorindex, mastergain) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetForceFeedbackMotorGain)(windows_core::Interface::as_raw(self), motorindex, mastergain);
+        }
     }
     pub unsafe fn SetHapticMotorState(&self, motorindex: u32, params: Option<*const GameInputHapticFeedbackParams>) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHapticMotorState)(windows_core::Interface::as_raw(self), motorindex, params.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn SetRumbleState(&self, params: Option<*const GameInputRumbleParams>) {
-        unsafe { (windows_core::Interface::vtable(self).SetRumbleState)(windows_core::Interface::as_raw(self), params.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetRumbleState)(windows_core::Interface::as_raw(self), params.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     pub unsafe fn SetInputSynchronizationState(&self, enabled: u8) {
-        unsafe { (windows_core::Interface::vtable(self).SetInputSynchronizationState)(windows_core::Interface::as_raw(self), enabled) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetInputSynchronizationState)(windows_core::Interface::as_raw(self), enabled);
+        }
     }
     pub unsafe fn SendInputSynchronizationHint(&self) {
-        unsafe { (windows_core::Interface::vtable(self).SendInputSynchronizationHint)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SendInputSynchronizationHint)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn PowerOff(&self) {
-        unsafe { (windows_core::Interface::vtable(self).PowerOff)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PowerOff)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn CreateRawDeviceReport(&self, reportid: u32, reportkind: GameInputRawDeviceReportKind) -> windows_core::Result<IGameInputRawDeviceReport> {
         unsafe {
@@ -1966,7 +1982,9 @@ impl IGameInputDevice {
         unsafe { (windows_core::Interface::vtable(self).AcquireExclusiveRawDeviceAccess)(windows_core::Interface::as_raw(self), timeoutinmicroseconds) }
     }
     pub unsafe fn ReleaseExclusiveRawDeviceAccess(&self) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseExclusiveRawDeviceAccess)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseExclusiveRawDeviceAccess)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -2031,7 +2049,7 @@ impl IGameInputDevice_Vtbl {
         unsafe extern "system" fn GetBatteryState<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut GameInputBatteryState) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::GetBatteryState(this, core::mem::transmute_copy(&state))
+                IGameInputDevice_Impl::GetBatteryState(this, core::mem::transmute_copy(&state));
             }
         }
         unsafe extern "system" fn CreateForceFeedbackEffect<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, motorindex: u32, params: *const GameInputForceFeedbackParams, effect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2055,7 +2073,7 @@ impl IGameInputDevice_Vtbl {
         unsafe extern "system" fn SetForceFeedbackMotorGain<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, motorindex: u32, mastergain: f32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::SetForceFeedbackMotorGain(this, core::mem::transmute_copy(&motorindex), core::mem::transmute_copy(&mastergain))
+                IGameInputDevice_Impl::SetForceFeedbackMotorGain(this, core::mem::transmute_copy(&motorindex), core::mem::transmute_copy(&mastergain));
             }
         }
         unsafe extern "system" fn SetHapticMotorState<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, motorindex: u32, params: *const GameInputHapticFeedbackParams) -> windows_core::HRESULT {
@@ -2067,25 +2085,25 @@ impl IGameInputDevice_Vtbl {
         unsafe extern "system" fn SetRumbleState<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, params: *const GameInputRumbleParams) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::SetRumbleState(this, core::mem::transmute_copy(&params))
+                IGameInputDevice_Impl::SetRumbleState(this, core::mem::transmute_copy(&params));
             }
         }
         unsafe extern "system" fn SetInputSynchronizationState<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: u8) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::SetInputSynchronizationState(this, core::mem::transmute_copy(&enabled))
+                IGameInputDevice_Impl::SetInputSynchronizationState(this, core::mem::transmute_copy(&enabled));
             }
         }
         unsafe extern "system" fn SendInputSynchronizationHint<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::SendInputSynchronizationHint(this)
+                IGameInputDevice_Impl::SendInputSynchronizationHint(this);
             }
         }
         unsafe extern "system" fn PowerOff<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::PowerOff(this)
+                IGameInputDevice_Impl::PowerOff(this);
             }
         }
         unsafe extern "system" fn CreateRawDeviceReport<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, reportid: u32, reportkind: GameInputRawDeviceReportKind, report: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2151,7 +2169,7 @@ impl IGameInputDevice_Vtbl {
         unsafe extern "system" fn ReleaseExclusiveRawDeviceAccess<Identity: IGameInputDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputDevice_Impl::ReleaseExclusiveRawDeviceAccess(this)
+                IGameInputDevice_Impl::ReleaseExclusiveRawDeviceAccess(this);
             }
         }
         Self {
@@ -2254,10 +2272,14 @@ impl IGameInputForceFeedbackEffect {
         unsafe { (windows_core::Interface::vtable(self).GetGain)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetGain(&self, gain: f32) {
-        unsafe { (windows_core::Interface::vtable(self).SetGain)(windows_core::Interface::as_raw(self), gain) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetGain)(windows_core::Interface::as_raw(self), gain);
+        }
     }
     pub unsafe fn GetParams(&self, params: *mut GameInputForceFeedbackParams) {
-        unsafe { (windows_core::Interface::vtable(self).GetParams)(windows_core::Interface::as_raw(self), params as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).GetParams)(windows_core::Interface::as_raw(self), params as _);
+        }
     }
     pub unsafe fn SetParams(&self, params: *const GameInputForceFeedbackParams) -> bool {
         unsafe { (windows_core::Interface::vtable(self).SetParams)(windows_core::Interface::as_raw(self), params) }
@@ -2266,7 +2288,9 @@ impl IGameInputForceFeedbackEffect {
         unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetState(&self, state: GameInputFeedbackEffectState) {
-        unsafe { (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), state) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), state);
+        }
     }
 }
 #[repr(C)]
@@ -2297,7 +2321,7 @@ impl IGameInputForceFeedbackEffect_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: IGameInputForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputForceFeedbackEffect_Impl::GetDevice(this, core::mem::transmute_copy(&device))
+                IGameInputForceFeedbackEffect_Impl::GetDevice(this, core::mem::transmute_copy(&device));
             }
         }
         unsafe extern "system" fn GetMotorIndex<Identity: IGameInputForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
@@ -2315,13 +2339,13 @@ impl IGameInputForceFeedbackEffect_Vtbl {
         unsafe extern "system" fn SetGain<Identity: IGameInputForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gain: f32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputForceFeedbackEffect_Impl::SetGain(this, core::mem::transmute_copy(&gain))
+                IGameInputForceFeedbackEffect_Impl::SetGain(this, core::mem::transmute_copy(&gain));
             }
         }
         unsafe extern "system" fn GetParams<Identity: IGameInputForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, params: *mut GameInputForceFeedbackParams) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputForceFeedbackEffect_Impl::GetParams(this, core::mem::transmute_copy(&params))
+                IGameInputForceFeedbackEffect_Impl::GetParams(this, core::mem::transmute_copy(&params));
             }
         }
         unsafe extern "system" fn SetParams<Identity: IGameInputForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, params: *const GameInputForceFeedbackParams) -> bool {
@@ -2339,7 +2363,7 @@ impl IGameInputForceFeedbackEffect_Vtbl {
         unsafe extern "system" fn SetState<Identity: IGameInputForceFeedbackEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: GameInputFeedbackEffectState) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputForceFeedbackEffect_Impl::SetState(this, core::mem::transmute_copy(&state))
+                IGameInputForceFeedbackEffect_Impl::SetState(this, core::mem::transmute_copy(&state));
             }
         }
         Self {
@@ -2424,7 +2448,7 @@ impl IGameInputRawDeviceReport_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: IGameInputRawDeviceReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputRawDeviceReport_Impl::GetDevice(this, core::mem::transmute_copy(&device))
+                IGameInputRawDeviceReport_Impl::GetDevice(this, core::mem::transmute_copy(&device));
             }
         }
         unsafe extern "system" fn GetReportInfo<Identity: IGameInputRawDeviceReport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut GameInputRawDeviceReportInfo {
@@ -2641,7 +2665,7 @@ impl IGameInputReading_Vtbl {
         unsafe extern "system" fn GetDevice<Identity: IGameInputReading_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGameInputReading_Impl::GetDevice(this, core::mem::transmute_copy(&device))
+                IGameInputReading_Impl::GetDevice(this, core::mem::transmute_copy(&device));
             }
         }
         unsafe extern "system" fn GetRawReport<Identity: IGameInputReading_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, report: *mut *mut core::ffi::c_void) -> bool {

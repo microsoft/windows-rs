@@ -3476,12 +3476,12 @@ impl core::ops::BitAnd for BCRYPT_FLAGS {
 }
 impl core::ops::BitOrAssign for BCRYPT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BCRYPT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BCRYPT_FLAGS {
@@ -3806,12 +3806,12 @@ impl core::ops::BitAnd for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
 }
 impl core::ops::BitOrAssign for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
@@ -3842,12 +3842,12 @@ impl core::ops::BitAnd for BCRYPT_OPERATION {
 }
 impl core::ops::BitOrAssign for BCRYPT_OPERATION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BCRYPT_OPERATION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BCRYPT_OPERATION {
@@ -3957,12 +3957,12 @@ impl core::ops::BitAnd for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
 }
 impl core::ops::BitOrAssign for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
@@ -5037,12 +5037,12 @@ impl core::ops::BitAnd for CERT_CHAIN_POLICY_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_CHAIN_POLICY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_CHAIN_POLICY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_CHAIN_POLICY_FLAGS {
@@ -5228,12 +5228,12 @@ impl core::ops::BitAnd for CERT_CREATE_SELFSIGN_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_CREATE_SELFSIGN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_CREATE_SELFSIGN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
@@ -5352,12 +5352,12 @@ impl core::ops::BitAnd for CERT_FIND_CHAIN_IN_STORE_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
@@ -5394,12 +5394,12 @@ impl core::ops::BitAnd for CERT_FIND_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_FIND_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_FIND_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_FIND_FLAGS {
@@ -5890,12 +5890,12 @@ impl core::ops::BitAnd for CERT_OPEN_STORE_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_OPEN_STORE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_OPEN_STORE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_OPEN_STORE_FLAGS {
@@ -6186,12 +6186,12 @@ impl core::ops::BitAnd for CERT_QUERY_ENCODING_TYPE {
 }
 impl core::ops::BitOrAssign for CERT_QUERY_ENCODING_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_QUERY_ENCODING_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_QUERY_ENCODING_TYPE {
@@ -6410,12 +6410,12 @@ impl core::ops::BitAnd for CERT_ROOT_PROGRAM_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_ROOT_PROGRAM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_ROOT_PROGRAM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_ROOT_PROGRAM_FLAGS {
@@ -6658,12 +6658,12 @@ impl core::ops::BitAnd for CERT_STORE_PROV_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_STORE_PROV_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_STORE_PROV_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_STORE_PROV_FLAGS {
@@ -6777,12 +6777,12 @@ impl core::ops::BitAnd for CERT_STRONG_SIGN_FLAGS {
 }
 impl core::ops::BitOrAssign for CERT_STRONG_SIGN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CERT_STRONG_SIGN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CERT_STRONG_SIGN_FLAGS {
@@ -8472,12 +8472,12 @@ impl core::ops::BitAnd for CRYPT_ACQUIRE_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_ACQUIRE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_ACQUIRE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_ACQUIRE_FLAGS {
@@ -8658,12 +8658,12 @@ impl core::ops::BitAnd for CRYPT_CONTEXT_CONFIG_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_CONTEXT_CONFIG_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_CONTEXT_CONFIG_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_CONTEXT_CONFIG_FLAGS {
@@ -8778,12 +8778,12 @@ impl core::ops::BitAnd for CRYPT_DEFAULT_CONTEXT_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_DEFAULT_CONTEXT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_DEFAULT_CONTEXT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_DEFAULT_CONTEXT_FLAGS {
@@ -8880,12 +8880,12 @@ impl core::ops::BitAnd for CRYPT_ENCODE_OBJECT_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_ENCODE_OBJECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_ENCODE_OBJECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
@@ -9006,12 +9006,12 @@ impl core::ops::BitAnd for CRYPT_GET_URL_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_GET_URL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_GET_URL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_GET_URL_FLAGS {
@@ -9074,12 +9074,12 @@ impl core::ops::BitAnd for CRYPT_IMAGE_REF_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_IMAGE_REF_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_IMAGE_REF_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_IMAGE_REF_FLAGS {
@@ -9128,12 +9128,12 @@ impl core::ops::BitAnd for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
@@ -9199,12 +9199,12 @@ impl core::ops::BitAnd for CRYPT_KEY_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_KEY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_KEY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_KEY_FLAGS {
@@ -10455,12 +10455,12 @@ impl core::ops::BitAnd for CRYPT_XML_TRANSFORM_FLAGS {
 }
 impl core::ops::BitOrAssign for CRYPT_XML_TRANSFORM_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CRYPT_XML_TRANSFORM_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
@@ -12704,12 +12704,12 @@ impl core::ops::BitAnd for NCRYPT_FLAGS {
 }
 impl core::ops::BitOrAssign for NCRYPT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NCRYPT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NCRYPT_FLAGS {
@@ -12932,12 +12932,12 @@ impl core::ops::BitAnd for NCRYPT_OPERATION {
 }
 impl core::ops::BitOrAssign for NCRYPT_OPERATION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NCRYPT_OPERATION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NCRYPT_OPERATION {
@@ -14246,12 +14246,12 @@ impl core::ops::BitAnd for SIGNER_CERT_POLICY {
 }
 impl core::ops::BitOrAssign for SIGNER_CERT_POLICY {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SIGNER_CERT_POLICY {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SIGNER_CERT_POLICY {
@@ -14433,12 +14433,12 @@ impl core::ops::BitAnd for SIGNER_SIGN_FLAGS {
 }
 impl core::ops::BitOrAssign for SIGNER_SIGN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SIGNER_SIGN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SIGNER_SIGN_FLAGS {

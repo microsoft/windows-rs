@@ -1842,12 +1842,12 @@ impl core::ops::BitAnd for CONDITION_CREATION_OPTIONS {
 }
 impl core::ops::BitOrAssign for CONDITION_CREATION_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CONDITION_CREATION_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CONDITION_CREATION_OPTIONS {
@@ -17382,16 +17382,24 @@ impl windows_core::RuntimeName for ITrusteeGroupAdmin {}
 windows_core::imp::define_interface!(IUMS, IUMS_Vtbl);
 impl IUMS {
     pub unsafe fn SqlUmsSuspend(&self, ticks: u32) {
-        unsafe { (windows_core::Interface::vtable(self).SqlUmsSuspend)(windows_core::Interface::as_raw(self), ticks) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SqlUmsSuspend)(windows_core::Interface::as_raw(self), ticks);
+        }
     }
     pub unsafe fn SqlUmsYield(&self, ticks: u32) {
-        unsafe { (windows_core::Interface::vtable(self).SqlUmsYield)(windows_core::Interface::as_raw(self), ticks) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SqlUmsYield)(windows_core::Interface::as_raw(self), ticks);
+        }
     }
     pub unsafe fn SqlUmsSwitchPremptive(&self) {
-        unsafe { (windows_core::Interface::vtable(self).SqlUmsSwitchPremptive)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SqlUmsSwitchPremptive)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn SqlUmsSwitchNonPremptive(&self) {
-        unsafe { (windows_core::Interface::vtable(self).SqlUmsSwitchNonPremptive)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SqlUmsSwitchNonPremptive)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn SqlUmsFIsPremptive(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).SqlUmsFIsPremptive)(windows_core::Interface::as_raw(self)) }
@@ -17419,28 +17427,28 @@ impl IUMS_Vtbl {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IUMS_Impl::SqlUmsSuspend(this, core::mem::transmute_copy(&ticks))
+                IUMS_Impl::SqlUmsSuspend(this, core::mem::transmute_copy(&ticks));
             }
         }
         unsafe extern "system" fn SqlUmsYield<Identity: IUMS_Impl>(this: *mut core::ffi::c_void, ticks: u32) {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IUMS_Impl::SqlUmsYield(this, core::mem::transmute_copy(&ticks))
+                IUMS_Impl::SqlUmsYield(this, core::mem::transmute_copy(&ticks));
             }
         }
         unsafe extern "system" fn SqlUmsSwitchPremptive<Identity: IUMS_Impl>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IUMS_Impl::SqlUmsSwitchPremptive(this)
+                IUMS_Impl::SqlUmsSwitchPremptive(this);
             }
         }
         unsafe extern "system" fn SqlUmsSwitchNonPremptive<Identity: IUMS_Impl>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
                 let this = &*((*this).this as *const Identity);
-                IUMS_Impl::SqlUmsSwitchNonPremptive(this)
+                IUMS_Impl::SqlUmsSwitchNonPremptive(this);
             }
         }
         unsafe extern "system" fn SqlUmsFIsPremptive<Identity: IUMS_Impl>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -21959,12 +21967,12 @@ impl core::ops::BitAnd for STRUCTURED_QUERY_RESOLVE_OPTION {
 }
 impl core::ops::BitOrAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {

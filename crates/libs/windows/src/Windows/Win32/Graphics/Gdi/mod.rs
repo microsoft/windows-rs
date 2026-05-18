@@ -2476,12 +2476,12 @@ impl core::ops::BitAnd for CDS_TYPE {
 }
 impl core::ops::BitOrAssign for CDS_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CDS_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CDS_TYPE {
@@ -2666,12 +2666,12 @@ impl core::ops::BitAnd for DC_LAYOUT {
 }
 impl core::ops::BitOrAssign for DC_LAYOUT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DC_LAYOUT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DC_LAYOUT {
@@ -2898,12 +2898,12 @@ impl core::ops::BitAnd for DEVMODE_FIELD_FLAGS {
 }
 impl core::ops::BitOrAssign for DEVMODE_FIELD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DEVMODE_FIELD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DEVMODE_FIELD_FLAGS {
@@ -2966,12 +2966,12 @@ impl core::ops::BitAnd for DFCS_STATE {
 }
 impl core::ops::BitOrAssign for DFCS_STATE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DFCS_STATE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DFCS_STATE {
@@ -3104,12 +3104,12 @@ impl core::ops::BitAnd for DISPLAY_DEVICE_STATE_FLAGS {
 }
 impl core::ops::BitOrAssign for DISPLAY_DEVICE_STATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DISPLAY_DEVICE_STATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DISPLAY_DEVICE_STATE_FLAGS {
@@ -3389,12 +3389,12 @@ impl core::ops::BitAnd for DRAWEDGE_FLAGS {
 }
 impl core::ops::BitOrAssign for DRAWEDGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DRAWEDGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DRAWEDGE_FLAGS {
@@ -3427,12 +3427,12 @@ impl core::ops::BitAnd for DRAWSTATE_FLAGS {
 }
 impl core::ops::BitOrAssign for DRAWSTATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DRAWSTATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DRAWSTATE_FLAGS {
@@ -3472,12 +3472,12 @@ impl core::ops::BitAnd for DRAW_CAPTION_FLAGS {
 }
 impl core::ops::BitOrAssign for DRAW_CAPTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DRAW_CAPTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DRAW_CAPTION_FLAGS {
@@ -3508,12 +3508,12 @@ impl core::ops::BitAnd for DRAW_EDGE_FLAGS {
 }
 impl core::ops::BitOrAssign for DRAW_EDGE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DRAW_EDGE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DRAW_EDGE_FLAGS {
@@ -3544,12 +3544,12 @@ impl core::ops::BitAnd for DRAW_TEXT_FORMAT {
 }
 impl core::ops::BitOrAssign for DRAW_TEXT_FORMAT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DRAW_TEXT_FORMAT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DRAW_TEXT_FORMAT {
@@ -4621,12 +4621,12 @@ impl core::ops::BitAnd for ENUM_DISPLAY_SETTINGS_FLAGS {
 }
 impl core::ops::BitOrAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ENUM_DISPLAY_SETTINGS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ENUM_DISPLAY_SETTINGS_FLAGS {
@@ -4742,12 +4742,12 @@ impl core::ops::BitAnd for ETO_OPTIONS {
 }
 impl core::ops::BitOrAssign for ETO_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ETO_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ETO_OPTIONS {
@@ -4946,12 +4946,12 @@ impl core::ops::BitAnd for FONT_CLIP_PRECISION {
 }
 impl core::ops::BitOrAssign for FONT_CLIP_PRECISION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FONT_CLIP_PRECISION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FONT_CLIP_PRECISION {
@@ -5139,12 +5139,12 @@ impl core::ops::BitAnd for GET_CHARACTER_PLACEMENT_FLAGS {
 }
 impl core::ops::BitOrAssign for GET_CHARACTER_PLACEMENT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GET_CHARACTER_PLACEMENT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GET_CHARACTER_PLACEMENT_FLAGS {
@@ -5175,12 +5175,12 @@ impl core::ops::BitAnd for GET_DCX_FLAGS {
 }
 impl core::ops::BitOrAssign for GET_DCX_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GET_DCX_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GET_DCX_FLAGS {
@@ -6308,12 +6308,12 @@ impl core::ops::BitAnd for PEN_STYLE {
 }
 impl core::ops::BitOrAssign for PEN_STYLE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PEN_STYLE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PEN_STYLE {
@@ -6498,12 +6498,12 @@ impl core::ops::BitAnd for REDRAW_WINDOW_FLAGS {
 }
 impl core::ops::BitOrAssign for REDRAW_WINDOW_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for REDRAW_WINDOW_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for REDRAW_WINDOW_FLAGS {
@@ -6582,12 +6582,12 @@ impl core::ops::BitAnd for ROP_CODE {
 }
 impl core::ops::BitOrAssign for ROP_CODE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ROP_CODE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ROP_CODE {
@@ -6770,12 +6770,12 @@ impl core::ops::BitAnd for TEXT_ALIGN_OPTIONS {
 }
 impl core::ops::BitOrAssign for TEXT_ALIGN_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TEXT_ALIGN_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TEXT_ALIGN_OPTIONS {
@@ -6809,12 +6809,12 @@ impl core::ops::BitAnd for TMPF_FLAGS {
 }
 impl core::ops::BitOrAssign for TMPF_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TMPF_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TMPF_FLAGS {
@@ -6876,12 +6876,12 @@ impl core::ops::BitAnd for TTEMBED_FLAGS {
 }
 impl core::ops::BitOrAssign for TTEMBED_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TTEMBED_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TTEMBED_FLAGS {
@@ -6950,12 +6950,12 @@ impl core::ops::BitAnd for TTLOAD_EMBEDDED_FONT_STATUS {
 }
 impl core::ops::BitOrAssign for TTLOAD_EMBEDDED_FONT_STATUS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TTLOAD_EMBEDDED_FONT_STATUS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TTLOAD_EMBEDDED_FONT_STATUS {

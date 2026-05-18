@@ -186,12 +186,12 @@ impl core::ops::BitAnd for APPLY_SNAPSHOT_VHDSET_FLAG {
 }
 impl core::ops::BitOrAssign for APPLY_SNAPSHOT_VHDSET_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for APPLY_SNAPSHOT_VHDSET_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for APPLY_SNAPSHOT_VHDSET_FLAG {
@@ -256,12 +256,12 @@ impl core::ops::BitAnd for ATTACH_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for ATTACH_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ATTACH_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ATTACH_VIRTUAL_DISK_FLAG {
@@ -343,12 +343,12 @@ impl core::ops::BitAnd for COMPACT_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for COMPACT_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for COMPACT_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for COMPACT_VIRTUAL_DISK_FLAG {
@@ -413,12 +413,12 @@ impl core::ops::BitAnd for CREATE_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for CREATE_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CREATE_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CREATE_VIRTUAL_DISK_FLAG {
@@ -556,12 +556,12 @@ impl core::ops::BitAnd for DELETE_SNAPSHOT_VHDSET_FLAG {
 }
 impl core::ops::BitOrAssign for DELETE_SNAPSHOT_VHDSET_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DELETE_SNAPSHOT_VHDSET_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DELETE_SNAPSHOT_VHDSET_FLAG {
@@ -625,12 +625,12 @@ impl core::ops::BitAnd for DEPENDENT_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for DEPENDENT_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DEPENDENT_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DEPENDENT_DISK_FLAG {
@@ -676,12 +676,12 @@ impl core::ops::BitAnd for DETACH_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for DETACH_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DETACH_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
@@ -713,12 +713,12 @@ impl core::ops::BitAnd for EXPAND_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for EXPAND_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for EXPAND_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for EXPAND_VIRTUAL_DISK_FLAG {
@@ -782,12 +782,12 @@ impl core::ops::BitAnd for FORK_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for FORK_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for FORK_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for FORK_VIRTUAL_DISK_FLAG {
@@ -851,12 +851,12 @@ impl core::ops::BitAnd for GET_STORAGE_DEPENDENCY_FLAG {
 }
 impl core::ops::BitOrAssign for GET_STORAGE_DEPENDENCY_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GET_STORAGE_DEPENDENCY_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GET_STORAGE_DEPENDENCY_FLAG {
@@ -983,12 +983,12 @@ impl core::ops::BitAnd for MERGE_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for MERGE_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MERGE_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MERGE_VIRTUAL_DISK_FLAG {
@@ -1059,12 +1059,12 @@ impl core::ops::BitAnd for MIRROR_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for MIRROR_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MIRROR_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MIRROR_VIRTUAL_DISK_FLAG {
@@ -1132,12 +1132,12 @@ impl core::ops::BitAnd for MODIFY_VHDSET_FLAG {
 }
 impl core::ops::BitOrAssign for MODIFY_VHDSET_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MODIFY_VHDSET_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MODIFY_VHDSET_FLAG {
@@ -1205,12 +1205,12 @@ impl core::ops::BitAnd for OPEN_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for OPEN_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for OPEN_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for OPEN_VIRTUAL_DISK_FLAG {
@@ -1305,12 +1305,12 @@ impl core::ops::BitAnd for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for QUERY_CHANGES_VIRTUAL_DISK_FLAG {
@@ -1349,12 +1349,12 @@ impl core::ops::BitAnd for RAW_SCSI_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for RAW_SCSI_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RAW_SCSI_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RAW_SCSI_VIRTUAL_DISK_FLAG {
@@ -1458,12 +1458,12 @@ impl core::ops::BitAnd for RESIZE_VIRTUAL_DISK_FLAG {
 }
 impl core::ops::BitOrAssign for RESIZE_VIRTUAL_DISK_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for RESIZE_VIRTUAL_DISK_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for RESIZE_VIRTUAL_DISK_FLAG {
@@ -1626,12 +1626,12 @@ impl core::ops::BitAnd for TAKE_SNAPSHOT_VHDSET_FLAG {
 }
 impl core::ops::BitOrAssign for TAKE_SNAPSHOT_VHDSET_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for TAKE_SNAPSHOT_VHDSET_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for TAKE_SNAPSHOT_VHDSET_FLAG {
@@ -1701,12 +1701,12 @@ impl core::ops::BitAnd for VIRTUAL_DISK_ACCESS_MASK {
 }
 impl core::ops::BitOrAssign for VIRTUAL_DISK_ACCESS_MASK {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for VIRTUAL_DISK_ACCESS_MASK {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for VIRTUAL_DISK_ACCESS_MASK {

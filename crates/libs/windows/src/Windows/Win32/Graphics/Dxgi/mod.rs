@@ -147,12 +147,12 @@ impl core::ops::BitAnd for DXGI_ADAPTER_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_ADAPTER_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_ADAPTER_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_ADAPTER_FLAG {
@@ -183,12 +183,12 @@ impl core::ops::BitAnd for DXGI_ADAPTER_FLAG3 {
 }
 impl core::ops::BitOrAssign for DXGI_ADAPTER_FLAG3 {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_ADAPTER_FLAG3 {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_ADAPTER_FLAG3 {
@@ -238,12 +238,12 @@ impl core::ops::BitAnd for DXGI_CREATE_FACTORY_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_CREATE_FACTORY_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_CREATE_FACTORY_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_CREATE_FACTORY_FLAGS {
@@ -281,12 +281,12 @@ impl core::ops::BitAnd for DXGI_DEBUG_RLO_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_DEBUG_RLO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_DEBUG_RLO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_DEBUG_RLO_FLAGS {
@@ -335,12 +335,12 @@ impl core::ops::BitAnd for DXGI_ENUM_MODES {
 }
 impl core::ops::BitOrAssign for DXGI_ENUM_MODES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_ENUM_MODES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_ENUM_MODES {
@@ -454,12 +454,12 @@ impl core::ops::BitAnd for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
@@ -598,12 +598,12 @@ impl core::ops::BitAnd for DXGI_MAP_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_MAP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_MAP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_MAP_FLAGS {
@@ -995,12 +995,12 @@ impl core::ops::BitAnd for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
@@ -1034,12 +1034,12 @@ impl core::ops::BitAnd for DXGI_MWA_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_MWA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_MWA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_MWA_FLAGS {
@@ -1077,12 +1077,12 @@ impl core::ops::BitAnd for DXGI_OFFER_RESOURCE_FLAGS {
 }
 impl core::ops::BitOrAssign for DXGI_OFFER_RESOURCE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OFFER_RESOURCE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OFFER_RESOURCE_FLAGS {
@@ -1129,12 +1129,12 @@ impl core::ops::BitAnd for DXGI_OUTDUPL_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_OUTDUPL_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OUTDUPL_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OUTDUPL_FLAG {
@@ -1245,12 +1245,12 @@ impl core::ops::BitAnd for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
@@ -1282,12 +1282,12 @@ impl core::ops::BitAnd for DXGI_OVERLAY_SUPPORT_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_OVERLAY_SUPPORT_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_OVERLAY_SUPPORT_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_OVERLAY_SUPPORT_FLAG {
@@ -1320,12 +1320,12 @@ impl core::ops::BitAnd for DXGI_PRESENT {
 }
 impl core::ops::BitOrAssign for DXGI_PRESENT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_PRESENT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_PRESENT {
@@ -1426,12 +1426,12 @@ impl core::ops::BitAnd for DXGI_SHARED_RESOURCE_RW {
 }
 impl core::ops::BitOrAssign for DXGI_SHARED_RESOURCE_RW {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_SHARED_RESOURCE_RW {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_SHARED_RESOURCE_RW {
@@ -1472,12 +1472,12 @@ impl core::ops::BitAnd for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
@@ -1539,12 +1539,12 @@ impl core::ops::BitAnd for DXGI_SWAP_CHAIN_FLAG {
 }
 impl core::ops::BitOrAssign for DXGI_SWAP_CHAIN_FLAG {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_SWAP_CHAIN_FLAG {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_SWAP_CHAIN_FLAG {
@@ -1604,12 +1604,12 @@ impl core::ops::BitAnd for DXGI_USAGE {
 }
 impl core::ops::BitOrAssign for DXGI_USAGE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DXGI_USAGE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DXGI_USAGE {
@@ -1830,7 +1830,9 @@ impl IDXGIAdapter3 {
         }
     }
     pub unsafe fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32) {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterHardwareContentProtectionTeardownStatus)(windows_core::Interface::as_raw(self), dwcookie) }
+        unsafe {
+            (windows_core::Interface::vtable(self).UnregisterHardwareContentProtectionTeardownStatus)(windows_core::Interface::as_raw(self), dwcookie);
+        }
     }
     pub unsafe fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).QueryVideoMemoryInfo)(windows_core::Interface::as_raw(self), nodeindex, memorysegmentgroup, pvideomemoryinfo as _).ok() }
@@ -1845,7 +1847,9 @@ impl IDXGIAdapter3 {
         }
     }
     pub unsafe fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32) {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterVideoMemoryBudgetChangeNotification)(windows_core::Interface::as_raw(self), dwcookie) }
+        unsafe {
+            (windows_core::Interface::vtable(self).UnregisterVideoMemoryBudgetChangeNotification)(windows_core::Interface::as_raw(self), dwcookie);
+        }
     }
 }
 #[repr(C)]
@@ -1886,7 +1890,7 @@ impl IDXGIAdapter3_Vtbl {
         unsafe extern "system" fn UnregisterHardwareContentProtectionTeardownStatus<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIAdapter3_Impl::UnregisterHardwareContentProtectionTeardownStatus(this, core::mem::transmute_copy(&dwcookie))
+                IDXGIAdapter3_Impl::UnregisterHardwareContentProtectionTeardownStatus(this, core::mem::transmute_copy(&dwcookie));
             }
         }
         unsafe extern "system" fn QueryVideoMemoryInfo<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::HRESULT {
@@ -1916,7 +1920,7 @@ impl IDXGIAdapter3_Vtbl {
         unsafe extern "system" fn UnregisterVideoMemoryBudgetChangeNotification<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIAdapter3_Impl::UnregisterVideoMemoryBudgetChangeNotification(this, core::mem::transmute_copy(&dwcookie))
+                IDXGIAdapter3_Impl::UnregisterVideoMemoryBudgetChangeNotification(this, core::mem::transmute_copy(&dwcookie));
             }
         }
         Self {
@@ -2025,10 +2029,14 @@ impl core::ops::Deref for IDXGIDebug1 {
 windows_core::imp::interface_hierarchy!(IDXGIDebug1, windows_core::IUnknown, IDXGIDebug);
 impl IDXGIDebug1 {
     pub unsafe fn EnableLeakTrackingForThread(&self) {
-        unsafe { (windows_core::Interface::vtable(self).EnableLeakTrackingForThread)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EnableLeakTrackingForThread)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn DisableLeakTrackingForThread(&self) {
-        unsafe { (windows_core::Interface::vtable(self).DisableLeakTrackingForThread)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).DisableLeakTrackingForThread)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn IsLeakTrackingEnabledForThread(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsLeakTrackingEnabledForThread)(windows_core::Interface::as_raw(self)) }
@@ -2054,13 +2062,13 @@ impl IDXGIDebug1_Vtbl {
         unsafe extern "system" fn EnableLeakTrackingForThread<Identity: IDXGIDebug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIDebug1_Impl::EnableLeakTrackingForThread(this)
+                IDXGIDebug1_Impl::EnableLeakTrackingForThread(this);
             }
         }
         unsafe extern "system" fn DisableLeakTrackingForThread<Identity: IDXGIDebug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIDebug1_Impl::DisableLeakTrackingForThread(this)
+                IDXGIDebug1_Impl::DisableLeakTrackingForThread(this);
             }
         }
         unsafe extern "system" fn IsLeakTrackingEnabledForThread<Identity: IDXGIDebug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -2491,7 +2499,9 @@ impl core::ops::Deref for IDXGIDevice3 {
 windows_core::imp::interface_hierarchy!(IDXGIDevice3, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2);
 impl IDXGIDevice3 {
     pub unsafe fn Trim(&self) {
-        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -2512,7 +2522,7 @@ impl IDXGIDevice3_Vtbl {
         unsafe extern "system" fn Trim<Identity: IDXGIDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIDevice3_Impl::Trim(this)
+                IDXGIDevice3_Impl::Trim(this);
             }
         }
         Self { base__: IDXGIDevice2_Vtbl::new::<Identity, OFFSET>(), Trim: Trim::<Identity, OFFSET> }
@@ -2630,7 +2640,9 @@ impl IDXGIDisplayControl {
         unsafe { (windows_core::Interface::vtable(self).IsStereoEnabled)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetStereoEnabled(&self, enabled: bool) {
-        unsafe { (windows_core::Interface::vtable(self).SetStereoEnabled)(windows_core::Interface::as_raw(self), enabled.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetStereoEnabled)(windows_core::Interface::as_raw(self), enabled.into());
+        }
     }
 }
 #[repr(C)]
@@ -2657,7 +2669,7 @@ impl IDXGIDisplayControl_Vtbl {
         unsafe extern "system" fn SetStereoEnabled<Identity: IDXGIDisplayControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIDisplayControl_Impl::SetStereoEnabled(this, core::mem::transmute_copy(&enabled))
+                IDXGIDisplayControl_Impl::SetStereoEnabled(this, core::mem::transmute_copy(&enabled));
             }
         }
         Self {
@@ -2914,7 +2926,9 @@ impl IDXGIFactory2 {
         }
     }
     pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterStereoStatus)(windows_core::Interface::as_raw(self), dwcookie) }
+        unsafe {
+            (windows_core::Interface::vtable(self).UnregisterStereoStatus)(windows_core::Interface::as_raw(self), dwcookie);
+        }
     }
     pub unsafe fn RegisterOcclusionStatusWindow(&self, windowhandle: super::super::Foundation::HWND, wmsg: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -2929,7 +2943,9 @@ impl IDXGIFactory2 {
         }
     }
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterOcclusionStatus)(windows_core::Interface::as_raw(self), dwcookie) }
+        unsafe {
+            (windows_core::Interface::vtable(self).UnregisterOcclusionStatus)(windows_core::Interface::as_raw(self), dwcookie);
+        }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateSwapChainForComposition<P0, P2>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> windows_core::Result<IDXGISwapChain1>
@@ -3056,7 +3072,7 @@ impl IDXGIFactory2_Vtbl {
         unsafe extern "system" fn UnregisterStereoStatus<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIFactory2_Impl::UnregisterStereoStatus(this, core::mem::transmute_copy(&dwcookie))
+                IDXGIFactory2_Impl::UnregisterStereoStatus(this, core::mem::transmute_copy(&dwcookie));
             }
         }
         unsafe extern "system" fn RegisterOcclusionStatusWindow<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowhandle: super::super::Foundation::HWND, wmsg: u32, pdwcookie: *mut u32) -> windows_core::HRESULT {
@@ -3086,7 +3102,7 @@ impl IDXGIFactory2_Vtbl {
         unsafe extern "system" fn UnregisterOcclusionStatus<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIFactory2_Impl::UnregisterOcclusionStatus(this, core::mem::transmute_copy(&dwcookie))
+                IDXGIFactory2_Impl::UnregisterOcclusionStatus(this, core::mem::transmute_copy(&dwcookie));
             }
         }
         unsafe extern "system" fn CreateSwapChainForComposition<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -3472,7 +3488,9 @@ impl IDXGIInfoQueue {
         unsafe { (windows_core::Interface::vtable(self).SetMessageCountLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), messagecountlimit).ok() }
     }
     pub unsafe fn ClearStoredMessages(&self, producer: windows_core::GUID) {
-        unsafe { (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+        }
     }
     pub unsafe fn GetMessage(&self, producer: windows_core::GUID, messageindex: u64, pmessage: Option<*mut DXGI_INFO_QUEUE_MESSAGE>, pmessagebytelength: *mut usize) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _).ok() }
@@ -3502,7 +3520,9 @@ impl IDXGIInfoQueue {
         unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _).ok() }
     }
     pub unsafe fn ClearStorageFilter(&self, producer: windows_core::GUID) {
-        unsafe { (windows_core::Interface::vtable(self).ClearStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+        }
     }
     pub unsafe fn PushEmptyStorageFilter(&self, producer: windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushEmptyStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)).ok() }
@@ -3517,7 +3537,9 @@ impl IDXGIInfoQueue {
         unsafe { (windows_core::Interface::vtable(self).PushStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter).ok() }
     }
     pub unsafe fn PopStorageFilter(&self, producer: windows_core::GUID) {
-        unsafe { (windows_core::Interface::vtable(self).PopStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PopStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+        }
     }
     pub unsafe fn GetStorageFilterStackSize(&self, producer: windows_core::GUID) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetStorageFilterStackSize)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
@@ -3529,7 +3551,9 @@ impl IDXGIInfoQueue {
         unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _).ok() }
     }
     pub unsafe fn ClearRetrievalFilter(&self, producer: windows_core::GUID) {
-        unsafe { (windows_core::Interface::vtable(self).ClearRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+        }
     }
     pub unsafe fn PushEmptyRetrievalFilter(&self, producer: windows_core::GUID) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushEmptyRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)).ok() }
@@ -3544,7 +3568,9 @@ impl IDXGIInfoQueue {
         unsafe { (windows_core::Interface::vtable(self).PushRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter).ok() }
     }
     pub unsafe fn PopRetrievalFilter(&self, producer: windows_core::GUID) {
-        unsafe { (windows_core::Interface::vtable(self).PopRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).PopRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+        }
     }
     pub unsafe fn GetRetrievalFilterStackSize(&self, producer: windows_core::GUID) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilterStackSize)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
@@ -3580,7 +3606,9 @@ impl IDXGIInfoQueue {
         unsafe { (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), id) }
     }
     pub unsafe fn SetMuteDebugOutput(&self, producer: windows_core::GUID, bmute: bool) {
-        unsafe { (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), bmute.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), bmute.into());
+        }
     }
     pub unsafe fn GetMuteDebugOutput(&self, producer: windows_core::GUID) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
@@ -3680,7 +3708,7 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn ClearStoredMessages<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIInfoQueue_Impl::ClearStoredMessages(this, core::mem::transmute(&producer))
+                IDXGIInfoQueue_Impl::ClearStoredMessages(this, core::mem::transmute(&producer));
             }
         }
         unsafe extern "system" fn GetMessage<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> windows_core::HRESULT {
@@ -3740,7 +3768,7 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn ClearStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIInfoQueue_Impl::ClearStorageFilter(this, core::mem::transmute(&producer))
+                IDXGIInfoQueue_Impl::ClearStorageFilter(this, core::mem::transmute(&producer));
             }
         }
         unsafe extern "system" fn PushEmptyStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) -> windows_core::HRESULT {
@@ -3770,7 +3798,7 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn PopStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIInfoQueue_Impl::PopStorageFilter(this, core::mem::transmute(&producer))
+                IDXGIInfoQueue_Impl::PopStorageFilter(this, core::mem::transmute(&producer));
             }
         }
         unsafe extern "system" fn GetStorageFilterStackSize<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) -> u32 {
@@ -3794,7 +3822,7 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn ClearRetrievalFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIInfoQueue_Impl::ClearRetrievalFilter(this, core::mem::transmute(&producer))
+                IDXGIInfoQueue_Impl::ClearRetrievalFilter(this, core::mem::transmute(&producer));
             }
         }
         unsafe extern "system" fn PushEmptyRetrievalFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) -> windows_core::HRESULT {
@@ -3824,7 +3852,7 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn PopRetrievalFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIInfoQueue_Impl::PopRetrievalFilter(this, core::mem::transmute(&producer))
+                IDXGIInfoQueue_Impl::PopRetrievalFilter(this, core::mem::transmute(&producer));
             }
         }
         unsafe extern "system" fn GetRetrievalFilterStackSize<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) -> u32 {
@@ -3884,7 +3912,7 @@ impl IDXGIInfoQueue_Vtbl {
         unsafe extern "system" fn SetMuteDebugOutput<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID, bmute: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIInfoQueue_Impl::SetMuteDebugOutput(this, core::mem::transmute(&producer), core::mem::transmute_copy(&bmute))
+                IDXGIInfoQueue_Impl::SetMuteDebugOutput(this, core::mem::transmute(&producer), core::mem::transmute_copy(&bmute));
             }
         }
         unsafe extern "system" fn GetMuteDebugOutput<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: windows_core::GUID) -> windows_core::BOOL {
@@ -4109,7 +4137,9 @@ impl IDXGIOutput {
         unsafe { (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), pdevice.param().abi(), exclusive.into()).ok() }
     }
     pub unsafe fn ReleaseOwnership(&self) {
-        unsafe { (windows_core::Interface::vtable(self).ReleaseOwnership)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).ReleaseOwnership)(windows_core::Interface::as_raw(self));
+        }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetGammaControlCapabilities(&self, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::Result<()> {
@@ -4233,7 +4263,7 @@ impl IDXGIOutput_Vtbl {
         unsafe extern "system" fn ReleaseOwnership<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutput_Impl::ReleaseOwnership(this)
+                IDXGIOutput_Impl::ReleaseOwnership(this);
             }
         }
         unsafe extern "system" fn GetGammaControlCapabilities<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pgammacaps: *mut Common::DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::HRESULT {
@@ -4773,7 +4803,7 @@ impl IDXGIOutputDuplication_Vtbl {
         unsafe extern "system" fn GetDesc<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_OUTDUPL_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIOutputDuplication_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc))
+                IDXGIOutputDuplication_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc));
             }
         }
         unsafe extern "system" fn AcquireNextFrame<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5995,10 +6025,14 @@ windows_core::imp::define_interface!(IDXGraphicsAnalysis, IDXGraphicsAnalysis_Vt
 windows_core::imp::interface_hierarchy!(IDXGraphicsAnalysis, windows_core::IUnknown);
 impl IDXGraphicsAnalysis {
     pub unsafe fn BeginCapture(&self) {
-        unsafe { (windows_core::Interface::vtable(self).BeginCapture)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginCapture)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn EndCapture(&self) {
-        unsafe { (windows_core::Interface::vtable(self).EndCapture)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).EndCapture)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -6017,13 +6051,13 @@ impl IDXGraphicsAnalysis_Vtbl {
         unsafe extern "system" fn BeginCapture<Identity: IDXGraphicsAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGraphicsAnalysis_Impl::BeginCapture(this)
+                IDXGraphicsAnalysis_Impl::BeginCapture(this);
             }
         }
         unsafe extern "system" fn EndCapture<Identity: IDXGraphicsAnalysis_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGraphicsAnalysis_Impl::EndCapture(this)
+                IDXGraphicsAnalysis_Impl::EndCapture(this);
             }
         }
         Self {

@@ -46,7 +46,7 @@ impl ID2D1Bitmap {
                 windows_core::Interface::as_raw(self),
                 dpix as _,
                 dpiy as _,
-            )
+            );
         }
     }
 }

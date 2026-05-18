@@ -2112,12 +2112,12 @@ impl core::ops::BitAnd for CREATE_EVENT {
 }
 impl core::ops::BitOrAssign for CREATE_EVENT {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CREATE_EVENT {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CREATE_EVENT {
@@ -2486,12 +2486,12 @@ impl core::ops::BitAnd for MACHINE_ATTRIBUTES {
 }
 impl core::ops::BitOrAssign for MACHINE_ATTRIBUTES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MACHINE_ATTRIBUTES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MACHINE_ATTRIBUTES {
@@ -2692,12 +2692,12 @@ impl core::ops::BitAnd for PROCESS_ACCESS_RIGHTS {
 }
 impl core::ops::BitOrAssign for PROCESS_ACCESS_RIGHTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROCESS_ACCESS_RIGHTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROCESS_ACCESS_RIGHTS {
@@ -2761,12 +2761,12 @@ impl core::ops::BitAnd for PROCESS_CREATION_FLAGS {
 }
 impl core::ops::BitOrAssign for PROCESS_CREATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROCESS_CREATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROCESS_CREATION_FLAGS {
@@ -2963,12 +2963,12 @@ impl core::ops::BitAnd for PROCESS_DEP_FLAGS {
 }
 impl core::ops::BitOrAssign for PROCESS_DEP_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROCESS_DEP_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROCESS_DEP_FLAGS {
@@ -3534,12 +3534,12 @@ impl core::ops::BitAnd for STARTUPINFOW_FLAGS {
 }
 impl core::ops::BitOrAssign for STARTUPINFOW_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for STARTUPINFOW_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for STARTUPINFOW_FLAGS {
@@ -3570,12 +3570,12 @@ impl core::ops::BitAnd for SYNCHRONIZATION_ACCESS_RIGHTS {
 }
 impl core::ops::BitOrAssign for SYNCHRONIZATION_ACCESS_RIGHTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SYNCHRONIZATION_ACCESS_RIGHTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SYNCHRONIZATION_ACCESS_RIGHTS {
@@ -3649,12 +3649,12 @@ impl core::ops::BitAnd for THREAD_ACCESS_RIGHTS {
 }
 impl core::ops::BitOrAssign for THREAD_ACCESS_RIGHTS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for THREAD_ACCESS_RIGHTS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for THREAD_ACCESS_RIGHTS {
@@ -3688,12 +3688,12 @@ impl core::ops::BitAnd for THREAD_CREATION_FLAGS {
 }
 impl core::ops::BitOrAssign for THREAD_CREATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for THREAD_CREATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for THREAD_CREATION_FLAGS {
@@ -3882,12 +3882,12 @@ impl core::ops::BitAnd for WORKER_THREAD_FLAGS {
 }
 impl core::ops::BitOrAssign for WORKER_THREAD_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WORKER_THREAD_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WORKER_THREAD_FLAGS {

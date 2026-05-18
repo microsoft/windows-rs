@@ -169,9 +169,9 @@ impl CppMethod {
                 Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
                 Type::HRESULT => {
                     if is_retval {
-                        return_hint = ReturnHint::ResultValue
+                        return_hint = ReturnHint::ResultValue;
                     } else {
-                        return_hint = ReturnHint::ResultVoid
+                        return_hint = ReturnHint::ResultVoid;
                     };
 
                     if signature.params.len() >= 2 {
@@ -187,7 +187,7 @@ impl CppMethod {
                 Type::BOOL if last_error => return_hint = ReturnHint::ResultVoid,
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
                 Type::CppStruct(ty) if !ty.is_handle(reader) => {
-                    return_hint = ReturnHint::ReturnStruct
+                    return_hint = ReturnHint::ReturnStruct;
                 }
                 _ => {}
             };
@@ -232,12 +232,12 @@ impl CppMethod {
             if self.param_hints[position] == ParamHint::IntoParam {
                 let name: TokenStream = format!("P{position}").into();
                 let into = param.write_name(config);
-                tokens.combine(quote! { #name: windows_core::Param<#into>, })
+                tokens.combine(quote! { #name: windows_core::Param<#into>, });
             }
         }
 
         if query {
-            tokens.combine(quote! { T: windows_core::Interface })
+            tokens.combine(quote! { T: windows_core::Interface });
         }
 
         if tokens.is_empty() {
@@ -363,9 +363,17 @@ impl CppMethod {
             ReturnHint::None => {
                 let where_clause = self.write_where(config, false);
 
-                quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
-                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args) }
+                if matches!(self.signature.return_type, Type::Void) {
+                    quote! {
+                        pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
+                            unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args); }
+                        }
+                    }
+                } else {
+                    quote! {
+                        pub unsafe fn #name<#generics>(&self, #params) #abi_return_type #where_clause {
+                            unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args) }
+                        }
                     }
                 }
             }
@@ -426,8 +434,14 @@ impl CppMethod {
                     .iter()
                     .map(|p| write_invoke_arg(p, reader));
 
-                quote! {
-                    #parent_impl::#name(this, #(#invoke_args,)*);
+                if matches!(self.signature.return_type, Type::Void) {
+                    quote! {
+                        #parent_impl::#name(this, #(#invoke_args,)*);
+                    }
+                } else {
+                    quote! {
+                        #parent_impl::#name(this, #(#invoke_args,)*)
+                    }
                 }
             }
         }
@@ -687,7 +701,7 @@ impl CppMethod {
                     }
                 }
             };
-            tokens.combine(&new)
+            tokens.combine(&new);
         }
 
         tokens

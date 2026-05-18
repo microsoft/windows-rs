@@ -584,12 +584,12 @@ impl core::ops::BitAnd for DML_CREATE_DEVICE_FLAGS {
 }
 impl core::ops::BitOrAssign for DML_CREATE_DEVICE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DML_CREATE_DEVICE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DML_CREATE_DEVICE_FLAGS {
@@ -1502,12 +1502,12 @@ impl core::ops::BitAnd for DML_EXECUTION_FLAGS {
 }
 impl core::ops::BitOrAssign for DML_EXECUTION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DML_EXECUTION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DML_EXECUTION_FLAGS {
@@ -2718,12 +2718,12 @@ impl core::ops::BitAnd for DML_TENSOR_FLAGS {
 }
 impl core::ops::BitOrAssign for DML_TENSOR_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for DML_TENSOR_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for DML_TENSOR_FLAGS {
@@ -2818,16 +2818,24 @@ impl core::ops::Deref for IDMLBindingTable {
 windows_core::imp::interface_hierarchy!(IDMLBindingTable, windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
 impl IDMLBindingTable {
     pub unsafe fn BindInputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
-        unsafe { (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+        }
     }
     pub unsafe fn BindOutputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
-        unsafe { (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+        }
     }
     pub unsafe fn BindTemporaryResource(&self, binding: Option<*const DML_BINDING_DESC>) {
-        unsafe { (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), binding.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BindTemporaryResource)(windows_core::Interface::as_raw(self), binding.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     pub unsafe fn BindPersistentResource(&self, binding: Option<*const DML_BINDING_DESC>) {
-        unsafe { (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), binding.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe {
+            (windows_core::Interface::vtable(self).BindPersistentResource)(windows_core::Interface::as_raw(self), binding.unwrap_or(core::mem::zeroed()) as _);
+        }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset(&self, desc: Option<*const DML_BINDING_TABLE_DESC>) -> windows_core::Result<()> {
@@ -2861,25 +2869,25 @@ impl IDMLBindingTable_Vtbl {
         unsafe extern "system" fn BindInputs<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLBindingTable_Impl::BindInputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings))
+                IDMLBindingTable_Impl::BindInputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings));
             }
         }
         unsafe extern "system" fn BindOutputs<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLBindingTable_Impl::BindOutputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings))
+                IDMLBindingTable_Impl::BindOutputs(this, core::mem::transmute_copy(&bindingcount), core::mem::transmute_copy(&bindings));
             }
         }
         unsafe extern "system" fn BindTemporaryResource<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binding: *const DML_BINDING_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLBindingTable_Impl::BindTemporaryResource(this, core::mem::transmute_copy(&binding))
+                IDMLBindingTable_Impl::BindTemporaryResource(this, core::mem::transmute_copy(&binding));
             }
         }
         unsafe extern "system" fn BindPersistentResource<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, binding: *const DML_BINDING_DESC) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLBindingTable_Impl::BindPersistentResource(this, core::mem::transmute_copy(&binding))
+                IDMLBindingTable_Impl::BindPersistentResource(this, core::mem::transmute_copy(&binding));
             }
         }
         unsafe extern "system" fn Reset<Identity: IDMLBindingTable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> windows_core::HRESULT {
@@ -2919,7 +2927,9 @@ impl IDMLCommandRecorder {
         P1: windows_core::Param<IDMLDispatchable>,
         P2: windows_core::Param<IDMLBindingTable>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RecordDispatch)(windows_core::Interface::as_raw(self), commandlist.param().abi(), dispatchable.param().abi(), bindings.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).RecordDispatch)(windows_core::Interface::as_raw(self), commandlist.param().abi(), dispatchable.param().abi(), bindings.param().abi());
+        }
     }
 }
 #[repr(C)]
@@ -2941,7 +2951,7 @@ impl IDMLCommandRecorder_Vtbl {
         unsafe extern "system" fn RecordDispatch<Identity: IDMLCommandRecorder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandlist: *mut core::ffi::c_void, dispatchable: *mut core::ffi::c_void, bindings: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLCommandRecorder_Impl::RecordDispatch(this, core::mem::transmute_copy(&commandlist), core::mem::transmute_copy(&dispatchable), core::mem::transmute_copy(&bindings))
+                IDMLCommandRecorder_Impl::RecordDispatch(this, core::mem::transmute_copy(&commandlist), core::mem::transmute_copy(&dispatchable), core::mem::transmute_copy(&bindings));
             }
         }
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, OFFSET> }
@@ -2979,7 +2989,9 @@ windows_core::imp::define_interface!(IDMLDebugDevice, IDMLDebugDevice_Vtbl, 0x7d
 windows_core::imp::interface_hierarchy!(IDMLDebugDevice, windows_core::IUnknown);
 impl IDMLDebugDevice {
     pub unsafe fn SetMuteDebugOutput(&self, mute: bool) {
-        unsafe { (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), mute.into()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), mute.into());
+        }
     }
 }
 #[repr(C)]
@@ -2996,7 +3008,7 @@ impl IDMLDebugDevice_Vtbl {
         unsafe extern "system" fn SetMuteDebugOutput<Identity: IDMLDebugDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mute: windows_core::BOOL) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLDebugDevice_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&mute))
+                IDMLDebugDevice_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&mute));
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetMuteDebugOutput: SetMuteDebugOutput::<Identity, OFFSET> }
@@ -3299,7 +3311,7 @@ impl IDMLDispatchable_Vtbl {
         unsafe extern "system" fn GetBindingProperties<Identity: IDMLDispatchable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                *result__ = IDMLDispatchable_Impl::GetBindingProperties(this)
+                *result__ = IDMLDispatchable_Impl::GetBindingProperties(this);
             }
         }
         Self { base__: IDMLPageable_Vtbl::new::<Identity, OFFSET>(), GetBindingProperties: GetBindingProperties::<Identity, OFFSET> }

@@ -965,12 +965,12 @@ impl core::ops::BitAnd for MapManeuverNotices {
 }
 impl core::ops::BitOrAssign for MapManeuverNotices {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MapManeuverNotices {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MapManeuverNotices {
@@ -1591,12 +1591,12 @@ impl core::ops::BitAnd for MapRouteRestrictions {
 }
 impl core::ops::BitOrAssign for MapRouteRestrictions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for MapRouteRestrictions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for MapRouteRestrictions {

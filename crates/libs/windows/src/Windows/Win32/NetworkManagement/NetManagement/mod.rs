@@ -1727,12 +1727,12 @@ impl core::ops::BitAnd for AF_OP {
 }
 impl core::ops::BitOrAssign for AF_OP {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AF_OP {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AF_OP {
@@ -5378,12 +5378,12 @@ impl core::ops::BitAnd for NETSETUP_PROVISION {
 }
 impl core::ops::BitOrAssign for NETSETUP_PROVISION {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NETSETUP_PROVISION {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NETSETUP_PROVISION {
@@ -5495,12 +5495,12 @@ impl core::ops::BitAnd for NET_JOIN_DOMAIN_JOIN_OPTIONS {
 }
 impl core::ops::BitOrAssign for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NET_JOIN_DOMAIN_JOIN_OPTIONS {
@@ -5534,12 +5534,12 @@ impl core::ops::BitAnd for NET_REQUEST_PROVISION_OPTIONS {
 }
 impl core::ops::BitOrAssign for NET_REQUEST_PROVISION_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NET_REQUEST_PROVISION_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NET_REQUEST_PROVISION_OPTIONS {
@@ -5570,12 +5570,12 @@ impl core::ops::BitAnd for NET_SERVER_TYPE {
 }
 impl core::ops::BitOrAssign for NET_SERVER_TYPE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NET_SERVER_TYPE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NET_SERVER_TYPE {
@@ -5606,12 +5606,12 @@ impl core::ops::BitAnd for NET_USER_ENUM_FILTER_FLAGS {
 }
 impl core::ops::BitOrAssign for NET_USER_ENUM_FILTER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for NET_USER_ENUM_FILTER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
@@ -7402,12 +7402,12 @@ impl core::ops::BitAnd for USER_ACCOUNT_FLAGS {
 }
 impl core::ops::BitOrAssign for USER_ACCOUNT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for USER_ACCOUNT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for USER_ACCOUNT_FLAGS {

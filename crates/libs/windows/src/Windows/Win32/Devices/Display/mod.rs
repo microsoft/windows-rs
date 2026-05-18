@@ -662,12 +662,12 @@ impl core::ops::BitAnd for AR_STATE {
 }
 impl core::ops::BitOrAssign for AR_STATE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AR_STATE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AR_STATE {
@@ -3589,12 +3589,12 @@ impl core::ops::BitAnd for ORIENTATION_PREFERENCE {
 }
 impl core::ops::BitOrAssign for ORIENTATION_PREFERENCE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for ORIENTATION_PREFERENCE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for ORIENTATION_PREFERENCE {
@@ -4071,12 +4071,12 @@ impl core::ops::BitAnd for QUERY_DISPLAY_CONFIG_FLAGS {
 }
 impl core::ops::BitOrAssign for QUERY_DISPLAY_CONFIG_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for QUERY_DISPLAY_CONFIG_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for QUERY_DISPLAY_CONFIG_FLAGS {
@@ -4152,12 +4152,12 @@ impl core::ops::BitAnd for SET_DISPLAY_CONFIG_FLAGS {
 }
 impl core::ops::BitOrAssign for SET_DISPLAY_CONFIG_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SET_DISPLAY_CONFIG_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SET_DISPLAY_CONFIG_FLAGS {

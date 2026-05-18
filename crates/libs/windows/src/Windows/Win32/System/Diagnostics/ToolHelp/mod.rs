@@ -101,12 +101,12 @@ impl core::ops::BitAnd for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 }
 impl core::ops::BitOrAssign for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {

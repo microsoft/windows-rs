@@ -2475,25 +2475,35 @@ windows_core::imp::define_interface!(ICameraUIControlEventCallback, ICameraUICon
 windows_core::imp::interface_hierarchy!(ICameraUIControlEventCallback, windows_core::IUnknown);
 impl ICameraUIControlEventCallback {
     pub unsafe fn OnStartupComplete(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnStartupComplete)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnStartupComplete)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnSuspendComplete(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnSuspendComplete)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnSuspendComplete)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnItemCaptured<P0>(&self, pszpath: P0)
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnItemCaptured)(windows_core::Interface::as_raw(self), pszpath.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnItemCaptured)(windows_core::Interface::as_raw(self), pszpath.param().abi());
+        }
     }
     pub unsafe fn OnItemDeleted<P0>(&self, pszpath: P0)
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnItemDeleted)(windows_core::Interface::as_raw(self), pszpath.param().abi()) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnItemDeleted)(windows_core::Interface::as_raw(self), pszpath.param().abi());
+        }
     }
     pub unsafe fn OnClosed(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnClosed)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnClosed)(windows_core::Interface::as_raw(self));
+        }
     }
 }
 #[repr(C)]
@@ -2518,31 +2528,31 @@ impl ICameraUIControlEventCallback_Vtbl {
         unsafe extern "system" fn OnStartupComplete<Identity: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICameraUIControlEventCallback_Impl::OnStartupComplete(this)
+                ICameraUIControlEventCallback_Impl::OnStartupComplete(this);
             }
         }
         unsafe extern "system" fn OnSuspendComplete<Identity: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICameraUIControlEventCallback_Impl::OnSuspendComplete(this)
+                ICameraUIControlEventCallback_Impl::OnSuspendComplete(this);
             }
         }
         unsafe extern "system" fn OnItemCaptured<Identity: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICameraUIControlEventCallback_Impl::OnItemCaptured(this, core::mem::transmute(&pszpath))
+                ICameraUIControlEventCallback_Impl::OnItemCaptured(this, core::mem::transmute(&pszpath));
             }
         }
         unsafe extern "system" fn OnItemDeleted<Identity: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszpath: windows_core::PCWSTR) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICameraUIControlEventCallback_Impl::OnItemDeleted(this, core::mem::transmute(&pszpath))
+                ICameraUIControlEventCallback_Impl::OnItemDeleted(this, core::mem::transmute(&pszpath));
             }
         }
         unsafe extern "system" fn OnClosed<Identity: ICameraUIControlEventCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICameraUIControlEventCallback_Impl::OnClosed(this)
+                ICameraUIControlEventCallback_Impl::OnClosed(this);
             }
         }
         Self {
@@ -3881,12 +3891,12 @@ impl core::ops::BitAnd for WLDP_EXECUTION_EVALUATION_OPTIONS {
 }
 impl core::ops::BitOrAssign for WLDP_EXECUTION_EVALUATION_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WLDP_EXECUTION_EVALUATION_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WLDP_EXECUTION_EVALUATION_OPTIONS {

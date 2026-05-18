@@ -251,12 +251,12 @@ impl core::ops::BitAnd for CF_CALLBACK_CANCEL_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_CANCEL_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_CANCEL_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
@@ -290,12 +290,12 @@ impl core::ops::BitAnd for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
@@ -328,12 +328,12 @@ impl core::ops::BitAnd for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
@@ -367,12 +367,12 @@ impl core::ops::BitAnd for CF_CALLBACK_DEHYDRATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_DEHYDRATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_DEHYDRATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
@@ -413,12 +413,12 @@ impl core::ops::BitAnd for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
@@ -450,12 +450,12 @@ impl core::ops::BitAnd for CF_CALLBACK_DELETE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_DELETE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_DELETE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_DELETE_FLAGS {
@@ -489,12 +489,12 @@ impl core::ops::BitAnd for CF_CALLBACK_FETCH_DATA_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_FETCH_DATA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_FETCH_DATA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
@@ -528,12 +528,12 @@ impl core::ops::BitAnd for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
@@ -595,12 +595,12 @@ impl core::ops::BitAnd for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
@@ -768,12 +768,12 @@ impl core::ops::BitAnd for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
@@ -805,12 +805,12 @@ impl core::ops::BitAnd for CF_CALLBACK_RENAME_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_RENAME_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_RENAME_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_RENAME_FLAGS {
@@ -862,12 +862,12 @@ impl core::ops::BitAnd for CF_CALLBACK_VALIDATE_DATA_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
@@ -919,12 +919,12 @@ impl core::ops::BitAnd for CF_CONNECT_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CONNECT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CONNECT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CONNECT_FLAGS {
@@ -959,12 +959,12 @@ impl core::ops::BitAnd for CF_CONVERT_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CONVERT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CONVERT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CONVERT_FLAGS {
@@ -1001,12 +1001,12 @@ impl core::ops::BitAnd for CF_CREATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_CREATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_CREATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_CREATE_FLAGS {
@@ -1039,12 +1039,12 @@ impl core::ops::BitAnd for CF_DEHYDRATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_DEHYDRATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_DEHYDRATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_DEHYDRATE_FLAGS {
@@ -1090,12 +1090,12 @@ impl core::ops::BitAnd for CF_HARDLINK_POLICY {
 }
 impl core::ops::BitOrAssign for CF_HARDLINK_POLICY {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_HARDLINK_POLICY {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_HARDLINK_POLICY {
@@ -1128,12 +1128,12 @@ impl core::ops::BitAnd for CF_HYDRATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_HYDRATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_HYDRATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_HYDRATE_FLAGS {
@@ -1173,12 +1173,12 @@ impl core::ops::BitAnd for CF_HYDRATION_POLICY_MODIFIER {
 }
 impl core::ops::BitOrAssign for CF_HYDRATION_POLICY_MODIFIER {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_HYDRATION_POLICY_MODIFIER {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_HYDRATION_POLICY_MODIFIER {
@@ -1219,12 +1219,12 @@ impl core::ops::BitAnd for CF_INSYNC_POLICY {
 }
 impl core::ops::BitOrAssign for CF_INSYNC_POLICY {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_INSYNC_POLICY {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_INSYNC_POLICY {
@@ -1278,12 +1278,12 @@ impl core::ops::BitAnd for CF_OPEN_FILE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPEN_FILE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPEN_FILE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPEN_FILE_FLAGS {
@@ -1319,12 +1319,12 @@ impl core::ops::BitAnd for CF_OPERATION_ACK_DATA_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_ACK_DATA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_ACK_DATA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
@@ -1356,12 +1356,12 @@ impl core::ops::BitAnd for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
@@ -1393,12 +1393,12 @@ impl core::ops::BitAnd for CF_OPERATION_ACK_DELETE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_ACK_DELETE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_ACK_DELETE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
@@ -1430,12 +1430,12 @@ impl core::ops::BitAnd for CF_OPERATION_ACK_RENAME_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_ACK_RENAME_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_ACK_RENAME_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
@@ -1619,12 +1619,12 @@ impl core::ops::BitAnd for CF_OPERATION_RESTART_HYDRATION_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
@@ -1657,12 +1657,12 @@ impl core::ops::BitAnd for CF_OPERATION_RETRIEVE_DATA_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
@@ -1694,12 +1694,12 @@ impl core::ops::BitAnd for CF_OPERATION_TRANSFER_DATA_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_TRANSFER_DATA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_TRANSFER_DATA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
@@ -1731,12 +1731,12 @@ impl core::ops::BitAnd for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
@@ -1804,12 +1804,12 @@ impl core::ops::BitAnd for CF_PLACEHOLDER_CREATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_PLACEHOLDER_CREATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_PLACEHOLDER_CREATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_PLACEHOLDER_CREATE_FLAGS {
@@ -1901,12 +1901,12 @@ impl core::ops::BitAnd for CF_PLACEHOLDER_STATE {
 }
 impl core::ops::BitOrAssign for CF_PLACEHOLDER_STATE {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_PLACEHOLDER_STATE {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_PLACEHOLDER_STATE {
@@ -1960,12 +1960,12 @@ impl core::ops::BitAnd for CF_POPULATION_POLICY_MODIFIER {
 }
 impl core::ops::BitOrAssign for CF_POPULATION_POLICY_MODIFIER {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_POPULATION_POLICY_MODIFIER {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_POPULATION_POLICY_MODIFIER {
@@ -2023,12 +2023,12 @@ impl core::ops::BitAnd for CF_REGISTER_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_REGISTER_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_REGISTER_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_REGISTER_FLAGS {
@@ -2064,12 +2064,12 @@ impl core::ops::BitAnd for CF_REVERT_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_REVERT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_REVERT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_REVERT_FLAGS {
@@ -2101,12 +2101,12 @@ impl core::ops::BitAnd for CF_SET_IN_SYNC_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_SET_IN_SYNC_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_SET_IN_SYNC_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_SET_IN_SYNC_FLAGS {
@@ -2138,12 +2138,12 @@ impl core::ops::BitAnd for CF_SET_PIN_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_SET_PIN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_SET_PIN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_SET_PIN_FLAGS {
@@ -2188,12 +2188,12 @@ impl core::ops::BitAnd for CF_SYNC_PROVIDER_STATUS {
 }
 impl core::ops::BitOrAssign for CF_SYNC_PROVIDER_STATUS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_SYNC_PROVIDER_STATUS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_SYNC_PROVIDER_STATUS {
@@ -2293,12 +2293,12 @@ impl core::ops::BitAnd for CF_UPDATE_FLAGS {
 }
 impl core::ops::BitOrAssign for CF_UPDATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CF_UPDATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CF_UPDATE_FLAGS {

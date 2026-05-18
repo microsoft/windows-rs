@@ -86,9 +86,9 @@ impl Write for Vec<u8> {
         match value {
             Value::Bool(value) => {
                 if *value {
-                    self.push(1)
+                    self.push(1);
                 } else {
-                    self.push(0)
+                    self.push(0);
                 }
             }
             Value::U8(value) => self.extend_from_slice(&value.to_le_bytes()),

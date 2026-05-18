@@ -742,12 +742,12 @@ impl core::ops::BitAnd for GETPROPERTYSTOREFLAGS {
 }
 impl core::ops::BitOrAssign for GETPROPERTYSTOREFLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for GETPROPERTYSTOREFLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for GETPROPERTYSTOREFLAGS {
@@ -3235,12 +3235,12 @@ impl core::ops::BitAnd for PKA_FLAGS {
 }
 impl core::ops::BitOrAssign for PKA_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PKA_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PKA_FLAGS {
@@ -3273,12 +3273,12 @@ impl core::ops::BitAnd for PLACEHOLDER_STATES {
 }
 impl core::ops::BitOrAssign for PLACEHOLDER_STATES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PLACEHOLDER_STATES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PLACEHOLDER_STATES {
@@ -3324,12 +3324,12 @@ impl core::ops::BitAnd for PROPDESC_FORMAT_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPDESC_FORMAT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPDESC_FORMAT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPDESC_FORMAT_FLAGS {
@@ -3366,12 +3366,12 @@ impl core::ops::BitAnd for PROPDESC_SEARCHINFO_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPDESC_SEARCHINFO_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPDESC_SEARCHINFO_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPDESC_SEARCHINFO_FLAGS {
@@ -3405,12 +3405,12 @@ impl core::ops::BitAnd for PROPDESC_TYPE_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPDESC_TYPE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPDESC_TYPE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPDESC_TYPE_FLAGS {
@@ -3441,12 +3441,12 @@ impl core::ops::BitAnd for PROPDESC_VIEW_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPDESC_VIEW_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPDESC_VIEW_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPDESC_VIEW_FLAGS {
@@ -3480,12 +3480,12 @@ impl core::ops::BitAnd for PROPERTYUI_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPERTYUI_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPERTYUI_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPERTYUI_FLAGS {
@@ -3516,12 +3516,12 @@ impl core::ops::BitAnd for PROPERTYUI_FORMAT_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPERTYUI_FORMAT_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPERTYUI_FORMAT_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPERTYUI_FORMAT_FLAGS {
@@ -3552,12 +3552,12 @@ impl core::ops::BitAnd for PROPERTYUI_NAME_FLAGS {
 }
 impl core::ops::BitOrAssign for PROPERTYUI_NAME_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PROPERTYUI_NAME_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PROPERTYUI_NAME_FLAGS {
@@ -3660,12 +3660,12 @@ impl core::ops::BitAnd for SYNC_ENGINE_STATE_FLAGS {
 }
 impl core::ops::BitOrAssign for SYNC_ENGINE_STATE_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SYNC_ENGINE_STATE_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SYNC_ENGINE_STATE_FLAGS {
@@ -3696,12 +3696,12 @@ impl core::ops::BitAnd for SYNC_TRANSFER_STATUS {
 }
 impl core::ops::BitOrAssign for SYNC_TRANSFER_STATUS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SYNC_TRANSFER_STATUS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SYNC_TRANSFER_STATUS {

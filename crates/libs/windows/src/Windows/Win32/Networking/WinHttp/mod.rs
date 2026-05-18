@@ -844,17 +844,25 @@ windows_core::imp::define_interface!(IWinHttpRequestEvents, IWinHttpRequestEvent
 windows_core::imp::interface_hierarchy!(IWinHttpRequestEvents, windows_core::IUnknown);
 impl IWinHttpRequestEvents {
     pub unsafe fn OnResponseStart(&self, status: i32, contenttype: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).OnResponseStart)(windows_core::Interface::as_raw(self), status, core::mem::transmute_copy(contenttype)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnResponseStart)(windows_core::Interface::as_raw(self), status, core::mem::transmute_copy(contenttype));
+        }
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnResponseDataAvailable(&self, data: *const *const super::super::System::Com::SAFEARRAY) {
-        unsafe { (windows_core::Interface::vtable(self).OnResponseDataAvailable)(windows_core::Interface::as_raw(self), data) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnResponseDataAvailable)(windows_core::Interface::as_raw(self), data);
+        }
     }
     pub unsafe fn OnResponseFinished(&self) {
-        unsafe { (windows_core::Interface::vtable(self).OnResponseFinished)(windows_core::Interface::as_raw(self)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnResponseFinished)(windows_core::Interface::as_raw(self));
+        }
     }
     pub unsafe fn OnError(&self, errornumber: i32, errordescription: &windows_core::BSTR) {
-        unsafe { (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errornumber, core::mem::transmute_copy(errordescription)) }
+        unsafe {
+            (windows_core::Interface::vtable(self).OnError)(windows_core::Interface::as_raw(self), errornumber, core::mem::transmute_copy(errordescription));
+        }
     }
 }
 #[repr(C)]
@@ -882,25 +890,25 @@ impl IWinHttpRequestEvents_Vtbl {
         unsafe extern "system" fn OnResponseStart<Identity: IWinHttpRequestEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: i32, contenttype: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWinHttpRequestEvents_Impl::OnResponseStart(this, core::mem::transmute_copy(&status), core::mem::transmute(&contenttype))
+                IWinHttpRequestEvents_Impl::OnResponseStart(this, core::mem::transmute_copy(&status), core::mem::transmute(&contenttype));
             }
         }
         unsafe extern "system" fn OnResponseDataAvailable<Identity: IWinHttpRequestEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *const *const super::super::System::Com::SAFEARRAY) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWinHttpRequestEvents_Impl::OnResponseDataAvailable(this, core::mem::transmute_copy(&data))
+                IWinHttpRequestEvents_Impl::OnResponseDataAvailable(this, core::mem::transmute_copy(&data));
             }
         }
         unsafe extern "system" fn OnResponseFinished<Identity: IWinHttpRequestEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWinHttpRequestEvents_Impl::OnResponseFinished(this)
+                IWinHttpRequestEvents_Impl::OnResponseFinished(this);
             }
         }
         unsafe extern "system" fn OnError<Identity: IWinHttpRequestEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errornumber: i32, errordescription: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWinHttpRequestEvents_Impl::OnError(this, core::mem::transmute_copy(&errornumber), core::mem::transmute(&errordescription))
+                IWinHttpRequestEvents_Impl::OnError(this, core::mem::transmute_copy(&errornumber), core::mem::transmute(&errordescription));
             }
         }
         Self {
@@ -1396,12 +1404,12 @@ impl core::ops::BitAnd for WINHTTP_OPEN_REQUEST_FLAGS {
 }
 impl core::ops::BitOrAssign for WINHTTP_OPEN_REQUEST_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for WINHTTP_OPEN_REQUEST_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for WINHTTP_OPEN_REQUEST_FLAGS {

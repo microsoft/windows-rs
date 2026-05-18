@@ -616,7 +616,7 @@ impl File {
             let count2 = count / 2;
             let middle = first + count2;
             if value < self.usize(middle, table, column) {
-                count = count2
+                count = count2;
             } else {
                 first = middle + 1;
                 count -= count2 + 1;

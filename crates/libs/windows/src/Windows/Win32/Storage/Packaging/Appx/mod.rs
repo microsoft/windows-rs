@@ -516,12 +516,12 @@ impl core::ops::BitAnd for APPX_CAPABILITIES {
 }
 impl core::ops::BitOrAssign for APPX_CAPABILITIES {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for APPX_CAPABILITIES {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for APPX_CAPABILITIES {
@@ -592,12 +592,12 @@ impl core::ops::BitAnd for APPX_ENCRYPTED_PACKAGE_OPTIONS {
 }
 impl core::ops::BitOrAssign for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for APPX_ENCRYPTED_PACKAGE_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for APPX_ENCRYPTED_PACKAGE_OPTIONS {
@@ -688,12 +688,12 @@ impl core::ops::BitAnd for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
 }
 impl core::ops::BitOrAssign for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
@@ -754,12 +754,12 @@ impl core::ops::BitAnd for AddPackageDependencyOptions {
 }
 impl core::ops::BitOrAssign for AddPackageDependencyOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AddPackageDependencyOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AddPackageDependencyOptions {
@@ -790,12 +790,12 @@ impl core::ops::BitAnd for AddPackageDependencyOptions2 {
 }
 impl core::ops::BitOrAssign for AddPackageDependencyOptions2 {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for AddPackageDependencyOptions2 {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for AddPackageDependencyOptions2 {
@@ -881,12 +881,12 @@ impl core::ops::BitAnd for CreatePackageDependencyOptions {
 }
 impl core::ops::BitOrAssign for CreatePackageDependencyOptions {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for CreatePackageDependencyOptions {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for CreatePackageDependencyOptions {
@@ -8228,12 +8228,12 @@ impl core::ops::BitAnd for PackageDependencyProcessorArchitectures {
 }
 impl core::ops::BitOrAssign for PackageDependencyProcessorArchitectures {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for PackageDependencyProcessorArchitectures {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for PackageDependencyProcessorArchitectures {

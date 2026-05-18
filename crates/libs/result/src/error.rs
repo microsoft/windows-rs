@@ -311,7 +311,7 @@ mod error_info {
                 }
 
                 if message.is_empty() {
-                    message = fallback
+                    message = fallback;
                 };
             }
 

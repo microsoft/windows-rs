@@ -136,12 +136,12 @@ impl core::ops::BitAnd for EXIT_WINDOWS_FLAGS {
 }
 impl core::ops::BitOrAssign for EXIT_WINDOWS_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for EXIT_WINDOWS_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for EXIT_WINDOWS_FLAGS {
@@ -234,12 +234,12 @@ impl core::ops::BitAnd for SHUTDOWN_FLAGS {
 }
 impl core::ops::BitOrAssign for SHUTDOWN_FLAGS {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SHUTDOWN_FLAGS {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SHUTDOWN_FLAGS {
@@ -278,12 +278,12 @@ impl core::ops::BitAnd for SHUTDOWN_REASON {
 }
 impl core::ops::BitOrAssign for SHUTDOWN_REASON {
     fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
+        self.0.bitor_assign(other.0);
     }
 }
 impl core::ops::BitAndAssign for SHUTDOWN_REASON {
     fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
+        self.0.bitand_assign(other.0);
     }
 }
 impl core::ops::Not for SHUTDOWN_REASON {
