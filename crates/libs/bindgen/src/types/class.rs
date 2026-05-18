@@ -384,3 +384,18 @@ impl Dependencies for Class {
         }
     }
 }
+
+impl ItemEmitter for Class {
+    fn type_name(&self) -> TypeName {
+        Class::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        Class::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        Class::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+}

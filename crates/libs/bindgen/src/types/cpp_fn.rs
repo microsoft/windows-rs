@@ -310,6 +310,21 @@ impl Dependencies for CppFn {
     }
 }
 
+impl ItemEmitter for CppFn {
+    fn type_name(&self) -> TypeName {
+        CppFn::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        CppFn::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        CppFn::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+}
+
 impl Config<'_> {
     pub fn write_return_sig(
         &self,

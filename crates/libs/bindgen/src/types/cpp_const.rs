@@ -174,6 +174,21 @@ impl Dependencies for CppConst {
     }
 }
 
+impl ItemEmitter for CppConst {
+    fn type_name(&self) -> TypeName {
+        CppConst::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        CppConst::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        CppConst::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+}
+
 fn is_ansi_encoding(row: Field) -> bool {
     row.find_attribute("NativeEncodingAttribute").is_some_and(|attribute| matches!(attribute.value().first(), Some((_, Value::Utf8(encoding))) if encoding.as_str() == "ansi"))
 }

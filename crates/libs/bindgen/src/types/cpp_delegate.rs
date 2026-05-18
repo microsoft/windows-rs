@@ -82,6 +82,21 @@ impl Dependencies for CppDelegate {
     }
 }
 
+impl ItemEmitter for CppDelegate {
+    fn type_name(&self) -> TypeName {
+        CppDelegate::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        CppDelegate::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        CppDelegate::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+}
+
 fn write_param(config: &Config, param: &Param) -> TokenStream {
     let name = param.write_ident();
     let type_name = param.write_name(config);

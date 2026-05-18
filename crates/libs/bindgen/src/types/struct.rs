@@ -117,3 +117,18 @@ impl Dependencies for Struct {
         }
     }
 }
+
+impl ItemEmitter for Struct {
+    fn type_name(&self) -> TypeName {
+        Struct::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        Struct::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        Struct::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+}

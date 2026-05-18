@@ -163,3 +163,21 @@ impl Dependencies for Delegate {
         }
     }
 }
+
+impl ItemEmitter for Delegate {
+    fn type_name(&self) -> TypeName {
+        Delegate::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        Delegate::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        Delegate::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+    fn set_generics(&mut self, generics: Vec<Type>) {
+        self.generics = generics;
+    }
+}

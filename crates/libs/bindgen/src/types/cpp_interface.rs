@@ -514,3 +514,18 @@ impl Dependencies for CppInterface {
         }
     }
 }
+
+impl ItemEmitter for CppInterface {
+    fn type_name(&self) -> TypeName {
+        CppInterface::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        CppInterface::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        CppInterface::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+}

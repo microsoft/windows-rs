@@ -140,3 +140,18 @@ impl Dependencies for CppEnum {
         }
     }
 }
+
+impl ItemEmitter for CppEnum {
+    fn type_name(&self) -> TypeName {
+        CppEnum::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        CppEnum::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        CppEnum::write(self, config)
+    }
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader) {
+        <Self as Dependencies>::combine(self, dependencies, reader)
+    }
+}

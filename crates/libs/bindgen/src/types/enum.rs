@@ -118,3 +118,18 @@ impl Enum {
         )
     }
 }
+
+impl ItemEmitter for Enum {
+    fn type_name(&self) -> TypeName {
+        Enum::type_name(self)
+    }
+    fn write_name(&self, config: &Config) -> TokenStream {
+        Enum::write_name(self, config)
+    }
+    fn write(&self, config: &Config) -> TokenStream {
+        Enum::write(self, config)
+    }
+    fn combine_deps(&self, _dependencies: &mut TypeMap, _reader: &Reader) {
+        // WinRT enums have no dependencies beyond themselves.
+    }
+}

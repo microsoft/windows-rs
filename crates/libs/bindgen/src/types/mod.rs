@@ -28,6 +28,34 @@ pub use method::*;
 pub use r#enum::*;
 pub use r#struct::*;
 
+/// Behaviour shared by every emittable variant of [`Type`] (the 11 "item"
+/// kinds: `Class`, `Interface`, `CppInterface`, `Delegate`, `CppDelegate`,
+/// `Enum`, `CppEnum`, `Struct`, `CppStruct`, `CppFn`, `CppConst`).
+///
+/// The trait exists so that adding a new emittable variant is a compile-time
+/// obligation rather than a series of grep-and-update operations on the
+/// `match` ladders in this module. The four required methods are the ones
+/// every item type already implements today; the optional `set_generics`
+/// method has a panicking default so that variants without generics keep the
+/// same behaviour as the previous hand-rolled dispatch.
+///
+/// Methods that only some items implement (`runtime_signature`,
+/// `write_impl_name`, `size`, `align`, ...) deliberately stay as inherent
+/// methods on the relevant structs and continue to be dispatched explicitly
+/// from `Type`, since hoisting them here would just add panicking defaults
+/// without simplifying the call sites.
+pub trait ItemEmitter {
+    fn type_name(&self) -> TypeName;
+    fn write_name(&self, config: &Config) -> TokenStream;
+    fn write(&self, config: &Config) -> TokenStream;
+    fn combine_deps(&self, dependencies: &mut TypeMap, reader: &Reader);
+
+    fn set_generics(&mut self, generics: Vec<Type>) {
+        let _ = generics;
+        unreachable!("set_generics is not supported for this item")
+    }
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Type {
     CppFn(CppFn),
@@ -154,6 +182,44 @@ impl Type {
                 | Self::ISize
                 | Self::USize
         )
+    }
+
+    /// Returns the inner item as a `&dyn ItemEmitter` if `self` is one of the
+    /// 11 emittable variants. Used by the common dispatch ladders below to
+    /// avoid spelling out the same 11-arm `match` for every operation.
+    fn as_item(&self) -> Option<&dyn ItemEmitter> {
+        match self {
+            Self::CppFn(ty) => Some(ty),
+            Self::Class(ty) => Some(ty),
+            Self::Interface(ty) => Some(ty),
+            Self::CppInterface(ty) => Some(ty),
+            Self::Delegate(ty) => Some(ty),
+            Self::CppDelegate(ty) => Some(ty),
+            Self::Enum(ty) => Some(ty),
+            Self::CppEnum(ty) => Some(ty),
+            Self::Struct(ty) => Some(ty),
+            Self::CppStruct(ty) => Some(ty),
+            Self::CppConst(ty) => Some(ty),
+            _ => None,
+        }
+    }
+
+    /// `&mut` counterpart to [`Self::as_item`].
+    fn as_item_mut(&mut self) -> Option<&mut dyn ItemEmitter> {
+        match self {
+            Self::CppFn(ty) => Some(ty),
+            Self::Class(ty) => Some(ty),
+            Self::Interface(ty) => Some(ty),
+            Self::CppInterface(ty) => Some(ty),
+            Self::Delegate(ty) => Some(ty),
+            Self::CppDelegate(ty) => Some(ty),
+            Self::Enum(ty) => Some(ty),
+            Self::CppEnum(ty) => Some(ty),
+            Self::Struct(ty) => Some(ty),
+            Self::CppStruct(ty) => Some(ty),
+            Self::CppConst(ty) => Some(ty),
+            _ => None,
+        }
     }
 
     pub fn remap(namespace: &str, name: &str) -> Remap {
@@ -381,6 +447,10 @@ impl Type {
             return quote! { *mut core::ffi::c_void };
         }
 
+        if let Some(item) = self.as_item() {
+            return item.write_name(config);
+        }
+
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -441,17 +511,6 @@ impl Type {
                 let name = config.write_strings();
                 quote! { #name PCWSTR }
             }
-            Self::CppInterface(ty) => ty.write_name(config),
-            Self::Struct(ty) => ty.write_name(config),
-            Self::Enum(ty) => ty.write_name(config),
-            Self::Interface(ty) => ty.write_name(config),
-            Self::CppStruct(ty) => ty.write_name(config),
-            Self::CppEnum(ty) => ty.write_name(config),
-            Self::CppFn(ty) => ty.write_name(config),
-            Self::CppConst(ty) => ty.write_name(config),
-            Self::CppDelegate(ty) => ty.write_name(config),
-            Self::Delegate(ty) => ty.write_name(config),
-            Self::Class(ty) => ty.write_name(config),
             Self::Generic(param) => to_ident(param.name()),
             Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
@@ -876,45 +935,24 @@ impl Type {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
-        match self {
-            Self::Struct(ty) => ty.write(config),
-            Self::Enum(ty) => ty.write(config),
-            Self::Interface(ty) => ty.write(config),
-            Self::CppStruct(ty) => ty.write(config),
-            Self::CppEnum(ty) => ty.write(config),
-            Self::CppFn(ty) => ty.write(config),
-            Self::CppConst(ty) => ty.write(config),
-            Self::CppDelegate(ty) => ty.write(config),
-            Self::Delegate(ty) => ty.write(config),
-            Self::Class(ty) => ty.write(config),
-            Self::CppInterface(ty) => ty.write(config),
-
-            _ => self.write_no_deps(config),
+        if let Some(item) = self.as_item() {
+            return item.write(config);
         }
+        self.write_no_deps(config)
     }
 
     pub fn set_generics(&mut self, generics: Vec<Self>) {
-        match self {
-            Self::Interface(ty) => ty.generics = generics,
-            Self::Delegate(ty) => ty.generics = generics,
-            rest => panic!("{rest:?}"),
+        match self.as_item_mut() {
+            Some(item) => item.set_generics(generics),
+            None => panic!("{self:?}"),
         }
     }
 
     pub fn type_name(&self) -> TypeName {
+        if let Some(item) = self.as_item() {
+            return item.type_name();
+        }
         match self {
-            Self::Class(ty) => ty.type_name(),
-            Self::Delegate(ty) => ty.type_name(),
-            Self::Enum(ty) => ty.type_name(),
-            Self::Interface(ty) => ty.type_name(),
-            Self::Struct(ty) => ty.type_name(),
-            Self::CppDelegate(ty) => ty.type_name(),
-            Self::CppEnum(ty) => ty.type_name(),
-            Self::CppInterface(ty) => ty.type_name(),
-            Self::CppStruct(ty) => ty.type_name(),
-            Self::CppConst(ty) => ty.type_name(),
-            Self::CppFn(ty) => ty.type_name(),
-
             Self::PSTR => TypeName("", "PSTR"),
             Self::PCSTR => TypeName("", "PCSTR"),
             Self::PWSTR => TypeName("", "PWSTR"),
@@ -997,19 +1035,12 @@ impl Dependencies for Type {
             });
         }
 
-        match &ty {
-            Self::Class(ty) => ty.combine(dependencies, reader),
-            Self::Delegate(ty) => ty.combine(dependencies, reader),
-            Self::Enum(..) => {}
-            Self::Interface(ty) => ty.combine(dependencies, reader),
-            Self::Struct(ty) => ty.combine(dependencies, reader),
-            Self::CppConst(ty) => ty.combine(dependencies, reader),
-            Self::CppDelegate(ty) => ty.combine(dependencies, reader),
-            Self::CppFn(ty) => ty.combine(dependencies, reader),
-            Self::CppInterface(ty) => ty.combine(dependencies, reader),
-            Self::CppStruct(ty) => ty.combine(dependencies, reader),
-            Self::CppEnum(ty) => ty.combine(dependencies, reader),
+        if let Some(item) = ty.as_item() {
+            item.combine_deps(dependencies, reader);
+            return;
+        }
 
+        match &ty {
             Self::IUnknown => {
                 Self::GUID.combine(dependencies, reader);
                 Self::HRESULT.combine(dependencies, reader);
