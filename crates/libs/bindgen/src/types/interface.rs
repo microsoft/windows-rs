@@ -64,7 +64,7 @@ impl Interface {
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
-                } else if !config.filter.includes_method(type_name, def.name()) {
+                } else if !config.filter.includes_method(type_name, def) {
                     // Method-level `--filter` demoted this slot to opaque.
                     MethodOrName::Name(method.def)
                 } else {
@@ -82,8 +82,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            !method.dependencies.included(config)
-                || !config.filter.includes_method(type_name, def.name())
+            !method.dependencies.included(config) || !config.filter.includes_method(type_name, def)
         })
     }
 
