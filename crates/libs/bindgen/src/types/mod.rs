@@ -115,7 +115,7 @@ enum ItemRef<'a> {
     CppConst(&'a CppConst),
 }
 
-impl ItemRef<'_> {
+impl<'a> ItemRef<'a> {
     fn kind(self) -> i32 {
         match self {
             Self::CppFn(..) => 0,
@@ -221,6 +221,14 @@ impl ItemRef<'_> {
             Self::CppInterface(ty) => ty.combine(dependencies, reader),
             Self::CppStruct(ty) => ty.combine(dependencies, reader),
             Self::CppEnum(ty) => ty.combine(dependencies, reader),
+        }
+    }
+
+    fn full_name(self) -> Option<(&'a str, &'a str)> {
+        match self {
+            Self::CppStruct(ty) => Some((ty.def.namespace(), ty.def.name())),
+            Self::CppFn(ty) => Some((ty.namespace, ty.method.name())),
+            _ => None,
         }
     }
 }
@@ -1085,11 +1093,11 @@ impl Dependencies for Type {
             return;
         }
 
-        if let Some(multi) = match &ty {
-            Self::CppStruct(ty) => Some(reader.with_full_name(ty.def.namespace(), ty.def.name())),
-            Self::CppFn(ty) => Some(reader.with_full_name(ty.namespace, ty.method.name())),
-            _ => None,
-        } {
+        if let Some(multi) = ty
+            .item_ref()
+            .and_then(ItemRef::full_name)
+            .map(|(namespace, name)| reader.with_full_name(namespace, name))
+        {
             multi.for_each(|multi| {
                 if ty != multi {
                     multi.combine(dependencies, reader);
