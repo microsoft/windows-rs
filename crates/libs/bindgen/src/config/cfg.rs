@@ -142,24 +142,38 @@ impl Cfg {
 }
 
 impl Config<'_> {
+    /// Writes the positive `#[cfg(...)]` annotation for a precomputed dependency set.
+    ///
+    /// This is the shared helper for top-level emitters that already assembled a `TypeMap`.
     pub fn cfg(&self, dependencies: &TypeMap) -> TokenStream {
         Cfg::new(dependencies, self).write(self, false)
     }
 
+    /// Writes the positive `#[cfg(...)]` annotation for an item whose own dependencies
+    /// are sufficient to determine its feature gating.
     pub fn cfg_for(&self, ty: &impl Dependencies) -> TokenStream {
         self.cfg(&ty.dependencies(self.reader))
     }
 
+    /// Returns both the computed [`Cfg`] and its positive token form for an item.
+    ///
+    /// Use this when child emitters need to compute per-member differences relative to the
+    /// parent's feature set.
     pub fn cfg_pair(&self, ty: &impl Dependencies) -> (Cfg, TokenStream) {
-        let cfg = if self.package {
-            Cfg::new(&ty.dependencies(self.reader), self)
-        } else {
-            Cfg::default()
-        };
+        if !self.package {
+            return (Cfg::default(), quote! {});
+        }
+
+        let cfg = Cfg::new(&ty.dependencies(self.reader), self);
         let tokens = cfg.write(self, false);
         (cfg, tokens)
     }
 
+    /// Writes the `#[cfg(...)]` annotation for dependencies that are present on a child item
+    /// but not already covered by the parent's [`Cfg`].
+    ///
+    /// `not` is exposed here because difference sites are the only remaining places that need
+    /// the negative form used for opaque-slot fallbacks.
     pub fn cfg_difference(&self, parent: &Cfg, dependencies: &TypeMap, not: bool) -> TokenStream {
         parent.difference(dependencies, self).write(self, not)
     }

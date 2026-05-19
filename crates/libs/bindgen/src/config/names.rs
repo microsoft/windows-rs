@@ -1,5 +1,8 @@
 use super::*;
 
+/// Origin for crate-qualified helper paths like `windows_core::` or `super::`.
+///
+/// This captures the projection-mode/package/no-deps matrix once before rendering.
 enum SpecificPathOrigin<'a> {
     SysCoreAbsolute,
     SysCoreFlat,
@@ -8,6 +11,10 @@ enum SpecificPathOrigin<'a> {
     SpecificCrate(&'a str),
 }
 
+/// Origin for a referenced type's namespace path.
+///
+/// Variants distinguish local relative paths from external-reference paths so rendering does
+/// not need to reason about `flat`/`skip-root` booleans directly.
 enum NamespacePathOrigin<'a> {
     Empty,
     ExternalFlat {
