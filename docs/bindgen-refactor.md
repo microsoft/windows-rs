@@ -46,7 +46,7 @@ winmd/reader.rs               201  static-lifetime wrapper over
 The complexity is not in the volume — every file individually is
 reasonable — it is in the **redundant abstractions, parallel hierarchies,
 and the way state flows through the emitter**. The sections below
-catalogue those, ordered by the ROI of cleaning them up.
+catalog those, ordered by the ROI of cleaning them up.
 
 ## ~~1. The hand-rolled `tokens/` crate~~ — DONE (PR #4431)
 

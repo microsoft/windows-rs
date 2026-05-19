@@ -92,22 +92,8 @@ const DEFAULT_REFERENCE_GROUPS: &[DefaultReferenceGroup] = &[
     },
 ];
 
-const fn count_default_reference_paths(groups: &[DefaultReferenceGroup]) -> usize {
-    let mut total = 0;
-    let mut index = 0;
-
-    while index < groups.len() {
-        total += groups[index].paths.len();
-        index += 1;
-    }
-
-    total
-}
-
-const DEFAULT_REFERENCE_COUNT: usize = count_default_reference_paths(DEFAULT_REFERENCE_GROUPS);
-
 pub fn default_reference_stages(reader: &Reader, specific_deps: bool) -> Vec<ReferenceStage> {
-    let mut references = Vec::with_capacity(DEFAULT_REFERENCE_COUNT);
+    let mut references = Vec::new();
 
     // Reverse iteration preserves the historical "insert at front" ordering.
     for group in DEFAULT_REFERENCE_GROUPS.iter().rev() {
