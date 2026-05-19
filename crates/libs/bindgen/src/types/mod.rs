@@ -100,16 +100,24 @@ pub enum Remap {
     None,
 }
 
-impl Type {
-    fn sort_key(&self) -> (bool, TypeName, i32, i32) {
-        // This sorts types as follows:
-        // 1. functions are placed first
-        // 2. type name
-        // 3. type namespace
-        // 4. architecture
-        // 5. overloaded types
+#[derive(Clone, Copy)]
+enum ItemRef<'a> {
+    CppFn(&'a CppFn),
+    Class(&'a Class),
+    Interface(&'a Interface),
+    CppInterface(&'a CppInterface),
+    Delegate(&'a Delegate),
+    CppDelegate(&'a CppDelegate),
+    Enum(&'a Enum),
+    CppEnum(&'a CppEnum),
+    Struct(&'a Struct),
+    CppStruct(&'a CppStruct),
+    CppConst(&'a CppConst),
+}
 
-        let kind = match self {
+impl ItemRef<'_> {
+    fn kind(self) -> i32 {
+        match self {
             Self::CppFn(..) => 0,
             Self::Class(..) => 1,
             Self::Interface(..) => 2,
@@ -121,15 +129,79 @@ impl Type {
             Self::Struct(..) => 8,
             Self::CppStruct(..) => 9,
             Self::CppConst(..) => 10,
-            _ => -1,
-        };
+        }
+    }
 
-        let arches = match self {
+    fn arches(self) -> i32 {
+        match self {
             Self::CppFn(ty) => ty.method.arches(),
             Self::CppStruct(ty) => ty.def.arches(),
             Self::CppDelegate(ty) => ty.def.arches(),
             _ => 0,
-        };
+        }
+    }
+
+    fn type_name(self) -> TypeName {
+        match self {
+            Self::CppFn(ty) => ty.type_name(),
+            Self::Class(ty) => ty.type_name(),
+            Self::Interface(ty) => ty.type_name(),
+            Self::CppInterface(ty) => ty.type_name(),
+            Self::Delegate(ty) => ty.type_name(),
+            Self::CppDelegate(ty) => ty.type_name(),
+            Self::Enum(ty) => ty.type_name(),
+            Self::CppEnum(ty) => ty.type_name(),
+            Self::Struct(ty) => ty.type_name(),
+            Self::CppStruct(ty) => ty.type_name(),
+            Self::CppConst(ty) => ty.type_name(),
+        }
+    }
+
+    fn write(self, config: &Config) -> TokenStream {
+        match self {
+            Self::CppFn(ty) => ty.write(config),
+            Self::Class(ty) => ty.write(config),
+            Self::Interface(ty) => ty.write(config),
+            Self::CppInterface(ty) => ty.write(config),
+            Self::Delegate(ty) => ty.write(config),
+            Self::CppDelegate(ty) => ty.write(config),
+            Self::Enum(ty) => ty.write(config),
+            Self::CppEnum(ty) => ty.write(config),
+            Self::Struct(ty) => ty.write(config),
+            Self::CppStruct(ty) => ty.write(config),
+            Self::CppConst(ty) => ty.write(config),
+        }
+    }
+}
+
+impl Type {
+    fn item_ref(&self) -> Option<ItemRef<'_>> {
+        match self {
+            Self::CppFn(ty) => Some(ItemRef::CppFn(ty)),
+            Self::Class(ty) => Some(ItemRef::Class(ty)),
+            Self::Interface(ty) => Some(ItemRef::Interface(ty)),
+            Self::CppInterface(ty) => Some(ItemRef::CppInterface(ty)),
+            Self::Delegate(ty) => Some(ItemRef::Delegate(ty)),
+            Self::CppDelegate(ty) => Some(ItemRef::CppDelegate(ty)),
+            Self::Enum(ty) => Some(ItemRef::Enum(ty)),
+            Self::CppEnum(ty) => Some(ItemRef::CppEnum(ty)),
+            Self::Struct(ty) => Some(ItemRef::Struct(ty)),
+            Self::CppStruct(ty) => Some(ItemRef::CppStruct(ty)),
+            Self::CppConst(ty) => Some(ItemRef::CppConst(ty)),
+            _ => None,
+        }
+    }
+
+    fn sort_key(&self) -> (bool, TypeName, i32, i32) {
+        // This sorts types as follows:
+        // 1. functions are placed first
+        // 2. type name
+        // 3. type namespace
+        // 4. architecture
+        // 5. overloaded types
+
+        let kind = self.item_ref().map_or(-1, ItemRef::kind);
+        let arches = self.item_ref().map_or(0, ItemRef::arches);
 
         (kind != 0, self.type_name(), arches, kind)
     }
@@ -876,21 +948,8 @@ impl Type {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
-        match self {
-            Self::Struct(ty) => ty.write(config),
-            Self::Enum(ty) => ty.write(config),
-            Self::Interface(ty) => ty.write(config),
-            Self::CppStruct(ty) => ty.write(config),
-            Self::CppEnum(ty) => ty.write(config),
-            Self::CppFn(ty) => ty.write(config),
-            Self::CppConst(ty) => ty.write(config),
-            Self::CppDelegate(ty) => ty.write(config),
-            Self::Delegate(ty) => ty.write(config),
-            Self::Class(ty) => ty.write(config),
-            Self::CppInterface(ty) => ty.write(config),
-
-            _ => self.write_no_deps(config),
-        }
+        self.item_ref()
+            .map_or_else(|| self.write_no_deps(config), |item| item.write(config))
     }
 
     pub fn set_generics(&mut self, generics: Vec<Self>) {
@@ -902,19 +961,11 @@ impl Type {
     }
 
     pub fn type_name(&self) -> TypeName {
-        match self {
-            Self::Class(ty) => ty.type_name(),
-            Self::Delegate(ty) => ty.type_name(),
-            Self::Enum(ty) => ty.type_name(),
-            Self::Interface(ty) => ty.type_name(),
-            Self::Struct(ty) => ty.type_name(),
-            Self::CppDelegate(ty) => ty.type_name(),
-            Self::CppEnum(ty) => ty.type_name(),
-            Self::CppInterface(ty) => ty.type_name(),
-            Self::CppStruct(ty) => ty.type_name(),
-            Self::CppConst(ty) => ty.type_name(),
-            Self::CppFn(ty) => ty.type_name(),
+        if let Some(item) = self.item_ref() {
+            return item.type_name();
+        }
 
+        match self {
             Self::PSTR => TypeName("", "PSTR"),
             Self::PCSTR => TypeName("", "PCSTR"),
             Self::PWSTR => TypeName("", "PWSTR"),
