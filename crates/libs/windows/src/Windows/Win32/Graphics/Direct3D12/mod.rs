@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
     T: windows_core::Interface,
 {
-    windows_core::link!("d3d12.dll" "system" fn D3D12CreateDevice(padapter : * mut core::ffi::c_void, minimumfeaturelevel : super::Direct3D:: D3D_FEATURE_LEVEL, riid : *const windows_core::GUID, ppdevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("d3d12.dll" "system" fn D3D12CreateDevice(padapter : *mut core::ffi::c_void, minimumfeaturelevel : super::Direct3D::D3D_FEATURE_LEVEL, riid : *const windows_core::GUID, ppdevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12CreateDevice(padapter.param().abi(), minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[inline]
@@ -42,13 +42,13 @@ where
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut Option<super::Direct3D::ID3DBlob>, pperrorblob: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_core::Result<()> {
-    windows_core::link!("d3d12.dll" "system" fn D3D12SerializeRootSignature(prootsignature : *const D3D12_ROOT_SIGNATURE_DESC, version : D3D_ROOT_SIGNATURE_VERSION, ppblob : *mut * mut core::ffi::c_void, pperrorblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("d3d12.dll" "system" fn D3D12SerializeRootSignature(prootsignature : *const D3D12_ROOT_SIGNATURE_DESC, version : D3D_ROOT_SIGNATURE_VERSION, ppblob : *mut *mut core::ffi::c_void, pperrorblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12SerializeRootSignature(prootsignature, version, core::mem::transmute(ppblob), pperrorblob.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
 pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut Option<super::Direct3D::ID3DBlob>, pperrorblob: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_core::Result<()> {
-    windows_core::link!("d3d12.dll" "system" fn D3D12SerializeVersionedRootSignature(prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob : *mut * mut core::ffi::c_void, pperrorblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("d3d12.dll" "system" fn D3D12SerializeVersionedRootSignature(prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob : *mut *mut core::ffi::c_void, pperrorblob : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12SerializeVersionedRootSignature(prootsignature, core::mem::transmute(ppblob), pperrorblob.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 pub const CLSID_D3D12DSRDeviceFactory: windows_core::GUID = windows_core::GUID::from_u128(0xbb6dd27e_94a9_41a6_9f1b_133772172428);

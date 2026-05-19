@@ -12,7 +12,7 @@ fn main() -> windows::core::Result<()> {
         let domain = uri.GetDomain()?;
         let port = uri.GetPort()?;
 
-        println!("{:?} ({port})", domain);
+        println!("{domain:?} ({port})");
         Ok(())
     }
 }

@@ -62,7 +62,7 @@ impl Encoder<'_> {
         let mut segments: Vec<String> = path.segments.iter().map(|s| s.ident.to_string()).collect();
 
         let name = segments.pop()?;
-        let attr_name = format!("{}Attribute", name);
+        let attr_name = format!("{name}Attribute");
 
         let explicit_namespace = if segments.is_empty() {
             None
@@ -239,14 +239,11 @@ impl Encoder<'_> {
             }
         }
 
-        let mut result = match ctor_values {
-            Some(v) => v,
-            None => {
-                if let Some(err) = last_type_error {
-                    return Err(err);
-                } else {
-                    return self.err(attr, "no matching attribute constructor found");
-                }
+        let Some(mut result) = ctor_values else {
+            if let Some(err) = last_type_error {
+                return Err(err);
+            } else {
+                return self.err(attr, "no matching attribute constructor found");
             }
         };
 
@@ -299,14 +296,9 @@ impl Encoder<'_> {
                         let mut combined: i32 = 0;
                         for name in &names {
                             let inner = self.find_enum_variant_value(tn, name, value)?;
-                            let v = match inner {
-                                metadata::Value::I32(v) => v,
-                                _ => {
-                                    return self.err(
-                                        value,
-                                        &format!("expected `{}` variant name", tn.name),
-                                    )
-                                }
+                            let metadata::Value::I32(v) = inner else {
+                                return self
+                                    .err(value, &format!("expected `{}` variant name", tn.name));
                             };
                             combined |= v;
                         }
@@ -528,14 +520,13 @@ impl Encoder<'_> {
 
     pub fn is_guid_attribute(&self, attr: &syn::Attribute) -> bool {
         self.find_attribute_type(attr.path())
-            .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
-            .unwrap_or(false)
+            .is_some_and(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))
     }
 
     pub fn is_exclusive_to_attribute(&self, attr: &syn::Attribute) -> bool {
-        self.find_attribute_type(attr.path())
-            .map(|info| &info.type_name == ("Windows.Foundation.Metadata", "ExclusiveToAttribute"))
-            .unwrap_or(false)
+        self.find_attribute_type(attr.path()).is_some_and(|info| {
+            &info.type_name == ("Windows.Foundation.Metadata", "ExclusiveToAttribute")
+        })
     }
 
     /// Processes `#[guid(0x…)]` and `#[no_guid]` pseudo-attributes in `attrs`, emitting a

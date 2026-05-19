@@ -54,8 +54,7 @@ impl Interface {
                     let base_ns = parser
                         .ref_map
                         .get(&base_name)
-                        .map(|s| s.as_str())
-                        .unwrap_or(parser.namespace);
+                        .map_or(parser.namespace, |s| s.as_str());
                     return Some(metadata::Type::value_named(base_ns, &base_name));
                 }
             }

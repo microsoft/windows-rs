@@ -49,7 +49,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> Option<IDirect3D9> {
 }
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> windows_core::Result<IDirect3D9Ex> {
-    windows_core::link!("d3d9.dll" "system" fn Direct3DCreate9Ex(sdkversion : u32, param1 : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("d3d9.dll" "system" fn Direct3DCreate9Ex(sdkversion : u32, param1 : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         Direct3DCreate9Ex(sdkversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

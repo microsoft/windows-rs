@@ -1,4 +1,4 @@
-windows_link::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : * mut core::ffi::c_void, manager : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : *mut core::ffi::c_void, manager : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_sys::core::PCSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_sys::core::PCWSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);

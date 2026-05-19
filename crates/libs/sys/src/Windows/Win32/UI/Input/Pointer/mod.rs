@@ -2,10 +2,10 @@ windows_link::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(devic
 windows_link::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetPointerCursorId(pointerid : u32, cursorid : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("user32.dll" "system" fn GetPointerDevice(device : super::super::super::Foundation:: HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::super::super::Foundation:: HANDLE, cursorcount : *mut u32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::super::super::Foundation:: HANDLE, propertycount : *mut u32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::super::super::Foundation:: HANDLE, pointerdevicerect : *mut super::super::super::Foundation:: RECT, displayrect : *mut super::super::super::Foundation:: RECT) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetPointerDevice(device : super::super::super::Foundation::HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::super::super::Foundation::HANDLE, cursorcount : *mut u32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::super::super::Foundation::HANDLE, propertycount : *mut u32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::super::super::Foundation::HANDLE, pointerdevicerect : *mut super::super::super::Foundation::RECT, displayrect : *mut super::super::super::Foundation::RECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("user32.dll" "system" fn GetPointerDevices(devicecount : *mut u32, pointerdevices : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -34,7 +34,7 @@ windows_link::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : u32
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : u32, entriescount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut super::super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : u32, historycount : u32, propertiescount : u32, pproperties : *const POINTER_DEVICE_PROPERTY, pvalues : *mut i32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetUnpredictedMessagePos() -> u32);
 windows_link::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount : u32, dwmode : TOUCH_FEEDBACK_MODE) -> windows_sys::core::BOOL);

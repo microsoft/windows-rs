@@ -223,7 +223,7 @@ pub unsafe fn CredUIParseUserNameA<P0>(username: P0, user: &mut [u8], domain: &m
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : windows_core::PSTR, userbuffersize : u32, domain : windows_core::PSTR, domainbuffersize : u32) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : windows_core::PSTR, userbuffersize : u32, domain : windows_core::PSTR, domainbuffersize : u32) -> windows_core::WIN32_ERROR);
     unsafe { CredUIParseUserNameA(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
 }
 #[inline]
@@ -231,7 +231,7 @@ pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: &mut [u16], domain: &
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : windows_core::PWSTR, userbuffersize : u32, domain : windows_core::PWSTR, domainbuffersize : u32) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : windows_core::PWSTR, userbuffersize : u32, domain : windows_core::PWSTR, domainbuffersize : u32) -> windows_core::WIN32_ERROR);
     unsafe { CredUIParseUserNameW(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -240,7 +240,7 @@ pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<*const CREDUI_INFO
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core::WIN32_ERROR);
     unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -249,7 +249,7 @@ pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<*const CREDUI_INFO
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core::WIN32_ERROR);
     unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -368,12 +368,12 @@ pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanagerop
 }
 #[inline]
 pub unsafe fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Foundation::HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> windows_core::Result<()> {
-    windows_core::link!("keycredmgr.dll" "system" fn KeyCredentialManagerShowUIOperation(hwndowner : super::super::Foundation:: HWND, keycredentialmanageroperationtype : KeyCredentialManagerOperationType) -> windows_core::HRESULT);
+    windows_core::link!("keycredmgr.dll" "system" fn KeyCredentialManagerShowUIOperation(hwndowner : super::super::Foundation::HWND, keycredentialmanageroperationtype : KeyCredentialManagerOperationType) -> windows_core::HRESULT);
     unsafe { KeyCredentialManagerShowUIOperation(hwndowner, keycredentialmanageroperationtype).ok() }
 }
 #[inline]
 pub unsafe fn SCardAccessStartedEvent() -> windows_core::Result<super::super::Foundation::HANDLE> {
-    windows_core::link!("winscard.dll" "system" fn SCardAccessStartedEvent() -> super::super::Foundation:: HANDLE);
+    windows_core::link!("winscard.dll" "system" fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE);
     let result__ = unsafe { SCardAccessStartedEvent() };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }

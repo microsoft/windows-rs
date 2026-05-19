@@ -1,15 +1,15 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("gdi32.dll" "system" fn ChoosePixelFormat(hdc : super::Gdi:: HDC, ppfd : *const PIXELFORMATDESCRIPTOR) -> i32);
+windows_link::link!("gdi32.dll" "system" fn ChoosePixelFormat(hdc : super::Gdi::HDC, ppfd : *const PIXELFORMATDESCRIPTOR) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::Gdi:: HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
+windows_link::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::Gdi::HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFilePixelFormat(hemf : super::Gdi:: HENHMETAFILE, cbbuffer : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> u32);
+windows_link::link!("gdi32.dll" "system" fn GetEnhMetaFilePixelFormat(hemf : super::Gdi::HENHMETAFILE, cbbuffer : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("gdi32.dll" "system" fn GetPixelFormat(hdc : super::Gdi:: HDC) -> i32);
+windows_link::link!("gdi32.dll" "system" fn GetPixelFormat(hdc : super::Gdi::HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("gdi32.dll" "system" fn SetPixelFormat(hdc : super::Gdi:: HDC, format : i32, ppfd : *const PIXELFORMATDESCRIPTOR) -> windows_sys::core::BOOL);
+windows_link::link!("gdi32.dll" "system" fn SetPixelFormat(hdc : super::Gdi::HDC, format : i32, ppfd : *const PIXELFORMATDESCRIPTOR) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("gdi32.dll" "system" fn SwapBuffers(param0 : super::Gdi:: HDC) -> windows_sys::core::BOOL);
+windows_link::link!("gdi32.dll" "system" fn SwapBuffers(param0 : super::Gdi::HDC) -> windows_sys::core::BOOL);
 windows_link::link!("opengl32.dll" "system" fn glAccum(op : u32, value : f32));
 windows_link::link!("opengl32.dll" "system" fn glAlphaFunc(func : u32, r#ref : f32));
 windows_link::link!("opengl32.dll" "system" fn glAreTexturesResident(n : i32, textures : *const u32, residences : *mut u8) -> u8);
@@ -400,35 +400,35 @@ windows_link::link!("glu32.dll" "system" fn gluTessVertex(tess : *mut GLUtessela
 windows_link::link!("glu32.dll" "system" fn gluUnProject(winx : f64, winy : f64, winz : f64, modelmatrix : *const f64, projmatrix : *const f64, viewport : *const i32, objx : *mut f64, objy : *mut f64, objz : *mut f64) -> i32);
 windows_link::link!("opengl32.dll" "system" fn wglCopyContext(param0 : HGLRC, param1 : HGLRC, param2 : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglCreateContext(param0 : super::Gdi:: HDC) -> HGLRC);
+windows_link::link!("opengl32.dll" "system" fn wglCreateContext(param0 : super::Gdi::HDC) -> HGLRC);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglCreateLayerContext(param0 : super::Gdi:: HDC, param1 : i32) -> HGLRC);
+windows_link::link!("opengl32.dll" "system" fn wglCreateLayerContext(param0 : super::Gdi::HDC, param1 : i32) -> HGLRC);
 windows_link::link!("opengl32.dll" "system" fn wglDeleteContext(param0 : HGLRC) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : u32, param4 : *mut LAYERPLANEDESCRIPTOR) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglDescribeLayerPlane(param0 : super::Gdi::HDC, param1 : i32, param2 : i32, param3 : u32, param4 : *mut LAYERPLANEDESCRIPTOR) -> windows_sys::core::BOOL);
 windows_link::link!("opengl32.dll" "system" fn wglGetCurrentContext() -> HGLRC);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglGetCurrentDC() -> super::Gdi:: HDC);
+windows_link::link!("opengl32.dll" "system" fn wglGetCurrentDC() -> super::Gdi::HDC);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglGetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *mut super::super::Foundation:: COLORREF) -> i32);
-windows_link::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : windows_sys::core::PCSTR) -> super::super::Foundation:: PROC);
+windows_link::link!("opengl32.dll" "system" fn wglGetLayerPaletteEntries(param0 : super::Gdi::HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *mut super::super::Foundation::COLORREF) -> i32);
+windows_link::link!("opengl32.dll" "system" fn wglGetProcAddress(param0 : windows_sys::core::PCSTR) -> super::super::Foundation::PROC);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::Gdi:: HDC, param1 : HGLRC) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglMakeCurrent(param0 : super::Gdi::HDC, param1 : HGLRC) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi:: HDC, param1 : i32, param2 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi::HDC, param1 : i32, param2 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglSetLayerPaletteEntries(param0 : super::Gdi:: HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *const super::super::Foundation:: COLORREF) -> i32);
+windows_link::link!("opengl32.dll" "system" fn wglSetLayerPaletteEntries(param0 : super::Gdi::HDC, param1 : i32, param2 : i32, param3 : i32, param4 : *const super::super::Foundation::COLORREF) -> i32);
 windows_link::link!("opengl32.dll" "system" fn wglShareLists(param0 : HGLRC, param1 : HGLRC) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglSwapLayerBuffers(param0 : super::Gdi:: HDC, param1 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglSwapLayerBuffers(param0 : super::Gdi::HDC, param1 : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsA(param0 : super::Gdi::HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglUseFontBitmapsW(param0 : super::Gdi::HDC, param1 : u32, param2 : u32, param3 : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesA(param0 : super::Gdi::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi:: HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_sys::core::BOOL);
+windows_link::link!("opengl32.dll" "system" fn wglUseFontOutlinesW(param0 : super::Gdi::HDC, param1 : u32, param2 : u32, param3 : u32, param4 : f32, param5 : f32, param6 : i32, param7 : *mut GLYPHMETRICSFLOAT) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[derive(Clone, Copy, Default)]

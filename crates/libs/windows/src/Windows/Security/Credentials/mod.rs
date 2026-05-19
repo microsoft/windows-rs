@@ -947,7 +947,7 @@ pub struct PasswordCredentialPropertyStore(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PasswordCredentialPropertyStore, windows_core::IUnknown, windows_core::IInspectable, super::super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( PasswordCredentialPropertyStore , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(PasswordCredentialPropertyStore, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMap < windows_core::HSTRING, windows_core::IInspectable >, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::IInspectable >);
 #[cfg(feature = "Foundation_Collections")]
 impl PasswordCredentialPropertyStore {
     pub fn new() -> windows_core::Result<Self> {

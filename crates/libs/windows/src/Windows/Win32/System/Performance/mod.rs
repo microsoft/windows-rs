@@ -133,7 +133,7 @@ pub unsafe fn PdhCollectQueryData(hquery: PDH_HQUERY) -> u32 {
 }
 #[inline]
 pub unsafe fn PdhCollectQueryDataEx(hquery: PDH_HQUERY, dwintervaltime: u32, hnewdataevent: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("pdh.dll" "system" fn PdhCollectQueryDataEx(hquery : PDH_HQUERY, dwintervaltime : u32, hnewdataevent : super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("pdh.dll" "system" fn PdhCollectQueryDataEx(hquery : PDH_HQUERY, dwintervaltime : u32, hnewdataevent : super::super::Foundation::HANDLE) -> u32);
     unsafe { PdhCollectQueryDataEx(hquery, dwintervaltime, hnewdataevent) }
 }
 #[inline]
@@ -622,7 +622,7 @@ where
 }
 #[inline]
 pub unsafe fn PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: super::super::Foundation::FILETIME, prawlogrecord: Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> u32 {
-    windows_core::link!("pdh.dll" "system" fn PdhReadRawLogRecord(hlog : PDH_HLOG, ftrecord : super::super::Foundation:: FILETIME, prawlogrecord : *mut PDH_RAW_LOG_RECORD, pdwbufferlength : *mut u32) -> u32);
+    windows_core::link!("pdh.dll" "system" fn PdhReadRawLogRecord(hlog : PDH_HLOG, ftrecord : super::super::Foundation::FILETIME, prawlogrecord : *mut PDH_RAW_LOG_RECORD, pdwbufferlength : *mut u32) -> u32);
     unsafe { PdhReadRawLogRecord(hlog, core::mem::transmute(ftrecord), prawlogrecord.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength as _) }
 }
 #[inline]
@@ -632,12 +632,12 @@ pub unsafe fn PdhRemoveCounter(hcounter: PDH_HCOUNTER) -> u32 {
 }
 #[inline]
 pub unsafe fn PdhSelectDataSourceA(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: windows_core::PSTR, pcchbufferlength: *mut u32) -> u32 {
-    windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceA(hwndowner : super::super::Foundation:: HWND, dwflags : PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource : windows_core::PSTR, pcchbufferlength : *mut u32) -> u32);
+    windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceA(hwndowner : super::super::Foundation::HWND, dwflags : PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource : windows_core::PSTR, pcchbufferlength : *mut u32) -> u32);
     unsafe { PdhSelectDataSourceA(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
 }
 #[inline]
 pub unsafe fn PdhSelectDataSourceW(hwndowner: super::super::Foundation::HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: windows_core::PWSTR, pcchbufferlength: *mut u32) -> u32 {
-    windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceW(hwndowner : super::super::Foundation:: HWND, dwflags : PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource : windows_core::PWSTR, pcchbufferlength : *mut u32) -> u32);
+    windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceW(hwndowner : super::super::Foundation::HWND, dwflags : PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource : windows_core::PWSTR, pcchbufferlength : *mut u32) -> u32);
     unsafe { PdhSelectDataSourceW(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
 }
 #[inline]
@@ -731,12 +731,12 @@ where
 }
 #[inline]
 pub unsafe fn PerfAddCounters(hquery: super::super::Foundation::HANDLE, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfAddCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfAddCounters(hquery : super::super::Foundation::HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
     unsafe { PerfAddCounters(hquery, pcounters as _, cbcounters) }
 }
 #[inline]
 pub unsafe fn PerfCloseQueryHandle(hquery: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfCloseQueryHandle(hquery : super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfCloseQueryHandle(hquery : super::super::Foundation::HANDLE) -> u32);
     unsafe { PerfCloseQueryHandle(hquery) }
 }
 #[inline]
@@ -744,27 +744,27 @@ pub unsafe fn PerfCreateInstance<P2>(providerhandle: super::super::Foundation::H
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn PerfCreateInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
+    windows_core::link!("advapi32.dll" "system" fn PerfCreateInstance(providerhandle : super::super::Foundation::HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
     unsafe { PerfCreateInstance(providerhandle, countersetguid, name.param().abi(), id) }
 }
 #[inline]
 pub unsafe fn PerfDecrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfDecrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfDecrementULongCounterValue(provider : super::super::Foundation::HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
     unsafe { PerfDecrementULongCounterValue(provider, instance as _, counterid, value) }
 }
 #[inline]
 pub unsafe fn PerfDecrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfDecrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfDecrementULongLongCounterValue(provider : super::super::Foundation::HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
     unsafe { PerfDecrementULongLongCounterValue(provider, instance as _, counterid, value) }
 }
 #[inline]
 pub unsafe fn PerfDeleteCounters(hquery: super::super::Foundation::HANDLE, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfDeleteCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfDeleteCounters(hquery : super::super::Foundation::HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
     unsafe { PerfDeleteCounters(hquery, pcounters as _, cbcounters) }
 }
 #[inline]
 pub unsafe fn PerfDeleteInstance(provider: super::super::Foundation::HANDLE, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfDeleteInstance(provider : super::super::Foundation:: HANDLE, instanceblock : *const PERF_COUNTERSET_INSTANCE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfDeleteInstance(provider : super::super::Foundation::HANDLE, instanceblock : *const PERF_COUNTERSET_INSTANCE) -> u32);
     unsafe { PerfDeleteInstance(provider, instanceblock) }
 }
 #[inline]
@@ -785,12 +785,12 @@ where
 }
 #[inline]
 pub unsafe fn PerfIncrementULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfIncrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfIncrementULongCounterValue(provider : super::super::Foundation::HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
     unsafe { PerfIncrementULongCounterValue(provider, instance as _, counterid, value) }
 }
 #[inline]
 pub unsafe fn PerfIncrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfIncrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfIncrementULongLongCounterValue(provider : super::super::Foundation::HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
     unsafe { PerfIncrementULongLongCounterValue(provider, instance as _, counterid, value) }
 }
 #[inline]
@@ -798,17 +798,17 @@ pub unsafe fn PerfOpenQueryHandle<P0>(szmachine: P0, phquery: *mut super::super:
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn PerfOpenQueryHandle(szmachine : windows_core::PCWSTR, phquery : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfOpenQueryHandle(szmachine : windows_core::PCWSTR, phquery : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { PerfOpenQueryHandle(szmachine.param().abi(), phquery as _) }
 }
 #[inline]
 pub unsafe fn PerfQueryCounterData(hquery: super::super::Foundation::HANDLE, pcounterblock: Option<*mut PERF_DATA_HEADER>, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfQueryCounterData(hquery : super::super::Foundation:: HANDLE, pcounterblock : *mut PERF_DATA_HEADER, cbcounterblock : u32, pcbcounterblockactual : *mut u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfQueryCounterData(hquery : super::super::Foundation::HANDLE, pcounterblock : *mut PERF_DATA_HEADER, cbcounterblock : u32, pcbcounterblockactual : *mut u32) -> u32);
     unsafe { PerfQueryCounterData(hquery, pcounterblock.unwrap_or(core::mem::zeroed()) as _, cbcounterblock, pcbcounterblockactual as _) }
 }
 #[inline]
 pub unsafe fn PerfQueryCounterInfo(hquery: super::super::Foundation::HANDLE, pcounters: Option<*mut PERF_COUNTER_IDENTIFIER>, cbcounters: u32, pcbcountersactual: *mut u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfQueryCounterInfo(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32, pcbcountersactual : *mut u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfQueryCounterInfo(hquery : super::super::Foundation::HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32, pcbcountersactual : *mut u32) -> u32);
     unsafe { PerfQueryCounterInfo(hquery, pcounters.unwrap_or(core::mem::zeroed()) as _, cbcounters, pcbcountersactual as _) }
 }
 #[inline]
@@ -824,42 +824,42 @@ pub unsafe fn PerfQueryInstance<P2>(providerhandle: super::super::Foundation::HA
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn PerfQueryInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
+    windows_core::link!("advapi32.dll" "system" fn PerfQueryInstance(providerhandle : super::super::Foundation::HANDLE, countersetguid : *const windows_core::GUID, name : windows_core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
     unsafe { PerfQueryInstance(providerhandle, countersetguid, name.param().abi(), id) }
 }
 #[inline]
 pub unsafe fn PerfSetCounterRefValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const core::ffi::c_void) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfSetCounterRefValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, address : *const core::ffi::c_void) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfSetCounterRefValue(provider : super::super::Foundation::HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, address : *const core::ffi::c_void) -> u32);
     unsafe { PerfSetCounterRefValue(provider, instance as _, counterid, address) }
 }
 #[inline]
 pub unsafe fn PerfSetCounterSetInfo(providerhandle: super::super::Foundation::HANDLE, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfSetCounterSetInfo(providerhandle : super::super::Foundation:: HANDLE, template : *mut PERF_COUNTERSET_INFO, templatesize : u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfSetCounterSetInfo(providerhandle : super::super::Foundation::HANDLE, template : *mut PERF_COUNTERSET_INFO, templatesize : u32) -> u32);
     unsafe { PerfSetCounterSetInfo(providerhandle, template as _, templatesize) }
 }
 #[inline]
 pub unsafe fn PerfSetULongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfSetULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfSetULongCounterValue(provider : super::super::Foundation::HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
     unsafe { PerfSetULongCounterValue(provider, instance as _, counterid, value) }
 }
 #[inline]
 pub unsafe fn PerfSetULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfSetULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfSetULongLongCounterValue(provider : super::super::Foundation::HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
     unsafe { PerfSetULongLongCounterValue(provider, instance as _, counterid, value) }
 }
 #[inline]
 pub unsafe fn PerfStartProvider(providerguid: *const windows_core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfStartProvider(providerguid : *const windows_core::GUID, controlcallback : PERFLIBREQUEST, phprovider : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfStartProvider(providerguid : *const windows_core::GUID, controlcallback : PERFLIBREQUEST, phprovider : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { PerfStartProvider(providerguid, controlcallback, phprovider as _) }
 }
 #[inline]
 pub unsafe fn PerfStartProviderEx(providerguid: *const windows_core::GUID, providercontext: Option<*const PERF_PROVIDER_CONTEXT>, provider: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfStartProviderEx(providerguid : *const windows_core::GUID, providercontext : *const PERF_PROVIDER_CONTEXT, provider : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfStartProviderEx(providerguid : *const windows_core::GUID, providercontext : *const PERF_PROVIDER_CONTEXT, provider : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { PerfStartProviderEx(providerguid, providercontext.unwrap_or(core::mem::zeroed()) as _, provider as _) }
 }
 #[inline]
 pub unsafe fn PerfStopProvider(providerhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn PerfStopProvider(providerhandle : super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn PerfStopProvider(providerhandle : super::super::Foundation::HANDLE) -> u32);
     unsafe { PerfStopProvider(providerhandle) }
 }
 #[inline]

@@ -1,13 +1,13 @@
 #[cfg(feature = "Win32_System_Com")]
-windows_link::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_sys::core::HRESULT);
+windows_link::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : *mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-windows_link::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : *mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : *mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-windows_link::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : *mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : *mut core::ffi::c_void, wkeyval : u16, lpadressbook : *mut core::ffi::c_void, lpptnef : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : windows_sys::core::PCSTR, dwsize : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineAddProviderW(lpszproviderfilename : windows_sys::core::PCWSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation::HWND, lpdwpermanentproviderid : *mut u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : windows_sys::core::PCSTR, hwndowner : super::super::Foundation::HWND, lpdwpermanentproviderid : *mut u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineAddProviderW(lpszproviderfilename : windows_sys::core::PCWSTR, hwndowner : super::super::Foundation::HWND, lpdwpermanentproviderid : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineAddToConference(hconfcall : u32, hconsultcall : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineAgentSpecific(hline : u32, dwaddressid : u32, dwagentextensionidindex : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineAnswer(hcall : u32, lpsuseruserinfo : windows_sys::core::PCSTR, dwsize : u32) -> i32);
@@ -17,13 +17,13 @@ windows_link::link!("tapi32.dll" "system" fn lineBlindTransferW(hcall : u32, lps
 windows_link::link!("tapi32.dll" "system" fn lineClose(hline : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineCompleteCall(hcall : u32, lpdwcompletionid : *mut u32, dwcompletionmode : u32, dwmessageid : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineCompleteTransfer(hcall : u32, hconsultcall : u32, lphconfcall : *mut u32, dwtransfermode : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEdit(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEditA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEditW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCWSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineConfigProvider(hwndowner : super::super::Foundation:: HWND, dwpermanentproviderid : u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEdit(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEditA(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEditW(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCWSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineConfigProvider(hwndowner : super::super::Foundation::HWND, dwpermanentproviderid : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineCreateAgentA(hline : u32, lpszagentid : windows_sys::core::PCSTR, lpszagentpin : windows_sys::core::PCSTR, lphagent : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineCreateAgentSessionA(hline : u32, hagent : u32, lpszagentpin : windows_sys::core::PCSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_sys::core::GUID, lphagentsession : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineCreateAgentSessionW(hline : u32, hagent : u32, lpszagentpin : windows_sys::core::PCWSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_sys::core::GUID, lphagentsession : *mut u32) -> i32);
@@ -90,11 +90,11 @@ windows_link::link!("tapi32.dll" "system" fn lineGetID(hline : u32, dwaddressid 
 windows_link::link!("tapi32.dll" "system" fn lineGetIDA(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGetIDW(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("tapi32.dll" "system" fn lineGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging::HICON) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("tapi32.dll" "system" fn lineGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging::HICON) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("tapi32.dll" "system" fn lineGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging::HICON) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGetLineDevStatus(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGetLineDevStatusA(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineGetLineDevStatusW(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
@@ -119,9 +119,9 @@ windows_link::link!("tapi32.dll" "system" fn lineHandoff(hcall : u32, lpszfilena
 windows_link::link!("tapi32.dll" "system" fn lineHandoffA(hcall : u32, lpszfilename : windows_sys::core::PCSTR, dwmediamode : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineHandoffW(hcall : u32, lpszfilename : windows_sys::core::PCWSTR, dwmediamode : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineHold(hcall : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineInitialize(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineInitializeExA(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineInitializeExW(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_sys::core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineInitialize(lphlineapp : *mut u32, hinstance : super::super::Foundation::HINSTANCE, lpfncallback : LINECALLBACK, lpszappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineInitializeExA(lphlineapp : *mut u32, hinstance : super::super::Foundation::HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineInitializeExW(lphlineapp : *mut u32, hinstance : super::super::Foundation::HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_sys::core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineMakeCallA(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCWSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
@@ -151,7 +151,7 @@ windows_link::link!("tapi32.dll" "system" fn lineRedirectW(hcall : u32, lpszdest
 windows_link::link!("tapi32.dll" "system" fn lineRegisterRequestRecipient(hlineapp : u32, dwregistrationinstance : u32, dwrequestmode : u32, benable : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineReleaseUserUserInfo(hcall : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineRemoveFromConference(hcall : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineRemoveProvider(dwpermanentproviderid : u32, hwndowner : super::super::Foundation:: HWND) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineRemoveProvider(dwpermanentproviderid : u32, hwndowner : super::super::Foundation::HWND) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSecureCall(hcall : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSendUserUserInfo(hcall : u32, lpsuseruserinfo : windows_sys::core::PCSTR, dwsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineSetAgentActivity(hline : u32, dwaddressid : u32, dwactivityid : u32) -> i32);
@@ -194,18 +194,18 @@ windows_link::link!("tapi32.dll" "system" fn lineSwapHold(hactivecall : u32, hhe
 windows_link::link!("tapi32.dll" "system" fn lineTranslateAddress(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_sys::core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineTranslateAddressA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_sys::core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineTranslateAddressW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_sys::core::PCWSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineTranslateDialog(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineTranslateDialogA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn lineTranslateDialogW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_sys::core::PCWSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineTranslateDialog(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation::HWND, lpszaddressin : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineTranslateDialogA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation::HWND, lpszaddressin : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn lineTranslateDialogW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation::HWND, lpszaddressin : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineUncompleteCall(hline : u32, dwcompletionid : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineUnhold(hcall : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineUnpark(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineUnparkA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn lineUnparkW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneClose(hphone : u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation::HWND, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneDevSpecific(hphone : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetButtonInfoA(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
@@ -221,11 +221,11 @@ windows_link::link!("tapi32.dll" "system" fn phoneGetID(hphone : u32, lpdeviceid
 windows_link::link!("tapi32.dll" "system" fn phoneGetIDA(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetIDW(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("tapi32.dll" "system" fn phoneGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging::HICON) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("tapi32.dll" "system" fn phoneGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging::HICON) -> i32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_link::link!("tapi32.dll" "system" fn phoneGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_sys::core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging::HICON) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetLamp(hphone : u32, dwbuttonlampid : u32, lpdwlampmode : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetMessage(hphoneapp : u32, lpmessage : *mut PHONEMESSAGE, dwtimeout : u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetRing(hphone : u32, lpdwringmode : *mut u32, lpdwvolume : *mut u32) -> i32);
@@ -234,9 +234,9 @@ windows_link::link!("tapi32.dll" "system" fn phoneGetStatusA(hphone : u32, lppho
 windows_link::link!("tapi32.dll" "system" fn phoneGetStatusMessages(hphone : u32, lpdwphonestates : *mut u32, lpdwbuttonmodes : *mut u32, lpdwbuttonstates : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetStatusW(hphone : u32, lpphonestatus : *mut PHONESTATUS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneGetVolume(hphone : u32, dwhookswitchdev : u32, lpdwvolume : *mut u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneInitialize(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneInitializeExA(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
-windows_link::link!("tapi32.dll" "system" fn phoneInitializeExW(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_sys::core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneInitialize(lphphoneapp : *mut u32, hinstance : super::super::Foundation::HINSTANCE, lpfncallback : PHONECALLBACK, lpszappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneInitializeExA(lphphoneapp : *mut u32, hinstance : super::super::Foundation::HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_sys::core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
+windows_link::link!("tapi32.dll" "system" fn phoneInitializeExW(lphphoneapp : *mut u32, hinstance : super::super::Foundation::HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_sys::core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneNegotiateAPIVersion(hphoneapp : u32, dwdeviceid : u32, dwapilowversion : u32, dwapihighversion : u32, lpdwapiversion : *mut u32, lpextensionid : *mut PHONEEXTENSIONID) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneNegotiateExtVersion(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextlowversion : u32, dwexthighversion : u32, lpdwextversion : *mut u32) -> i32);
 windows_link::link!("tapi32.dll" "system" fn phoneOpen(hphoneapp : u32, dwdeviceid : u32, lphphone : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivilege : u32) -> i32);
@@ -255,13 +255,13 @@ windows_link::link!("tapi32.dll" "system" fn phoneShutdown(hphoneapp : u32) -> i
 windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfo(lpszcountrycode : windows_sys::core::PSTR, lpszcitycode : windows_sys::core::PSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_sys::core::PSTR, lpszcitycode : windows_sys::core::PSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_sys::core::PWSTR, lpszcitycodew : windows_sys::core::PWSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn tapiRequestDrop(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM) -> i32);
+windows_link::link!("tapi32.dll" "system" fn tapiRequestDrop(hwnd : super::super::Foundation::HWND, wrequestid : super::super::Foundation::WPARAM) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCall(lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCallA(lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
 windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCallW(lpszdestaddress : windows_sys::core::PCWSTR, lpszappname : windows_sys::core::PCWSTR, lpszcalledparty : windows_sys::core::PCWSTR, lpszcomment : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceid : windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceid : windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
-windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_sys::core::PCWSTR, lpdeviceid : windows_sys::core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCWSTR, lpszappname : windows_sys::core::PCWSTR, lpszcalledparty : windows_sys::core::PCWSTR, lpszcomment : windows_sys::core::PCWSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation::HWND, wrequestid : super::super::Foundation::WPARAM, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceid : windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation::HWND, wrequestid : super::super::Foundation::WPARAM, lpszdeviceclass : windows_sys::core::PCSTR, lpdeviceid : windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCSTR, lpszappname : windows_sys::core::PCSTR, lpszcalledparty : windows_sys::core::PCSTR, lpszcomment : windows_sys::core::PCSTR) -> i32);
+windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation::HWND, wrequestid : super::super::Foundation::WPARAM, lpszdeviceclass : windows_sys::core::PCWSTR, lpdeviceid : windows_sys::core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_sys::core::PCWSTR, lpszappname : windows_sys::core::PCWSTR, lpszcalledparty : windows_sys::core::PCWSTR, lpszcomment : windows_sys::core::PCWSTR) -> i32);
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = 1i32;
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = 0i32;
 pub type ACDGROUP_EVENT = i32;

@@ -3,7 +3,7 @@ pub unsafe fn BackupEventLogA<P1>(heventlog: super::super::Foundation::HANDLE, l
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { BackupEventLogA(heventlog, lpbackupfilename.param().abi()).ok() }
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn BackupEventLogW<P1>(heventlog: super::super::Foundation::HANDLE, l
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { BackupEventLogW(heventlog, lpbackupfilename.param().abi()).ok() }
 }
 #[inline]
@@ -19,7 +19,7 @@ pub unsafe fn ClearEventLogA<P1>(heventlog: super::super::Foundation::HANDLE, lp
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ClearEventLogA(heventlog, lpbackupfilename.param().abi()).ok() }
 }
 #[inline]
@@ -27,17 +27,17 @@ pub unsafe fn ClearEventLogW<P1>(heventlog: super::super::Foundation::HANDLE, lp
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation::HANDLE, lpbackupfilename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ClearEventLogW(heventlog, lpbackupfilename.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn CloseEventLog(heventlog: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn CloseEventLog(heventlog : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn CloseEventLog(heventlog : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { CloseEventLog(heventlog).ok() }
 }
 #[inline]
 pub unsafe fn DeregisterEventSource(heventlog: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn DeregisterEventSource(heventlog : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn DeregisterEventSource(heventlog : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { DeregisterEventSource(heventlog).ok() }
 }
 #[inline]
@@ -260,7 +260,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_core::PCWSTR, query : windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
+    windows_core::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation::HANDLE, channelpath : windows_core::PCWSTR, query : windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
     let result__ = unsafe { EvtSubscribe(session.unwrap_or(core::mem::zeroed()) as _, signalevent.unwrap_or(core::mem::zeroed()) as _, channelpath.param().abi(), query.param().abi(), bookmark.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _, callback, flags) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -271,22 +271,22 @@ pub unsafe fn EvtUpdateBookmark(bookmark: EVT_HANDLE, event: EVT_HANDLE) -> wind
 }
 #[inline]
 pub unsafe fn GetEventLogInformation(heventlog: super::super::Foundation::HANDLE, dwinfolevel: u32, lpbuffer: *mut core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : super::super::Foundation:: HANDLE, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : super::super::Foundation::HANDLE, dwinfolevel : u32, lpbuffer : *mut core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
     unsafe { GetEventLogInformation(heventlog, dwinfolevel, lpbuffer as _, cbbufsize, pcbbytesneeded as _).ok() }
 }
 #[inline]
 pub unsafe fn GetNumberOfEventLogRecords(heventlog: super::super::Foundation::HANDLE, numberofrecords: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn GetNumberOfEventLogRecords(heventlog : super::super::Foundation:: HANDLE, numberofrecords : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn GetNumberOfEventLogRecords(heventlog : super::super::Foundation::HANDLE, numberofrecords : *mut u32) -> windows_core::BOOL);
     unsafe { GetNumberOfEventLogRecords(heventlog, numberofrecords as _).ok() }
 }
 #[inline]
 pub unsafe fn GetOldestEventLogRecord(heventlog: super::super::Foundation::HANDLE, oldestrecord: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn GetOldestEventLogRecord(heventlog : super::super::Foundation:: HANDLE, oldestrecord : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn GetOldestEventLogRecord(heventlog : super::super::Foundation::HANDLE, oldestrecord : *mut u32) -> windows_core::BOOL);
     unsafe { GetOldestEventLogRecord(heventlog, oldestrecord as _).ok() }
 }
 #[inline]
 pub unsafe fn NotifyChangeEventLog(heventlog: super::super::Foundation::HANDLE, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn NotifyChangeEventLog(heventlog : super::super::Foundation:: HANDLE, hevent : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn NotifyChangeEventLog(heventlog : super::super::Foundation::HANDLE, hevent : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { NotifyChangeEventLog(heventlog, hevent).ok() }
 }
 #[inline]
@@ -295,7 +295,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : windows_core::PCSTR, lpfilename : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : windows_core::PCSTR, lpfilename : windows_core::PCSTR) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { OpenBackupEventLogA(lpuncservername.param().abi(), lpfilename.param().abi()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -305,7 +305,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : windows_core::PCWSTR, lpfilename : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : windows_core::PCWSTR, lpfilename : windows_core::PCWSTR) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { OpenBackupEventLogW(lpuncservername.param().abi(), lpfilename.param().abi()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -315,7 +315,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : windows_core::PCSTR, lpsourcename : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : windows_core::PCSTR, lpsourcename : windows_core::PCSTR) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { OpenEventLogA(lpuncservername.param().abi(), lpsourcename.param().abi()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -325,18 +325,18 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : windows_core::PCWSTR, lpsourcename : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : windows_core::PCWSTR, lpsourcename : windows_core::PCWSTR) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { OpenEventLogW(lpuncservername.param().abi(), lpsourcename.param().abi()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn ReadEventLogA(heventlog: super::super::Foundation::HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : super::super::Foundation::HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_core::BOOL);
     unsafe { ReadEventLogA(heventlog, dwreadflags, dwrecordoffset, lpbuffer as _, nnumberofbytestoread, pnbytesread as _, pnminnumberofbytesneeded as _).ok() }
 }
 #[inline]
 pub unsafe fn ReadEventLogW(heventlog: super::super::Foundation::HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : super::super::Foundation::HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> windows_core::BOOL);
     unsafe { ReadEventLogW(heventlog, dwreadflags, dwrecordoffset, lpbuffer as _, nnumberofbytestoread, pnbytesread as _, pnminnumberofbytesneeded as _).ok() }
 }
 #[inline]
@@ -345,7 +345,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : windows_core::PCSTR, lpsourcename : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : windows_core::PCSTR, lpsourcename : windows_core::PCSTR) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { RegisterEventSourceA(lpuncservername.param().abi(), lpsourcename.param().abi()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -355,20 +355,20 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : windows_core::PCWSTR, lpsourcename : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : windows_core::PCWSTR, lpsourcename : windows_core::PCWSTR) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { RegisterEventSourceW(lpuncservername.param().abi(), lpsourcename.param().abi()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ReportEventA(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Option<super::super::Security::PSID>, dwdatasize: u32, lpstrings: Option<&[windows_core::PCSTR]>, lprawdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCSTR, lprawdata : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation::HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security::PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCSTR, lprawdata : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ReportEventA(heventlog, wtype, wcategory, dweventid, lpusersid.unwrap_or(core::mem::zeroed()) as _, lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lprawdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: Option<super::super::Security::PSID>, dwdatasize: u32, lpstrings: Option<&[windows_core::PCWSTR]>, lprawdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCWSTR, lprawdata : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation::HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security::PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCWSTR, lprawdata : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ReportEventW(heventlog, wtype, wcategory, dweventid, lpusersid.unwrap_or(core::mem::zeroed()) as _, lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lprawdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(C)]

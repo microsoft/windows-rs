@@ -179,7 +179,7 @@ unsafe impl Sync for DiagnosticsSettings {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FirstSignInSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FirstSignInSettings, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( FirstSignInSettings , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(FirstSignInSettings, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMapView < windows_core::HSTRING, windows_core::IInspectable >);
 impl FirstSignInSettings {
     pub fn GetDefault() -> windows_core::Result<FirstSignInSettings> {
         Self::IFirstSignInSettingsStatics(|this| unsafe {

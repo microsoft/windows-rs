@@ -17,8 +17,12 @@ impl Delegate {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = self.write_name(config);
-        let vtbl_name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name())).into();
-        let boxed: TokenStream = format!("{}Box", trim_tick(self.def.name())).into();
+        let vtbl_name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name()))
+            .parse()
+            .unwrap();
+        let boxed: TokenStream = format!("{}Box", trim_tick(self.def.name()))
+            .parse()
+            .unwrap();
         let generic_names = self.generics.iter().map(|ty| ty.write_name(config));
         let generic_names = quote! { #(#generic_names,)* };
 
@@ -52,7 +56,7 @@ impl Delegate {
             let phantoms = config.write_generic_phantoms(&self.generics);
 
             let guid = self.def.guid_attribute().unwrap();
-            let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
+            let pinterface = Literal::byte_string(format!("pinterface({{{guid}}}").as_bytes());
 
             let generics = self.generics.iter().map(|generic| {
                 let name = generic.write_name(config);

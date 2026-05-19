@@ -13,17 +13,14 @@ fn assert_guid(winmd: &str, namespace: &str, name: &str, expected: &str) {
 
     let values: Vec<_> = attr.value().into_iter().map(|(_, v)| v).collect();
 
-    let d1 = match values[0] {
-        windows_metadata::Value::U32(v) => v,
-        _ => panic!("unexpected type for d1"),
+    let windows_metadata::Value::U32(d1) = values[0] else {
+        panic!("unexpected type for d1")
     };
-    let d2 = match values[1] {
-        windows_metadata::Value::U16(v) => v,
-        _ => panic!("unexpected type for d2"),
+    let windows_metadata::Value::U16(d2) = values[1] else {
+        panic!("unexpected type for d2")
     };
-    let d3 = match values[2] {
-        windows_metadata::Value::U16(v) => v,
-        _ => panic!("unexpected type for d3"),
+    let windows_metadata::Value::U16(d3) = values[2] else {
+        panic!("unexpected type for d3")
     };
     let d4: Vec<u8> = values[3..]
         .iter()

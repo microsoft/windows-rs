@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn ActivateActCtx(hactctx: Option<super::super::Foundation::HANDLE>, lpcookie: *mut usize) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn ActivateActCtx(hactctx : super::super::Foundation:: HANDLE, lpcookie : *mut usize) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn ActivateActCtx(hactctx : super::super::Foundation::HANDLE, lpcookie : *mut usize) -> windows_core::BOOL);
     unsafe { ActivateActCtx(hactctx.unwrap_or(core::mem::zeroed()) as _, lpcookie as _).ok() }
 }
 #[inline]
 pub unsafe fn AddRefActCtx(hactctx: super::super::Foundation::HANDLE) {
-    windows_core::link!("kernel32.dll" "system" fn AddRefActCtx(hactctx : super::super::Foundation:: HANDLE));
+    windows_core::link!("kernel32.dll" "system" fn AddRefActCtx(hactctx : super::super::Foundation::HANDLE));
     unsafe { AddRefActCtx(hactctx as _) }
 }
 #[inline]
@@ -25,7 +25,7 @@ pub unsafe fn ApplyDeltaB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INP
 }
 #[inline]
 pub unsafe fn ApplyDeltaGetReverseB(applyflags: i64, source: DELTA_INPUT, delta: DELTA_INPUT, lpreversefiletime: Option<*const super::super::Foundation::FILETIME>, lptarget: *mut DELTA_OUTPUT, lptargetreverse: *mut DELTA_OUTPUT) -> windows_core::BOOL {
-    windows_core::link!("msdelta.dll" "system" fn ApplyDeltaGetReverseB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lpreversefiletime : *const super::super::Foundation:: FILETIME, lptarget : *mut DELTA_OUTPUT, lptargetreverse : *mut DELTA_OUTPUT) -> windows_core::BOOL);
+    windows_core::link!("msdelta.dll" "system" fn ApplyDeltaGetReverseB(applyflags : i64, source : DELTA_INPUT, delta : DELTA_INPUT, lpreversefiletime : *const super::super::Foundation::FILETIME, lptarget : *mut DELTA_OUTPUT, lptargetreverse : *mut DELTA_OUTPUT) -> windows_core::BOOL);
     unsafe { ApplyDeltaGetReverseB(applyflags, core::mem::transmute(source), core::mem::transmute(delta), lpreversefiletime.unwrap_or(core::mem::zeroed()) as _, lptarget as _, lptargetreverse as _) }
 }
 #[inline]
@@ -55,7 +55,7 @@ where
 }
 #[inline]
 pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: Option<&[u8]>, newfilebuffer: &mut [u8], newfileactualsize: Option<*mut u32>, newfiletime: Option<*mut super::super::Foundation::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut *mut u8, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::super::Foundation:: FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : *const u8, patchfilesize : u32, oldfilemapped : *const u8, oldfilesize : u32, newfilebuffer : *mut *mut u8, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::super::Foundation::FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe {
         ApplyPatchToFileByBuffers(
             core::mem::transmute(patchfilemapped.as_ptr()),
@@ -74,12 +74,12 @@ pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: O
 }
 #[inline]
 pub unsafe fn ApplyPatchToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: Option<super::super::Foundation::HANDLE>, newfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation::HANDLE, oldfilehandle : super::super::Foundation::HANDLE, newfilehandle : super::super::Foundation::HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileByHandles(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags) }
 }
 #[inline]
 pub unsafe fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: Option<super::super::Foundation::HANDLE>, newfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::super::Foundation::HANDLE, oldfilehandle : super::super::Foundation::HANDLE, newfilehandle : super::super::Foundation::HANDLE, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileByHandlesEx(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -114,13 +114,13 @@ where
 }
 #[inline]
 pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    windows_core::link!("kernel32.dll" "system" fn CreateActCtxA(pactctx : *const ACTCTXA) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateActCtxA(pactctx : *const ACTCTXA) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { CreateActCtxA(pactctx) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    windows_core::link!("kernel32.dll" "system" fn CreateActCtxW(pactctx : *const ACTCTXW) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("kernel32.dll" "system" fn CreateActCtxW(pactctx : *const ACTCTXW) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { CreateActCtxW(pactctx) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -134,13 +134,13 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
     P10: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCSTR, lptargetname : windows_core::PCSTR, lpsourceoptionsname : windows_core::PCSTR, lptargetoptionsname : windows_core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCSTR, lptargetname : windows_core::PCSTR, lpsourceoptionsname : windows_core::PCSTR, lptargetoptionsname : windows_core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation::FILETIME, hashalgid : super::super::Security::Cryptography::ALG_ID, lpdeltaname : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { CreateDeltaA(filetypeset, setflags, resetflags, lpsourcename.param().abi(), lptargetname.param().abi(), lpsourceoptionsname.param().abi(), lptargetoptionsname.param().abi(), core::mem::transmute(globaloptions), lptargetfiletime.unwrap_or(core::mem::zeroed()) as _, hashalgid, lpdeltaname.param().abi()) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: Option<*const super::super::Foundation::FILETIME>, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdelta: *mut DELTA_OUTPUT) -> windows_core::BOOL {
-    windows_core::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> windows_core::BOOL);
+    windows_core::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation::FILETIME, hashalgid : super::super::Security::Cryptography::ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> windows_core::BOOL);
     unsafe { CreateDeltaB(filetypeset, setflags, resetflags, core::mem::transmute(source), core::mem::transmute(target), core::mem::transmute(sourceoptions), core::mem::transmute(targetoptions), core::mem::transmute(globaloptions), lptargetfiletime.unwrap_or(core::mem::zeroed()) as _, hashalgid, lpdelta as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -153,7 +153,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
     P10: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCWSTR, lptargetname : windows_core::PCWSTR, lpsourceoptionsname : windows_core::PCWSTR, lptargetoptionsname : windows_core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("msdelta.dll" "system" fn CreateDeltaW(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : windows_core::PCWSTR, lptargetname : windows_core::PCWSTR, lpsourceoptionsname : windows_core::PCWSTR, lptargetoptionsname : windows_core::PCWSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation::FILETIME, hashalgid : super::super::Security::Cryptography::ALG_ID, lpdeltaname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { CreateDeltaW(filetypeset, setflags, resetflags, lpsourcename.param().abi(), lptargetname.param().abi(), lpsourceoptionsname.param().abi(), lptargetoptionsname.param().abi(), core::mem::transmute(globaloptions), lptargetfiletime.unwrap_or(core::mem::zeroed()) as _, hashalgid, lpdeltaname.param().abi()) }
 }
 #[inline]
@@ -168,12 +168,12 @@ where
 }
 #[inline]
 pub unsafe fn CreatePatchFileByHandles(oldfilehandle: Option<super::super::Foundation::HANDLE>, newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::super::Foundation:: HANDLE, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::super::Foundation::HANDLE, newfilehandle : super::super::Foundation::HANDLE, patchfilehandle : super::super::Foundation::HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileByHandles(oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::super::Foundation::HANDLE, patchfilehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::super::Foundation:: HANDLE, patchfilehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : *const PATCH_OLD_FILE_INFO_H, newfilehandle : super::super::Foundation::HANDLE, patchfilehandle : super::super::Foundation::HANDLE, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { CreatePatchFileByHandlesEx(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -230,7 +230,7 @@ where
 }
 #[inline]
 pub unsafe fn ExtractPatchHeaderToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, patchheaderfilehandle: super::super::Foundation::HANDLE) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, patchheaderfilehandle : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileByHandles(patchfilehandle : super::super::Foundation::HANDLE, patchheaderfilehandle : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { ExtractPatchHeaderToFileByHandles(patchfilehandle, patchheaderfilehandle) }
 }
 #[inline]
@@ -268,7 +268,7 @@ where
 }
 #[inline]
 pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn GetCurrentActCtx(lphactctx : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetCurrentActCtx(lphactctx : *mut super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { GetCurrentActCtx(lphactctx as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -301,13 +301,13 @@ pub unsafe fn GetDeltaSignatureA<P2>(filetypeset: i64, hashalgid: super::super::
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msdelta.dll" "system" fn GetDeltaSignatureA(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : windows_core::PCSTR, lphash : *mut DELTA_HASH) -> windows_core::BOOL);
+    windows_core::link!("msdelta.dll" "system" fn GetDeltaSignatureA(filetypeset : i64, hashalgid : super::super::Security::Cryptography::ALG_ID, lpsourcename : windows_core::PCSTR, lphash : *mut DELTA_HASH) -> windows_core::BOOL);
     unsafe { GetDeltaSignatureA(filetypeset, hashalgid, lpsourcename.param().abi(), lphash as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn GetDeltaSignatureB(filetypeset: i64, hashalgid: super::super::Security::Cryptography::ALG_ID, source: DELTA_INPUT, lphash: *mut DELTA_HASH) -> windows_core::BOOL {
-    windows_core::link!("msdelta.dll" "system" fn GetDeltaSignatureB(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, source : DELTA_INPUT, lphash : *mut DELTA_HASH) -> windows_core::BOOL);
+    windows_core::link!("msdelta.dll" "system" fn GetDeltaSignatureB(filetypeset : i64, hashalgid : super::super::Security::Cryptography::ALG_ID, source : DELTA_INPUT, lphash : *mut DELTA_HASH) -> windows_core::BOOL);
     unsafe { GetDeltaSignatureB(filetypeset, hashalgid, core::mem::transmute(source), lphash as _) }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -316,7 +316,7 @@ pub unsafe fn GetDeltaSignatureW<P2>(filetypeset: i64, hashalgid: super::super::
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msdelta.dll" "system" fn GetDeltaSignatureW(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : windows_core::PCWSTR, lphash : *mut DELTA_HASH) -> windows_core::BOOL);
+    windows_core::link!("msdelta.dll" "system" fn GetDeltaSignatureW(filetypeset : i64, hashalgid : super::super::Security::Cryptography::ALG_ID, lpsourcename : windows_core::PCWSTR, lphash : *mut DELTA_HASH) -> windows_core::BOOL);
     unsafe { GetDeltaSignatureW(filetypeset, hashalgid, lpsourcename.param().abi(), lphash as _) }
 }
 #[inline]
@@ -359,7 +359,7 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optio
 }
 #[inline]
 pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::super::Foundation::HANDLE, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffer: &mut [u8]) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::super::Foundation:: HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::super::Foundation::HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : *const PATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : *const PATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
     unsafe {
         GetFilePatchSignatureByHandle(
             filehandle,
@@ -440,7 +440,7 @@ pub unsafe fn MsiAdvertiseScriptA<P0>(szscriptfile: P0, dwflags: u32, phregdata:
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : windows_core::PCSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : windows_core::BOOL) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : windows_core::PCSTR, dwflags : u32, phregdata : *const super::Registry::HKEY, fremoveitems : windows_core::BOOL) -> u32);
     unsafe { MsiAdvertiseScriptA(szscriptfile.param().abi(), dwflags, phregdata.unwrap_or(core::mem::zeroed()) as _, fremoveitems.into()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -449,7 +449,7 @@ pub unsafe fn MsiAdvertiseScriptW<P0>(szscriptfile: P0, dwflags: u32, phregdata:
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiAdvertiseScriptW(szscriptfile : windows_core::PCWSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : windows_core::BOOL) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiAdvertiseScriptW(szscriptfile : windows_core::PCWSTR, dwflags : u32, phregdata : *const super::Registry::HKEY, fremoveitems : windows_core::BOOL) -> u32);
     unsafe { MsiAdvertiseScriptW(szscriptfile.param().abi(), dwflags, phregdata.unwrap_or(core::mem::zeroed()) as _, fremoveitems.into()) }
 }
 #[inline]
@@ -497,7 +497,7 @@ pub unsafe fn MsiBeginTransactionA<P0>(szname: P0, dwtransactionattributes: u32,
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiBeginTransactionA(szname : windows_core::PCSTR, dwtransactionattributes : u32, phtransactionhandle : *mut MSIHANDLE, phchangeofownerevent : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiBeginTransactionA(szname : windows_core::PCSTR, dwtransactionattributes : u32, phtransactionhandle : *mut MSIHANDLE, phchangeofownerevent : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { MsiBeginTransactionA(szname.param().abi(), dwtransactionattributes, phtransactionhandle as _, phchangeofownerevent as _) }
 }
 #[inline]
@@ -505,7 +505,7 @@ pub unsafe fn MsiBeginTransactionW<P0>(szname: P0, dwtransactionattributes: u32,
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiBeginTransactionW(szname : windows_core::PCWSTR, dwtransactionattributes : u32, phtransactionhandle : *mut MSIHANDLE, phchangeofownerevent : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiBeginTransactionW(szname : windows_core::PCWSTR, dwtransactionattributes : u32, phtransactionhandle : *mut MSIHANDLE, phchangeofownerevent : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { MsiBeginTransactionW(szname.param().abi(), dwtransactionattributes, phtransactionhandle as _, phchangeofownerevent as _) }
 }
 #[inline]
@@ -1218,7 +1218,7 @@ pub unsafe fn MsiGetFileSignatureInformationA<P0>(szsignedobjectpath: P0, dwflag
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetFileSignatureInformationA(szsignedobjectpath : windows_core::PCSTR, dwflags : u32, ppccertcontext : *mut *mut super::super::Security::Cryptography:: CERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("msi.dll" "system" fn MsiGetFileSignatureInformationA(szsignedobjectpath : windows_core::PCSTR, dwflags : u32, ppccertcontext : *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> windows_core::HRESULT);
     unsafe { MsiGetFileSignatureInformationA(szsignedobjectpath.param().abi(), dwflags, ppccertcontext as _, pbhashdata.unwrap_or(core::mem::zeroed()) as _, pcbhashdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1227,7 +1227,7 @@ pub unsafe fn MsiGetFileSignatureInformationW<P0>(szsignedobjectpath: P0, dwflag
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiGetFileSignatureInformationW(szsignedobjectpath : windows_core::PCWSTR, dwflags : u32, ppccertcontext : *mut *mut super::super::Security::Cryptography:: CERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("msi.dll" "system" fn MsiGetFileSignatureInformationW(szsignedobjectpath : windows_core::PCWSTR, dwflags : u32, ppccertcontext : *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> windows_core::HRESULT);
     unsafe { MsiGetFileSignatureInformationW(szsignedobjectpath.param().abi(), dwflags, ppccertcontext as _, pbhashdata.unwrap_or(core::mem::zeroed()) as _, pcbhashdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1573,7 +1573,7 @@ where
 }
 #[inline]
 pub unsafe fn MsiJoinTransaction(htransactionhandle: MSIHANDLE, dwtransactionattributes: u32, phchangeofownerevent: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("msi.dll" "system" fn MsiJoinTransaction(htransactionhandle : MSIHANDLE, dwtransactionattributes : u32, phchangeofownerevent : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiJoinTransaction(htransactionhandle : MSIHANDLE, dwtransactionattributes : u32, phchangeofownerevent : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { MsiJoinTransaction(htransactionhandle, dwtransactionattributes, phchangeofownerevent as _) }
 }
 #[inline]
@@ -1717,7 +1717,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : windows_core::PCSTR, sziconfolder : windows_core::PCSTR, hregdata : super::Registry:: HKEY, fshortcuts : windows_core::BOOL, fremoveitems : windows_core::BOOL) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : windows_core::PCSTR, sziconfolder : windows_core::PCSTR, hregdata : super::Registry::HKEY, fshortcuts : windows_core::BOOL, fremoveitems : windows_core::BOOL) -> u32);
     unsafe { MsiProcessAdvertiseScriptA(szscriptfile.param().abi(), sziconfolder.param().abi(), hregdata.unwrap_or(core::mem::zeroed()) as _, fshortcuts.into(), fremoveitems.into()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -1727,7 +1727,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptW(szscriptfile : windows_core::PCWSTR, sziconfolder : windows_core::PCWSTR, hregdata : super::Registry:: HKEY, fshortcuts : windows_core::BOOL, fremoveitems : windows_core::BOOL) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptW(szscriptfile : windows_core::PCWSTR, sziconfolder : windows_core::PCWSTR, hregdata : super::Registry::HKEY, fshortcuts : windows_core::BOOL, fremoveitems : windows_core::BOOL) -> u32);
     unsafe { MsiProcessAdvertiseScriptW(szscriptfile.param().abi(), sziconfolder.param().abi(), hregdata.unwrap_or(core::mem::zeroed()) as _, fshortcuts.into(), fremoveitems.into()) }
 }
 #[inline]
@@ -2102,7 +2102,7 @@ pub unsafe fn MsiSetInstallLevel(hinstall: MSIHANDLE, iinstalllevel: i32) -> u32
 }
 #[inline]
 pub unsafe fn MsiSetInternalUI(dwuilevel: INSTALLUILEVEL, phwnd: Option<*mut super::super::Foundation::HWND>) -> INSTALLUILEVEL {
-    windows_core::link!("msi.dll" "system" fn MsiSetInternalUI(dwuilevel : INSTALLUILEVEL, phwnd : *mut super::super::Foundation:: HWND) -> INSTALLUILEVEL);
+    windows_core::link!("msi.dll" "system" fn MsiSetInternalUI(dwuilevel : INSTALLUILEVEL, phwnd : *mut super::super::Foundation::HWND) -> INSTALLUILEVEL);
     unsafe { MsiSetInternalUI(dwuilevel, phwnd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -2398,7 +2398,7 @@ where
 }
 #[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyA(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: Option<*mut super::super::Foundation::FILETIME>, szvaluebuf: Option<windows_core::PSTR>, pcchvaluebuf: Option<*mut u32>) -> u32 {
-    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyA(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvaluebuf : windows_core::PSTR, pcchvaluebuf : *mut u32) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyA(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation::FILETIME, szvaluebuf : windows_core::PSTR, pcchvaluebuf : *mut u32) -> u32);
     unsafe { MsiSummaryInfoGetPropertyA(hsummaryinfo, uiproperty, puidatatype as _, pivalue as _, pftvalue.unwrap_or(core::mem::zeroed()) as _, szvaluebuf.unwrap_or(core::mem::zeroed()) as _, pcchvaluebuf.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -2408,7 +2408,7 @@ pub unsafe fn MsiSummaryInfoGetPropertyCount(hsummaryinfo: MSIHANDLE, puipropert
 }
 #[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyW(hsummaryinfo: MSIHANDLE, uiproperty: u32, puidatatype: *mut u32, pivalue: *mut i32, pftvalue: Option<*mut super::super::Foundation::FILETIME>, szvaluebuf: Option<windows_core::PWSTR>, pcchvaluebuf: Option<*mut u32>) -> u32 {
-    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyW(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvaluebuf : windows_core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoGetPropertyW(hsummaryinfo : MSIHANDLE, uiproperty : u32, puidatatype : *mut u32, pivalue : *mut i32, pftvalue : *mut super::super::Foundation::FILETIME, szvaluebuf : windows_core::PWSTR, pcchvaluebuf : *mut u32) -> u32);
     unsafe { MsiSummaryInfoGetPropertyW(hsummaryinfo, uiproperty, puidatatype as _, pivalue as _, pftvalue.unwrap_or(core::mem::zeroed()) as _, szvaluebuf.unwrap_or(core::mem::zeroed()) as _, pcchvaluebuf.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -2421,7 +2421,7 @@ pub unsafe fn MsiSummaryInfoSetPropertyA<P5>(hsummaryinfo: MSIHANDLE, uiproperty
 where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoSetPropertyA(hsummaryinfo : MSIHANDLE, uiproperty : u32, uidatatype : u32, ivalue : i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvalue : windows_core::PCSTR) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoSetPropertyA(hsummaryinfo : MSIHANDLE, uiproperty : u32, uidatatype : u32, ivalue : i32, pftvalue : *mut super::super::Foundation::FILETIME, szvalue : windows_core::PCSTR) -> u32);
     unsafe { MsiSummaryInfoSetPropertyA(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue as _, szvalue.param().abi()) }
 }
 #[inline]
@@ -2429,7 +2429,7 @@ pub unsafe fn MsiSummaryInfoSetPropertyW<P5>(hsummaryinfo: MSIHANDLE, uiproperty
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoSetPropertyW(hsummaryinfo : MSIHANDLE, uiproperty : u32, uidatatype : u32, ivalue : i32, pftvalue : *mut super::super::Foundation:: FILETIME, szvalue : windows_core::PCWSTR) -> u32);
+    windows_core::link!("msi.dll" "system" fn MsiSummaryInfoSetPropertyW(hsummaryinfo : MSIHANDLE, uiproperty : u32, uidatatype : u32, ivalue : i32, pftvalue : *mut super::super::Foundation::FILETIME, szvalue : windows_core::PCWSTR) -> u32);
     unsafe { MsiSummaryInfoSetPropertyW(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue as _, szvalue.param().abi()) }
 }
 #[inline]
@@ -2548,22 +2548,22 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn QueryActCtxSettingsW(dwflags : u32, hactctx : super::super::Foundation:: HANDLE, settingsnamespace : windows_core::PCWSTR, settingname : windows_core::PCWSTR, pvbuffer : windows_core::PWSTR, dwbuffer : usize, pdwwrittenorrequired : *mut usize) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn QueryActCtxSettingsW(dwflags : u32, hactctx : super::super::Foundation::HANDLE, settingsnamespace : windows_core::PCWSTR, settingname : windows_core::PCWSTR, pvbuffer : windows_core::PWSTR, dwbuffer : usize, pdwwrittenorrequired : *mut usize) -> windows_core::BOOL);
     unsafe { QueryActCtxSettingsW(dwflags.unwrap_or(core::mem::zeroed()) as _, hactctx.unwrap_or(core::mem::zeroed()) as _, settingsnamespace.param().abi(), settingname.param().abi(), pvbuffer.unwrap_or(core::mem::zeroed()) as _, dwbuffer, pdwwrittenorrequired.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn QueryActCtxW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: Option<*const core::ffi::c_void>, ulinfoclass: u32, pvbuffer: Option<*mut core::ffi::c_void>, cbbuffer: usize, pcbwrittenorrequired: Option<*mut usize>) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn QueryActCtxW(dwflags : u32, hactctx : super::super::Foundation:: HANDLE, pvsubinstance : *const core::ffi::c_void, ulinfoclass : u32, pvbuffer : *mut core::ffi::c_void, cbbuffer : usize, pcbwrittenorrequired : *mut usize) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn QueryActCtxW(dwflags : u32, hactctx : super::super::Foundation::HANDLE, pvsubinstance : *const core::ffi::c_void, ulinfoclass : u32, pvbuffer : *mut core::ffi::c_void, cbbuffer : usize, pcbwrittenorrequired : *mut usize) -> windows_core::BOOL);
     unsafe { QueryActCtxW(dwflags, hactctx, pvsubinstance.unwrap_or(core::mem::zeroed()) as _, ulinfoclass, pvbuffer.unwrap_or(core::mem::zeroed()) as _, cbbuffer, pcbwrittenorrequired.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn ReleaseActCtx(hactctx: super::super::Foundation::HANDLE) {
-    windows_core::link!("kernel32.dll" "system" fn ReleaseActCtx(hactctx : super::super::Foundation:: HANDLE));
+    windows_core::link!("kernel32.dll" "system" fn ReleaseActCtx(hactctx : super::super::Foundation::HANDLE));
     unsafe { ReleaseActCtx(hactctx as _) }
 }
 #[inline]
 pub unsafe fn SfcGetNextProtectedFile(rpchandle: super::super::Foundation::HANDLE, protfiledata: *mut PROTECTED_FILE_DATA) -> windows_core::Result<()> {
-    windows_core::link!("sfc.dll" "system" fn SfcGetNextProtectedFile(rpchandle : super::super::Foundation:: HANDLE, protfiledata : *mut PROTECTED_FILE_DATA) -> windows_core::BOOL);
+    windows_core::link!("sfc.dll" "system" fn SfcGetNextProtectedFile(rpchandle : super::super::Foundation::HANDLE, protfiledata : *mut PROTECTED_FILE_DATA) -> windows_core::BOOL);
     unsafe { SfcGetNextProtectedFile(rpchandle, protfiledata as _).ok() }
 }
 #[inline]
@@ -2571,7 +2571,7 @@ pub unsafe fn SfcIsFileProtected<P1>(rpchandle: super::super::Foundation::HANDLE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("sfc.dll" "system" fn SfcIsFileProtected(rpchandle : super::super::Foundation:: HANDLE, protfilename : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("sfc.dll" "system" fn SfcIsFileProtected(rpchandle : super::super::Foundation::HANDLE, protfilename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SfcIsFileProtected(rpchandle, protfilename.param().abi()) }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -2580,7 +2580,7 @@ pub unsafe fn SfcIsKeyProtected<P1>(keyhandle: super::Registry::HKEY, subkeyname
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("sfc.dll" "system" fn SfcIsKeyProtected(keyhandle : super::Registry:: HKEY, subkeyname : windows_core::PCWSTR, keysam : u32) -> windows_core::BOOL);
+    windows_core::link!("sfc.dll" "system" fn SfcIsKeyProtected(keyhandle : super::Registry::HKEY, subkeyname : windows_core::PCWSTR, keysam : u32) -> windows_core::BOOL);
     unsafe { SfcIsKeyProtected(keyhandle, subkeyname.param().abi(), keysam) }
 }
 #[inline]
@@ -2607,7 +2607,7 @@ pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &[u8], oldfilebuffe
 }
 #[inline]
 pub unsafe fn TestApplyPatchToFileByHandles(patchfilehandle: super::super::Foundation::HANDLE, oldfilehandle: super::super::Foundation::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation:: HANDLE, oldfilehandle : super::super::Foundation:: HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::super::Foundation::HANDLE, oldfilehandle : super::super::Foundation::HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
     unsafe { TestApplyPatchToFileByHandles(patchfilehandle, oldfilehandle, applyoptionflags) }
 }
 #[inline]
@@ -2621,7 +2621,7 @@ where
 }
 #[inline]
 pub unsafe fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { ZombifyActCtx(hactctx as _).ok() }
 }
 #[repr(C)]

@@ -537,7 +537,7 @@ impl windows_core::RuntimeType for JsonErrorStatus {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct JsonObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JsonObject, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( JsonObject , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , IJsonValue > > , IJsonValue , windows_collections:: IMap < windows_core::HSTRING , IJsonValue > , super::super::Foundation:: IStringable );
+windows_core::imp::required_hierarchy!(JsonObject, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, IJsonValue > >, IJsonValue, windows_collections::IMap < windows_core::HSTRING, IJsonValue >, super::super::Foundation::IStringable);
 impl JsonObject {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

@@ -147,7 +147,7 @@ impl CppInterface {
             if !config.package {
                 if has_unknown_base {
                     if let Some(guid) = self.def.guid_attribute() {
-                        let name: TokenStream = format!("IID_{}", self.def.name()).into();
+                        let name: TokenStream = format!("IID_{}", self.def.name()).parse().unwrap();
                         result.combine(config.write_cpp_const_guid(name, &guid));
                     }
                 }
@@ -240,7 +240,7 @@ impl CppInterface {
             }
 
             if config.should_implement(self.def.type_name(), true) {
-                let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
+                let impl_name: TokenStream = format!("{}_Impl", self.def.name()).parse().unwrap();
 
                 let cfg = if config.package {
                     fn combine(
@@ -452,13 +452,13 @@ impl CppInterface {
     }
 
     fn write_vtbl_name(&self, config: &Config) -> TokenStream {
-        let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let name: TokenStream = format!("{}_Vtbl", self.def.name()).parse().unwrap();
         let namespace = config.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
-        let name: TokenStream = format!("{}_Impl", self.def.name()).into();
+        let name: TokenStream = format!("{}_Impl", self.def.name()).parse().unwrap();
         let namespace = config.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }

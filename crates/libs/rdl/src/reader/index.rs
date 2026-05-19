@@ -69,13 +69,12 @@ impl<'a> Index<'a> {
             .get(namespace)
             .and_then(|namespace| namespace.types.get(name))
             .and_then(|v| v.first())
-            .map(|(_, item)| {
+            .is_some_and(|(_, item)| {
                 matches!(
                     item,
                     Item::Struct(_) | Item::Enum(_) | Item::Union(_) | Item::Typedef(_)
                 )
             })
-            .unwrap_or(false)
     }
 
     pub fn get<'b>(&'b self, namespace: &str, name: &str) -> impl Iterator<Item = &'b Item> {

@@ -528,8 +528,7 @@ fn maybe_warn_ambiguous_overload(
         first = names
             .iter()
             .find(|n| n.as_str() != method_part)
-            .map(String::as_str)
-            .unwrap_or(method_part),
+            .map_or(method_part, String::as_str),
     ));
 }
 

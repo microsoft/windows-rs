@@ -88,17 +88,17 @@ pub unsafe fn ShutdownBlockReasonCreate<P1>(hwnd: super::super::Foundation::HWND
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::super::Foundation:: HWND, pwszreason : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::super::Foundation::HWND, pwszreason : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ShutdownBlockReasonCreate(hwnd, pwszreason.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::super::Foundation:: HWND) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::super::Foundation::HWND) -> windows_core::BOOL);
     unsafe { ShutdownBlockReasonDestroy(hwnd).ok() }
 }
 #[inline]
 pub unsafe fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: Option<windows_core::PWSTR>, pcchbuff: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : windows_core::PWSTR, pcchbuff : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation::HWND, pwszbuff : windows_core::PWSTR, pcchbuff : *mut u32) -> windows_core::BOOL);
     unsafe { ShutdownBlockReasonQuery(hwnd, pwszbuff.unwrap_or(core::mem::zeroed()) as _, pcchbuff as _).ok() }
 }
 pub const EWX_ARSO: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(67108864u32);

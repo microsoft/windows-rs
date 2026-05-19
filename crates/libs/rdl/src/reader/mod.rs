@@ -525,14 +525,13 @@ impl Encoder<'_> {
                 .output
                 .reference()
                 .and_then(|r| r.get(namespace, name).next())
-                .map(|def| {
+                .is_some_and(|def| {
                     matches!(
                         def.category(),
                         metadata::reader::TypeCategory::Struct
                             | metadata::reader::TypeCategory::Enum
                     )
                 })
-                .unwrap_or(false)
     }
 
     fn encode_type_slice(&self, ty: &syn::TypeSlice) -> Result<metadata::Type, Error> {

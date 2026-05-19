@@ -165,7 +165,7 @@ where
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
-    windows_core::link!("api-ms-win-service-core-l1-1-3.dll" "system" fn GetServiceRegistryStateKey(servicestatushandle : SERVICE_STATUS_HANDLE, statetype : SERVICE_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::Registry:: HKEY) -> u32);
+    windows_core::link!("api-ms-win-service-core-l1-1-3.dll" "system" fn GetServiceRegistryStateKey(servicestatushandle : SERVICE_STATUS_HANDLE, statetype : SERVICE_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::Registry::HKEY) -> u32);
     unsafe { GetServiceRegistryStateKey(servicestatushandle, statetype, accessmask, servicestatekey as _) }
 }
 #[inline]
@@ -176,7 +176,7 @@ pub unsafe fn GetSharedServiceDirectory(servicehandle: SC_HANDLE, directorytype:
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetSharedServiceRegistryStateKey(servicehandle: SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: u32, servicestatekey: *mut super::Registry::HKEY) -> u32 {
-    windows_core::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceRegistryStateKey(servicehandle : SC_HANDLE, statetype : SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::Registry:: HKEY) -> u32);
+    windows_core::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceRegistryStateKey(servicehandle : SC_HANDLE, statetype : SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask : u32, servicestatekey : *mut super::Registry::HKEY) -> u32);
     unsafe { GetSharedServiceRegistryStateKey(servicehandle, statetype, accessmask, servicestatekey as _) }
 }
 #[inline]
@@ -275,7 +275,7 @@ pub unsafe fn QueryServiceLockStatusW(hscmanager: SC_HANDLE, lplockstatus: Optio
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn QueryServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: u32, lpsecuritydescriptor: Option<super::super::Security::PSECURITY_DESCRIPTOR>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn QueryServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : u32, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn QueryServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : u32, lpsecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
     unsafe { QueryServiceObjectSecurity(hservice, dwsecurityinformation, lpsecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, cbbufsize, pcbbytesneeded as _).ok() }
 }
 #[inline]
@@ -332,7 +332,7 @@ pub unsafe fn SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebit
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> windows_core::Result<()> {
-    windows_core::link!("advapi32.dll" "system" fn SetServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
+    windows_core::link!("advapi32.dll" "system" fn SetServiceObjectSecurity(hservice : SC_HANDLE, dwsecurityinformation : super::super::Security::OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> windows_core::BOOL);
     unsafe { SetServiceObjectSecurity(hservice, dwsecurityinformation, lpsecuritydescriptor).ok() }
 }
 #[inline]
@@ -377,7 +377,7 @@ pub unsafe fn UnsubscribeServiceChangeNotifications(psubscription: PSC_NOTIFICAT
 }
 #[inline]
 pub unsafe fn WaitServiceState(hservice: SC_HANDLE, dwnotify: u32, dwtimeout: Option<u32>, hcancelevent: Option<super::super::Foundation::HANDLE>) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn WaitServiceState(hservice : SC_HANDLE, dwnotify : u32, dwtimeout : u32, hcancelevent : super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn WaitServiceState(hservice : SC_HANDLE, dwnotify : u32, dwtimeout : u32, hcancelevent : super::super::Foundation::HANDLE) -> u32);
     unsafe { WaitServiceState(hservice, dwnotify, dwtimeout.unwrap_or(core::mem::zeroed()) as _, hcancelevent.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);

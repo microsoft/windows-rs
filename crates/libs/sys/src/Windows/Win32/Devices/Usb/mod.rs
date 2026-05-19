@@ -1,6 +1,6 @@
 windows_link::link!("winusb.dll" "system" fn WinUsb_AbortPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_FlushPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_Free(interfacehandle : WINUSB_INTERFACE_HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_GetAdjustedFrameNumber(currentframenumber : *mut u32, timestamp : i64) -> windows_sys::core::BOOL);
@@ -10,10 +10,10 @@ windows_link::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumber(interf
 windows_link::link!("winusb.dll" "system" fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle : WINUSB_INTERFACE_HANDLE, frameqpcinfo : *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_GetDescriptor(interfacehandle : WINUSB_INTERFACE_HANDLE, descriptortype : u8, index : u8, languageid : u16, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_GetOverlappedResult(interfacehandle : WINUSB_INTERFACE_HANDLE, lpoverlapped : *const super::super::System::IO:: OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_GetOverlappedResult(interfacehandle : WINUSB_INTERFACE_HANDLE, lpoverlapped : *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred : *mut u32, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_GetPipePolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, policytype : WINUSB_PIPE_POLICY, valuelength : *mut u32, value : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_GetPowerPolicy(interfacehandle : WINUSB_INTERFACE_HANDLE, policytype : WINUSB_POWER_POLICY, valuelength : *mut u32, value : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("winusb.dll" "system" fn WinUsb_Initialize(devicehandle : super::super::Foundation:: HANDLE, interfacehandle : *mut WINUSB_INTERFACE_HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_Initialize(devicehandle : super::super::Foundation::HANDLE, interfacehandle : *mut WINUSB_INTERFACE_HANDLE) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor : *const USB_CONFIGURATION_DESCRIPTOR, startposition : *const core::ffi::c_void, interfacenumber : i32, alternatesetting : i32, interfaceclass : i32, interfacesubclass : i32, interfaceprotocol : i32) -> *mut USB_INTERFACE_DESCRIPTOR);
 windows_link::link!("winusb.dll" "system" fn WinUsb_ParseDescriptors(descriptorbuffer : *const core::ffi::c_void, totallength : u32, startposition : *const core::ffi::c_void, descriptortype : i32) -> *mut USB_COMMON_DESCRIPTOR);
 windows_link::link!("winusb.dll" "system" fn WinUsb_QueryDeviceInformation(interfacehandle : WINUSB_INTERFACE_HANDLE, informationtype : u32, bufferlength : *mut u32, buffer : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
@@ -21,11 +21,11 @@ windows_link::link!("winusb.dll" "system" fn WinUsb_QueryInterfaceSettings(inter
 windows_link::link!("winusb.dll" "system" fn WinUsb_QueryPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, pipeindex : u8, pipeinformation : *mut WINUSB_PIPE_INFORMATION) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_QueryPipeEx(interfacehandle : WINUSB_INTERFACE_HANDLE, alternatesettingnumber : u8, pipeindex : u8, pipeinformationex : *mut WINUSB_PIPE_INFORMATION_EX) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : windows_sys::core::BOOL, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : windows_sys::core::BOOL, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_ReadPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_ReadPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_RegisterIsochBuffer(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, isochbufferhandle : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_ResetPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_SetCurrentAlternateSetting(interfacehandle : WINUSB_INTERFACE_HANDLE, settingnumber : u8) -> windows_sys::core::BOOL);
@@ -35,11 +35,11 @@ windows_link::link!("winusb.dll" "system" fn WinUsb_StartTrackingForTimeSync(int
 windows_link::link!("winusb.dll" "system" fn WinUsb_StopTrackingForTimeSync(interfacehandle : WINUSB_INTERFACE_HANDLE, stoptrackinginfo : *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> windows_sys::core::BOOL);
 windows_link::link!("winusb.dll" "system" fn WinUsb_UnregisterIsochBuffer(isochbufferhandle : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : windows_sys::core::BOOL, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : windows_sys::core::BOOL, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
-windows_link::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> windows_sys::core::BOOL);
+windows_link::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = 5u32;
 pub const ALL_PIPE: PIPE_TYPE = 3i32;
 #[repr(C)]

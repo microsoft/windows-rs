@@ -35,7 +35,7 @@ pub unsafe fn SnmpCreatePdu(session: isize, pdu_type: SNMP_PDU_TYPE, request_id:
 }
 #[inline]
 pub unsafe fn SnmpCreateSession(hwnd: super::super::Foundation::HWND, wmsg: u32, fcallback: SNMPAPI_CALLBACK, lpclientdata: *mut core::ffi::c_void) -> isize {
-    windows_core::link!("wsnmp32.dll" "system" fn SnmpCreateSession(hwnd : super::super::Foundation:: HWND, wmsg : u32, fcallback : SNMPAPI_CALLBACK, lpclientdata : *mut core::ffi::c_void) -> isize);
+    windows_core::link!("wsnmp32.dll" "system" fn SnmpCreateSession(hwnd : super::super::Foundation::HWND, wmsg : u32, fcallback : SNMPAPI_CALLBACK, lpclientdata : *mut core::ffi::c_void) -> isize);
     unsafe { SnmpCreateSession(hwnd, wmsg, fcallback, lpclientdata as _) }
 }
 #[inline]
@@ -197,7 +197,7 @@ where
 }
 #[inline]
 pub unsafe fn SnmpMgrTrapListen(phtrapavailable: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("mgmtapi.dll" "system" fn SnmpMgrTrapListen(phtrapavailable : *mut super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { SnmpMgrTrapListen(phtrapavailable as _).ok() }
 }
 #[inline]
@@ -217,7 +217,7 @@ pub unsafe fn SnmpOidToStr(srcoid: *const smiOID, string: &mut [u8]) -> u32 {
 }
 #[inline]
 pub unsafe fn SnmpOpen(hwnd: super::super::Foundation::HWND, wmsg: u32) -> isize {
-    windows_core::link!("wsnmp32.dll" "system" fn SnmpOpen(hwnd : super::super::Foundation:: HWND, wmsg : u32) -> isize);
+    windows_core::link!("wsnmp32.dll" "system" fn SnmpOpen(hwnd : super::super::Foundation::HWND, wmsg : u32) -> isize);
     unsafe { SnmpOpen(hwnd, wmsg) }
 }
 #[inline]

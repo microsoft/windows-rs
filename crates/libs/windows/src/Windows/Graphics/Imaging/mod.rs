@@ -821,7 +821,7 @@ unsafe impl Sync for BitmapPropertiesView {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapPropertySet(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( BitmapPropertySet , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::HSTRING , BitmapTypedValue > );
+windows_core::imp::interface_hierarchy!(BitmapPropertySet, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMap < windows_core::HSTRING, BitmapTypedValue >);
 windows_core::imp::required_hierarchy!(BitmapPropertySet, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, BitmapTypedValue>>);
 impl BitmapPropertySet {
     pub fn new() -> windows_core::Result<Self> {

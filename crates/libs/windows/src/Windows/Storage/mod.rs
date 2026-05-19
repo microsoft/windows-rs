@@ -272,7 +272,7 @@ pub struct ApplicationDataCompositeValue(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ApplicationDataCompositeValue, windows_core::IUnknown, windows_core::IInspectable, super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( ApplicationDataCompositeValue , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(ApplicationDataCompositeValue, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMap < windows_core::HSTRING, windows_core::IInspectable >, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::IInspectable >);
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataCompositeValue {
     pub fn new() -> windows_core::Result<Self> {
@@ -447,7 +447,7 @@ pub struct ApplicationDataContainerSettings(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ApplicationDataContainerSettings, windows_core::IUnknown, windows_core::IInspectable, super::Foundation::Collections::IPropertySet);
 #[cfg(feature = "Foundation_Collections")]
-windows_core::imp::required_hierarchy ! ( ApplicationDataContainerSettings , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(ApplicationDataContainerSettings, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMap < windows_core::HSTRING, windows_core::IInspectable >, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::IInspectable >);
 #[cfg(feature = "Foundation_Collections")]
 impl ApplicationDataContainerSettings {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {

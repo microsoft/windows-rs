@@ -10,7 +10,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super:: COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : super:: CLSCTX, grfmode : u32, pwszname : windows_core::PCWSTR, dwcount : u32, presults : *mut super:: MULTI_QI) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super::COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : super::CLSCTX, grfmode : u32, pwszname : windows_core::PCWSTR, dwcount : u32, presults : *mut super::MULTI_QI) -> windows_core::HRESULT);
     unsafe { CoGetInstanceFromFile(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, grfmode, pwszname.param().abi(), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok() }
 }
 #[inline]
@@ -19,7 +19,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
     P4: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super:: COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : super:: CLSCTX, pstg : * mut core::ffi::c_void, dwcount : u32, presults : *mut super:: MULTI_QI) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super::COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : super::CLSCTX, pstg : *mut core::ffi::c_void, dwcount : u32, presults : *mut super::MULTI_QI) -> windows_core::HRESULT);
     unsafe { CoGetInstanceFromIStorage(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, pstg.param().abi(), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())).ok() }
 }
 #[inline]
@@ -28,13 +28,13 @@ where
     P0: windows_core::Param<super::IStream>,
     T: windows_core::Interface,
 {
-    windows_core::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : * mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : *mut core::ffi::c_void, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
     unsafe { CoGetInterfaceAndReleaseStream(pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CreateILockBytesOnHGlobal(hglobal: Option<super::super::super::Foundation::HGLOBAL>, fdeleteonrelease: bool) -> windows_core::Result<ILockBytes> {
-    windows_core::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : windows_core::BOOL, pplkbyt : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation::HGLOBAL, fdeleteonrelease : windows_core::BOOL, pplkbyt : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateILockBytesOnHGlobal(hglobal.unwrap_or(core::mem::zeroed()) as _, fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -42,7 +42,7 @@ pub unsafe fn CreateILockBytesOnHGlobal(hglobal: Option<super::super::super::Fou
 }
 #[inline]
 pub unsafe fn CreateStreamOnHGlobal(hglobal: Option<super::super::super::Foundation::HGLOBAL>, fdeleteonrelease: bool) -> windows_core::Result<super::IStream> {
-    windows_core::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : windows_core::BOOL, ppstm : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation::HGLOBAL, fdeleteonrelease : windows_core::BOOL, ppstm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateStreamOnHGlobal(hglobal.unwrap_or(core::mem::zeroed()) as _, fdeleteonrelease.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -64,7 +64,7 @@ pub unsafe fn GetConvertStg<P0>(pstg: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn GetConvertStg(pstg : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn GetConvertStg(pstg : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { GetConvertStg(pstg.param().abi()).ok() }
 }
 #[inline]
@@ -72,7 +72,7 @@ pub unsafe fn GetHGlobalFromILockBytes<P0>(plkbyt: P0) -> windows_core::Result<s
 where
     P0: windows_core::Param<ILockBytes>,
 {
-    windows_core::link!("ole32.dll" "system" fn GetHGlobalFromILockBytes(plkbyt : * mut core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn GetHGlobalFromILockBytes(plkbyt : *mut core::ffi::c_void, phglobal : *mut super::super::super::Foundation::HGLOBAL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetHGlobalFromILockBytes(plkbyt.param().abi(), &mut result__).map(|| result__)
@@ -83,7 +83,7 @@ pub unsafe fn GetHGlobalFromStream<P0>(pstm: P0) -> windows_core::Result<super::
 where
     P0: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : * mut core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : *mut core::ffi::c_void, phglobal : *mut super::super::super::Foundation::HGLOBAL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetHGlobalFromStream(pstm.param().abi(), &mut result__).map(|| result__)
@@ -128,7 +128,7 @@ pub unsafe fn InitPropVariantFromDoubleVector(prgn: Option<&[f64]>) -> windows_c
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Foundation::FILETIME) -> windows_core::Result<PROPVARIANT> {
-    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromFileTime(pftin : *const super::super::super::Foundation:: FILETIME, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromFileTime(pftin : *const super::super::super::Foundation::FILETIME, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitPropVariantFromFileTime(pftin, &mut result__).map(|| core::mem::transmute(result__))
@@ -137,7 +137,7 @@ pub unsafe fn InitPropVariantFromFileTime(pftin: *const super::super::super::Fou
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTimeVector(prgft: Option<&[super::super::super::Foundation::FILETIME]>) -> windows_core::Result<PROPVARIANT> {
-    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromFileTimeVector(prgft : *const super::super::super::Foundation:: FILETIME, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromFileTimeVector(prgft : *const super::super::super::Foundation::FILETIME, celems : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitPropVariantFromFileTimeVector(core::mem::transmute(prgft.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
@@ -191,7 +191,7 @@ pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: *const PROPVAR
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn InitPropVariantFromResource(hinst: super::super::super::Foundation::HINSTANCE, id: u32) -> windows_core::Result<PROPVARIANT> {
-    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromResource(hinst : super::super::super::Foundation:: HINSTANCE, id : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn InitPropVariantFromResource(hinst : super::super::super::Foundation::HINSTANCE, id : u32, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitPropVariantFromResource(hinst, id, &mut result__).map(|| core::mem::transmute(result__))
@@ -259,7 +259,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAM<P0>(pstg: P0) -> windows_core::Resul
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAM(pstg : * mut core::ffi::c_void, lpolestream : *mut OLESTREAM) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAM(pstg : *mut core::ffi::c_void, lpolestream : *mut OLESTREAM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         OleConvertIStorageToOLESTREAM(pstg.param().abi(), &mut result__).map(|| result__)
@@ -271,7 +271,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAMEx<P0>(pstg: P0, cfformat: u16, lwidt
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAMEx(pstg : * mut core::ffi::c_void, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super:: STGMEDIUM, polestm : *mut OLESTREAM) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAMEx(pstg : *mut core::ffi::c_void, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super::STGMEDIUM, polestm : *mut OLESTREAM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         OleConvertIStorageToOLESTREAMEx(pstg.param().abi(), cfformat, lwidth, lheight, dwsize, core::mem::transmute(pmedium), &mut result__).map(|| result__)
@@ -282,7 +282,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorage<P1>(lpolestream: *const OLESTREAM, p
 where
     P1: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : * mut core::ffi::c_void, ptd : *const super:: DVTARGETDEVICE) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : *mut core::ffi::c_void, ptd : *const super::DVTARGETDEVICE) -> windows_core::HRESULT);
     unsafe { OleConvertOLESTREAMToIStorage(lpolestream, pstg.param().abi(), ptd).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -291,7 +291,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorageEx<P1>(polestm: *const OLESTREAM, pst
 where
     P1: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : * mut core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super:: STGMEDIUM) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : *mut core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::STGMEDIUM) -> windows_core::HRESULT);
     unsafe { OleConvertOLESTREAMToIStorageEx(polestm, pstg.param().abi(), pcfformat as _, plwwidth as _, plheight as _, pdwsize as _, core::mem::transmute(pmedium)).ok() }
 }
 #[inline]
@@ -308,7 +308,7 @@ where
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantChangeType(ppropvardest: *mut PROPVARIANT, propvarsrc: *const PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::Variant::VARENUM) -> windows_core::Result<()> {
-    windows_core::link!("propsys.dll" "system" fn PropVariantChangeType(ppropvardest : *mut PROPVARIANT, propvarsrc : *const PROPVARIANT, flags : PROPVAR_CHANGE_FLAGS, vt : super::super::Variant:: VARENUM) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PropVariantChangeType(ppropvardest : *mut PROPVARIANT, propvarsrc : *const PROPVARIANT, flags : PROPVAR_CHANGE_FLAGS, vt : super::super::Variant::VARENUM) -> windows_core::HRESULT);
     unsafe { PropVariantChangeType(core::mem::transmute(ppropvardest), core::mem::transmute(propvarsrc), flags, vt).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -356,7 +356,7 @@ pub unsafe fn PropVariantGetElementCount(propvar: *const PROPVARIANT) -> u32 {
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantGetFileTimeElem(propvar: *const PROPVARIANT, ielem: u32) -> windows_core::Result<super::super::super::Foundation::FILETIME> {
-    windows_core::link!("propsys.dll" "system" fn PropVariantGetFileTimeElem(propvar : *const PROPVARIANT, ielem : u32, pftval : *mut super::super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PropVariantGetFileTimeElem(propvar : *const PROPVARIANT, ielem : u32, pftval : *mut super::super::super::Foundation::FILETIME) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PropVariantGetFileTimeElem(core::mem::transmute(propvar), ielem, &mut result__).map(|| result__)
@@ -428,7 +428,7 @@ pub unsafe fn PropVariantGetUInt64Elem(propvar: *const PROPVARIANT, ielem: u32) 
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToBSTR(propvar: *const PROPVARIANT) -> windows_core::Result<windows_core::BSTR> {
-    windows_core::link!("propsys.dll" "system" fn PropVariantToBSTR(propvar : *const PROPVARIANT, pbstrout : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PropVariantToBSTR(propvar : *const PROPVARIANT, pbstrout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PropVariantToBSTR(core::mem::transmute(propvar), &mut result__).map(|| core::mem::transmute(result__))
@@ -497,7 +497,7 @@ pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const PROPVARIANT, dbld
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToFileTime(propvar: *const PROPVARIANT, pstfout: super::super::Variant::PSTIME_FLAGS) -> windows_core::Result<super::super::super::Foundation::FILETIME> {
-    windows_core::link!("propsys.dll" "system" fn PropVariantToFileTime(propvar : *const PROPVARIANT, pstfout : super::super::Variant:: PSTIME_FLAGS, pftout : *mut super::super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PropVariantToFileTime(propvar : *const PROPVARIANT, pstfout : super::super::Variant::PSTIME_FLAGS, pftout : *mut super::super::super::Foundation::FILETIME) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PropVariantToFileTime(core::mem::transmute(propvar), pstfout, &mut result__).map(|| result__)
@@ -506,13 +506,13 @@ pub unsafe fn PropVariantToFileTime(propvar: *const PROPVARIANT, pstfout: super:
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVector(propvar: *const PROPVARIANT, prgft: &mut [super::super::super::Foundation::FILETIME], pcelem: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("propsys.dll" "system" fn PropVariantToFileTimeVector(propvar : *const PROPVARIANT, prgft : *mut super::super::super::Foundation:: FILETIME, crgft : u32, pcelem : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PropVariantToFileTimeVector(propvar : *const PROPVARIANT, prgft : *mut super::super::super::Foundation::FILETIME, crgft : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToFileTimeVector(core::mem::transmute(propvar), core::mem::transmute(prgft.as_ptr()), prgft.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: *const PROPVARIANT, pprgft: *mut *mut super::super::super::Foundation::FILETIME, pcelem: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("propsys.dll" "system" fn PropVariantToFileTimeVectorAlloc(propvar : *const PROPVARIANT, pprgft : *mut *mut super::super::super::Foundation:: FILETIME, pcelem : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PropVariantToFileTimeVectorAlloc(propvar : *const PROPVARIANT, pprgft : *mut *mut super::super::super::Foundation::FILETIME, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { PropVariantToFileTimeVectorAlloc(core::mem::transmute(propvar), pprgft as _, pcelem as _).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -725,7 +725,7 @@ pub unsafe fn PropVariantToUInt64WithDefault(propvarin: *const PROPVARIANT, ulld
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn PropVariantToVariant(ppropvar: *const PROPVARIANT) -> windows_core::Result<super::super::Variant::VARIANT> {
-    windows_core::link!("propsys.dll" "system" fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant::VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PropVariantToVariant(core::mem::transmute(ppropvar), &mut result__).map(|| core::mem::transmute(result__))
@@ -746,7 +746,7 @@ pub unsafe fn ReadClassStg<P0>(pstg: P0) -> windows_core::Result<windows_core::G
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn ReadClassStg(pstg : * mut core::ffi::c_void, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn ReadClassStg(pstg : *mut core::ffi::c_void, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ReadClassStg(pstg.param().abi(), &mut result__).map(|| result__)
@@ -757,7 +757,7 @@ pub unsafe fn ReadClassStm<P0>(pstm: P0) -> windows_core::Result<windows_core::G
 where
     P0: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("ole32.dll" "system" fn ReadClassStm(pstm : * mut core::ffi::c_void, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn ReadClassStm(pstm : *mut core::ffi::c_void, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ReadClassStm(pstm.param().abi(), &mut result__).map(|| result__)
@@ -768,7 +768,7 @@ pub unsafe fn ReadFmtUserTypeStg<P0>(pstg: P0, pcf: *mut u16, lplpszusertype: Op
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn ReadFmtUserTypeStg(pstg : * mut core::ffi::c_void, pcf : *mut u16, lplpszusertype : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn ReadFmtUserTypeStg(pstg : *mut core::ffi::c_void, pcf : *mut u16, lplpszusertype : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { ReadFmtUserTypeStg(pstg.param().abi(), pcf as _, lplpszusertype.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -776,7 +776,7 @@ pub unsafe fn SetConvertStg<P0>(pstg: P0, fconvert: bool) -> windows_core::Resul
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn SetConvertStg(pstg : * mut core::ffi::c_void, fconvert : windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn SetConvertStg(pstg : *mut core::ffi::c_void, fconvert : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { SetConvertStg(pstg.param().abi(), fconvert.into()).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -785,7 +785,7 @@ pub unsafe fn StgConvertPropertyToVariant<P3>(pprop: *const SERIALIZEDPROPERTYVA
 where
     P3: windows_core::Param<IMemoryAllocator>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : * mut core::ffi::c_void) -> bool);
+    windows_core::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : *mut core::ffi::c_void) -> bool);
     unsafe { StgConvertPropertyToVariant(pprop, codepage, core::mem::transmute(pvar), pma.param().abi()) }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -799,7 +799,7 @@ pub unsafe fn StgCreateDocfile<P0>(pwcsname: P0, grfmode: super::STGM, reserved:
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : windows_core::PCWSTR, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : windows_core::PCWSTR, grfmode : super::STGM, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgCreateDocfile(pwcsname.param().abi(), grfmode, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -810,7 +810,7 @@ pub unsafe fn StgCreateDocfileOnILockBytes<P0>(plkbyt: P0, grfmode: super::STGM,
 where
     P0: windows_core::Param<ILockBytes>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : * mut core::ffi::c_void, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : *mut core::ffi::c_void, grfmode : super::STGM, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgCreateDocfileOnILockBytes(plkbyt.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -821,7 +821,7 @@ pub unsafe fn StgCreatePropSetStg<P0>(pstorage: P0, dwreserved: Option<u32>) -> 
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : * mut core::ffi::c_void, dwreserved : u32, pppropsetstg : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : *mut core::ffi::c_void, dwreserved : u32, pppropsetstg : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgCreatePropSetStg(pstorage.param().abi(), dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -832,7 +832,7 @@ pub unsafe fn StgCreatePropStg<P0>(punk: P0, fmtid: *const windows_core::GUID, p
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgCreatePropStg(punk : * mut core::ffi::c_void, fmtid : *const windows_core::GUID, pclsid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgCreatePropStg(punk : *mut core::ffi::c_void, fmtid : *const windows_core::GUID, pclsid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgCreatePropStg(punk.param().abi(), fmtid, pclsid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -844,7 +844,7 @@ pub unsafe fn StgCreateStorageEx<P0>(pwcsname: P0, grfmode: super::STGM, stgfmt:
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgCreateStorageEx(pwcsname : windows_core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgCreateStorageEx(pwcsname : windows_core::PCWSTR, grfmode : super::STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { StgCreateStorageEx(pwcsname.param().abi(), grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, riid, ppobjectopen as _).ok() }
 }
 #[cfg(feature = "Win32_System_Variant")]
@@ -861,7 +861,7 @@ pub unsafe fn StgGetIFillLockBytesOnFile<P0>(pwcsname: P0) -> windows_core::Resu
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : windows_core::PCWSTR, ppflb : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : windows_core::PCWSTR, ppflb : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgGetIFillLockBytesOnFile(pwcsname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -872,7 +872,7 @@ pub unsafe fn StgGetIFillLockBytesOnILockBytes<P0>(pilb: P0) -> windows_core::Re
 where
     P0: windows_core::Param<ILockBytes>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : * mut core::ffi::c_void, ppflb : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : *mut core::ffi::c_void, ppflb : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgGetIFillLockBytesOnILockBytes(pilb.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -891,7 +891,7 @@ pub unsafe fn StgIsStorageILockBytes<P0>(plkbyt: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<ILockBytes>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgIsStorageILockBytes(plkbyt : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgIsStorageILockBytes(plkbyt : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { StgIsStorageILockBytes(plkbyt.param().abi()).ok() }
 }
 #[inline]
@@ -899,7 +899,7 @@ pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<P0>(pflb: P0, grfmode: u32, as
 where
     P0: windows_core::Param<IFillLockBytes>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : * mut core::ffi::c_void, grfmode : u32, asyncflags : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : *mut core::ffi::c_void, grfmode : u32, asyncflags : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgOpenAsyncDocfileOnIFillLockBytes(pflb.param().abi(), grfmode, asyncflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -910,7 +910,7 @@ pub unsafe fn StgOpenLayoutDocfile<P0>(pwcsdfname: P0, grfmode: u32, reserved: u
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : windows_core::PCWSTR, grfmode : u32, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : windows_core::PCWSTR, grfmode : u32, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgOpenLayoutDocfile(pwcsdfname.param().abi(), grfmode, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -921,7 +921,7 @@ pub unsafe fn StgOpenPropStg<P0>(punk: P0, fmtid: *const windows_core::GUID, grf
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgOpenPropStg(punk : * mut core::ffi::c_void, fmtid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgOpenPropStg(punk : *mut core::ffi::c_void, fmtid : *const windows_core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgOpenPropStg(punk.param().abi(), fmtid, grfflags, dwreserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -933,7 +933,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgOpenStorage(pwcsname : windows_core::PCWSTR, pstgpriority : * mut core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgOpenStorage(pwcsname : windows_core::PCWSTR, pstgpriority : *mut core::ffi::c_void, grfmode : super::STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgOpenStorage(pwcsname.param().abi(), pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -945,7 +945,7 @@ pub unsafe fn StgOpenStorageEx<P0>(pwcsname: P0, grfmode: super::STGM, stgfmt: S
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgOpenStorageEx(pwcsname : windows_core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgOpenStorageEx(pwcsname : windows_core::PCWSTR, grfmode : super::STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { StgOpenStorageEx(pwcsname.param().abi(), grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, riid, ppobjectopen as _).ok() }
 }
 #[inline]
@@ -954,7 +954,7 @@ where
     P0: windows_core::Param<ILockBytes>,
     P1: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : * mut core::ffi::c_void, pstgpriority : * mut core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : *mut core::ffi::c_void, pstgpriority : *mut core::ffi::c_void, grfmode : super::STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         StgOpenStorageOnILockBytes(plkbyt.param().abi(), pstgpriority.param().abi(), grfmode, snbexclude.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -976,13 +976,13 @@ pub unsafe fn StgSetTimes<P0>(lpszname: P0, pctime: Option<*const super::super::
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgSetTimes(lpszname : windows_core::PCWSTR, pctime : *const super::super::super::Foundation:: FILETIME, patime : *const super::super::super::Foundation:: FILETIME, pmtime : *const super::super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn StgSetTimes(lpszname : windows_core::PCWSTR, pctime : *const super::super::super::Foundation::FILETIME, patime : *const super::super::super::Foundation::FILETIME, pmtime : *const super::super::super::Foundation::FILETIME) -> windows_core::HRESULT);
     unsafe { StgSetTimes(lpszname.param().abi(), pctime.unwrap_or(core::mem::zeroed()) as _, patime.unwrap_or(core::mem::zeroed()) as _, pmtime.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn VariantToPropVariant(pvar: *const super::super::Variant::VARIANT) -> windows_core::Result<PROPVARIANT> {
-    windows_core::link!("propsys.dll" "system" fn VariantToPropVariant(pvar : *const super::super::Variant:: VARIANT, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn VariantToPropVariant(pvar : *const super::super::Variant::VARIANT, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         VariantToPropVariant(core::mem::transmute(pvar), &mut result__).map(|| core::mem::transmute(result__))
@@ -994,7 +994,7 @@ pub unsafe fn WinRTPropertyValueToPropVariant<P0>(punkpropertyvalue: P0) -> wind
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("propsys.dll" "system" fn WinRTPropertyValueToPropVariant(punkpropertyvalue : * mut core::ffi::c_void, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn WinRTPropertyValueToPropVariant(punkpropertyvalue : *mut core::ffi::c_void, ppropvar : *mut PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WinRTPropertyValueToPropVariant(punkpropertyvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
@@ -1005,7 +1005,7 @@ pub unsafe fn WriteClassStg<P0>(pstg: P0, rclsid: *const windows_core::GUID) -> 
 where
     P0: windows_core::Param<IStorage>,
 {
-    windows_core::link!("ole32.dll" "system" fn WriteClassStg(pstg : * mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn WriteClassStg(pstg : *mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { WriteClassStg(pstg.param().abi(), rclsid).ok() }
 }
 #[inline]
@@ -1013,7 +1013,7 @@ pub unsafe fn WriteClassStm<P0>(pstm: P0, rclsid: *const windows_core::GUID) -> 
 where
     P0: windows_core::Param<super::IStream>,
 {
-    windows_core::link!("ole32.dll" "system" fn WriteClassStm(pstm : * mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn WriteClassStm(pstm : *mut core::ffi::c_void, rclsid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { WriteClassStm(pstm.param().abi(), rclsid).ok() }
 }
 #[inline]
@@ -1022,7 +1022,7 @@ where
     P0: windows_core::Param<IStorage>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : * mut core::ffi::c_void, cf : u16, lpszusertype : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : *mut core::ffi::c_void, cf : u16, lpszusertype : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WriteFmtUserTypeStg(pstg.param().abi(), cf, lpszusertype.param().abi()).ok() }
 }
 #[repr(C)]

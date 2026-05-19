@@ -693,7 +693,7 @@ unsafe impl Sync for ResourceManager {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceMap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceMap, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( ResourceMap , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , NamedResource > > , windows_collections:: IMapView < windows_core::HSTRING , NamedResource > );
+windows_core::imp::required_hierarchy!(ResourceMap, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, NamedResource > >, windows_collections::IMapView < windows_core::HSTRING, NamedResource >);
 impl ResourceMap {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>>(self)?;
@@ -826,7 +826,7 @@ unsafe impl Sync for ResourceMapIterator {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceMapMapView(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( ResourceMapMapView , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMapView < windows_core::HSTRING , ResourceMap > );
+windows_core::imp::interface_hierarchy!(ResourceMapMapView, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMapView < windows_core::HSTRING, ResourceMap >);
 windows_core::imp::required_hierarchy!(ResourceMapMapView, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>);
 impl ResourceMapMapView {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>> {
@@ -977,7 +977,7 @@ unsafe impl Sync for ResourceQualifier {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierMapView(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( ResourceQualifierMapView , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMapView < windows_core::HSTRING , windows_core::HSTRING > );
+windows_core::imp::interface_hierarchy!(ResourceQualifierMapView, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMapView < windows_core::HSTRING, windows_core::HSTRING >);
 windows_core::imp::required_hierarchy!(ResourceQualifierMapView, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>);
 impl ResourceQualifierMapView {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
@@ -1038,8 +1038,8 @@ impl IntoIterator for &ResourceQualifierMapView {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResourceQualifierObservableMap(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( ResourceQualifierObservableMap , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::HSTRING > );
-windows_core::imp::required_hierarchy ! ( ResourceQualifierObservableMap , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
+windows_core::imp::interface_hierarchy!(ResourceQualifierObservableMap, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::HSTRING >);
+windows_core::imp::required_hierarchy!(ResourceQualifierObservableMap, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::HSTRING > >, windows_collections::IMap < windows_core::HSTRING, windows_core::HSTRING >);
 impl ResourceQualifierObservableMap {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;

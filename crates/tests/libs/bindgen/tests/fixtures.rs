@@ -506,12 +506,11 @@ fn run_error_bindgen(f: &Fixture) {
     }));
     std::panic::set_hook(prev_hook);
 
-    let payload = match result {
-        Ok(_) => panic!(
+    let Err(payload) = result else {
+        panic!(
             "[{}/{}] expected `bindgen` to panic but it succeeded",
             f.group, f.name
-        ),
-        Err(e) => e,
+        )
     };
 
     let message = if let Some(s) = payload.downcast_ref::<&'static str>() {
@@ -641,11 +640,15 @@ fn run_merge(f: &Fixture) {
             merger.input(winmd.to_str().unwrap());
         } else {
             let basename = rdl.file_name().and_then(|s| s.to_str()).unwrap();
-            let bits = arch_map.iter().find(|(k, _)| k == basename).map(|(_, v)| *v)
-                .unwrap_or_else(|| panic!(
-                    "[{}/{}] arch_inputs missing entry for {basename}; declare it as `\"{basename}=<arch>\"`",
-                    f.group, f.name
-                ));
+            let bits = arch_map.iter().find(|(k, _)| k == basename).map_or_else(
+                || {
+                    panic!(
+                        "[{}/{}] arch_inputs missing entry for {basename}; declare it as `\"{basename}=<arch>\"`",
+                        f.group, f.name
+                    )
+                },
+                |(_, v)| *v,
+            );
             merger.arch_input(winmd.to_str().unwrap(), bits);
         }
     }

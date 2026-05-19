@@ -1991,7 +1991,7 @@ impl windows_core::RuntimeType for MediaPixelFormat {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaPropertySet(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( MediaPropertySet , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::GUID , windows_core::IInspectable > );
+windows_core::imp::interface_hierarchy!(MediaPropertySet, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMap < windows_core::GUID, windows_core::IInspectable >);
 windows_core::imp::required_hierarchy!(MediaPropertySet, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>);
 impl MediaPropertySet {
     pub fn new() -> windows_core::Result<Self> {

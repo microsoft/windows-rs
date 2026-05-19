@@ -115,46 +115,46 @@ where
 }
 #[inline]
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstAcquirePrivateKey(pcert : *const super:: CERT_CONTEXT) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstAcquirePrivateKey(pcert : *const super::CERT_CONTEXT) -> windows_core::NTSTATUS);
     unsafe { PstAcquirePrivateKey(pcert) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstGetCertificateChain(pcert : *const super:: CERT_CONTEXT, ptrustedissuers : *const super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx, ppcertchaincontext : *mut *mut super:: CERT_CHAIN_CONTEXT) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetCertificateChain(pcert : *const super::CERT_CONTEXT, ptrustedissuers : *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext : *mut *mut super::CERT_CHAIN_CONTEXT) -> windows_core::NTSTATUS);
     unsafe { PstGetCertificateChain(pcert, ptrustedissuers, ppcertchaincontext as _) }
 }
 #[inline]
 pub unsafe fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: bool, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, bisclient : windows_core::BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation::UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super::CERT_SELECT_CRITERIA, bisclient : windows_core::BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> windows_core::NTSTATUS);
     unsafe { PstGetCertificates(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bisclient.into(), pdwcertchaincontextcount as _, ppcertchaincontexts as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstGetTrustAnchors(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetTrustAnchors(ptargetname : *const super::super::super::Foundation::UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super::CERT_SELECT_CRITERIA, pptrustedissuers : *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> windows_core::NTSTATUS);
     unsafe { PstGetTrustAnchors(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pptrustedissuers as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, pcertcontext: Option<*const super::CERT_CONTEXT>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstGetTrustAnchorsEx(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pcertcontext : *const super:: CERT_CONTEXT, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetTrustAnchorsEx(ptargetname : *const super::super::super::Foundation::UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super::CERT_SELECT_CRITERIA, pcertcontext : *const super::CERT_CONTEXT, pptrustedissuers : *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> windows_core::NTSTATUS);
     unsafe { PstGetTrustAnchorsEx(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcertcontext.unwrap_or(core::mem::zeroed()) as _, pptrustedissuers as _) }
 }
 #[inline]
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstGetUserNameForCertificate(pcertcontext : *const super:: CERT_CONTEXT, username : *mut super::super::super::Foundation:: UNICODE_STRING) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetUserNameForCertificate(pcertcontext : *const super::CERT_CONTEXT, username : *mut super::super::super::Foundation::UNICODE_STRING) -> windows_core::NTSTATUS);
     unsafe { PstGetUserNameForCertificate(pcertcontext, username as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstMapCertificate(pcert : *const super:: CERT_CONTEXT, ptokeninformationtype : *mut super::super::Authentication::Identity:: LSA_TOKEN_INFORMATION_TYPE, pptokeninformation : *mut *mut core::ffi::c_void) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstMapCertificate(pcert : *const super::CERT_CONTEXT, ptokeninformationtype : *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation : *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS);
     unsafe { PstMapCertificate(pcert, ptokeninformationtype as _, pptokeninformation as _) }
 }
 #[inline]
 pub unsafe fn PstValidate(ptargetname: Option<*const super::super::super::Foundation::UNICODE_STRING>, bisclient: bool, prequestedissuancepolicy: Option<*const super::CERT_USAGE_MATCH>, phadditionalcertstore: Option<*const super::HCERTSTORE>, pcert: *const super::CERT_CONTEXT, pprovguid: Option<*mut windows_core::GUID>) -> windows_core::NTSTATUS {
-    windows_core::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : windows_core::BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> windows_core:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation::UNICODE_STRING, bisclient : windows_core::BOOL, prequestedissuancepolicy : *const super::CERT_USAGE_MATCH, phadditionalcertstore : *const super::HCERTSTORE, pcert : *const super::CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> windows_core::NTSTATUS);
     unsafe { PstValidate(ptargetname.unwrap_or(core::mem::zeroed()) as _, bisclient.into(), prequestedissuancepolicy.unwrap_or(core::mem::zeroed()) as _, phadditionalcertstore.unwrap_or(core::mem::zeroed()) as _, pcert, pprovguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]

@@ -505,7 +505,7 @@ impl core::ops::Not for DataPackageOperation {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataPackagePropertySet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackagePropertySet, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( DataPackagePropertySet , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(DataPackagePropertySet, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMap < windows_core::HSTRING, windows_core::IInspectable >);
 impl DataPackagePropertySet {
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
@@ -740,7 +740,7 @@ impl IntoIterator for &DataPackagePropertySet {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DataPackagePropertySetView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackagePropertySetView, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( DataPackagePropertySetView , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(DataPackagePropertySetView, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMapView < windows_core::HSTRING, windows_core::IInspectable >);
 impl DataPackagePropertySetView {
     pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {

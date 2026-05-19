@@ -16,22 +16,22 @@ pub unsafe fn GetPointerCursorId(pointerid: u32, cursorid: *mut u32) -> windows_
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetPointerDevice(device: super::super::super::Foundation::HANDLE, pointerdevice: *mut POINTER_DEVICE_INFO) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn GetPointerDevice(device : super::super::super::Foundation:: HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetPointerDevice(device : super::super::super::Foundation::HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_core::BOOL);
     unsafe { GetPointerDevice(device, pointerdevice as _).ok() }
 }
 #[inline]
 pub unsafe fn GetPointerDeviceCursors(device: super::super::super::Foundation::HANDLE, cursorcount: *mut u32, devicecursors: Option<*mut POINTER_DEVICE_CURSOR_INFO>) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::super::super::Foundation:: HANDLE, cursorcount : *mut u32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::super::super::Foundation::HANDLE, cursorcount : *mut u32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_core::BOOL);
     unsafe { GetPointerDeviceCursors(device, cursorcount as _, devicecursors.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetPointerDeviceProperties(device: super::super::super::Foundation::HANDLE, propertycount: *mut u32, pointerproperties: Option<*mut POINTER_DEVICE_PROPERTY>) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::super::super::Foundation:: HANDLE, propertycount : *mut u32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::super::super::Foundation::HANDLE, propertycount : *mut u32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_core::BOOL);
     unsafe { GetPointerDeviceProperties(device, propertycount as _, pointerproperties.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn GetPointerDeviceRects(device: super::super::super::Foundation::HANDLE, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::super::super::Foundation:: HANDLE, pointerdevicerect : *mut super::super::super::Foundation:: RECT, displayrect : *mut super::super::super::Foundation:: RECT) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::super::super::Foundation::HANDLE, pointerdevicerect : *mut super::super::super::Foundation::RECT, displayrect : *mut super::super::super::Foundation::RECT) -> windows_core::BOOL);
     unsafe { GetPointerDeviceRects(device, pointerdevicerect as _, displayrect as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -120,7 +120,7 @@ pub unsafe fn GetPointerTouchInfoHistory(pointerid: u32, entriescount: *mut u32,
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GetPointerType(pointerid: u32, pointertype: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut super::super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { GetPointerType(pointerid, pointertype as _).ok() }
 }
 #[inline]

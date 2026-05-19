@@ -10,7 +10,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
+    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceCreate(pszenumeratorname : windows_core::PCWSTR, pszparentdeviceinstance : windows_core::PCWSTR, pcreateinfo : *const SW_DEVICE_CREATE_INFO, cpropertycount : u32, pproperties : *const super::super::Properties::DEVPROPERTY, pcallback : SW_DEVICE_CREATE_CALLBACK, pcontext : *const core::ffi::c_void, phswdevice : *mut HSWDEVICE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         SwDeviceCreate(pszenumeratorname.param().abi(), pszparentdeviceinstance.param().abi(), pcreateinfo, pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, pcontext.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -30,7 +30,7 @@ pub unsafe fn SwDeviceInterfacePropertySet<P1>(hswdevice: HSWDEVICE, pszdevicein
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfacePropertySet(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
+    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfacePropertySet(hswdevice : HSWDEVICE, pszdeviceinterfaceid : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties::DEVPROPERTY) -> windows_core::HRESULT);
     unsafe { SwDeviceInterfacePropertySet(hswdevice, pszdeviceinterfaceid.param().abi(), pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok() }
 }
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -39,7 +39,7 @@ pub unsafe fn SwDeviceInterfaceRegister<P2>(hswdevice: HSWDEVICE, pinterfaceclas
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY, fenabled : windows_core::BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_core::link!("cfgmgr32.dll" "system" fn SwDeviceInterfaceRegister(hswdevice : HSWDEVICE, pinterfaceclassguid : *const windows_core::GUID, pszreferencestring : windows_core::PCWSTR, cpropertycount : u32, pproperties : *const super::super::Properties::DEVPROPERTY, fenabled : windows_core::BOOL, ppszdeviceinterfaceid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         SwDeviceInterfaceRegister(hswdevice, pinterfaceclassguid, pszreferencestring.param().abi(), pproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), &mut result__).map(|| result__)
@@ -56,7 +56,7 @@ where
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
 pub unsafe fn SwDevicePropertySet(hswdevice: HSWDEVICE, pproperties: &[super::super::Properties::DEVPROPERTY]) -> windows_core::Result<()> {
-    windows_core::link!("cfgmgr32.dll" "system" fn SwDevicePropertySet(hswdevice : HSWDEVICE, cpropertycount : u32, pproperties : *const super::super::Properties:: DEVPROPERTY) -> windows_core::HRESULT);
+    windows_core::link!("cfgmgr32.dll" "system" fn SwDevicePropertySet(hswdevice : HSWDEVICE, cpropertycount : u32, pproperties : *const super::super::Properties::DEVPROPERTY) -> windows_core::HRESULT);
     unsafe { SwDevicePropertySet(hswdevice, pproperties.len().try_into().unwrap(), core::mem::transmute(pproperties.as_ptr())).ok() }
 }
 #[inline]

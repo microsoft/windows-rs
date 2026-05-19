@@ -4,7 +4,7 @@ pub unsafe fn BuildDisplayTable<P3>(lpallocatebuffer: LPALLOCATEBUFFER, lpalloca
 where
     P3: windows_core::Param<super::Com::IMalloc>,
 {
-    windows_core::link!("mapi32.dll" "system" fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : * mut core::ffi::c_void, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut * mut core::ffi::c_void, lpptbldata : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : *mut core::ffi::c_void, hinstance : super::super::Foundation::HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut *mut core::ffi::c_void, lpptbldata : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { BuildDisplayTable(lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.param().abi(), hinstance, cpages, lppage as _, ulflags, core::mem::transmute(lpptable), core::mem::transmute(lpptbldata)).ok() }
 }
 #[inline]
@@ -14,12 +14,12 @@ pub unsafe fn ChangeIdleRoutine(ftg: *mut core::ffi::c_void, lpfnidle: PFNIDLE, 
 }
 #[inline]
 pub unsafe fn CreateIProp(lpinterface: *mut windows_core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut core::ffi::c_void, lpppropdata: *mut Option<IPropData>) -> i32 {
-    windows_core::link!("mapi32.dll" "system" fn CreateIProp(lpinterface : *mut windows_core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut core::ffi::c_void, lpppropdata : *mut * mut core::ffi::c_void) -> i32);
+    windows_core::link!("mapi32.dll" "system" fn CreateIProp(lpinterface : *mut windows_core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut core::ffi::c_void, lpppropdata : *mut *mut core::ffi::c_void) -> i32);
     unsafe { CreateIProp(lpinterface as _, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpvreserved as _, core::mem::transmute(lpppropdata)) }
 }
 #[inline]
 pub unsafe fn CreateTable(lpinterface: *mut windows_core::GUID, lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpvreserved: *mut core::ffi::c_void, ultabletype: u32, ulproptagindexcolumn: u32, lpsproptagarraycolumns: *mut SPropTagArray, lpptabledata: *mut Option<ITableData>) -> i32 {
-    windows_core::link!("rtm.dll" "system" fn CreateTable(lpinterface : *mut windows_core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut core::ffi::c_void, ultabletype : u32, ulproptagindexcolumn : u32, lpsproptagarraycolumns : *mut SPropTagArray, lpptabledata : *mut * mut core::ffi::c_void) -> i32);
+    windows_core::link!("rtm.dll" "system" fn CreateTable(lpinterface : *mut windows_core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut core::ffi::c_void, ultabletype : u32, ulproptagindexcolumn : u32, lpsproptagarraycolumns : *mut SPropTagArray, lpptabledata : *mut *mut core::ffi::c_void) -> i32);
     unsafe { CreateTable(lpinterface as _, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpvreserved as _, ultabletype, ulproptagindexcolumn, lpsproptagarraycolumns as _, core::mem::transmute(lpptabledata)) }
 }
 #[inline]
@@ -59,7 +59,7 @@ pub unsafe fn FPropExists<P0>(lpmapiprop: P0, ulproptag: u32) -> windows_core::B
 where
     P0: windows_core::Param<IMAPIProp>,
 {
-    windows_core::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : * mut core::ffi::c_void, ulproptag : u32) -> windows_core::BOOL);
+    windows_core::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : *mut core::ffi::c_void, ulproptag : u32) -> windows_core::BOOL);
     unsafe { FPropExists(lpmapiprop.param().abi(), ulproptag) }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -76,27 +76,27 @@ pub unsafe fn FreeProws(lprows: *mut SRowSet) {
 }
 #[inline]
 pub unsafe fn FtAddFt(ftaddend1: super::super::Foundation::FILETIME, ftaddend2: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    windows_core::link!("mapi32.dll" "system" fn FtAddFt(ftaddend1 : super::super::Foundation:: FILETIME, ftaddend2 : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+    windows_core::link!("mapi32.dll" "system" fn FtAddFt(ftaddend1 : super::super::Foundation::FILETIME, ftaddend2 : super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME);
     unsafe { FtAddFt(core::mem::transmute(ftaddend1), core::mem::transmute(ftaddend2)) }
 }
 #[inline]
 pub unsafe fn FtMulDw(ftmultiplier: u32, ftmultiplicand: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    windows_core::link!("mapi32.dll" "system" fn FtMulDw(ftmultiplier : u32, ftmultiplicand : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+    windows_core::link!("mapi32.dll" "system" fn FtMulDw(ftmultiplier : u32, ftmultiplicand : super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME);
     unsafe { FtMulDw(ftmultiplier, core::mem::transmute(ftmultiplicand)) }
 }
 #[inline]
 pub unsafe fn FtMulDwDw(ftmultiplicand: u32, ftmultiplier: u32) -> super::super::Foundation::FILETIME {
-    windows_core::link!("mapi32.dll" "system" fn FtMulDwDw(ftmultiplicand : u32, ftmultiplier : u32) -> super::super::Foundation:: FILETIME);
+    windows_core::link!("mapi32.dll" "system" fn FtMulDwDw(ftmultiplicand : u32, ftmultiplier : u32) -> super::super::Foundation::FILETIME);
     unsafe { FtMulDwDw(ftmultiplicand, ftmultiplier) }
 }
 #[inline]
 pub unsafe fn FtNegFt(ft: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    windows_core::link!("mapi32.dll" "system" fn FtNegFt(ft : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+    windows_core::link!("mapi32.dll" "system" fn FtNegFt(ft : super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME);
     unsafe { FtNegFt(core::mem::transmute(ft)) }
 }
 #[inline]
 pub unsafe fn FtSubFt(ftminuend: super::super::Foundation::FILETIME, ftsubtrahend: super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME {
-    windows_core::link!("mapi32.dll" "system" fn FtSubFt(ftminuend : super::super::Foundation:: FILETIME, ftsubtrahend : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
+    windows_core::link!("mapi32.dll" "system" fn FtSubFt(ftminuend : super::super::Foundation::FILETIME, ftsubtrahend : super::super::Foundation::FILETIME) -> super::super::Foundation::FILETIME);
     unsafe { FtSubFt(core::mem::transmute(ftminuend), core::mem::transmute(ftsubtrahend)) }
 }
 #[inline]
@@ -109,7 +109,7 @@ pub unsafe fn HrAddColumns<P0>(lptbl: P0, lpproptagcolumnsnew: *mut SPropTagArra
 where
     P0: windows_core::Param<IMAPITable>,
 {
-    windows_core::link!("mapi32.dll" "system" fn HrAddColumns(lptbl : * mut core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrAddColumns(lptbl : *mut core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER) -> windows_core::HRESULT);
     unsafe { HrAddColumns(lptbl.param().abi(), lpproptagcolumnsnew as _, lpallocatebuffer, lpfreebuffer).ok() }
 }
 #[inline]
@@ -117,13 +117,13 @@ pub unsafe fn HrAddColumnsEx<P0>(lptbl: P0, lpproptagcolumnsnew: *mut SPropTagAr
 where
     P0: windows_core::Param<IMAPITable>,
 {
-    windows_core::link!("mapi32.dll" "system" fn HrAddColumnsEx(lptbl : * mut core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, lpfnfiltercolumns : isize) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrAddColumnsEx(lptbl : *mut core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, lpfnfiltercolumns : isize) -> windows_core::HRESULT);
     unsafe { HrAddColumnsEx(lptbl.param().abi(), lpproptagcolumnsnew as _, lpallocatebuffer, lpfreebuffer, lpfnfiltercolumns).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn HrAllocAdviseSink(lpfncallback: LPNOTIFCALLBACK, lpvcontext: *mut core::ffi::c_void, lppadvisesink: *mut Option<IMAPIAdviseSink>) -> windows_core::Result<()> {
-    windows_core::link!("mapi32.dll" "system" fn HrAllocAdviseSink(lpfncallback : LPNOTIFCALLBACK, lpvcontext : *mut core::ffi::c_void, lppadvisesink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrAllocAdviseSink(lpfncallback : LPNOTIFCALLBACK, lpvcontext : *mut core::ffi::c_void, lppadvisesink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HrAllocAdviseSink(lpfncallback, lpvcontext as _, core::mem::transmute(lppadvisesink)).ok() }
 }
 #[inline]
@@ -137,7 +137,7 @@ pub unsafe fn HrGetOneProp<P0>(lpmapiprop: P0, ulproptag: u32, lppprop: *mut *mu
 where
     P0: windows_core::Param<IMAPIProp>,
 {
-    windows_core::link!("mapi32.dll" "system" fn HrGetOneProp(lpmapiprop : * mut core::ffi::c_void, ulproptag : u32, lppprop : *mut *mut SPropValue) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrGetOneProp(lpmapiprop : *mut core::ffi::c_void, ulproptag : u32, lppprop : *mut *mut SPropValue) -> windows_core::HRESULT);
     unsafe { HrGetOneProp(lpmapiprop.param().abi(), ulproptag, lppprop as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -146,7 +146,7 @@ pub unsafe fn HrIStorageFromStream<P0>(lpunkin: P0, lpinterface: *mut windows_co
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("mapi32.dll" "system" fn HrIStorageFromStream(lpunkin : * mut core::ffi::c_void, lpinterface : *mut windows_core::GUID, ulflags : u32, lppstorageout : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrIStorageFromStream(lpunkin : *mut core::ffi::c_void, lpinterface : *mut windows_core::GUID, ulflags : u32, lppstorageout : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { HrIStorageFromStream(lpunkin.param().abi(), lpinterface as _, ulflags, core::mem::transmute(lppstorageout)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -155,7 +155,7 @@ pub unsafe fn HrQueryAllRows<P0>(lptable: P0, lpproptags: *mut SPropTagArray, lp
 where
     P0: windows_core::Param<IMAPITable>,
 {
-    windows_core::link!("mapi32.dll" "system" fn HrQueryAllRows(lptable : * mut core::ffi::c_void, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrQueryAllRows(lptable : *mut core::ffi::c_void, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> windows_core::HRESULT);
     unsafe { HrQueryAllRows(lptable.param().abi(), lpproptags as _, lprestriction as _, lpsortorderset as _, crowsmax, lpprows as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -164,7 +164,7 @@ pub unsafe fn HrSetOneProp<P0>(lpmapiprop: P0, lpprop: *mut SPropValue) -> windo
 where
     P0: windows_core::Param<IMAPIProp>,
 {
-    windows_core::link!("mapi32.dll" "system" fn HrSetOneProp(lpmapiprop : * mut core::ffi::c_void, lpprop : *mut SPropValue) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrSetOneProp(lpmapiprop : *mut core::ffi::c_void, lpprop : *mut SPropValue) -> windows_core::HRESULT);
     unsafe { HrSetOneProp(lpmapiprop.param().abi(), lpprop as _).ok() }
 }
 #[inline]
@@ -172,7 +172,7 @@ pub unsafe fn HrThisThreadAdviseSink<P0>(lpadvisesink: P0) -> windows_core::Resu
 where
     P0: windows_core::Param<IMAPIAdviseSink>,
 {
-    windows_core::link!("mapi32.dll" "system" fn HrThisThreadAdviseSink(lpadvisesink : * mut core::ffi::c_void, lppadvisesink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn HrThisThreadAdviseSink(lpadvisesink : *mut core::ffi::c_void, lppadvisesink : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         HrThisThreadAdviseSink(lpadvisesink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -198,7 +198,7 @@ pub unsafe fn MAPIDeinitIdle() {
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MAPIGetDefaultMalloc() -> Option<super::Com::IMalloc> {
-    windows_core::link!("mapi32.dll" "system" fn MAPIGetDefaultMalloc() -> Option < super::Com:: IMalloc >);
+    windows_core::link!("mapi32.dll" "system" fn MAPIGetDefaultMalloc() -> Option < super::Com::IMalloc >);
     unsafe { MAPIGetDefaultMalloc() }
 }
 #[inline]
@@ -209,7 +209,7 @@ pub unsafe fn MAPIInitIdle(lpvreserved: *mut core::ffi::c_void) -> i32 {
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: Option<*const i8>) -> windows_core::Result<super::Com::IStream> {
-    windows_core::link!("mapi32.dll" "system" fn OpenStreamOnFile(lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, ulflags : u32, lpszfilename : *const i8, lpszprefix : *const i8, lppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn OpenStreamOnFile(lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, ulflags : u32, lpszfilename : *const i8, lpszprefix : *const i8, lppstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         OpenStreamOnFile(lpallocatebuffer, lpfreebuffer, ulflags, lpszfilename, lpszprefix.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -232,7 +232,7 @@ pub unsafe fn RTFSync<P0>(lpmessage: P0, ulflags: u32, lpfmessageupdated: *mut w
 where
     P0: windows_core::Param<IMessage>,
 {
-    windows_core::link!("mapi32.dll" "system" fn RTFSync(lpmessage : * mut core::ffi::c_void, ulflags : u32, lpfmessageupdated : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn RTFSync(lpmessage : *mut core::ffi::c_void, ulflags : u32, lpfmessageupdated : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { RTFSync(lpmessage.param().abi(), ulflags, lpfmessageupdated as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -345,7 +345,7 @@ pub unsafe fn WrapCompressedRTFStream<P0>(lpcompressedrtfstream: P0, ulflags: u3
 where
     P0: windows_core::Param<super::Com::IStream>,
 {
-    windows_core::link!("mapi32.dll" "system" fn WrapCompressedRTFStream(lpcompressedrtfstream : * mut core::ffi::c_void, ulflags : u32, lpuncompressedrtfstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn WrapCompressedRTFStream(lpcompressedrtfstream : *mut core::ffi::c_void, ulflags : u32, lpuncompressedrtfstream : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WrapCompressedRTFStream(lpcompressedrtfstream.param().abi(), ulflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

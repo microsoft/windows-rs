@@ -31,7 +31,7 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> windows_core::Result<(
 #[cfg(feature = "Win32_Storage_Packaging_Appx")]
 #[inline]
 pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> windows_core::Result<windows_core::BOOL> {
-    windows_core::link!("srpapi.dll" "system" fn SrpDoesPolicyAllowAppExecution(packageid : *const super::super::Storage::Packaging::Appx:: PACKAGE_ID, isallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("srpapi.dll" "system" fn SrpDoesPolicyAllowAppExecution(packageid : *const super::super::Storage::Packaging::Appx::PACKAGE_ID, isallowed : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         SrpDoesPolicyAllowAppExecution(packageid, &mut result__).map(|| result__)
@@ -47,12 +47,12 @@ where
 }
 #[inline]
 pub unsafe fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: Option<*mut u32>, enterpriseids: Option<*mut windows_core::PCWSTR>, enterpriseidcount: *mut u32) -> windows_core::Result<()> {
-    windows_core::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation::HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
     unsafe { SrpGetEnterpriseIds(tokenhandle, numberofbytes.unwrap_or(core::mem::zeroed()) as _, enterpriseids.unwrap_or(core::mem::zeroed()) as _, enterpriseidcount as _).ok() }
 }
 #[inline]
 pub unsafe fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE) -> windows_core::Result<ENTERPRISE_DATA_POLICIES> {
-    windows_core::link!("srpapi.dll" "system" fn SrpGetEnterprisePolicy(tokenhandle : super::super::Foundation:: HANDLE, policyflags : *mut ENTERPRISE_DATA_POLICIES) -> windows_core::HRESULT);
+    windows_core::link!("srpapi.dll" "system" fn SrpGetEnterprisePolicy(tokenhandle : super::super::Foundation::HANDLE, policyflags : *mut ENTERPRISE_DATA_POLICIES) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         SrpGetEnterprisePolicy(tokenhandle, &mut result__).map(|| result__)
@@ -70,12 +70,12 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
 }
 #[inline]
 pub unsafe fn SrpIsAllowed(fileinfo: *const _SRP_REQUEST) -> windows_core::NTSTATUS {
-    windows_core::link!("srpapi.dll" "system" fn SrpIsAllowed(fileinfo : *const _SRP_REQUEST) -> windows_core:: NTSTATUS);
+    windows_core::link!("srpapi.dll" "system" fn SrpIsAllowed(fileinfo : *const _SRP_REQUEST) -> windows_core::NTSTATUS);
     unsafe { SrpIsAllowed(fileinfo) }
 }
 #[inline]
 pub unsafe fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> windows_core::NTSTATUS {
-    windows_core::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> windows_core:: NTSTATUS);
+    windows_core::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation::HANDLE, istokenservice : *mut u8) -> windows_core::NTSTATUS);
     unsafe { SrpIsTokenService(tokenhandle, istokenservice as _) }
 }
 #[inline]
@@ -83,7 +83,7 @@ pub unsafe fn SrpSetTokenEnterpriseId<P1>(tokenhandle: super::super::Foundation:
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation:: HANDLE, enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation::HANDLE, enterpriseid : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { SrpSetTokenEnterpriseId(tokenhandle, enterpriseid.param().abi()).ok() }
 }
 #[inline]

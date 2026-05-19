@@ -13,7 +13,7 @@ pub unsafe fn CompareStringEx<P0>(lplocalename: P0, dwcmpflags: COMPARE_STRING_F
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : windows_core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : windows_core::PCWSTR, cchcount1 : i32, lpstring2 : windows_core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> COMPARESTRING_RESULT);
+    windows_core::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : windows_core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : windows_core::PCWSTR, cchcount1 : i32, lpstring2 : windows_core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, lparam : super::Foundation::LPARAM) -> COMPARESTRING_RESULT);
     unsafe { CompareStringEx(lplocalename.param().abi(), dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, lparam.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -28,7 +28,7 @@ pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lp
 }
 #[inline]
 pub unsafe fn ConvertCalDateTimeToSystemTime(lpcaldatetime: *const CALDATETIME, lpsystime: *mut super::Foundation::SYSTEMTIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ConvertCalDateTimeToSystemTime(lpcaldatetime : *const CALDATETIME, lpsystime : *mut super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn ConvertCalDateTimeToSystemTime(lpcaldatetime : *const CALDATETIME, lpsystime : *mut super::Foundation::SYSTEMTIME) -> windows_core::BOOL);
     unsafe { ConvertCalDateTimeToSystemTime(lpcaldatetime, lpsystime as _) }
 }
 #[inline]
@@ -38,7 +38,7 @@ pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
 }
 #[inline]
 pub unsafe fn ConvertSystemTimeToCalDateTime(lpsystime: *const super::Foundation::SYSTEMTIME, calid: u32, lpcaldatetime: *mut CALDATETIME) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ConvertSystemTimeToCalDateTime(lpsystime : *const super::Foundation:: SYSTEMTIME, calid : u32, lpcaldatetime : *mut CALDATETIME) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn ConvertSystemTimeToCalDateTime(lpsystime : *const super::Foundation::SYSTEMTIME, calid : u32, lpcaldatetime : *mut CALDATETIME) -> windows_core::BOOL);
     unsafe { ConvertSystemTimeToCalDateTime(lpsystime, calid, lpcaldatetime as _) }
 }
 #[inline]
@@ -57,7 +57,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, calendar : u32, lpreserved : windows_core::PCWSTR, caltype : u32, lparam : super::Foundation:: LPARAM) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, calendar : u32, lpreserved : windows_core::PCWSTR, caltype : u32, lparam : super::Foundation::LPARAM) -> windows_core::BOOL);
     unsafe { EnumCalendarInfoExEx(pcalinfoenumprocexex, lplocalename.param().abi(), calendar, lpreserved.param().abi(), caltype, lparam).ok() }
 }
 #[inline]
@@ -85,7 +85,7 @@ pub unsafe fn EnumDateFormatsExEx<P1>(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXE
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lparam : super::Foundation:: LPARAM) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lparam : super::Foundation::LPARAM) -> windows_core::BOOL);
     unsafe { EnumDateFormatsExEx(lpdatefmtenumprocexex, lplocalename.param().abi(), dwflags, lparam).ok() }
 }
 #[inline]
@@ -125,7 +125,7 @@ pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GE
 }
 #[inline]
 pub unsafe fn EnumSystemGeoNames(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: super::Foundation::LPARAM) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn EnumSystemGeoNames(geoclass : u32, geoenumproc : GEO_ENUMNAMEPROC, data : super::Foundation:: LPARAM) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn EnumSystemGeoNames(geoclass : u32, geoenumproc : GEO_ENUMNAMEPROC, data : super::Foundation::LPARAM) -> windows_core::BOOL);
     unsafe { EnumSystemGeoNames(geoclass, geoenumproc, data).ok() }
 }
 #[inline]
@@ -145,7 +145,7 @@ pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u3
 }
 #[inline]
 pub unsafe fn EnumSystemLocalesEx(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: super::Foundation::LPARAM, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::Foundation:: LPARAM, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::Foundation::LPARAM, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { EnumSystemLocalesEx(lplocaleenumprocex, dwflags, lparam, lpreserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -163,7 +163,7 @@ pub unsafe fn EnumTimeFormatsEx<P1>(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lpl
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : windows_core::PCWSTR, dwflags : u32, lparam : super::Foundation:: LPARAM) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : windows_core::PCWSTR, dwflags : u32, lparam : super::Foundation::LPARAM) -> windows_core::BOOL);
     unsafe { EnumTimeFormatsEx(lptimefmtenumprocex, lplocalename.param().abi(), dwflags, lparam).ok() }
 }
 #[inline]
@@ -191,7 +191,7 @@ pub unsafe fn FindNLSStringEx<P0>(lplocalename: P0, dwfindnlsstringflags: u32, l
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation::LPARAM) -> i32);
     unsafe { FindNLSStringEx(lplocalename.param().abi(), dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), pcchfound.unwrap_or(core::mem::zeroed()) as _, lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, sorthandle) }
 }
 #[inline]
@@ -292,7 +292,7 @@ pub unsafe fn GetDateFormatA<P3>(locale: u32, dwflags: u32, lpdate: Option<*cons
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDateFormatA(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCSTR, lpdatestr : windows_core::PSTR, cchdate : i32) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetDateFormatA(locale : u32, dwflags : u32, lpdate : *const super::Foundation::SYSTEMTIME, lpformat : windows_core::PCSTR, lpdatestr : windows_core::PSTR, cchdate : i32) -> i32);
     unsafe { GetDateFormatA(locale, dwflags, lpdate.unwrap_or(core::mem::zeroed()) as _, lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
@@ -302,7 +302,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDateFormatEx(lplocalename : windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32, lpcalendar : windows_core::PCWSTR) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetDateFormatEx(lplocalename : windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lpdate : *const super::Foundation::SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32, lpcalendar : windows_core::PCWSTR) -> i32);
     unsafe { GetDateFormatEx(lplocalename.param().abi(), dwflags, lpdate.unwrap_or(core::mem::zeroed()) as _, lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcalendar.param().abi()) }
 }
 #[inline]
@@ -310,7 +310,7 @@ pub unsafe fn GetDateFormatW<P3>(locale: u32, dwflags: u32, lpdate: Option<*cons
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDateFormatW(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetDateFormatW(locale : u32, dwflags : u32, lpdate : *const super::Foundation::SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32) -> i32);
     unsafe { GetDateFormatW(locale, dwflags, lpdate.unwrap_or(core::mem::zeroed()) as _, lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
@@ -330,7 +330,7 @@ pub unsafe fn GetDurationFormat<P4>(locale: u32, dwflags: u32, lpduration: Optio
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDurationFormat(locale : u32, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetDurationFormat(locale : u32, dwflags : u32, lpduration : *const super::Foundation::SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
     unsafe { GetDurationFormat(locale, dwflags, lpduration.unwrap_or(core::mem::zeroed()) as _, ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
@@ -339,7 +339,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetDurationFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetDurationFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpduration : *const super::Foundation::SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
     unsafe { GetDurationFormatEx(lplocalename.param().abi(), dwflags, lpduration.unwrap_or(core::mem::zeroed()) as _, ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
@@ -504,13 +504,13 @@ pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharset(hdc: super::Graphics::Gdi::HDC) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn GetTextCharset(hdc : super::Graphics::Gdi:: HDC) -> i32);
+    windows_core::link!("gdi32.dll" "system" fn GetTextCharset(hdc : super::Graphics::Gdi::HDC) -> i32);
     unsafe { GetTextCharset(hdc) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharsetInfo(hdc: super::Graphics::Gdi::HDC, lpsig: Option<*mut FONTSIGNATURE>, dwflags: u32) -> i32 {
-    windows_core::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::Graphics::Gdi:: HDC, lpsig : *mut FONTSIGNATURE, dwflags : u32) -> i32);
+    windows_core::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::Graphics::Gdi::HDC, lpsig : *mut FONTSIGNATURE, dwflags : u32) -> i32);
     unsafe { GetTextCharsetInfo(hdc, lpsig.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[inline]
@@ -533,7 +533,7 @@ pub unsafe fn GetTimeFormatA<P3>(locale: u32, dwflags: u32, lptime: Option<*cons
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetTimeFormatA(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCSTR, lptimestr : windows_core::PSTR, cchtime : i32) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetTimeFormatA(locale : u32, dwflags : u32, lptime : *const super::Foundation::SYSTEMTIME, lpformat : windows_core::PCSTR, lptimestr : windows_core::PSTR, cchtime : i32) -> i32);
     unsafe { GetTimeFormatA(locale, dwflags, lptime.unwrap_or(core::mem::zeroed()) as _, lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
@@ -542,7 +542,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetTimeFormatEx(lplocalename : windows_core::PCWSTR, dwflags : TIME_FORMAT_FLAGS, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetTimeFormatEx(lplocalename : windows_core::PCWSTR, dwflags : TIME_FORMAT_FLAGS, lptime : *const super::Foundation::SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
     unsafe { GetTimeFormatEx(lplocalename.param().abi(), dwflags, lptime.unwrap_or(core::mem::zeroed()) as _, lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
@@ -550,7 +550,7 @@ pub unsafe fn GetTimeFormatW<P3>(locale: u32, dwflags: u32, lptime: Option<*cons
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn GetTimeFormatW(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn GetTimeFormatW(locale : u32, dwflags : u32, lptime : *const super::Foundation::SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
     unsafe { GetTimeFormatW(locale, dwflags, lptime.unwrap_or(core::mem::zeroed()) as _, lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
@@ -695,7 +695,7 @@ pub unsafe fn LCMapStringEx<P0>(lplocalename: P0, dwmapflags: u32, lpsrcstr: &[u
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_core::PCWSTR, dwmapflags : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
+    windows_core::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_core::PCWSTR, dwmapflags : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation::LPARAM) -> i32);
     unsafe { LCMapStringEx(lplocalename.param().abi(), dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpversioninformation.unwrap_or(core::mem::zeroed()) as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, sorthandle) }
 }
 #[inline]
@@ -779,7 +779,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, 
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: Option<*mut super::Graphics::Gdi::ABC>, pijustify: *mut i32) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::Graphics::Gdi:: ABC, pijustify : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::Graphics::Gdi::ABC, pijustify : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, pabc.unwrap_or(core::mem::zeroed()) as _, pijustify as _).ok() }
 }
 #[inline]
@@ -798,7 +798,7 @@ pub unsafe fn ScriptCPtoX(icp: i32, ftrailing: bool, cglyphs: i32, pwlogclust: &
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptCacheGetHeight(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, tmheight: *mut i32) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, tmheight : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptCacheGetHeight(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, tmheight : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptCacheGetHeight(hdc, psc as _, tmheight as _).ok() }
 }
 #[inline]
@@ -812,43 +812,43 @@ pub unsafe fn ScriptGetCMap<P2>(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut c
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwcinchars : windows_core::PCWSTR, cchars : i32, dwflags : u32, pwoutglyphs : *mut u16) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, pwcinchars : windows_core::PCWSTR, cchars : i32, dwflags : u32, pwoutglyphs : *mut u16) -> windows_core::HRESULT);
     unsafe { ScriptGetCMap(hdc, psc as _, pwcinchars.param().abi(), cchars, dwflags, pwoutglyphs as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontAlternateGlyphs(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, palternateglyphs: &mut [u16], pcalternates: *mut i32) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptGetFontAlternateGlyphs(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, tagfeature, wglyphid, palternateglyphs.len().try_into().unwrap(), core::mem::transmute(palternateglyphs.as_ptr()), pcalternates as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontFeatureTags(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, pfeaturetags: &mut [u32], pctags: *mut i32) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, cmaxtags : i32, pfeaturetags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, cmaxtags : i32, pfeaturetags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptGetFontFeatureTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, pfeaturetags.len().try_into().unwrap(), core::mem::transmute(pfeaturetags.as_ptr()), pctags as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontLanguageTags(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, plangsystags: &mut [u32], pctags: *mut i32) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, cmaxtags : i32, plangsystags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, cmaxtags : i32, plangsystags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptGetFontLanguageTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, plangsystags.len().try_into().unwrap(), core::mem::transmute(plangsystags.as_ptr()), pctags as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontProperties(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, sfp : *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, sfp : *mut SCRIPT_FONTPROPERTIES) -> windows_core::HRESULT);
     unsafe { ScriptGetFontProperties(hdc, psc as _, sfp as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontScriptTags(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, pscripttags: &mut [u32], pctags: *mut i32) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptGetFontScriptTags(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, pscripttags.len().try_into().unwrap(), core::mem::transmute(pscripttags.as_ptr()), pctags as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetGlyphABCWidth(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, wglyph : u16, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptGetGlyphABCWidth(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, wglyph : u16, pabc : *mut super::Graphics::Gdi::ABC) -> windows_core::HRESULT);
     unsafe { ScriptGetGlyphABCWidth(hdc, psc as _, wglyph, pabc as _).ok() }
 }
 #[inline]
@@ -889,7 +889,7 @@ pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: Op
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPlace(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: Option<*mut GOFFSET>, pabc: *mut super::Graphics::Gdi::ABC) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi::ABC) -> windows_core::HRESULT);
     unsafe { ScriptPlace(hdc, psc as _, pwglyphs, cglyphs, psva, psa as _, piadvance as _, pgoffset.unwrap_or(core::mem::zeroed()) as _, pabc as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -898,13 +898,13 @@ pub unsafe fn ScriptPlaceOpenType<P8>(hdc: Option<super::Graphics::Gdi::HDC>, ps
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_core::PCWSTR, pwlogclust : *const u16, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const u16, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_core::PCWSTR, pwlogclust : *const u16, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const u16, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi::ABC) -> windows_core::HRESULT);
     unsafe { ScriptPlaceOpenType(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa as _, tagscript, taglangsys, rcrangechars.unwrap_or(core::mem::zeroed()) as _, rprangeproperties.unwrap_or(core::mem::zeroed()) as _, cranges, pwcchars.param().abi(), pwlogclust, pcharprops, cchars, pwglyphs, pglyphprops, cglyphs, piadvance as _, pgoffset as _, pabc.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPositionSingleGlyph(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> windows_core::HRESULT);
     unsafe { ScriptPositionSingleGlyph(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, tagfeature, lparameter, wglyphid, iadvance, core::mem::transmute(goffset), pioutadvance as _, poutgoffset as _).ok() }
 }
 #[inline]
@@ -921,7 +921,7 @@ pub unsafe fn ScriptShape<P2>(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut cor
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("usp10.dll" "system" fn ScriptShape(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwcchars : windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptShape(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, pwcchars : windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptShape(hdc, psc as _, pwcchars.param().abi(), cchars, cmaxglyphs, psa as _, pwoutglyphs as _, pwlogclust as _, psva as _, pcglyphs as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -930,13 +930,13 @@ pub unsafe fn ScriptShapeOpenType<P8>(hdc: Option<super::Graphics::Gdi::HDC>, ps
 where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut u16, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut u16, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut u16, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut u16, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> windows_core::HRESULT);
     unsafe { ScriptShapeOpenType(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa as _, tagscript, taglangsys, rcrangechars.unwrap_or(core::mem::zeroed()) as _, rprangeproperties.unwrap_or(core::mem::zeroed()) as _, cranges, pwcchars.param().abi(), cchars, cmaxglyphs, pwlogclust as _, pcharprops as _, pwoutglyphs as _, poutglyphprops as _, pcglyphs as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptStringAnalyse(hdc: super::Graphics::Gdi::HDC, pstring: *const core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pidx: Option<*const i32>, ptabdef: Option<*const SCRIPT_TABDEF>, pbinclass: *const u8, pssa: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi:: HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi::HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { ScriptStringAnalyse(hdc, pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, pscontrol.unwrap_or(core::mem::zeroed()) as _, psstate.unwrap_or(core::mem::zeroed()) as _, pidx.unwrap_or(core::mem::zeroed()) as _, ptabdef.unwrap_or(core::mem::zeroed()) as _, pbinclass, pssa as _).ok() }
 }
 #[inline]
@@ -965,7 +965,7 @@ pub unsafe fn ScriptStringGetOrder(ssa: *const core::ffi::c_void, puorder: *mut 
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptStringOut(ssa: *const core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: Option<*const super::Foundation::RECT>, iminsel: i32, imaxsel: i32, fdisabled: bool) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptStringOut(ssa : *const core::ffi::c_void, ix : i32, iy : i32, uoptions : super::Graphics::Gdi:: ETO_OPTIONS, prc : *const super::Foundation:: RECT, iminsel : i32, imaxsel : i32, fdisabled : windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptStringOut(ssa : *const core::ffi::c_void, ix : i32, iy : i32, uoptions : super::Graphics::Gdi::ETO_OPTIONS, prc : *const super::Foundation::RECT, iminsel : i32, imaxsel : i32, fdisabled : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { ScriptStringOut(ssa, ix, iy, uoptions, prc.unwrap_or(core::mem::zeroed()) as _, iminsel, imaxsel, fdisabled.into()).ok() }
 }
 #[inline]
@@ -985,7 +985,7 @@ pub unsafe fn ScriptString_pLogAttr(ssa: *const core::ffi::c_void) -> *mut SCRIP
 }
 #[inline]
 pub unsafe fn ScriptString_pSize(ssa: *const core::ffi::c_void) -> *mut super::Foundation::SIZE {
-    windows_core::link!("usp10.dll" "system" fn ScriptString_pSize(ssa : *const core::ffi::c_void) -> *mut super::Foundation:: SIZE);
+    windows_core::link!("usp10.dll" "system" fn ScriptString_pSize(ssa : *const core::ffi::c_void) -> *mut super::Foundation::SIZE);
     unsafe { ScriptString_pSize(ssa) }
 }
 #[inline]
@@ -996,7 +996,7 @@ pub unsafe fn ScriptString_pcOutChars(ssa: *const core::ffi::c_void) -> *mut i32
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptSubstituteSingleGlyph(hdc: Option<super::Graphics::Gdi::HDC>, psc: *mut *mut core::ffi::c_void, psa: Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> windows_core::Result<()> {
-    windows_core::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> windows_core::HRESULT);
     unsafe { ScriptSubstituteSingleGlyph(hdc.unwrap_or(core::mem::zeroed()) as _, psc as _, psa.unwrap_or(core::mem::zeroed()) as _, tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1005,7 +1005,7 @@ pub unsafe fn ScriptTextOut<P7>(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut c
 where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, x : i32, y : i32, fuoptions : u32, lprc : *const super::Foundation:: RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : windows_core::PCWSTR, ireserved : i32, pwglyphs : *const u16, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_core::HRESULT);
+    windows_core::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::Graphics::Gdi::HDC, psc : *mut *mut core::ffi::c_void, x : i32, y : i32, fuoptions : u32, lprc : *const super::Foundation::RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : windows_core::PCWSTR, ireserved : i32, pwglyphs : *const u16, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_core::HRESULT);
     unsafe { ScriptTextOut(hdc, psc as _, x, y, fuoptions, lprc.unwrap_or(core::mem::zeroed()) as _, psa, pwcreserved.param().abi(), ireserved.unwrap_or(core::mem::zeroed()) as _, pwglyphs, cglyphs, piadvance, pijustify.unwrap_or(core::mem::zeroed()) as _, pgoffset).ok() }
 }
 #[inline]

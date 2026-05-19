@@ -35,9 +35,8 @@ impl Const {
         // Body tokens = everything after the name token.
         let body: Vec<_> = tokens.into_iter().skip(1).collect();
 
-        let value = match parse_body(&body, parser.namespace, parser.ref_map) {
-            Some(v) => v,
-            None => return Ok(None),
+        let Some(value) = parse_body(&body, parser.namespace, parser.ref_map) else {
+            return Ok(None);
         };
 
         Ok(Some(Self { name, value }))
@@ -406,10 +405,7 @@ fn parse_named_cast(
     } else {
         raw as i64
     };
-    let ns = ref_map
-        .get(type_name)
-        .map(|s| s.as_str())
-        .unwrap_or(namespace);
+    let ns = ref_map.get(type_name).map_or(namespace, |s| s.as_str());
     Some(metadata::Value::EnumValue(
         metadata::TypeName::named(ns, type_name),
         Box::new(metadata::Value::I64(v)),
@@ -428,8 +424,7 @@ fn parse_named_cast(
 fn split_int_suffix(lit: &str) -> (&str, &str) {
     let suffix_start = lit
         .rfind(|c: char| c.is_ascii_hexdigit() || c == 'x' || c == 'X')
-        .map(|i| i + 1)
-        .unwrap_or(lit.len());
+        .map_or(lit.len(), |i| i + 1);
     (&lit[..suffix_start], &lit[suffix_start..])
 }
 
