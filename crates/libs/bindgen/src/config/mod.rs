@@ -29,7 +29,6 @@ pub struct Config<'a> {
     pub implement: bool,
     pub implements: &'a Implements,
     pub specific_deps: bool,
-    pub auto_events: bool,
     pub derive: &'a Derive,
     pub link: &'a str,
     pub warnings: &'a WarningBuilder,

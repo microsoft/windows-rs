@@ -1,1 +1,4 @@
-args = "--no-comment --filter Windows.Foundation.IMemoryBufferReference Windows.Foundation.TypedEventHandler --flat --auto-events"
+filter = "Test"
+no_allow = true
+no_comment = true
+minimal = true

@@ -1,0 +1,10 @@
+#[winrt]
+mod Test {
+    interface IFoo {
+        fn Bar(&self) -> i32;
+        #[special]
+        fn add_Click(&self, handler: i32) -> i64;
+        #[special]
+        fn remove_Click(&self, token: i64);
+    }
+}

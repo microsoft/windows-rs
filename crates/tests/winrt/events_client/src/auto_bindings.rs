@@ -24,36 +24,6 @@ impl Class {
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Signal(&self, value: i32) -> windows_core::Result<i32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Signal)(
-                windows_core::Interface::as_raw(self),
-                value,
-                &mut result__,
-            )
-            .map(|| result__)
-        }
-    }
-    pub fn Event<P0>(&self, handler: P0) -> windows_core::Result<windows_core::EventRevoker<Self>>
-    where
-        P0: windows_core::Param<windows::Foundation::TypedEventHandler<Class, i32>>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Event)(
-                windows_core::Interface::as_raw(self),
-                handler.param().abi(),
-                &mut result__,
-            )
-            .map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(
-                self.clone(),
-                token__,
-                windows_core::Interface::vtable(self).RemoveEvent,
-            ))
-        }
-    }
     pub fn StaticSignal(value: i32) -> windows_core::Result<i32> {
         Self::IClassStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -111,6 +81,38 @@ windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x692a46c8_496e_525b_8
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IClass {
+    pub fn Signal(&self, value: i32) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Signal)(
+                windows_core::Interface::as_raw(self),
+                value,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn Event<P0>(&self, handler: P0) -> windows_core::Result<windows_core::EventRevoker<Self>>
+    where
+        P0: windows_core::Param<windows::Foundation::TypedEventHandler<Class, i32>>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Event)(
+                windows_core::Interface::as_raw(self),
+                handler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveEvent,
+            ))
+        }
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

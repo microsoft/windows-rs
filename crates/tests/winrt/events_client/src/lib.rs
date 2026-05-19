@@ -59,17 +59,19 @@ fn test_static() -> Result<()> {
     Class::RemoveStaticEvent(token)?;
     assert_eq!(0, Class::StaticSignal(3)?);
 
-    Class::StaticEvent(&EventHandler::new(move |_, args| {
+    let token1 = Class::StaticEvent(&EventHandler::new(move |_, args| {
         assert_eq!(args, 4);
         Ok(())
     }))?;
 
-    Class::StaticEvent(&EventHandler::new(move |_, args| {
+    let token2 = Class::StaticEvent(&EventHandler::new(move |_, args| {
         assert_eq!(args, 4);
         Ok(())
     }))?;
 
     assert_eq!(2, Class::StaticSignal(4)?);
+    Class::RemoveStaticEvent(token1)?;
+    Class::RemoveStaticEvent(token2)?;
     Ok(())
 }
 
@@ -80,30 +82,48 @@ mod auto_events {
     #[test]
     fn test_auto_revoker() -> Result<()> {
         let class: &'static Class = Box::leak(Box::new(Class::new()?));
+        // In minimal mode, instance methods are only on the interface.
+        let iclass = &windows_core::Interface::cast::<IClass>(class).unwrap();
 
-        assert_eq!(0, class.Signal(1)?);
+        assert_eq!(0, iclass.Signal(1)?);
 
         // Auto-revoke on drop: register a handler in an inner scope, verify
         // it fires while live, then verify it's gone after the scope ends.
         {
-            let _revoker = class.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
-            assert_eq!(1, class.Signal(2)?);
+            let _revoker = iclass.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
+            assert_eq!(1, iclass.Signal(2)?);
         }
-        assert_eq!(0, class.Signal(3)?);
+        assert_eq!(0, iclass.Signal(3)?);
 
-        // Explicit revoke via revoke().
-        let revoker = class.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
-        assert_eq!(1, class.Signal(4)?);
-        revoker.revoke()?;
-        assert_eq!(0, class.Signal(5)?);
+        // Relying on Drop for revocation.
+        let revoker = iclass.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
+        assert_eq!(1, iclass.Signal(4)?);
+        drop(revoker);
+        assert_eq!(0, iclass.Signal(5)?);
+
+        // into_token: recover the raw token without revoking.
+        let token = iclass
+            .Event(&TypedEventHandler::new(move |_, _| Ok(())))?
+            .into_token();
+        // Handler is still alive.
+        assert_eq!(1, iclass.Signal(6)?);
+        // Manually revoke via the vtable.
+        unsafe {
+            (windows_core::Interface::vtable(iclass).RemoveEvent)(
+                windows_core::Interface::as_raw(iclass),
+                token,
+            )
+            .ok()?;
+        }
+        assert_eq!(0, iclass.Signal(7)?);
 
         // Multiple revokers can be collected in a Vec.
-        let mut revokers: Vec<EventRevoker<Class>> = Vec::new();
-        revokers.push(class.Event(&TypedEventHandler::new(move |_, _| Ok(())))?);
-        revokers.push(class.Event(&TypedEventHandler::new(move |_, _| Ok(())))?);
-        assert_eq!(2, class.Signal(6)?);
+        let revoker1 = iclass.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
+        let revoker2 = iclass.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
+        let revokers: Vec<EventRevoker<IClass>> = vec![revoker1, revoker2];
+        assert_eq!(2, iclass.Signal(8)?);
         drop(revokers);
-        assert_eq!(0, class.Signal(7)?);
+        assert_eq!(0, iclass.Signal(9)?);
 
         Ok(())
     }
@@ -117,10 +137,19 @@ mod auto_events {
         }
         assert_eq!(0, Class::StaticSignal(11)?);
 
-        // Explicit revoke.
+        // into_token: recover the raw token without revoking.
         let revoker = Class::StaticEvent(&EventHandler::new(move |_, _| Ok(())))?;
+        let token = revoker.into_token();
         assert_eq!(1, Class::StaticSignal(12)?);
-        revoker.revoke()?;
+        // Revoke via the IClassStatics vtable directly.
+        unsafe {
+            let statics = windows_core::factory::<Class, IClassStatics>()?;
+            (windows_core::Interface::vtable(&statics).RemoveStaticEvent)(
+                windows_core::Interface::as_raw(&statics),
+                token,
+            )
+            .ok()?;
+        }
         assert_eq!(0, Class::StaticSignal(13)?);
 
         Ok(())

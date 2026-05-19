@@ -28,7 +28,7 @@ fn main() {
         "--flat",
         "--reference",
         "windows",
-        "--auto-events",
+        "--minimal",
     ])
     .unwrap();
 }

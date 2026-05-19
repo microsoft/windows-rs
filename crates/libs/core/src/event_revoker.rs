@@ -4,19 +4,17 @@ use core::ffi::c_void;
 /// A handle that automatically revokes an event registration when dropped.
 ///
 /// Obtained by calling an event-registration method generated with the
-/// `--auto-events` bindgen option. The registration is revoked when the
-/// `EventRevoker` is dropped, or explicitly via [`EventRevoker::revoke`].
+/// `--minimal` bindgen option. The registration is revoked when the
+/// `EventRevoker` is dropped.
 ///
-/// # Drop behaviour
+/// Call [`into_token`] to take back the raw token and prevent the automatic
+/// revocation, which is useful for interoperating with code that manages
+/// registration tokens directly.
 ///
-/// When an `EventRevoker` is dropped without calling [`revoke`], it performs a
-/// best-effort revocation: errors from the underlying `Remove*` call are
-/// silently discarded. Use [`revoke`] when you need to observe errors.
-///
-/// [`revoke`]: EventRevoker::revoke
+/// [`into_token`]: EventRevoker::into_token
 pub struct EventRevoker<I: Interface> {
     source: I,
-    token: Option<i64>,
+    token: i64,
     remove: unsafe extern "system" fn(*mut c_void, i64) -> HRESULT,
 }
 
@@ -29,32 +27,31 @@ impl<I: Interface> EventRevoker<I> {
     ) -> Self {
         Self {
             source,
-            token: Some(token),
+            token,
             remove,
         }
     }
 
-    /// Explicitly revoke the event registration and return any error.
+    /// Consumes the revoker and returns the raw registration token without
+    /// revoking the event handler.
     ///
-    /// After this call the registration is cancelled. Calling `revoke` when
-    /// the token has already been consumed (e.g. by a previous `revoke` call
-    /// or by the `Drop` impl) is a no-op that returns `Ok(())`.
-    pub fn revoke(mut self) -> Result<()> {
-        if let Some(token) = self.token.take() {
-            unsafe { (self.remove)(self.source.as_raw(), token).ok() }
-        } else {
-            Ok(())
-        }
+    /// After this call the automatic revocation on drop is cancelled. The
+    /// caller is responsible for passing the returned token to the
+    /// corresponding `Remove*` method when the handler is no longer needed.
+    pub fn into_token(self) -> i64 {
+        let mut this = core::mem::ManuallyDrop::new(self);
+        let token = this.token;
+        // Release the source interface reference without calling Remove*.
+        unsafe { core::ptr::drop_in_place(&mut this.source) };
+        token
     }
 }
 
 impl<I: Interface> Drop for EventRevoker<I> {
     fn drop(&mut self) {
-        if let Some(token) = self.token.take() {
-            // Best-effort: discard errors silently (Drop cannot return Result).
-            unsafe {
-                let _ = (self.remove)(self.source.as_raw(), token);
-            }
+        // Best-effort: discard errors silently (Drop cannot return Result).
+        unsafe {
+            let _ = (self.remove)(self.source.as_raw(), self.token);
         }
     }
 }

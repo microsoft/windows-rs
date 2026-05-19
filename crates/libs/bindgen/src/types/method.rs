@@ -644,14 +644,14 @@ impl Method {
 
         let vcall = build_vcall(&args);
 
-        // --auto-events: suppress remove_* methods and replace add_* methods
+        // minimal: suppress remove_* methods and replace add_* methods
         // with a combined wrapper returning EventRevoker.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
-            && config.auto_events
+            && config.minimal
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = config.auto_events
+        let is_event_remove = config.minimal
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
 
