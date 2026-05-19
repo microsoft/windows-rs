@@ -243,8 +243,8 @@ impl CppMethod {
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
     ) -> TokenStream {
-        let name = method_names.add(self.def);
-        let vname = virtual_names.add(self.def);
+        let name = method_names.add(self.def.clone());
+        let vname = virtual_names.add(self.def.clone());
 
         let args = self.write_args();
         let params = self.write_params(config);
@@ -509,7 +509,7 @@ impl CppMethod {
                 }
             }
             _ => {
-                return_sig = config.write_return_sig(self.def, &self.signature, false);
+                return_sig = config.write_return_sig(self.def.clone(), &self.signature, false);
             }
         }
 

@@ -58,15 +58,15 @@ impl Interface {
         self.def
             .methods()
             .map(|def| {
-                let method = Method::new(def, &self.generics, config.reader);
+                let method = Method::new(def.clone(), &self.generics, config.reader);
                 if !method.dependencies.included(config) {
                     config
                         .warnings
-                        .skip_method(method.def, &method.dependencies, config);
-                    MethodOrName::Name(method.def)
+                        .skip_method(method.def.clone(), &method.dependencies, config);
+                    MethodOrName::Name(method.def.clone())
                 } else if !config.filter.includes_method(&type_name, def) {
                     // Method-level `--filter` demoted this slot to opaque.
-                    MethodOrName::Name(method.def)
+                    MethodOrName::Name(method.def.clone())
                 } else {
                     MethodOrName::Method(method)
                 }
@@ -81,7 +81,7 @@ impl Interface {
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
-            let method = Method::new(def, &self.generics, config.reader);
+            let method = Method::new(def.clone(), &self.generics, config.reader);
             !method.dependencies.included(config) || !config.filter.includes_method(&type_name, def)
         })
     }
@@ -107,7 +107,7 @@ impl Interface {
 
             let vtbl_methods = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
-                    let name = virtual_names.add(method.def);
+                    let name = virtual_names.add(method.def.clone());
                     let vtbl = method.write_abi(config, false);
 
                     let method_cfg = class_cfg.difference(&method.dependencies, config);
@@ -129,7 +129,7 @@ impl Interface {
                     }
                 }
                 MethodOrName::Name(method) => {
-                    let name = virtual_names.add(*method);
+                    let name = virtual_names.add(method.clone());
                     quote! { #name: usize, }
                 }
             });
@@ -419,7 +419,7 @@ impl Interface {
                         .any(|ty| ty.has_skipped_methods(config));
 
                 if has_skipped_methods {
-                    config.warnings.skip_implement(self.def);
+                    config.warnings.skip_implement(self.def.clone());
                 } else {
                     let mut names = MethodNames::new();
 
@@ -427,11 +427,11 @@ impl Interface {
                         .iter()
                         .map(|method| match method {
                             MethodOrName::Method(method) => {
-                                let name = names.add(method.def);
+                                let name = names.add(method.def.clone());
                                 quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
                             }
                             MethodOrName::Name(method) => {
-                                let name = names.add(*method);
+                                let name = names.add(method.clone());
                                 quote! { #name: 0, }
                             }
                         })
@@ -441,7 +441,7 @@ impl Interface {
 
                     let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
-                    let name = names.add(method.def);
+                    let name = names.add(method.def.clone());
                     let signature = method.write_abi(config, true);
                     let call = quote! { #impl_name::#name };
                     let upcall = method.write_upcall(call, true, config);
@@ -464,7 +464,7 @@ impl Interface {
                         .iter()
                         .map(|method| match method {
                             MethodOrName::Method(method) => {
-                                let name = names.add(method.def);
+                                let name = names.add(method.def.clone());
                                 let signature = method.write_impl_signature(config, true, true);
                                 quote! { fn #name #signature; }
                             }
@@ -512,52 +512,51 @@ impl Interface {
     }
 
     fn write_extensions(&self) -> TokenStream {
-        match self.type_name() {
-            TypeName::IIterator => {
-                quote! {
-                    impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
-                        type Item = T;
+        let tn = self.type_name();
+        if tn == TypeName::IIterator {
+            quote! {
+                impl<T: windows_core::RuntimeType> Iterator for IIterator<T> {
+                    type Item = T;
 
-                        fn next(&mut self) -> Option<Self::Item> {
-                            let result = if self.HasCurrent().unwrap_or(false) {
-                                self.Current().ok()
-                            } else {
-                                None
-                            };
+                    fn next(&mut self) -> Option<Self::Item> {
+                        let result = if self.HasCurrent().unwrap_or(false) {
+                            self.Current().ok()
+                        } else {
+                            None
+                        };
 
-                            if result.is_some() {
-                                // Ignore MoveNext errors; treat as end-of-stream on the next
-                                // iteration but still yield the value already fetched.
-                                let _ = self.MoveNext();
-                            }
-
-                            result
+                        if result.is_some() {
+                            // Ignore MoveNext errors; treat as end-of-stream on the next
+                            // iteration but still yield the value already fetched.
+                            let _ = self.MoveNext();
                         }
+
+                        result
                     }
                 }
             }
-            TypeName::IIterable => {
-                quote! {
-                    impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
-                        type Item = T;
-                        type IntoIter = IIterator<Self::Item>;
+        } else if tn == TypeName::IIterable {
+            quote! {
+                impl<T: windows_core::RuntimeType> IntoIterator for IIterable<T> {
+                    type Item = T;
+                    type IntoIter = IIterator<Self::Item>;
 
-                        fn into_iter(self) -> Self::IntoIter {
-                            IntoIterator::into_iter(&self)
-                        }
+                    fn into_iter(self) -> Self::IntoIter {
+                        IntoIterator::into_iter(&self)
                     }
-                    impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
-                        type Item = T;
-                        type IntoIter = IIterator<Self::Item>;
-
-                        fn into_iter(self) -> Self::IntoIter {
-                            self.First().unwrap()
-                        }
-                    }
-
                 }
+                impl<T: windows_core::RuntimeType> IntoIterator for &IIterable<T> {
+                    type Item = T;
+                    type IntoIter = IIterator<Self::Item>;
+
+                    fn into_iter(self) -> Self::IntoIter {
+                        self.First().unwrap()
+                    }
+                }
+
             }
-            _ => quote! {},
+        } else {
+            quote! {}
         }
     }
 
@@ -639,7 +638,7 @@ impl Interface {
     }
 
     pub fn runtime_signature(&self, reader: &Reader) -> String {
-        interface_signature(self.def, &self.generics, reader)
+        interface_signature(self.def.clone(), &self.generics, reader)
     }
 
     pub fn required_interfaces(&self, reader: &Reader) -> Vec<Self> {

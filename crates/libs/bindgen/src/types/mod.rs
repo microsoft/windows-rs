@@ -424,10 +424,15 @@ impl Type {
                 let ns: &str = &tn.namespace;
                 let n: &str = &tn.name;
 
-                let (ns, n) = match Self::remap(ns, n) {
+                let remapped_name = match Self::remap(ns, n) {
                     Remap::Type(ty) => return ty,
-                    Remap::Name(ref type_name) => (type_name.namespace(), type_name.name()),
-                    Remap::None => (ns, n),
+                    Remap::Name(type_name) => Some(type_name),
+                    Remap::None => None,
+                };
+                let (ns, n) = if let Some(type_name) = remapped_name.as_ref() {
+                    (type_name.namespace(), type_name.name())
+                } else {
+                    (ns, n)
                 };
 
                 if let Some(outer) = enclosing {

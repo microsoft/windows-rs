@@ -35,15 +35,15 @@ impl CppInterface {
         self.def
             .methods()
             .map(|def| {
-                let method = CppMethod::new(def, namespace, config.reader);
+                let method = CppMethod::new(def.clone(), namespace, config.reader);
                 if !method.dependencies.included(config) {
                     config
                         .warnings
-                        .skip_method(method.def, &method.dependencies, config);
-                    CppMethodOrName::Name(method.def)
+                        .skip_method(method.def.clone(), &method.dependencies, config);
+                    CppMethodOrName::Name(method.def.clone())
                 } else if !config.filter.includes_method(&type_name, def) {
                     // Method-level `--filter` demoted this slot to opaque.
-                    CppMethodOrName::Name(method.def)
+                    CppMethodOrName::Name(method.def.clone())
                 } else {
                     CppMethodOrName::Method(method)
                 }
@@ -59,7 +59,7 @@ impl CppInterface {
         let namespace = self.def.namespace();
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
-            let method = CppMethod::new(def, namespace, config.reader);
+            let method = CppMethod::new(def.clone(), namespace, config.reader);
             !method.dependencies.included(config) || !config.filter.includes_method(&type_name, def)
         })
     }
@@ -96,7 +96,7 @@ impl CppInterface {
                     let method_cfg = class_cfg.difference(&method.dependencies, config);
                     let yes = method_cfg.write(config, false);
 
-                    let name = names.add(method.def);
+                    let name = names.add(method.def.clone());
                     let abi = method.write_abi(config, false);
 
                     if yes.is_empty() {
@@ -115,7 +115,7 @@ impl CppInterface {
                     }
                 }
                 CppMethodOrName::Name(method) => {
-                    let name = names.add(*method);
+                    let name = names.add(method.clone());
                     quote! { #name: usize, }
                 }
             });
@@ -266,7 +266,7 @@ impl CppInterface {
                     .iter()
                     .map(|method| match method {
                         CppMethodOrName::Method(method) => {
-                            let name = names.add(method.def);
+                            let name = names.add(method.def.clone());
                             if has_unknown_base {
                                 quote! { #name: #name::<Identity, OFFSET>, }
                             } else {
@@ -274,7 +274,7 @@ impl CppInterface {
                             }
                         }
                         CppMethodOrName::Name(method) => {
-                            let name = names.add(*method);
+                            let name = names.add(method.clone());
                             quote! { #name: 0, }
                         }
                     })
@@ -284,7 +284,7 @@ impl CppInterface {
 
                 let impl_methods: Vec<_> = methods.iter().map(|method| match method {
                 CppMethodOrName::Method(method) => {
-                    let name = names.add(method.def);
+                    let name = names.add(method.def.clone());
                     let signature = method.write_abi(config, true);
                     let upcall = method.write_upcall(&impl_name, &name, config.reader);
 
@@ -318,7 +318,7 @@ impl CppInterface {
                     .iter()
                     .map(|method| match method {
                         CppMethodOrName::Method(method) => {
-                            let name = names.add(method.def);
+                            let name = names.add(method.def.clone());
                             let signature = method.write_impl_signature(config, true);
                             quote! { fn #name #signature; }
                         }
@@ -356,7 +356,7 @@ impl CppInterface {
                     });
 
                 if has_skipped_methods {
-                    config.warnings.skip_implement(self.def);
+                    config.warnings.skip_implement(self.def.clone());
 
                     if has_unknown_base {
                         result.combine(quote! {
@@ -456,7 +456,7 @@ impl CppInterface {
 
     pub fn base_interfaces(&self, reader: &Reader) -> Vec<Type> {
         let mut bases = vec![];
-        let mut def = self.def;
+        let mut def = self.def.clone();
 
         while let Some(base) = def
             .interface_impls()
@@ -465,7 +465,7 @@ impl CppInterface {
         {
             match base {
                 Type::CppInterface(ref ty) => {
-                    def = ty.def;
+                    def = ty.def.clone();
                     bases.insert(0, base);
                 }
                 Type::Object => {

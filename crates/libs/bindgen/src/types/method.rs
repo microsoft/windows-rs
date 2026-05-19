@@ -297,11 +297,11 @@ impl Method {
             // entry, `compose` for the aggregating entry.
             (quote!(new), quote!(compose))
         } else if kind == InterfaceKind::Composable {
-            let name = method_names.add(self.def);
+            let name = method_names.add(self.def.clone());
             let compose = name.join("_compose");
             (name, compose)
         } else {
-            (method_names.add(self.def), TokenStream::new())
+            (method_names.add(self.def.clone()), TokenStream::new())
         };
 
         let typed_args: Vec<TokenStream> = params.iter().map(|param|{
@@ -552,7 +552,7 @@ impl Method {
             quote! { -> #result Result<#return_type> }
         };
 
-        let vname = virtual_names.add(self.def);
+        let vname = virtual_names.add(self.def.clone());
 
         let receiver: TokenStream = if kind == InterfaceKind::Default {
             quote! { self }

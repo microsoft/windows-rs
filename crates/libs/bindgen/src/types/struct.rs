@@ -20,7 +20,7 @@ impl Struct {
         let fields: Vec<_> = self
             .def
             .fields()
-            .map(|field| (field.name(), field.field_type(None, config.reader)))
+            .map(|field| (field.name().to_string(), field.field_type(None, config.reader)))
             .collect();
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable(config.reader));
