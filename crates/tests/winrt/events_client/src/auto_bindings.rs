@@ -35,9 +35,7 @@ impl Class {
             .map(|| result__)
         })
     }
-    pub fn StaticEvent<P0>(
-        handler: P0,
-    ) -> windows_core::Result<windows_core::EventRevoker<IClassStatics>>
+    pub fn StaticEvent<P0>(handler: P0) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<windows::Foundation::EventHandler<i32>>,
     {
@@ -94,7 +92,7 @@ impl IClass {
             .map(|| result__)
         }
     }
-    pub fn Event<P0>(&self, handler: P0) -> windows_core::Result<windows_core::EventRevoker<Self>>
+    pub fn Event<P0>(&self, handler: P0) -> windows_core::Result<windows_core::EventRevoker>
     where
         P0: windows_core::Param<windows::Foundation::TypedEventHandler<Class, i32>>,
     {

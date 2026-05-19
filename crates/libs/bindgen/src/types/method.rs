@@ -689,7 +689,7 @@ impl Method {
 
             return match kind {
                 InterfaceKind::Default => quote! {
-                    pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker<Self>> #where_clause {
+                    pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker> #where_clause {
                         #prelude
                         unsafe {
                             #event_body
@@ -699,7 +699,7 @@ impl Method {
                 InterfaceKind::None | InterfaceKind::Base => {
                     let interface_name = interface.unwrap().write_name(config);
                     quote! {
-                        pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker<#interface_name>> #where_clause {
+                        pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker> #where_clause {
                             let this = &windows_core::Interface::cast::<#interface_name>(self)?;
                             #prelude
                             unsafe {
@@ -710,9 +710,8 @@ impl Method {
                 }
                 InterfaceKind::Static => {
                     let factory_name = to_ident(trim_tick(interface.unwrap().def.name()));
-                    let revoker_type = interface.unwrap().write_name(config);
                     quote! {
-                        pub fn #name<#(#generics,)*>(#(#params)*) -> #result Result<#core EventRevoker<#revoker_type>> #where_clause {
+                        pub fn #name<#(#generics,)*>(#(#params)*) -> #result Result<#core EventRevoker> #where_clause {
                             #prelude
                             Self::#factory_name(|this| unsafe {
                                 #event_body

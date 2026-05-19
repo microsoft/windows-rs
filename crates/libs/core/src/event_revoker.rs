@@ -12,19 +12,20 @@ use core::ffi::c_void;
 /// registration tokens directly.
 ///
 /// [`into_token`]: EventRevoker::into_token
-pub struct EventRevoker<I: Interface> {
-    source: I,
+pub struct EventRevoker {
+    source: IUnknown,
     token: i64,
     remove: unsafe extern "system" fn(*mut c_void, i64) -> HRESULT,
 }
 
-impl<I: Interface> EventRevoker<I> {
+impl EventRevoker {
     #[doc(hidden)]
-    pub fn new(
+    pub fn new<I: Interface>(
         source: I,
         token: i64,
         remove: unsafe extern "system" fn(*mut c_void, i64) -> HRESULT,
     ) -> Self {
+        let source = unsafe { IUnknown::from_raw(source.into_raw()) };
         Self {
             source,
             token,
@@ -47,7 +48,7 @@ impl<I: Interface> EventRevoker<I> {
     }
 }
 
-impl<I: Interface> Drop for EventRevoker<I> {
+impl Drop for EventRevoker {
     fn drop(&mut self) {
         // Best-effort: discard errors silently (Drop cannot return Result).
         unsafe {

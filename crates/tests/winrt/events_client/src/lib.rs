@@ -130,7 +130,7 @@ mod auto_events {
         // Multiple revokers can be collected in a Vec.
         let revoker1 = iclass.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
         let revoker2 = iclass.Event(&TypedEventHandler::new(move |_, _| Ok(())))?;
-        let revokers: Vec<EventRevoker<IClass>> = vec![revoker1, revoker2];
+        let revokers: Vec<EventRevoker> = vec![revoker1, revoker2];
         assert_eq!(2, iclass.Signal(8)?);
         drop(revokers);
         assert_eq!(0, iclass.Signal(9)?);

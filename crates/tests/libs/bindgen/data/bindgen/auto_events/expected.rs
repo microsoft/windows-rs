@@ -89,10 +89,7 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn Click<P0>(
-            &self,
-            handler: P0,
-        ) -> windows_core::Result<windows_core::EventRevoker<Self>>
+        pub fn Click<P0>(&self, handler: P0) -> windows_core::Result<windows_core::EventRevoker>
         where
             P0: windows_core::Param<Handler>,
         {
