@@ -6,6 +6,7 @@ The [windows](https://crates.io/crates/windows) and [windows-sys](https://crates
 * [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 * [Feature search](https://microsoft.github.io/windows-rs/features)
+* [Miri validation](https://github.com/microsoft/windows-rs/blob/master/docs/miri_validation.md)
 
 This repo is the home of the following crates (and other supporting crates):
 

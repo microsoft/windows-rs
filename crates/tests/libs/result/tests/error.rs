@@ -45,6 +45,10 @@ fn from_hresult() {
 }
 
 #[test]
+#[cfg_attr(
+    miri,
+    ignore = "requires thread-local Win32 last-error API and COM error info propagation"
+)]
 fn from_thread() {
     unsafe { SetLastError(ERROR_SUCCESS) };
 
@@ -67,6 +71,10 @@ fn from_thread() {
 //      nothing) and must fall back gracefully to the HRESULT system message.
 #[test]
 #[cfg(all(windows, not(windows_slim_errors)))]
+#[cfg_attr(
+    miri,
+    ignore = "requires COM IErrorInfo thread APIs that are not reliably modeled by miri"
+)]
 fn error_info_consumed_before_conversion() {
     let original = Error::new(E_INVALIDARG, "test error info");
     assert_eq!(original.code(), E_INVALIDARG);

@@ -224,6 +224,10 @@ fn hstring_osstring_equality_combinations() {
 }
 
 #[test]
+#[cfg_attr(
+    miri,
+    ignore = "requires WinRT string FFI paths that are not reliably modeled by miri"
+)]
 fn hstring_compat() -> Result<()> {
     unsafe {
         use windows::Win32::System::WinRT::*;

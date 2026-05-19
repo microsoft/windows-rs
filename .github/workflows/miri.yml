@@ -18,14 +18,33 @@ on:
       - 'web/**'
     branches:
       - master
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
-  miri:
+  miri-pr:
+    if: github.event_name != 'schedule'
     runs-on: windows-2025
+    env:
+      MIRIFLAGS: -Zmiri-strict-provenance -Zmiri-symbolic-alignment-check -Zmiri-deterministic-concurrency
+    strategy:
+      matrix:
+        include:
+          - name: test_interface_core/macro_rules_decl
+            command: cargo miri test -p test_interface_core --test macro_rules_decl
+          - name: test_core/unknown
+            command: cargo miri test -p test_core --test unknown
+          - name: test_result/ntstatus
+            command: cargo miri test -p test_result --test ntstatus
+          - name: test_strings/literals
+            command: cargo miri test -p test_strings --test literals
+          - name: test_implement_core/com_object::basic
+            command: cargo miri test -p test_implement_core --lib com_object::basic
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -35,5 +54,41 @@ jobs:
         run: rustup target add x86_64-pc-windows-msvc
       - name: Add miri
         run: rustup toolchain install nightly --component miri
-      - name: Check string literals
-        run:  cargo miri test -p test_strings --test literals
+      - name: Run Miri PR tier (${{ matrix.name }})
+        run: ${{ matrix.command }}
+
+  miri-scheduled:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: windows-2025
+    env:
+      MIRIFLAGS: -Zmiri-strict-provenance -Zmiri-symbolic-alignment-check -Zmiri-deterministic-concurrency
+    strategy:
+      matrix:
+        include:
+          - name: test_interface_core/ref
+            command: cargo miri test -p test_interface_core --test ref
+          - name: test_interface_core/macro_rules_decl
+            command: cargo miri test -p test_interface_core --test macro_rules_decl
+          - name: test_implement_core/com_chain::interface_chain_query
+            command: cargo miri test -p test_implement_core --lib com_chain::interface_chain_query
+          - name: test_implement_core/com_object::take
+            command: cargo miri test -p test_implement_core --lib com_object::take
+          - name: test_result/ntstatus
+            command: cargo miri test -p test_result --test ntstatus
+          - name: test_result/slim_errors
+            command: cargo miri test -p test_result --test slim_errors
+          - name: test_strings/literals
+            command: cargo miri test -p test_strings --test literals
+          - name: test_strings/hstring_builder
+            command: cargo miri test -p test_strings --test hstring_builder
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Update toolchain
+        run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
+      - name: Add toolchain target
+        run: rustup target add x86_64-pc-windows-msvc
+      - name: Add miri
+        run: rustup toolchain install nightly --component miri
+      - name: Run Miri scheduled tier (${{ matrix.name }})
+        run: ${{ matrix.command }}
