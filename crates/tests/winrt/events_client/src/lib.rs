@@ -3,7 +3,14 @@
 mod auto_bindings;
 mod bindings;
 use bindings::*;
+use std::sync::{Mutex, MutexGuard};
 use windows::{core::*, Foundation::*};
+
+static STATIC_EVENT_TEST_LOCK: Mutex<()> = Mutex::new(());
+
+fn lock_static_event_tests() -> MutexGuard<'static, ()> {
+    STATIC_EVENT_TEST_LOCK.lock().unwrap()
+}
 
 #[test]
 fn test() -> Result<()> {
@@ -48,6 +55,7 @@ fn test() -> Result<()> {
 
 #[test]
 fn test_static() -> Result<()> {
+    let _lock = lock_static_event_tests();
     assert_eq!(0, Class::StaticSignal(1)?);
 
     let token = Class::StaticEvent(&EventHandler::new(move |_, args| {
@@ -130,6 +138,7 @@ mod auto_events {
 
     #[test]
     fn test_auto_revoker_static() -> Result<()> {
+        let _lock = super::lock_static_event_tests();
         // Static event: auto-revoke on drop.
         {
             let _revoker = Class::StaticEvent(&EventHandler::new(move |_, _| Ok(())))?;
