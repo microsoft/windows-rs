@@ -9,7 +9,9 @@ use windows::{core::*, Foundation::*};
 static STATIC_EVENT_TEST_LOCK: Mutex<()> = Mutex::new(());
 
 fn lock_static_event_tests() -> MutexGuard<'static, ()> {
-    STATIC_EVENT_TEST_LOCK.lock().unwrap()
+    STATIC_EVENT_TEST_LOCK
+        .lock()
+        .expect("static event test lock poisoned")
 }
 
 #[test]
