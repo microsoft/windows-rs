@@ -264,8 +264,9 @@ impl Type {
         // 4. architecture
         // 5. overloaded types
 
-        let kind = self.item_ref().map_or(-1, ItemRef::kind);
-        let arches = self.item_ref().map_or(0, ItemRef::arches);
+        let item = self.item_ref();
+        let kind = item.map_or(-1, ItemRef::kind);
+        let arches = item.map_or(0, ItemRef::arches);
 
         (kind != 0, self.type_name(), arches, kind)
     }
@@ -1100,17 +1101,16 @@ impl Dependencies for Type {
             return;
         }
 
-        if let Some(multi) = ty
-            .item_ref()
+        ty.item_ref()
             .and_then(ItemRef::full_name)
             .map(|(namespace, name)| reader.with_full_name(namespace, name))
-        {
-            multi.for_each(|multi| {
+            .into_iter()
+            .flatten()
+            .for_each(|multi| {
                 if ty != multi {
                     multi.combine(dependencies, reader);
                 }
             });
-        }
 
         if let Some(item) = ty.item_ref() {
             item.combine(dependencies, reader);

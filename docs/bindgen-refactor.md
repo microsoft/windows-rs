@@ -273,6 +273,9 @@ What this costs us:
      so bindgen does not hand-classify `Apis`;
    - a stable query surface for category + remap-ready type identity, so
      bindgen owns policy but not metadata interpretation.
+   - a pre-filtered iterator/query API for bindgen-facing type discovery
+     (e.g. by namespace/category with remaps already represented), so
+     bindgen doesn't re-encode metadata traversal policy in `winmd/reader.rs`.
    This should be tracked as coordinated work items in both crates
    (`windows-metadata` feature/task + matching bindgen follow-up) so
    layering changes land in lockstep (for example: linked GitHub issues in
