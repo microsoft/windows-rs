@@ -20,16 +20,6 @@ impl Method {
         }
     }
 
-    pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        parent
-            .difference(&self.dependencies, config)
-            .write(config, not)
-    }
-
     pub fn write_upcall(&self, inner: TokenStream, this: bool, config: &Config) -> TokenStream {
         let reader = config.reader;
         let noexcept = self.def.has_attribute("NoExceptionAttribute");

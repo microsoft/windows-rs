@@ -10,15 +10,11 @@ impl Class {
         self.def.type_name()
     }
 
-    fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
-        write_full_cfg(self, config)
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         let required_interfaces = self.required_interfaces(config.reader);
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
-        let (class_cfg, cfg) = self.write_cfg(config);
+        let (class_cfg, cfg) = config.cfg_pair(self);
         let runtime_name = format!("{type_name}");
 
         let runtime_name = quote! {
@@ -53,7 +49,7 @@ impl Class {
                     _ => None,
                 })
             {
-                let cfg = method.write_cfg(config, &class_cfg, false);
+                let cfg = config.cfg_difference(&class_cfg, &method.dependencies, false);
 
                 let method = method.write(
                     config,
@@ -95,11 +91,8 @@ impl Class {
                         let method_name = to_ident(trim_tick(interface.def.name()));
                         let interface_type = interface.write_name(config);
 
-                        let cfg = if config.package {
-                            class_cfg.difference(&interface.dependencies(config.reader), config).write(config, false)
-                        } else {
-                            quote! {}
-                        };
+                        let cfg =
+                            config.cfg_difference(&class_cfg, &interface.dependencies(config.reader), false);
 
                         Some(quote! {
                             #cfg

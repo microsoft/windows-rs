@@ -27,10 +27,6 @@ impl CppConst {
         self.type_name().write(config, &[])
     }
 
-    pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        write_simple_cfg(self, config)
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         if let windows_metadata::Type::ClassName(type_name)
         | windows_metadata::Type::ValueName(type_name) = self.field.ty()
@@ -52,7 +48,7 @@ impl CppConst {
             return config.write_cpp_const_guid(name, &guid);
         }
 
-        let cfg = self.write_cfg(config);
+        let cfg = config.cfg_for(self);
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.constant_type(config.reader);

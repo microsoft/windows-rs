@@ -140,3 +140,27 @@ impl Cfg {
         tokens
     }
 }
+
+impl Config<'_> {
+    pub fn cfg(&self, dependencies: &TypeMap) -> TokenStream {
+        Cfg::new(dependencies, self).write(self, false)
+    }
+
+    pub fn cfg_for(&self, ty: &impl Dependencies) -> TokenStream {
+        self.cfg(&ty.dependencies(self.reader))
+    }
+
+    pub fn cfg_pair(&self, ty: &impl Dependencies) -> (Cfg, TokenStream) {
+        let cfg = if self.package {
+            Cfg::new(&ty.dependencies(self.reader), self)
+        } else {
+            Cfg::default()
+        };
+        let tokens = cfg.write(self, false);
+        (cfg, tokens)
+    }
+
+    pub fn cfg_difference(&self, parent: &Cfg, dependencies: &TypeMap, not: bool) -> TokenStream {
+        parent.difference(dependencies, self).write(self, not)
+    }
+}

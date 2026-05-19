@@ -466,7 +466,10 @@ handled by PR #4431. The remaining steps, ordered by independence:
    `config::Mode` is in place and the main `sys`/`minimal` projection
    branching is migrated to typed mode checks.
 
-5. **Lift `cfg` emission out of emitters** (§7). Remaining work.
+5. **Lift `cfg` emission out of emitters** (§7). In progress.
+   Shared `Config` cfg helpers are now in place and the per-emitter
+   `write_cfg` wrapper methods have been removed; the remaining work is to
+   finish moving top-level decoration to the package writer.
    Natural follow-on to
    step 4: once emitters no longer see `config.package`, the per-emitter
    `write_cfg` methods become dead code and the `cfg_for` post-decorator

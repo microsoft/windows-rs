@@ -11,10 +11,6 @@ impl Delegate {
         self.def.type_name()
     }
 
-    pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        write_simple_cfg(self, config)
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = self.write_name(config);
         let vtbl_name: TokenStream = format!("{}_Vtbl", trim_tick(self.def.name()))
@@ -29,7 +25,7 @@ impl Delegate {
         let constraints = config.write_generic_constraints(&self.generics);
         let named_phantoms = config.write_generic_named_phantoms(&self.generics);
         let method = self.method(config.reader);
-        let cfg = self.write_cfg(config);
+        let cfg = config.cfg_for(self);
 
         let invoke = method.write(
             config,

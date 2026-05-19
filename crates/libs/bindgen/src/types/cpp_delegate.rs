@@ -33,10 +33,6 @@ impl CppDelegate {
             .unwrap()
     }
 
-    pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        write_simple_cfg(self, config)
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
@@ -51,7 +47,7 @@ impl CppDelegate {
 
         let return_sig = config.write_return_sig(method, &signature, false);
         let arches = write_arches(self.def);
-        let cfg = self.write_cfg(config);
+        let cfg = config.cfg_for(self);
 
         let mut abi = None;
 

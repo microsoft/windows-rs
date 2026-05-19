@@ -89,10 +89,6 @@ impl CppFn {
         }
     }
 
-    pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        write_simple_cfg(self, config)
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self
@@ -101,7 +97,7 @@ impl CppFn {
 
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
-        let cfg = self.write_cfg(config);
+        let cfg = config.cfg_for(self);
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 

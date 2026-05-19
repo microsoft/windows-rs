@@ -57,10 +57,6 @@ impl CppStruct {
         fields.next().is_none()
     }
 
-    pub fn write_cfg(&self, config: &Config) -> TokenStream {
-        write_simple_cfg(self, config)
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         if self.is_handle(config.reader) {
             return config.write_cpp_handle(self.def);
@@ -73,7 +69,7 @@ impl CppStruct {
         }
 
         let arches = write_arches(self.def);
-        let cfg = self.write_cfg(config);
+        let cfg = config.cfg_for(self);
         self.write_with_cfg(config, &quote! { #arches #cfg })
     }
 

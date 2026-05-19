@@ -86,10 +86,6 @@ impl Interface {
         })
     }
 
-    fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
-        write_full_cfg(self, config)
-    }
-
     pub fn write(&self, config: &Config) -> TokenStream {
         let type_name = self.def.type_name();
         let methods = self.get_methods(config);
@@ -103,7 +99,7 @@ impl Interface {
         let constraints = config.write_generic_constraints(&self.generics);
         let phantoms = config.write_generic_phantoms(&self.generics);
         let named_phantoms = config.write_generic_named_phantoms(&self.generics);
-        let (class_cfg, cfg) = self.write_cfg(config);
+        let (class_cfg, cfg) = config.cfg_pair(self);
 
         let vtbl = {
             let virtual_names = &mut MethodNames::new();
@@ -266,7 +262,7 @@ impl Interface {
                         MethodOrName::Method(method) => Some(method),
                         _ => None,
                     }) {
-                        let cfg = method.write_cfg(config, &class_cfg, false);
+                        let cfg = config.cfg_difference(&class_cfg, &method.dependencies, false);
 
                         let method = method.write(
                             config,
@@ -297,7 +293,8 @@ impl Interface {
                                 },
                             )
                         {
-                            let cfg = method.write_cfg(config, &class_cfg, false);
+                            let cfg =
+                                config.cfg_difference(&class_cfg, &method.dependencies, false);
 
                             let method = method.write(
                                 config,
@@ -385,26 +382,22 @@ impl Interface {
 
                 let runtime_name = format!("{type_name}");
 
-                let cfg = if config.package {
-                    fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
-                        for method in interface.get_methods(config).iter() {
-                            if let MethodOrName::Method(method) = method {
-                                dependencies.combine(&method.dependencies);
-                            }
+                fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
+                    for method in interface.get_methods(config).iter() {
+                        if let MethodOrName::Method(method) = method {
+                            dependencies.combine(&method.dependencies);
                         }
                     }
+                }
 
-                    let mut dependencies = self.dependencies(config.reader);
-                    combine(self, &mut dependencies, config);
+                let mut dependencies = self.dependencies(config.reader);
+                combine(self, &mut dependencies, config);
 
-                    required_interfaces
-                        .iter()
-                        .for_each(|interface| combine(interface, &mut dependencies, config));
+                required_interfaces
+                    .iter()
+                    .for_each(|interface| combine(interface, &mut dependencies, config));
 
-                    Cfg::new(&dependencies, config).write(config, false)
-                } else {
-                    quote! {}
-                };
+                let cfg = config.cfg(&dependencies);
 
                 result.combine(quote! {
                     #cfg

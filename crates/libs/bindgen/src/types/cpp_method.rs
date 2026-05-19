@@ -202,16 +202,6 @@ impl CppMethod {
         }
     }
 
-    pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        if !config.package {
-            return quote! {};
-        }
-
-        parent
-            .difference(&self.dependencies, config)
-            .write(config, not)
-    }
-
     pub fn write_generics(&self) -> TokenStream {
         let mut tokens = quote! {};
 
