@@ -32,7 +32,10 @@ impl MethodDefExt for MethodDef {
             "combase.dll".to_string()
         } else {
             self.impl_map()
-                .map_or_else(|| "".to_string(), |map| map.import_scope().name().to_string())
+                .map_or_else(
+                    || "".to_string(),
+                    |map| map.import_scope().name().to_string(),
+                )
                 .to_lowercase()
         }
     }

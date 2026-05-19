@@ -54,7 +54,7 @@ pub fn write_struct_items(
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
-        item.index(),
+        &item.row_ref().index,
         &["SupportedArchitectureAttribute"],
     )?;
 
@@ -96,7 +96,7 @@ fn collect_nested(
 ) -> Result<HashMap<String, String>, Error> {
     let mut flat_names: HashMap<String, String> = HashMap::new();
 
-    for (index, nested) in parent.index().nested(*parent).enumerate() {
+    for (index, nested) in parent.row_ref().index.nested(parent.clone()).enumerate() {
         let nested_leaf = nested.name();
         let flat_name = format!("{outer_flat_name}_{index}");
         flat_names.insert(nested_leaf.to_string(), flat_name.clone());
@@ -142,7 +142,7 @@ fn collect_nested(
         let custom_attrs = write_custom_attributes_except(
             nested.attributes(),
             namespace,
-            nested.index(),
+            &nested.row_ref().index,
             &["SupportedArchitectureAttribute"],
         )?;
 
@@ -165,7 +165,7 @@ fn write_field_flat(
     let name = write_ident(item.name());
     let resolved_ty = resolve_nested(&item.ty(), namespace, flat_names);
     let ty = write_type(namespace, &resolved_ty);
-    let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let field_attrs = write_custom_attributes(item.attributes(), namespace, &item.row_ref().index)?;
     Ok(quote! { #(#field_attrs)* #name: #ty, })
 }
 

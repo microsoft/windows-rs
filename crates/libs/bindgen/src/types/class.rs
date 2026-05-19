@@ -308,7 +308,13 @@ impl Class {
                         set[pos].kind = interface.kind;
                     }
                 } else {
-                    walk(interface.def.clone(), &interface.generics, is_base, set, reader);
+                    walk(
+                        interface.def.clone(),
+                        &interface.generics,
+                        is_base,
+                        set,
+                        reader,
+                    );
                     set.push(interface);
                 }
             }

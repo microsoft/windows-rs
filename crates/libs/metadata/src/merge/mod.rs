@@ -292,7 +292,11 @@ fn write_type(
                 write_attributes(file, writer::HasAttribute::Param(param), param_def);
             }
 
-            write_attributes(file, writer::HasAttribute::MethodDef(method_def), method.clone());
+            write_attributes(
+                file,
+                writer::HasAttribute::MethodDef(method_def),
+                method.clone(),
+            );
 
             if let Some(impl_map) = method.impl_map() {
                 file.ImplMap(

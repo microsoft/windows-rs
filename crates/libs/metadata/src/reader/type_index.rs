@@ -74,7 +74,11 @@ impl TypeIndex {
             })
             .flat_map(|(namespace, name, types)| types.iter().map(move |ty| (namespace, name, ty)))
             .map(|(namespace, name, (file, pos))| {
-                (namespace, name, TypeDef(Row::new(self.clone(), *file, *pos)))
+                (
+                    namespace,
+                    name,
+                    TypeDef(Row::new(self.clone(), *file, *pos)),
+                )
             })
     }
 

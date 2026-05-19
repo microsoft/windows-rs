@@ -5,18 +5,18 @@ pub use reader::*;
 
 // Row type re-exports. These are now lifetime-free owned handles backed by an
 // Arc<TypeIndexData> inside each Row, so no 'static aliases are needed.
-pub use windows_metadata::reader::TypeDef;
+pub use windows_metadata::reader::Constant;
 pub use windows_metadata::reader::Field;
-pub use windows_metadata::reader::MethodDef;
-pub use windows_metadata::reader::MethodParam;
 pub use windows_metadata::reader::GenericParam;
 pub use windows_metadata::reader::InterfaceImpl;
-pub use windows_metadata::reader::Constant;
+pub use windows_metadata::reader::MethodDef;
+pub use windows_metadata::reader::MethodParam;
+pub use windows_metadata::reader::TypeDef;
 
 // Coded index type re-exports (also lifetime-free)
-pub use windows_metadata::reader::TypeDefOrRef;
-pub use windows_metadata::reader::MemberRefParent;
 pub use windows_metadata::reader::File;
+pub use windows_metadata::reader::MemberRefParent;
+pub use windows_metadata::reader::TypeDefOrRef;
 
 pub use windows_metadata::reader::AsRow;
 pub use windows_metadata::HasAttributes;

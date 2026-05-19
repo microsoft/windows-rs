@@ -25,14 +25,18 @@ impl PartialOrd for TypeName {
 impl TypeName {
     pub const Object: Self = Self(Cow::Borrowed("System"), Cow::Borrowed("Object"));
 
-    pub const IAsyncAction: Self =
-        Self(Cow::Borrowed("Windows.Foundation"), Cow::Borrowed("IAsyncAction"));
+    pub const IAsyncAction: Self = Self(
+        Cow::Borrowed("Windows.Foundation"),
+        Cow::Borrowed("IAsyncAction"),
+    );
     pub const IAsyncActionWithProgress: Self = Self(
         Cow::Borrowed("Windows.Foundation"),
         Cow::Borrowed("IAsyncActionWithProgress"),
     );
-    pub const IAsyncOperation: Self =
-        Self(Cow::Borrowed("Windows.Foundation"), Cow::Borrowed("IAsyncOperation"));
+    pub const IAsyncOperation: Self = Self(
+        Cow::Borrowed("Windows.Foundation"),
+        Cow::Borrowed("IAsyncOperation"),
+    );
     pub const IAsyncOperationWithProgress: Self = Self(
         Cow::Borrowed("Windows.Foundation"),
         Cow::Borrowed("IAsyncOperationWithProgress"),

@@ -84,7 +84,12 @@ impl CppStruct {
             .def
             .fields()
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
-            .map(|field| (field.name().to_string(), field.field_type(Some(self), config.reader)))
+            .map(|field| {
+                (
+                    field.name().to_string(),
+                    field.field_type(Some(self), config.reader),
+                )
+            })
             .collect();
 
         let is_copyable = self.is_copyable(config.reader);

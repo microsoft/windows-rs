@@ -26,7 +26,8 @@ pub fn write_attribute(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
         }
     });
 
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let custom_attrs =
+        write_custom_attributes(item.attributes(), namespace, &item.row_ref().index)?;
 
     Ok(quote! {
         #(#custom_attrs)*

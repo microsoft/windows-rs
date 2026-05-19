@@ -48,18 +48,15 @@ impl Reader {
                 continue;
             }
 
-            let types = reader
-                .map
-                .entry(Arc::from(namespace))
-                .or_default();
+            let types = reader.map.entry(Arc::from(namespace)).or_default();
             let category = def.category();
 
             if flags.contains(TypeAttributes::WindowsRuntime) {
                 let ty = match category {
                     windows_metadata::reader::TypeCategory::Attribute => continue,
-                    windows_metadata::reader::TypeCategory::Class => Type::Class(Class {
-                        def: def.clone(),
-                    }),
+                    windows_metadata::reader::TypeCategory::Class => {
+                        Type::Class(Class { def: def.clone() })
+                    }
                     windows_metadata::reader::TypeCategory::Delegate => {
                         let generics = def.generics();
                         Type::Delegate(Delegate {
@@ -127,7 +124,11 @@ impl Reader {
                         }
                     }
                     windows_metadata::reader::TypeCategory::Delegate => {
-                        insert(types, name, Type::CppDelegate(CppDelegate { def: def.clone() }));
+                        insert(
+                            types,
+                            name,
+                            Type::CppDelegate(CppDelegate { def: def.clone() }),
+                        );
                     }
                     windows_metadata::reader::TypeCategory::Enum => {
                         insert(types, name, Type::CppEnum(CppEnum { def: def.clone() }));
@@ -176,8 +177,7 @@ impl Reader {
                                 {
                                     let nested_name: Arc<str> =
                                         Arc::from(format!("{}_{index}", name).as_str());
-                                    let nested_key: Arc<str> =
-                                        Arc::from(nested_def.name());
+                                    let nested_key: Arc<str> = Arc::from(nested_def.name());
                                     ty.nested.insert(
                                         nested_key,
                                         make(nested_def.clone(), nested_name, nested),

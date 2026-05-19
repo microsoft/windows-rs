@@ -201,7 +201,7 @@ enum FilterRule {
 /// 4. Fallback — treat as a namespace prefix (may match nothing)
 fn resolve_filter<'a>(
     filter: &[String],
-    index: &metadata::reader::ItemIndex<'a>,
+    index: &metadata::reader::ItemIndex,
 ) -> Vec<(FilterRule, bool)> {
     let mut rules = vec![];
 
@@ -353,7 +353,8 @@ fn write_const_value(
     let name = write_ident(item.name());
     let constant = item.constant();
     let ty = write_type(namespace, &item.ty());
-    let custom_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let custom_attrs =
+        write_custom_attributes(item.attributes(), namespace, &item.row_ref().index)?;
 
     Ok(if let Some(constant) = constant {
         let value = write_value(namespace, &constant.value());
@@ -448,7 +449,7 @@ fn write_params(
             let param_attrs = write_custom_attributes_except(
                 param.attributes(),
                 namespace,
-                method.index(),
+                &method.row_ref().index,
                 &["RetValAttribute"],
             )?;
             let ty = write_type(namespace, &ty);
@@ -465,7 +466,7 @@ fn write_return_type(
     let return_attrs: Vec<TokenStream> = method
         .params()
         .find(|p| p.sequence() == 0)
-        .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
+        .map(|p| write_custom_attributes(p.attributes(), namespace, &method.row_ref().index))
         .transpose()?
         .unwrap_or_default();
 
@@ -478,34 +479,32 @@ fn write_return_type(
     })
 }
 
-fn write_custom_attributes<'a>(
-    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+fn write_custom_attributes(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute>,
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
 ) -> Result<Vec<TokenStream>, Error> {
     write_custom_attributes_except(attributes, item_namespace, index, &[])
 }
 
-fn write_custom_attributes_except<'a>(
-    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+fn write_custom_attributes_except(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute>,
     item_namespace: &str,
     index: &windows_metadata::reader::TypeIndex,
     exclude: &[&str],
 ) -> Result<Vec<TokenStream>, Error> {
     attributes
         .filter(|attr| {
-            !(namespace_starts_with(attr.namespace(), "System")
-                || exclude.contains(&attr.name())
+            !(namespace_starts_with(&attr.namespace(), "System")
+                || exclude.iter().any(|&e| e == attr.name())
                 // `NativeTypedefAttribute` is handled by the typedef writer; skip it here.
                 || (attr.namespace() == "Windows.Win32.Foundation.Metadata"
                     && attr.name() == "NativeTypedefAttribute"))
         })
         .map(|attr| {
             let attr_ns = attr.namespace();
-            let attr_short = attr
-                .name()
-                .strip_suffix("Attribute")
-                .unwrap_or_else(|| attr.name());
+            let attr_name = attr.name();
+            let attr_short = attr_name.strip_suffix("Attribute").unwrap_or(&attr_name);
 
             // Build the (possibly qualified) attribute path token stream.
             let name_ts = if attr_ns.is_empty() || attr_ns == item_namespace {

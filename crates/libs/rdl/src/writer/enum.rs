@@ -31,9 +31,10 @@ pub fn write_enum(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error
     let has_flags = item.attributes().any(is_flags_attr);
 
     let custom_attrs = write_custom_attributes(
-        item.attributes().filter(|attr| !is_flags_attr(*attr)),
+        item.attributes()
+            .filter(|attr| !is_flags_attr(attr.clone())),
         namespace,
-        item.index(),
+        &item.row_ref().index,
     )?;
 
     if has_flags {

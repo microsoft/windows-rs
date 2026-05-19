@@ -33,7 +33,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> Result<TokenStream, 
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
-        item.index(),
+        &item.row_ref().index,
         &["GuidAttribute"],
     )?;
 
@@ -194,7 +194,8 @@ fn write_method(
         )
         .collect::<Result<Vec<_>, Error>>()?;
 
-    let method_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
+    let method_attrs =
+        write_custom_attributes(item.attributes(), namespace, &item.row_ref().index)?;
 
     // Emit the built-in `#[special]` pseudo-attribute when SpecialName is set,
     // preserving properties and events on round-trip.

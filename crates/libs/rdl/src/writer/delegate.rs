@@ -26,7 +26,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> Result<TokenStream, E
     let custom_attrs = write_custom_attributes_except(
         item.attributes(),
         namespace,
-        item.index(),
+        &item.row_ref().index,
         &["GuidAttribute", "UnmanagedFunctionPointerAttribute"],
     )?;
 

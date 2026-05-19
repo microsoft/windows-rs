@@ -33,7 +33,8 @@ impl TypeMap {
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
                 for (name, types) in &reader[namespace] {
-                    if let Some(filter_rule) = filter.includes_type_name(&TypeName::new(namespace, name))
+                    if let Some(filter_rule) =
+                        filter.includes_type_name(&TypeName::new(namespace, name))
                     {
                         // A longer rule string means a more specific (fully-qualified) path.
                         // Skip types already owned by a reference whose rule is more specific

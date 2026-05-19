@@ -54,7 +54,9 @@ impl ItemIndex {
                     .map(move |(name, items)| (namespace, name, items))
             })
             .flat_map(|(namespace, name, items)| {
-                items.iter().map(move |item| (namespace.as_str(), name.as_str(), item))
+                items
+                    .iter()
+                    .map(move |item| (namespace.as_str(), name.as_str(), item))
             })
     }
 
