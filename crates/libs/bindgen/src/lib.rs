@@ -718,7 +718,7 @@ impl Bindgen {
     /// Event accessor pairs (`add_*`/`remove_*`) are replaced by a single
     /// auto-revoking wrapper that returns a [`windows_core::EventRevoker`].
     /// The `Remove*` wrapper is suppressed. Callers can call
-    /// [`EventRevoker::into_token`] to recover the raw token when interoperating
+    /// [`windows_core::EventRevoker::into_token`] to recover the raw token when interoperating
     /// with code that manages registration tokens directly.
     ///
     /// This is a build-time / disk / memory optimization: the generated source
@@ -733,6 +733,8 @@ impl Bindgen {
         self.minimal = true;
         self
     }
+
+    /// Generate raw or sys-style type aliases.
     pub fn typedef(&mut self) -> &mut Self {
         self.typedef = true;
         self

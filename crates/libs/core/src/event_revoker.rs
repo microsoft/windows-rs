@@ -12,6 +12,7 @@ use core::ffi::c_void;
 /// registration tokens directly.
 ///
 /// [`into_token`]: EventRevoker::into_token
+#[must_use = "event registrations are revoked when the EventRevoker is dropped"]
 pub struct EventRevoker {
     source: IUnknown,
     token: i64,

@@ -654,8 +654,18 @@ impl Method {
         let is_event_remove = config.minimal
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
+        let suppress_event_remove = is_event_remove
+            && kind != InterfaceKind::Composable
+            && {
+                let paired_event_add = format!("add_{}", &raw_method_name[7..]);
+                matches!(self.def.parent(), MemberRefParent::TypeDef(def) if def.methods().any(|method| {
+                    method.flags().contains(MethodAttributes::SpecialName)
+                        && !method.has_attribute("NoExceptionAttribute")
+                        && method.name() == paired_event_add
+                }))
+            };
 
-        if is_event_remove {
+        if suppress_event_remove {
             return quote! {};
         }
 
@@ -663,7 +673,7 @@ impl Method {
             // The event part (e.g. "Click" from "add_Click") determines the
             // vtable field name for the paired remove method ("RemoveClick").
             let event_part = &raw_method_name[4..];
-            let remove_vname: TokenStream = format!("Remove{event_part}").parse().unwrap();
+            let remove_vname = to_ident(&format!("Remove{event_part}"));
 
             // Raw vtable call that maps the HRESULT into Result<i64> via `?`.
             let raw_vcall = quote! {

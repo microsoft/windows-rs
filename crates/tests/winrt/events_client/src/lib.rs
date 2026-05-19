@@ -91,9 +91,9 @@ mod auto_events {
 
     #[test]
     fn test_auto_revoker() -> Result<()> {
-        let class: &'static Class = Box::leak(Box::new(Class::new()?));
+        let class = Class::new()?;
         // In minimal mode, instance methods are only on the interface.
-        let iclass = &windows_core::Interface::cast::<IClass>(class).unwrap();
+        let iclass = windows_core::Interface::cast::<IClass>(&class)?;
 
         assert_eq!(0, iclass.Signal(1)?);
 
@@ -119,8 +119,8 @@ mod auto_events {
         assert_eq!(1, iclass.Signal(6)?);
         // Manually revoke via the vtable.
         unsafe {
-            (windows_core::Interface::vtable(iclass).RemoveEvent)(
-                windows_core::Interface::as_raw(iclass),
+            (windows_core::Interface::vtable(&iclass).RemoveEvent)(
+                windows_core::Interface::as_raw(&iclass),
                 token,
             )
             .ok()?;
