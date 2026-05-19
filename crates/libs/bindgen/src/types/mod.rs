@@ -207,6 +207,22 @@ impl ItemRef<'_> {
             _ => None,
         }
     }
+
+    fn combine(self, dependencies: &mut TypeMap, reader: &Reader) {
+        match self {
+            Self::Class(ty) => ty.combine(dependencies, reader),
+            Self::Delegate(ty) => ty.combine(dependencies, reader),
+            Self::Enum(_) => {}
+            Self::Interface(ty) => ty.combine(dependencies, reader),
+            Self::Struct(ty) => ty.combine(dependencies, reader),
+            Self::CppConst(ty) => ty.combine(dependencies, reader),
+            Self::CppDelegate(ty) => ty.combine(dependencies, reader),
+            Self::CppFn(ty) => ty.combine(dependencies, reader),
+            Self::CppInterface(ty) => ty.combine(dependencies, reader),
+            Self::CppStruct(ty) => ty.combine(dependencies, reader),
+            Self::CppEnum(ty) => ty.combine(dependencies, reader),
+        }
+    }
 }
 
 impl Type {
@@ -1081,29 +1097,21 @@ impl Dependencies for Type {
             });
         }
 
-        match &ty {
-            Self::Class(ty) => ty.combine(dependencies, reader),
-            Self::Delegate(ty) => ty.combine(dependencies, reader),
-            Self::Enum(..) => {}
-            Self::Interface(ty) => ty.combine(dependencies, reader),
-            Self::Struct(ty) => ty.combine(dependencies, reader),
-            Self::CppConst(ty) => ty.combine(dependencies, reader),
-            Self::CppDelegate(ty) => ty.combine(dependencies, reader),
-            Self::CppFn(ty) => ty.combine(dependencies, reader),
-            Self::CppInterface(ty) => ty.combine(dependencies, reader),
-            Self::CppStruct(ty) => ty.combine(dependencies, reader),
-            Self::CppEnum(ty) => ty.combine(dependencies, reader),
+        if let Some(item) = ty.item_ref() {
+            item.combine(dependencies, reader);
+        } else {
+            match &ty {
+                Self::IUnknown => {
+                    Self::GUID.combine(dependencies, reader);
+                    Self::HRESULT.combine(dependencies, reader);
+                }
 
-            Self::IUnknown => {
-                Self::GUID.combine(dependencies, reader);
-                Self::HRESULT.combine(dependencies, reader);
+                Self::Object => {
+                    Self::IUnknown.combine(dependencies, reader);
+                }
+
+                _ => {}
             }
-
-            Self::Object => {
-                Self::IUnknown.combine(dependencies, reader);
-            }
-
-            _ => {}
         }
     }
 }
