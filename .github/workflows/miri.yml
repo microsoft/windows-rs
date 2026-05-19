@@ -19,6 +19,7 @@ on:
     branches:
       - master
   schedule:
+    # Weekly on Monday at 07:00 UTC.
     - cron: '0 7 * * 1'
   workflow_dispatch:
 
@@ -28,7 +29,7 @@ concurrency:
 
 jobs:
   miri-pr:
-    if: github.event_name != 'schedule'
+    if: github.event_name != 'schedule' && github.event_name != 'workflow_dispatch'
     runs-on: windows-2025
     env:
       MIRIFLAGS: -Zmiri-strict-provenance -Zmiri-symbolic-alignment-check -Zmiri-deterministic-concurrency

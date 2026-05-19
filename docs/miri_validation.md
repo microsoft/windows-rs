@@ -18,9 +18,9 @@ All Miri CI runs use:
 - `-Zmiri-symbolic-alignment-check`
 - `-Zmiri-deterministic-concurrency`
 
-### Accepted suppressions
+### Accepted exceptions
 
-`cfg(miri)` guards and `#[cfg_attr(miri, ignore = "...")]` are allowed only for tests that depend on environment interactions Miri does not model reliably (for example selected WinRT/COM/Win32 thread-error-info behavior). Suppressions must include a reason.
+`cfg(miri)` guards and `#[cfg_attr(miri, ignore = "...")]` are allowed only for tests that depend on environment interactions Miri does not model reliably (for example selected WinRT/COM/Win32 thread-error-info behavior). Exceptions must include a reason.
 
 ### CI tiers
 
