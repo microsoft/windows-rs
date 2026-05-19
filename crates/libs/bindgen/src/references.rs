@@ -168,18 +168,15 @@ const DEFAULT_REFERENCES: &[DefaultReference] = &[
 ];
 
 pub fn default_reference_stages(reader: &Reader, specific_deps: bool) -> Vec<ReferenceStage> {
-    let mut references = Vec::new();
+    let mut references = Vec::with_capacity(DEFAULT_REFERENCES.len());
 
-    for reference in DEFAULT_REFERENCES {
+    for reference in DEFAULT_REFERENCES.iter().rev() {
         if reader.contains_key(reference.required_namespace) {
-            references.insert(
-                0,
-                ReferenceStage::new(
-                    reference.name.resolve(specific_deps),
-                    ReferenceStyle::Flat,
-                    reference.path,
-                ),
-            );
+            references.push(ReferenceStage::new(
+                reference.name.resolve(specific_deps),
+                ReferenceStyle::Flat,
+                reference.path,
+            ));
         }
     }
 
