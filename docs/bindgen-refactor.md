@@ -266,6 +266,19 @@ What this costs us:
    `Type::remap`-aware filtering) and reuses `windows-metadata`'s
    `TypeIndex` API directly. The 12-arm `match` over `TypeCategory` in
    `reader.rs:60-…` should not exist twice.
+   Concretely, push these into `windows-metadata` so bindgen can just
+   compose them:
+   - a reusable nested-type traversal API over `TypeIndex`;
+   - a typed projection for "Win32 APIs class" (`methods` + `const fields`)
+     so bindgen does not hand-classify `Apis`;
+   - a stable query surface for category + remap-ready type identity, so
+     bindgen owns policy but not metadata interpretation.
+   This should be tracked as coordinated work items in both crates
+   (`windows-metadata` feature/task + matching bindgen follow-up) so
+   layering changes land in lockstep (for example: linked GitHub issues in
+   both crates, cross-referenced PRs, or one shared tracking issue with
+   checklists for both sides — e.g. "add API in windows-metadata" issue
+   paired with "consume API in windows-bindgen" issue, linked both ways).
 
 ## 6. The `_Impl` story is decided in three different places
 

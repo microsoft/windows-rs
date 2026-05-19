@@ -224,6 +224,11 @@ impl<'a> ItemRef<'a> {
         }
     }
 
+    /// Returns `(namespace, name)` for item kinds that can resolve multi-definitions by full name.
+    /// This is only needed for `CppStruct` and `CppFn`, since those are the item kinds where
+    /// bindgen may see multiple definitions under the same short key and must fan out via
+    /// `Reader::with_full_name` to combine all matching dependencies.
+    /// Returns `None` for other item kinds where the existing keys are already unique enough.
     fn full_name(self) -> Option<(&'a str, &'a str)> {
         match self {
             Self::CppStruct(ty) => Some((ty.def.namespace(), ty.def.name())),
@@ -627,10 +632,11 @@ impl Type {
     }
 
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
-        if let Some(item) = self.item_ref() {
-            if let Some(tokens) = item.write_impl_name(config) {
-                return tokens;
-            }
+        if let Some(tokens) = self
+            .item_ref()
+            .and_then(|item| item.write_impl_name(config))
+        {
+            return tokens;
         }
 
         match self {
@@ -692,10 +698,11 @@ impl Type {
     }
 
     pub fn runtime_signature(&self, reader: &Reader) -> String {
-        if let Some(item) = self.item_ref() {
-            if let Some(signature) = item.runtime_signature(reader) {
-                return signature;
-            }
+        if let Some(signature) = self
+            .item_ref()
+            .and_then(|item| item.runtime_signature(reader))
+        {
+            return signature;
         }
 
         match self {
