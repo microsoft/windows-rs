@@ -89,15 +89,16 @@ pub mod Test {
                 .map(|| result__)
             }
         }
-        pub fn Click<P0>(&self, handler: P0) -> windows_core::Result<windows_core::EventRevoker>
+        pub fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
         where
-            P0: windows_core::Param<Handler>,
+            F: Fn(windows_core::Ref<IFoo>, i32) -> windows_core::Result<()> + Send + 'static,
         {
+            let handler = <Handler>::new(handler);
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 let token__ = (windows_core::Interface::vtable(self).Click)(
                     windows_core::Interface::as_raw(self),
-                    handler.param().abi(),
+                    windows_core::Interface::as_raw(&handler),
                     &mut result__,
                 )
                 .map(|| result__)?;
