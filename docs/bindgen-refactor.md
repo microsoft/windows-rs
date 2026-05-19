@@ -476,7 +476,7 @@ handled by PR #4431. The remaining steps, ordered by independence:
 6. **`ItemEmitter` trait + `Item`/`Sig` split** (§2). In progress.
    `ItemEmitter` dispatch scaffolding is now in place for `ItemRef` in
    `types/mod.rs`; the `Item`/`Sig` model split remains.
-   The largest
+   This is still the largest
    restructuring. Do this *after* steps 2–5 because those steps reduce
    the per-variant branching that the trait has to abstract over.
    Split `Type` into `Item` (emittable, has a vtable slot, appears in

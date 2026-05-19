@@ -240,8 +240,9 @@ impl<'a> ItemRef<'a> {
     /// Returns `(namespace, name)` for item kinds that can resolve multi-definitions by full name.
     /// This is only needed for `CppStruct` and `CppFn`, since those are the item kinds where
     /// bindgen may see multiple definitions under the same short key and must fan out via
-    /// `Reader::with_full_name` to combine all matching dependencies.
-    /// Returns `None` for other item kinds where the existing keys are already unique enough.
+    /// `Reader::with_full_name` to combine all matching dependencies. Most other item kinds
+    /// are keyed uniquely enough by their existing map key and don't need the full-name lookup.
+    /// Returns `None` for item kinds that do not require full-name resolution.
     fn full_name(self) -> Option<(&'a str, &'a str)> {
         match self {
             Self::CppStruct(ty) => Some((ty.def.namespace(), ty.def.name())),
