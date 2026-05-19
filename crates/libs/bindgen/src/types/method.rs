@@ -644,6 +644,96 @@ impl Method {
 
         let vcall = build_vcall(&args);
 
+        // minimal: suppress remove_* methods and replace add_* methods
+        // with a combined wrapper returning EventRevoker.
+        let raw_method_name = self.def.name();
+        let is_event_add = !noexcept
+            && config.minimal
+            && self.def.flags().contains(MethodAttributes::SpecialName)
+            && raw_method_name.starts_with("add_");
+        let is_event_remove = config.minimal
+            && self.def.flags().contains(MethodAttributes::SpecialName)
+            && raw_method_name.starts_with("remove_");
+        let suppress_event_remove = is_event_remove
+            && kind != InterfaceKind::Composable
+            && {
+                let paired_event_add = format!("add_{}", &raw_method_name[7..]);
+                matches!(self.def.parent(), MemberRefParent::TypeDef(def) if def.methods().any(|method| {
+                    method.flags().contains(MethodAttributes::SpecialName)
+                        && !method.has_attribute("NoExceptionAttribute")
+                        && method.name() == paired_event_add
+                }))
+            };
+
+        if suppress_event_remove {
+            return quote! {};
+        }
+
+        if is_event_add && kind != InterfaceKind::Composable {
+            // The event part (e.g. "Click" from "add_Click") determines the
+            // vtable field name for the paired remove method ("RemoveClick").
+            let event_part = &raw_method_name[4..];
+            let remove_vname = to_ident(&format!("Remove{event_part}"));
+
+            // Raw vtable call that maps the HRESULT into Result<i64> via `?`.
+            let raw_vcall = quote! {
+                (windows_core::Interface::vtable(#receiver).#vname)(
+                    windows_core::Interface::as_raw(#receiver),
+                    #args
+                )
+            };
+
+            let core = config.write_core();
+            let result = config.write_result();
+
+            // Body shared across all kinds: materialise the token then wrap it.
+            let event_body = quote! {
+                let mut result__ = core::mem::zeroed();
+                let token__ = #raw_vcall.map(|| result__)?;
+                Ok(#core EventRevoker::new(
+                    #receiver.clone(),
+                    token__,
+                    windows_core::Interface::vtable(#receiver).#remove_vname,
+                ))
+            };
+
+            return match kind {
+                InterfaceKind::Default => quote! {
+                    pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker> #where_clause {
+                        #prelude
+                        unsafe {
+                            #event_body
+                        }
+                    }
+                },
+                InterfaceKind::None | InterfaceKind::Base => {
+                    let interface_name = interface.unwrap().write_name(config);
+                    quote! {
+                        pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker> #where_clause {
+                            let this = &windows_core::Interface::cast::<#interface_name>(self)?;
+                            #prelude
+                            unsafe {
+                                #event_body
+                            }
+                        }
+                    }
+                }
+                InterfaceKind::Static => {
+                    let factory_name = to_ident(trim_tick(interface.unwrap().def.name()));
+                    quote! {
+                        pub fn #name<#(#generics,)*>(#(#params)*) -> #result Result<#core EventRevoker> #where_clause {
+                            #prelude
+                            Self::#factory_name(|this| unsafe {
+                                #event_body
+                            })
+                        }
+                    }
+                }
+                // Composable is excluded by the `kind != Composable` guard above.
+                InterfaceKind::Composable => unreachable!(),
+            };
+        }
+
         match kind {
             InterfaceKind::Default => quote! {
                 pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
