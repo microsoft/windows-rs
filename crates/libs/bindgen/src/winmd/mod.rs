@@ -4,7 +4,7 @@ mod reader;
 pub use reader::*;
 
 // Type aliases using 'static lifetime.
-// Safety: the TypeIndex is leaked in Reader::new (Box::leak), so TypeDef<'static>, etc.
+// Safety: the Index is leaked in Reader::new (Index::leak), so TypeDef<'static>, etc.
 // truly live forever.
 pub type TypeDef = windows_metadata::reader::TypeDef<'static>;
 pub type Field = windows_metadata::reader::Field<'static>;
