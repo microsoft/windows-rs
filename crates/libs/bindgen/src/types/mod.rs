@@ -172,6 +172,41 @@ impl ItemRef<'_> {
             Self::CppConst(ty) => ty.write(config),
         }
     }
+
+    fn write_name(self, config: &Config) -> TokenStream {
+        match self {
+            Self::CppFn(ty) => ty.write_name(config),
+            Self::Class(ty) => ty.write_name(config),
+            Self::Interface(ty) => ty.write_name(config),
+            Self::CppInterface(ty) => ty.write_name(config),
+            Self::Delegate(ty) => ty.write_name(config),
+            Self::CppDelegate(ty) => ty.write_name(config),
+            Self::Enum(ty) => ty.write_name(config),
+            Self::CppEnum(ty) => ty.write_name(config),
+            Self::Struct(ty) => ty.write_name(config),
+            Self::CppStruct(ty) => ty.write_name(config),
+            Self::CppConst(ty) => ty.write_name(config),
+        }
+    }
+
+    fn write_impl_name(self, config: &Config) -> Option<TokenStream> {
+        match self {
+            Self::CppInterface(ty) => Some(ty.write_impl_name(config)),
+            Self::Interface(ty) => Some(ty.write_impl_name(config)),
+            _ => None,
+        }
+    }
+
+    fn runtime_signature(self, reader: &Reader) -> Option<String> {
+        match self {
+            Self::Class(ty) => Some(ty.runtime_signature(reader)),
+            Self::Interface(ty) => Some(ty.runtime_signature(reader)),
+            Self::Delegate(ty) => Some(ty.runtime_signature(reader)),
+            Self::Enum(ty) => Some(ty.runtime_signature(reader)),
+            Self::Struct(ty) => Some(ty.runtime_signature(reader)),
+            _ => None,
+        }
+    }
 }
 
 impl Type {
@@ -453,6 +488,10 @@ impl Type {
             return quote! { *mut core::ffi::c_void };
         }
 
+        if let Some(item) = self.item_ref() {
+            return item.write_name(config);
+        }
+
         match self {
             Self::Void => quote! { core::ffi::c_void },
             Self::Bool => quote! { bool },
@@ -513,17 +552,6 @@ impl Type {
                 let name = config.write_strings();
                 quote! { #name PCWSTR }
             }
-            Self::CppInterface(ty) => ty.write_name(config),
-            Self::Struct(ty) => ty.write_name(config),
-            Self::Enum(ty) => ty.write_name(config),
-            Self::Interface(ty) => ty.write_name(config),
-            Self::CppStruct(ty) => ty.write_name(config),
-            Self::CppEnum(ty) => ty.write_name(config),
-            Self::CppFn(ty) => ty.write_name(config),
-            Self::CppConst(ty) => ty.write_name(config),
-            Self::CppDelegate(ty) => ty.write_name(config),
-            Self::Delegate(ty) => ty.write_name(config),
-            Self::Class(ty) => ty.write_name(config),
             Self::Generic(param) => to_ident(param.name()),
             Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
@@ -575,13 +603,17 @@ impl Type {
     }
 
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
+        if let Some(item) = self.item_ref() {
+            if let Some(tokens) = item.write_impl_name(config) {
+                return tokens;
+            }
+        }
+
         match self {
             Self::IUnknown | Self::Object => {
                 let name = config.write_core();
                 quote! { #name IUnknownImpl }
             }
-            Self::CppInterface(ty) => ty.write_impl_name(config),
-            Self::Interface(ty) => ty.write_impl_name(config),
             rest => panic!("{rest:?}"),
         }
     }
@@ -636,6 +668,12 @@ impl Type {
     }
 
     pub fn runtime_signature(&self, reader: &Reader) -> String {
+        if let Some(item) = self.item_ref() {
+            if let Some(signature) = item.runtime_signature(reader) {
+                return signature;
+            }
+        }
+
         match self {
             Self::Bool => "b1".to_string(),
             Self::Char => "c2".to_string(),
@@ -655,11 +693,6 @@ impl Type {
             Self::Object => "cinterface(IInspectable)".to_string(),
             Self::GUID => "g16".to_string(),
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
-            Self::Class(ty) => ty.runtime_signature(reader),
-            Self::Delegate(ty) => ty.runtime_signature(reader),
-            Self::Enum(ty) => ty.runtime_signature(reader),
-            Self::Interface(ty) => ty.runtime_signature(reader),
-            Self::Struct(ty) => ty.runtime_signature(reader),
             rest => panic!("{rest:?}"),
         }
     }
