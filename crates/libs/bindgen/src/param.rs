@@ -60,7 +60,7 @@ impl Param {
 
         for attribute in self.def.attributes() {
             if matches!(
-                attribute.name(),
+                attribute.name().as_str(),
                 "NativeArrayInfoAttribute" | "MemorySizeAttribute"
             ) {
                 return false;

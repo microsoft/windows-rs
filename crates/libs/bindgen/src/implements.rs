@@ -49,7 +49,7 @@ impl Implements {
         self.0.is_empty()
     }
 
-    pub fn matches(&self, name: TypeName) -> bool {
+    pub fn matches(&self, name: &TypeName) -> bool {
         self.0
             .iter()
             .any(|rule| match_type_name(rule, name.namespace(), name.name()))

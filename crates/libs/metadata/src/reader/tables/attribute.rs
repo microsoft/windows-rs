@@ -1,6 +1,6 @@
 use super::*;
 
-impl std::fmt::Debug for Attribute<'_> {
+impl std::fmt::Debug for Attribute {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("Attribute")
             .field(&self.ctor().parent().name())
@@ -8,20 +8,20 @@ impl std::fmt::Debug for Attribute<'_> {
     }
 }
 
-impl<'a> Attribute<'a> {
-    pub fn name(&self) -> &'a str {
-        self.ctor().parent().name()
+impl Attribute {
+    pub fn name(&self) -> String {
+        self.ctor().parent().name().to_string()
     }
 
-    pub fn namespace(&self) -> &'a str {
-        self.ctor().parent().namespace()
+    pub fn namespace(&self) -> String {
+        self.ctor().parent().namespace().to_string()
     }
 
-    pub fn parent(&self) -> HasAttribute<'a> {
+    pub fn parent(&self) -> HasAttribute {
         self.decode(0)
     }
 
-    pub fn ctor(&self) -> AttributeType<'a> {
+    pub fn ctor(&self) -> AttributeType {
         self.decode(1)
     }
 

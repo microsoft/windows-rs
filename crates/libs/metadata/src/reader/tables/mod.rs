@@ -21,14 +21,14 @@ mod type_spec;
 macro_rules! tables {
     ($(($name:ident, $table:literal))+) => {
         $(
-        #[derive(Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd)]
-        pub struct $name<'a>(pub(crate) Row<'a>);
-        impl<'a> AsRow<'a> for $name<'a> {
+        #[derive(Clone, Hash, PartialEq, Eq, Ord, PartialOrd)]
+        pub struct $name(pub(crate) Row);
+        impl AsRow for $name {
             const TABLE: usize = $table;
-            fn to_row(&self) -> Row<'a> {
-                self.0
+            fn row_ref(&self) -> &Row {
+                &self.0
             }
-            fn from_row(row: Row<'a>) -> Self {
+            fn from_row(row: Row) -> Self {
                 $name(row)
             }
         }

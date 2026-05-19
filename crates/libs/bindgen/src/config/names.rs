@@ -107,10 +107,10 @@ impl Config<'_> {
         }
     }
 
-    pub fn write_namespace(&self, type_name: TypeName) -> TokenStream {
+    pub fn write_namespace(&self, type_name: &TypeName) -> TokenStream {
         fn namespace_path_origin<'a>(
             config: &'a Config<'_>,
-            type_name: TypeName,
+            type_name: &'a TypeName,
         ) -> NamespacePathOrigin<'a> {
             let namespace = type_name.namespace();
             if namespace.is_empty() {
@@ -118,7 +118,7 @@ impl Config<'_> {
             }
 
             if let Some(reference) = {
-                if config.types.contains_key(&type_name) {
+                if config.types.contains_key(type_name) {
                     None
                 } else {
                     config.references.contains(type_name)
@@ -137,11 +137,11 @@ impl Config<'_> {
                 };
             }
 
-            if config.flat || namespace == config.namespace {
+            if config.flat || namespace == config.namespace.as_ref() {
                 NamespacePathOrigin::Empty
             } else {
                 NamespacePathOrigin::LocalRelative {
-                    current: config.namespace,
+                    current: &config.namespace,
                     target: namespace,
                 }
             }

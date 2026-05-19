@@ -1,10 +1,19 @@
 use super::*;
+use std::sync::Arc;
 
-pub struct TypeIndex {
+struct TypeIndexData {
     files: Vec<File>,
     types: HashMap<String, HashMap<String, Vec<(usize, usize)>>>,
     nested: HashMap<(usize, usize), Vec<usize>>,
 }
+
+/// A ref-counted, cheaply-cloneable handle to the raw winmd index.
+///
+/// All row types (`TypeDef`, `MethodDef`, `Field`, …) store a clone of this
+/// handle, so they are lifetime-free owned values that can be stored in
+/// collections, hashed, and sent across threads without any `'static` tricks.
+#[derive(Clone)]
+pub struct TypeIndex(Arc<TypeIndexData>);
 
 impl TypeIndex {
     #[must_use]
@@ -43,19 +52,20 @@ impl TypeIndex {
             }
         }
 
-        Self {
+        Self(Arc::new(TypeIndexData {
             files,
             types,
             nested,
-        }
+        }))
     }
 
     pub(crate) fn files(&self, pos: usize) -> &File {
-        &self.files[pos]
+        &self.0.files[pos]
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef<'_>)> + '_ {
-        self.types
+    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, TypeDef)> + '_ {
+        self.0
+            .types
             .iter()
             .flat_map(|(namespace, types)| {
                 types
@@ -64,40 +74,46 @@ impl TypeIndex {
             })
             .flat_map(|(namespace, name, types)| types.iter().map(move |ty| (namespace, name, ty)))
             .map(|(namespace, name, (file, pos))| {
-                (namespace, name, TypeDef(Row::new(self, *file, *pos)))
+                (namespace, name, TypeDef(Row::new(self.clone(), *file, *pos)))
             })
     }
 
-    pub fn types(&self) -> impl Iterator<Item = TypeDef<'_>> + '_ {
-        self.types
+    pub fn types(&self) -> impl Iterator<Item = TypeDef> + '_ {
+        self.0
+            .types
             .values()
             .flat_map(|types| types.values())
             .flatten()
-            .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
+            .map(|(file, pos)| TypeDef(Row::new(self.clone(), *file, *pos)))
     }
 
-    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = TypeDef<'_>> + '_ {
-        self.types
+    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = TypeDef> + '_ {
+        self.0
+            .types
             .get(namespace)
             .and_then(|types| types.get(name))
             .into_iter()
             .flatten()
-            .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
+            .map(|(file, pos)| TypeDef(Row::new(self.clone(), *file, *pos)))
+            .collect::<Vec<_>>()
+            .into_iter()
     }
 
     pub fn contains_namespace(&self, namespace: &str) -> bool {
-        self.types.contains_key(namespace)
+        self.0.types.contains_key(namespace)
     }
 
     pub fn contains(&self, namespace: &str, name: &str) -> bool {
-        self.types
+        self.0
+            .types
             .get(namespace)
             .and_then(|types| types.get(name))
             .is_some()
     }
 
     pub fn assembly_name(&self, namespace: &str, name: &str) -> Option<&str> {
-        self.types
+        self.0
+            .types
             .get(namespace)
             .and_then(|types| types.get(name))
             .and_then(|types| types.first())
@@ -106,7 +122,7 @@ impl TypeIndex {
     }
 
     #[track_caller]
-    pub fn expect(&self, namespace: &str, name: &str) -> TypeDef<'_> {
+    pub fn expect(&self, namespace: &str, name: &str) -> TypeDef {
         let mut iter = self.get(namespace, name);
 
         if let Some(def) = iter.next() {
@@ -120,18 +136,16 @@ impl TypeIndex {
         }
     }
 
-    pub fn nested(&self, ty: TypeDef) -> impl Iterator<Item = TypeDef<'_>> + '_ {
-        self.nested
-            .get(&(ty.0.file, ty.0.pos))
+    pub fn nested(&self, ty: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
+        let (file, pos) = (ty.0.file, ty.0.pos);
+        self.0
+            .nested
+            .get(&(file, pos))
             .into_iter()
             .flatten()
             .cloned()
-            .map(move |pos| {
-                TypeDef(Row {
-                    index: self,
-                    file: ty.0.file,
-                    pos,
-                })
-            })
+            .map(move |inner_pos| TypeDef(Row::new(self.clone(), file, inner_pos)))
+            .collect::<Vec<_>>()
+            .into_iter()
     }
 }

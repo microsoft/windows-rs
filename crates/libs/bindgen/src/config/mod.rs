@@ -61,13 +61,13 @@ pub struct Config<'a> {
     pub derive: &'a Derive,
     pub link: &'a str,
     pub warnings: &'a WarningBuilder,
-    pub namespace: &'static str,
+    pub namespace: Arc<str>,
 }
 
 impl Config<'_> {
-    pub fn with_namespace(&self, namespace: &'static str) -> Self {
+    pub fn with_namespace(&self, namespace: &str) -> Self {
         let mut clone = self.clone();
-        clone.namespace = namespace;
+        clone.namespace = Arc::from(namespace);
         clone
     }
 
@@ -80,7 +80,7 @@ impl Config<'_> {
     /// `default` is the fallback when neither `--implement` nor `--implements`
     /// constrains emission: `true` for types emitted unconditionally (COM/Win32
     /// interfaces) and `false` (or `!is_exclusive`) for WinRT interfaces.
-    pub fn implement_mode(&self, name: TypeName, default: bool) -> ImplementMode {
+    pub fn implement_mode(&self, name: &TypeName, default: bool) -> ImplementMode {
         let emit_impl = if self.implement {
             true
         } else if !self.implements.is_empty() {
@@ -139,7 +139,7 @@ impl<'a> Config<'a> {
 
         for (name, tree) in &tree.nested {
             let name = to_ident(name);
-            let nested = self.with_namespace(tree.namespace).write_modules(tree);
+            let nested = self.with_namespace(&tree.namespace).write_modules(tree);
             tokens.combine(quote! { pub mod #name { #nested } });
         }
 
@@ -168,7 +168,7 @@ impl<'a> Config<'a> {
                 });
             }
 
-            let config = self.with_namespace(tree.namespace);
+            let config = self.with_namespace(&tree.namespace);
 
             for ty in &tree.types {
                 tokens.combine(ty.write(&config));
@@ -201,11 +201,11 @@ impl<'a> Config<'a> {
                 let dependency = &feature[..pos];
 
                 toml.push_str(&format!("{feature} = [\"{dependency}\"]\n"));
-            } else if namespace_starts_with(tree.namespace, "Windows.Win32")
-                || namespace_starts_with(tree.namespace, "Windows.Wdk")
+            } else if namespace_starts_with(&tree.namespace, "Windows.Win32")
+                || namespace_starts_with(&tree.namespace, "Windows.Wdk")
             {
                 toml.push_str(&format!("{feature} = [\"Win32_Foundation\"]\n"));
-            } else if tree.namespace != "Windows.Foundation" {
+            } else if &*tree.namespace != "Windows.Foundation" {
                 toml.push_str(&format!("{feature} = [\"Foundation\"]\n"));
             } else {
                 toml.push_str(&format!("{feature} = []\n"));

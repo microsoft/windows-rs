@@ -12,7 +12,7 @@ pub trait TypeDefExt {
 
 impl TypeDefExt for TypeDef {
     fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), trim_tick(self.name()))
+        TypeName::new(self.namespace(), trim_tick(self.name()))
     }
 
     fn generics(&self) -> Vec<Type> {
@@ -58,7 +58,7 @@ impl TypeDefExt for TypeDef {
 
     fn is_agile(&self) -> bool {
         for attribute in self.attributes() {
-            match attribute.name() {
+            match attribute.name().as_str() {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
                     if matches!(
@@ -76,7 +76,7 @@ impl TypeDefExt for TypeDef {
 
     fn is_async(&self) -> bool {
         matches!(
-            TypeName(self.namespace(), trim_tick(self.name())),
+            TypeName::new(self.namespace(), trim_tick(self.name())),
             TypeName::IAsyncAction
                 | TypeName::IAsyncActionWithProgress
                 | TypeName::IAsyncOperation

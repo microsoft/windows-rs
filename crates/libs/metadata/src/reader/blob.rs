@@ -47,8 +47,8 @@ impl<'a> Blob<'a> {
         }
     }
 
-    pub fn decode<D: Decode<'a>>(&mut self) -> D {
-        D::decode(self.index, self.file, self.read_compressed())
+    pub fn decode<D: Decode>(&mut self) -> D {
+        D::decode(self.index.clone(), self.file, self.read_compressed())
     }
 
     pub fn try_read(&mut self, expected: usize) -> bool {
@@ -61,7 +61,7 @@ impl<'a> Blob<'a> {
         }
     }
 
-    pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef<'a>> {
+    pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef> {
         let mut mods = vec![];
         loop {
             let (value, offset) = self.peek();
@@ -70,7 +70,7 @@ impl<'a> Blob<'a> {
             } else {
                 self.offset(offset);
                 mods.push(TypeDefOrRef::decode(
-                    self.index,
+                    self.index.clone(),
                     self.file,
                     self.read_compressed(),
                 ));

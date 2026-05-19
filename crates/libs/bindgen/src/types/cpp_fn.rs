@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppFn {
-    pub namespace: &'static str,
+    pub namespace: Arc<str>,
     pub method: MethodDef,
 }
 
@@ -20,7 +20,7 @@ impl PartialOrd for CppFn {
 
 impl CppFn {
     pub fn type_name(&self) -> TypeName {
-        TypeName(self.namespace, self.method.name())
+        TypeName::new(&self.namespace, self.method.name())
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
@@ -30,7 +30,7 @@ impl CppFn {
     fn write_extern_signature(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
         let signature = self
             .method
-            .method_signature(self.namespace, &[], config.reader);
+            .method_signature(&*self.namespace, &[], config.reader);
 
         let params = signature.params.iter().map(|param| {
             let name = param.write_ident();
@@ -93,7 +93,7 @@ impl CppFn {
         let name = to_ident(self.method.name());
         let signature = self
             .method
-            .method_signature(self.namespace, &[], config.reader);
+            .method_signature(&*self.namespace, &[], config.reader);
 
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
@@ -121,7 +121,7 @@ impl CppFn {
             };
         }
 
-        let method = CppMethod::new(self.method, self.namespace, config.reader);
+        let method = CppMethod::new(self.method, &*self.namespace, config.reader);
         let args = method.write_args();
         let params = method.write_params(config);
         let generics = method.write_generics();
@@ -289,7 +289,7 @@ impl CppFn {
 impl Dependencies for CppFn {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         self.method
-            .method_signature(self.namespace, &[], reader)
+            .method_signature(&*self.namespace, &[], reader)
             .combine(dependencies, reader);
 
         let dependency = match self.method.name() {
@@ -302,7 +302,7 @@ impl Dependencies for CppFn {
 
         if let Some(dependency) = dependency {
             reader
-                .unwrap_full_name(self.namespace, dependency)
+                .unwrap_full_name(&*self.namespace, dependency)
                 .combine(dependencies, reader);
         }
     }

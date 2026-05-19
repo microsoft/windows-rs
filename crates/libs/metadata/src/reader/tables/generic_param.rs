@@ -1,12 +1,12 @@
 use super::*;
 
-impl std::fmt::Debug for GenericParam<'_> {
+impl std::fmt::Debug for GenericParam {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("GenericParam").field(&self.name()).finish()
     }
 }
 
-impl<'a> GenericParam<'a> {
+impl GenericParam {
     pub fn sequence(&self) -> u16 {
         self.usize(0).try_into().unwrap()
     }
@@ -15,7 +15,7 @@ impl<'a> GenericParam<'a> {
         GenericParamAttributes(self.usize(1).try_into().unwrap())
     }
 
-    pub fn owner(&self) -> TypeOrMethodDef<'a> {
+    pub fn owner(&self) -> TypeOrMethodDef {
         self.decode(2)
     }
 

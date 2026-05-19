@@ -24,7 +24,7 @@ impl WarningBuilder {
         .unwrap();
 
         for tn in dependencies.keys() {
-            if !config.types.contains_key(tn) && config.references.contains(*tn).is_none() {
+            if !config.types.contains_key(tn) && config.references.contains(tn).is_none() {
                 writeln!(&mut message, "  {tn}").unwrap();
             }
         }

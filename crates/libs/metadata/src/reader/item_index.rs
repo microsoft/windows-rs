@@ -1,26 +1,26 @@
 use super::*;
 
-#[derive(Debug)]
-pub enum Item<'a> {
-    Type(TypeDef<'a>),
-    Fn(MethodDef<'a>),
-    Const(Field<'a>),
+#[derive(Debug, Clone)]
+pub enum Item {
+    Type(TypeDef),
+    Fn(MethodDef),
+    Const(Field),
 }
 
-type HashType<'a> = HashMap<&'a str, HashMap<&'a str, Vec<Item<'a>>>>;
+type HashType = HashMap<String, HashMap<String, Vec<Item>>>;
 
-pub struct ItemIndex<'a>(HashType<'a>);
+pub struct ItemIndex(HashType);
 
-impl<'a> core::ops::Deref for ItemIndex<'a> {
-    type Target = HashType<'a>;
+impl core::ops::Deref for ItemIndex {
+    type Target = HashType;
 
-    fn deref(&self) -> &HashType<'a> {
+    fn deref(&self) -> &HashType {
         &self.0
     }
 }
 
-impl<'a> ItemIndex<'a> {
-    pub fn new(index: &'a TypeIndex) -> Self {
+impl ItemIndex {
+    pub fn new(index: &TypeIndex) -> Self {
         let mut members: HashType = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
@@ -30,10 +30,12 @@ impl<'a> ItemIndex<'a> {
 
             if apis {
                 for method in ty.methods() {
-                    insert(&mut members, namespace, method.name(), Item::Fn(method));
+                    let name = method.name().to_string();
+                    insert(&mut members, namespace, &name, Item::Fn(method));
                 }
                 for field in ty.fields() {
-                    insert(&mut members, namespace, field.name(), Item::Const(field));
+                    let name = field.name().to_string();
+                    insert(&mut members, namespace, &name, Item::Const(field));
                 }
             } else {
                 insert(&mut members, namespace, name, Item::Type(ty));
@@ -43,7 +45,7 @@ impl<'a> ItemIndex<'a> {
         Self(members)
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, &Item<'_>)> + '_ {
+    pub fn iter(&self) -> impl Iterator<Item = (&str, &str, &Item)> + '_ {
         self.0
             .iter()
             .flat_map(|(namespace, items)| {
@@ -52,23 +54,23 @@ impl<'a> ItemIndex<'a> {
                     .map(move |(name, items)| (namespace, name, items))
             })
             .flat_map(|(namespace, name, items)| {
-                items.iter().map(move |item| (*namespace, *name, item))
+                items.iter().map(move |item| (namespace.as_str(), name.as_str(), item))
             })
     }
 
-    pub fn items(&self) -> impl Iterator<Item = &Item<'_>> + '_ {
+    pub fn items(&self) -> impl Iterator<Item = &Item> + '_ {
         self.0.values().flat_map(|items| items.values()).flatten()
     }
 
-    pub fn namespace_items(&self, namespace: &str) -> impl Iterator<Item = (&str, &Item<'_>)> + '_ {
+    pub fn namespace_items(&self, namespace: &str) -> impl Iterator<Item = (&str, &Item)> + '_ {
         self.0
             .get(namespace)
             .into_iter()
             .flatten()
-            .flat_map(|(name, items)| items.iter().map(move |item| (*name, item)))
+            .flat_map(|(name, items)| items.iter().map(move |item| (name.as_str(), item)))
     }
 
-    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = &Item<'_>> + '_ {
+    pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = &Item> + '_ {
         self.0
             .get(namespace)
             .and_then(|items| items.get(name))
@@ -77,7 +79,7 @@ impl<'a> ItemIndex<'a> {
     }
 
     #[track_caller]
-    pub fn expect(&self, namespace: &str, name: &str) -> &Item<'_> {
+    pub fn expect(&self, namespace: &str, name: &str) -> &Item {
         let mut iter = self.get(namespace, name);
 
         if let Some(item) = iter.next() {
@@ -92,11 +94,11 @@ impl<'a> ItemIndex<'a> {
     }
 }
 
-fn insert<'a>(members: &mut HashType<'a>, namespace: &'a str, name: &'a str, member: Item<'a>) {
+fn insert(members: &mut HashType, namespace: &str, name: &str, member: Item) {
     members
-        .entry(namespace)
+        .entry(namespace.to_string())
         .or_default()
-        .entry(name)
+        .entry(name.to_string())
         .or_default()
         .push(member);
 }

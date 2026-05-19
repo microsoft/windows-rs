@@ -1,20 +1,15 @@
 use super::*;
 
-fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: Type) {
-    types.entry(name).or_default().push(ty);
+fn insert(types: &mut HashMap<Arc<str>, Vec<Type>>, name: &str, ty: Type) {
+    types.entry(Arc::from(name)).or_default().push(ty);
 }
 
 pub struct Reader {
-    map: HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
+    map: HashMap<Arc<str>, HashMap<Arc<str>, Vec<Type>>>,
 }
 
-// Safety: all Type values stored in the map reference data from a 'static TypeIndex (Box::leaked),
-// so they remain valid for the lifetime of the Reader, and Reader can be sent/shared across threads.
-unsafe impl Send for Reader {}
-unsafe impl Sync for Reader {}
-
 impl std::ops::Deref for Reader {
-    type Target = HashMap<&'static str, HashMap<&'static str, Vec<Type>>>;
+    type Target = HashMap<Arc<str>, HashMap<Arc<str>, Vec<Type>>>;
 
     fn deref(&self) -> &Self::Target {
         &self.map
@@ -23,9 +18,7 @@ impl std::ops::Deref for Reader {
 
 impl Reader {
     pub fn new(files: Vec<File>) -> Reader {
-        // Leak the TypeIndex so all TypeDef<'static>, Field<'static>, etc. remain valid forever.
-        let index: &'static windows_metadata::reader::TypeIndex =
-            Box::leak(Box::new(windows_metadata::reader::TypeIndex::new(files)));
+        let index = windows_metadata::reader::TypeIndex::new(files);
 
         let mut reader = Self {
             map: HashMap::new(),
@@ -35,17 +28,17 @@ impl Reader {
         // nested types (e.g. VARIANT -> VARIANT_0 -> _Anonymous_e__Struct).
         let mut nested: HashMap<TypeDef, Vec<TypeDef>> = HashMap::new();
         fn collect_nested(
-            index: &'static windows_metadata::reader::TypeIndex,
+            index: &windows_metadata::reader::TypeIndex,
             def: TypeDef,
             nested: &mut HashMap<TypeDef, Vec<TypeDef>>,
         ) {
-            for inner in index.nested(def) {
-                nested.entry(def).or_default().push(inner);
+            for inner in index.nested(def.clone()) {
+                nested.entry(def.clone()).or_default().push(inner.clone());
                 collect_nested(index, inner, nested);
             }
         }
         for (_, _, def) in index.iter() {
-            collect_nested(index, def, &mut nested);
+            collect_nested(&index, def, &mut nested);
         }
 
         for (namespace, name, def) in index.iter() {
@@ -55,22 +48,33 @@ impl Reader {
                 continue;
             }
 
-            let types = reader.map.entry(namespace).or_default();
+            let types = reader
+                .map
+                .entry(Arc::from(namespace))
+                .or_default();
             let category = def.category();
 
             if flags.contains(TypeAttributes::WindowsRuntime) {
                 let ty = match category {
                     windows_metadata::reader::TypeCategory::Attribute => continue,
-                    windows_metadata::reader::TypeCategory::Class => Type::Class(Class { def }),
-                    windows_metadata::reader::TypeCategory::Delegate => Type::Delegate(Delegate {
-                        def,
-                        generics: def.generics(),
+                    windows_metadata::reader::TypeCategory::Class => Type::Class(Class {
+                        def: def.clone(),
                     }),
-                    windows_metadata::reader::TypeCategory::Enum => Type::Enum(Enum { def }),
+                    windows_metadata::reader::TypeCategory::Delegate => {
+                        let generics = def.generics();
+                        Type::Delegate(Delegate {
+                            def: def.clone(),
+                            generics,
+                        })
+                    }
+                    windows_metadata::reader::TypeCategory::Enum => {
+                        Type::Enum(Enum { def: def.clone() })
+                    }
                     windows_metadata::reader::TypeCategory::Interface => {
+                        let generics = def.generics();
                         Type::Interface(Interface {
-                            def,
-                            generics: def.generics(),
+                            def: def.clone(),
+                            generics,
                             kind: InterfaceKind::None,
                         })
                     }
@@ -78,7 +82,7 @@ impl Reader {
                         if def.has_attribute("ApiContractAttribute") {
                             continue;
                         }
-                        Type::Struct(Struct { def })
+                        Type::Struct(Struct { def: def.clone() })
                     }
                 };
 
@@ -88,6 +92,7 @@ impl Reader {
                     windows_metadata::reader::TypeCategory::Attribute => continue,
                     windows_metadata::reader::TypeCategory::Class => {
                         if name == "Apis" {
+                            let ns: Arc<str> = Arc::from(namespace);
                             for method in def.methods() {
                                 if let Some(map) = method.impl_map() {
                                     if map.import_scope().name() == "FORCEINLINE"
@@ -97,55 +102,69 @@ impl Reader {
                                     }
                                 }
 
-                                let method_name = method.name();
+                                let method_name = method.name().to_string();
                                 insert(
                                     types,
-                                    method_name,
-                                    Type::CppFn(CppFn { namespace, method }),
+                                    &method_name,
+                                    Type::CppFn(CppFn {
+                                        namespace: Arc::clone(&ns),
+                                        method,
+                                    }),
                                 );
                             }
 
                             for field in def.fields() {
-                                let field_name = field.name();
+                                let field_name = field.name().to_string();
                                 insert(
                                     types,
-                                    field_name,
-                                    Type::CppConst(CppConst { namespace, field }),
+                                    &field_name,
+                                    Type::CppConst(CppConst {
+                                        namespace: Arc::clone(&ns),
+                                        field,
+                                    }),
                                 );
                             }
                         }
                     }
                     windows_metadata::reader::TypeCategory::Delegate => {
-                        insert(types, name, Type::CppDelegate(CppDelegate { def }));
+                        insert(types, name, Type::CppDelegate(CppDelegate { def: def.clone() }));
                     }
                     windows_metadata::reader::TypeCategory::Enum => {
-                        insert(types, name, Type::CppEnum(CppEnum { def }));
+                        insert(types, name, Type::CppEnum(CppEnum { def: def.clone() }));
 
                         if !def.has_attribute("ScopedEnumAttribute") {
+                            let ns: Arc<str> = Arc::from(namespace);
                             for field in def.fields() {
                                 if field.flags().contains(FieldAttributes::Literal) {
-                                    let field_name = field.name();
+                                    let field_name = field.name().to_string();
                                     insert(
                                         types,
-                                        field_name,
-                                        Type::CppConst(CppConst { namespace, field }),
+                                        &field_name,
+                                        Type::CppConst(CppConst {
+                                            namespace: Arc::clone(&ns),
+                                            field,
+                                        }),
                                     );
                                 }
                             }
                         }
                     }
                     windows_metadata::reader::TypeCategory::Interface => {
-                        insert(types, name, Type::CppInterface(CppInterface { def }));
+                        insert(
+                            types,
+                            name,
+                            Type::CppInterface(CppInterface { def: def.clone() }),
+                        );
                     }
                     windows_metadata::reader::TypeCategory::Struct => {
                         fn make(
                             def: TypeDef,
-                            name: &'static str,
+                            name: Arc<str>,
                             nested: &HashMap<TypeDef, Vec<TypeDef>>,
                         ) -> CppStruct {
                             let mut ty = CppStruct {
-                                def,
-                                name,
+                                def: def.clone(),
+                                name: Arc::clone(&name),
                                 nested: BTreeMap::new(),
                             };
 
@@ -155,13 +174,13 @@ impl Reader {
                                 if nested_def.category()
                                     == windows_metadata::reader::TypeCategory::Struct
                                 {
+                                    let nested_name: Arc<str> =
+                                        Arc::from(format!("{}_{index}", name).as_str());
+                                    let nested_key: Arc<str> =
+                                        Arc::from(nested_def.name());
                                     ty.nested.insert(
-                                        nested_def.name(),
-                                        make(
-                                            *nested_def,
-                                            format!("{}_{index}", ty.name).leak(),
-                                            nested,
-                                        ),
+                                        nested_key,
+                                        make(nested_def.clone(), nested_name, nested),
                                     );
                                 }
                             }
@@ -169,7 +188,12 @@ impl Reader {
                             ty
                         }
 
-                        insert(types, name, Type::CppStruct(make(def, name, &nested)));
+                        let struct_name: Arc<str> = Arc::from(name);
+                        insert(
+                            types,
+                            name,
+                            Type::CppStruct(make(def.clone(), struct_name, &nested)),
+                        );
                     }
                 }
             }

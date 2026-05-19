@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub struct CppConst {
-    pub namespace: &'static str,
+    pub namespace: Arc<str>,
     pub field: Field,
 }
 
@@ -20,7 +20,7 @@ impl PartialOrd for CppConst {
 
 impl CppConst {
     pub fn type_name(&self) -> TypeName {
-        TypeName(self.namespace, self.field.name())
+        TypeName::new(&self.namespace, self.field.name())
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {

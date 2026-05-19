@@ -336,21 +336,21 @@ impl Type {
             | ("Windows.Win32.System.WinRT", "EventRegistrationToken") => Remap::Type(Self::I64),
 
             ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"))
+                Remap::Name(TypeName::new("Windows.Foundation.Numerics", "Matrix3x2"))
             }
 
             ("Windows.Win32.Graphics.Direct3D", "D3DMATRIX")
             | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_4X4_F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix4x4"))
+                Remap::Name(TypeName::new("Windows.Foundation.Numerics", "Matrix4x4"))
             }
 
             ("Windows.Win32.Graphics.Direct2D.Common", "D2D_POINT_2F")
             | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_2F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector2"))
+                Remap::Name(TypeName::new("Windows.Foundation.Numerics", "Vector2"))
             }
 
             ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_4F") => {
-                Remap::Name(TypeName("Windows.Foundation.Numerics", "Vector4"))
+                Remap::Name(TypeName::new("Windows.Foundation.Numerics", "Vector4"))
             }
 
             _ => Remap::None,
@@ -845,7 +845,7 @@ impl Type {
     pub fn as_ireference_inner(&self) -> Option<&Type> {
         if let Self::Interface(iface) = self {
             if iface.generics.len() == 1
-                && iface.type_name() == TypeName("Windows.Foundation", "IReference")
+                && iface.type_name() == TypeName::new("Windows.Foundation", "IReference")
             {
                 return Some(&iface.generics[0]);
             }
@@ -1046,19 +1046,19 @@ impl Type {
         }
 
         match self {
-            Self::PSTR => TypeName("", "PSTR"),
-            Self::PCSTR => TypeName("", "PCSTR"),
-            Self::PWSTR => TypeName("", "PWSTR"),
-            Self::PCWSTR => TypeName("", "PCWSTR"),
-            Self::GUID => TypeName("", "GUID"),
-            Self::HRESULT => TypeName("", "HRESULT"),
-            Self::BOOL => TypeName("", "BOOL"),
-            Self::IUnknown => TypeName("", "IUnknown"),
-            Self::BSTR => TypeName("", "BSTR"),
-            Self::String => TypeName("", "String"),
-            Self::Object => TypeName("", "Object"),
+            Self::PSTR => TypeName::new("", "PSTR"),
+            Self::PCSTR => TypeName::new("", "PCSTR"),
+            Self::PWSTR => TypeName::new("", "PWSTR"),
+            Self::PCWSTR => TypeName::new("", "PCWSTR"),
+            Self::GUID => TypeName::new("", "GUID"),
+            Self::HRESULT => TypeName::new("", "HRESULT"),
+            Self::BOOL => TypeName::new("", "BOOL"),
+            Self::IUnknown => TypeName::new("", "IUnknown"),
+            Self::BSTR => TypeName::new("", "BSTR"),
+            Self::String => TypeName::new("", "String"),
+            Self::Object => TypeName::new("", "Object"),
 
-            _ => TypeName("", ""),
+            _ => TypeName::new("", ""),
         }
     }
 

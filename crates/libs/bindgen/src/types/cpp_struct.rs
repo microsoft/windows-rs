@@ -3,13 +3,13 @@ use super::*;
 #[derive(Clone, Debug)]
 pub struct CppStruct {
     pub def: TypeDef,
-    pub name: &'static str,
-    pub nested: BTreeMap<&'static str, CppStruct>,
+    pub name: Arc<str>,
+    pub nested: BTreeMap<Arc<str>, CppStruct>,
 }
 
 impl Ord for CppStruct {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.name, self.def).cmp(&(other.name, other.def))
+        (&*self.name, &self.def).cmp(&(&*other.name, &other.def))
     }
 }
 
@@ -35,7 +35,7 @@ impl std::hash::Hash for CppStruct {
 
 impl CppStruct {
     pub fn type_name(&self) -> TypeName {
-        TypeName(self.def.namespace(), self.name)
+        TypeName::new(self.def.namespace(), &self.name)
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
@@ -64,7 +64,7 @@ impl CppStruct {
 
         if self.def.fields().next().is_none() {
             if let Some(guid) = self.def.guid_attribute() {
-                return config.write_cpp_const_guid(to_ident(self.name), &guid);
+                return config.write_cpp_const_guid(to_ident(&self.name), &guid);
             }
         }
 
@@ -74,7 +74,7 @@ impl CppStruct {
     }
 
     fn write_with_cfg(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
-        let name = to_ident(self.name);
+        let name = to_ident(&self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
         let has_explicit_layout = self.has_explicit_layout(config.reader);
@@ -137,7 +137,7 @@ impl CppStruct {
         if config.mode.is_sys() || is_copyable {
             derive.extend(["Clone", "Copy"]);
         } else if !matches!(
-            TypeName(self.def.namespace(), self.def.name()),
+            TypeName::new(self.def.namespace(), self.def.name()),
             TypeName::VARIANT | TypeName::PROPVARIANT
         ) {
             if has_explicit_layout {
@@ -232,7 +232,7 @@ impl CppStruct {
         };
 
         let mut nested_sorted: Vec<_> = self.nested.values().collect();
-        nested_sorted.sort_by_key(|s| s.name);
+        nested_sorted.sort_by_key(|s| Arc::clone(&s.name));
 
         for nested in nested_sorted {
             tokens.combine(nested.write_with_cfg(config, cfg));

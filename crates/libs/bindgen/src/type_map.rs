@@ -33,13 +33,13 @@ impl TypeMap {
         for namespace in reader.keys() {
             if filter.includes_namespace(namespace) {
                 for (name, types) in &reader[namespace] {
-                    if let Some(filter_rule) = filter.includes_type_name(TypeName(namespace, name))
+                    if let Some(filter_rule) = filter.includes_type_name(&TypeName::new(namespace, name))
                     {
                         // A longer rule string means a more specific (fully-qualified) path.
                         // Skip types already owned by a reference whose rule is more specific
                         // (longer) than the filter rule that matched this type.
                         if references
-                            .matching_rule(TypeName(namespace, name))
+                            .matching_rule(TypeName::new(namespace, name))
                             .is_some_and(|reference_rule| reference_rule.len() > filter_rule.len())
                         {
                             continue;
@@ -74,8 +74,8 @@ impl TypeMap {
 
     fn combine_references(&mut self, other: &Self, references: &References) {
         for (tn, types) in &other.0 {
-            if references.contains(*tn).is_none() {
-                let set = self.0.entry(*tn).or_default();
+            if references.contains(tn).is_none() {
+                let set = self.0.entry(tn.clone()).or_default();
                 types.iter().for_each(|ty| {
                     set.insert(ty.clone());
                 });
@@ -85,7 +85,7 @@ impl TypeMap {
 
     pub fn combine(&mut self, other: &Self) {
         for (name, types) in &other.0 {
-            let set = self.0.entry(*name).or_default();
+            let set = self.0.entry(name.clone()).or_default();
             types.iter().for_each(|ty| {
                 set.insert(ty.clone());
             });
@@ -104,7 +104,7 @@ impl TypeMap {
                 return true;
             }
 
-            if config.references.contains(*tn).is_some() {
+            if config.references.contains(tn).is_some() {
                 return true;
             }
 
@@ -115,6 +115,6 @@ impl TypeMap {
     fn excluded(&self, filter: &Filter, references: &References) -> bool {
         self.0
             .iter()
-            .any(|(tn, _)| filter.excludes_type_name(*tn) && references.contains(*tn).is_none())
+            .any(|(tn, _)| filter.excludes_type_name(tn) && references.contains(tn).is_none())
     }
 }

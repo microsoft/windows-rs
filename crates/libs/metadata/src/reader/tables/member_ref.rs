@@ -1,17 +1,17 @@
 use super::*;
 
-impl std::fmt::Debug for MemberRef<'_> {
+impl std::fmt::Debug for MemberRef {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("MemberRef").field(&self.0).finish()
     }
 }
 
-impl<'a> MemberRef<'a> {
-    pub fn parent(&self) -> MemberRefParent<'a> {
+impl MemberRef {
+    pub fn parent(&self) -> MemberRefParent {
         self.decode(0)
     }
 
-    pub fn name(&self) -> &'a str {
+    pub fn name(&self) -> &str {
         self.str(1)
     }
 

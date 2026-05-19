@@ -1,12 +1,12 @@
 use super::*;
 
-impl std::fmt::Debug for MethodDef<'_> {
+impl std::fmt::Debug for MethodDef {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("MethodDef").field(&self.name()).finish()
     }
 }
 
-impl<'a> MethodDef<'a> {
+impl MethodDef {
     pub fn rva(&self) -> usize {
         self.usize(0)
     }
@@ -19,7 +19,7 @@ impl<'a> MethodDef<'a> {
         MethodAttributes(self.usize(2).try_into().unwrap())
     }
 
-    pub fn name(&self) -> &'a str {
+    pub fn name(&self) -> &str {
         self.str(3)
     }
 
@@ -27,16 +27,16 @@ impl<'a> MethodDef<'a> {
         self.blob(4).read_method_signature(generics)
     }
 
-    pub fn params(&self) -> RowIterator<'a, MethodParam<'a>> {
+    pub fn params(&self) -> RowIterator<MethodParam> {
         self.list(5)
     }
 
-    pub fn parent(&self) -> MemberRefParent<'a> {
+    pub fn parent(&self) -> MemberRefParent {
         MemberRefParent::TypeDef(self.parent_row(5))
     }
 
-    pub fn impl_map(&self) -> Option<ImplMap<'a>> {
-        self.equal_range(1, MemberForwarded::MethodDef(*self).encode())
+    pub fn impl_map(&self) -> Option<ImplMap> {
+        self.equal_range(1, MemberForwarded::MethodDef(self.clone()).encode())
             .next()
     }
 

@@ -1,17 +1,17 @@
 use super::*;
 
-pub trait Decode<'a> {
-    fn decode(index: &'a TypeIndex, file: usize, code: usize) -> Self;
+pub trait Decode {
+    fn decode(index: TypeIndex, file: usize, code: usize) -> Self;
 }
 
 macro_rules! code {
     ($name:ident($size:literal) $(($table:ident, $code:literal))+) => {
         #[derive(Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
-        pub enum $name<'a> {
-            $($table($table<'a>),)*
+        pub enum $name {
+            $($table($table),)*
         }
-        impl<'a> Decode<'a> for $name<'a> {
-            fn decode(index: &'a TypeIndex, file: usize, code: usize) -> Self {
+        impl Decode for $name {
+            fn decode(index: TypeIndex, file: usize, code: usize) -> Self {
                 let (kind, row) = (code & ((1 << $size) - 1), (code >> $size) - 1);
                 match kind {
                     $($code => Self::$table($table(Row::new(index, file, row))),)*
@@ -19,7 +19,7 @@ macro_rules! code {
                 }
             }
         }
-        impl $name<'_> {
+        impl $name {
             #[allow(dead_code)]
             pub fn encode(&self) -> usize {
                 match self {
@@ -28,8 +28,8 @@ macro_rules! code {
             }
         }
         $(
-            impl<'a> From<$table<'a>> for $name<'a> {
-                fn from(from: $table<'a>) -> Self {
+            impl From<$table> for $name {
+                fn from(from: $table) -> Self {
                     Self::$table(from)
                 }
             }
@@ -42,8 +42,8 @@ code! { AttributeType(3)
     (MemberRef, 3)
 }
 
-impl<'a> AttributeType<'a> {
-    pub fn parent(&self) -> MemberRefParent<'a> {
+impl AttributeType {
+    pub fn parent(&self) -> MemberRefParent {
         match self {
             Self::MethodDef(row) => row.parent(),
             Self::MemberRef(row) => row.parent(),
@@ -83,15 +83,15 @@ code! { MemberRefParent(3)
     (TypeRef, 1)
 }
 
-impl<'a> MemberRefParent<'a> {
-    pub fn namespace(&self) -> &'a str {
+impl MemberRefParent {
+    pub fn namespace(&self) -> &str {
         match self {
             Self::TypeDef(row) => row.namespace(),
             Self::TypeRef(row) => row.namespace(),
         }
     }
 
-    pub fn name(&self) -> &'a str {
+    pub fn name(&self) -> &str {
         match self {
             Self::TypeDef(row) => row.name(),
             Self::TypeRef(row) => row.name(),
@@ -110,8 +110,8 @@ code! { TypeOrMethodDef(1)
     (MethodDef, 1)
 }
 
-impl<'a> TypeDefOrRef<'a> {
-    pub fn namespace(&self) -> &'a str {
+impl TypeDefOrRef {
+    pub fn namespace(&self) -> &str {
         match self {
             Self::TypeDef(row) => row.namespace(),
             Self::TypeRef(row) => row.namespace(),
@@ -119,7 +119,7 @@ impl<'a> TypeDefOrRef<'a> {
         }
     }
 
-    pub fn name(&self) -> &'a str {
+    pub fn name(&self) -> &str {
         match self {
             Self::TypeDef(row) => row.name(),
             Self::TypeRef(row) => row.name(),
@@ -144,13 +144,13 @@ impl<'a> TypeDefOrRef<'a> {
     }
 }
 
-impl PartialEq<(&str, &str)> for &TypeDefOrRef<'_> {
+impl PartialEq<(&str, &str)> for &TypeDefOrRef {
     fn eq(&self, other: &(&str, &str)) -> bool {
         *self == other
     }
 }
 
-impl PartialEq<(&str, &str)> for TypeDefOrRef<'_> {
+impl PartialEq<(&str, &str)> for TypeDefOrRef {
     fn eq(&self, other: &(&str, &str)) -> bool {
         self.namespace() == other.0 && self.name() == other.1
     }

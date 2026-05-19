@@ -168,7 +168,7 @@ impl Class {
                     .find(|interface| interface.def.type_name() == TypeName::IIterable)
                     .map(|interface| {
                         let ty = interface.generics[0].write_name(config);
-                        let namespace = config.write_namespace(TypeName::IIterator);
+                        let namespace = config.write_namespace(&TypeName::IIterator);
 
                         quote! {
                             #cfg
@@ -321,7 +321,7 @@ impl Class {
         }
 
         for attribute in self.def.attributes() {
-            let kind = match attribute.name() {
+            let kind = match attribute.name().as_str() {
                 "StaticAttribute" | "ActivatableAttribute" => InterfaceKind::Static,
                 "ComposableAttribute" => InterfaceKind::Composable,
                 _ => continue,

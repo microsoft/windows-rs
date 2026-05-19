@@ -132,7 +132,7 @@ impl Filter {
         false
     }
 
-    pub fn includes_type_name(&self, name: TypeName) -> Option<&str> {
+    pub fn includes_type_name(&self, name: &TypeName) -> Option<&str> {
         for rule in &self.rules {
             if match_type_name(&rule.0, name.namespace(), name.name()) {
                 return if rule.1 { Some(&rule.0) } else { None };
@@ -142,7 +142,7 @@ impl Filter {
         None
     }
 
-    pub fn excludes_type_name(&self, name: TypeName) -> bool {
+    pub fn excludes_type_name(&self, name: &TypeName) -> bool {
         for rule in &self.rules {
             if match_type_name(&rule.0, name.namespace(), name.name()) {
                 return !rule.1;
@@ -161,7 +161,7 @@ impl Filter {
     /// single filter entry can address either form. This lets callers write
     /// e.g. `!IFoo::InsertKeyFrameWithEasingFunction` to deny only the
     /// renamed overload while leaving the bare `InsertKeyFrame` slot intact.
-    pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
+    pub fn includes_method(&self, type_name: &TypeName, method: MethodDef) -> bool {
         let Some(filter) = self.methods.get(&(
             type_name.namespace().to_string(),
             type_name.name().to_string(),
@@ -191,7 +191,7 @@ impl Filter {
     /// trait, vtable thunks, IID, `Interface` impl) so implementers can
     /// stub its methods and the ABI is preserved; only the caller-side
     /// `impl IFace { fn X(&self) -> Result<T> { ... } }` block is skipped.
-    pub fn is_trait_only(&self, name: TypeName) -> bool {
+    pub fn is_trait_only(&self, name: &TypeName) -> bool {
         self.trait_only
             .contains(&(name.namespace().to_string(), name.name().to_string()))
     }
@@ -509,7 +509,7 @@ fn maybe_warn_ambiguous_overload(
     // their multi-row behavior is intentional.
     let matching: Vec<MethodDef> = defs
         .iter()
-        .copied()
+        .cloned()
         .filter(|m| m.name() == method_part)
         .collect();
     if matching.len() < 2 {
@@ -517,7 +517,7 @@ fn maybe_warn_ambiguous_overload(
     }
     let names: Vec<String> = matching
         .iter()
-        .map(|m| method_overload_name(*m).unwrap_or_else(|| m.name().to_string()))
+        .map(|m| method_overload_name(m.clone()).unwrap_or_else(|| m.name().to_string()))
         .collect();
     warnings.push(format!(
         "filter `{raw}` denies {n} overloads of `{namespace}.{type_name}::{method_part}`: \

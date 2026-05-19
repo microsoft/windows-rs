@@ -37,7 +37,7 @@ pub enum ParamHint {
 impl From<&Param> for ParamHint {
     fn from(param: &Param) -> Self {
         for attribute in param.def.attributes() {
-            match attribute.name() {
+            match attribute.name().as_str() {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in attribute.value() {
                         match value {
@@ -74,7 +74,7 @@ impl ParamHint {
 }
 
 impl CppMethod {
-    pub fn new(def: MethodDef, namespace: &'static str, reader: &Reader) -> Self {
+    pub fn new(def: MethodDef, namespace: &str, reader: &Reader) -> Self {
         let signature = def.method_signature(namespace, &[], reader);
         let dependencies = signature.dependencies(reader);
         let mut param_hints = vec![ParamHint::None; signature.params.len()];

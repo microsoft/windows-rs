@@ -64,7 +64,7 @@ impl Interface {
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     MethodOrName::Name(method.def)
-                } else if !config.filter.includes_method(type_name, def) {
+                } else if !config.filter.includes_method(&type_name, def) {
                     // Method-level `--filter` demoted this slot to opaque.
                     MethodOrName::Name(method.def)
                 } else {
@@ -82,7 +82,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            !method.dependencies.included(config) || !config.filter.includes_method(type_name, def)
+            !method.dependencies.included(config) || !config.filter.includes_method(&type_name, def)
         })
     }
 
@@ -95,7 +95,7 @@ impl Interface {
 
         let vtbl_name = self.write_vtbl_name(config);
         let is_exclusive = self.is_exclusive();
-        let impl_mode = config.implement_mode(type_name, !is_exclusive);
+        let impl_mode = config.implement_mode(&type_name, !is_exclusive);
         let constraints = config.write_generic_constraints(&self.generics);
         let phantoms = config.write_generic_phantoms(&self.generics);
         let named_phantoms = config.write_generic_named_phantoms(&self.generics);
@@ -338,7 +338,7 @@ impl Interface {
                         .find(|interface| interface.type_name() == TypeName::IIterable)
                         .map(|interface| {
                             let ty = interface.generics[0].write_name(config);
-                            let namespace = config.write_namespace(TypeName::IIterator);
+                            let namespace = config.write_namespace(&TypeName::IIterator);
 
                             quote! {
                                 #cfg
@@ -582,7 +582,7 @@ impl Interface {
         let name: TokenStream = format!("{}_Impl", trim_tick(self.def.name()))
             .parse()
             .unwrap();
-        let namespace = config.write_namespace(self.def.type_name());
+        let namespace = config.write_namespace(&self.def.type_name());
 
         if self.generics.is_empty() {
             quote! { #namespace #name }
@@ -619,7 +619,7 @@ impl Interface {
         let our_name = self.def.name();
 
         for attribute in class.def.attributes() {
-            match attribute.name() {
+            match attribute.name().as_str() {
                 "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
                     for (_, arg) in attribute.value() {
                         if let Value::TypeName(tn) = arg {

@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
+pub fn write_arches<R: HasAttributes>(row: R) -> TokenStream {
     let mut tokens = quote! {};
 
     if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
@@ -99,7 +99,7 @@ impl Cfg {
 
         for dependency in compact {
             if dependency.is_empty()
-                || namespace_starts_with(config.namespace, dependency)
+                || namespace_starts_with(&config.namespace, dependency)
                 || dependency == "Windows.Foundation"
                 || dependency == "Windows.Win32.Foundation"
             {

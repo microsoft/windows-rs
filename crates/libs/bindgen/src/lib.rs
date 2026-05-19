@@ -38,9 +38,11 @@ pub use libraries::*;
 use param::*;
 use references::*;
 use signature::*;
+use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::collections::*;
 use std::fmt::Write;
+use std::sync::Arc;
 use tables::*;
 use tokens::*;
 use type_map::*;
@@ -849,7 +851,7 @@ impl Bindgen {
             specific_deps: self.specific_deps,
             link,
             warnings: &warnings,
-            namespace: "",
+            namespace: Arc::from(""),
         };
 
         let tree = TypeTree::new(&types);

@@ -3,14 +3,14 @@ use super::*;
 // This uses BTree rather than Hash as we're getting close to writing the tokens in sorted order.
 #[derive(Debug)]
 pub struct TypeTree {
-    pub namespace: &'static str,
-    pub nested: BTreeMap<&'static str, Self>,
+    pub namespace: Arc<str>,
+    pub nested: BTreeMap<Arc<str>, Self>,
     pub types: BTreeSet<Type>,
 }
 
 impl TypeTree {
     pub fn new(dependencies: &TypeMap) -> Self {
-        let mut tree = Self::with_namespace("");
+        let mut tree = Self::with_namespace(Arc::from(""));
 
         for (tn, types) in dependencies.iter() {
             let tree = tree.insert_namespace(tn.namespace());
@@ -54,7 +54,7 @@ impl TypeTree {
         self.namespace.split_once('.').unwrap().1.replace('.', "_")
     }
 
-    fn with_namespace(namespace: &'static str) -> Self {
+    fn with_namespace(namespace: Arc<str>) -> Self {
         Self {
             namespace,
             nested: BTreeMap::new(),
@@ -62,26 +62,31 @@ impl TypeTree {
         }
     }
 
-    fn insert_namespace(&mut self, namespace: &'static str) -> &mut Self {
+    fn insert_namespace(&mut self, namespace: &str) -> &mut Self {
         fn insert_namespace<'a>(
             parent: &'a mut TypeTree,
-            namespace: &'static str,
+            namespace: &str,
             pos: usize,
         ) -> &'a mut TypeTree {
             if let Some(next) = namespace[pos..].find('.') {
                 let next = pos + next;
+                let segment: Arc<str> = Arc::from(&namespace[pos..next]);
+                let prefix: Arc<str> = Arc::from(&namespace[..next]);
 
                 let parent = parent
                     .nested
-                    .entry(&namespace[pos..next])
-                    .or_insert_with(|| TypeTree::with_namespace(&namespace[..next]));
+                    .entry(segment)
+                    .or_insert_with(|| TypeTree::with_namespace(prefix));
 
                 insert_namespace(parent, namespace, next + 1)
             } else {
+                let segment: Arc<str> = Arc::from(&namespace[pos..]);
+                let full: Arc<str> = Arc::from(namespace);
+
                 parent
                     .nested
-                    .entry(&namespace[pos..])
-                    .or_insert_with(|| TypeTree::with_namespace(namespace))
+                    .entry(segment)
+                    .or_insert_with(|| TypeTree::with_namespace(full))
             }
         }
 

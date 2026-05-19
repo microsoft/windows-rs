@@ -41,7 +41,7 @@ impl CppInterface {
                         .warnings
                         .skip_method(method.def, &method.dependencies, config);
                     CppMethodOrName::Name(method.def)
-                } else if !config.filter.includes_method(type_name, def) {
+                } else if !config.filter.includes_method(&type_name, def) {
                     // Method-level `--filter` demoted this slot to opaque.
                     CppMethodOrName::Name(method.def)
                 } else {
@@ -60,7 +60,7 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, namespace, config.reader);
-            !method.dependencies.included(config) || !config.filter.includes_method(type_name, def)
+            !method.dependencies.included(config) || !config.filter.includes_method(&type_name, def)
         })
     }
 
@@ -154,7 +154,7 @@ impl CppInterface {
             result
         } else {
             let name = to_ident(self.def.name());
-            let impl_mode = config.implement_mode(self.def.type_name(), true);
+            let impl_mode = config.implement_mode(&self.def.type_name(), true);
 
             let mut result = if has_unknown_base {
                 if let Some(guid) = self.def.guid_attribute() {
@@ -444,13 +444,13 @@ impl CppInterface {
 
     fn write_vtbl_name(&self, config: &Config) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).parse().unwrap();
-        let namespace = config.write_namespace(self.def.type_name());
+        let namespace = config.write_namespace(&self.def.type_name());
         quote! { #namespace #name }
     }
 
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).parse().unwrap();
-        let namespace = config.write_namespace(self.def.type_name());
+        let namespace = config.write_namespace(&self.def.type_name());
         quote! { #namespace #name }
     }
 

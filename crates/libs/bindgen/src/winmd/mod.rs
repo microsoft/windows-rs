@@ -3,21 +3,20 @@ use super::*;
 mod reader;
 pub use reader::*;
 
-// Type aliases using 'static lifetime.
-// Safety: the TypeIndex is leaked in Reader::new (Box::leak), so TypeDef<'static>, etc.
-// truly live forever.
-pub type TypeDef = windows_metadata::reader::TypeDef<'static>;
-pub type Field = windows_metadata::reader::Field<'static>;
-pub type MethodDef = windows_metadata::reader::MethodDef<'static>;
-pub type MethodParam = windows_metadata::reader::MethodParam<'static>;
-pub type GenericParam = windows_metadata::reader::GenericParam<'static>;
-pub type InterfaceImpl = windows_metadata::reader::InterfaceImpl<'static>;
-pub type Constant = windows_metadata::reader::Constant<'static>;
+// Row type re-exports. These are now lifetime-free owned handles backed by an
+// Arc<TypeIndexData> inside each Row, so no 'static aliases are needed.
+pub use windows_metadata::reader::TypeDef;
+pub use windows_metadata::reader::Field;
+pub use windows_metadata::reader::MethodDef;
+pub use windows_metadata::reader::MethodParam;
+pub use windows_metadata::reader::GenericParam;
+pub use windows_metadata::reader::InterfaceImpl;
+pub use windows_metadata::reader::Constant;
 
-// Coded index type aliases
-pub type TypeDefOrRef = windows_metadata::reader::TypeDefOrRef<'static>;
-pub type MemberRefParent = windows_metadata::reader::MemberRefParent<'static>;
-pub type File = windows_metadata::reader::File;
+// Coded index type re-exports (also lifetime-free)
+pub use windows_metadata::reader::TypeDefOrRef;
+pub use windows_metadata::reader::MemberRefParent;
+pub use windows_metadata::reader::File;
 
 pub use windows_metadata::reader::AsRow;
 pub use windows_metadata::HasAttributes;
@@ -34,7 +33,7 @@ pub trait TypeDefOrRefExt {
 
 impl TypeDefOrRefExt for TypeDefOrRef {
     fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), windows_metadata::trim_tick(self.name()))
+        TypeName::new(self.namespace(), windows_metadata::trim_tick(self.name()))
     }
 }
 
@@ -45,7 +44,7 @@ pub trait MemberRefParentExt {
 
 impl MemberRefParentExt for MemberRefParent {
     fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), windows_metadata::trim_tick(self.name()))
+        TypeName::new(self.namespace(), windows_metadata::trim_tick(self.name()))
     }
 }
 
@@ -54,7 +53,7 @@ pub trait GuidAttributeExt {
     fn guid_attribute(&self) -> Option<GUID>;
 }
 
-impl<T: windows_metadata::HasAttributes<'static>> GuidAttributeExt for T {
+impl<T: windows_metadata::HasAttributes> GuidAttributeExt for T {
     fn guid_attribute(&self) -> Option<GUID> {
         self.find_attribute("GuidAttribute").map(|attribute| {
             fn unwrap_u32(value: &Value) -> u32 {

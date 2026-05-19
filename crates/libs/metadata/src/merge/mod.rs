@@ -89,7 +89,7 @@ impl Merger {
         let mut file = writer::File::new(name);
 
         // Write plain (untagged) inputs as-is.
-        let mut types: Vec<reader::TypeDef<'_>> = index.types().collect();
+        let mut types: Vec<reader::TypeDef> = index.types().collect();
         types.sort_by(|a, b| (a.namespace(), a.name()).cmp(&(b.namespace(), b.name())));
 
         for ty in types {
@@ -120,10 +120,10 @@ impl Merger {
             }
 
             // Build a flat list of (TypeIndex ref, TypeDef, arch_bits) sorted by (ns, name).
-            let mut all_type_refs: Vec<(&reader::TypeIndex, reader::TypeDef<'_>, i32)> = Vec::new();
+            let mut all_type_refs: Vec<(reader::TypeIndex, reader::TypeDef, i32)> = Vec::new();
             for (idx, arch_bits) in &arch_groups {
                 for ty in idx.types() {
-                    all_type_refs.push((idx, ty, *arch_bits));
+                    all_type_refs.push((idx.clone(), ty, *arch_bits));
                 }
             }
             all_type_refs
@@ -148,7 +148,7 @@ impl Merger {
                     Some(present_mask)
                 };
 
-                write_type(&mut file, idx, *ty, None, arch_override);
+                write_type(&mut file, idx, ty.clone(), None, arch_override);
             }
         }
 
@@ -253,7 +253,7 @@ fn write_type(
     write_attributes_with_arch(
         file,
         writer::HasAttribute::TypeDef(type_def),
-        def,
+        def.clone(),
         arch_override,
     );
 
@@ -292,7 +292,7 @@ fn write_type(
                 write_attributes(file, writer::HasAttribute::Param(param), param_def);
             }
 
-            write_attributes(file, writer::HasAttribute::MethodDef(method_def), method);
+            write_attributes(file, writer::HasAttribute::MethodDef(method_def), method.clone());
 
             if let Some(impl_map) = method.impl_map() {
                 file.ImplMap(
@@ -320,7 +320,7 @@ fn write_type(
     }
 }
 
-fn write_attributes<'a, R: reader::HasAttributes<'a>>(
+fn write_attributes<R: reader::HasAttributes>(
     file: &mut writer::File,
     parent: writer::HasAttribute,
     row: R,
@@ -335,7 +335,7 @@ fn write_attributes<'a, R: reader::HasAttributes<'a>>(
 ///   - If `arch_override` is `Some(bits)` with `bits != 0`, a new
 ///     `SupportedArchitectureAttribute(bits)` is written.
 ///   - If `arch_override` is `Some(0)`, no arch attribute is written (arch-neutral).
-fn write_attributes_with_arch<'a, R: reader::HasAttributes<'a>>(
+fn write_attributes_with_arch<R: reader::HasAttributes>(
     file: &mut writer::File,
     parent: writer::HasAttribute,
     row: R,

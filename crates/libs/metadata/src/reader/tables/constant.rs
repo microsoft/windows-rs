@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> Constant<'a> {
+impl Constant {
     pub fn ty(&self) -> Type {
         match self.usize(0).try_into().unwrap() {
             ELEMENT_TYPE_U1 => Type::U8,
@@ -18,7 +18,7 @@ impl<'a> Constant<'a> {
         }
     }
 
-    pub fn parent(&self) -> HasConstant<'a> {
+    pub fn parent(&self) -> HasConstant {
         self.decode(1)
     }
 
