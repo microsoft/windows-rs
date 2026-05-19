@@ -521,7 +521,7 @@ impl Type {
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
-        if config.sys && self.is_interface() {
+        if config.mode.is_sys() && self.is_interface() {
             return quote! { *mut core::ffi::c_void };
         }
 
@@ -609,7 +609,7 @@ impl Type {
             Self::ArrayRef(ty) => ty.write_name(config),
             Self::ConstRef(ty) => ty.write_name(config),
             Self::PrimitiveOrEnum(primitive, ty) => {
-                if config.sys {
+                if config.mode.is_sys() {
                     primitive.write_name(config)
                 } else {
                     ty.write_name(config)
@@ -620,7 +620,7 @@ impl Type {
     }
 
     pub fn write_default(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.mode.is_sys() {
             return self.write_name(config);
         }
 
@@ -654,7 +654,7 @@ impl Type {
     }
 
     pub fn write_abi(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.mode.is_sys() {
             return self.write_name(config);
         }
 
@@ -958,7 +958,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if !config.no_deps || !config.sys {
+        if !config.no_deps || !config.mode.is_sys() {
             return quote! {};
         }
 

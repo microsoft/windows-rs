@@ -14,7 +14,7 @@ impl Config<'_> {
     }
 
     fn write_specific(&self, specific: &str) -> TokenStream {
-        if self.sys {
+        if self.mode.is_sys() {
             if self.package || !self.no_deps {
                 quote! { windows_sys::core:: }
             } else if self.flat {

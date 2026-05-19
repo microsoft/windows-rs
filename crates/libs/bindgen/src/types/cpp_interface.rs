@@ -124,7 +124,7 @@ impl CppInterface {
                 }
             });
 
-            let hide_vtbl = if config.sys {
+            let hide_vtbl = if config.mode.is_sys() {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -141,7 +141,7 @@ impl CppInterface {
             }
         };
 
-        if config.sys {
+        if config.mode.is_sys() {
             let mut result = quote! {};
 
             if !config.package {

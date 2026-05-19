@@ -30,7 +30,7 @@ impl CppEnum {
         let tn = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        if !is_scoped && (config.sys || config.minimal) {
+        if !is_scoped && config.mode.is_sys_or_minimal() {
             return config.write_cpp_handle(self.def);
         }
 
@@ -43,7 +43,7 @@ impl CppEnum {
         let mut derive = DeriveWriter::new(config, tn);
         derive.extend(["Copy", "Clone"]);
 
-        if !config.sys {
+        if !config.mode.is_sys() {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
@@ -70,7 +70,7 @@ impl CppEnum {
             quote! {}
         };
 
-        let flags = if config.sys || !self.def.has_attribute("FlagsAttribute") {
+        let flags = if config.mode.is_sys() || !self.def.has_attribute("FlagsAttribute") {
             quote! {}
         } else {
             quote! {

@@ -7,6 +7,36 @@ mod value;
 use super::*;
 pub use cfg::*;
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Mode {
+    Sys,
+    Safe,
+    SafeMinimal,
+}
+
+impl Mode {
+    pub fn new(sys: bool, minimal: bool) -> Self {
+        match (sys, minimal) {
+            (true, false) => Self::Sys,
+            (false, true) => Self::SafeMinimal,
+            (false, false) => Self::Safe,
+            (true, true) => unreachable!("checked by Bindgen before Config construction"),
+        }
+    }
+
+    pub fn is_sys(self) -> bool {
+        matches!(self, Self::Sys)
+    }
+
+    pub fn is_minimal(self) -> bool {
+        matches!(self, Self::SafeMinimal)
+    }
+
+    pub fn is_sys_or_minimal(self) -> bool {
+        !matches!(self, Self::Safe)
+    }
+}
+
 #[derive(Clone)]
 pub struct Config<'a> {
     pub reader: &'a Reader,
@@ -21,8 +51,7 @@ pub struct Config<'a> {
     pub no_toml: bool,
     pub package: bool,
     pub rustfmt: &'a str,
-    pub sys: bool,
-    pub minimal: bool,
+    pub mode: Mode,
     pub typedef: bool,
     pub sys_fn_ptrs: bool,
     pub sys_fn_extern: bool,

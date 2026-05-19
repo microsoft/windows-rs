@@ -34,7 +34,7 @@ impl Class {
         for interface in &required_interfaces {
             // In `minimal` mode keep only static and composable factory helpers; callers
             // invoke instance methods via `cast::<IFoo>()?`.
-            if config.minimal
+            if config.mode.is_minimal()
                 && !matches!(
                     interface.kind,
                     InterfaceKind::Static | InterfaceKind::Composable
@@ -167,7 +167,7 @@ impl Class {
                 }
             });
 
-            let into_iterator = if config.minimal {
+            let into_iterator = if config.mode.is_minimal() {
                 None
             } else {
                 required_interfaces

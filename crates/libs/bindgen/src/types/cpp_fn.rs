@@ -44,7 +44,9 @@ impl CppFn {
 
         let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
 
-        let vararg = if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+        let vararg = if config.mode.is_sys()
+            && signature.call_flags.contains(MethodCallAttributes::VARARG)
+        {
             quote! { , ... }
         } else {
             quote! {}
@@ -103,8 +105,8 @@ impl CppFn {
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 
-        if config.sys || config.minimal {
-            let fn_ptr = if config.sys && config.sys_fn_ptrs {
+        if config.mode.is_sys_or_minimal() {
+            let fn_ptr = if config.mode.is_sys() && config.sys_fn_ptrs {
                 let fn_ptr = self.write_fn_ptr(config, false);
 
                 quote! {
