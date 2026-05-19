@@ -26,7 +26,7 @@ pub unsafe fn CreateCoreWebView2Environment<P0>(
 where
     P0: windows_core::Param<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CreateCoreWebView2Environment(environmentcreatedhandler.param().abi()).ok() }
 }
 #[inline]
@@ -40,7 +40,7 @@ where
     P2: windows_core::Param<ICoreWebView2EnvironmentOptions>,
     P3: windows_core::Param<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : PCWSTR, userdatafolder : PCWSTR, environmentoptions : * mut core::ffi::c_void, environmentcreatedhandler : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : PCWSTR, userdatafolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         CreateCoreWebView2EnvironmentWithOptions(
             browserexecutablefolder,
@@ -70,7 +70,7 @@ pub unsafe fn GetAvailableCoreWebView2BrowserVersionStringWithOptions<P1>(
 where
     P1: windows_core::Param<ICoreWebView2EnvironmentOptions>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserexecutablefolder : PCWSTR, environmentoptions : * mut core::ffi::c_void, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserexecutablefolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetAvailableCoreWebView2BrowserVersionStringWithOptions(
@@ -90,7 +90,7 @@ where
     P0: windows_core::Param<ICoreWebView2_25>,
     P1: windows_core::Param<ICoreWebView2ShowSaveAsUICompletedHandler>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Proxy(this : * mut core::ffi::c_void, handler : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Proxy(this : *mut core::ffi::c_void, handler : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { ICoreWebView2_25_ShowSaveAsUI_Proxy(this.param().abi(), handler.param().abi()).ok() }
 }
 #[inline]
@@ -103,7 +103,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_25_ShowSaveAsUI_Stub(
@@ -124,7 +124,7 @@ where
     P0: windows_core::Param<ICoreWebView2_25>,
     P1: windows_core::Param<ICoreWebView2SaveAsUIShowingEventHandler>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(this : * mut core::ffi::c_void, eventhandler : * mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_25_add_SaveAsUIShowing_Proxy(
@@ -145,7 +145,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_25_add_SaveAsUIShowing_Stub(
@@ -165,7 +165,7 @@ pub unsafe fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy<P0>(
 where
     P0: windows_core::Param<ICoreWebView2_25>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(this : * mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
     unsafe { ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(this.param().abi(), token).ok() }
 }
 #[inline]
@@ -178,7 +178,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_25_remove_SaveAsUIShowing_Stub(
@@ -199,7 +199,7 @@ where
     P0: windows_core::Param<ICoreWebView2_26>,
     P1: windows_core::Param<ICoreWebView2SaveFileSecurityCheckStartingEventHandler>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(this : * mut core::ffi::c_void, eventhandler : * mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(
@@ -220,7 +220,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(
@@ -240,7 +240,7 @@ pub unsafe fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy<P0>(
 where
     P0: windows_core::Param<ICoreWebView2_26>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(this : * mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
     unsafe {
         ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(this.param().abi(), token).ok()
     }
@@ -255,7 +255,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(
@@ -276,7 +276,7 @@ where
     P0: windows_core::Param<ICoreWebView2_27>,
     P1: windows_core::Param<ICoreWebView2ScreenCaptureStartingEventHandler>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(this : * mut core::ffi::c_void, eventhandler : * mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(
@@ -297,7 +297,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_27_add_ScreenCaptureStarting_Stub(
@@ -317,7 +317,7 @@ pub unsafe fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy<P0>(
 where
     P0: windows_core::Param<ICoreWebView2_27>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(this : * mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
     unsafe { ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(this.param().abi(), token).ok() }
 }
 #[inline]
@@ -330,7 +330,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(
@@ -349,7 +349,7 @@ pub unsafe fn ICoreWebView2_28_get_Find_Proxy<P0>(
 where
     P0: windows_core::Param<ICoreWebView2_28>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Proxy(this : * mut core::ffi::c_void, value : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Proxy(this : *mut core::ffi::c_void, value : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_28_get_Find_Proxy(this.param().abi(), &mut result__)
@@ -366,7 +366,7 @@ where
     P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
     P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
 {
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Stub(this : * mut core::ffi::c_void, _prpcchannelbuffer : * mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
     unsafe {
         let mut result__ = core::mem::zeroed();
         ICoreWebView2_28_get_Find_Stub(
@@ -3778,7 +3778,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl:: IsBrowserAcceleratorKeyEnabled ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                match ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl::IsBrowserAcceleratorKeyEnabled (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn SetIsBrowserAcceleratorKeyEnabled<
@@ -3791,7 +3791,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl:: SetIsBrowserAcceleratorKeyEnabled ( this , core::mem::transmute_copy ( & value ) , ) . into ( )
+                ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl::SetIsBrowserAcceleratorKeyEnabled (this , core::mem::transmute_copy (& value) ,) . into ()
             }
         }
         Self {
@@ -6422,7 +6422,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2ClientCertificateRequestedEventArgs_Impl:: AllowedCertificateAuthorities ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::AllowedCertificateAuthorities (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn MutuallyTrustedCertificates<
@@ -6435,7 +6435,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2ClientCertificateRequestedEventArgs_Impl:: MutuallyTrustedCertificates ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::MutuallyTrustedCertificates (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn SelectedCertificate<
@@ -13151,7 +13151,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl:: ParameterObjectAsJson ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                match ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl::ParameterObjectAsJson (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         Self {
@@ -13392,7 +13392,7 @@ impl ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2DevToolsProtocolEventReceiver_Impl:: add_DevToolsProtocolEventReceived ( this , core::mem::transmute_copy ( & eventhandler ) , ) { Ok ( ok__ ) => { token . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                match ICoreWebView2DevToolsProtocolEventReceiver_Impl::add_DevToolsProtocolEventReceived (this , core::mem::transmute_copy (& eventhandler) ,) { Ok (ok__) => { token . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn remove_DevToolsProtocolEventReceived<
@@ -13405,7 +13405,7 @@ impl ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2DevToolsProtocolEventReceiver_Impl:: remove_DevToolsProtocolEventReceived ( this , core::mem::transmute_copy ( & token ) , ) . into ( )
+                ICoreWebView2DevToolsProtocolEventReceiver_Impl::remove_DevToolsProtocolEventReceived (this , core::mem::transmute_copy (& token) ,) . into ()
             }
         }
         Self {
@@ -24673,7 +24673,7 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2NavigationStartingEventArgs2_Impl:: AdditionalAllowedFrameAncestors ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                match ICoreWebView2NavigationStartingEventArgs2_Impl::AdditionalAllowedFrameAncestors (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn SetAdditionalAllowedFrameAncestors<
@@ -34426,7 +34426,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl:: SuppressDefaultPolicy ( this , ) { Ok ( ok__ ) => { value . write ( core::mem::transmute ( ok__ ) ) ; windows_core::HRESULT ( 0 ) } Err ( err ) => err . into ( ) }
+                match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SuppressDefaultPolicy (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn SetSuppressDefaultPolicy<
