@@ -92,10 +92,14 @@ const DEFAULT_REFERENCE_GROUPS: &[DefaultReferenceGroup] = &[
     },
 ];
 
+/// Builds the default dependency reference stages gated by namespace presence.
+///
+/// Uses `specific_deps` to select `windows_result` vs `windows_core` for Win32 status types.
 pub fn default_reference_stages(reader: &Reader, specific_deps: bool) -> Vec<ReferenceStage> {
     let mut references = Vec::new();
 
-    // Reverse iteration preserves the historical "insert at front" ordering.
+    // Reverse groups and each group's paths so push-order matches historical
+    // semantics from repeatedly inserting each reference at the front.
     for group in DEFAULT_REFERENCE_GROUPS.iter().rev() {
         if reader.contains_key(group.required_namespace) {
             for path in group.paths.iter().rev() {
