@@ -115,8 +115,19 @@ enum ItemRef<'a> {
     CppConst(&'a CppConst),
 }
 
-impl<'a> ItemRef<'a> {
-    fn kind(self) -> i32 {
+trait ItemEmitter {
+    fn kind(&self) -> i32;
+    fn arches(&self) -> i32;
+    fn type_name(&self) -> TypeName;
+    fn write(&self, config: &Config) -> TokenStream;
+    fn write_name(&self, config: &Config) -> TokenStream;
+    fn write_impl_name(&self, config: &Config) -> Option<TokenStream>;
+    fn runtime_signature(&self, reader: &Reader) -> Option<String>;
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader);
+}
+
+impl ItemEmitter for ItemRef<'_> {
+    fn kind(&self) -> i32 {
         match self {
             Self::CppFn(..) => 0,
             Self::Class(..) => 1,
@@ -132,7 +143,7 @@ impl<'a> ItemRef<'a> {
         }
     }
 
-    fn arches(self) -> i32 {
+    fn arches(&self) -> i32 {
         match self {
             Self::CppFn(ty) => ty.method.arches(),
             Self::CppStruct(ty) => ty.def.arches(),
@@ -141,7 +152,7 @@ impl<'a> ItemRef<'a> {
         }
     }
 
-    fn type_name(self) -> TypeName {
+    fn type_name(&self) -> TypeName {
         match self {
             Self::CppFn(ty) => ty.type_name(),
             Self::Class(ty) => ty.type_name(),
@@ -157,7 +168,7 @@ impl<'a> ItemRef<'a> {
         }
     }
 
-    fn write(self, config: &Config) -> TokenStream {
+    fn write(&self, config: &Config) -> TokenStream {
         match self {
             Self::CppFn(ty) => ty.write(config),
             Self::Class(ty) => ty.write(config),
@@ -173,7 +184,7 @@ impl<'a> ItemRef<'a> {
         }
     }
 
-    fn write_name(self, config: &Config) -> TokenStream {
+    fn write_name(&self, config: &Config) -> TokenStream {
         match self {
             Self::CppFn(ty) => ty.write_name(config),
             Self::Class(ty) => ty.write_name(config),
@@ -189,7 +200,7 @@ impl<'a> ItemRef<'a> {
         }
     }
 
-    fn write_impl_name(self, config: &Config) -> Option<TokenStream> {
+    fn write_impl_name(&self, config: &Config) -> Option<TokenStream> {
         match self {
             Self::CppInterface(ty) => Some(ty.write_impl_name(config)),
             Self::Interface(ty) => Some(ty.write_impl_name(config)),
@@ -197,7 +208,7 @@ impl<'a> ItemRef<'a> {
         }
     }
 
-    fn runtime_signature(self, reader: &Reader) -> Option<String> {
+    fn runtime_signature(&self, reader: &Reader) -> Option<String> {
         match self {
             Self::Class(ty) => Some(ty.runtime_signature(reader)),
             Self::Interface(ty) => Some(ty.runtime_signature(reader)),
@@ -208,7 +219,7 @@ impl<'a> ItemRef<'a> {
         }
     }
 
-    fn combine(self, dependencies: &mut TypeMap, reader: &Reader) {
+    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         match self {
             Self::Class(ty) => ty.combine(dependencies, reader),
             Self::Delegate(ty) => ty.combine(dependencies, reader),
@@ -223,7 +234,9 @@ impl<'a> ItemRef<'a> {
             Self::CppEnum(ty) => ty.combine(dependencies, reader),
         }
     }
+}
 
+impl<'a> ItemRef<'a> {
     /// Returns `(namespace, name)` for item kinds that can resolve multi-definitions by full name.
     /// This is only needed for `CppStruct` and `CppFn`, since those are the item kinds where
     /// bindgen may see multiple definitions under the same short key and must fan out via

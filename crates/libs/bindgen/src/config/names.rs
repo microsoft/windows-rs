@@ -1,5 +1,29 @@
 use super::*;
 
+enum SpecificPathOrigin<'a> {
+    SysCoreAbsolute,
+    SysCoreFlat,
+    SysCoreRelative { levels: usize },
+    CoreCrate,
+    SpecificCrate(&'a str),
+}
+
+enum NamespacePathOrigin<'a> {
+    Empty,
+    ExternalFlat {
+        crate_name: &'a str,
+    },
+    ExternalNamespaced {
+        crate_name: &'a str,
+        namespace: &'a str,
+        skip_root: bool,
+    },
+    LocalRelative {
+        current: &'a str,
+        target: &'a str,
+    },
+}
+
 impl Config<'_> {
     pub fn write_core(&self) -> TokenStream {
         self.write_specific("windows_core")
@@ -13,25 +37,39 @@ impl Config<'_> {
         self.write_specific("windows_strings")
     }
 
-    fn write_specific(&self, specific: &str) -> TokenStream {
+    fn specific_path_origin<'a>(&'a self, specific: &'a str) -> SpecificPathOrigin<'a> {
         if self.mode.is_sys() {
             if self.package || !self.no_deps {
-                quote! { windows_sys::core:: }
+                SpecificPathOrigin::SysCoreAbsolute
             } else if self.flat {
-                quote! {}
+                SpecificPathOrigin::SysCoreFlat
             } else {
+                SpecificPathOrigin::SysCoreRelative {
+                    levels: self.namespace.split('.').count(),
+                }
+            }
+        } else if !self.specific_deps {
+            SpecificPathOrigin::CoreCrate
+        } else {
+            SpecificPathOrigin::SpecificCrate(specific)
+        }
+    }
+
+    fn write_specific(&self, specific: &str) -> TokenStream {
+        match self.specific_path_origin(specific) {
+            SpecificPathOrigin::SysCoreAbsolute => quote! { windows_sys::core:: },
+            SpecificPathOrigin::SysCoreFlat => quote! {},
+            SpecificPathOrigin::SysCoreRelative { levels } => {
                 let mut path = String::new();
 
-                for _ in 0..self.namespace.split('.').count() {
+                for _ in 0..levels {
                     path.push_str("super::");
                 }
 
                 path.parse().unwrap()
             }
-        } else if !self.specific_deps {
-            quote! { windows_core:: }
-        } else {
-            format!("{specific}::").parse().unwrap()
+            SpecificPathOrigin::CoreCrate => quote! { windows_core:: },
+            SpecificPathOrigin::SpecificCrate(specific) => format!("{specific}::").parse().unwrap(),
         }
     }
 
@@ -63,64 +101,93 @@ impl Config<'_> {
     }
 
     pub fn write_namespace(&self, type_name: TypeName) -> TokenStream {
-        let mut path = String::new();
-
-        if type_name.namespace().is_empty() {
-            return path.parse().unwrap();
-        }
-
-        if let Some(reference) = {
-            if self.types.contains_key(&type_name) {
-                None
-            } else {
-                self.references.contains(type_name)
-            }
-        } {
-            path.push_str(&reference.name);
-            path.push_str("::");
-
-            if reference.style == ReferenceStyle::Flat {
-                return path.parse().unwrap();
+        fn namespace_path_origin<'a>(
+            config: &'a Config<'_>,
+            type_name: TypeName,
+        ) -> NamespacePathOrigin<'a> {
+            let namespace = type_name.namespace();
+            if namespace.is_empty() {
+                return NamespacePathOrigin::Empty;
             }
 
-            let mut namespace = type_name.namespace().split('.').peekable();
-
-            if reference.style == ReferenceStyle::SkipRoot {
-                namespace.next();
-            }
-
-            for namespace in namespace {
-                path.push_str(namespace);
-                path.push_str("::");
-            }
-
-            path.parse().unwrap()
-        } else {
-            if self.flat || type_name.namespace() == self.namespace {
-                return path.parse().unwrap();
-            }
-
-            let mut relative = self.namespace.split('.').peekable();
-            let mut namespace = type_name.namespace().split('.').peekable();
-
-            while relative.peek() == namespace.peek() {
-                if relative.next().is_none() {
-                    break;
+            if let Some(reference) = {
+                if config.types.contains_key(&type_name) {
+                    None
+                } else {
+                    config.references.contains(type_name)
+                }
+            } {
+                if reference.style == ReferenceStyle::Flat {
+                    return NamespacePathOrigin::ExternalFlat {
+                        crate_name: &reference.name,
+                    };
                 }
 
-                namespace.next();
+                return NamespacePathOrigin::ExternalNamespaced {
+                    crate_name: &reference.name,
+                    namespace,
+                    skip_root: reference.style == ReferenceStyle::SkipRoot,
+                };
             }
 
-            for _ in 0..relative.count() {
-                path.push_str("super::");
+            if config.flat || namespace == config.namespace {
+                NamespacePathOrigin::Empty
+            } else {
+                NamespacePathOrigin::LocalRelative {
+                    current: config.namespace,
+                    target: namespace,
+                }
             }
+        }
 
-            for namespace in namespace {
-                path.push_str(namespace);
+        let mut path = String::new();
+
+        match namespace_path_origin(self, type_name) {
+            NamespacePathOrigin::Empty => {}
+            NamespacePathOrigin::ExternalFlat { crate_name } => {
+                path.push_str(crate_name);
                 path.push_str("::");
             }
+            NamespacePathOrigin::ExternalNamespaced {
+                crate_name,
+                namespace,
+                skip_root,
+            } => {
+                path.push_str(crate_name);
+                path.push_str("::");
 
-            path.parse().unwrap()
+                let mut namespace = namespace.split('.').peekable();
+                if skip_root {
+                    namespace.next();
+                }
+
+                for segment in namespace {
+                    path.push_str(segment);
+                    path.push_str("::");
+                }
+            }
+            NamespacePathOrigin::LocalRelative { current, target } => {
+                let mut relative = current.split('.').peekable();
+                let mut namespace = target.split('.').peekable();
+
+                while relative.peek() == namespace.peek() {
+                    if relative.next().is_none() {
+                        break;
+                    }
+                    namespace.next();
+                }
+
+                for _ in 0..relative.count() {
+                    path.push_str("super::");
+                }
+
+                for segment in namespace {
+                    path.push_str(segment);
+                    path.push_str("::");
+                }
+            }
         }
+
+        path.parse().unwrap()
     }
 }

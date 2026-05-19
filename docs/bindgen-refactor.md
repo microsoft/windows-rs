@@ -473,7 +473,9 @@ handled by PR #4431. The remaining steps, ordered by independence:
    in the package writer is the only place the `#[cfg(...)]` annotation
    logic lives.
 
-6. **`ItemEmitter` trait + `Item`/`Sig` split** (§2). Remaining work.
+6. **`ItemEmitter` trait + `Item`/`Sig` split** (§2). In progress.
+   `ItemEmitter` dispatch scaffolding is now in place for `ItemRef` in
+   `types/mod.rs`; the `Item`/`Sig` model split remains.
    The largest
    restructuring. Do this *after* steps 2–5 because those steps reduce
    the per-variant branching that the trait has to abstract over.
@@ -484,7 +486,10 @@ handled by PR #4431. The remaining steps, ordered by independence:
    The giant match ladders in `types/mod.rs` shrink to trivial
    dispatchers.
 
-7. **Typed `PathOrigin`** (§8). Remaining work.
+7. **Typed `PathOrigin`** (§8). In progress.
+   `config/names.rs` now uses typed origin enums for both specific-crate
+   and namespace path selection; centralising origin computation at
+   reference-construction time remains.
    Replaces the boolean matrix in
    `config/names.rs::write_specific` + `write_namespace` with a single
    `enum PathOrigin` computed once at `References::new` time. Natural
