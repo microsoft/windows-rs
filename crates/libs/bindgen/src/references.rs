@@ -100,6 +100,7 @@ pub fn default_reference_stages(reader: &Reader, specific_deps: bool) -> Vec<Ref
             .sum(),
     );
 
+    // Reverse iteration preserves the historical "insert at front" ordering.
     for group in DEFAULT_REFERENCE_GROUPS.iter().rev() {
         if reader.contains_key(group.required_namespace) {
             for path in group.paths.iter().rev() {

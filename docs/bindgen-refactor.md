@@ -1,7 +1,7 @@
 # windows-bindgen: implementation overhaul report
 
-This report focuses on **simplifying and making the `windows-bindgen`
-implementation more manageable**, not on simplifying its CLI / builder
+This report focuses on **simplifying the `windows-bindgen` implementation
+and making it more manageable**, not on simplifying its CLI / builder
 surface. The CLI is treated here as essentially fixed; the question is
 whether the code under `crates/libs/bindgen/src/` can be reorganised so
 that the next person who has to fix a codegen bug, add a new metadata
