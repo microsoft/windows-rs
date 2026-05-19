@@ -89,7 +89,7 @@ pub fn builder() -> Bindgen {
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
-/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time. Mutually exclusive with `--sys`. |
+/// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--implements` | Includes implementation traits for the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
@@ -716,6 +716,12 @@ impl Bindgen {
     /// emitted as their `link!` (or extern) declaration only, without the
     /// `Result<T>` / `from_thread` / `from_abi` ergonomic wrappers (also
     /// matching `--sys`).
+    ///
+    /// Event accessor pairs (`add_*`/`remove_*`) are replaced by a single
+    /// auto-revoking wrapper that returns a [`windows_core::EventRevoker`].
+    /// The `Remove*` wrapper is suppressed. Callers can call
+    /// [`windows_core::EventRevoker::into_token`] to recover the raw token when interoperating
+    /// with code that manages registration tokens directly.
     ///
     /// This is a build-time / disk / memory optimization: the generated source
     /// is dramatically smaller and rustc does much less type-checking and
