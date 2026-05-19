@@ -110,6 +110,7 @@ struct FixtureConfig {
     minimal: bool,
     specific_deps: bool,
     implement: bool,
+    auto_events: bool,
     implements: Vec<String>,
     references: Vec<String>,
     /// `winmd_to_rdl` only: prebuilt winmd (or directory) to consume.
@@ -165,6 +166,7 @@ impl FixtureConfig {
                 "minimal" => cfg.minimal = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
                 "implement" => cfg.implement = parse_bool(value),
+                "auto_events" => cfg.auto_events = parse_bool(value),
                 "implements" => cfg.implements = parse_string_list(value),
                 "references" => cfg.references = parse_string_list(value),
                 "winmd_input" => cfg.winmd_input = Some(parse_string(value)),
@@ -390,6 +392,9 @@ fn run_bindgen(f: &Fixture) {
     }
     if cfg.implement {
         bindgen.implement();
+    }
+    if cfg.auto_events {
+        bindgen.auto_events();
     }
     bindgen.implements(&cfg.implements);
     // Discard warnings: fixtures may intentionally exercise filters

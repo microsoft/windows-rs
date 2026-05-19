@@ -644,6 +644,87 @@ impl Method {
 
         let vcall = build_vcall(&args);
 
+        // --auto-events: suppress remove_* methods and replace add_* methods
+        // with a combined wrapper returning EventRevoker.
+        let raw_method_name = self.def.name();
+        let is_event_add = !noexcept
+            && config.auto_events
+            && self.def.flags().contains(MethodAttributes::SpecialName)
+            && raw_method_name.starts_with("add_");
+        let is_event_remove = config.auto_events
+            && self.def.flags().contains(MethodAttributes::SpecialName)
+            && raw_method_name.starts_with("remove_");
+
+        if is_event_remove {
+            return quote! {};
+        }
+
+        if is_event_add && kind != InterfaceKind::Composable {
+            // The event part (e.g. "Click" from "add_Click") determines the
+            // vtable field name for the paired remove method ("RemoveClick").
+            let event_part = &raw_method_name[4..];
+            let remove_vname: TokenStream = format!("Remove{event_part}").parse().unwrap();
+
+            // Raw vtable call that maps the HRESULT into Result<i64> via `?`.
+            let raw_vcall = quote! {
+                (windows_core::Interface::vtable(#receiver).#vname)(
+                    windows_core::Interface::as_raw(#receiver),
+                    #args
+                )
+            };
+
+            let core = config.write_core();
+            let result = config.write_result();
+
+            // Body shared across all kinds: materialise the token then wrap it.
+            let event_body = quote! {
+                let mut result__ = core::mem::zeroed();
+                let token__ = #raw_vcall.map(|| result__)?;
+                Ok(#core EventRevoker::new(
+                    #receiver.clone(),
+                    token__,
+                    windows_core::Interface::vtable(#receiver).#remove_vname,
+                ))
+            };
+
+            return match kind {
+                InterfaceKind::Default => quote! {
+                    pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker<Self>> #where_clause {
+                        #prelude
+                        unsafe {
+                            #event_body
+                        }
+                    }
+                },
+                InterfaceKind::None | InterfaceKind::Base => {
+                    let interface_name = interface.unwrap().write_name(config);
+                    quote! {
+                        pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker<#interface_name>> #where_clause {
+                            let this = &windows_core::Interface::cast::<#interface_name>(self)?;
+                            #prelude
+                            unsafe {
+                                #event_body
+                            }
+                        }
+                    }
+                }
+                InterfaceKind::Static => {
+                    let factory_name = to_ident(trim_tick(interface.unwrap().def.name()));
+                    let revoker_type = interface.unwrap().write_name(config);
+                    quote! {
+                        pub fn #name<#(#generics,)*>(#(#params)*) -> #result Result<#core EventRevoker<#revoker_type>> #where_clause {
+                            #prelude
+                            Self::#factory_name(|this| unsafe {
+                                #event_body
+                            })
+                        }
+                    }
+                }
+                // Composable is excluded by the `kind != Composable` guard above.
+                InterfaceKind::Composable => unreachable!(),
+            };
+        }
+
         match kind {
             InterfaceKind::Default => quote! {
                 pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {

@@ -28,6 +28,7 @@ mod com_object;
 mod compose;
 #[cfg(feature = "std")]
 mod event;
+mod event_revoker;
 mod guid;
 mod implement_macro;
 mod in_ref;
@@ -51,6 +52,7 @@ pub use com_object::*;
 pub use compose::*;
 #[cfg(feature = "std")]
 pub use event::*;
+pub use event_revoker::*;
 pub use guid::*;
 pub use in_ref::*;
 pub use inspectable::*;

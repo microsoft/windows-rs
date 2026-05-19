@@ -15,4 +15,20 @@ fn main() {
         "windows",
     ])
     .unwrap();
+
+    windows_bindgen::bindgen([
+        "--in",
+        "../events/metadata.winmd",
+        "../../../libs/bindgen/default",
+        "--out",
+        "src/auto_bindings.rs",
+        "--filter",
+        "test_events",
+        "--no-comment",
+        "--flat",
+        "--reference",
+        "windows",
+        "--auto-events",
+    ])
+    .unwrap();
 }

@@ -91,6 +91,7 @@ pub fn builder() -> Bindgen {
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--implements` | Includes implementation traits for the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
+/// | `--auto-events` | Replaces each `add_*`/`remove_*` event accessor pair with a single method returning `windows_core::EventRevoker`. |
 ///
 ///
 /// # `--out`
@@ -429,6 +430,9 @@ where
                 "--index" => {
                     builder.index();
                 }
+                "--auto-events" => {
+                    builder.auto_events();
+                }
                 _ => panic!("invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -514,6 +518,7 @@ pub struct Bindgen {
     sys_fn_ptrs: bool,
     sys_fn_extern: bool,
     index: bool,
+    auto_events: bool,
 }
 
 impl Bindgen {
@@ -749,6 +754,20 @@ impl Bindgen {
     /// Generate a `features.json` index alongside the output file.
     pub fn index(&mut self) -> &mut Self {
         self.index = true;
+        self
+    }
+
+    /// Replace each `add_*`/`remove_*` event accessor pair with a single
+    /// method that accepts the handler directly and returns an
+    /// [`windows_core::EventRevoker`] that auto-revokes on drop.
+    ///
+    /// The vtable layout and `_Impl` scaffolding are unchanged; only the
+    /// caller-side wrapper methods are modified. The `remove_*` wrapper is
+    /// suppressed; the `add_*` wrapper is renamed to the bare event name
+    /// (already the default), and its return type changes from `Result<i64>`
+    /// to `Result<windows_core::EventRevoker<I>>`.
+    pub fn auto_events(&mut self) -> &mut Self {
+        self.auto_events = true;
         self
     }
 
@@ -1067,6 +1086,7 @@ impl Bindgen {
             implement: self.implement,
             implements: &implements,
             specific_deps: self.specific_deps,
+            auto_events: self.auto_events,
             link,
             warnings: &warnings,
             namespace: "",
