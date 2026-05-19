@@ -91,7 +91,7 @@ impl CppConst {
                 if underlying_ty == constant_ty {
                     if is_signed_error(&field_ty, config.reader) {
                         if let Value::I32(signed) = constant.value() {
-                            value = format!("0x{signed:X}_u32 as _").into();
+                            value = format!("0x{signed:X}_u32 as _").parse().unwrap();
                         }
                     }
                 } else if field_ty == Type::Bool {

@@ -16,7 +16,7 @@ pub mod Touch;
 pub mod XboxController;
 #[inline]
 pub unsafe fn DefRawInputProc(parawinput: &[*const RAWINPUT], cbsizeheader: u32) -> super::super::Foundation::LRESULT {
-    windows_core::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const *const RAWINPUT, ninput : i32, cbsizeheader : u32) -> super::super::Foundation:: LRESULT);
+    windows_core::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const *const RAWINPUT, ninput : i32, cbsizeheader : u32) -> super::super::Foundation::LRESULT);
     unsafe { DefRawInputProc(core::mem::transmute(parawinput.as_ptr()), parawinput.len().try_into().unwrap(), cbsizeheader) }
 }
 #[inline]
@@ -41,12 +41,12 @@ pub unsafe fn GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_CO
 }
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoA(hdevice: Option<super::super::Foundation::HANDLE>, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: Option<*mut core::ffi::c_void>, pcbsize: *mut u32) -> u32 {
-    windows_core::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
+    windows_core::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::super::Foundation::HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
     unsafe { GetRawInputDeviceInfoA(hdevice.unwrap_or(core::mem::zeroed()) as _, uicommand, pdata.unwrap_or(core::mem::zeroed()) as _, pcbsize as _) }
 }
 #[inline]
 pub unsafe fn GetRawInputDeviceInfoW(hdevice: Option<super::super::Foundation::HANDLE>, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: Option<*mut core::ffi::c_void>, pcbsize: *mut u32) -> u32 {
-    windows_core::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::super::Foundation:: HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
+    windows_core::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::super::Foundation::HANDLE, uicommand : RAW_INPUT_DEVICE_INFO_COMMAND, pdata : *mut core::ffi::c_void, pcbsize : *mut u32) -> u32);
     unsafe { GetRawInputDeviceInfoW(hdevice.unwrap_or(core::mem::zeroed()) as _, uicommand, pdata.unwrap_or(core::mem::zeroed()) as _, pcbsize as _) }
 }
 #[inline]

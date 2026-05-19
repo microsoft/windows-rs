@@ -1063,7 +1063,7 @@ unsafe impl Sync for HttpContentDispositionHeaderValue {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpContentHeaderCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpContentHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( HttpContentHeaderCollection , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
+windows_core::imp::required_hierarchy!(HttpContentHeaderCollection, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::HSTRING > >, windows_collections::IMap < windows_core::HSTRING, windows_core::HSTRING >, super::super::super::Foundation::IStringable);
 impl HttpContentHeaderCollection {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -3026,7 +3026,7 @@ impl IntoIterator for &HttpProductInfoHeaderValueCollection {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpRequestHeaderCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpRequestHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( HttpRequestHeaderCollection , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
+windows_core::imp::required_hierarchy!(HttpRequestHeaderCollection, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::HSTRING > >, windows_collections::IMap < windows_core::HSTRING, windows_core::HSTRING >, super::super::super::Foundation::IStringable);
 impl HttpRequestHeaderCollection {
     pub fn Accept(&self) -> windows_core::Result<HttpMediaTypeWithQualityHeaderValueCollection> {
         unsafe {
@@ -3278,7 +3278,7 @@ impl IntoIterator for &HttpRequestHeaderCollection {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HttpResponseHeaderCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HttpResponseHeaderCollection, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( HttpResponseHeaderCollection , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > , super::super::super::Foundation:: IStringable );
+windows_core::imp::required_hierarchy!(HttpResponseHeaderCollection, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::HSTRING > >, windows_collections::IMap < windows_core::HSTRING, windows_core::HSTRING >, super::super::super::Foundation::IStringable);
 impl HttpResponseHeaderCollection {
     pub fn Age(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
         unsafe {

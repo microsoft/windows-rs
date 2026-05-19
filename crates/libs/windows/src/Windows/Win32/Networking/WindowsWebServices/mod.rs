@@ -211,7 +211,7 @@ pub unsafe fn WsCreateXmlSecurityToken(tokenxml: Option<*const WS_XML_BUFFER>, t
 }
 #[inline]
 pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut super::super::Foundation::FILETIME, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *const WS_DATETIME, filetime : *mut super::super::Foundation:: FILETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_core::link!("webservices.dll" "system" fn WsDateTimeToFileTime(datetime : *const WS_DATETIME, filetime : *mut super::super::Foundation::FILETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsDateTimeToFileTime(datetime, filetime as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -236,7 +236,7 @@ pub unsafe fn WsEndWriterCanonicalization(writer: *const WS_XML_WRITER, error: O
 }
 #[inline]
 pub unsafe fn WsFileTimeToDateTime(filetime: *const super::super::Foundation::FILETIME, datetime: *mut WS_DATETIME, error: Option<*const WS_ERROR>) -> windows_core::Result<()> {
-    windows_core::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *const super::super::Foundation:: FILETIME, datetime : *mut WS_DATETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
+    windows_core::link!("webservices.dll" "system" fn WsFileTimeToDateTime(filetime : *const super::super::Foundation::FILETIME, datetime : *mut WS_DATETIME, error : *const WS_ERROR) -> windows_core::HRESULT);
     unsafe { WsFileTimeToDateTime(filetime, datetime as _, error.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]

@@ -5,7 +5,7 @@ pub unsafe fn LdapGetLastError() -> u32 {
 }
 #[inline]
 pub unsafe fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> windows_core::WIN32_ERROR {
-    windows_core::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> windows_core::WIN32_ERROR);
     unsafe { LdapMapErrorToWin32(ldaperror.0 as _) }
 }
 #[inline]
@@ -289,7 +289,7 @@ where
 }
 #[inline]
 pub unsafe fn ldap_cleanup(hinstance: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("wldap32.dll" "C" fn ldap_cleanup(hinstance : super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("wldap32.dll" "C" fn ldap_cleanup(hinstance : super::super::Foundation::HANDLE) -> u32);
     unsafe { ldap_cleanup(hinstance) }
 }
 #[inline]
@@ -1656,7 +1656,7 @@ pub unsafe fn ldap_start_tls_sW(externalhandle: *mut LDAP, serverreturnvalue: *m
 }
 #[inline]
 pub unsafe fn ldap_startup(version: *mut LDAP_VERSION_INFO, instance: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("wldap32.dll" "C" fn ldap_startup(version : *mut LDAP_VERSION_INFO, instance : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("wldap32.dll" "C" fn ldap_startup(version : *mut LDAP_VERSION_INFO, instance : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { ldap_startup(version as _, instance as _) }
 }
 #[inline]

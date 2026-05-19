@@ -20,18 +20,18 @@ impl Config<'_> {
             } else if self.flat {
                 quote! {}
             } else {
-                let mut tokens = TokenStream::new();
+                let mut path = String::new();
 
                 for _ in 0..self.namespace.split('.').count() {
-                    tokens.push_str("super::");
+                    path.push_str("super::");
                 }
 
-                tokens
+                path.parse().unwrap()
             }
         } else if !self.specific_deps {
             quote! { windows_core:: }
         } else {
-            format!("{specific}::").into()
+            format!("{specific}::").parse().unwrap()
         }
     }
 
@@ -63,10 +63,10 @@ impl Config<'_> {
     }
 
     pub fn write_namespace(&self, type_name: TypeName) -> TokenStream {
-        let mut tokens = TokenStream::new();
+        let mut path = String::new();
 
         if type_name.namespace().is_empty() {
-            return tokens;
+            return path.parse().unwrap();
         }
 
         if let Some(reference) = {
@@ -76,11 +76,11 @@ impl Config<'_> {
                 self.references.contains(type_name)
             }
         } {
-            tokens.push_str(&reference.name);
-            tokens.push_str("::");
+            path.push_str(&reference.name);
+            path.push_str("::");
 
             if reference.style == ReferenceStyle::Flat {
-                return tokens;
+                return path.parse().unwrap();
             }
 
             let mut namespace = type_name.namespace().split('.').peekable();
@@ -90,14 +90,14 @@ impl Config<'_> {
             }
 
             for namespace in namespace {
-                tokens.push_str(namespace);
-                tokens.push_str("::");
+                path.push_str(namespace);
+                path.push_str("::");
             }
 
-            tokens
+            path.parse().unwrap()
         } else {
             if self.flat || type_name.namespace() == self.namespace {
-                return tokens;
+                return path.parse().unwrap();
             }
 
             let mut relative = self.namespace.split('.').peekable();
@@ -112,15 +112,15 @@ impl Config<'_> {
             }
 
             for _ in 0..relative.count() {
-                tokens.push_str("super::");
+                path.push_str("super::");
             }
 
             for namespace in namespace {
-                tokens.push_str(namespace);
-                tokens.push_str("::");
+                path.push_str(namespace);
+                path.push_str("::");
             }
 
-            tokens
+            path.parse().unwrap()
         }
     }
 }

@@ -1043,11 +1043,11 @@ pub fn interface_signature(def: TypeDef, generics: &[Type], reader: &Reader) -> 
 }
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {
-    "*mut ".repeat(pointers).into()
+    "*mut ".repeat(pointers).parse().unwrap()
 }
 
 fn write_ptr_const(pointers: usize) -> TokenStream {
-    "*const ".repeat(pointers).into()
+    "*const ".repeat(pointers).parse().unwrap()
 }
 
 /// Helper for types whose `write_cfg` only needs their own dependencies.

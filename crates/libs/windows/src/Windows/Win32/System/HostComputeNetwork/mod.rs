@@ -250,12 +250,12 @@ pub unsafe fn HcnRegisterServiceCallback(callback: HCN_NOTIFICATION_CALLBACK, co
 }
 #[inline]
 pub unsafe fn HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("computenetwork.dll" "system" fn HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("computenetwork.dll" "system" fn HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle).ok() }
 }
 #[inline]
 pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    windows_core::link!("computenetwork.dll" "system" fn HcnReserveGuestNetworkServicePort(guestnetworkservice : *const core::ffi::c_void, protocol : HCN_PORT_PROTOCOL, access : HCN_PORT_ACCESS, port : u16, portreservationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("computenetwork.dll" "system" fn HcnReserveGuestNetworkServicePort(guestnetworkservice : *const core::ffi::c_void, protocol : HCN_PORT_PROTOCOL, access : HCN_PORT_ACCESS, port : u16, portreservationhandle : *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         HcnReserveGuestNetworkServicePort(guestnetworkservice, protocol, access, port, &mut result__).map(|| result__)
@@ -263,7 +263,7 @@ pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const core
 }
 #[inline]
 pub unsafe fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice: *const core::ffi::c_void, portcount: u16, portrangereservation: *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("computenetwork.dll" "system" fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice : *const core::ffi::c_void, portcount : u16, portrangereservation : *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("computenetwork.dll" "system" fn HcnReserveGuestNetworkServicePortRange(guestnetworkservice : *const core::ffi::c_void, portcount : u16, portrangereservation : *mut HCN_PORT_RANGE_RESERVATION, portreservationhandle : *mut super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { HcnReserveGuestNetworkServicePortRange(guestnetworkservice, portcount, portrangereservation as _, portreservationhandle as _).ok() }
 }
 #[inline]

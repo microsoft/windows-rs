@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
-windows_link::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi:: XFORM) -> windows_sys::core::HRESULT);
+windows_link::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi::XFORM) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn AddWordsToWordList(hwl : HRECOWORDLIST, pwcwords : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 windows_link::link!("inkobjcore.dll" "system" fn CloneContext(hrc : HRECOCONTEXT, pclonehrc : *mut HRECOCONTEXT) -> windows_sys::core::HRESULT);

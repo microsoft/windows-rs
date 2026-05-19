@@ -19,7 +19,7 @@ pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_core::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation::HANDLE, lpcallbackaddress : super::Threading::LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { WscRegisterForChanges(reserved as _, phcallbackregistration as _, lpcallbackaddress, pcontext as _).ok() }
 }
 #[inline]
@@ -29,7 +29,7 @@ pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
 }
 #[inline]
 pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation::HANDLE) -> windows_core::HRESULT);
     unsafe { WscUnRegisterChanges(hregistrationhandle).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]

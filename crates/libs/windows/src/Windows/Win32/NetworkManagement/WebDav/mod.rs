@@ -5,7 +5,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation:: HANDLE, remotename : windows_core::PCWSTR, username : windows_core::PCWSTR, password : windows_core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn DavAddConnection(connectionhandle : *mut super::super::Foundation::HANDLE, remotename : windows_core::PCWSTR, username : windows_core::PCWSTR, password : windows_core::PCWSTR, clientcert : *const u8, certsize : u32) -> u32);
     unsafe { DavAddConnection(connectionhandle as _, remotename.param().abi(), username.param().abi(), password.param().abi(), core::mem::transmute(clientcert.as_ptr()), clientcert.len().try_into().unwrap()) }
 }
 #[inline]
@@ -18,17 +18,17 @@ where
 }
 #[inline]
 pub unsafe fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn DavDeleteConnection(connectionhandle : super::super::Foundation::HANDLE) -> u32);
     unsafe { DavDeleteConnection(connectionhandle) }
 }
 #[inline]
 pub unsafe fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn DavFlushFile(hfile : super::super::Foundation::HANDLE) -> u32);
     unsafe { DavFlushFile(hfile) }
 }
 #[inline]
 pub unsafe fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exterror: *mut u32, exterrorstring: windows_core::PWSTR, cchsize: *mut u32) -> u32 {
-    windows_core::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation:: HANDLE, exterror : *mut u32, exterrorstring : windows_core::PWSTR, cchsize : *mut u32) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn DavGetExtendedError(hfile : super::super::Foundation::HANDLE, exterror : *mut u32, exterrorstring : windows_core::PWSTR, cchsize : *mut u32) -> u32);
     unsafe { DavGetExtendedError(hfile, exterror as _, core::mem::transmute(exterrorstring), cchsize as _) }
 }
 #[inline]

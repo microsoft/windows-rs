@@ -51,7 +51,7 @@ impl Struct {
                 quote! { CloneType }
             };
 
-            let signature = Literal::byte_string(&self.runtime_signature(config.reader));
+            let signature = Literal::byte_string(self.runtime_signature(config.reader).as_bytes());
 
             quote! {
                 impl windows_core::TypeKind for #name {

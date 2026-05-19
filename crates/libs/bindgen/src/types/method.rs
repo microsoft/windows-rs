@@ -39,7 +39,7 @@ impl Method {
         .iter()
         .map(|param| {
             let name = param.write_ident();
-            let abi_size_name: TokenStream = format!("{}_array_size", param.write_ident()).into();
+            let abi_size_name: TokenStream = format!("{}_array_size", param.write_ident()).parse().unwrap();
 
             if param.is_input() {
                 if param.is_winrt_array() {
@@ -218,7 +218,7 @@ impl Method {
         let args = self.signature.params.iter().map(|param| {
             let name = param.write_ident();
             let abi = param.write_abi(config);
-            let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
+            let abi_size_name: TokenStream = format!("{name}_array_size").parse().unwrap();
 
             if param.is_input() {
                 if param.is_winrt_array() {
@@ -328,7 +328,7 @@ impl Method {
                     // Sugared `Option<T>` -> materialized `Option<IReference<T>>` in
                     // the local `name__` (see prelude below). `Param<T> for Option<&T>`
                     // turns `None` into a null abi pointer.
-                    let local: TokenStream = format!("{}__", name.as_str()).into();
+                    let local: TokenStream = format!("{name}__").parse().unwrap();
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
@@ -401,7 +401,7 @@ impl Method {
                 if is_ireference_string(param)
                     || (param.is_convertible() && param.ireference_inner(config.reader).is_none())
                 {
-                    let name: TokenStream = format!("P{position}").into();
+                    let name: TokenStream = format!("P{position}").parse().unwrap();
                     Some(name)
                 } else {
                     None
@@ -414,7 +414,7 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    let name: TokenStream = format!("P{position}").into();
+                    let name: TokenStream = format!("P{position}").parse().unwrap();
                     if is_ireference_string(param) {
                         let iref = param.ty.write_name(config);
                         Some(quote! { #name: core::convert::Into<#iref>, })
@@ -441,7 +441,7 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, param)| {
-                    let name: TokenStream = format!("P{position}").into();
+                    let name: TokenStream = format!("P{position}").parse().unwrap();
                     if is_ireference_string(param) {
                         let iref = param.ty.write_name(config);
                         Some(quote! { #name: core::convert::Into<#iref>, })
@@ -470,10 +470,10 @@ impl Method {
                 .filter_map(|(position, param)| {
                     param.ireference_inner(config.reader)?;
                     let name = param.write_ident();
-                    let local: TokenStream = format!("{}__", name.as_str()).into();
+                    let local: TokenStream = format!("{name}__").parse().unwrap();
                     let iref = param.ty.write_name(config);
                     if is_ireference_string(param) {
-                        let pname: TokenStream = format!("P{position}").into();
+                        let pname: TokenStream = format!("P{position}").parse().unwrap();
                         Some(quote! { let #local = #name.map(<#pname as core::convert::Into<#iref>>::into); })
                     } else {
                         Some(quote! { let #local = #name.map(<#iref as core::convert::From<_>>::from); })
@@ -495,13 +495,13 @@ impl Method {
                     if param.is_winrt_array() {
                         quote! { #name: &[#default_type], }
                     } else if is_ireference_string(param) {
-                        let pname: TokenStream = format!("P{position}").into();
+                        let pname: TokenStream = format!("P{position}").parse().unwrap();
                         quote! { #name: Option<#pname>, }
                     } else if let Some(inner) = param.ireference_inner(config.reader) {
                         let inner_name = inner.write_name(config);
                         quote! { #name: Option<#inner_name>, }
                     } else if param.is_convertible() {
-                        let kind: TokenStream = format!("P{position}").into();
+                        let kind: TokenStream = format!("P{position}").parse().unwrap();
                         quote! { #name: #kind, }
                     } else if param.is_copyable(config.reader) {
                         quote! { #name: #kind, }

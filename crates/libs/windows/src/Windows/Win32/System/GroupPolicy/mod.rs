@@ -39,7 +39,7 @@ where
 }
 #[inline]
 pub unsafe fn EnterCriticalPolicySection(bmachine: bool) -> windows_core::Result<super::super::Foundation::HANDLE> {
-    windows_core::link!("userenv.dll" "system" fn EnterCriticalPolicySection(bmachine : windows_core::BOOL) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("userenv.dll" "system" fn EnterCriticalPolicySection(bmachine : windows_core::BOOL) -> super::super::Foundation::HANDLE);
     let result__ = unsafe { EnterCriticalPolicySection(bmachine.into()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -76,7 +76,7 @@ pub unsafe fn GetAppliedGPOListA<P1>(dwflags: u32, pmachinename: P1, psiduser: O
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : windows_core::PCSTR, psiduser : super::super::Security:: PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> u32);
+    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : windows_core::PCSTR, psiduser : super::super::Security::PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> u32);
     unsafe { GetAppliedGPOListA(dwflags, pmachinename.param().abi(), psiduser.unwrap_or(core::mem::zeroed()) as _, pguidextension, ppgpolist as _) }
 }
 #[cfg(feature = "Win32_Security")]
@@ -85,7 +85,7 @@ pub unsafe fn GetAppliedGPOListW<P1>(dwflags: u32, pmachinename: P1, psiduser: O
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : windows_core::PCWSTR, psiduser : super::super::Security:: PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> u32);
+    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : windows_core::PCWSTR, psiduser : super::super::Security::PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> u32);
     unsafe { GetAppliedGPOListW(dwflags, pmachinename.param().abi(), psiduser.unwrap_or(core::mem::zeroed()) as _, pguidextension, ppgpolist as _) }
 }
 #[inline]
@@ -95,7 +95,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : windows_core::PCSTR, lphostname : windows_core::PCSTR, lpcomputername : windows_core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation::HANDLE, lpname : windows_core::PCSTR, lphostname : windows_core::PCSTR, lpcomputername : windows_core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> windows_core::BOOL);
     unsafe { GetGPOListA(htoken.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _).ok() }
 }
 #[inline]
@@ -105,7 +105,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : windows_core::PCWSTR, lphostname : windows_core::PCWSTR, lpcomputername : windows_core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation::HANDLE, lpname : windows_core::PCWSTR, lphostname : windows_core::PCWSTR, lpcomputername : windows_core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> windows_core::BOOL);
     unsafe { GetGPOListW(htoken.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _).ok() }
 }
 #[inline]
@@ -124,7 +124,7 @@ pub unsafe fn GetLocalManagedApplications(buserapps: bool, pdwapps: *mut u32, pr
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
 pub unsafe fn GetManagedApplicationCategories(dwreserved: Option<u32>, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn GetManagedApplicationCategories(dwreserved : u32, pappcategory : *mut super::super::UI::Shell:: APPCATEGORYINFOLIST) -> u32);
+    windows_core::link!("advapi32.dll" "system" fn GetManagedApplicationCategories(dwreserved : u32, pappcategory : *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32);
     unsafe { GetManagedApplicationCategories(dwreserved.unwrap_or(core::mem::zeroed()) as _, pappcategory as _) }
 }
 #[inline]
@@ -148,7 +148,7 @@ pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
 }
 #[inline]
 pub unsafe fn LeaveCriticalPolicySection(hsection: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { LeaveCriticalPolicySection(hsection).ok() }
 }
 #[inline]
@@ -173,13 +173,13 @@ pub unsafe fn RefreshPolicyEx(bmachine: bool, dwoptions: u32) -> windows_core::R
 }
 #[inline]
 pub unsafe fn RegisterGPNotification(hevent: super::super::Foundation::HANDLE, bmachine: bool) -> windows_core::Result<()> {
-    windows_core::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation:: HANDLE, bmachine : windows_core::BOOL) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation::HANDLE, bmachine : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { RegisterGPNotification(hevent, bmachine.into()).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::super::Security::PSID>, prsoptoken: *const core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut windows_core::BOOL) -> windows_core::Result<()> {
-    windows_core::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Security:: PSID, prsoptoken : *const core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Security::PSID, prsoptoken : *const core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security::GENERIC_MAPPING, pprivilegeset : *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid.unwrap_or(core::mem::zeroed()) as _, prsoptoken, dwdesiredaccessmask, core::mem::transmute(pobjecttypelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pgenericmapping, pprivilegeset.unwrap_or(core::mem::zeroed()) as _, pdwprivilegesetlength.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccessmask as _, pbaccessstatus as _).ok() }
 }
 #[inline]
@@ -197,7 +197,7 @@ where
     P1: windows_core::Param<super::Wmi::IWbemServices>,
     P2: windows_core::Param<super::Wmi::IWbemClassObject>,
 {
-    windows_core::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : u32, pservices : * mut core::ffi::c_void, psettinginstance : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : u32, pservices : *mut core::ffi::c_void, psettinginstance : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RsopResetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Wmi")]
@@ -207,7 +207,7 @@ where
     P1: windows_core::Param<super::Wmi::IWbemServices>,
     P2: windows_core::Param<super::Wmi::IWbemClassObject>,
 {
-    windows_core::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : * mut core::ffi::c_void, psettinginstance : * mut core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : *mut core::ffi::c_void, psettinginstance : *mut core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> windows_core::HRESULT);
     unsafe { RsopSetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi(), pstatus.len().try_into().unwrap(), core::mem::transmute(pstatus.as_ptr())).ok() }
 }
 #[inline]
@@ -220,7 +220,7 @@ where
 }
 #[inline]
 pub unsafe fn UnregisterGPNotification(hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
-    windows_core::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation::HANDLE) -> windows_core::BOOL);
     unsafe { UnregisterGPNotification(hevent).ok() }
 }
 pub const ABSENT: APPSTATE = APPSTATE(0i32);

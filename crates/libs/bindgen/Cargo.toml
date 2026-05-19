@@ -13,6 +13,8 @@ readme = "readme.md"
 windows-metadata = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true, features = ["std"] }
+proc-macro2 = { workspace = true }
+quote = { workspace = true }
 
 [dev-dependencies]
 windows-link = { workspace = true }

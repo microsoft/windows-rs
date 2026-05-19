@@ -39,7 +39,7 @@ pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> windows_core::Result<V
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromFileTime(pft: *const super::super::Foundation::FILETIME) -> windows_core::Result<VARIANT> {
-    windows_core::link!("propsys.dll" "system" fn InitVariantFromFileTime(pft : *const super::super::Foundation:: FILETIME, pvar : *mut VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn InitVariantFromFileTime(pft : *const super::super::Foundation::FILETIME, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitVariantFromFileTime(pft, &mut result__).map(|| core::mem::transmute(result__))
@@ -48,7 +48,7 @@ pub unsafe fn InitVariantFromFileTime(pft: *const super::super::Foundation::FILE
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromFileTimeArray(prgft: Option<&[super::super::Foundation::FILETIME]>) -> windows_core::Result<VARIANT> {
-    windows_core::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation:: FILETIME, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation::FILETIME, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitVariantFromFileTimeArray(core::mem::transmute(prgft.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| core::mem::transmute(result__))
@@ -93,7 +93,7 @@ pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> windows_core::Result<VA
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromResource(hinst: super::super::Foundation::HINSTANCE, id: u32) -> windows_core::Result<VARIANT> {
-    windows_core::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation:: HINSTANCE, id : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation::HINSTANCE, id : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         InitVariantFromResource(hinst, id, &mut result__).map(|| core::mem::transmute(result__))
@@ -146,7 +146,7 @@ pub unsafe fn InitVariantFromVariantArrayElem(varin: *const VARIANT, ielem: u32)
 }
 #[inline]
 pub unsafe fn SystemTimeToVariantTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32 {
-    windows_core::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME, pvtime : *mut f64) -> i32);
+    windows_core::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation::SYSTEMTIME, pvtime : *mut f64) -> i32);
     unsafe { SystemTimeToVariantTime(lpsystemtime, pvtime as _) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -337,7 +337,7 @@ pub unsafe fn VariantTimeToDosDateTime(vtime: f64, pwdosdate: *mut u16, pwdostim
 }
 #[inline]
 pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> i32 {
-    windows_core::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> i32);
+    windows_core::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation::SYSTEMTIME) -> i32);
     unsafe { VariantTimeToSystemTime(vtime, lpsystemtime as _) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -409,7 +409,7 @@ pub unsafe fn VariantToDoubleWithDefault(varin: *const VARIANT, dbldefault: f64)
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToFileTime(varin: *const VARIANT, stfout: PSTIME_FLAGS) -> windows_core::Result<super::super::Foundation::FILETIME> {
-    windows_core::link!("propsys.dll" "system" fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
+    windows_core::link!("propsys.dll" "system" fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         VariantToFileTime(core::mem::transmute(varin), stfout, &mut result__).map(|| result__)

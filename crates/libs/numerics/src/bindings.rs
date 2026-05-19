@@ -40,7 +40,7 @@ impl windows_core::TypeKind for Matrix4x4 {
     type TypeKind = windows_core::CopyType;
 }
 impl windows_core::RuntimeType for Matrix4x4 {
-    const SIGNATURE :windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice ( b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)" ) ;
+    const SIGNATURE : windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice (b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)") ;
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

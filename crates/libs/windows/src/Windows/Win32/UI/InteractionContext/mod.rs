@@ -6,7 +6,7 @@ pub unsafe fn AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTE
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> windows_core::Result<()> {
-    windows_core::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *const super::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT);
     unsafe { BufferPointerPacketsInteractionContext(interactioncontext, pointerinfo.len().try_into().unwrap(), core::mem::transmute(pointerinfo.as_ptr())).ok() }
 }
 #[inline]
@@ -70,7 +70,7 @@ pub unsafe fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONT
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: Option<*const super::Input::Pointer::POINTER_INFO>) -> windows_core::Result<INTERACTION_STATE> {
-    windows_core::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer::POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetStateInteractionContext(interactioncontext, pointerinfo.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -105,7 +105,7 @@ pub unsafe fn ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONC
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> windows_core::Result<()> {
-    windows_core::link!("ninput.dll" "system" fn ProcessPointerFramesInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointercount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn ProcessPointerFramesInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointercount : u32, pointerinfo : *const super::Input::Pointer::POINTER_INFO) -> windows_core::HRESULT);
     unsafe { ProcessPointerFramesInteractionContext(interactioncontext, entriescount, pointercount, pointerinfo).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]

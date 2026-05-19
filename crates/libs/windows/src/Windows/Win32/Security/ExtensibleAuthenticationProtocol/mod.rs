@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn EapHostPeerBeginSession(dwflags: u32, eaptype: EAP_METHOD_TYPE, pattributearray: *const EAP_ATTRIBUTES, htokenimpersonateuser: super::super::Foundation::HANDLE, pconnectiondata: &[u8], puserdata: &[u8], dwmaxsendpacketsize: u32, pconnectionid: Option<*const windows_core::GUID>, func: NotificationHandler, pcontextdata: Option<*const core::ffi::c_void>, psessionid: *mut u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerBeginSession(dwflags : u32, eaptype : EAP_METHOD_TYPE, pattributearray : *const EAP_ATTRIBUTES, htokenimpersonateuser : super::super::Foundation:: HANDLE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, dwmaxsendpacketsize : u32, pconnectionid : *const windows_core::GUID, func : NotificationHandler, pcontextdata : *const core::ffi::c_void, psessionid : *mut u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerBeginSession(dwflags : u32, eaptype : EAP_METHOD_TYPE, pattributearray : *const EAP_ATTRIBUTES, htokenimpersonateuser : super::super::Foundation::HANDLE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, dwmaxsendpacketsize : u32, pconnectionid : *const windows_core::GUID, func : NotificationHandler, pcontextdata : *const core::ffi::c_void, psessionid : *mut u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerBeginSession(dwflags, core::mem::transmute(eaptype), pattributearray, htokenimpersonateuser, pconnectiondata.len().try_into().unwrap(), core::mem::transmute(pconnectiondata.as_ptr()), puserdata.len().try_into().unwrap(), core::mem::transmute(puserdata.as_ptr()), dwmaxsendpacketsize, pconnectionid.unwrap_or(core::mem::zeroed()) as _, func, pcontextdata.unwrap_or(core::mem::zeroed()) as _, psessionid as _, ppeaperror as _) }
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn EapHostPeerClearConnection(pconnectionid: *const windows_core::GUI
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn EapHostPeerConfigBlob2Xml(dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconfigin: &[u8], ppconfigdoc: *mut Option<super::super::Data::Xml::MsXml::IXMLDOMDocument2>, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerConfigBlob2Xml(dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconfigin : u32, pconfigin : *const u8, ppconfigdoc : *mut * mut core::ffi::c_void, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerConfigBlob2Xml(dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconfigin : u32, pconfigin : *const u8, ppconfigdoc : *mut *mut core::ffi::c_void, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerConfigBlob2Xml(dwflags, core::mem::transmute(eapmethodtype), pconfigin.len().try_into().unwrap(), core::mem::transmute(pconfigin.as_ptr()), core::mem::transmute(ppconfigdoc), ppeaperror as _) }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -20,7 +20,7 @@ pub unsafe fn EapHostPeerConfigXml2Blob<P1>(dwflags: u32, pconfigdoc: P1, pdwsiz
 where
     P1: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerConfigXml2Blob(dwflags : u32, pconfigdoc : * mut core::ffi::c_void, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerConfigXml2Blob(dwflags : u32, pconfigdoc : *mut core::ffi::c_void, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerConfigXml2Blob(dwflags, pconfigdoc.param().abi(), pdwsizeofconfigout as _, ppconfigout as _, peapmethodtype as _, ppeaperror as _) }
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
@@ -29,7 +29,7 @@ pub unsafe fn EapHostPeerCredentialsXml2Blob<P1>(dwflags: u32, pcredentialsdoc: 
 where
     P1: windows_core::Param<super::super::Data::Xml::MsXml::IXMLDOMNode>,
 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerCredentialsXml2Blob(dwflags : u32, pcredentialsdoc : * mut core::ffi::c_void, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofcredentialsout : *mut u32, ppcredentialsout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerCredentialsXml2Blob(dwflags : u32, pcredentialsdoc : *mut core::ffi::c_void, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofcredentialsout : *mut u32, ppcredentialsout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerCredentialsXml2Blob(dwflags, pcredentialsdoc.param().abi(), pconfigin.len().try_into().unwrap(), core::mem::transmute(pconfigin.as_ptr()), pdwsizeofcredentialsout as _, ppcredentialsout as _, peapmethodtype as _, ppeaperror as _) }
 }
 #[inline]
@@ -77,12 +77,12 @@ where
 }
 #[inline]
 pub unsafe fn EapHostPeerGetIdentity(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconnectiondata: &[u8], puserdata: Option<&[u8]>, htokenimpersonateuser: super::super::Foundation::HANDLE, pfinvokeui: *mut windows_core::BOOL, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut u8) -> u32 {
-    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation:: HANDLE, pfinvokeui : *mut windows_core::BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
+    windows_core::link!("eappprxy.dll" "system" fn EapHostPeerGetIdentity(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, htokenimpersonateuser : super::super::Foundation::HANDLE, pfinvokeui : *mut windows_core::BOOL, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut u8) -> u32);
     unsafe { EapHostPeerGetIdentity(dwversion, dwflags, core::mem::transmute(eapmethodtype), pconnectiondata.len().try_into().unwrap(), core::mem::transmute(pconnectiondata.as_ptr()), puserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puserdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), htokenimpersonateuser, pfinvokeui as _, pdwsizeofuserdataout as _, ppuserdataout as _, ppwszidentity as _, ppeaperror as _, ppvreserved as _) }
 }
 #[inline]
 pub unsafe fn EapHostPeerGetMethodProperties(dwversion: u32, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, huserimpersonationtoken: super::super::Foundation::HANDLE, pbeapconndata: &[u8], pbuserdata: &[u8], pmethodpropertyarray: *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerGetMethodProperties(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, huserimpersonationtoken : super::super::Foundation:: HANDLE, dweapconndatasize : u32, pbeapconndata : *const u8, dwuserdatasize : u32, pbuserdata : *const u8, pmethodpropertyarray : *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerGetMethodProperties(dwversion : u32, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, huserimpersonationtoken : super::super::Foundation::HANDLE, dweapconndatasize : u32, pbeapconndata : *const u8, dwuserdatasize : u32, pbuserdata : *const u8, pmethodpropertyarray : *mut EAP_METHOD_PROPERTY_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerGetMethodProperties(dwversion, dwflags, core::mem::transmute(eapmethodtype), huserimpersonationtoken, pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), pbuserdata.len().try_into().unwrap(), core::mem::transmute(pbuserdata.as_ptr()), pmethodpropertyarray as _, ppeaperror as _) }
 }
 #[inline]
@@ -117,17 +117,17 @@ pub unsafe fn EapHostPeerInitialize() -> u32 {
 }
 #[inline]
 pub unsafe fn EapHostPeerInvokeConfigUI(hwndparent: super::super::Foundation::HWND, dwflags: u32, eapmethodtype: EAP_METHOD_TYPE, pconfigin: Option<&[u8]>, pdwsizeofconfigout: *mut u32, ppconfigout: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerInvokeConfigUI(hwndparent : super::super::Foundation:: HWND, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerInvokeConfigUI(hwndparent : super::super::Foundation::HWND, dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerInvokeConfigUI(hwndparent, dwflags, core::mem::transmute(eapmethodtype), pconfigin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pconfigin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwsizeofconfigout as _, ppconfigout as _, ppeaperror as _) }
 }
 #[inline]
 pub unsafe fn EapHostPeerInvokeIdentityUI(dwversion: u32, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, hwndparent: super::super::Foundation::HWND, pconnectiondata: &[u8], puserdata: Option<&[u8]>, pdwsizeofuserdataout: *mut u32, ppuserdataout: *mut *mut u8, ppwszidentity: *mut windows_core::PWSTR, ppeaperror: *mut *mut EAP_ERROR, ppvreserved: *mut *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerInvokeIdentityUI(dwversion : u32, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, hwndparent : super::super::Foundation:: HWND, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut core::ffi::c_void) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerInvokeIdentityUI(dwversion : u32, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, hwndparent : super::super::Foundation::HWND, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, pdwsizeofuserdataout : *mut u32, ppuserdataout : *mut *mut u8, ppwszidentity : *mut windows_core::PWSTR, ppeaperror : *mut *mut EAP_ERROR, ppvreserved : *mut *mut core::ffi::c_void) -> u32);
     unsafe { EapHostPeerInvokeIdentityUI(dwversion, core::mem::transmute(eapmethodtype), dwflags, hwndparent, pconnectiondata.len().try_into().unwrap(), core::mem::transmute(pconnectiondata.as_ptr()), puserdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puserdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwsizeofuserdataout as _, ppuserdataout as _, ppwszidentity as _, ppeaperror as _, ppvreserved as _) }
 }
 #[inline]
 pub unsafe fn EapHostPeerInvokeInteractiveUI(hwndparent: super::super::Foundation::HWND, puicontextdata: Option<&[u8]>, pdwsizeofdatafrominteractiveui: *mut u32, ppdatafrominteractiveui: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerInvokeInteractiveUI(hwndparent : super::super::Foundation:: HWND, dwsizeofuicontextdata : u32, puicontextdata : *const u8, pdwsizeofdatafrominteractiveui : *mut u32, ppdatafrominteractiveui : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerInvokeInteractiveUI(hwndparent : super::super::Foundation::HWND, dwsizeofuicontextdata : u32, puicontextdata : *const u8, pdwsizeofdatafrominteractiveui : *mut u32, ppdatafrominteractiveui : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerInvokeInteractiveUI(hwndparent, puicontextdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(puicontextdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdwsizeofdatafrominteractiveui as _, ppdatafrominteractiveui as _, ppeaperror as _) }
 }
 #[inline]
@@ -137,7 +137,7 @@ pub unsafe fn EapHostPeerProcessReceivedPacket(sessionhandle: u32, preceivepacke
 }
 #[inline]
 pub unsafe fn EapHostPeerQueryCredentialInputFields(huserimpersonationtoken: super::super::Foundation::HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerQueryCredentialInputFields(huserimpersonationtoken : super::super::Foundation:: HANDLE, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, dweapconndatasize : u32, pbeapconndata : *const u8, peapconfiginputfieldarray : *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerQueryCredentialInputFields(huserimpersonationtoken : super::super::Foundation::HANDLE, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, dweapconndatasize : u32, pbeapconndata : *const u8, peapconfiginputfieldarray : *mut EAP_CONFIG_INPUT_FIELD_ARRAY, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerQueryCredentialInputFields(huserimpersonationtoken, core::mem::transmute(eapmethodtype), dwflags, pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), peapconfiginputfieldarray as _, ppeaperror as _) }
 }
 #[inline]
@@ -152,7 +152,7 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(dwversion: u32,
 }
 #[inline]
 pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken: super::super::Foundation::HANDLE, eapmethodtype: EAP_METHOD_TYPE, dwflags: u32, pbeapconndata: &[u8], peapconfiginputfieldarray: *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize: *mut u32, ppbuserblob: *mut *mut u8, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
-    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken : super::super::Foundation:: HANDLE, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, dweapconndatasize : u32, pbeapconndata : *const u8, peapconfiginputfieldarray : *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize : *mut u32, ppbuserblob : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+    windows_core::link!("eappcfg.dll" "system" fn EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken : super::super::Foundation::HANDLE, eapmethodtype : EAP_METHOD_TYPE, dwflags : u32, dweapconndatasize : u32, pbeapconndata : *const u8, peapconfiginputfieldarray : *const EAP_CONFIG_INPUT_FIELD_ARRAY, pdwuserblobsize : *mut u32, ppbuserblob : *mut *mut u8, ppeaperror : *mut *mut EAP_ERROR) -> u32);
     unsafe { EapHostPeerQueryUserBlobFromCredentialInputFields(huserimpersonationtoken, core::mem::transmute(eapmethodtype), dwflags, pbeapconndata.len().try_into().unwrap(), core::mem::transmute(pbeapconndata.as_ptr()), peapconfiginputfieldarray, pdwuserblobsize as _, ppbuserblob as _, ppeaperror as _) }
 }
 #[inline]

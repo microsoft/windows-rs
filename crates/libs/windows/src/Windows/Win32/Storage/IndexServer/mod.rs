@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<super::super::System::Com::StructuredStorage::IStorage>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { BindIFilterFromStorage(pstg.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15,7 +15,7 @@ where
     P0: windows_core::Param<super::super::System::Com::IStream>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("query.dll" "system" fn BindIFilterFromStream(pstm : * mut core::ffi::c_void, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("query.dll" "system" fn BindIFilterFromStream(pstm : *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
 }
 #[inline]
@@ -24,7 +24,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : * mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
 }
 #[inline]

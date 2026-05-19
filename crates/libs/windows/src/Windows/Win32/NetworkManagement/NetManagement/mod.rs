@@ -116,7 +116,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, password : windows_core::PCWSTR, flags : u32) -> windows_core:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, password : windows_core::PCWSTR, flags : u32) -> windows_core::NTSTATUS);
     unsafe { NetAddServiceAccount(servername.param().abi(), accountname.param().abi(), password.param().abi(), flags) }
 }
 #[inline]
@@ -230,7 +230,7 @@ pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accoun
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : windows_core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut *mut *mut u16) -> windows_core:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : windows_core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut *mut *mut u16) -> windows_core::NTSTATUS);
     unsafe { NetEnumerateServiceAccounts(servername.param().abi(), flags, accountscount as _, accounts as _) }
 }
 #[inline]
@@ -410,7 +410,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> windows_core:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> windows_core::NTSTATUS);
     unsafe { NetIsServiceAccount(servername.param().abi(), accountname.param().abi(), isservice as _) }
 }
 #[inline]
@@ -419,7 +419,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount2(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL, accounttype : *mut MSA_INFO_ACCOUNT_TYPE) -> windows_core:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount2(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL, accounttype : *mut MSA_INFO_ACCOUNT_TYPE) -> windows_core::NTSTATUS);
     unsafe { NetIsServiceAccount2(servername.param().abi(), accountname.param().abi(), isservice as _, accounttype as _) }
 }
 #[inline]
@@ -449,7 +449,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Security:: PSID) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetLocalGroupAddMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Security::PSID) -> u32);
     unsafe { NetLocalGroupAddMember(servername.param().abi(), groupname.param().abi(), membersid) }
 }
 #[inline]
@@ -477,7 +477,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Security:: PSID) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetLocalGroupDelMember(servername : windows_core::PCWSTR, groupname : windows_core::PCWSTR, membersid : super::super::Security::PSID) -> u32);
     unsafe { NetLocalGroupDelMember(servername.param().abi(), groupname.param().abi(), membersid) }
 }
 #[inline]
@@ -603,7 +603,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, infolevel : u32, buffer : *mut *mut u8) -> windows_core:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, infolevel : u32, buffer : *mut *mut u8) -> windows_core::NTSTATUS);
     unsafe { NetQueryServiceAccount(servername.param().abi(), accountname.param().abi(), infolevel, buffer as _) }
 }
 #[inline]
@@ -639,7 +639,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, flags : u32) -> windows_core:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, flags : u32) -> windows_core::NTSTATUS);
     unsafe { NetRemoveServiceAccount(servername.param().abi(), accountname.param().abi(), flags) }
 }
 #[inline]
@@ -1203,27 +1203,27 @@ pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut w
 }
 #[inline]
 pub unsafe fn RouterLogDeregisterA(hloghandle: super::super::Foundation::HANDLE) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogDeregisterA(hloghandle : super::super::Foundation:: HANDLE));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogDeregisterA(hloghandle : super::super::Foundation::HANDLE));
     unsafe { RouterLogDeregisterA(hloghandle) }
 }
 #[inline]
 pub unsafe fn RouterLogDeregisterW(hloghandle: super::super::Foundation::HANDLE) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogDeregisterW(hloghandle : super::super::Foundation:: HANDLE));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogDeregisterW(hloghandle : super::super::Foundation::HANDLE));
     unsafe { RouterLogDeregisterW(hloghandle) }
 }
 #[inline]
 pub unsafe fn RouterLogEventA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCSTR]>, dwerrorcode: u32) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwerrorcode : u32));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventA(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwerrorcode : u32));
     unsafe { RouterLogEventA(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode) }
 }
 #[inline]
 pub unsafe fn RouterLogEventDataA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCSTR]>, dwdatabytes: u32, lpdatabytes: *mut u8) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventDataA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventDataA(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
     unsafe { RouterLogEventDataA(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes as _) }
 }
 #[inline]
 pub unsafe fn RouterLogEventDataW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCWSTR]>, dwdatabytes: u32, lpdatabytes: *mut u8) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventDataW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventDataW(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwdatabytes : u32, lpdatabytes : *mut u8));
     unsafe { RouterLogEventDataW(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwdatabytes, lpdatabytes as _) }
 }
 #[inline]
@@ -1231,7 +1231,7 @@ pub unsafe fn RouterLogEventExA<P4>(hloghandle: super::super::Foundation::HANDLE
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rtutils.dll" "C" fn RouterLogEventExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCSTR));
+    windows_core::link!("rtutils.dll" "C" fn RouterLogEventExA(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCSTR));
     unsafe { RouterLogEventExA(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat.param().abi()) }
 }
 #[inline]
@@ -1239,17 +1239,17 @@ pub unsafe fn RouterLogEventExW<P4>(hloghandle: super::super::Foundation::HANDLE
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rtutils.dll" "C" fn RouterLogEventExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCWSTR));
+    windows_core::link!("rtutils.dll" "C" fn RouterLogEventExW(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCWSTR));
     unsafe { RouterLogEventExW(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat.param().abi()) }
 }
 #[inline]
 pub unsafe fn RouterLogEventStringA(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[windows_core::PCSTR], dwerrorcode: u32, dwerrorindex: u32) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventStringA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwerrorcode : u32, dwerrorindex : u32));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventStringA(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCSTR, dwerrorcode : u32, dwerrorindex : u32));
     unsafe { RouterLogEventStringA(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.len().try_into().unwrap(), core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex) }
 }
 #[inline]
 pub unsafe fn RouterLogEventStringW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: &[windows_core::PCWSTR], dwerrorcode: u32, dwerrorindex: u32) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventStringW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwerrorcode : u32, dwerrorindex : u32));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventStringW(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwerrorcode : u32, dwerrorindex : u32));
     unsafe { RouterLogEventStringW(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.len().try_into().unwrap(), core::mem::transmute(plpszsubstringarray.as_ptr()), dwerrorcode, dwerrorindex) }
 }
 #[inline]
@@ -1257,7 +1257,7 @@ pub unsafe fn RouterLogEventValistExA<P4>(hloghandle: super::super::Foundation::
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventValistExA(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCSTR, arglist : *mut i8));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventValistExA(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCSTR, arglist : *mut i8));
     unsafe { RouterLogEventValistExA(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat.param().abi(), arglist as _) }
 }
 #[inline]
@@ -1265,12 +1265,12 @@ pub unsafe fn RouterLogEventValistExW<P4>(hloghandle: super::super::Foundation::
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventValistExW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCWSTR, arglist : *mut i8));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventValistExW(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwerrorcode : u32, dwmessageid : u32, ptszformat : windows_core::PCWSTR, arglist : *mut i8));
     unsafe { RouterLogEventValistExW(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat.param().abi(), arglist as _) }
 }
 #[inline]
 pub unsafe fn RouterLogEventW(hloghandle: super::super::Foundation::HANDLE, dweventtype: u32, dwmessageid: u32, plpszsubstringarray: Option<&[windows_core::PCWSTR]>, dwerrorcode: u32) {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogEventW(hloghandle : super::super::Foundation:: HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwerrorcode : u32));
+    windows_core::link!("rtutils.dll" "system" fn RouterLogEventW(hloghandle : super::super::Foundation::HANDLE, dweventtype : u32, dwmessageid : u32, dwsubstringcount : u32, plpszsubstringarray : *const windows_core::PCWSTR, dwerrorcode : u32));
     unsafe { RouterLogEventW(hloghandle, dweventtype, dwmessageid, plpszsubstringarray.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(plpszsubstringarray.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dwerrorcode) }
 }
 #[inline]
@@ -1278,7 +1278,7 @@ pub unsafe fn RouterLogRegisterA<P0>(lpszsource: P0) -> super::super::Foundation
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogRegisterA(lpszsource : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("rtutils.dll" "system" fn RouterLogRegisterA(lpszsource : windows_core::PCSTR) -> super::super::Foundation::HANDLE);
     unsafe { RouterLogRegisterA(lpszsource.param().abi()) }
 }
 #[inline]
@@ -1286,7 +1286,7 @@ pub unsafe fn RouterLogRegisterW<P0>(lpszsource: P0) -> super::super::Foundation
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("rtutils.dll" "system" fn RouterLogRegisterW(lpszsource : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
+    windows_core::link!("rtutils.dll" "system" fn RouterLogRegisterW(lpszsource : windows_core::PCWSTR) -> super::super::Foundation::HANDLE);
     unsafe { RouterLogRegisterW(lpszsource.param().abi()) }
 }
 #[inline]
@@ -1337,12 +1337,12 @@ where
 }
 #[inline]
 pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("rtutils.dll" "system" fn TraceGetConsoleA(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("rtutils.dll" "system" fn TraceGetConsoleA(dwtraceid : u32, lphconsole : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { TraceGetConsoleA(dwtraceid, lphconsole as _) }
 }
 #[inline]
 pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
-    windows_core::link!("rtutils.dll" "system" fn TraceGetConsoleW(dwtraceid : u32, lphconsole : *mut super::super::Foundation:: HANDLE) -> u32);
+    windows_core::link!("rtutils.dll" "system" fn TraceGetConsoleW(dwtraceid : u32, lphconsole : *mut super::super::Foundation::HANDLE) -> u32);
     unsafe { TraceGetConsoleW(dwtraceid, lphconsole as _) }
 }
 #[inline]

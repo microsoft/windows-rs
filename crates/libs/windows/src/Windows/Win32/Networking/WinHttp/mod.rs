@@ -273,7 +273,7 @@ pub unsafe fn WinHttpSetTimeouts(hinternet: *mut core::ffi::c_void, nresolvetime
 }
 #[inline]
 pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: &mut [u16; 62]) -> windows_core::Result<()> {
-    windows_core::link!("winhttp.dll" "system" fn WinHttpTimeFromSystemTime(pst : *const super::super::Foundation:: SYSTEMTIME, pwsztime : windows_core::PWSTR) -> windows_core::BOOL);
+    windows_core::link!("winhttp.dll" "system" fn WinHttpTimeFromSystemTime(pst : *const super::super::Foundation::SYSTEMTIME, pwsztime : windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { WinHttpTimeFromSystemTime(pst, core::mem::transmute(pwsztime.as_ptr())).ok() }
 }
 #[inline]
@@ -281,7 +281,7 @@ pub unsafe fn WinHttpTimeToSystemTime<P0>(pwsztime: P0, pst: *mut super::super::
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("winhttp.dll" "system" fn WinHttpTimeToSystemTime(pwsztime : windows_core::PCWSTR, pst : *mut super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
+    windows_core::link!("winhttp.dll" "system" fn WinHttpTimeToSystemTime(pwsztime : windows_core::PCWSTR, pst : *mut super::super::Foundation::SYSTEMTIME) -> windows_core::BOOL);
     unsafe { WinHttpTimeToSystemTime(pwsztime.param().abi(), pst as _).ok() }
 }
 #[inline]

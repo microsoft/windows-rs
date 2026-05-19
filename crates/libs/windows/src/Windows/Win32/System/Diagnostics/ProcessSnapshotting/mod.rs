@@ -1,16 +1,16 @@
 #[inline]
 pub unsafe fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: Option<u32>, snapshothandle: *mut HPSS) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn PssCaptureSnapshot(processhandle : super::super::super::Foundation:: HANDLE, captureflags : PSS_CAPTURE_FLAGS, threadcontextflags : u32, snapshothandle : *mut HPSS) -> u32);
+    windows_core::link!("kernel32.dll" "system" fn PssCaptureSnapshot(processhandle : super::super::super::Foundation::HANDLE, captureflags : PSS_CAPTURE_FLAGS, threadcontextflags : u32, snapshothandle : *mut HPSS) -> u32);
     unsafe { PssCaptureSnapshot(processhandle, captureflags, threadcontextflags.unwrap_or(core::mem::zeroed()) as _, snapshothandle as _) }
 }
 #[inline]
 pub unsafe fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: Option<PSS_DUPLICATE_FLAGS>) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn PssDuplicateSnapshot(sourceprocesshandle : super::super::super::Foundation:: HANDLE, snapshothandle : HPSS, targetprocesshandle : super::super::super::Foundation:: HANDLE, targetsnapshothandle : *mut HPSS, flags : PSS_DUPLICATE_FLAGS) -> u32);
+    windows_core::link!("kernel32.dll" "system" fn PssDuplicateSnapshot(sourceprocesshandle : super::super::super::Foundation::HANDLE, snapshothandle : HPSS, targetprocesshandle : super::super::super::Foundation::HANDLE, targetsnapshothandle : *mut HPSS, flags : PSS_DUPLICATE_FLAGS) -> u32);
     unsafe { PssDuplicateSnapshot(sourceprocesshandle, snapshothandle, targetprocesshandle, targetsnapshothandle as _, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PssFreeSnapshot(processhandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn PssFreeSnapshot(processhandle : super::super::super::Foundation:: HANDLE, snapshothandle : HPSS) -> u32);
+    windows_core::link!("kernel32.dll" "system" fn PssFreeSnapshot(processhandle : super::super::super::Foundation::HANDLE, snapshothandle : HPSS) -> u32);
     unsafe { PssFreeSnapshot(processhandle, snapshothandle) }
 }
 #[inline]

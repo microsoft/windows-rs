@@ -28,7 +28,7 @@ impl ValueExt for Value {
                 }
 
                 tokens.push('\"');
-                tokens.into()
+                tokens.parse().unwrap()
             }
             rest => panic!("{rest:?}"),
         }

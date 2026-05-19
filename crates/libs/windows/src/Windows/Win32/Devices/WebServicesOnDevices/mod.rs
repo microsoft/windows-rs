@@ -14,7 +14,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost(pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppdevicehost : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost(pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, ppdevicehost : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDeviceHost(pszlocalid.param().abi(), pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -26,7 +26,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdevicehost : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdevicehost : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDeviceHost2(pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -38,7 +38,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHostAdvanced(pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, pphostaddresses : *const * mut core::ffi::c_void, dwhostaddresscount : u32, ppdevicehost : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHostAdvanced(pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pphostaddresses : *const *mut core::ffi::c_void, dwhostaddresscount : u32, ppdevicehost : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDeviceHostAdvanced(pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pphostaddresses.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pphostaddresses.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -51,7 +51,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppdeviceproxy : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, ppdeviceproxy : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDeviceProxy(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -64,7 +64,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy2(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdeviceproxy : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy2(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdeviceproxy : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDeviceProxy2(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -78,7 +78,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxyAdvanced(pszdeviceid : windows_core::PCWSTR, pdeviceaddress : * mut core::ffi::c_void, pszlocalid : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppdeviceproxy : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxyAdvanced(pszdeviceid : windows_core::PCWSTR, pdeviceaddress : *mut core::ffi::c_void, pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, ppdeviceproxy : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDeviceProxyAdvanced(pszdeviceid.param().abi(), pdeviceaddress.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -89,7 +89,7 @@ pub unsafe fn WSDCreateDiscoveryProvider<P0>(pcontext: P0) -> windows_core::Resu
 where
     P0: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider(pcontext : * mut core::ffi::c_void, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider(pcontext : *mut core::ffi::c_void, ppprovider : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDiscoveryProvider(pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -100,7 +100,7 @@ pub unsafe fn WSDCreateDiscoveryProvider2<P0>(pcontext: P0, pconfigparams: Optio
 where
     P0: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider2(pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider2(pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppprovider : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDiscoveryProvider2(pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -111,7 +111,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher<P0>(pcontext: P0) -> windows_core::Res
 where
     P0: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher(pcontext : * mut core::ffi::c_void, pppublisher : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher(pcontext : *mut core::ffi::c_void, pppublisher : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDiscoveryPublisher(pcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -122,7 +122,7 @@ pub unsafe fn WSDCreateDiscoveryPublisher2<P0>(pcontext: P0, pconfigparams: Opti
 where
     P0: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher2(pcontext : * mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, pppublisher : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher2(pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, pppublisher : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateDiscoveryPublisher2(pcontext.param().abi(), core::mem::transmute(pconfigparams.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -130,7 +130,7 @@ where
 }
 #[inline]
 pub unsafe fn WSDCreateHttpAddress() -> windows_core::Result<IWSDHttpAddress> {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateHttpAddress(ppaddress : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateHttpAddress(ppaddress : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateHttpAddress(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -138,7 +138,7 @@ pub unsafe fn WSDCreateHttpAddress() -> windows_core::Result<IWSDHttpAddress> {
 }
 #[inline]
 pub unsafe fn WSDCreateHttpMessageParameters() -> windows_core::Result<IWSDHttpMessageParameters> {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateHttpMessageParameters(pptxparams : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateHttpMessageParameters(pptxparams : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateHttpMessageParameters(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -146,7 +146,7 @@ pub unsafe fn WSDCreateHttpMessageParameters() -> windows_core::Result<IWSDHttpM
 }
 #[inline]
 pub unsafe fn WSDCreateOutboundAttachment() -> windows_core::Result<IWSDOutboundAttachment> {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateOutboundAttachment(ppattachment : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateOutboundAttachment(ppattachment : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateOutboundAttachment(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -154,7 +154,7 @@ pub unsafe fn WSDCreateOutboundAttachment() -> windows_core::Result<IWSDOutbound
 }
 #[inline]
 pub unsafe fn WSDCreateUdpAddress() -> windows_core::Result<IWSDUdpAddress> {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateUdpAddress(ppaddress : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateUdpAddress(ppaddress : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateUdpAddress(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -162,7 +162,7 @@ pub unsafe fn WSDCreateUdpAddress() -> windows_core::Result<IWSDUdpAddress> {
 }
 #[inline]
 pub unsafe fn WSDCreateUdpMessageParameters() -> windows_core::Result<IWSDUdpMessageParameters> {
-    windows_core::link!("wsdapi.dll" "system" fn WSDCreateUdpMessageParameters(pptxparams : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDCreateUdpMessageParameters(pptxparams : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDCreateUdpMessageParameters(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -187,7 +187,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<IWSDXMLContext>,
 {
-    windows_core::link!("wsdapi.dll" "system" fn WSDGenerateFault(pszcode : windows_core::PCWSTR, pszsubcode : windows_core::PCWSTR, pszreason : windows_core::PCWSTR, pszdetail : windows_core::PCWSTR, pcontext : * mut core::ffi::c_void, ppfault : *mut *mut WSD_SOAP_FAULT) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDGenerateFault(pszcode : windows_core::PCWSTR, pszsubcode : windows_core::PCWSTR, pszreason : windows_core::PCWSTR, pszdetail : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, ppfault : *mut *mut WSD_SOAP_FAULT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDGenerateFault(pszcode.param().abi(), pszsubcode.param().abi(), pszreason.param().abi(), pszdetail.param().abi(), pcontext.param().abi(), &mut result__).map(|| result__)
@@ -249,7 +249,7 @@ pub unsafe fn WSDXMLCleanupElement(pany: *mut WSDXML_ELEMENT) -> windows_core::R
 }
 #[inline]
 pub unsafe fn WSDXMLCreateContext() -> windows_core::Result<IWSDXMLContext> {
-    windows_core::link!("wsdapi.dll" "system" fn WSDXMLCreateContext(ppcontext : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wsdapi.dll" "system" fn WSDXMLCreateContext(ppcontext : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WSDXMLCreateContext(&mut result__).and_then(|| windows_core::Type::from_abi(result__))

@@ -1306,7 +1306,7 @@ unsafe impl Sync for LearningModel {}
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LearningModelBinding(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelBinding, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( LearningModelBinding , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(LearningModelBinding, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMapView < windows_core::HSTRING, windows_core::IInspectable >);
 impl LearningModelBinding {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;

@@ -25,7 +25,8 @@ impl Config<'_> {
             value.9,
             value.10
         )
-        .into()
+        .parse()
+        .unwrap()
     }
 
     pub fn field_initializer<'a>(&self, field: Field, input: &'a str) -> (TokenStream, &'a str) {
@@ -52,7 +53,9 @@ impl Config<'_> {
             }
             Type::ArrayFixed(_, len) => {
                 let (literals, rest) = read_literal_array(input, len);
-                let literals = literals.iter().map(|literal| TokenStream::from(*literal));
+                let literals = literals
+                    .iter()
+                    .map(|literal| literal.parse::<TokenStream>().unwrap());
                 (quote! { #name: [#(#literals,)*], }, rest)
             }
             Type::PtrMut(_, _) => {
@@ -63,7 +66,7 @@ impl Config<'_> {
             }
             _ => {
                 let (literal, rest) = read_literal(input);
-                let literal: TokenStream = literal.into();
+                let literal: TokenStream = literal.parse().unwrap();
                 (quote! { #name: #literal, }, rest)
             }
         }

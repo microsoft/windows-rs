@@ -12,7 +12,7 @@
 pub unsafe fn CreateRobotFromHandle(
     handle: *const core::ffi::c_void,
 ) -> windows_core::Result<Robot> {
-    windows_core::link!("robotics.dll" "system" fn CreateRobotFromHandle(handle : *const core::ffi::c_void, robot : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("robotics.dll" "system" fn CreateRobotFromHandle(handle : *const core::ffi::c_void, robot : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateRobotFromHandle(handle, &mut result__)

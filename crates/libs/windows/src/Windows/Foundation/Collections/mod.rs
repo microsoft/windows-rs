@@ -3,7 +3,7 @@ impl windows_core::RuntimeType for IPropertySet {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IPropertySet, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy ! ( IPropertySet , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(IPropertySet, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMap < windows_core::HSTRING, windows_core::IInspectable >, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::IInspectable >);
 impl IPropertySet {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
@@ -108,7 +108,7 @@ pub struct IPropertySet_Vtbl {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PropertySet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PropertySet, windows_core::IUnknown, windows_core::IInspectable, IPropertySet);
-windows_core::imp::required_hierarchy ! ( PropertySet , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(PropertySet, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMap < windows_core::HSTRING, windows_core::IInspectable >, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::IInspectable >);
 impl PropertySet {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -214,8 +214,8 @@ impl IntoIterator for &PropertySet {
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StringMap(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( StringMap , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
-windows_core::imp::required_hierarchy ! ( StringMap , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::HSTRING > );
+windows_core::imp::interface_hierarchy!(StringMap, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMap < windows_core::HSTRING, windows_core::HSTRING >);
+windows_core::imp::required_hierarchy!(StringMap, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::HSTRING > >, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::HSTRING >);
 impl StringMap {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -312,7 +312,7 @@ impl IntoIterator for &StringMap {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ValueSet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ValueSet, windows_core::IUnknown, windows_core::IInspectable, IPropertySet);
-windows_core::imp::required_hierarchy ! ( ValueSet , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > , windows_collections:: IObservableMap < windows_core::HSTRING , windows_core::IInspectable > );
+windows_core::imp::required_hierarchy!(ValueSet, windows_collections::IIterable < windows_collections::IKeyValuePair < windows_core::HSTRING, windows_core::IInspectable > >, windows_collections::IMap < windows_core::HSTRING, windows_core::IInspectable >, windows_collections::IObservableMap < windows_core::HSTRING, windows_core::IInspectable >);
 impl ValueSet {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())

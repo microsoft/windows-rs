@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn GameInputCreate() -> windows_core::Result<IGameInput> {
-    windows_core::link!("gameinput.dll" "system" fn GameInputCreate(gameinput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("gameinput.dll" "system" fn GameInputCreate(gameinput : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GameInputCreate(&mut result__).and_then(|| windows_core::Type::from_abi(result__))

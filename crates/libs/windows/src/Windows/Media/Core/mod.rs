@@ -4340,7 +4340,7 @@ unsafe impl Sync for MediaStreamSample {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MediaStreamSamplePropertySet(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy ! ( MediaStreamSamplePropertySet , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMap < windows_core::GUID , windows_core::IInspectable > );
+windows_core::imp::interface_hierarchy!(MediaStreamSamplePropertySet, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IMap < windows_core::GUID, windows_core::IInspectable >);
 windows_core::imp::required_hierarchy!(MediaStreamSamplePropertySet, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>);
 impl MediaStreamSamplePropertySet {
     pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::GUID, windows_core::IInspectable>>> {

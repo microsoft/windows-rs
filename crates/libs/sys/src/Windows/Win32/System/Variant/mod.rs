@@ -8,9 +8,9 @@ windows_link::link!("propsys.dll" "system" fn InitVariantFromBuffer(pv : *const 
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromDoubleArray(prgn : *const f64, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTime(pft : *const super::super::Foundation:: FILETIME, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTime(pft : *const super::super::Foundation::FILETIME, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation:: FILETIME, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation::FILETIME, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromGUIDAsString(guid : *const windows_sys::core::GUID, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20,7 +20,7 @@ windows_link::link!("propsys.dll" "system" fn InitVariantFromInt32Array(prgn : *
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromInt64Array(prgn : *const i64, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_link::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation:: HINSTANCE, id : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
+windows_link::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation::HINSTANCE, id : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromStringArray(prgsz : *const windows_sys::core::PCWSTR, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -31,7 +31,7 @@ windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt32Array(prgn : 
 windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt64Array(prgn : *const u64, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromVariantArrayElem(varin : *const VARIANT, ielem : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-windows_link::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME, pvtime : *mut f64) -> i32);
+windows_link::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation::SYSTEMTIME, pvtime : *mut f64) -> i32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserFree(param0 : *const u32, param1 : *const VARIANT));
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -83,7 +83,7 @@ windows_link::link!("propsys.dll" "system" fn VariantGetUInt64Elem(var : *const 
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut VARIANT));
 windows_link::link!("oleaut32.dll" "system" fn VariantTimeToDosDateTime(vtime : f64, pwdosdate : *mut u16, pwdostime : *mut u16) -> i32);
-windows_link::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> i32);
+windows_link::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation::SYSTEMTIME) -> i32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -105,7 +105,7 @@ windows_link::link!("propsys.dll" "system" fn VariantToDoubleArrayAlloc(var : *c
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToDoubleWithDefault(varin : *const VARIANT, dbldefault : f64) -> f64);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-windows_link::link!("propsys.dll" "system" fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation:: FILETIME) -> windows_sys::core::HRESULT);
+windows_link::link!("propsys.dll" "system" fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation::FILETIME) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToGUID(varin : *const VARIANT, pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: Option<*const core::ffi::c_void>, pcontext: *mut super::super::Foundation::HANDLE) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_A(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::super::Foundation:: HANDLE) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_A(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::super::Foundation::HANDLE) -> i32);
     unsafe { DnsAcquireContextHandle_A(credentialflags, credentials.unwrap_or(core::mem::zeroed()) as _, pcontext as _) }
 }
 #[inline]
 pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: Option<*const core::ffi::c_void>, pcontext: *mut super::super::Foundation::HANDLE) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::super::Foundation:: HANDLE) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsAcquireContextHandle_W(credentialflags : u32, credentials : *const core::ffi::c_void, pcontext : *mut super::super::Foundation::HANDLE) -> i32);
     unsafe { DnsAcquireContextHandle_W(credentialflags, credentials.unwrap_or(core::mem::zeroed()) as _, pcontext as _) }
 }
 #[inline]
@@ -155,17 +155,17 @@ pub unsafe fn DnsIsFlatRecord(precord: *const DNS_RECORDA, ullflags: u64, pfflat
 }
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_A(paddrecords: Option<*const DNS_RECORDA>, pdeleterecords: Option<*const DNS_RECORDA>, options: u32, hcredentials: Option<super::super::Foundation::HANDLE>, pextralist: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_A(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation:: HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_A(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
     unsafe { DnsModifyRecordsInSet_A(paddrecords.unwrap_or(core::mem::zeroed()) as _, pdeleterecords.unwrap_or(core::mem::zeroed()) as _, options, hcredentials.unwrap_or(core::mem::zeroed()) as _, pextralist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_UTF8(paddrecords: Option<*const DNS_RECORDA>, pdeleterecords: Option<*const DNS_RECORDA>, options: u32, hcredentials: Option<super::super::Foundation::HANDLE>, pextralist: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_UTF8(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation:: HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_UTF8(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
     unsafe { DnsModifyRecordsInSet_UTF8(paddrecords.unwrap_or(core::mem::zeroed()) as _, pdeleterecords.unwrap_or(core::mem::zeroed()) as _, options, hcredentials.unwrap_or(core::mem::zeroed()) as _, pextralist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DnsModifyRecordsInSet_W(paddrecords: Option<*const DNS_RECORDA>, pdeleterecords: Option<*const DNS_RECORDA>, options: u32, hcredentials: Option<super::super::Foundation::HANDLE>, pextralist: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_W(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation:: HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsModifyRecordsInSet_W(paddrecords : *const DNS_RECORDA, pdeleterecords : *const DNS_RECORDA, options : u32, hcredentials : super::super::Foundation::HANDLE, pextralist : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
     unsafe { DnsModifyRecordsInSet_W(paddrecords.unwrap_or(core::mem::zeroed()) as _, pdeleterecords.unwrap_or(core::mem::zeroed()) as _, options, hcredentials.unwrap_or(core::mem::zeroed()) as _, pextralist.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -214,7 +214,7 @@ pub unsafe fn DnsQuery_A<P0>(pszname: P0, wtype: u16, options: DNS_QUERY_OPTIONS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsQuery_A(pszname : windows_core::PCSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("dnsapi.dll" "system" fn DnsQuery_A(pszname : windows_core::PCSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> windows_core::WIN32_ERROR);
     unsafe { DnsQuery_A(pszname.param().abi(), wtype, options, pextra.unwrap_or(core::mem::zeroed()) as _, ppqueryresults as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -222,7 +222,7 @@ pub unsafe fn DnsQuery_UTF8<P0>(pszname: P0, wtype: u16, options: DNS_QUERY_OPTI
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsQuery_UTF8(pszname : windows_core::PCSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("dnsapi.dll" "system" fn DnsQuery_UTF8(pszname : windows_core::PCSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> windows_core::WIN32_ERROR);
     unsafe { DnsQuery_UTF8(pszname.param().abi(), wtype, options, pextra.unwrap_or(core::mem::zeroed()) as _, ppqueryresults as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -230,7 +230,7 @@ pub unsafe fn DnsQuery_W<P0>(pszname: P0, wtype: u16, options: DNS_QUERY_OPTIONS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsQuery_W(pszname : windows_core::PCWSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> windows_core:: WIN32_ERROR);
+    windows_core::link!("dnsapi.dll" "system" fn DnsQuery_W(pszname : windows_core::PCWSTR, wtype : u16, options : DNS_QUERY_OPTIONS, pextra : *mut core::ffi::c_void, ppqueryresults : *mut *mut DNS_RECORDA, preserved : *mut *mut core::ffi::c_void) -> windows_core::WIN32_ERROR);
     unsafe { DnsQuery_W(pszname.param().abi(), wtype, options, pextra.unwrap_or(core::mem::zeroed()) as _, ppqueryresults as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -260,22 +260,22 @@ pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECO
 }
 #[inline]
 pub unsafe fn DnsReleaseContextHandle(hcontext: super::super::Foundation::HANDLE) {
-    windows_core::link!("dnsapi.dll" "system" fn DnsReleaseContextHandle(hcontext : super::super::Foundation:: HANDLE));
+    windows_core::link!("dnsapi.dll" "system" fn DnsReleaseContextHandle(hcontext : super::super::Foundation::HANDLE));
     unsafe { DnsReleaseContextHandle(hcontext) }
 }
 #[inline]
 pub unsafe fn DnsReplaceRecordSetA(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Option<super::super::Foundation::HANDLE>, pextrainfo: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetA(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation:: HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetA(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
     unsafe { DnsReplaceRecordSetA(preplaceset, options, hcontext.unwrap_or(core::mem::zeroed()) as _, pextrainfo.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DnsReplaceRecordSetUTF8(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Option<super::super::Foundation::HANDLE>, pextrainfo: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetUTF8(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation:: HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetUTF8(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
     unsafe { DnsReplaceRecordSetUTF8(preplaceset, options, hcontext.unwrap_or(core::mem::zeroed()) as _, pextrainfo.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn DnsReplaceRecordSetW(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Option<super::super::Foundation::HANDLE>, pextrainfo: Option<*mut core::ffi::c_void>, preserved: Option<*mut core::ffi::c_void>) -> i32 {
-    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetW(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation:: HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("dnsapi.dll" "system" fn DnsReplaceRecordSetW(preplaceset : *const DNS_RECORDA, options : u32, hcontext : super::super::Foundation::HANDLE, pextrainfo : *mut core::ffi::c_void, preserved : *mut core::ffi::c_void) -> i32);
     unsafe { DnsReplaceRecordSetW(preplaceset, options, hcontext.unwrap_or(core::mem::zeroed()) as _, pextrainfo.unwrap_or(core::mem::zeroed()) as _, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]

@@ -11,17 +11,17 @@ pub unsafe fn BlockInput(fblockit: bool) -> windows_core::Result<()> {
 }
 #[inline]
 pub unsafe fn DragDetect(hwnd: super::super::super::Foundation::HWND, pt: super::super::super::Foundation::POINT) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DragDetect(hwnd : super::super::super::Foundation:: HWND, pt : super::super::super::Foundation:: POINT) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn DragDetect(hwnd : super::super::super::Foundation::HWND, pt : super::super::super::Foundation::POINT) -> windows_core::BOOL);
     unsafe { DragDetect(hwnd, core::mem::transmute(pt)) }
 }
 #[inline]
 pub unsafe fn EnableWindow(hwnd: super::super::super::Foundation::HWND, benable: bool) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn EnableWindow(hwnd : super::super::super::Foundation:: HWND, benable : windows_core::BOOL) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn EnableWindow(hwnd : super::super::super::Foundation::HWND, benable : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { EnableWindow(hwnd, benable.into()) }
 }
 #[inline]
 pub unsafe fn GetActiveWindow() -> super::super::super::Foundation::HWND {
-    windows_core::link!("user32.dll" "system" fn GetActiveWindow() -> super::super::super::Foundation:: HWND);
+    windows_core::link!("user32.dll" "system" fn GetActiveWindow() -> super::super::super::Foundation::HWND);
     unsafe { GetActiveWindow() }
 }
 #[inline]
@@ -31,7 +31,7 @@ pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
 }
 #[inline]
 pub unsafe fn GetCapture() -> super::super::super::Foundation::HWND {
-    windows_core::link!("user32.dll" "system" fn GetCapture() -> super::super::super::Foundation:: HWND);
+    windows_core::link!("user32.dll" "system" fn GetCapture() -> super::super::super::Foundation::HWND);
     unsafe { GetCapture() }
 }
 #[inline]
@@ -41,7 +41,7 @@ pub unsafe fn GetDoubleClickTime() -> u32 {
 }
 #[inline]
 pub unsafe fn GetFocus() -> super::super::super::Foundation::HWND {
-    windows_core::link!("user32.dll" "system" fn GetFocus() -> super::super::super::Foundation:: HWND);
+    windows_core::link!("user32.dll" "system" fn GetFocus() -> super::super::super::Foundation::HWND);
     unsafe { GetFocus() }
 }
 #[inline]
@@ -106,7 +106,7 @@ pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpp
 }
 #[inline]
 pub unsafe fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn IsWindowEnabled(hwnd : super::super::super::Foundation:: HWND) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn IsWindowEnabled(hwnd : super::super::super::Foundation::HWND) -> windows_core::BOOL);
     unsafe { IsWindowEnabled(hwnd) }
 }
 #[inline]
@@ -154,7 +154,7 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
 }
 #[inline]
 pub unsafe fn RegisterHotKey(hwnd: Option<super::super::super::Foundation::HWND>, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32, fsmodifiers : HOT_KEY_MODIFIERS, vk : u32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::super::super::Foundation::HWND, id : i32, fsmodifiers : HOT_KEY_MODIFIERS, vk : u32) -> windows_core::BOOL);
     unsafe { RegisterHotKey(hwnd.unwrap_or(core::mem::zeroed()) as _, id, fsmodifiers, vk).ok() }
 }
 #[inline]
@@ -169,13 +169,13 @@ pub unsafe fn SendInput(pinputs: &[INPUT], cbsize: i32) -> u32 {
 }
 #[inline]
 pub unsafe fn SetActiveWindow(hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<super::super::super::Foundation::HWND> {
-    windows_core::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
+    windows_core::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND);
     let result__ = unsafe { SetActiveWindow(hwnd) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn SetCapture(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND {
-    windows_core::link!("user32.dll" "system" fn SetCapture(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
+    windows_core::link!("user32.dll" "system" fn SetCapture(hwnd : super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND);
     unsafe { SetCapture(hwnd) }
 }
 #[inline]
@@ -185,7 +185,7 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> windows_core::Result<()> {
 }
 #[inline]
 pub unsafe fn SetFocus(hwnd: Option<super::super::super::Foundation::HWND>) -> windows_core::Result<super::super::super::Foundation::HWND> {
-    windows_core::link!("user32.dll" "system" fn SetFocus(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
+    windows_core::link!("user32.dll" "system" fn SetFocus(hwnd : super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND);
     let result__ = unsafe { SetFocus(hwnd.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -231,7 +231,7 @@ pub unsafe fn UnloadKeyboardLayout(hkl: HKL) -> windows_core::Result<()> {
 }
 #[inline]
 pub unsafe fn UnregisterHotKey(hwnd: Option<super::super::super::Foundation::HWND>, id: i32) -> windows_core::Result<()> {
-    windows_core::link!("user32.dll" "system" fn UnregisterHotKey(hwnd : super::super::super::Foundation:: HWND, id : i32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn UnregisterHotKey(hwnd : super::super::super::Foundation::HWND, id : i32) -> windows_core::BOOL);
     unsafe { UnregisterHotKey(hwnd.unwrap_or(core::mem::zeroed()) as _, id).ok() }
 }
 #[inline]
