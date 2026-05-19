@@ -3,12 +3,18 @@
 This report focuses on **simplifying and making the `windows-bindgen`
 implementation more manageable**, not on simplifying its CLI / builder
 surface. The CLI is treated here as essentially fixed; the question is
-whether the ~8.1 kLOC under `crates/libs/bindgen/src/` can be reorganised
-so that the next person who has to fix a codegen bug, add a new metadata
+whether the code under `crates/libs/bindgen/src/` can be reorganised so
+that the next person who has to fix a codegen bug, add a new metadata
 attribute, or teach the emitter a new sugar can do so quickly and
 confidently.
 
-The shape of `crates/libs/bindgen/src/` today:
+**Status:** item 1 (replace hand-rolled `tokens/`) is addressed by
+[PR #4431](https://github.com/microsoft/windows-rs/pull/4431), which
+deleted the four-file `tokens/` module (~1050 lines) and replaced it with
+a 65-line `tokens.rs` shim over the upstream `proc-macro2` and `quote`
+crates. The items below represent the remaining work.
+
+The shape of `crates/libs/bindgen/src/` after PR #4431 merges:
 
 ```
 lib.rs                      1241   builder, arg parsing, references seeding
@@ -18,73 +24,40 @@ types/method.rs              713   WinRT method emitter
 types/interface.rs           695   WinRT interface + _Impl emitter
 types/cpp_interface.rs       516   COM interface + _Impl emitter
 filter.rs                    579   include/exclude/method/?-prefix rules
-tokens/{mod,runtime,        1050   hand-rolled quote!/ToTokens/TokenStream
-   to_tokens,token_stream}
 types/cpp_struct.rs          396   nested Win32 structs + handle types
 types/class.rs               386   WinRT runtime classes
 types/cpp_fn.rs              347   Win32 free function wrappers
-tokens/runtime.rs            275   ext traits supporting `quote!`
 config/{mod,names,cfg,       620   Config struct, package writer, cfg
   format,value,cpp_handle}        emission, name resolution
 types/{cpp_const, delegate,
   struct, cpp_enum, enum,
   cpp_delegate}              ~800  remaining variant emitters
+tokens.rs                     65   thin shim: re-exports + TokenStreamExt
+                                   + to_ident (PR #4431)
 type_map / type_tree         ~210  dependency closure + namespace tree
 references.rs                 111  cross-crate reference table
 winmd/reader.rs               201  static-lifetime wrapper over
                                    windows-metadata::reader::TypeIndex
 ... small modules            ~700  filter parsing, derive DSL, IO, etc.
                             -----
-                            ~8100  total
+                            ~7100  total (was ~8100)
 ```
 
 The complexity is not in the volume — every file individually is
 reasonable — it is in the **redundant abstractions, parallel hierarchies,
-and the way state flows through the emitter**. The rest of this document
-catalogues those, ordered by the ROI of cleaning them up.
+and the way state flows through the emitter**. The sections below
+catalogue those, ordered by the ROI of cleaning them up.
 
-## 1. The hand-rolled `tokens/` crate is a thousand-line accident
+## ~~1. The hand-rolled `tokens/` crate~~ — DONE (PR #4431)
 
-`crates/libs/bindgen/src/tokens/` (446 + 275 + 149 + 180 = **1050 lines**)
-reimplements the `quote` crate from scratch on top of a
-`TokenStream(pub String)`:
-
-- `tokens/mod.rs` is a 446-line `macro_rules!` reimplementation of
-  `quote!` (`quote_each_token`, `quote_each_token_with_context`,
-  `pounded_var_names`, repetition handling, etc.).
-- `tokens/runtime.rs` is a 275-line port of `quote::__private::ext`
-  (`HasIterator` / `ThereIsNoIteratorInRepetition`, the `BitOr` lattice,
-  the `RepIteratorExt` / `RepToTokensExt` / `RepAsIteratorExt` family).
-  Its module docstring literally describes the same trick the upstream
-  `quote` crate documents.
-- `tokens/token_stream.rs` makes `TokenStream` a transparent wrapper
-  around `String`. `combine` pushes a single space and then concatenates.
-- `tokens/to_tokens.rs` is the `ToTokens` boilerplate for that string
-  type.
-
-The workspace already declares `proc-macro2 = "1"` and `quote = "1"` in
-the root `Cargo.toml` for other crates, but `windows-bindgen/Cargo.toml`
-does **not** depend on them; instead it keeps the bespoke clone.
-
-What this costs us:
-
-- **No actual token tree.** The emitter is a string builder. Bugs like
-  "missing space between tokens" are real (`combine` exists precisely to
-  prepend a space). A real `TokenStream` would make these
-  unrepresentable.
-- **Output goes through `rustfmt` as its only sanity check.** If the
-  emitter mis-balances a brace, the failure mode is a parse error in the
-  generated file, not at the bindgen layer.
-- **The `quote!` macro is the most expensive part of this crate to read.**
-  Reviewers have to mentally diff against upstream `quote` to know which
-  features are supported.
-
-**Action:** delete `tokens/` entirely and depend on `proc-macro2` +
-`quote` from crates.io. The replacement is mechanical (the call sites
-already use `quote! { ... }` with the same `#var` / `#(...)*` syntax
-upstream supports) and removes ~1 kLOC of code we own and test. The only
-deliberate semantic difference today appears to be `TokenStream::combine`
-inserting a space — that becomes free with a real token tree.
+The four-file `tokens/` module (~1050 lines) that reimplemented `quote!`
+on top of `TokenStream(pub String)` has been replaced by a 65-line shim
+(`tokens.rs`) that re-exports `proc_macro2::{Literal, TokenStream}` and
+`quote::{quote, ToTokens}`, adds a thin `TokenStreamExt` trait to
+preserve the `combine` / `join` / `into_string` call sites, and moves
+the `to_ident` keyword-escaping helper there. The only semantic change is
+that token spacing is handled by the real token tree rather than a manual
+`combine` space-prepend.
 
 ## 2. The `Type` enum is two enums in a trench coat
 
@@ -459,37 +432,68 @@ workspace and in external consumers churns), or accept that downstream
 review costs explode. The fixture suite makes incremental refactoring
 **very safe**, but offers no leverage for a rewrite.
 
-The recommended path is therefore strictly incremental, ordered roughly
-by independence:
+The recommended path is strictly incremental. ~~Step 1~~ is already
+handled by PR #4431. The remaining steps, ordered by independence:
 
-1. **Delete `tokens/`; depend on `proc-macro2` + `quote` from
-   crates.io** (#1). Largest single LOC reduction (~1000 lines) and the
-   refactor with the smallest semantic surface — golden tests catch any
-   spacing/ordering regressions.
-2. **Data-drive the references table** (#4). Local, low-risk, ~230
-   lines of `lib.rs` collapse to ~30. Test by re-running the workspace
-   bindings.
-3. **Centralise `_Impl` policy** (#6). Three call sites become one; the
-   golden tests catch any miscategorisation immediately.
-4. **Per-mode `Mode` enum + split `Config`** (#3). Mechanical but
-   touches every emitter; trivial to validate via fixtures.
-5. **Lift `cfg` emission out of emitters** (#7). Local to
-   `config/mod.rs` once mode is split.
-6. **Typed `PathOrigin`** (#8). Replaces `config/names.rs` policy code.
-7. **`ItemEmitter` trait + `Item`/`Sig` split** (#2). The largest
-   internal restructuring; do this *after* steps 1, 3, 4, because each
-   of those simplifies what the trait has to abstract over.
-8. **Lifetime through `Reader`** (#5 phase 1). Removes the
-   `Box::leak`/`unsafe impl Send`. Confined to `winmd/` + `type_map.rs`
-   + a few signatures.
-9. **Settings-struct entry point** (#9). Last because it changes the
-   public API surface; do it after the internal cleanups so the new
-   surface reflects the new internals.
+1. ~~**Replace `tokens/` with `proc-macro2` + `quote`**~~ — **DONE** (PR #4431).
 
-After steps 1–4 alone the crate should drop to roughly 5.5–6 kLOC, with
-most emitters losing their `if config.<flag>` ladders, and `lib.rs`
-shrinking by ~25%. Steps 5–9 are gravy: they make the model coherent
-but each is independently small.
+2. **Data-drive the references table** (§4). Completely independent of
+   every other step. The ~230-line imperative block in `lib.rs:805-1032`
+   collapses to a single iteration over a static table in `references.rs`.
+   Validate by re-running the workspace bindings — no golden fixture
+   changes expected. Best first step because it's small, local, and its
+   diff is trivially reviewable.
+
+3. **Centralise `_Impl` policy** (§6). Also independent. The policy
+   logic scattered across `Config::should_implement`,
+   `Filter::is_trait_only`, and per-emitter exclusivity checks collapses
+   into a single `fn implement_policy(…) -> ImplementMode` that can be
+   unit-tested in isolation. Golden fixtures catch any miscategorisation
+   immediately.
+
+4. **Split `Config` + introduce `Mode` enum** (§3). Touches every
+   emitter (~30 files) but all changes are mechanical (replace
+   `config.<flag>` reads with `config.mode.<variant>`). Do *after* steps
+   2–3 so `lib.rs` is smaller and the policy is already centralised
+   before the flag-bag is dismantled. Validate entirely via fixtures.
+
+5. **Lift `cfg` emission out of emitters** (§7). Natural follow-on to
+   step 4: once emitters no longer see `config.package`, the per-emitter
+   `write_cfg` methods become dead code and the `cfg_for` post-decorator
+   in the package writer is the only place the `#[cfg(...)]` annotation
+   logic lives.
+
+6. **`ItemEmitter` trait + `Item`/`Sig` split** (§2). The largest
+   restructuring. Do this *after* steps 2–5 because those steps reduce
+   the per-variant branching that the trait has to abstract over.
+   Split `Type` into `Item` (emittable, has a vtable slot, appears in
+   `TypeMap`) and `Sig` (signature leaf, a pure value), and move
+   `write_name`/`write_default`/`write_abi`/`write_impl_name`/
+   `runtime_signature` off `types/mod.rs` onto each variant directly.
+   The giant match ladders in `types/mod.rs` shrink to trivial
+   dispatchers.
+
+7. **Typed `PathOrigin`** (§8). Replaces the boolean matrix in
+   `config/names.rs::write_specific` + `write_namespace` with a single
+   `enum PathOrigin` computed once at `References::new` time. Natural
+   companion to step 6 since `ItemEmitter` now calls a clean path API.
+
+8. **`Reader` lifetime** (§5 phase 1). Thread an `Arena<'a>` lifetime
+   through `Reader`, `Type`, and `TypeMap` to remove the `Box::leak` /
+   `unsafe impl Send/Sync`. Confined to `winmd/` + `type_map.rs` + a
+   handful of signatures. Do *after* the `Item`/`Sig` split because that
+   step clarifies which types need the lifetime and which don't.
+
+9. **Settings-struct entry point** (§9). Last because it changes the
+   public API surface (`Bindgen` becomes a plain serde-derivable struct;
+   `bindgen(args)` parses into it). Do after the internal cleanups so
+   the new surface reflects the new internals.
+
+After steps 2–5 alone the crate should drop from ~7.1 kLOC
+(post-PR #4431) to roughly 5.5–6 kLOC, with most emitters losing their
+`if config.<flag>` ladders and `lib.rs` shrinking by ~30%. Steps 6–9
+are structural improvements that make the model coherent but each is
+independently bounded.
 
 ## 12. Validation strategy throughout
 
@@ -507,7 +511,8 @@ For every step above:
 - `cargo fmt --all` is enforced by CI.
 - The package-writer path is only exercised by `crates/libs/sys` and
   `crates/libs/windows`; rebuilding both is the regression test for
-  step 5.
+  the `cfg`-emission and package-writer changes (§7, steps 4–5 in
+  the sequence above).
 
 No rewrite is justified: the existing code is correct, the fixtures
 make refactoring strictly bounded, and every item above is a localised
