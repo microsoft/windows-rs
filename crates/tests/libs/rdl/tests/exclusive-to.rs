@@ -1,4 +1,4 @@
-use windows_metadata::reader::TypeIndex;
+use windows_metadata::reader::Index;
 use windows_metadata::TypeAttributes;
 use windows_rdl::*;
 
@@ -22,7 +22,7 @@ mod Test {
         .write()
         .unwrap();
 
-    let index = TypeIndex::read("tests/exclusive-to.winmd").unwrap();
+    let index = Index::read("tests/exclusive-to.winmd").unwrap();
 
     let foo = index.expect("Test", "Foo");
 

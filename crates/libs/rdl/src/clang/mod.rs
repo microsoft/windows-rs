@@ -414,7 +414,7 @@ impl Clang {
             );
         }
 
-        let reference = metadata::reader::TypeIndex::new(winmd_files);
+        let reference = metadata::reader::Index::new(winmd_files);
 
         let mut ref_map: HashMap<String, String> = HashMap::new();
         for (namespace, name, _) in reference.iter() {

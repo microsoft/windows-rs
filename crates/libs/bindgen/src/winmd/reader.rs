@@ -8,11 +8,6 @@ pub struct Reader {
     map: HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
 }
 
-// Safety: all Type values stored in the map reference data from a 'static TypeIndex (Box::leaked),
-// so they remain valid for the lifetime of the Reader, and Reader can be sent/shared across threads.
-unsafe impl Send for Reader {}
-unsafe impl Sync for Reader {}
-
 impl std::ops::Deref for Reader {
     type Target = HashMap<&'static str, HashMap<&'static str, Vec<Type>>>;
 
@@ -23,154 +18,136 @@ impl std::ops::Deref for Reader {
 
 impl Reader {
     pub fn new(files: Vec<File>) -> Reader {
-        // Leak the TypeIndex so all TypeDef<'static>, Field<'static>, etc. remain valid forever.
-        let index: &'static windows_metadata::reader::TypeIndex =
-            Box::leak(Box::new(windows_metadata::reader::TypeIndex::new(files)));
+        // Build a `'static` metadata index that owns the parsed winmd files for the lifetime
+        // of the process. This is the single sanctioned leak point — all subsequent
+        // `TypeDef<'static>`, `Field<'static>`, etc. values reference data owned by it.
+        let index: &'static windows_metadata::reader::Index =
+            windows_metadata::reader::Index::new(files).leak();
 
         let mut reader = Self {
             map: HashMap::new(),
         };
 
-        // Build a nested-class map: outer TypeDef -> Vec<inner TypeDef>, including recursively
-        // nested types (e.g. VARIANT -> VARIANT_0 -> _Anonymous_e__Struct).
-        let mut nested: HashMap<TypeDef, Vec<TypeDef>> = HashMap::new();
-        fn collect_nested(
-            index: &'static windows_metadata::reader::TypeIndex,
-            def: TypeDef,
-            nested: &mut HashMap<TypeDef, Vec<TypeDef>>,
-        ) {
-            for inner in index.nested(def) {
-                nested.entry(def).or_default().push(inner);
-                collect_nested(index, inner, nested);
-            }
-        }
-        for (_, _, def) in index.iter() {
-            collect_nested(index, def, &mut nested);
-        }
-
-        for (namespace, name, def) in index.iter() {
-            let flags = def.flags();
-
-            if Type::remap(namespace, name) != Remap::None {
-                continue;
-            }
-
-            let types = reader.map.entry(namespace).or_default();
-            let category = def.category();
-
-            if flags.contains(TypeAttributes::WindowsRuntime) {
-                let ty = match category {
-                    windows_metadata::reader::TypeCategory::Attribute => continue,
-                    windows_metadata::reader::TypeCategory::Class => Type::Class(Class { def }),
-                    windows_metadata::reader::TypeCategory::Delegate => Type::Delegate(Delegate {
-                        def,
-                        generics: def.generics(),
-                    }),
-                    windows_metadata::reader::TypeCategory::Enum => Type::Enum(Enum { def }),
-                    windows_metadata::reader::TypeCategory::Interface => {
-                        Type::Interface(Interface {
-                            def,
-                            generics: def.generics(),
-                            kind: InterfaceKind::None,
-                        })
+        for (namespace, name, item) in index.iter_items() {
+            match item {
+                windows_metadata::reader::Item::Type(def) => {
+                    if Type::remap(namespace, name) != Remap::None {
+                        continue;
                     }
-                    windows_metadata::reader::TypeCategory::Struct => {
-                        if def.has_attribute("ApiContractAttribute") {
-                            continue;
-                        }
-                        Type::Struct(Struct { def })
-                    }
-                };
 
-                insert(types, name, ty);
-            } else {
-                match category {
-                    windows_metadata::reader::TypeCategory::Attribute => continue,
-                    windows_metadata::reader::TypeCategory::Class => {
-                        if name == "Apis" {
-                            for method in def.methods() {
-                                if let Some(map) = method.impl_map() {
-                                    if map.import_scope().name() == "FORCEINLINE"
-                                        || map.import_name().starts_with('#')
-                                    {
-                                        continue;
+                    let flags = def.flags();
+                    let category = def.category();
+                    let types = reader.map.entry(namespace).or_default();
+
+                    if flags.contains(TypeAttributes::WindowsRuntime) {
+                        let ty = match category {
+                            windows_metadata::reader::TypeCategory::Attribute => continue,
+                            windows_metadata::reader::TypeCategory::Class => {
+                                Type::Class(Class { def })
+                            }
+                            windows_metadata::reader::TypeCategory::Delegate => {
+                                Type::Delegate(Delegate {
+                                    def,
+                                    generics: def.generics(),
+                                })
+                            }
+                            windows_metadata::reader::TypeCategory::Enum => {
+                                Type::Enum(Enum { def })
+                            }
+                            windows_metadata::reader::TypeCategory::Interface => {
+                                Type::Interface(Interface {
+                                    def,
+                                    generics: def.generics(),
+                                    kind: InterfaceKind::None,
+                                })
+                            }
+                            windows_metadata::reader::TypeCategory::Struct => {
+                                if def.has_attribute("ApiContractAttribute") {
+                                    continue;
+                                }
+                                Type::Struct(Struct { def })
+                            }
+                        };
+
+                        insert(types, name, ty);
+                    } else {
+                        match category {
+                            windows_metadata::reader::TypeCategory::Attribute => continue,
+                            // Non-WinRT classes (other than `Apis`, already expanded into
+                            // `Item::Fn`/`Item::Const` by the Index) do not contribute types.
+                            windows_metadata::reader::TypeCategory::Class => {}
+                            windows_metadata::reader::TypeCategory::Delegate => {
+                                insert(types, name, Type::CppDelegate(CppDelegate { def }));
+                            }
+                            windows_metadata::reader::TypeCategory::Enum => {
+                                insert(types, name, Type::CppEnum(CppEnum { def }));
+
+                                if !def.has_attribute("ScopedEnumAttribute") {
+                                    for field in def.fields() {
+                                        if field.flags().contains(FieldAttributes::Literal) {
+                                            let field_name = field.name();
+                                            insert(
+                                                types,
+                                                field_name,
+                                                Type::CppConst(CppConst { namespace, field }),
+                                            );
+                                        }
                                     }
                                 }
-
-                                let method_name = method.name();
-                                insert(
-                                    types,
-                                    method_name,
-                                    Type::CppFn(CppFn { namespace, method }),
-                                );
                             }
-
-                            for field in def.fields() {
-                                let field_name = field.name();
-                                insert(
-                                    types,
-                                    field_name,
-                                    Type::CppConst(CppConst { namespace, field }),
-                                );
+                            windows_metadata::reader::TypeCategory::Interface => {
+                                insert(types, name, Type::CppInterface(CppInterface { def }));
                             }
-                        }
-                    }
-                    windows_metadata::reader::TypeCategory::Delegate => {
-                        insert(types, name, Type::CppDelegate(CppDelegate { def }));
-                    }
-                    windows_metadata::reader::TypeCategory::Enum => {
-                        insert(types, name, Type::CppEnum(CppEnum { def }));
+                            windows_metadata::reader::TypeCategory::Struct => {
+                                fn make(
+                                    index: &'static windows_metadata::reader::Index,
+                                    def: TypeDef,
+                                    name: &'static str,
+                                ) -> CppStruct {
+                                    let mut ty = CppStruct {
+                                        def,
+                                        name,
+                                        nested: BTreeMap::new(),
+                                    };
 
-                        if !def.has_attribute("ScopedEnumAttribute") {
-                            for field in def.fields() {
-                                if field.flags().contains(FieldAttributes::Literal) {
-                                    let field_name = field.name();
-                                    insert(
-                                        types,
-                                        field_name,
-                                        Type::CppConst(CppConst { namespace, field }),
-                                    );
+                                    for (idx, nested_def) in index.nested(def).enumerate() {
+                                        if nested_def.category()
+                                            == windows_metadata::reader::TypeCategory::Struct
+                                        {
+                                            ty.nested.insert(
+                                                nested_def.name(),
+                                                make(
+                                                    index,
+                                                    nested_def,
+                                                    format!("{}_{idx}", ty.name).leak(),
+                                                ),
+                                            );
+                                        }
+                                    }
+
+                                    ty
                                 }
+
+                                insert(types, name, Type::CppStruct(make(index, def, name)));
                             }
                         }
                     }
-                    windows_metadata::reader::TypeCategory::Interface => {
-                        insert(types, name, Type::CppInterface(CppInterface { def }));
-                    }
-                    windows_metadata::reader::TypeCategory::Struct => {
-                        fn make(
-                            def: TypeDef,
-                            name: &'static str,
-                            nested: &HashMap<TypeDef, Vec<TypeDef>>,
-                        ) -> CppStruct {
-                            let mut ty = CppStruct {
-                                def,
-                                name,
-                                nested: BTreeMap::new(),
-                            };
-
-                            for (index, nested_def) in
-                                nested.get(&def).into_iter().flatten().enumerate()
-                            {
-                                if nested_def.category()
-                                    == windows_metadata::reader::TypeCategory::Struct
-                                {
-                                    ty.nested.insert(
-                                        nested_def.name(),
-                                        make(
-                                            *nested_def,
-                                            format!("{}_{index}", ty.name).leak(),
-                                            nested,
-                                        ),
-                                    );
-                                }
-                            }
-
-                            ty
+                }
+                windows_metadata::reader::Item::Fn(method) => {
+                    if let Some(map) = method.impl_map() {
+                        if map.import_scope().name() == "FORCEINLINE"
+                            || map.import_name().starts_with('#')
+                        {
+                            continue;
                         }
-
-                        insert(types, name, Type::CppStruct(make(def, name, &nested)));
                     }
+
+                    let types = reader.map.entry(namespace).or_default();
+                    insert(types, name, Type::CppFn(CppFn { namespace, method }));
+                }
+                windows_metadata::reader::Item::Const(field) => {
+                    let types = reader.map.entry(namespace).or_default();
+                    insert(types, name, Type::CppConst(CppConst { namespace, field }));
                 }
             }
         }

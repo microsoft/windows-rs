@@ -26,7 +26,7 @@ fn test() {
     let bytes = file.into_stream();
     std::fs::write("tests/struct.winmd", bytes).unwrap();
 
-    let index = reader::TypeIndex::read("tests/struct.winmd").unwrap();
+    let index = reader::Index::read("tests/struct.winmd").unwrap();
     let ty = index.expect("Namespace", "Name");
 
     let fields: Vec<_> = ty.fields().collect();

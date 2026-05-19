@@ -101,8 +101,7 @@ impl Writer {
             );
         }
 
-        let index = metadata::reader::TypeIndex::new(files);
-        let index = metadata::reader::ItemIndex::new(&index);
+        let index = metadata::reader::Index::new(files);
         let rules = resolve_filter(&self.filter, &index);
 
         if self.split {
@@ -119,7 +118,7 @@ impl Writer {
                 }
             }
 
-            for namespace in index.keys() {
+            for namespace in index.namespaces() {
                 if namespace.is_empty() {
                     continue;
                 }
@@ -156,7 +155,7 @@ impl Writer {
         } else {
             let mut layout = Layout::new();
 
-            for namespace in index.keys() {
+            for namespace in index.namespaces() {
                 for (name, item) in index.namespace_items(namespace) {
                     if !item_included(&rules, namespace, name) {
                         continue;
@@ -199,10 +198,7 @@ enum FilterRule {
 /// 3. Unqualified type — `r` contains no dot and exists as a type name in one or more
 ///    namespaces → one [`FilterRule::Type`] per matching namespace
 /// 4. Fallback — treat as a namespace prefix (may match nothing)
-fn resolve_filter<'a>(
-    filter: &[String],
-    index: &metadata::reader::ItemIndex<'a>,
-) -> Vec<(FilterRule, bool)> {
+fn resolve_filter(filter: &[String], index: &metadata::reader::Index) -> Vec<(FilterRule, bool)> {
     let mut rules = vec![];
 
     for f in filter {
@@ -213,14 +209,17 @@ fn resolve_filter<'a>(
         };
 
         // 1. Namespace prefix match.
-        if index.keys().any(|ns| namespace_starts_with(ns, rule_str)) {
+        if index
+            .namespaces()
+            .any(|ns| namespace_starts_with(ns, rule_str))
+        {
             rules.push((FilterRule::Namespace(rule_str.to_string()), include));
             continue;
         }
 
         // 2. Qualified type name: "Namespace.TypeName".
         if let Some((namespace, name)) = rule_str.rsplit_once('.') {
-            if index.get(namespace, name).next().is_some() {
+            if index.get_item(namespace, name).next().is_some() {
                 rules.push((
                     FilterRule::Type(namespace.to_string(), name.to_string()),
                     include,
@@ -231,8 +230,8 @@ fn resolve_filter<'a>(
 
         // 3. Unqualified type name: search every namespace.
         let mut found = false;
-        for ns in index.keys() {
-            if index.get(ns, rule_str).next().is_some() {
+        for ns in index.namespaces() {
+            if index.get_item(ns, rule_str).next().is_some() {
                 rules.push((
                     FilterRule::Type(ns.to_string(), rule_str.to_string()),
                     include,
@@ -280,7 +279,7 @@ fn item_included(rules: &[(FilterRule, bool)], namespace: &str, name: &str) -> b
     matched_include
 }
 
-fn item_winrt(item: &metadata::reader::Item) -> bool {
+fn item_winrt(item: metadata::reader::Item) -> bool {
     match item {
         metadata::reader::Item::Type(item) => item
             .flags()
@@ -291,15 +290,15 @@ fn item_winrt(item: &metadata::reader::Item) -> bool {
 
 fn write_items(
     namespace: &str,
-    item: &metadata::reader::Item,
+    item: metadata::reader::Item,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
     match item {
-        metadata::reader::Item::Type(ty) => write_type_def_items(namespace, ty),
+        metadata::reader::Item::Type(ty) => write_type_def_items(namespace, &ty),
         metadata::reader::Item::Fn(ty) => {
-            Ok(vec![(ty.name().to_string(), write_fn(namespace, ty)?)])
+            Ok(vec![(ty.name().to_string(), write_fn(namespace, &ty)?)])
         }
         metadata::reader::Item::Const(ty) => {
-            Ok(vec![(ty.name().to_string(), write_const(namespace, ty)?)])
+            Ok(vec![(ty.name().to_string(), write_const(namespace, &ty)?)])
         }
     }
 }
@@ -481,7 +480,7 @@ fn write_return_type(
 fn write_custom_attributes<'a>(
     attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
     item_namespace: &str,
-    index: &windows_metadata::reader::TypeIndex,
+    index: &windows_metadata::reader::Index,
 ) -> Result<Vec<TokenStream>, Error> {
     write_custom_attributes_except(attributes, item_namespace, index, &[])
 }
@@ -489,7 +488,7 @@ fn write_custom_attributes<'a>(
 fn write_custom_attributes_except<'a>(
     attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
     item_namespace: &str,
-    index: &windows_metadata::reader::TypeIndex,
+    index: &windows_metadata::reader::Index,
     exclude: &[&str],
 ) -> Result<Vec<TokenStream>, Error> {
     attributes
@@ -560,7 +559,7 @@ fn write_enum_value(
     namespace: &str,
     tn: &metadata::TypeName,
     inner: &metadata::Value,
-    index: &metadata::reader::TypeIndex,
+    index: &metadata::reader::Index,
 ) -> Result<TokenStream, Error> {
     let inner_i32 = match inner {
         metadata::Value::I32(n) => *n,
