@@ -1,5 +1,37 @@
 use super::*;
 
+/// Describes how the `_Impl` scaffolding and caller-side method wrappers should
+/// be emitted for a given interface type. Computed once by
+/// [`Config::implement_mode`] from the `--implement`/`--implements` flags,
+/// the `?Ns.Type` trait-only filter, and the caller-provided default
+/// (typically based on interface exclusivity).
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ImplementMode {
+    /// No `_Impl` trait is emitted. Caller-side method wrappers are still
+    /// emitted as usual.
+    None,
+    /// The `_Impl` trait (and vtable thunks) IS emitted so the interface can
+    /// be implemented, but the inherent `impl IFace { fn Method… }` caller-side
+    /// wrapper block is suppressed. Corresponds to the `?Ns.Type` prefix in
+    /// `--filter`.
+    TraitOnly,
+    /// Both the `_Impl` trait and the caller-side method wrappers are emitted.
+    Full,
+}
+
+impl ImplementMode {
+    /// `true` when the `_Impl` trait should be emitted.
+    pub fn has_impl_trait(self) -> bool {
+        matches!(self, Self::TraitOnly | Self::Full)
+    }
+
+    /// `true` when the inherent caller-side `impl IFace { fn Method… }` block
+    /// should be emitted (i.e. not suppressed by a `?` trait-only filter).
+    pub fn has_caller_wrappers(self) -> bool {
+        matches!(self, Self::None | Self::Full)
+    }
+}
+
 /// Matcher used by the `--implements` option to determine whether the `_Impl`
 /// scaffolding for a given type should be emitted.
 ///

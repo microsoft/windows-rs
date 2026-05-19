@@ -99,6 +99,7 @@ impl Interface {
 
         let vtbl_name = self.write_vtbl_name(config);
         let is_exclusive = self.is_exclusive();
+        let impl_mode = config.implement_mode(type_name, !is_exclusive);
         let constraints = config.write_generic_constraints(&self.generics);
         let phantoms = config.write_generic_phantoms(&self.generics);
         let named_phantoms = config.write_generic_named_phantoms(&self.generics);
@@ -254,9 +255,8 @@ impl Interface {
             // `IPropertyValue` on an `IReference<T>` impl) where no projection caller invokes
             // the methods through this type.
             let is_factory = is_exclusive && config.minimal && self.is_factory(config.reader);
-            let is_trait_only = config.filter.is_trait_only(type_name);
             if !is_exclusive || (config.minimal && !is_factory) {
-                if !is_trait_only {
+                if impl_mode.has_caller_wrappers() {
                     let method_names = &mut MethodNames::new();
                     let virtual_names = &mut MethodNames::new();
                     let mut method_tokens = TokenStream::new();
@@ -371,7 +371,7 @@ impl Interface {
                 }
             }
 
-            if config.should_implement(type_name, !is_exclusive) {
+            if impl_mode.has_impl_trait() {
                 let impl_name: TokenStream = format!("{}_Impl", trim_tick(self.def.name()))
                     .parse()
                     .unwrap();

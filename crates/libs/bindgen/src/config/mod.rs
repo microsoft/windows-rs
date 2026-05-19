@@ -42,20 +42,30 @@ impl Config<'_> {
         clone
     }
 
-    /// Returns `true` if the `_Impl` scaffolding for the given type should be
-    /// emitted, based on the `--implement` and `--implements` options.
+    /// Returns the [`ImplementMode`] for the given type, combining:
+    /// - the `--implement` / `--implements` options (whether `_Impl` should be
+    ///   emitted at all), and
+    /// - the `?Ns.Type` trait-only filter (whether the caller-side method
+    ///   wrapper block should be suppressed).
     ///
-    /// `default` is the behavior to fall back on when neither option restricts
-    /// emission: `true` for types that are emitted unconditionally today (such
-    /// as COM/Win32 interfaces) and `false` (or some other condition such as
-    /// `!is_exclusive`) for WinRT interfaces.
-    pub fn should_implement(&self, name: TypeName, default: bool) -> bool {
-        if self.implement {
+    /// `default` is the fallback when neither `--implement` nor `--implements`
+    /// constrains emission: `true` for types emitted unconditionally (COM/Win32
+    /// interfaces) and `false` (or `!is_exclusive`) for WinRT interfaces.
+    pub fn implement_mode(&self, name: TypeName, default: bool) -> ImplementMode {
+        let emit_impl = if self.implement {
             true
         } else if !self.implements.is_empty() {
             self.implements.matches(name)
         } else {
             default
+        };
+
+        if !emit_impl {
+            ImplementMode::None
+        } else if self.filter.is_trait_only(name) {
+            ImplementMode::TraitOnly
+        } else {
+            ImplementMode::Full
         }
     }
 }

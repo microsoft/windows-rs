@@ -158,6 +158,7 @@ impl CppInterface {
             result
         } else {
             let name = to_ident(self.def.name());
+            let impl_mode = config.implement_mode(self.def.type_name(), true);
 
             let mut result = if has_unknown_base {
                 if let Some(guid) = self.def.guid_attribute() {
@@ -202,30 +203,32 @@ impl CppInterface {
                 });
             }
 
-            let method_names = &mut MethodNames::new();
-            let virtual_names = &mut MethodNames::new();
-            let mut methods_tokens = quote! {};
+            if impl_mode.has_caller_wrappers() {
+                let method_names = &mut MethodNames::new();
+                let virtual_names = &mut MethodNames::new();
+                let mut methods_tokens = quote! {};
 
-            for method in methods.iter().filter_map(|method| match &method {
-                CppMethodOrName::Method(method) => Some(method),
-                _ => None,
-            }) {
-                let cfg = method.write_cfg(config, &class_cfg, false);
-                let method = method.write(config, method_names, virtual_names);
+                for method in methods.iter().filter_map(|method| match &method {
+                    CppMethodOrName::Method(method) => Some(method),
+                    _ => None,
+                }) {
+                    let cfg = method.write_cfg(config, &class_cfg, false);
+                    let method = method.write(config, method_names, virtual_names);
 
-                methods_tokens.combine(quote! {
-                    #cfg
-                    #method
-                });
-            }
+                    methods_tokens.combine(quote! {
+                        #cfg
+                        #method
+                    });
+                }
 
-            if !methods_tokens.is_empty() {
-                result.combine(quote! {
-                    #cfg
-                    impl #name {
-                        #methods_tokens
-                    }
-                });
+                if !methods_tokens.is_empty() {
+                    result.combine(quote! {
+                        #cfg
+                        impl #name {
+                            #methods_tokens
+                        }
+                    });
+                }
             }
 
             result.combine(vtbl);
@@ -239,7 +242,7 @@ impl CppInterface {
                 });
             }
 
-            if config.should_implement(self.def.type_name(), true) {
+            if impl_mode.has_impl_trait() {
                 let impl_name: TokenStream = format!("{}_Impl", self.def.name()).parse().unwrap();
 
                 let cfg = if config.package {
