@@ -518,7 +518,8 @@ impl Type {
             return quote! { *mut core::ffi::c_void };
         }
 
-        if let Some(item) = self.item_ref() {
+        let item = self.item_ref();
+        if let Some(item) = item {
             return item.write_name(config);
         }
 
@@ -1026,7 +1027,8 @@ impl Type {
     }
 
     pub fn type_name(&self) -> TypeName {
-        if let Some(item) = self.item_ref() {
+        let item = self.item_ref();
+        if let Some(item) = item {
             return item.type_name();
         }
 
@@ -1101,8 +1103,9 @@ impl Dependencies for Type {
             return;
         }
 
-        ty.item_ref()
-            .and_then(ItemRef::full_name)
+        let item = ty.item_ref();
+
+        item.and_then(ItemRef::full_name)
             .map(|(namespace, name)| reader.with_full_name(namespace, name))
             .into_iter()
             .flatten()
@@ -1112,7 +1115,7 @@ impl Dependencies for Type {
                 }
             });
 
-        if let Some(item) = ty.item_ref() {
+        if let Some(item) = item {
             item.combine(dependencies, reader);
         } else {
             match &ty {
