@@ -33,150 +33,82 @@ impl DefaultReferenceName {
 }
 
 #[derive(Clone, Copy)]
-struct DefaultReference {
+struct DefaultReferenceGroup {
     required_namespace: &'static str,
     name: DefaultReferenceName,
-    path: &'static str,
+    paths: &'static [&'static str],
 }
 
-const DEFAULT_REFERENCES: &[DefaultReference] = &[
-    DefaultReference {
+const DEFAULT_REFERENCE_GROUPS: &[DefaultReferenceGroup] = &[
+    DefaultReferenceGroup {
         required_namespace: "Windows.Foundation",
         name: DefaultReferenceName::Static("windows_future"),
-        path: "Windows.Foundation.Async*",
+        paths: &["Windows.Foundation.Async*", "Windows.Foundation.IAsync*"],
     },
-    DefaultReference {
-        required_namespace: "Windows.Foundation",
-        name: DefaultReferenceName::Static("windows_future"),
-        path: "Windows.Foundation.IAsync*",
-    },
-    DefaultReference {
+    DefaultReferenceGroup {
         required_namespace: "Windows.Foundation.Collections",
         name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.CollectionChange",
+        paths: &[
+            "Windows.Foundation.Collections.CollectionChange",
+            "Windows.Foundation.Collections.IIterable",
+            "Windows.Foundation.Collections.IIterator",
+            "Windows.Foundation.Collections.IKeyValuePair",
+            "Windows.Foundation.Collections.IMap",
+            "Windows.Foundation.Collections.IMapChangedEventArgs",
+            "Windows.Foundation.Collections.IMapView",
+            "Windows.Foundation.Collections.IObservableMap",
+            "Windows.Foundation.Collections.IObservableVector",
+            "Windows.Foundation.Collections.IVector",
+            "Windows.Foundation.Collections.IVectorChangedEventArgs",
+            "Windows.Foundation.Collections.IVectorView",
+            "Windows.Foundation.Collections.MapChangedEventHandler",
+            "Windows.Foundation.Collections.VectorChangedEventHandler",
+        ],
     },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IIterable",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IIterator",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IKeyValuePair",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IMap",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IMapChangedEventArgs",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IMapView",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IObservableMap",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IObservableVector",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IVector",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IVectorChangedEventArgs",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.IVectorView",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.MapChangedEventHandler",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Collections",
-        name: DefaultReferenceName::Static("windows_collections"),
-        path: "Windows.Foundation.Collections.VectorChangedEventHandler",
-    },
-    DefaultReference {
+    DefaultReferenceGroup {
         required_namespace: "Windows.Foundation",
         name: DefaultReferenceName::Static("windows_reference"),
-        path: "Windows.Foundation.IReference",
+        paths: &["Windows.Foundation.IReference"],
     },
-    DefaultReference {
+    DefaultReferenceGroup {
         required_namespace: "Windows.Foundation.Numerics",
         name: DefaultReferenceName::Static("windows_numerics"),
-        path: "Windows.Foundation.Numerics.Matrix3x2",
+        paths: &[
+            "Windows.Foundation.Numerics.Matrix3x2",
+            "Windows.Foundation.Numerics.Matrix4x4",
+            "Windows.Foundation.Numerics.Vector2",
+            "Windows.Foundation.Numerics.Vector3",
+            "Windows.Foundation.Numerics.Vector4",
+        ],
     },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Numerics",
-        name: DefaultReferenceName::Static("windows_numerics"),
-        path: "Windows.Foundation.Numerics.Matrix4x4",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Numerics",
-        name: DefaultReferenceName::Static("windows_numerics"),
-        path: "Windows.Foundation.Numerics.Vector2",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Numerics",
-        name: DefaultReferenceName::Static("windows_numerics"),
-        path: "Windows.Foundation.Numerics.Vector3",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Foundation.Numerics",
-        name: DefaultReferenceName::Static("windows_numerics"),
-        path: "Windows.Foundation.Numerics.Vector4",
-    },
-    DefaultReference {
+    DefaultReferenceGroup {
         required_namespace: "Windows.Win32.Foundation",
         name: DefaultReferenceName::Win32ResultOrCore,
-        path: "Windows.Win32.Foundation.WIN32_ERROR",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Win32.Foundation",
-        name: DefaultReferenceName::Win32ResultOrCore,
-        path: "Windows.Win32.Foundation.NTSTATUS",
-    },
-    DefaultReference {
-        required_namespace: "Windows.Win32.Foundation",
-        name: DefaultReferenceName::Win32ResultOrCore,
-        path: "Windows.Win32.System.Rpc.RPC_STATUS",
+        paths: &[
+            "Windows.Win32.Foundation.WIN32_ERROR",
+            "Windows.Win32.Foundation.NTSTATUS",
+            "Windows.Win32.System.Rpc.RPC_STATUS",
+        ],
     },
 ];
 
 pub fn default_reference_stages(reader: &Reader, specific_deps: bool) -> Vec<ReferenceStage> {
-    let mut references = Vec::with_capacity(DEFAULT_REFERENCES.len());
+    let mut references = Vec::with_capacity(
+        DEFAULT_REFERENCE_GROUPS
+            .iter()
+            .map(|group| group.paths.len())
+            .sum(),
+    );
 
-    for reference in DEFAULT_REFERENCES.iter().rev() {
-        if reader.contains_key(reference.required_namespace) {
-            references.push(ReferenceStage::new(
-                reference.name.resolve(specific_deps),
-                ReferenceStyle::Flat,
-                reference.path,
-            ));
+    for group in DEFAULT_REFERENCE_GROUPS.iter().rev() {
+        if reader.contains_key(group.required_namespace) {
+            for path in group.paths.iter().rev() {
+                references.push(ReferenceStage::new(
+                    group.name.resolve(specific_deps),
+                    ReferenceStyle::Flat,
+                    path,
+                ));
+            }
         }
     }
 
