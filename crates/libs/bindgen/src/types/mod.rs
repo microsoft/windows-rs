@@ -256,6 +256,14 @@ impl Type {
         }
     }
 
+    fn map_item_ref<T>(&self, map: impl FnOnce(ItemRef<'_>) -> T) -> Option<T> {
+        self.item_ref().map(map)
+    }
+
+    fn and_then_item_ref<T>(&self, map: impl FnOnce(ItemRef<'_>) -> Option<T>) -> Option<T> {
+        self.item_ref().and_then(map)
+    }
+
     fn sort_key(&self) -> (bool, TypeName, i32, i32) {
         // This sorts types as follows:
         // 1. functions are placed first
@@ -264,9 +272,8 @@ impl Type {
         // 4. architecture
         // 5. overloaded types
 
-        let item = self.item_ref();
-        let kind = item.map_or(-1, ItemRef::kind);
-        let arches = item.map_or(0, ItemRef::arches);
+        let kind = self.map_item_ref(|item| item.kind()).unwrap_or(-1);
+        let arches = self.map_item_ref(|item| item.arches()).unwrap_or(0);
 
         (kind != 0, self.type_name(), arches, kind)
     }
@@ -518,9 +525,8 @@ impl Type {
             return quote! { *mut core::ffi::c_void };
         }
 
-        let item = self.item_ref();
-        if let Some(item) = item {
-            return item.write_name(config);
+        if let Some(tokens) = self.map_item_ref(|item| item.write_name(config)) {
+            return tokens;
         }
 
         match self {
@@ -634,10 +640,7 @@ impl Type {
     }
 
     pub fn write_impl_name(&self, config: &Config) -> TokenStream {
-        if let Some(tokens) = self
-            .item_ref()
-            .and_then(|item| item.write_impl_name(config))
-        {
+        if let Some(tokens) = self.and_then_item_ref(|item| item.write_impl_name(config)) {
             return tokens;
         }
 
@@ -700,10 +703,7 @@ impl Type {
     }
 
     pub fn runtime_signature(&self, reader: &Reader) -> String {
-        if let Some(signature) = self
-            .item_ref()
-            .and_then(|item| item.runtime_signature(reader))
-        {
+        if let Some(signature) = self.and_then_item_ref(|item| item.runtime_signature(reader)) {
             return signature;
         }
 
@@ -1014,8 +1014,8 @@ impl Type {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
-        self.item_ref()
-            .map_or_else(|| self.write_no_deps(config), |item| item.write(config))
+        self.map_item_ref(|item| item.write(config))
+            .unwrap_or_else(|| self.write_no_deps(config))
     }
 
     pub fn set_generics(&mut self, generics: Vec<Self>) {
@@ -1027,9 +1027,8 @@ impl Type {
     }
 
     pub fn type_name(&self) -> TypeName {
-        let item = self.item_ref();
-        if let Some(item) = item {
-            return item.type_name();
+        if let Some(type_name) = self.map_item_ref(|item| item.type_name()) {
+            return type_name;
         }
 
         match self {
@@ -1105,7 +1104,7 @@ impl Dependencies for Type {
 
         let item = ty.item_ref();
 
-        item.and_then(ItemRef::full_name)
+        item.and_then(|item| item.full_name())
             .map(|(namespace, name)| reader.with_full_name(namespace, name))
             .into_iter()
             .flatten()
