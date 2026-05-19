@@ -453,33 +453,28 @@ handled by PR #4431. The remaining steps, ordered by independence:
 
 1. ~~**Replace `tokens/` with `proc-macro2` + `quote`**~~ — **DONE** (PR #4431).
 
-2. **Data-drive the references table** (§4). Completely independent of
-   every other step. The ~230-line imperative block in `lib.rs:805-1032`
-   collapses to a single iteration over a static table in `references.rs`.
-   Validate by re-running the workspace bindings — no golden fixture
-   changes expected. Best first step because it's small, local, and its
-   diff is trivially reviewable.
+2. ~~**Data-drive the references table** (§4)~~ — **DONE**.
+   The imperative references block in `lib.rs` now routes through
+   `default_reference_stages(...)` in `references.rs`.
 
-3. **Centralise `_Impl` policy** (§6). Also independent. The policy
-   logic scattered across `Config::should_implement`,
-   `Filter::is_trait_only`, and per-emitter exclusivity checks collapses
-   into a single `fn implement_policy(…) -> ImplementMode` that can be
-   unit-tested in isolation. Golden fixtures catch any miscategorisation
-   immediately.
+3. ~~**Centralise `_Impl` policy** (§6)~~ — **DONE**.
+   Interface emitters now route through `Config::implement_mode(...)` and
+   `ImplementMode` for caller-wrapper vs trait-only decisions.
 
-4. **Split `Config` + introduce `Mode` enum** (§3). Touches every
-   emitter (~30 files) but all changes are mechanical (replace
-   `config.<flag>` reads with `config.mode.<variant>`). Do *after* steps
-   2–3 so `lib.rs` is smaller and the policy is already centralised
-   before the flag-bag is dismantled. Validate entirely via fixtures.
+4. ~~**Split `Config` + introduce `Mode` enum** (§3)~~ — **DONE (core
+   migration)**.
+   `config::Mode` is in place and the main `sys`/`minimal` projection
+   branching is migrated to typed mode checks.
 
-5. **Lift `cfg` emission out of emitters** (§7). Natural follow-on to
+5. **Lift `cfg` emission out of emitters** (§7). Remaining work.
+   Natural follow-on to
    step 4: once emitters no longer see `config.package`, the per-emitter
    `write_cfg` methods become dead code and the `cfg_for` post-decorator
    in the package writer is the only place the `#[cfg(...)]` annotation
    logic lives.
 
-6. **`ItemEmitter` trait + `Item`/`Sig` split** (§2). The largest
+6. **`ItemEmitter` trait + `Item`/`Sig` split** (§2). Remaining work.
+   The largest
    restructuring. Do this *after* steps 2–5 because those steps reduce
    the per-variant branching that the trait has to abstract over.
    Split `Type` into `Item` (emittable, has a vtable slot, appears in
@@ -489,18 +484,21 @@ handled by PR #4431. The remaining steps, ordered by independence:
    The giant match ladders in `types/mod.rs` shrink to trivial
    dispatchers.
 
-7. **Typed `PathOrigin`** (§8). Replaces the boolean matrix in
+7. **Typed `PathOrigin`** (§8). Remaining work.
+   Replaces the boolean matrix in
    `config/names.rs::write_specific` + `write_namespace` with a single
    `enum PathOrigin` computed once at `References::new` time. Natural
    companion to step 6 since `ItemEmitter` now calls a clean path API.
 
-8. **`Reader` lifetime** (§5 phase 1). Thread an `Arena<'a>` lifetime
+8. **`Reader` lifetime** (§5 phase 1). Remaining work.
+   Thread an `Arena<'a>` lifetime
    through `Reader`, `Type`, and `TypeMap` to remove the `Box::leak` /
    `unsafe impl Send/Sync`. Confined to `winmd/` + `type_map.rs` + a
    handful of signatures. Do *after* the `Item`/`Sig` split because that
    step clarifies which types need the lifetime and which don't.
 
-9. **Settings-struct entry point** (§9). Last because it changes the
+9. **Settings-struct entry point** (§9). Remaining work.
+   Last because it changes the
    public API surface (`Bindgen` becomes a plain serde-derivable struct;
    `bindgen(args)` parses into it). Do after the internal cleanups so
    the new surface reflects the new internals.
