@@ -214,7 +214,7 @@ hostile to review.
 table at the top of `references.rs`, e.g.:
 
 ```text
-const DEFAULT_REFERENCES: &[Reference] = &[
+const DEFAULT_REFERENCE_GROUPS: &[ReferenceGroup] = &[
     Reference { crate_: "windows_future", style: Flat,
         path: "Windows.Foundation.IAsync*",
         gated_on: Some("Windows.Foundation") },

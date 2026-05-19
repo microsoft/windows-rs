@@ -98,8 +98,9 @@ const DEFAULT_REFERENCE_GROUPS: &[DefaultReferenceGroup] = &[
 pub fn default_reference_stages(reader: &Reader, specific_deps: bool) -> Vec<ReferenceStage> {
     let mut references = Vec::new();
 
-    // Reverse groups and each group's paths so push-order matches historical
-    // semantics from repeatedly inserting each reference at the front.
+    // Reverse groups and each group's paths because the historical
+    // implementation used `insert(0, ...)`, which built this list in reverse.
+    // Keeping that exact order preserves compatibility.
     for group in DEFAULT_REFERENCE_GROUPS.iter().rev() {
         if reader.contains_key(group.required_namespace) {
             for path in group.paths.iter().rev() {
