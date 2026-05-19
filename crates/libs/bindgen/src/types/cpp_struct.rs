@@ -59,7 +59,7 @@ impl CppStruct {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         if self.is_handle(config.reader) {
-            return config.write_cpp_handle(self.def);
+            return config.write_cpp_handle(self.def.clone());
         }
 
         if self.def.fields().next().is_none() {
@@ -68,7 +68,7 @@ impl CppStruct {
             }
         }
 
-        let arches = write_arches(self.def);
+        let arches = write_arches(self.def.clone());
         let cfg = config.cfg_for(self);
         self.write_with_cfg(config, &quote! { #arches #cfg })
     }
@@ -136,10 +136,10 @@ impl CppStruct {
 
         if config.mode.is_sys() || is_copyable {
             derive.extend(["Clone", "Copy"]);
-        } else if !matches!(
-            TypeName::new(self.def.namespace(), self.def.name()),
-            TypeName::VARIANT | TypeName::PROPVARIANT
-        ) {
+        } else if {
+            let tn = TypeName::new(self.def.namespace(), self.def.name());
+            tn != TypeName::VARIANT && tn != TypeName::PROPVARIANT
+        } {
             if has_explicit_layout {
                 manual_clone = Some(quote! {
                     #cfg
@@ -289,10 +289,8 @@ impl CppStruct {
     }
 
     pub fn is_copyable(&self, reader: &Reader) -> bool {
-        if matches!(
-            self.def.type_name(),
-            TypeName::VARIANT | TypeName::PROPVARIANT
-        ) {
+        let tn = self.def.type_name();
+        if tn == TypeName::VARIANT || tn == TypeName::PROPVARIANT {
             return false;
         }
 

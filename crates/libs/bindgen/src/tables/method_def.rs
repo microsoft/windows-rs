@@ -1,17 +1,17 @@
 use super::*;
 
 pub trait MethodDefExt {
-    fn import_name(&self) -> Option<&'static str>;
+    fn import_name(&self) -> Option<String>;
     fn module_name(&self) -> String;
     fn method_signature(&self, namespace: &str, generics: &[Type], reader: &Reader) -> Signature;
 }
 
 impl MethodDefExt for MethodDef {
-    fn import_name(&self) -> Option<&'static str> {
+    fn import_name(&self) -> Option<String> {
         self.impl_map().and_then(|map| {
             let import_name = map.import_name();
             if self.name() != import_name {
-                Some(import_name)
+                Some(import_name.to_string())
             } else {
                 None
             }
@@ -32,7 +32,7 @@ impl MethodDefExt for MethodDef {
             "combase.dll".to_string()
         } else {
             self.impl_map()
-                .map_or("", |map| map.import_scope().name())
+                .map_or_else(|| "".to_string(), |map| map.import_scope().name().to_string())
                 .to_lowercase()
         }
     }

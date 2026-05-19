@@ -145,7 +145,7 @@ impl Delegate {
             let guid = self.def.guid_attribute().unwrap();
             format!("delegate({{{guid}}})")
         } else {
-            interface_signature(self.def, &self.generics, reader)
+            interface_signature(self.def.clone(), &self.generics, reader)
         }
     }
 

@@ -7,7 +7,7 @@ pub struct CppDelegate {
 
 impl Ord for CppDelegate {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.def.name(), self.def).cmp(&(other.def.name(), other.def))
+        (self.def.name(), self.def.clone()).cmp(&(other.def.name(), other.def.clone()))
     }
 }
 
@@ -46,7 +46,7 @@ impl CppDelegate {
         }
 
         let return_sig = config.write_return_sig(method, &signature, false);
-        let arches = write_arches(self.def);
+        let arches = write_arches(self.def.clone());
         let cfg = config.cfg_for(self);
 
         let mut abi = None;

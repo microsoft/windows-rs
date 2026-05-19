@@ -258,12 +258,12 @@ impl Class {
 
     fn bases(&self, reader: &Reader) -> Vec<Self> {
         let mut bases = Vec::new();
-        let mut def = self.def;
+        let mut def = self.def.clone();
 
         loop {
             let extends = def.extends().unwrap();
 
-            if extends == (TypeName::Object.0, TypeName::Object.1) {
+            if extends == ("System", "Object") {
                 break;
             }
 
@@ -272,7 +272,7 @@ impl Class {
                 panic!("type not found: {extends:?}");
             };
 
-            def = base.def;
+            def = base.def.clone();
             bases.push(base);
         }
 
@@ -308,16 +308,16 @@ impl Class {
                         set[pos].kind = interface.kind;
                     }
                 } else {
-                    walk(interface.def, &interface.generics, is_base, set, reader);
+                    walk(interface.def.clone(), &interface.generics, is_base, set, reader);
                     set.push(interface);
                 }
             }
         }
         let mut set = vec![];
-        walk(self.def, &[], false, &mut set, reader);
+        walk(self.def.clone(), &[], false, &mut set, reader);
 
         for base in self.bases(reader) {
-            walk(base.def, &[], true, &mut set, reader);
+            walk(base.def.clone(), &[], true, &mut set, reader);
         }
 
         for attribute in self.def.attributes() {

@@ -169,11 +169,11 @@ impl Filter {
             return true;
         };
 
-        let raw = method.name();
+        let raw = method.name().to_string();
         let overload = method_overload_name(method);
 
         let in_set = |set: &BTreeSet<String>| -> bool {
-            set.contains(raw)
+            set.contains(raw.as_str())
                 || overload
                     .as_ref()
                     .is_some_and(|name| set.contains(name.as_str()))
@@ -395,9 +395,9 @@ fn push_method_filter(
     }
 
     let def = match &ty {
-        Type::Interface(t) => t.def,
-        Type::CppInterface(t) => t.def,
-        Type::Delegate(t) => t.def,
+        Type::Interface(t) => t.def.clone(),
+        Type::CppInterface(t) => t.def.clone(),
+        Type::Delegate(t) => t.def.clone(),
         _ => panic!("type not found: `{type_part}` (in method filter `{raw}`)"),
     };
     let defs: Vec<MethodDef> = def.methods().collect();
@@ -480,7 +480,7 @@ fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
     // the row whose `[overload("…")]` attribute carries this value.
     if defs
         .iter()
-        .any(|m| method_overload_name(*m).as_deref() == Some(method_part))
+        .any(|m| method_overload_name(m.clone()).as_deref() == Some(method_part))
     {
         return vec![method_part.to_string()];
     }

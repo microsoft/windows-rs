@@ -38,7 +38,7 @@ impl std::hash::Hash for Interface {
 
 impl Ord for Interface {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.def.name(), self.def).cmp(&(other.def.name(), other.def))
+        (self.def.name(), self.def.clone()).cmp(&(other.def.name(), other.def.clone()))
     }
 }
 

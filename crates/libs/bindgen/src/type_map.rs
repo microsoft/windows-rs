@@ -39,7 +39,7 @@ impl TypeMap {
                         // Skip types already owned by a reference whose rule is more specific
                         // (longer) than the filter rule that matched this type.
                         if references
-                            .matching_rule(TypeName::new(namespace, name))
+                            .matching_rule(&TypeName::new(namespace, name))
                             .is_some_and(|reference_rule| reference_rule.len() > filter_rule.len())
                         {
                             continue;

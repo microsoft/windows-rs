@@ -45,7 +45,7 @@ impl TypeDefExt for TypeDef {
             if let Some((_, Value::Utf8(name))) = attribute.value().first() {
                 if let Some(Type::CppFn(ty)) = reader.with_full_name(self.namespace(), name).next()
                 {
-                    let signature = ty.method.method_signature(ty.namespace, &[], reader);
+                    let signature = ty.method.method_signature(&ty.namespace, &[], reader);
 
                     if signature.params.len() == 1 {
                         return Some(ty);
@@ -75,12 +75,10 @@ impl TypeDefExt for TypeDef {
     }
 
     fn is_async(&self) -> bool {
-        matches!(
-            TypeName::new(self.namespace(), trim_tick(self.name())),
-            TypeName::IAsyncAction
-                | TypeName::IAsyncActionWithProgress
-                | TypeName::IAsyncOperation
-                | TypeName::IAsyncOperationWithProgress
-        )
+        let tn = TypeName::new(self.namespace(), trim_tick(self.name()));
+        tn == TypeName::IAsyncAction
+            || tn == TypeName::IAsyncActionWithProgress
+            || tn == TypeName::IAsyncOperation
+            || tn == TypeName::IAsyncOperationWithProgress
     }
 }

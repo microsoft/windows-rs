@@ -246,7 +246,7 @@ impl<'a> ItemRef<'a> {
     fn full_name(self) -> Option<(&'a str, &'a str)> {
         match self {
             Self::CppStruct(ty) => Some((ty.def.namespace(), ty.def.name())),
-            Self::CppFn(ty) => Some((ty.namespace, ty.method.name())),
+            Self::CppFn(ty) => Some((&ty.namespace, ty.method.name())),
             _ => None,
         }
     }
@@ -426,7 +426,7 @@ impl Type {
 
                 let (ns, n) = match Self::remap(ns, n) {
                     Remap::Type(ty) => return ty,
-                    Remap::Name(type_name) => (type_name.namespace(), type_name.name()),
+                    Remap::Name(ref type_name) => (type_name.namespace(), type_name.name()),
                     Remap::None => (ns, n),
                 };
 

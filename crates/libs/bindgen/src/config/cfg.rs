@@ -44,16 +44,16 @@ pub fn write_arches<R: HasAttributes>(row: R) -> TokenStream {
 
 #[derive(Default)]
 pub struct Cfg {
-    features: BTreeSet<&'static str>,
+    features: BTreeSet<String>,
 }
 
 impl Cfg {
     pub fn new(dependencies: &TypeMap, config: &Config) -> Self {
-        let features: BTreeSet<&'static str> = dependencies
+        let features: BTreeSet<String> = dependencies
             .keys()
             .filter_map(|tn| {
                 if config.types.contains_key(tn) {
-                    Some(tn.namespace())
+                    Some(tn.namespace().to_string())
                 } else {
                     None
                 }
@@ -67,7 +67,7 @@ impl Cfg {
         let mut difference = Self::new(dependencies, config);
 
         for feature in &self.features {
-            difference.features.remove(feature);
+            difference.features.remove(feature.as_str());
         }
 
         difference
@@ -78,7 +78,7 @@ impl Cfg {
             return quote! {};
         }
 
-        let mut compact = BTreeSet::<&'static str>::new();
+        let mut compact = BTreeSet::<&str>::new();
 
         for feature in self.features.iter().rev() {
             let mut keep = true;

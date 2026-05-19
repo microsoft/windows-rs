@@ -8,7 +8,7 @@ pub struct CppFn {
 
 impl Ord for CppFn {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.method.name(), self.method).cmp(&(other.method.name(), other.method))
+        (self.method.name(), self.method.clone()).cmp(&(other.method.name(), other.method.clone()))
     }
 }
 
@@ -42,7 +42,7 @@ impl CppFn {
             quote! { #name: #ty }
         });
 
-        let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
+        let return_sig = config.write_return_sig(self.method.clone(), &signature, underlying_types);
 
         let vararg = if config.mode.is_sys()
             && signature.call_flags.contains(MethodCallAttributes::VARARG)
@@ -96,7 +96,7 @@ impl CppFn {
             .method_signature(&*self.namespace, &[], config.reader);
 
         let link = self.write_link(config, false);
-        let arches = write_arches(self.method);
+        let arches = write_arches(self.method.clone());
         let cfg = config.cfg_for(self);
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
@@ -121,7 +121,7 @@ impl CppFn {
             };
         }
 
-        let method = CppMethod::new(self.method, &*self.namespace, config.reader);
+        let method = CppMethod::new(self.method.clone(), &*self.namespace, config.reader);
         let args = method.write_args();
         let params = method.write_params(config);
         let generics = method.write_generics();

@@ -37,7 +37,8 @@ impl CppConst {
         }
 
         let field_ty = self.field.field_type(None, config.reader).to_const_type();
-        let tn = field_ty.type_name().name();
+        let type_name = field_ty.type_name();
+        let tn = type_name.name();
         let name = if !tn.is_empty() && self.field.name() == tn {
             to_ident(&format!("{tn}_"))
         } else {
@@ -59,7 +60,7 @@ impl CppConst {
                     let value = constant.value().write();
 
                     // TODO: if config.no_core then write these literals out as byte strings?
-                    if is_ansi_encoding(self.field) {
+                    if is_ansi_encoding(self.field.clone()) {
                         quote! {
                             #cfg
                             pub const #name: #crate_name PCSTR = #crate_name s!(#value);
