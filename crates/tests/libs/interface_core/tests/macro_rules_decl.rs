@@ -68,6 +68,10 @@ impl IRaw_Impl for Test_Impl {
     }
 }
 
+#[cfg_attr(
+    miri,
+    ignore = "COM interface-pointer container casts currently violate Stacked Borrows under Miri"
+)]
 #[test]
 fn test_itest() {
     unsafe {
@@ -81,6 +85,10 @@ fn test_itest() {
     }
 }
 
+#[cfg_attr(
+    miri,
+    ignore = "COM interface-pointer container casts currently violate Stacked Borrows under Miri"
+)]
 #[test]
 fn test_iother() {
     unsafe {
@@ -101,6 +109,10 @@ fn test_iother() {
     }
 }
 
+#[cfg_attr(
+    miri,
+    ignore = "COM interface-pointer container casts currently violate Stacked Borrows under Miri"
+)]
 #[test]
 fn test_iraw() {
     unsafe {
@@ -128,6 +140,10 @@ fn iid_matches() {
     assert!(!ITest_Vtbl::matches(&IUnknown::IID));
 }
 
+#[cfg_attr(
+    miri,
+    ignore = "COM interface-pointer container casts currently violate Stacked Borrows under Miri"
+)]
 #[test]
 fn refcount_drops_to_zero() {
     // Construct an object, take an extra reference via cast, then drop both. If the

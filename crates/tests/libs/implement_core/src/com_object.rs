@@ -159,6 +159,10 @@ impl Drop for MyApp {
     }
 }
 
+#[cfg_attr(
+    miri,
+    ignore = "COM interface-pointer container casts currently violate Stacked Borrows under Miri"
+)]
 #[test]
 fn basic() {
     let app: ComObject<MyApp> = MyApp::new(42);
