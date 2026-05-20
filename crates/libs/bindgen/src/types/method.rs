@@ -179,8 +179,6 @@ impl Method {
 
         let return_type_tokens = if self.signature.return_type == Type::Void {
             quote! { () }
-        } else if config.minimal && matches!(self.signature.return_type, Type::String) {
-            quote! { String }
         } else {
             let tokens = self.signature.return_type.write_name(config);
 
