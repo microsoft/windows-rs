@@ -31,6 +31,6 @@ fn main() {
         .reference("windows,skip-root,Windows.UI.Text")
         .reference("windows,skip-root,Windows.Win32")
         .flat()
-        .implement()
+        .implement(std::iter::empty::<&str>())
         .write();
 }

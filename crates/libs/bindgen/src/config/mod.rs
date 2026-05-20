@@ -39,19 +39,20 @@ impl Config<'_> {
     }
 
     /// Returns `true` if the `_Impl` scaffolding for the given type should be
-    /// emitted, based on the `--implement` and `--implements` options.
+    /// emitted, based on the `--implement` option.
     ///
-    /// `default` is the behavior to fall back on when neither option restricts
-    /// emission: `true` for types that are emitted unconditionally today (such
+    /// `default` is the behavior to fall back on when `--implement` is not
+    /// set: `true` for types that are emitted unconditionally today (such
     /// as COM/Win32 interfaces) and `false` (or some other condition such as
     /// `!is_exclusive`) for WinRT interfaces.
     pub fn should_implement(&self, name: TypeName, default: bool) -> bool {
-        if self.implement {
+        if !self.implement {
+            return default;
+        }
+        if self.implements.is_empty() {
             true
-        } else if !self.implements.is_empty() {
-            self.implements.matches(name)
         } else {
-            default
+            self.implements.matches(name)
         }
     }
 }

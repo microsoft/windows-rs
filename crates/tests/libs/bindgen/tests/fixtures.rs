@@ -378,10 +378,9 @@ fn run_bindgen(f: &Fixture) {
     if cfg.specific_deps {
         bindgen.specific_deps();
     }
-    if cfg.implement {
-        bindgen.implement();
+    if cfg.implement || !cfg.implements.is_empty() {
+        bindgen.implement(&cfg.implements);
     }
-    bindgen.implements(&cfg.implements);
     // Discard warnings: fixtures may intentionally exercise filters
     // (including method-level `--filter` denylist / allowlist entries)
     // that demote slots and therefore omit `_Impl` traits, which surface
