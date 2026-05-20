@@ -445,10 +445,6 @@ where
         }
     }
 
-    if !has_output {
-        panic!("exactly one `--out` is required");
-    }
-
     builder.write()
 }
 
@@ -498,6 +494,18 @@ enum Layout {
     },
 }
 
+impl Layout {
+    fn is_flat(self) -> bool {
+        matches!(self, Layout::Flat)
+    }
+    fn is_package(self) -> bool {
+        matches!(self, Layout::Package { .. })
+    }
+    fn no_toml(self) -> bool {
+        matches!(self, Layout::Package { no_toml: true })
+    }
+}
+
 /// Code-style mode for the generated bindings. Mutually exclusive variants
 /// replace the legacy `sys: bool` + `minimal: bool` + `sys_fn_extern: bool`
 /// triple, making invalid combinations unrepresentable.
@@ -514,6 +522,18 @@ enum Style {
     /// Minimal-mode bindings (drop class wrappers, inherited forwarders,
     /// handle ergonomics; auto-revoke events).
     Minimal,
+}
+
+impl Style {
+    fn is_sys(self) -> bool {
+        matches!(self, Style::Sys { .. })
+    }
+    fn is_minimal(self) -> bool {
+        matches!(self, Style::Minimal)
+    }
+    fn sys_fn_extern(self) -> bool {
+        matches!(self, Style::Sys { extern_fns: true })
+    }
 }
 
 impl Bindgen {
@@ -759,13 +779,19 @@ impl Bindgen {
     }
 
     fn is_sys(&self) -> bool {
-        matches!(self.style, Style::Sys { .. })
+        self.style.is_sys()
     }
 
     /// Generate the bindings.
     #[track_caller]
     #[must_use]
     pub fn write(&self) -> Warnings {
+        // Validate up front so we fail fast before any expensive plumbing
+        // (link string, input vec, references, reader, …) runs.
+        if self.output.is_empty() {
+            panic!("output is required (call `.output()` or pass `--out`)");
+        }
+
         let mut include: Vec<&str> = vec![];
         let mut exclude: Vec<&str> = vec![];
 
@@ -777,12 +803,11 @@ impl Bindgen {
             }
         }
 
+        if include.is_empty() {
+            panic!("at least one `--filter` required");
+        }
+
         let sys = self.is_sys();
-        let minimal = matches!(self.style, Style::Minimal);
-        let sys_fn_extern = matches!(self.style, Style::Sys { extern_fns: true });
-        let flat = matches!(self.layout, Layout::Flat);
-        let package = matches!(self.layout, Layout::Package { .. });
-        let no_toml = matches!(self.layout, Layout::Package { no_toml: true });
 
         let link = if let Some(link) = self.link.as_deref() {
             link
@@ -798,14 +823,6 @@ impl Bindgen {
         } else {
             self.input.iter().map(|s| s.as_str()).collect()
         };
-
-        if self.output.is_empty() {
-            panic!("output is required (call `.output()` or pass `--out`)");
-        }
-
-        if include.is_empty() {
-            panic!("at least one `--filter` required");
-        }
 
         let reader = Reader::new(expand_input(&input));
 
@@ -905,20 +922,12 @@ impl Bindgen {
         }
 
         let config = Config {
+            bindgen: self,
             reader: &reader,
             types: &types,
-            flat,
             references: &references,
             filter: &filter,
             derive: &derive,
-            deps: self.deps,
-            no_toml,
-            package,
-            rustfmt: self.rustfmt.as_deref(),
-            output: &self.output,
-            sys,
-            minimal,
-            sys_fn_extern,
             implement: implements.as_ref(),
             link,
             warnings: &warnings,

@@ -26,7 +26,7 @@ impl Config<'_> {
         cmd.stdout(std::process::Stdio::piped());
         cmd.stderr(std::process::Stdio::null());
 
-        if let Some(config) = self.rustfmt {
+        if let Some(config) = self.bindgen.rustfmt.as_deref() {
             cmd.arg("--config");
             cmd.arg(config);
         }

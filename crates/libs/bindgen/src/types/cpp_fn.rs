@@ -44,7 +44,9 @@ impl CppFn {
 
         let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
 
-        let vararg = if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+        let vararg = if config.bindgen.style.is_sys()
+            && signature.call_flags.contains(MethodCallAttributes::VARARG)
+        {
             quote! { , ... }
         } else {
             quote! {}
@@ -74,7 +76,7 @@ impl CppFn {
         let signature = self.write_extern_signature(config, underlying_types);
         let link = to_ident(config.link);
 
-        if config.sys_fn_extern {
+        if config.bindgen.style.sys_fn_extern() {
             quote! {
                 unsafe extern #abi {
                     pub fn #name #signature;
@@ -103,7 +105,7 @@ impl CppFn {
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 
-        if config.sys || config.minimal {
+        if config.bindgen.style.is_sys() || config.bindgen.style.is_minimal() {
             // The `link!` macro provided by `windows-link` (and re-exported by
             // `windows-core`) already emits a `pub type Name = unsafe extern
             // "abi" fn(...)` alias next to the `extern` declaration, so we
@@ -111,10 +113,10 @@ impl CppFn {
             // macro (either via `--extern`, or because the user has
             // pointed `--link` at a different crate whose `link!` does not
             // emit the alias, such as `windows-targets`).
-            let link_emits_fn_ptr = !config.sys_fn_extern
+            let link_emits_fn_ptr = !config.bindgen.style.sys_fn_extern()
                 && (config.link == "windows_link" || config.link == "windows_core");
 
-            let fn_ptr = if config.sys && !link_emits_fn_ptr {
+            let fn_ptr = if config.bindgen.style.is_sys() && !link_emits_fn_ptr {
                 let fn_ptr = self.write_fn_ptr(config, false);
 
                 quote! {

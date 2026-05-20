@@ -14,10 +14,10 @@ impl Config<'_> {
     }
 
     fn write_specific(&self, specific: &str) -> TokenStream {
-        if self.sys {
-            if self.package || self.deps != DepMode::None {
+        if self.bindgen.style.is_sys() {
+            if self.bindgen.layout.is_package() || self.bindgen.deps != DepMode::None {
                 quote! { windows_sys::core:: }
-            } else if self.flat {
+            } else if self.bindgen.layout.is_flat() {
                 quote! {}
             } else {
                 let mut path = String::new();
@@ -28,7 +28,7 @@ impl Config<'_> {
 
                 path.parse().unwrap()
             }
-        } else if self.deps != DepMode::Specific {
+        } else if self.bindgen.deps != DepMode::Specific {
             quote! { windows_core:: }
         } else {
             format!("{specific}::").parse().unwrap()
@@ -96,7 +96,7 @@ impl Config<'_> {
 
             path.parse().unwrap()
         } else {
-            if self.flat || type_name.namespace() == self.namespace {
+            if self.bindgen.layout.is_flat() || type_name.namespace() == self.namespace {
                 return path.parse().unwrap();
             }
 

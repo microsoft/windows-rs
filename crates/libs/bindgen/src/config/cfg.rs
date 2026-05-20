@@ -74,7 +74,7 @@ impl Cfg {
     }
 
     pub fn write(&self, config: &Config, not: bool) -> TokenStream {
-        if !config.package {
+        if !config.bindgen.layout.is_package() {
             return quote! {};
         }
 
