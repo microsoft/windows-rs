@@ -815,225 +815,73 @@ impl Bindgen {
             .collect();
 
         if !self.sys && !self.no_deps {
-            if reader.contains_key("Windows.Foundation") {
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_future",
-                        ReferenceStyle::Flat,
-                        "Windows.Foundation.Async*",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_future",
-                        ReferenceStyle::Flat,
-                        "Windows.Foundation.IAsync*",
-                    ),
-                );
-            }
-
-            if reader.contains_key("Windows.Foundation.Collections") {
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
+            // Implicit references onto sibling `windows-*` crates that
+            // re-export common WinRT / Win32 types. Each group is registered
+            // only when its source namespace is actually present in the
+            // current metadata input. Stages are *prepended* via
+            // `prepend_default_refs` so they take precedence over any
+            // user-supplied `--reference` entries (matching the historical
+            // `references.insert(0, …)` ordering).
+            let win32_foundation_crate = if self.specific_deps {
+                "windows_result"
+            } else {
+                "windows_core"
+            };
+            for (probe_namespace, crate_name, paths) in [
+                (
+                    "Windows.Foundation",
+                    "windows_future",
+                    &["Windows.Foundation.Async*", "Windows.Foundation.IAsync*"][..],
+                ),
+                (
+                    "Windows.Foundation.Collections",
+                    "windows_collections",
+                    &[
                         "Windows.Foundation.Collections.CollectionChange",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IIterable",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IIterator",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IKeyValuePair",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IMap",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IMapChangedEventArgs",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IMapView",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IObservableMap",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IObservableVector",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IVector",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IVectorChangedEventArgs",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.IVectorView",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.MapChangedEventHandler",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_collections",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Collections.VectorChangedEventHandler",
-                    ),
-                );
-            }
-
-            if reader.contains_key("Windows.Foundation") {
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_reference",
-                        ReferenceStyle::Flat,
-                        "Windows.Foundation.IReference",
-                    ),
-                );
-            }
-
-            if reader.contains_key("Windows.Foundation.Numerics") {
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_numerics",
-                        ReferenceStyle::Flat,
+                    ][..],
+                ),
+                (
+                    "Windows.Foundation",
+                    "windows_reference",
+                    &["Windows.Foundation.IReference"][..],
+                ),
+                (
+                    "Windows.Foundation.Numerics",
+                    "windows_numerics",
+                    &[
                         "Windows.Foundation.Numerics.Matrix3x2",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_numerics",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Numerics.Matrix4x4",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_numerics",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Numerics.Vector2",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_numerics",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Numerics.Vector3",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        "windows_numerics",
-                        ReferenceStyle::Flat,
                         "Windows.Foundation.Numerics.Vector4",
-                    ),
-                );
-            }
-
-            if reader.contains_key("Windows.Win32.Foundation") {
-                let name = if self.specific_deps {
-                    "windows_result"
-                } else {
-                    "windows_core"
-                };
-
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        name,
-                        ReferenceStyle::Flat,
+                    ][..],
+                ),
+                (
+                    "Windows.Win32.Foundation",
+                    win32_foundation_crate,
+                    &[
                         "Windows.Win32.Foundation.WIN32_ERROR",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        name,
-                        ReferenceStyle::Flat,
                         "Windows.Win32.Foundation.NTSTATUS",
-                    ),
-                );
-                references.insert(
-                    0,
-                    ReferenceStage::new(
-                        name,
-                        ReferenceStyle::Flat,
                         "Windows.Win32.System.Rpc.RPC_STATUS",
-                    ),
-                );
+                    ][..],
+                ),
+            ] {
+                if reader.contains_key(probe_namespace) {
+                    prepend_default_refs(&mut references, crate_name, paths);
+                }
             }
         }
 
@@ -1219,6 +1067,20 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
     namespace.starts_with(starts_with)
         && (namespace.len() == starts_with.len()
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
+}
+
+/// Prepend a group of default `ReferenceStage` entries onto `refs`, in the
+/// same order historically produced by repeated `refs.insert(0, …)` calls
+/// over each path in source order. Reads as: "register this list of paths
+/// as a `Flat`-style reference onto `crate_name`, taking precedence over
+/// any user-supplied `--reference` entries already in `refs`".
+fn prepend_default_refs(refs: &mut Vec<ReferenceStage>, crate_name: &str, paths: &[&str]) {
+    for path in paths {
+        refs.insert(
+            0,
+            ReferenceStage::new(crate_name, ReferenceStyle::Flat, path),
+        );
+    }
 }
 
 #[cfg(test)]
