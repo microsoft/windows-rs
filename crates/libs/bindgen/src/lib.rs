@@ -86,6 +86,7 @@ pub fn builder() -> Bindgen {
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
+/// | `--etc` | Reads additional whitespace-separated arguments from one or more response files (lines beginning with `//` are ignored). |
 ///
 ///
 /// # `--out`
@@ -472,8 +473,8 @@ pub struct Bindgen {
     references: Vec<String>,
     derive: Vec<String>,
     implement: Option<Vec<String>>,
-    rustfmt: String,
-    link: String,
+    rustfmt: Option<String>,
+    link: Option<String>,
     layout: Layout,
     style: Style,
     deps: DepMode,
@@ -523,8 +524,7 @@ impl Bindgen {
     /// Add a `.winmd` file or directory containing `.winmd` files.
     /// Use `"default"` to include the metadata bundled with `windows-bindgen`.
     pub fn input(&mut self, input: &str) -> &mut Self {
-        self.input.push(input.to_string());
-        self
+        self.inputs(std::iter::once(input))
     }
 
     /// Add multiple `.winmd` files or directories containing `.winmd` files.
@@ -553,8 +553,7 @@ impl Bindgen {
     /// `Event` sugar). Prefix with `!` to exclude rather than include. See the crate-level
     /// docs for the full grammar.
     pub fn filter(&mut self, filter: &str) -> &mut Self {
-        self.filter.push(filter.to_string());
-        self
+        self.filters(std::iter::once(filter))
     }
 
     /// Add multiple filter rules to include or exclude APIs.
@@ -576,8 +575,7 @@ impl Bindgen {
 
     /// Add an extra trait for types to derive.
     pub fn derive(&mut self, derive: &str) -> &mut Self {
-        self.derive.push(derive.to_string());
-        self
+        self.derives(std::iter::once(derive))
     }
 
     /// Add multiple extra traits for types to derive.
@@ -594,8 +592,7 @@ impl Bindgen {
 
     /// Add a reference dependency.
     pub fn reference(&mut self, reference: &str) -> &mut Self {
-        self.references.push(reference.to_string());
-        self
+        self.references(std::iter::once(reference))
     }
 
     /// Add multiple reference dependencies.
@@ -612,13 +609,13 @@ impl Bindgen {
 
     /// Override the default Rust formatter path.
     pub fn rustfmt(&mut self, rustfmt: &str) -> &mut Self {
-        self.rustfmt = rustfmt.to_string();
+        self.rustfmt = Some(rustfmt.to_string());
         self
     }
 
     /// Override the default `windows-link` implementation for system calls.
     pub fn link(&mut self, link: &str) -> &mut Self {
-        self.link = link.to_string();
+        self.link = Some(link.to_string());
         self
     }
 
@@ -787,14 +784,12 @@ impl Bindgen {
         let package = matches!(self.layout, Layout::Package { .. });
         let no_toml = matches!(self.layout, Layout::Package { no_toml: true });
 
-        let link = if self.link.is_empty() {
-            if sys || self.deps == DepMode::Specific {
-                "windows_link"
-            } else {
-                "windows_core"
-            }
+        let link = if let Some(link) = self.link.as_deref() {
+            link
+        } else if sys || self.deps == DepMode::Specific {
+            "windows_link"
         } else {
-            self.link.as_str()
+            "windows_core"
         };
 
         let default_input = ["default"];
@@ -919,7 +914,7 @@ impl Bindgen {
             deps: self.deps,
             no_toml,
             package,
-            rustfmt: &self.rustfmt,
+            rustfmt: self.rustfmt.as_deref(),
             output: &self.output,
             sys,
             minimal,
@@ -1095,12 +1090,17 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
 /// as a `Flat`-style reference onto `crate_name`, taking precedence over
 /// any user-supplied `--reference` entries already in `refs`".
 fn prepend_default_refs(refs: &mut Vec<ReferenceStage>, crate_name: &str, paths: &[&str]) {
-    for path in paths {
-        refs.insert(
-            0,
-            ReferenceStage::new(crate_name, ReferenceStyle::Flat, path),
-        );
-    }
+    // `paths` is iterated in reverse so the resulting prefix matches the
+    // historical order produced by repeated `refs.insert(0, p)` calls (which
+    // reverses `paths` as a side effect). `splice(0..0, …)` does a single
+    // O(n) shift instead of one shift per element.
+    refs.splice(
+        0..0,
+        paths
+            .iter()
+            .rev()
+            .map(|path| ReferenceStage::new(crate_name, ReferenceStyle::Flat, path)),
+    );
 }
 
 #[cfg(test)]

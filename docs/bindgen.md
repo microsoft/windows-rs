@@ -99,31 +99,6 @@ actually need. Concrete tasks:
 This step is best left until last so review diffs aren't tangled with the
 state-merge in Step A.
 
-### C. Smaller leftovers
-
-These are independent of A/B and can be picked up in any order.
-
-- **Sentinel-string fields.** `Bindgen::rustfmt: String` and `Bindgen::link:
-  String` (lib.rs:475–476) default to `""` and `Bindgen::write` treats
-  empty as "use the default". `Option<String>` matches the public surface
-  — `Bindgen::rustfmt()` / `Bindgen::link()` always set a value, never
-  clear it — and removes the sentinel.
-- **Singular vs plural builders.** `Bindgen` has a singular and a plural
-  builder for each multi-value option (`input`/`inputs`,
-  `filter`/`filters`, `derive`/`derives`, `reference`/`references`,
-  lib.rs:525–608, ~85 lines of near-duplicate code). Each singular form
-  is `iter::once(x)` of the plural. Worth keeping both for ergonomics, but
-  the bodies could collapse into one-liners that delegate to the plural.
-- **`prepend_default_refs`** (lib.rs near the bottom of `write`) uses
-  repeated `Vec::insert(0, …)` to preserve order. An `extend` into a
-  temporary + `splice(0..0, …)` is one allocation and one O(n) shift
-  rather than n shifts. Tiny but trivially correct.
-- **`--etc` recursion.** The hand-rolled state-machine arg parser
-  (lib.rs:355–445) plus `ArgKind` (~944–955) handles `--etc` (response
-  files) by recursing through `expand_args`, but `--etc` is not
-  documented in the `bindgen` arg table comment block at the top of
-  `lib.rs`. Either document it or remove it.
-
 ## What inherently resists further simplification
 
 Recording these so they aren't re-proposed:
@@ -149,11 +124,9 @@ Recording these so they aren't re-proposed:
 
 ## Suggested order of attack
 
-1. **Step C** — pick off the small wins independently. They're isolated
-   one-file changes and don't block A or B.
-2. **Step A** — merge `Bindgen` and `Config`. This is the substantive
+1. **Step A** — merge `Bindgen` and `Config`. This is the substantive
    change and the one that pays the most: ~30 fewer fields in flight,
    ~25 fewer lines of plumbing in `write`, and the emitter sites finally
    get to match on `Layout` / `Style` directly.
-3. **Step B** — once `config/` is no longer the impl host, splitting it
+2. **Step B** — once `config/` is no longer the impl host, splitting it
    becomes mechanical file moves with no logic change.
