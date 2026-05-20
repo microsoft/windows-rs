@@ -42,7 +42,6 @@ fn main() {
         .filter(namespace)
         .reference("windows")
         .flat()
-        .typedef()
         .write()
         .unwrap();
 }
