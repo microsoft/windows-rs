@@ -909,18 +909,18 @@ pub struct ILoggingFields_Vtbl {
     pub AddGuidArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
     pub AddGuidArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::GUID, LoggingFieldFormat) -> windows_core::HRESULT,
     pub AddGuidArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::GUID, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DateTime) -> windows_core::HRESULT,
-    pub AddDateTimeWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddDateTimeWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::DateTime) -> windows_core::HRESULT,
-    pub AddDateTimeArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddDateTimeArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::TimeSpan) -> windows_core::HRESULT,
-    pub AddTimeSpanWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddTimeSpanWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
-    pub AddTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::TimeSpan) -> windows_core::HRESULT,
-    pub AddTimeSpanArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
-    pub AddTimeSpanArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const super::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
+    pub AddDateTimeWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddDateTimeWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddDateTimeArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_time::DateTime) -> windows_core::HRESULT,
+    pub AddDateTimeArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_time::DateTime, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddDateTimeArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_time::DateTime, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub AddTimeSpanWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddTimeSpanWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
+    pub AddTimeSpanArray: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub AddTimeSpanArrayWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_time::TimeSpan, LoggingFieldFormat) -> windows_core::HRESULT,
+    pub AddTimeSpanArrayWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_time::TimeSpan, LoggingFieldFormat, i32) -> windows_core::HRESULT,
     pub AddPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Point) -> windows_core::HRESULT,
     pub AddPointWithFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Point, LoggingFieldFormat) -> windows_core::HRESULT,
     pub AddPointWithFormatAndTags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::Point, LoggingFieldFormat, i32) -> windows_core::HRESULT,
@@ -2092,40 +2092,40 @@ impl LoggingFields {
     pub fn AddGuidArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_core::GUID], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddGuidArrayWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
     }
-    pub fn AddDateTime(&self, name: &windows_core::HSTRING, value: super::DateTime) -> windows_core::Result<()> {
+    pub fn AddDateTime(&self, name: &windows_core::HSTRING, value: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddDateTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value).ok() }
     }
-    pub fn AddDateTimeWithFormat(&self, name: &windows_core::HSTRING, value: super::DateTime, format: LoggingFieldFormat) -> windows_core::Result<()> {
+    pub fn AddDateTimeWithFormat(&self, name: &windows_core::HSTRING, value: windows_time::DateTime, format: LoggingFieldFormat) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddDateTimeWithFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value, format).ok() }
     }
-    pub fn AddDateTimeWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::DateTime, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+    pub fn AddDateTimeWithFormatAndTags(&self, name: &windows_core::HSTRING, value: windows_time::DateTime, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddDateTimeWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value, format, tags).ok() }
     }
-    pub fn AddDateTimeArray(&self, name: &windows_core::HSTRING, value: &[super::DateTime]) -> windows_core::Result<()> {
+    pub fn AddDateTimeArray(&self, name: &windows_core::HSTRING, value: &[windows_time::DateTime]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddDateTimeArray)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
-    pub fn AddDateTimeArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::DateTime], format: LoggingFieldFormat) -> windows_core::Result<()> {
+    pub fn AddDateTimeArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[windows_time::DateTime], format: LoggingFieldFormat) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddDateTimeArrayWithFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
     }
-    pub fn AddDateTimeArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::DateTime], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+    pub fn AddDateTimeArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_time::DateTime], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddDateTimeArrayWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
     }
-    pub fn AddTimeSpan(&self, name: &windows_core::HSTRING, value: super::TimeSpan) -> windows_core::Result<()> {
+    pub fn AddTimeSpan(&self, name: &windows_core::HSTRING, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddTimeSpan)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value).ok() }
     }
-    pub fn AddTimeSpanWithFormat(&self, name: &windows_core::HSTRING, value: super::TimeSpan, format: LoggingFieldFormat) -> windows_core::Result<()> {
+    pub fn AddTimeSpanWithFormat(&self, name: &windows_core::HSTRING, value: windows_time::TimeSpan, format: LoggingFieldFormat) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddTimeSpanWithFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value, format).ok() }
     }
-    pub fn AddTimeSpanWithFormatAndTags(&self, name: &windows_core::HSTRING, value: super::TimeSpan, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+    pub fn AddTimeSpanWithFormatAndTags(&self, name: &windows_core::HSTRING, value: windows_time::TimeSpan, format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddTimeSpanWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value, format, tags).ok() }
     }
-    pub fn AddTimeSpanArray(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan]) -> windows_core::Result<()> {
+    pub fn AddTimeSpanArray(&self, name: &windows_core::HSTRING, value: &[windows_time::TimeSpan]) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddTimeSpanArray)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
-    pub fn AddTimeSpanArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan], format: LoggingFieldFormat) -> windows_core::Result<()> {
+    pub fn AddTimeSpanArrayWithFormat(&self, name: &windows_core::HSTRING, value: &[windows_time::TimeSpan], format: LoggingFieldFormat) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddTimeSpanArrayWithFormat)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format).ok() }
     }
-    pub fn AddTimeSpanArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[super::TimeSpan], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
+    pub fn AddTimeSpanArrayWithFormatAndTags(&self, name: &windows_core::HSTRING, value: &[windows_time::TimeSpan], format: LoggingFieldFormat, tags: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddTimeSpanArrayWithFormatAndTags)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
     }
     pub fn AddPoint(&self, name: &windows_core::HSTRING, value: super::Point) -> windows_core::Result<()> {

@@ -7,7 +7,7 @@ impl windows_core::RuntimeType for ISpatialSurfaceInfo {
 pub struct ISpatialSurfaceInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub UpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub UpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
     pub TryGetBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
@@ -150,7 +150,7 @@ impl SpatialSurfaceInfo {
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn UpdateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

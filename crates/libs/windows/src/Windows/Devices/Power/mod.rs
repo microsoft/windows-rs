@@ -172,8 +172,8 @@ impl windows_core::RuntimeType for IPowerGridForecast {
 #[doc(hidden)]
 pub struct IPowerGridForecast_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub BlockDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub BlockDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Forecast: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPowerGridForecastStatics, IPowerGridForecastStatics_Vtbl, 0x5b78c806_2e4e_5bcc_bb34_cb81c60f9e12);
@@ -223,13 +223,13 @@ unsafe impl Sync for PowerGridData {}
 pub struct PowerGridForecast(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridForecast, windows_core::IUnknown, windows_core::IInspectable);
 impl PowerGridForecast {
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn BlockDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn BlockDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

@@ -180,8 +180,8 @@ impl windows_core::RuntimeType for IProcessCpuUsageReport {
 #[doc(hidden)]
 pub struct IProcessCpuUsageReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProcessDiagnosticInfo, IProcessDiagnosticInfo_Vtbl, 0xe830b04b_300e_4ee6_a0ab_5b5f5231b434);
 impl windows_core::RuntimeType for IProcessDiagnosticInfo {
@@ -194,7 +194,7 @@ pub struct IProcessDiagnosticInfo_Vtbl {
     pub ProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub ExecutableFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProcessStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub ProcessStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub DiskUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MemoryUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CpuUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -305,9 +305,9 @@ impl windows_core::RuntimeType for ISystemCpuUsageReport {
 #[doc(hidden)]
 pub struct ISystemCpuUsageReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub IdleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub KernelTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub UserTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub IdleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISystemDiagnosticInfo, ISystemDiagnosticInfo_Vtbl, 0xa290fe05_dff3_407f_9a1b_0b2b317ca800);
 impl windows_core::RuntimeType for ISystemDiagnosticInfo {
@@ -392,13 +392,13 @@ unsafe impl Sync for ProcessCpuUsage {}
 pub struct ProcessCpuUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessCpuUsageReport {
-    pub fn KernelTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn KernelTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KernelTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn UserTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn UserTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -440,7 +440,7 @@ impl ProcessDiagnosticInfo {
             (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessStartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ProcessStartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProcessStartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -738,19 +738,19 @@ unsafe impl Sync for SystemCpuUsage {}
 pub struct SystemCpuUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemCpuUsageReport {
-    pub fn KernelTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn KernelTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KernelTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn UserTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn UserTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn IdleTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn IdleTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IdleTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

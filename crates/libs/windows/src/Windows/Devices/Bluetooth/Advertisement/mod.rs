@@ -667,7 +667,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (windows_core::Interface::vtable(self).AdvertisementType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -830,25 +830,25 @@ impl BluetoothLEAdvertisementWatcher {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementWatcher, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MinSamplingInterval(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MinSamplingInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinSamplingInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxSamplingInterval(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MaxSamplingInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxSamplingInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MinOutOfRangeTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MinOutOfRangeTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinOutOfRangeTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxOutOfRangeTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn MaxOutOfRangeTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxOutOfRangeTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1337,7 +1337,7 @@ pub struct IBluetoothLEAdvertisementReceivedEventArgs_Vtbl {
     pub RawSignalStrengthInDBm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
     pub BluetoothAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub AdvertisementType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothLEAdvertisementType) -> windows_core::HRESULT,
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Advertisement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementReceivedEventArgs2, IBluetoothLEAdvertisementReceivedEventArgs2_Vtbl, 0x12d9c87b_0399_5f0e_a348_53b02b6b162e);
@@ -1397,10 +1397,10 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcher {
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcher_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub MinSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MaxSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MinOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MaxOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub MinSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub MaxSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub MinOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub MaxOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothLEAdvertisementWatcherStatus) -> windows_core::HRESULT,
     pub ScanningMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BluetoothLEScanningMode) -> windows_core::HRESULT,
     pub SetScanningMode: unsafe extern "system" fn(*mut core::ffi::c_void, BluetoothLEScanningMode) -> windows_core::HRESULT,

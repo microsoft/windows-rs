@@ -200,13 +200,13 @@ impl DataReader {
             (windows_core::Interface::vtable(self).ReadString)(windows_core::Interface::as_raw(self), codeunitcount, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadDateTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ReadDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadDateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadTimeSpan(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ReadTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadTimeSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -359,10 +359,10 @@ impl DataWriter {
     pub fn WriteDouble(&self, value: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteDouble)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn WriteDateTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn WriteDateTime(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteDateTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn WriteTimeSpan(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn WriteTimeSpan(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteTimeSpan)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn WriteString(&self, value: &windows_core::HSTRING) -> windows_core::Result<u32> {
@@ -948,13 +948,13 @@ impl IDataReader {
             (windows_core::Interface::vtable(self).ReadString)(windows_core::Interface::as_raw(self), codeunitcount, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadDateTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ReadDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadDateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadTimeSpan(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ReadTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadTimeSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1004,8 +1004,8 @@ pub trait IDataReader_Impl: windows_core::IUnknownImpl {
     fn ReadSingle(&self) -> windows_core::Result<f32>;
     fn ReadDouble(&self) -> windows_core::Result<f64>;
     fn ReadString(&self, codeUnitCount: u32) -> windows_core::Result<windows_core::HSTRING>;
-    fn ReadDateTime(&self) -> windows_core::Result<super::super::Foundation::DateTime>;
-    fn ReadTimeSpan(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
+    fn ReadDateTime(&self) -> windows_core::Result<windows_time::DateTime>;
+    fn ReadTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan>;
     fn LoadAsync(&self, count: u32) -> windows_core::Result<DataReaderLoadOperation>;
     fn DetachBuffer(&self) -> windows_core::Result<IBuffer>;
     fn DetachStream(&self) -> windows_core::Result<IInputStream>;
@@ -1242,7 +1242,7 @@ impl IDataReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReadDateTime<Identity: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadDateTime<Identity: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataReader_Impl::ReadDateTime(this) {
@@ -1254,7 +1254,7 @@ impl IDataReader_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReadTimeSpan<Identity: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadTimeSpan<Identity: IDataReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataReader_Impl::ReadTimeSpan(this) {
@@ -1364,8 +1364,8 @@ pub struct IDataReader_Vtbl {
     pub ReadSingle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub ReadDouble: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     pub ReadString: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReadDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub ReadTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ReadDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub ReadTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DetachBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DetachStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1468,10 +1468,10 @@ impl IDataWriter {
     pub fn WriteDouble(&self, value: f64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteDouble)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn WriteDateTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn WriteDateTime(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteDateTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn WriteTimeSpan(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn WriteTimeSpan(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteTimeSpan)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn WriteString(&self, value: &windows_core::HSTRING) -> windows_core::Result<u32> {
@@ -1534,8 +1534,8 @@ pub trait IDataWriter_Impl: windows_core::IUnknownImpl {
     fn WriteUInt64(&self, value: u64) -> windows_core::Result<()>;
     fn WriteSingle(&self, value: f32) -> windows_core::Result<()>;
     fn WriteDouble(&self, value: f64) -> windows_core::Result<()>;
-    fn WriteDateTime(&self, value: &super::super::Foundation::DateTime) -> windows_core::Result<()>;
-    fn WriteTimeSpan(&self, value: &super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
+    fn WriteDateTime(&self, value: &windows_time::DateTime) -> windows_core::Result<()>;
+    fn WriteTimeSpan(&self, value: &windows_time::TimeSpan) -> windows_core::Result<()>;
     fn WriteString(&self, value: &windows_core::HSTRING) -> windows_core::Result<u32>;
     fn MeasureString(&self, value: &windows_core::HSTRING) -> windows_core::Result<u32>;
     fn StoreAsync(&self) -> windows_core::Result<DataWriterStoreOperation>;
@@ -1677,13 +1677,13 @@ impl IDataWriter_Vtbl {
                 IDataWriter_Impl::WriteDouble(this, value).into()
             }
         }
-        unsafe extern "system" fn WriteDateTime<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteDateTime<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDataWriter_Impl::WriteDateTime(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn WriteTimeSpan<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn WriteTimeSpan<Identity: IDataWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDataWriter_Impl::WriteTimeSpan(this, core::mem::transmute(&value)).into()
@@ -1823,8 +1823,8 @@ pub struct IDataWriter_Vtbl {
     pub WriteUInt64: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub WriteSingle: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub WriteDouble: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub WriteDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub WriteTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub WriteDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
+    pub WriteTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub WriteString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub MeasureString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub StoreAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

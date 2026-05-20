@@ -15,7 +15,7 @@ impl Direct3D11CaptureFrame {
             (windows_core::Interface::vtable(self).Surface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SystemRelativeTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRelativeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -339,14 +339,14 @@ impl GraphicsCaptureSession {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDirtyRegionMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MinUpdateInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MinUpdateInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinUpdateInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMinUpdateInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetMinUpdateInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IGraphicsCaptureSession5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMinUpdateInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -396,7 +396,7 @@ pub struct IDirect3D11CaptureFrame_Vtbl {
     pub Surface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     Surface: usize,
-    pub SystemRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SystemRelativeTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub ContentSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::SizeInt32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDirect3D11CaptureFrame2, IDirect3D11CaptureFrame2_Vtbl, 0x37869cfa_2b48_5ebf_9afb_dffd805defdb);
@@ -571,8 +571,8 @@ impl windows_core::RuntimeType for IGraphicsCaptureSession5 {
 #[doc(hidden)]
 pub struct IGraphicsCaptureSession5_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub MinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetMinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub MinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetMinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGraphicsCaptureSession6, IGraphicsCaptureSession6_Vtbl, 0xd7419236_be20_5e9f_bcd6_c4e98fd6afdc);
 impl windows_core::RuntimeType for IGraphicsCaptureSession6 {

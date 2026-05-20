@@ -60,7 +60,7 @@ impl windows_core::RuntimeType for IWiFiAvailableNetwork {
 #[doc(hidden)]
 pub struct IWiFiAvailableNetwork_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Uptime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Uptime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Ssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Bssid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChannelCenterFrequencyInKilohertz: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -72,7 +72,7 @@ pub struct IWiFiAvailableNetwork_Vtbl {
     pub SecuritySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Networking_Connectivity"))]
     SecuritySettings: usize,
-    pub BeaconInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub BeaconInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub IsWiFiDirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiConnectionResult, IWiFiConnectionResult_Vtbl, 0x143bdfd9_c37d_40be_a5c8_857bce85a931);
@@ -93,7 +93,7 @@ impl windows_core::RuntimeType for IWiFiNetworkReport {
 #[doc(hidden)]
 pub struct IWiFiNetworkReport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub AvailableNetworks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWiFiOnDemandHotspotConnectTriggerDetails, IWiFiOnDemandHotspotConnectTriggerDetails_Vtbl, 0xa268eb58_68f5_59cf_8d38_35bf44b097ef);
@@ -334,7 +334,7 @@ unsafe impl Sync for WiFiAdapter {}
 pub struct WiFiAvailableNetwork(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiAvailableNetwork, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiAvailableNetwork {
-    pub fn Uptime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Uptime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Uptime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -389,7 +389,7 @@ impl WiFiAvailableNetwork {
             (windows_core::Interface::vtable(self).SecuritySettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BeaconInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn BeaconInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BeaconInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -489,7 +489,7 @@ impl windows_core::RuntimeType for WiFiNetworkKind {
 pub struct WiFiNetworkReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WiFiNetworkReport, windows_core::IUnknown, windows_core::IInspectable);
 impl WiFiNetworkReport {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

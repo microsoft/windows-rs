@@ -38,8 +38,8 @@ pub struct IInputHapticsManager_Vtbl {
     pub CurrentHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TrySendHapticWaveform: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut bool) -> windows_core::HRESULT,
     pub TrySendHapticWaveformWithIntensity: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, *mut bool) -> windows_core::HRESULT,
-    pub TrySendHapticWaveformForDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, super::super::Foundation::TimeSpan, *mut bool) -> windows_core::HRESULT,
-    pub TrySendHapticWaveformForPlayCount: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, i32, super::super::Foundation::TimeSpan, *mut bool) -> windows_core::HRESULT,
+    pub TrySendHapticWaveformForDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, windows_time::TimeSpan, *mut bool) -> windows_core::HRESULT,
+    pub TrySendHapticWaveformForPlayCount: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, i32, windows_time::TimeSpan, *mut bool) -> windows_core::HRESULT,
     pub TryStopFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetOverrideHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, HapticDeviceType, *mut core::ffi::c_void, *mut HapticsControllerOverrideToken) -> windows_core::HRESULT,
     pub ClearOverrideHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, HapticsControllerOverrideToken) -> windows_core::HRESULT,
@@ -107,8 +107,8 @@ pub struct ISimpleHapticsController_Vtbl {
     pub StopFeedback: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendHapticFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendHapticFeedbackWithIntensity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub SendHapticFeedbackForDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SendHapticFeedbackForPlayCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, i32, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SendHapticFeedbackForDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SendHapticFeedbackForPlayCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f64, i32, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback_Vtbl, 0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for ISimpleHapticsControllerFeedback {
@@ -119,7 +119,7 @@ impl windows_core::RuntimeType for ISimpleHapticsControllerFeedback {
 pub struct ISimpleHapticsControllerFeedback_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Waveform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVibrationDevice, IVibrationDevice_Vtbl, 0x40f21a3e_8844_47ff_b312_06185a3844da);
 impl windows_core::RuntimeType for IVibrationDevice {
@@ -181,13 +181,13 @@ impl InputHapticsManager {
             (windows_core::Interface::vtable(self).TrySendHapticWaveformWithIntensity)(windows_core::Interface::as_raw(self), waveform, waveformfallback, intensity, &mut result__).map(|| result__)
         }
     }
-    pub fn TrySendHapticWaveformForDuration(&self, waveform: u16, waveformfallback: u16, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> windows_core::Result<bool> {
+    pub fn TrySendHapticWaveformForDuration(&self, waveform: u16, waveformfallback: u16, intensity: f64, playduration: windows_time::TimeSpan) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TrySendHapticWaveformForDuration)(windows_core::Interface::as_raw(self), waveform, waveformfallback, intensity, playduration, &mut result__).map(|| result__)
         }
     }
-    pub fn TrySendHapticWaveformForPlayCount(&self, waveform: u16, waveformfallback: u16, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> windows_core::Result<bool> {
+    pub fn TrySendHapticWaveformForPlayCount(&self, waveform: u16, waveformfallback: u16, intensity: f64, playcount: i32, replaypauseinterval: windows_time::TimeSpan) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TrySendHapticWaveformForPlayCount)(windows_core::Interface::as_raw(self), waveform, waveformfallback, intensity, playcount, replaypauseinterval, &mut result__).map(|| result__)
@@ -412,13 +412,13 @@ impl SimpleHapticsController {
     {
         unsafe { (windows_core::Interface::vtable(self).SendHapticFeedbackWithIntensity)(windows_core::Interface::as_raw(self), feedback.param().abi(), intensity).ok() }
     }
-    pub fn SendHapticFeedbackForDuration<P0>(&self, feedback: P0, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
+    pub fn SendHapticFeedbackForDuration<P0>(&self, feedback: P0, intensity: f64, playduration: windows_time::TimeSpan) -> windows_core::Result<()>
     where
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
         unsafe { (windows_core::Interface::vtable(self).SendHapticFeedbackForDuration)(windows_core::Interface::as_raw(self), feedback.param().abi(), intensity, playduration).ok() }
     }
-    pub fn SendHapticFeedbackForPlayCount<P0>(&self, feedback: P0, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
+    pub fn SendHapticFeedbackForPlayCount<P0>(&self, feedback: P0, intensity: f64, playcount: i32, replaypauseinterval: windows_time::TimeSpan) -> windows_core::Result<()>
     where
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
@@ -448,7 +448,7 @@ impl SimpleHapticsControllerFeedback {
             (windows_core::Interface::vtable(self).Waveform)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

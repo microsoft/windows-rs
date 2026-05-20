@@ -1,15 +1,3 @@
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct DateTime {
-    pub UniversalTime: i64,
-}
-impl windows_core::TypeKind for DateTime {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for DateTime {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
-}
 pub const E_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0x80004001_u32 as _);
 windows_core::imp::define_interface!(
     IPropertyValue,
@@ -44,8 +32,8 @@ pub trait IPropertyValue_Impl: windows_core::IUnknownImpl {
     fn GetBoolean(&self) -> windows_core::Result<bool>;
     fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn GetGuid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetDateTime(&self) -> windows_core::Result<DateTime>;
-    fn GetTimeSpan(&self) -> windows_core::Result<TimeSpan>;
+    fn GetDateTime(&self) -> windows_core::Result<windows_time::DateTime>;
+    fn GetTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan>;
     fn GetPoint(&self) -> windows_core::Result<Point>;
     fn GetSize(&self) -> windows_core::Result<Size>;
     fn GetRect(&self) -> windows_core::Result<Rect>;
@@ -74,11 +62,11 @@ pub trait IPropertyValue_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
     fn GetDateTimeArray(
         &self,
-        value: &mut windows_core::Array<DateTime>,
+        value: &mut windows_core::Array<windows_time::DateTime>,
     ) -> windows_core::Result<()>;
     fn GetTimeSpanArray(
         &self,
-        value: &mut windows_core::Array<TimeSpan>,
+        value: &mut windows_core::Array<windows_time::TimeSpan>,
     ) -> windows_core::Result<()>;
     fn GetPointArray(&self, value: &mut windows_core::Array<Point>) -> windows_core::Result<()>;
     fn GetSizeArray(&self, value: &mut windows_core::Array<Size>) -> windows_core::Result<()>;
@@ -335,7 +323,7 @@ impl IPropertyValue_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut DateTime,
+            result__: *mut windows_time::DateTime,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -354,7 +342,7 @@ impl IPropertyValue_Vtbl {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            result__: *mut TimeSpan,
+            result__: *mut windows_time::TimeSpan,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -716,7 +704,7 @@ impl IPropertyValue_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             value_array_size: *mut u32,
-            value: *mut *mut DateTime,
+            value: *mut *mut windows_time::DateTime,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -737,7 +725,7 @@ impl IPropertyValue_Vtbl {
         >(
             this: *mut core::ffi::c_void,
             value_array_size: *mut u32,
-            value: *mut *mut TimeSpan,
+            value: *mut *mut windows_time::TimeSpan,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
@@ -902,10 +890,14 @@ pub struct IPropertyValue_Vtbl {
         *mut core::ffi::c_void,
         *mut windows_core::GUID,
     ) -> windows_core::HRESULT,
-    pub GetDateTime:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut DateTime) -> windows_core::HRESULT,
-    pub GetTimeSpan:
-        unsafe extern "system" fn(*mut core::ffi::c_void, *mut TimeSpan) -> windows_core::HRESULT,
+    pub GetDateTime: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_time::DateTime,
+    ) -> windows_core::HRESULT,
+    pub GetTimeSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
     pub GetPoint:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Point) -> windows_core::HRESULT,
     pub GetSize:
@@ -985,12 +977,12 @@ pub struct IPropertyValue_Vtbl {
     pub GetDateTimeArray: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut u32,
-        *mut *mut DateTime,
+        *mut *mut windows_time::DateTime,
     ) -> windows_core::HRESULT,
     pub GetTimeSpanArray: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut u32,
-        *mut *mut TimeSpan,
+        *mut *mut windows_time::TimeSpan,
     ) -> windows_core::HRESULT,
     pub GetPointArray: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -1198,16 +1190,4 @@ impl windows_core::TypeKind for Size {
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct TimeSpan {
-    pub Duration: i64,
-}
-impl windows_core::TypeKind for TimeSpan {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TimeSpan {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
 }

@@ -153,6 +153,26 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
+    pub fn GetDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDateTime)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn GetTimeSpan(&self) -> windows_core::Result<windows_time::TimeSpan> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetTimeSpan)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetUInt8Array)(
@@ -305,6 +325,32 @@ impl IPropertyValue {
             .ok()
         }
     }
+    pub fn GetDateTimeArray(
+        &self,
+        value: &mut windows_core::Array<windows_time::DateTime>,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetDateTimeArray)(
+                windows_core::Interface::as_raw(self),
+                value.set_abi_len(),
+                value as *mut _ as _,
+            )
+            .ok()
+        }
+    }
+    pub fn GetTimeSpanArray(
+        &self,
+        value: &mut windows_core::Array<windows_time::TimeSpan>,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).GetTimeSpanArray)(
+                windows_core::Interface::as_raw(self),
+                value.set_abi_len(),
+                value as *mut _ as _,
+            )
+            .ok()
+        }
+    }
 }
 impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
@@ -346,8 +392,14 @@ pub struct IPropertyValue_Vtbl {
         *mut core::ffi::c_void,
         *mut windows_core::GUID,
     ) -> windows_core::HRESULT,
-    GetDateTime: usize,
-    GetTimeSpan: usize,
+    pub GetDateTime: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_time::DateTime,
+    ) -> windows_core::HRESULT,
+    pub GetTimeSpan: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
     GetPoint: usize,
     GetSize: usize,
     GetRect: usize,
@@ -421,8 +473,16 @@ pub struct IPropertyValue_Vtbl {
         *mut u32,
         *mut *mut windows_core::GUID,
     ) -> windows_core::HRESULT,
-    GetDateTimeArray: usize,
-    GetTimeSpanArray: usize,
+    pub GetDateTimeArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut windows_time::DateTime,
+    ) -> windows_core::HRESULT,
+    pub GetTimeSpanArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
     GetPointArray: usize,
     GetSizeArray: usize,
     GetRectArray: usize,

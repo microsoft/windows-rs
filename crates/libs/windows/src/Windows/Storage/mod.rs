@@ -1619,7 +1619,7 @@ impl IStorageFile {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2154,7 +2154,7 @@ impl IStorageFolder {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2513,7 +2513,7 @@ impl IStorageItem {
             (windows_core::Interface::vtable(self).Attributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DateCreated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2540,7 +2540,7 @@ pub trait IStorageItem_Impl: windows_core::IUnknownImpl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Path(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Attributes(&self) -> windows_core::Result<FileAttributes>;
-    fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime>;
+    fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime>;
     fn IsOfType(&self, r#type: StorageItemTypes) -> windows_core::Result<bool>;
 }
 #[cfg(feature = "Storage_FileProperties")]
@@ -2649,7 +2649,7 @@ impl IStorageItem_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DateCreated<Identity: IStorageItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn DateCreated<Identity: IStorageItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStorageItem_Impl::DateCreated(this) {
@@ -2706,7 +2706,7 @@ pub struct IStorageItem_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut FileAttributes) -> windows_core::HRESULT,
-    pub DateCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub DateCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, StorageItemTypes, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageItem2, IStorageItem2_Vtbl, 0x53f926d2_083c_4283_b45b_81c007237e44);
@@ -2789,7 +2789,7 @@ impl IStorageItem2 {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4436,7 +4436,7 @@ impl StorageFile {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4868,7 +4868,7 @@ impl StorageFolder {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

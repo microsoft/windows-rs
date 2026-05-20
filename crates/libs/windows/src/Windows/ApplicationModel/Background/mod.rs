@@ -154,10 +154,10 @@ impl AppBroadcastTriggerProviderInfo {
             (windows_core::Interface::vtable(self).LogoResource)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetVideoKeyFrameInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetVideoKeyFrameInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetVideoKeyFrameInterval)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn VideoKeyFrameInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn VideoKeyFrameInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VideoKeyFrameInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -828,7 +828,7 @@ impl BackgroundTaskRegistration {
             (windows_core::Interface::vtable(this).TaskGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TaskLastThrottledInStandbyTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn TaskLastThrottledInStandbyTimestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IBackgroundTaskRegistration4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -980,7 +980,7 @@ impl BackgroundWorkCost {
             (windows_core::Interface::vtable(this).AppEnergyUsePrediction)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AppLastThrottledInStandbyTimestamp() -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn AppLastThrottledInStandbyTimestamp() -> windows_core::Result<windows_time::DateTime> {
         Self::IBackgroundWorkCostStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppLastThrottledInStandbyTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1129,25 +1129,25 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementWatcherTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MinSamplingInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MinSamplingInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinSamplingInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxSamplingInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MaxSamplingInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxSamplingInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MinOutOfRangeTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MinOutOfRangeTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinOutOfRangeTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxOutOfRangeTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MaxOutOfRangeTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxOutOfRangeTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1424,13 +1424,13 @@ impl ContentPrefetchTrigger {
         static SHARED: windows_core::imp::FactoryCache<ContentPrefetchTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn WaitInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn WaitInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Create(waitinterval: super::super::Foundation::TimeSpan) -> windows_core::Result<ContentPrefetchTrigger> {
+    pub fn Create(waitinterval: windows_time::TimeSpan) -> windows_core::Result<ContentPrefetchTrigger> {
         Self::IContentPrefetchTriggerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), waitinterval, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1628,13 +1628,13 @@ impl DeviceServicingTrigger {
         static SHARED: windows_core::imp::FactoryCache<DeviceServicingTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RequestAsyncSimple(&self, deviceid: &windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncSimple(&self, deviceid: &windows_core::HSTRING, expectedduration: windows_time::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestAsyncSimple)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), expectedduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAsyncWithArguments(&self, deviceid: &windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan, arguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
+    pub fn RequestAsyncWithArguments(&self, deviceid: &windows_core::HSTRING, expectedduration: windows_time::TimeSpan, arguments: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DeviceTriggerResult>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestAsyncWithArguments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), expectedduration, core::mem::transmute_copy(arguments), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2022,8 +2022,8 @@ pub struct IAppBroadcastTriggerProviderInfo_Vtbl {
     pub DisplayNameResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetLogoResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LogoResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetVideoKeyFrameInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub VideoKeyFrameInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetVideoKeyFrameInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub VideoKeyFrameInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub SetMaxVideoBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub MaxVideoBitrate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetMaxVideoWidth: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -3054,7 +3054,7 @@ impl windows_core::RuntimeType for IBackgroundTaskRegistration4 {
 #[doc(hidden)]
 pub struct IBackgroundTaskRegistration4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub TaskLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub TaskLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub AppEnergyUsePredictionContribution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTaskRegistrationGroup, IBackgroundTaskRegistrationGroup_Vtbl, 0x2ab1919a_871b_4167_8a76_055cd67b5b23);
@@ -3148,7 +3148,7 @@ pub struct IBackgroundWorkCostStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AppEnergyUseLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnergyUseLevel) -> windows_core::HRESULT,
     pub AppEnergyUsePrediction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut EnergyUseLevel) -> windows_core::HRESULT,
-    pub AppLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub AppLastThrottledInStandbyTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger, IBluetoothLEAdvertisementPublisherTrigger_Vtbl, 0xab3e2612_25d3_48ae_8724_d81877ae6129);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger {
@@ -3213,10 +3213,10 @@ impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger {
 #[doc(hidden)]
 pub struct IBluetoothLEAdvertisementWatcherTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub MinSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MaxSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MinOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MaxOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub MinSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub MaxSamplingInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub MinOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub MaxOutOfRangeTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     #[cfg(feature = "Devices_Bluetooth")]
     pub SignalStrengthFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth"))]
@@ -3337,7 +3337,7 @@ impl windows_core::RuntimeType for IContentPrefetchTrigger {
 #[doc(hidden)]
 pub struct IContentPrefetchTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub WaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub WaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IContentPrefetchTriggerFactory, IContentPrefetchTriggerFactory_Vtbl, 0xc2643eda_8a03_409e_b8c4_88814c28ccb6);
 impl windows_core::RuntimeType for IContentPrefetchTriggerFactory {
@@ -3347,7 +3347,7 @@ impl windows_core::RuntimeType for IContentPrefetchTriggerFactory {
 #[doc(hidden)]
 pub struct IContentPrefetchTriggerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICustomSystemEventTrigger, ICustomSystemEventTrigger_Vtbl, 0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
 impl windows_core::RuntimeType for ICustomSystemEventTrigger {
@@ -3422,8 +3422,8 @@ impl windows_core::RuntimeType for IDeviceServicingTrigger {
 #[doc(hidden)]
 pub struct IDeviceServicingTrigger_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestAsyncSimple: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RequestAsyncWithArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDeviceUseTrigger, IDeviceUseTrigger_Vtbl, 0x0da68011_334f_4d57_b6ec_6dca64b412e4);
 impl windows_core::RuntimeType for IDeviceUseTrigger {

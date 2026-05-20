@@ -454,7 +454,7 @@ pub struct ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PackageName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StorageKeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DateImported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub DateImported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub PackageFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramMaterialPackageFormat) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISmartCardCryptogramMaterialPossessionProof, ISmartCardCryptogramMaterialPossessionProof_Vtbl, 0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
@@ -513,7 +513,7 @@ impl windows_core::RuntimeType for ISmartCardCryptogramStorageKeyCharacteristics
 pub struct ISmartCardCryptogramStorageKeyCharacteristics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub StorageKeyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DateCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub DateCreated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Algorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramStorageKeyAlgorithm) -> windows_core::HRESULT,
     pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SmartCardCryptogramStorageKeyCapabilities) -> windows_core::HRESULT,
 }
@@ -728,7 +728,7 @@ pub struct ISmartCardPinResetRequest_Vtbl {
     pub Challenge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     Challenge: usize,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub SetResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1831,7 +1831,7 @@ impl SmartCardCryptogramMaterialPackageCharacteristics {
             (windows_core::Interface::vtable(self).StorageKeyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DateImported(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DateImported(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DateImported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2181,7 +2181,7 @@ impl SmartCardCryptogramStorageKeyCharacteristics {
             (windows_core::Interface::vtable(self).StorageKeyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DateCreated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2817,7 +2817,7 @@ impl SmartCardPinResetRequest {
             (windows_core::Interface::vtable(self).Challenge)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

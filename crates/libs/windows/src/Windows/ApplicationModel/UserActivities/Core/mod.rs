@@ -9,7 +9,7 @@ impl CoreUserActivityManager {
             (windows_core::Interface::vtable(this).CreateUserActivitySessionInBackground)(windows_core::Interface::as_raw(this), activity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: super::super::super::Foundation::DateTime, endtime: super::super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn DeleteUserActivitySessionsInTimeRangeAsync<P0>(channel: P0, starttime: windows_time::DateTime, endtime: windows_time::DateTime) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::UserActivityChannel>,
     {
@@ -35,5 +35,5 @@ impl windows_core::RuntimeType for ICoreUserActivityManagerStatics {
 pub struct ICoreUserActivityManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateUserActivitySessionInBackground: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DeleteUserActivitySessionsInTimeRangeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::DateTime, super::super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteUserActivitySessionsInTimeRangeAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }

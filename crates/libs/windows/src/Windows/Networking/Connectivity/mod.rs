@@ -242,13 +242,13 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(self).NetworkAdapter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetLocalUsage(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime) -> windows_core::Result<DataUsage> {
+    pub fn GetLocalUsage(&self, starttime: windows_time::DateTime, endtime: windows_time::DateTime) -> windows_core::Result<DataUsage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLocalUsage)(windows_core::Interface::as_raw(self), starttime, endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetLocalUsagePerRoamingStates(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates) -> windows_core::Result<DataUsage> {
+    pub fn GetLocalUsagePerRoamingStates(&self, starttime: windows_time::DateTime, endtime: windows_time::DateTime, states: RoamingStates) -> windows_core::Result<DataUsage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLocalUsagePerRoamingStates)(windows_core::Interface::as_raw(self), starttime, endtime, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -309,28 +309,28 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).GetDomainConnectivityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<NetworkUsage>>> {
+    pub fn GetNetworkUsageAsync(&self, starttime: windows_time::DateTime, endtime: windows_time::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<NetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNetworkUsageAsync)(windows_core::Interface::as_raw(this), starttime, endtime, granularity, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetConnectivityIntervalsAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectivityInterval>>> {
+    pub fn GetConnectivityIntervalsAsync(&self, starttime: windows_time::DateTime, endtime: windows_time::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectivityInterval>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConnectivityIntervalsAsync)(windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAttributedNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AttributedNetworkUsage>>> {
+    pub fn GetAttributedNetworkUsageAsync(&self, starttime: windows_time::DateTime, endtime: windows_time::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AttributedNetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAttributedNetworkUsageAsync)(windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetProviderNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ProviderNetworkUsage>>> {
+    pub fn GetProviderNetworkUsageAsync(&self, starttime: windows_time::DateTime, endtime: windows_time::DateTime, states: NetworkUsageStates) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ProviderNetworkUsage>>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -547,13 +547,13 @@ unsafe impl Sync for ConnectionSession {}
 pub struct ConnectivityInterval(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectivityInterval, windows_core::IUnknown, windows_core::IInspectable);
 impl ConnectivityInterval {
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ConnectionDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ConnectionDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectionDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -632,10 +632,10 @@ impl DataPlanStatus {
             (windows_core::Interface::vtable(self).OutboundBitsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
         }
     }
-    pub fn NextBillingCycle(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn NextBillingCycle(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NextBillingCycle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).NextBillingCycle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn MaxTransferSizeInMegabytes(&self) -> windows_core::Result<u32> {
@@ -668,7 +668,7 @@ impl DataPlanUsage {
             (windows_core::Interface::vtable(self).MegabytesUsed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn LastSyncTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LastSyncTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastSyncTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -846,8 +846,8 @@ pub struct IConnectionProfile_Vtbl {
     pub GetConnectionCost: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NetworkAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetLocalUsage: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetLocalUsagePerRoamingStates: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, RoamingStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetLocalUsage: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetLocalUsagePerRoamingStates: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, RoamingStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NetworkSecuritySettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectionProfile2, IConnectionProfile2_Vtbl, 0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
@@ -865,8 +865,8 @@ pub struct IConnectionProfile2_Vtbl {
     pub ServiceProviderGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSignalBars: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDomainConnectivityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DomainConnectivityLevel) -> windows_core::HRESULT,
-    pub GetNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, DataUsageGranularity, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetConnectivityIntervalsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, DataUsageGranularity, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetConnectivityIntervalsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectionProfile3, IConnectionProfile3_Vtbl, 0x578c2528_4cd9_4161_8045_201cfd5b115c);
 impl windows_core::RuntimeType for IConnectionProfile3 {
@@ -876,7 +876,7 @@ impl windows_core::RuntimeType for IConnectionProfile3 {
 #[doc(hidden)]
 pub struct IConnectionProfile3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAttributedNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetAttributedNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectionProfile4, IConnectionProfile4_Vtbl, 0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
 impl windows_core::RuntimeType for IConnectionProfile4 {
@@ -886,7 +886,7 @@ impl windows_core::RuntimeType for IConnectionProfile4 {
 #[doc(hidden)]
 pub struct IConnectionProfile4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetProviderNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetProviderNetworkUsageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::DateTime, NetworkUsageStates, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectionProfile5, IConnectionProfile5_Vtbl, 0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
 impl windows_core::RuntimeType for IConnectionProfile5 {
@@ -976,8 +976,8 @@ impl windows_core::RuntimeType for IConnectivityInterval {
 #[doc(hidden)]
 pub struct IConnectivityInterval_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub ConnectionDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub ConnectionDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IConnectivityManagerStatics, IConnectivityManagerStatics_Vtbl, 0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
 impl windows_core::RuntimeType for IConnectivityManagerStatics {
@@ -1015,7 +1015,7 @@ impl windows_core::RuntimeType for IDataPlanUsage {
 pub struct IDataPlanUsage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MegabytesUsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub LastSyncTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub LastSyncTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataUsage, IDataUsage_Vtbl, 0xc1431dd3_b146_4d39_b959_0c69b096c512);
 impl windows_core::RuntimeType for IDataUsage {
@@ -1162,7 +1162,7 @@ pub struct INetworkUsage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub BytesSent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
     pub BytesReceived: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub ConnectionDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ConnectionDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1780,7 +1780,7 @@ impl NetworkUsage {
             (windows_core::Interface::vtable(self).BytesReceived)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ConnectionDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ConnectionDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectionDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

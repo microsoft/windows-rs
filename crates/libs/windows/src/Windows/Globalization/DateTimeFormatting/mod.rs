@@ -48,7 +48,7 @@ impl DateTimeFormatter {
             (windows_core::Interface::vtable(self).Template)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Format(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Format(&self, value: windows_time::DateTime) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), value, &mut result__).map(|| core::mem::transmute(result__))
@@ -108,7 +108,7 @@ impl DateTimeFormatter {
             (windows_core::Interface::vtable(self).ResolvedGeographicRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FormatUsingTimeZone(&self, datetime: super::super::Foundation::DateTime, timezoneid: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FormatUsingTimeZone(&self, datetime: windows_time::DateTime, timezoneid: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDateTimeFormatter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -271,7 +271,7 @@ pub struct IDateTimeFormatter_Vtbl {
     pub SetNumeralSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Patterns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Template: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IncludeYear: unsafe extern "system" fn(*mut core::ffi::c_void, *mut YearFormat) -> windows_core::HRESULT,
     pub IncludeMonth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MonthFormat) -> windows_core::HRESULT,
     pub IncludeDayOfWeek: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DayOfWeekFormat) -> windows_core::HRESULT,
@@ -290,7 +290,7 @@ impl windows_core::RuntimeType for IDateTimeFormatter2 {
 #[doc(hidden)]
 pub struct IDateTimeFormatter2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub FormatUsingTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FormatUsingTimeZone: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDateTimeFormatterFactory, IDateTimeFormatterFactory_Vtbl, 0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
 impl windows_core::RuntimeType for IDateTimeFormatterFactory {

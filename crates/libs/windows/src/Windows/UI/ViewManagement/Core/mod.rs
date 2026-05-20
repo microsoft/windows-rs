@@ -76,7 +76,7 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
             (windows_core::Interface::vtable(self).FrameworkAnimationRecommended)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn AnimationDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn AnimationDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AnimationDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -335,7 +335,7 @@ impl CoreInputViewAnimationStartingEventArgs {
     pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHandled)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn AnimationDuration(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn AnimationDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AnimationDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -584,7 +584,7 @@ pub struct ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Occlusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FrameworkAnimationRecommended: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreFrameworkInputViewOcclusionsChangedEventArgs, ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl, 0xf36f4949_c82c_53d1_a75d_2b2baf0d9b0d);
 impl windows_core::RuntimeType for ICoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -686,7 +686,7 @@ pub struct ICoreInputViewAnimationStartingEventArgs_Vtbl {
     pub Occlusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Handled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
-    pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub AnimationDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreInputViewHidingEventArgs, ICoreInputViewHidingEventArgs_Vtbl, 0xeada47bd_bac5_5336_848d_41083584daad);
 impl windows_core::RuntimeType for ICoreInputViewHidingEventArgs {

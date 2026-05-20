@@ -227,7 +227,7 @@ impl INDDownloadEngine {
     pub fn Close(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn Seek(&self, startposition: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn Seek(&self, startposition: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), startposition).ok() }
     }
     pub fn CanSeek(&self) -> windows_core::Result<bool> {
@@ -263,7 +263,7 @@ pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
     fn Pause(&self) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
-    fn Seek(&self, startPosition: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
+    fn Seek(&self, startPosition: &windows_time::TimeSpan) -> windows_core::Result<()>;
     fn CanSeek(&self) -> windows_core::Result<bool>;
     fn BufferFullMinThresholdInSamples(&self) -> windows_core::Result<u32>;
     fn BufferFullMaxThresholdInSamples(&self) -> windows_core::Result<u32>;
@@ -295,7 +295,7 @@ impl INDDownloadEngine_Vtbl {
                 INDDownloadEngine_Impl::Close(this).into()
             }
         }
-        unsafe extern "system" fn Seek<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startposition: super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Seek<Identity: INDDownloadEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, startposition: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 INDDownloadEngine_Impl::Seek(this, core::mem::transmute(&startposition)).into()
@@ -375,7 +375,7 @@ pub struct INDDownloadEngine_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub CanSeek: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub BufferFullMinThresholdInSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub BufferFullMaxThresholdInSamples: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1387,7 +1387,7 @@ impl INDTransmitterProperties {
             (windows_core::Interface::vtable(self).SecurityVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn ExpirationDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1433,7 +1433,7 @@ pub trait INDTransmitterProperties_Impl: windows_core::IUnknownImpl {
     fn SupportedFeatures(&self) -> windows_core::Result<windows_core::Array<NDCertificateFeature>>;
     fn SecurityLevel(&self) -> windows_core::Result<u32>;
     fn SecurityVersion(&self) -> windows_core::Result<u32>;
-    fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
+    fn ExpirationDate(&self) -> windows_core::Result<windows_time::DateTime>;
     fn ClientID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn ModelDigest(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn ModelManufacturerName(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -1504,7 +1504,7 @@ impl INDTransmitterProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExpirationDate<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn ExpirationDate<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDTransmitterProperties_Impl::ExpirationDate(this) {
@@ -1611,7 +1611,7 @@ pub struct INDTransmitterProperties_Vtbl {
     pub SupportedFeatures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut NDCertificateFeature) -> windows_core::HRESULT,
     pub SecurityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SecurityVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub ExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub ExpirationDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub ClientID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub ModelDigest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
     pub ModelManufacturerName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1892,10 +1892,10 @@ impl IPlayReadyLicense {
             (windows_core::Interface::vtable(self).UsableForPlay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn ExpirationDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32> {
@@ -1929,7 +1929,7 @@ impl windows_core::RuntimeName for IPlayReadyLicense {
 pub trait IPlayReadyLicense_Impl: windows_core::IUnknownImpl {
     fn FullyEvaluated(&self) -> windows_core::Result<bool>;
     fn UsableForPlay(&self) -> windows_core::Result<bool>;
-    fn ExpirationDate(&self) -> windows_core::Result<windows_reference::IReference<super::super::super::Foundation::DateTime>>;
+    fn ExpirationDate(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>>;
     fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32>;
     fn DomainAccountID(&self) -> windows_core::Result<windows_core::GUID>;
     fn ChainDepth(&self) -> windows_core::Result<u32>;
@@ -2461,13 +2461,13 @@ impl IPlayReadySecureStopServiceRequest {
             (windows_core::Interface::vtable(self).SessionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn UpdateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2565,8 +2565,8 @@ impl windows_core::RuntimeName for IPlayReadySecureStopServiceRequest {
 }
 pub trait IPlayReadySecureStopServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
     fn SessionID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
-    fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
+    fn StartTime(&self) -> windows_core::Result<windows_time::DateTime>;
+    fn UpdateTime(&self) -> windows_core::Result<windows_time::DateTime>;
     fn Stopped(&self) -> windows_core::Result<bool>;
     fn PublisherCertificate(&self) -> windows_core::Result<windows_core::Array<u8>>;
 }
@@ -2584,7 +2584,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StartTime<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartTime<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadySecureStopServiceRequest_Impl::StartTime(this) {
@@ -2596,7 +2596,7 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UpdateTime<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn UpdateTime<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayReadySecureStopServiceRequest_Impl::UpdateTime(this) {
@@ -2652,8 +2652,8 @@ impl IPlayReadySecureStopServiceRequest_Vtbl {
 pub struct IPlayReadySecureStopServiceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SessionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub UpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub StartTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub UpdateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Stopped: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub PublisherCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
@@ -4222,10 +4222,10 @@ impl PlayReadyLicense {
             (windows_core::Interface::vtable(self).UsableForPlay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn ExpirationDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32> {
@@ -4912,13 +4912,13 @@ impl PlayReadySecureStopServiceRequest {
             (windows_core::Interface::vtable(self).SessionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn UpdateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5138,16 +5138,16 @@ impl PlayReadyStatics {
             (windows_core::Interface::vtable(this).ProtectionSystemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HardwareDRMDisabledAtTime() -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn HardwareDRMDisabledAtTime() -> windows_core::Result<windows_time::DateTime> {
         Self::IPlayReadyStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareDRMDisabledAtTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).HardwareDRMDisabledAtTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         })
     }
-    pub fn HardwareDRMDisabledUntilTime() -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn HardwareDRMDisabledUntilTime() -> windows_core::Result<windows_time::DateTime> {
         Self::IPlayReadyStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareDRMDisabledUntilTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).HardwareDRMDisabledUntilTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         })
     }
     pub fn ResetHardwareDRMDisabled() -> windows_core::Result<()> {

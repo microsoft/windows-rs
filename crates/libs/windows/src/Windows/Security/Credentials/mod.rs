@@ -144,7 +144,7 @@ impl windows_core::RuntimeType for IKeyCredentialCacheConfiguration {
 pub struct IKeyCredentialCacheConfiguration_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CacheOption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KeyCredentialCacheOption) -> windows_core::HRESULT,
-    pub Timeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Timeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub UsageCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyCredentialCacheConfigurationFactory, IKeyCredentialCacheConfigurationFactory_Vtbl, 0x9948c31b_c827_5b58_9442_40acd8ab1e7d);
@@ -153,7 +153,7 @@ impl windows_core::RuntimeType for IKeyCredentialCacheConfigurationFactory {
 }
 windows_core::imp::interface_hierarchy!(IKeyCredentialCacheConfigurationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IKeyCredentialCacheConfigurationFactory {
-    pub fn CreateInstance(&self, cacheoption: KeyCredentialCacheOption, timeout: super::super::Foundation::TimeSpan, usagecount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration> {
+    pub fn CreateInstance(&self, cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateInstance)(windows_core::Interface::as_raw(self), cacheoption, timeout, usagecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -164,11 +164,11 @@ impl windows_core::RuntimeName for IKeyCredentialCacheConfigurationFactory {
     const NAME: &'static str = "Windows.Security.Credentials.IKeyCredentialCacheConfigurationFactory";
 }
 pub trait IKeyCredentialCacheConfigurationFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, cacheOption: KeyCredentialCacheOption, timeout: &super::super::Foundation::TimeSpan, usageCount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration>;
+    fn CreateInstance(&self, cacheOption: KeyCredentialCacheOption, timeout: &windows_time::TimeSpan, usageCount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration>;
 }
 impl IKeyCredentialCacheConfigurationFactory_Vtbl {
     pub const fn new<Identity: IKeyCredentialCacheConfigurationFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateInstance<Identity: IKeyCredentialCacheConfigurationFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacheoption: KeyCredentialCacheOption, timeout: super::super::Foundation::TimeSpan, usagecount: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Identity: IKeyCredentialCacheConfigurationFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKeyCredentialCacheConfigurationFactory_Impl::CreateInstance(this, cacheoption, core::mem::transmute(&timeout), usagecount) {
@@ -194,7 +194,7 @@ impl IKeyCredentialCacheConfigurationFactory_Vtbl {
 #[doc(hidden)]
 pub struct IKeyCredentialCacheConfigurationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, KeyCredentialCacheOption, super::super::Foundation::TimeSpan, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, KeyCredentialCacheOption, windows_time::TimeSpan, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKeyCredentialManagerCreateWithWindowStatics, IKeyCredentialManagerCreateWithWindowStatics_Vtbl, 0x30b1b9c9_61ef_43e8_88ac_cc433b38d1a6);
 impl windows_core::RuntimeType for IKeyCredentialManagerCreateWithWindowStatics {
@@ -644,7 +644,7 @@ impl KeyCredentialCacheConfiguration {
             (windows_core::Interface::vtable(self).CacheOption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Timeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -656,7 +656,7 @@ impl KeyCredentialCacheConfiguration {
             (windows_core::Interface::vtable(self).UsageCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateInstance(cacheoption: KeyCredentialCacheOption, timeout: super::super::Foundation::TimeSpan, usagecount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration> {
+    pub fn CreateInstance(cacheoption: KeyCredentialCacheOption, timeout: windows_time::TimeSpan, usagecount: u32) -> windows_core::Result<KeyCredentialCacheConfiguration> {
         Self::IKeyCredentialCacheConfigurationFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), cacheoption, timeout, usagecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

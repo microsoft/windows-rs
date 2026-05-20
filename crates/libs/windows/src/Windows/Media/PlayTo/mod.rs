@@ -3,7 +3,7 @@
 pub struct CurrentTimeChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrentTimeChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CurrentTimeChangeRequestedEventArgs {
-    pub fn Time(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Time(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Time)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -28,7 +28,7 @@ impl windows_core::RuntimeType for ICurrentTimeChangeRequestedEventArgs {
 #[doc(hidden)]
 pub struct ICurrentTimeChangeRequestedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs_Vtbl, 0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
 impl windows_core::RuntimeType for IMuteChangeRequestedEventArgs {
@@ -144,8 +144,8 @@ pub struct IPlayToReceiver_Vtbl {
     pub NotifyVolumeChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64, bool) -> windows_core::HRESULT,
     pub NotifyRateChange: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub NotifyLoadedMetadata: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub NotifyTimeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub NotifyDurationChange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub NotifyTimeUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub NotifyDurationChange: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub NotifySeeking: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifySeeked: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyPaused: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -199,7 +199,7 @@ impl windows_core::RuntimeType for IPlayToSourceRequest {
 #[doc(hidden)]
 pub struct IPlayToSourceRequest_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub DisplayErrorString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -682,10 +682,10 @@ impl PlayToReceiver {
     pub fn NotifyLoadedMetadata(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyLoadedMetadata)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn NotifyTimeUpdate(&self, currenttime: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn NotifyTimeUpdate(&self, currenttime: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyTimeUpdate)(windows_core::Interface::as_raw(self), currenttime).ok() }
     }
-    pub fn NotifyDurationChange(&self, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn NotifyDurationChange(&self, duration: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyDurationChange)(windows_core::Interface::as_raw(self), duration).ok() }
     }
     pub fn NotifySeeking(&self) -> windows_core::Result<()> {
@@ -854,7 +854,7 @@ unsafe impl Sync for PlayToSourceDeferral {}
 pub struct PlayToSourceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayToSourceRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl PlayToSourceRequest {
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1025,10 +1025,10 @@ impl SourceChangeRequestedEventArgs {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Date(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     #[cfg(feature = "Storage_Streams")]

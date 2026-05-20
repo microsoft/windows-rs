@@ -206,7 +206,7 @@ pub struct IMapRoute_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     BoundingBox: usize,
     pub LengthInMeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub EstimatedDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub EstimatedDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
@@ -233,7 +233,7 @@ impl windows_core::RuntimeType for IMapRoute3 {
 #[doc(hidden)]
 pub struct IMapRoute3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DurationWithoutTraffic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DurationWithoutTraffic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub TrafficCongestion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TrafficCongestion) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapRoute4, IMapRoute4_Vtbl, 0x366c8ca5_3053_4fa1_80ff_d475f3ed1e6e);
@@ -385,7 +385,7 @@ pub struct IMapRouteLeg_Vtbl {
     #[cfg(not(feature = "Devices_Geolocation"))]
     Path: usize,
     pub LengthInMeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub EstimatedDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub EstimatedDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Maneuvers: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapRouteLeg2, IMapRouteLeg2_Vtbl, 0x02e2062d_c9c6_45b8_8e54_1a10b57a17e8);
@@ -396,7 +396,7 @@ impl windows_core::RuntimeType for IMapRouteLeg2 {
 #[doc(hidden)]
 pub struct IMapRouteLeg2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DurationWithoutTraffic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DurationWithoutTraffic: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub TrafficCongestion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TrafficCongestion) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMapRouteManeuver, IMapRouteManeuver_Vtbl, 0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
@@ -997,7 +997,7 @@ impl MapRoute {
             (windows_core::Interface::vtable(self).LengthInMeters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn EstimatedDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn EstimatedDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EstimatedDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1036,7 +1036,7 @@ impl MapRoute {
             (windows_core::Interface::vtable(this).HasBlockedRoads)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DurationWithoutTraffic(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DurationWithoutTraffic(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1119,16 +1119,16 @@ impl MapRouteDrivingOptions {
     pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRouteRestrictions)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DepartureTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DepartureTime(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetDepartureTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
+    pub fn SetDepartureTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetDepartureTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
 }
@@ -1381,7 +1381,7 @@ impl MapRouteLeg {
             (windows_core::Interface::vtable(self).LengthInMeters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn EstimatedDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn EstimatedDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EstimatedDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1393,7 +1393,7 @@ impl MapRouteLeg {
             (windows_core::Interface::vtable(self).Maneuvers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DurationWithoutTraffic(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DurationWithoutTraffic(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

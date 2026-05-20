@@ -17,6 +17,7 @@ windows-link = { workspace = true }
 windows-reference = { workspace = true }
 windows-result = { workspace = true }
 windows-targets = { workspace = true }
+windows-time = { workspace = true }
 
 # The compiled goldens (under `cfg(windows)`) reference the umbrella
 # `windows` crate and the namespaced `windows-sys` crate. Gate those

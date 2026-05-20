@@ -208,7 +208,7 @@ impl FileInformation {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -781,7 +781,7 @@ impl FolderInformation {
             (windows_core::Interface::vtable(this).Attributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DateCreated(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DateCreated(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<super::IStorageItem>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

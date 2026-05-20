@@ -264,7 +264,7 @@ impl AppInstallerManager {
     pub fn ClearAutoUpdateSettings(&self, packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearAutoUpdateSettings)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packagefamilyname)).ok() }
     }
-    pub fn PauseAutoUpdatesUntil(&self, packagefamilyname: &windows_core::HSTRING, datetime: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn PauseAutoUpdatesUntil(&self, packagefamilyname: &windows_core::HSTRING, datetime: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PauseAutoUpdatesUntil)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packagefamilyname), datetime).ok() }
     }
     pub fn GetDefault() -> windows_core::Result<AppInstallerManager> {
@@ -839,7 +839,7 @@ pub struct IAppInstallerManager_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetAutoUpdateSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ClearAutoUpdateSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PauseAutoUpdatesUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub PauseAutoUpdatesUntil: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppInstallerManagerStatics, IAppInstallerManagerStatics_Vtbl, 0xc95a6ed5_fc59_5336_9b2e_2b07c5e61434);
 impl windows_core::RuntimeType for IAppInstallerManagerStatics {

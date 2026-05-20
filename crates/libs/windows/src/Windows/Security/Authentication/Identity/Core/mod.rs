@@ -47,8 +47,8 @@ impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorOneTimeCodedInfo 
 pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Code: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TimeInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub TimeToLive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub TimeInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub TimeToLive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub ServiceResponse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorSessionInfo, IMicrosoftAccountMultiFactorSessionInfo_Vtbl, 0x5f7eabb4_a278_4635_b765_b494eb260af4);
@@ -64,8 +64,8 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
     pub DisplaySessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ApprovalStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorSessionApprovalStatus) -> windows_core::HRESULT,
     pub AuthenticationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MicrosoftAccountMultiFactorAuthenticationType) -> windows_core::HRESULT,
-    pub RequestTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub RequestTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl, 0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
 impl windows_core::RuntimeType for IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
@@ -233,13 +233,13 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
             (windows_core::Interface::vtable(self).Code)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TimeInterval(&self) -> windows_core::Result<super::super::super::super::Foundation::TimeSpan> {
+    pub fn TimeInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeToLive(&self) -> windows_core::Result<super::super::super::super::Foundation::TimeSpan> {
+    pub fn TimeToLive(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeToLive)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -359,13 +359,13 @@ impl MicrosoftAccountMultiFactorSessionInfo {
             (windows_core::Interface::vtable(self).AuthenticationType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime> {
+    pub fn RequestTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

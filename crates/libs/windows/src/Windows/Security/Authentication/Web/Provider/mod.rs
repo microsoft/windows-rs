@@ -519,10 +519,10 @@ impl IWebAccountProviderTokenOperation {
             (windows_core::Interface::vtable(self).ProviderResponses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCacheExpirationTime(&self, value: super::super::super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetCacheExpirationTime(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCacheExpirationTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CacheExpirationTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime> {
+    pub fn CacheExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CacheExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -542,8 +542,8 @@ impl windows_core::RuntimeName for IWebAccountProviderTokenOperation {
 pub trait IWebAccountProviderTokenOperation_Impl: IWebAccountProviderOperation_Impl {
     fn ProviderRequest(&self) -> windows_core::Result<WebProviderTokenRequest>;
     fn ProviderResponses(&self) -> windows_core::Result<windows_collections::IVector<WebProviderTokenResponse>>;
-    fn SetCacheExpirationTime(&self, value: &super::super::super::super::Foundation::DateTime) -> windows_core::Result<()>;
-    fn CacheExpirationTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime>;
+    fn SetCacheExpirationTime(&self, value: &windows_time::DateTime) -> windows_core::Result<()>;
+    fn CacheExpirationTime(&self) -> windows_core::Result<windows_time::DateTime>;
 }
 impl IWebAccountProviderTokenOperation_Vtbl {
     pub const fn new<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>() -> Self {
@@ -573,13 +573,13 @@ impl IWebAccountProviderTokenOperation_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWebAccountProviderTokenOperation_Impl::SetCacheExpirationTime(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn CacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn CacheExpirationTime<Identity: IWebAccountProviderTokenOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWebAccountProviderTokenOperation_Impl::CacheExpirationTime(this) {
@@ -609,8 +609,8 @@ pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProviderRequest: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProviderResponses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub CacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub SetCacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
+    pub CacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderUIReportOperation, IWebAccountProviderUIReportOperation_Vtbl, 0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
 impl windows_core::RuntimeType for IWebAccountProviderUIReportOperation {
@@ -1223,10 +1223,10 @@ impl WebAccountProviderGetTokenSilentOperation {
             (windows_core::Interface::vtable(self).ProviderResponses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCacheExpirationTime(&self, value: super::super::super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetCacheExpirationTime(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCacheExpirationTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CacheExpirationTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime> {
+    pub fn CacheExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CacheExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1336,10 +1336,10 @@ impl WebAccountProviderRequestTokenOperation {
             (windows_core::Interface::vtable(self).ProviderResponses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCacheExpirationTime(&self, value: super::super::super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetCacheExpirationTime(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCacheExpirationTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn CacheExpirationTime(&self) -> windows_core::Result<super::super::super::super::Foundation::DateTime> {
+    pub fn CacheExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CacheExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

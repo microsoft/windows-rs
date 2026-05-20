@@ -298,10 +298,10 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn InstanceStartDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -371,13 +371,13 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
             (windows_core::Interface::vtable(this).Verb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn TimeToShow(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeToShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2305,10 +2305,10 @@ impl windows_core::RuntimeType for IAppointmentsProviderShowAppointmentDetailsAc
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn InstanceStartDate(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).InstanceStartDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2356,7 +2356,7 @@ impl windows_core::RuntimeName for IAppointmentsProviderShowAppointmentDetailsAc
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
 }
 pub trait IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Impl: IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
-    fn InstanceStartDate(&self) -> windows_core::Result<windows_reference::IReference<super::super::Foundation::DateTime>>;
+    fn InstanceStartDate(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>>;
     fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
@@ -2427,13 +2427,13 @@ impl windows_core::RuntimeType for IAppointmentsProviderShowTimeFrameActivatedEv
 windows_core::imp::interface_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAppointmentsProviderShowTimeFrameActivatedEventArgs, IActivatedEventArgs, IAppointmentsProviderActivatedEventArgs);
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    pub fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn TimeToShow(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeToShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2472,12 +2472,12 @@ impl windows_core::RuntimeName for IAppointmentsProviderShowTimeFrameActivatedEv
     const NAME: &'static str = "Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs";
 }
 pub trait IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl: IActivatedEventArgs_Impl + IAppointmentsProviderActivatedEventArgs_Impl {
-    fn TimeToShow(&self) -> windows_core::Result<super::super::Foundation::DateTime>;
-    fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
+    fn TimeToShow(&self) -> windows_core::Result<windows_time::DateTime>;
+    fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan>;
 }
 impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub const fn new<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TimeToShow<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> windows_core::HRESULT {
+        unsafe extern "system" fn TimeToShow<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::DateTime) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::TimeToShow(this) {
@@ -2489,7 +2489,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Duration<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Duration<Identity: IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentsProviderShowTimeFrameActivatedEventArgs_Impl::Duration(this) {
@@ -2515,8 +2515,8 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
 #[doc(hidden)]
 pub struct IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub TimeToShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub TimeToShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundActivatedEventArgs, IBackgroundActivatedEventArgs_Vtbl, 0xab14bee0_e760_440e_a91c_44796de3a92d);
 impl windows_core::RuntimeType for IBackgroundActivatedEventArgs {

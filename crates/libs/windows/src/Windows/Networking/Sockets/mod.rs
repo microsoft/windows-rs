@@ -309,7 +309,7 @@ impl DatagramSocket {
         let this = &windows_core::Interface::cast::<IDatagramSocket3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).TransferOwnershipWithContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(socketid), data.param().abi()).ok() }
     }
-    pub fn TransferOwnershipWithContextAndKeepAliveTime<P1>(&self, socketid: &windows_core::HSTRING, data: P1, keepalivetime: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
+    pub fn TransferOwnershipWithContextAndKeepAliveTime<P1>(&self, socketid: &windows_core::HSTRING, data: P1, keepalivetime: windows_time::TimeSpan) -> windows_core::Result<()>
     where
         P1: windows_core::Param<SocketActivityContext>,
     {
@@ -754,7 +754,7 @@ pub struct IDatagramSocket3_Vtbl {
     pub EnableTransferOwnershipWithConnectedStandbyAction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, SocketActivityConnectedStandbyAction) -> windows_core::HRESULT,
     pub TransferOwnership: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TransferOwnershipWithContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TransferOwnershipWithContextAndKeepAliveTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub TransferOwnershipWithContextAndKeepAliveTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDatagramSocketControl, IDatagramSocketControl_Vtbl, 0x52ac3f2e_349a_4135_bb58_b79b2647d390);
 impl windows_core::RuntimeType for IDatagramSocketControl {
@@ -899,9 +899,9 @@ impl windows_core::RuntimeType for IMessageWebSocketControl2 {
 #[doc(hidden)]
 pub struct IMessageWebSocketControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub ActualUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetDesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub ActualUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub ReceiveMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MessageWebSocketReceiveMode) -> windows_core::HRESULT,
     pub SetReceiveMode: unsafe extern "system" fn(*mut core::ffi::c_void, MessageWebSocketReceiveMode) -> windows_core::HRESULT,
     #[cfg(feature = "Security_Cryptography_Certificates")]
@@ -1140,7 +1140,7 @@ pub struct IStreamSocket3_Vtbl {
     pub EnableTransferOwnershipWithConnectedStandbyAction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, SocketActivityConnectedStandbyAction) -> windows_core::HRESULT,
     pub TransferOwnership: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TransferOwnershipWithContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TransferOwnershipWithContextAndKeepAliveTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub TransferOwnershipWithContextAndKeepAliveTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStreamSocketControl, IStreamSocketControl_Vtbl, 0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
 impl windows_core::RuntimeType for IStreamSocketControl {
@@ -1395,9 +1395,9 @@ impl windows_core::RuntimeType for IStreamWebSocketControl2 {
 #[doc(hidden)]
 pub struct IStreamWebSocketControl2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub ActualUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetDesiredUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub ActualUnsolicitedPongInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub ClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Cryptography_Certificates"))]
@@ -2280,18 +2280,18 @@ impl MessageWebSocketControl {
     pub fn SetMessageType(&self, value: SocketMessageType) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMessageType)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DesiredUnsolicitedPongInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DesiredUnsolicitedPongInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredUnsolicitedPongInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDesiredUnsolicitedPongInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ActualUnsolicitedPongInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ActualUnsolicitedPongInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3191,7 +3191,7 @@ impl StreamSocket {
         let this = &windows_core::Interface::cast::<IStreamSocket3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).TransferOwnershipWithContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(socketid), data.param().abi()).ok() }
     }
-    pub fn TransferOwnershipWithContextAndKeepAliveTime<P1>(&self, socketid: &windows_core::HSTRING, data: P1, keepalivetime: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
+    pub fn TransferOwnershipWithContextAndKeepAliveTime<P1>(&self, socketid: &windows_core::HSTRING, data: P1, keepalivetime: windows_time::TimeSpan) -> windows_core::Result<()>
     where
         P1: windows_core::Param<SocketActivityContext>,
     {
@@ -3802,18 +3802,18 @@ impl StreamWebSocketControl {
     pub fn SetNoDelay(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetNoDelay)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DesiredUnsolicitedPongInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DesiredUnsolicitedPongInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredUnsolicitedPongInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDesiredUnsolicitedPongInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredUnsolicitedPongInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ActualUnsolicitedPongInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ActualUnsolicitedPongInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IStreamWebSocketControl2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

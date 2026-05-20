@@ -19,6 +19,9 @@ workspace = true
 [dependencies.windows-reference]
 workspace = true
 
+[dependencies.windows-time]
+workspace = true
+
 [dependencies.windows]
 workspace = true
 features = [

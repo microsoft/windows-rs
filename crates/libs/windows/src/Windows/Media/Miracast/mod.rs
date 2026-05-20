@@ -295,7 +295,7 @@ pub struct IMiracastTransmitter_Vtbl {
     pub SetAuthorizationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, MiracastTransmitterAuthorizationStatus) -> windows_core::HRESULT,
     pub GetConnections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MacAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LastConnectionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub LastConnectionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1333,7 +1333,7 @@ impl MiracastTransmitter {
             (windows_core::Interface::vtable(self).MacAddress)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LastConnectionTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LastConnectionTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastConnectionTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

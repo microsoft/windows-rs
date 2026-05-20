@@ -1137,19 +1137,19 @@ unsafe impl Sync for AppBroadcastPreviewStreamVideoFrame {}
 pub struct AppBroadcastPreviewStreamVideoHeader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastPreviewStreamVideoHeader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastPreviewStreamVideoHeader {
-    pub fn AbsoluteTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn AbsoluteTimestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AbsoluteTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn RelativeTimestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RelativeTimestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RelativeTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1652,19 +1652,19 @@ impl windows_core::RuntimeName for AppBroadcastStreamAudioFrame {
 pub struct AppBroadcastStreamAudioHeader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamAudioHeader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamAudioHeader {
-    pub fn AbsoluteTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn AbsoluteTimestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AbsoluteTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn RelativeTimestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RelativeTimestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RelativeTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1860,19 +1860,19 @@ impl windows_core::RuntimeName for AppBroadcastStreamVideoFrame {
 pub struct AppBroadcastStreamVideoHeader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastStreamVideoHeader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastStreamVideoHeader {
-    pub fn AbsoluteTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn AbsoluteTimestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AbsoluteTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn RelativeTimestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RelativeTimestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RelativeTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2269,7 +2269,7 @@ impl windows_core::RuntimeName for AppCaptureAlternateShortcutKeys {
 pub struct AppCaptureDurationGeneratedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCaptureDurationGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCaptureDurationGeneratedEventArgs {
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2497,10 +2497,10 @@ impl AppCaptureRecordOperation {
             (windows_core::Interface::vtable(self).ErrorCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2620,7 +2620,7 @@ impl AppCaptureServices {
             (windows_core::Interface::vtable(self).Record)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RecordTimeSpan(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<AppCaptureRecordOperation> {
+    pub fn RecordTimeSpan(&self, starttime: windows_time::DateTime, duration: windows_time::TimeSpan) -> windows_core::Result<AppCaptureRecordOperation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecordTimeSpan)(windows_core::Interface::as_raw(self), starttime, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2760,10 +2760,10 @@ impl AppCaptureSettings {
             (windows_core::Interface::vtable(self).IsHistoricalCaptureOnWirelessDisplayAllowed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMaximumRecordLength(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetMaximumRecordLength(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumRecordLength)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn MaximumRecordLength(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MaximumRecordLength(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaximumRecordLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3466,10 +3466,10 @@ unsafe impl Sync for CapturedFrame {}
 pub struct CapturedFrameControlValues(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CapturedFrameControlValues, windows_core::IUnknown, windows_core::IInspectable);
 impl CapturedFrameControlValues {
-    pub fn Exposure(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Exposure(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Exposure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Exposure)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn ExposureCompensation(&self) -> windows_core::Result<f32> {
@@ -4242,9 +4242,9 @@ impl windows_core::RuntimeType for IAppBroadcastPreviewStreamVideoHeader {
 #[doc(hidden)]
 pub struct IAppBroadcastPreviewStreamVideoHeader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AbsoluteTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub RelativeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub AbsoluteTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub RelativeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppBroadcastProviderSettings, IAppBroadcastProviderSettings_Vtbl, 0xc30bdf62_9948_458f_ad50_aa06ec03da08);
@@ -4377,9 +4377,9 @@ impl windows_core::RuntimeType for IAppBroadcastStreamAudioHeader {
 #[doc(hidden)]
 pub struct IAppBroadcastStreamAudioHeader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AbsoluteTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub RelativeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub AbsoluteTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub RelativeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub HasDiscontinuity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
@@ -4440,9 +4440,9 @@ impl windows_core::RuntimeType for IAppBroadcastStreamVideoHeader {
 #[doc(hidden)]
 pub struct IAppBroadcastStreamVideoHeader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AbsoluteTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub RelativeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub AbsoluteTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub RelativeTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub IsKeyFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub HasDiscontinuity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
@@ -4643,7 +4643,7 @@ impl windows_core::RuntimeType for IAppCaptureDurationGeneratedEventArgs {
 #[doc(hidden)]
 pub struct IAppCaptureDurationGeneratedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppCaptureFileGeneratedEventArgs, IAppCaptureFileGeneratedEventArgs_Vtbl, 0x4189fbf4_465e_45bf_907f_165b3fb23758);
 impl windows_core::RuntimeType for IAppCaptureFileGeneratedEventArgs {
@@ -4744,7 +4744,7 @@ impl windows_core::RuntimeType for IAppCaptureServices {
 pub struct IAppCaptureServices_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Record: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RecordTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RecordTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CanCapture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4784,8 +4784,8 @@ pub struct IAppCaptureSettings_Vtbl {
     pub IsHistoricalCaptureOnBatteryAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsHistoricalCaptureOnWirelessDisplayAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsHistoricalCaptureOnWirelessDisplayAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetMaximumRecordLength: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub MaximumRecordLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetMaximumRecordLength: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub MaximumRecordLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Search")]
     pub SetScreenshotDestinationFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Search"))]
@@ -5574,7 +5574,7 @@ impl windows_core::RuntimeType for IMediaCapturePauseResult {
 pub struct IMediaCapturePauseResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LastFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RecordDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub RecordDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaCaptureRelativePanelWatcher, IMediaCaptureRelativePanelWatcher_Vtbl, 0x7d896566_04be_5b89_b30e_bd34a9f12db0);
 impl windows_core::RuntimeType for IMediaCaptureRelativePanelWatcher {
@@ -5659,7 +5659,7 @@ impl windows_core::RuntimeType for IMediaCaptureStopResult {
 pub struct IMediaCaptureStopResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub LastFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RecordDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub RecordDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMediaCaptureVideoPreview, IMediaCaptureVideoPreview_Vtbl, 0x27727073_549e_447f_a20a_4f03c479d8c0);
 impl windows_core::RuntimeType for IMediaCaptureVideoPreview {
@@ -5764,7 +5764,7 @@ pub struct IPhotoCapturedEventArgs_Vtbl {
     pub Thumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     Thumbnail: usize,
-    pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPhotoConfirmationCapturedEventArgs, IPhotoConfirmationCapturedEventArgs_Vtbl, 0xab473672_c28a_4827_8f8d_3636d3beb51e);
 impl windows_core::RuntimeType for IPhotoConfirmationCapturedEventArgs {
@@ -5778,7 +5778,7 @@ pub struct IPhotoConfirmationCapturedEventArgs_Vtbl {
     pub Frame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     Frame: usize,
-    pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub CaptureTimeOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IVideoStreamConfiguration, IVideoStreamConfiguration_Vtbl, 0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
 impl windows_core::RuntimeType for IVideoStreamConfiguration {
@@ -6996,7 +6996,7 @@ impl MediaCapturePauseResult {
             (windows_core::Interface::vtable(self).LastFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RecordDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RecordDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecordDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7200,7 +7200,7 @@ impl MediaCaptureStopResult {
             (windows_core::Interface::vtable(self).LastFrame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RecordDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RecordDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecordDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7460,7 +7460,7 @@ impl PhotoCapturedEventArgs {
             (windows_core::Interface::vtable(self).Thumbnail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CaptureTimeOffset(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn CaptureTimeOffset(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CaptureTimeOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7491,7 +7491,7 @@ impl PhotoConfirmationCapturedEventArgs {
             (windows_core::Interface::vtable(self).Frame)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CaptureTimeOffset(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn CaptureTimeOffset(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CaptureTimeOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
