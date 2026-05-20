@@ -444,22 +444,6 @@ where
         }
     }
 
-    if builder.package && builder.flat {
-        panic!("cannot combine `--package` and `--flat`");
-    }
-
-    if builder.sys && builder.minimal {
-        panic!("cannot combine `--sys` and `--minimal`");
-    }
-
-    if builder.no_toml && !builder.package {
-        panic!("`--no-toml` requires `--package`");
-    }
-
-    if builder.sys_fn_extern && !builder.sys {
-        panic!("`--extern` requires `--sys`");
-    }
-
     if !has_output {
         panic!("exactly one `--out` is required");
     }
@@ -490,14 +474,45 @@ pub struct Bindgen {
     implement: Option<Vec<String>>,
     rustfmt: String,
     link: String,
-    flat: bool,
+    layout: Layout,
+    style: Style,
     deps: DepMode,
-    no_toml: bool,
-    package: bool,
-    sys: bool,
-    minimal: bool,
-    sys_fn_extern: bool,
     index: bool,
+}
+
+/// Output layout for the generated bindings. Mutually exclusive variants
+/// replace the legacy `flat: bool` + `package: bool` + `no_toml: bool`
+/// triple, making invalid combinations unrepresentable.
+#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
+enum Layout {
+    /// One Rust module per metadata namespace (the default).
+    #[default]
+    Modules,
+    /// A single flat list of items (no namespace modules).
+    Flat,
+    /// One file per namespace + `Cargo.toml` features.
+    Package {
+        /// When `true`, skip rewriting `Cargo.toml`.
+        no_toml: bool,
+    },
+}
+
+/// Code-style mode for the generated bindings. Mutually exclusive variants
+/// replace the legacy `sys: bool` + `minimal: bool` + `sys_fn_extern: bool`
+/// triple, making invalid combinations unrepresentable.
+#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
+enum Style {
+    /// Full-fidelity bindings (the default).
+    #[default]
+    Default,
+    /// Raw / sys-style bindings.
+    Sys {
+        /// When `true`, emit `extern { fn … }` instead of `link!` macros.
+        extern_fns: bool,
+    },
+    /// Minimal-mode bindings (drop class wrappers, inherited forwarders,
+    /// handle ergonomics; auto-revoke events).
+    Minimal,
 }
 
 impl Bindgen {
@@ -608,8 +623,12 @@ impl Bindgen {
     }
 
     /// Avoid the default namespace-to-module conversion.
+    #[track_caller]
     pub fn flat(&mut self) -> &mut Self {
-        self.flat = true;
+        if matches!(self.layout, Layout::Package { .. }) {
+            panic!("cannot combine `--package` and `--flat`");
+        }
+        self.layout = Layout::Flat;
         self
     }
 
@@ -626,14 +645,25 @@ impl Bindgen {
     }
 
     /// Avoid generating the Cargo.toml features when using `package` mode.
+    ///
+    /// Only valid in combination with [`Bindgen::package`]; panics otherwise.
+    #[track_caller]
     pub fn no_toml(&mut self) -> &mut Self {
-        self.no_toml = true;
+        match &mut self.layout {
+            Layout::Package { no_toml } => *no_toml = true,
+            _ => panic!("`--no-toml` requires `--package`"),
+        }
         self
     }
 
     /// Generate bindings as a package with one file per namespace.
+    #[track_caller]
     pub fn package(&mut self) -> &mut Self {
-        self.package = true;
+        let no_toml = matches!(self.layout, Layout::Package { no_toml: true });
+        if matches!(self.layout, Layout::Flat) {
+            panic!("cannot combine `--package` and `--flat`");
+        }
+        self.layout = Layout::Package { no_toml };
         self
     }
 
@@ -661,8 +691,16 @@ impl Bindgen {
     }
 
     /// Generate raw or sys-style Rust bindings.
+    ///
+    /// Mutually exclusive with [`Bindgen::minimal`]; panics if `minimal` was
+    /// already selected.
+    #[track_caller]
     pub fn sys(&mut self) -> &mut Self {
-        self.sys = true;
+        let extern_fns = matches!(self.style, Style::Sys { extern_fns: true });
+        if matches!(self.style, Style::Minimal) {
+            panic!("cannot combine `--sys` and `--minimal`");
+        }
+        self.style = Style::Sys { extern_fns };
         self
     }
 
@@ -696,16 +734,24 @@ impl Bindgen {
     /// raw-vtable callers are unaffected.
     ///
     /// `--minimal` is mutually exclusive with `--sys`.
+    #[track_caller]
     pub fn minimal(&mut self) -> &mut Self {
-        self.minimal = true;
+        if matches!(self.style, Style::Sys { .. }) {
+            panic!("cannot combine `--sys` and `--minimal`");
+        }
+        self.style = Style::Minimal;
         self
     }
 
     /// Generate `extern` declarations rather than `link!` macros for sys-style Rust bindings.
     ///
-    /// Only valid in combination with [`Bindgen::sys`].
+    /// Only valid in combination with [`Bindgen::sys`]; panics otherwise.
+    #[track_caller]
     pub fn extern_fns(&mut self) -> &mut Self {
-        self.sys_fn_extern = true;
+        match &mut self.style {
+            Style::Sys { extern_fns } => *extern_fns = true,
+            _ => panic!("`--extern` requires `--sys`"),
+        }
         self
     }
 
@@ -713,6 +759,10 @@ impl Bindgen {
     pub fn index(&mut self) -> &mut Self {
         self.index = true;
         self
+    }
+
+    fn is_sys(&self) -> bool {
+        matches!(self.style, Style::Sys { .. })
     }
 
     /// Generate the bindings.
@@ -730,8 +780,15 @@ impl Bindgen {
             }
         }
 
+        let sys = self.is_sys();
+        let minimal = matches!(self.style, Style::Minimal);
+        let sys_fn_extern = matches!(self.style, Style::Sys { extern_fns: true });
+        let flat = matches!(self.layout, Layout::Flat);
+        let package = matches!(self.layout, Layout::Package { .. });
+        let no_toml = matches!(self.layout, Layout::Package { no_toml: true });
+
         let link = if self.link.is_empty() {
-            if self.sys || self.deps == DepMode::Specific {
+            if sys || self.deps == DepMode::Specific {
                 "windows_link"
             } else {
                 "windows_core"
@@ -755,22 +812,6 @@ impl Bindgen {
             panic!("at least one `--filter` required");
         }
 
-        if self.package && self.flat {
-            panic!("cannot combine `--package` and `--flat`");
-        }
-
-        if self.sys && self.minimal {
-            panic!("cannot combine `--sys` and `--minimal`");
-        }
-
-        if self.no_toml && !self.package {
-            panic!("`--no-toml` requires `--package`");
-        }
-
-        if self.sys_fn_extern && !self.sys {
-            panic!("`--extern` requires `--sys`");
-        }
-
         let reader = Reader::new(expand_input(&input));
 
         let mut references: Vec<ReferenceStage> = self
@@ -779,7 +820,7 @@ impl Bindgen {
             .map(|s| ReferenceStage::parse(s))
             .collect();
 
-        if !self.sys && self.deps != DepMode::None {
+        if !sys && self.deps != DepMode::None {
             // Implicit references onto sibling `windows-*` crates that
             // re-export common WinRT / Win32 types. Each group is registered
             // only when its source namespace is actually present in the
@@ -871,18 +912,18 @@ impl Bindgen {
         let config = Config {
             reader: &reader,
             types: &types,
-            flat: self.flat,
+            flat,
             references: &references,
             filter: &filter,
             derive: &derive,
             deps: self.deps,
-            no_toml: self.no_toml,
-            package: self.package,
+            no_toml,
+            package,
             rustfmt: &self.rustfmt,
             output: &self.output,
-            sys: self.sys,
-            minimal: self.minimal,
-            sys_fn_extern: self.sys_fn_extern,
+            sys,
+            minimal,
+            sys_fn_extern,
             implement: implements.as_ref(),
             link,
             warnings: &warnings,
