@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter GetTickCount --sys"
+args = "--in default --flat --filter GetTickCount --sys"

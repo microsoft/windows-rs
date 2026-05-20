@@ -1,4 +1,2 @@
 filter = "Test"
-no_allow = true
-no_comment = true
 specific_deps = true

@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter GetTickCount --sys --sys-fn-ptrs"
+args = "--in default --flat --filter GetTickCount --sys --sys-fn-ptrs"

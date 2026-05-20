@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter GetTickCount --sys --link windows_targets"
+args = "--in default --flat --filter GetTickCount --sys --link windows_targets"

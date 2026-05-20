@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 #[repr(transparent)]
 #[derive(Clone, Copy)]
 pub struct ErrorOptions(pub u32);

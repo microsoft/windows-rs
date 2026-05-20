@@ -11,7 +11,6 @@ fn main() {
         "VhfStart",
         "RpcMgmtEnableIdleCleanup",
         "--flat",
-        "--no-comment",
     ])
     .unwrap();
 }

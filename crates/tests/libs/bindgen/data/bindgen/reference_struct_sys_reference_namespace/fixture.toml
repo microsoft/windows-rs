@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --sys --filter GAMING_DEVICE_MODEL_INFORMATION --reference windows_sys,skip-root,Windows.Win32.Gaming"
+args = "--in default --flat --sys --filter GAMING_DEVICE_MODEL_INFORMATION --reference windows_sys,skip-root,Windows.Win32.Gaming"

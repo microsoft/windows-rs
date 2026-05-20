@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter CoInitializeEx"
+args = "--in default --flat --filter CoInitializeEx"

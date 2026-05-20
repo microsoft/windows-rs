@@ -40,8 +40,6 @@ Supported keys:
 | `filter`         | string     | all        | namespace filter (default: `"Test"`)      |
 | `references`     | string[]   | rdl/clang/bindgen/merge/winmd_to_rdl | extra reader/writer inputs (paths relative to the fixture dir for `winmd_to_rdl`) |
 | `winmd_input`    | string     | winmd_to_rdl | path (relative to the fixture dir) of the prebuilt winmd to filter |
-| `no_allow`       | bool       | bindgen    | pass `--no-allow` to bindgen              |
-| `no_comment`     | bool       | bindgen    | pass `--no-comment` to bindgen            |
 | `specific_deps`  | bool       | bindgen    | pass `--specific-deps` to bindgen         |
 | `kind`           | string     | error      | `"reader"` (default), `"reader_no_input"`, `"writer"`, or `"bindgen"` — which stage must fail |
 | `arch_inputs`    | string[]   | merge      | per-input arch tagging, e.g. `["input-x86.rdl=X86", "input-x64.rdl=X64"]`. Arches are `X86`/`X64`/`Arm64` or `\|`-joined. |

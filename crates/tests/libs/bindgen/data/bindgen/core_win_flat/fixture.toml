@@ -1,1 +1,1 @@
-args = "--no-comment --in default --filter CoCreateGuid --flat"
+args = "--in default --filter CoCreateGuid --flat"

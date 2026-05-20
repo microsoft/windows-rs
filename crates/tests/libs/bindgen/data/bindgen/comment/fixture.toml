@@ -1,1 +1,0 @@
-args = "--in default --filter GetTickCount --sys --flat"

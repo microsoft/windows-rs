@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter SetConsoleCtrlHandler"
+args = "--in default --flat --filter SetConsoleCtrlHandler"

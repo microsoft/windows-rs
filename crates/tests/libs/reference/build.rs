@@ -21,8 +21,6 @@ fn main() {
         "Windows.Foundation.Size",
         "Windows.Foundation.TimeSpan",
         "--flat",
-        "--no-comment",
-        "--no-allow",
     ])
     .unwrap();
 }

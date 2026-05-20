@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter DateTime TimeSpan --derive DateTime=PartialOrd"
+args = "--in default --flat --filter DateTime TimeSpan --derive DateTime=PartialOrd"

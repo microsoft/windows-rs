@@ -19,7 +19,6 @@ fn msvc_main() {
         "src/bindings.rs",
         "--filter",
         "test_constructors",
-        "--no-comment",
         "--flat",
     ])
     .unwrap();

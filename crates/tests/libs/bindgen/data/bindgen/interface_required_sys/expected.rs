@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 pub const IID_IAsyncAction: windows_sys::core::GUID =
     windows_sys::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 #[repr(C)]

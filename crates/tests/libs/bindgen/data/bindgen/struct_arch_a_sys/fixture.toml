@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --sys --filter SP_POWERMESSAGEWAKE_PARAMS_A"
+args = "--in default --flat --sys --filter SP_POWERMESSAGEWAKE_PARAMS_A"

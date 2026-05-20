@@ -31,7 +31,6 @@ fn msvc_main() {
         "Test",
         "--implement",
         "--flat",
-        "--no-comment",
         "--reference",
         "windows_collections,flat,Windows",
     ])

@@ -22,7 +22,6 @@ fn test() {
         "src/struct_values.rs",
         "--filter",
         "Test",
-        "--no-comment",
     ])
     .unwrap();
 

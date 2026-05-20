@@ -33,7 +33,6 @@ fn main() {
         "--filter",
         "test_constructors",
         "--implement",
-        "--no-comment",
         "--flat",
     ])
     .unwrap();

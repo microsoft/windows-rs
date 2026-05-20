@@ -33,7 +33,6 @@ fn main() {
         "--filter",
         "test_overloads",
         "--implement",
-        "--no-comment",
         "--flat",
     ])
     .unwrap();

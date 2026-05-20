@@ -1,1 +1,1 @@
-args = "--no-comment --in default --filter CoCreateGuid --sys --flat --no-deps"
+args = "--in default --filter CoCreateGuid --sys --flat --no-deps"
