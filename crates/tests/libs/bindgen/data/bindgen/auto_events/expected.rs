@@ -9,11 +9,7 @@ pub mod Test {
             windows_core::imp::ConstBuffer::for_interface::<Self>();
     }
     impl Handler {
-        pub fn new<
-            F: Fn(windows_core::Ref<IFoo>, i32) -> windows_core::Result<()> + Send + 'static,
-        >(
-            invoke: F,
-        ) -> Self {
+        pub fn new<F: Fn(windows_core::Ref<IFoo>, i32) + Send + 'static>(invoke: F) -> Self {
             let com =
                 windows_core::imp::DelegateBox::<Handler, F>::new(&HandlerBox::<F>::VTABLE, invoke);
             unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
@@ -42,12 +38,10 @@ pub mod Test {
             args: i32,
         ) -> windows_core::HRESULT,
     }
-    struct HandlerBox<F: Fn(windows_core::Ref<IFoo>, i32) -> windows_core::Result<()> + Send + 'static>(
+    struct HandlerBox<F: Fn(windows_core::Ref<IFoo>, i32) + Send + 'static>(
         core::marker::PhantomData<(fn() -> F,)>,
     );
-    impl<F: Fn(windows_core::Ref<IFoo>, i32) -> windows_core::Result<()> + Send + 'static>
-        HandlerBox<F>
-    {
+    impl<F: Fn(windows_core::Ref<IFoo>, i32) + Send + 'static> HandlerBox<F> {
         const VTABLE: Handler_Vtbl = Handler_Vtbl {
             base__: windows_core::IUnknown_Vtbl {
                 QueryInterface: windows_core::imp::DelegateBox::<Handler, F>::QueryInterface,
@@ -64,7 +58,8 @@ pub mod Test {
             unsafe {
                 let this = &mut *(this as *mut *mut core::ffi::c_void
                     as *mut windows_core::imp::DelegateBox<Handler, F>);
-                (this.invoke)(core::mem::transmute_copy(&sender), args).into()
+                (this.invoke)(core::mem::transmute_copy(&sender), args);
+                windows_core::HRESULT(0)
             }
         }
     }
@@ -91,7 +86,7 @@ pub mod Test {
         }
         pub fn Click<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
         where
-            F: Fn(windows_core::Ref<IFoo>, i32) -> windows_core::Result<()> + Send + 'static,
+            F: Fn(windows_core::Ref<IFoo>, i32) + Send + 'static,
         {
             let handler = <Handler>::new(handler);
             unsafe {

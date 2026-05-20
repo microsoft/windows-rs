@@ -34,31 +34,7 @@ impl Method {
         let reader = config.reader;
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
-        let invoke_args = self.signature
-        .params
-        .iter()
-        .map(|param| {
-            let name = param.write_ident();
-            let abi_size_name: TokenStream = format!("{}_array_size", param.write_ident()).parse().unwrap();
-
-            if param.is_input() {
-                if param.is_winrt_array() {
-                    quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
-                } else if param.is_primitive(reader) {
-                    quote! { #name }
-                } else if param.is_const_ref() || param.is_interface() || matches!(&param.ty, Type::Generic(_))  {
-                    quote! { core::mem::transmute_copy(&#name) }
-                } else {
-                    quote! { core::mem::transmute(&#name) }
-                }
-            } else if param.is_winrt_array() {
-                quote! { core::slice::from_raw_parts_mut(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
-            } else if param.is_winrt_array_ref() {
-                quote! { &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&#name), #abi_size_name) }
-            } else {
-                quote! { core::mem::transmute_copy(&#name) }
-            }
-        });
+        let invoke_args = self.write_upcall_args(reader);
 
         let this = if this {
             quote! { this, }
@@ -136,6 +112,62 @@ impl Method {
         }
     }
 
+    /// Like `write_upcall`, but assumes the inner closure returns nothing and
+    /// the boxed `Invoke` should simply return `S_OK`. Used by event-handler
+    /// delegates generated under `--minimal`.
+    pub fn write_upcall_no_return(
+        &self,
+        inner: TokenStream,
+        this: bool,
+        config: &Config,
+    ) -> TokenStream {
+        let invoke_args = self.write_upcall_args(config.reader);
+
+        let this = if this {
+            quote! { this, }
+        } else {
+            quote! {}
+        };
+
+        quote! {
+            #inner(#this #(#invoke_args,)*);
+            windows_core::HRESULT(0)
+        }
+    }
+
+    fn write_upcall_args(&self, reader: &Reader) -> Vec<TokenStream> {
+        self.signature
+            .params
+            .iter()
+            .map(|param| {
+                let name = param.write_ident();
+                let abi_size_name: TokenStream =
+                    format!("{}_array_size", param.write_ident()).parse().unwrap();
+
+                if param.is_input() {
+                    if param.is_winrt_array() {
+                        quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
+                    } else if param.is_primitive(reader) {
+                        quote! { #name }
+                    } else if param.is_const_ref()
+                        || param.is_interface()
+                        || matches!(&param.ty, Type::Generic(_))
+                    {
+                        quote! { core::mem::transmute_copy(&#name) }
+                    } else {
+                        quote! { core::mem::transmute(&#name) }
+                    }
+                } else if param.is_winrt_array() {
+                    quote! { core::slice::from_raw_parts_mut(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
+                } else if param.is_winrt_array_ref() {
+                    quote! { &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&#name), #abi_size_name) }
+                } else {
+                    quote! { core::mem::transmute_copy(&#name) }
+                }
+            })
+            .collect()
+    }
+
     pub fn write_impl_signature(
         &self,
         config: &Config,
@@ -143,40 +175,7 @@ impl Method {
         has_this: bool,
     ) -> TokenStream {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
-
-        let params = self.signature.params.iter().map(|p| {
-            let default_type = p.write_default(config);
-
-            let sig = if p.is_input() {
-                if p.is_winrt_array() {
-                    quote! { &[#default_type] }
-                } else if p.is_primitive(config.reader) {
-                    quote! { #default_type }
-                } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
-                    let type_name = p.write_name(config);
-                    quote! { windows_core::Ref<#type_name> }
-                } else {
-                    quote! { &#default_type }
-                }
-            } else if p.is_winrt_array() {
-                quote! { &mut [#default_type] }
-            } else if p.is_winrt_array_ref() {
-                let kind = p.write_name(config);
-                quote! { &mut windows_core::Array<#kind> }
-            } else if p.is_interface() {
-                let type_name = p.write_name(config);
-                quote! { windows_core::OutRef<#type_name> }
-            } else {
-                quote! { &mut #default_type }
-            };
-
-            if named_params {
-                let name = to_ident(p.def.name());
-                quote! { #name: #sig }
-            } else {
-                sig
-            }
-        });
+        let params = self.write_impl_params(config, named_params);
 
         let return_type_tokens = if self.signature.return_type == Type::Void {
             quote! { () }
@@ -212,6 +211,55 @@ impl Method {
                 (#(#params),*) #return_type_tokens
             }
         }
+    }
+
+    /// Returns the parenthesized parameter signature without a return type,
+    /// suitable for use as the input portion of an `Fn(...)` bound when the
+    /// caller doesn't need a return value (currently event-handler closures
+    /// under `--minimal`).
+    pub fn write_impl_signature_no_return(&self, config: &Config) -> TokenStream {
+        let params = self.write_impl_params(config, false);
+        quote! { (#(#params),*) }
+    }
+
+    fn write_impl_params(&self, config: &Config, named_params: bool) -> Vec<TokenStream> {
+        self.signature
+            .params
+            .iter()
+            .map(|p| {
+                let default_type = p.write_default(config);
+
+                let sig = if p.is_input() {
+                    if p.is_winrt_array() {
+                        quote! { &[#default_type] }
+                    } else if p.is_primitive(config.reader) {
+                        quote! { #default_type }
+                    } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
+                        let type_name = p.write_name(config);
+                        quote! { windows_core::Ref<#type_name> }
+                    } else {
+                        quote! { &#default_type }
+                    }
+                } else if p.is_winrt_array() {
+                    quote! { &mut [#default_type] }
+                } else if p.is_winrt_array_ref() {
+                    let kind = p.write_name(config);
+                    quote! { &mut windows_core::Array<#kind> }
+                } else if p.is_interface() {
+                    let type_name = p.write_name(config);
+                    quote! { windows_core::OutRef<#type_name> }
+                } else {
+                    quote! { &mut #default_type }
+                };
+
+                if named_params {
+                    let name = to_ident(p.def.name());
+                    quote! { #name: #sig }
+                } else {
+                    sig
+                }
+            })
+            .collect()
     }
 
     pub fn write_abi(&self, config: &Config, named_params: bool) -> TokenStream {
@@ -692,9 +740,22 @@ impl Method {
                         unreachable!()
                     };
                     let invoke = d.method(config.reader);
-                    let fn_sig = invoke.write_impl_signature(config, false, false);
                     let delegate_name = d.write_name(config);
                     let pname = dp.write_ident();
+
+                    // The wrapper accepts a closure constrained to the
+                    // delegate's parameter list but with no return type.
+                    let fn_sig_no_return = invoke.write_impl_signature_no_return(config);
+
+                    // If the delegate is being generated by this same bindgen
+                    // run under `--minimal`, its `new` accepts the void-
+                    // returning closure directly and returns S_OK internally,
+                    // so we can pass `handler` straight through. Otherwise
+                    // (the delegate comes from a referenced crate built
+                    // without `--minimal`), wrap the handler to satisfy its
+                    // `Fn(...) -> Result<()>` constraint.
+                    let delegate_is_local_minimal =
+                        config.references.contains(d.type_name()).is_none();
 
                     // Rebuild typed_args, replacing the delegate slot with a raw
                     // interface pointer for the locally-constructed delegate.
@@ -756,7 +817,7 @@ impl Method {
                         .collect();
 
                     let event_where_clause = quote! {
-                        where #(#other_constraints)* F: Fn #fn_sig + Send + 'static,
+                        where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
                     };
 
                     // Reuse the rendered declarations for non-delegate params and
@@ -774,9 +835,27 @@ impl Method {
                         })
                         .collect();
 
-                    let event_prelude = quote! {
-                        #prelude
-                        let #pname = <#delegate_name>::new(#pname);
+                    let event_prelude = if delegate_is_local_minimal {
+                        quote! {
+                            #prelude
+                            let #pname = <#delegate_name>::new(#pname);
+                        }
+                    } else {
+                        // Synthetic argument names for the wrapping closure
+                        // that injects `Ok(())`. These only exist inside the
+                        // inner closure so they don't collide with any
+                        // user-visible parameter names.
+                        let invoke_arg_idents: Vec<TokenStream> =
+                            (0..invoke.signature.params.len())
+                                .map(|i| format!("a{i}").parse().unwrap())
+                                .collect();
+                        quote! {
+                            #prelude
+                            let #pname = <#delegate_name>::new(move |#(#invoke_arg_idents),*| {
+                                #pname(#(#invoke_arg_idents),*);
+                                Ok(())
+                            });
+                        }
                     };
 
                     (
