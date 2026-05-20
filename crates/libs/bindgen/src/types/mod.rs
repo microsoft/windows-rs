@@ -5,6 +5,7 @@ mod cpp_const;
 mod cpp_delegate;
 mod cpp_enum;
 mod cpp_fn;
+mod cpp_handle;
 mod cpp_interface;
 mod cpp_method;
 mod cpp_struct;
@@ -1068,4 +1069,49 @@ fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream)
     let cfg = Cfg::new(&ty.dependencies(config.reader), config);
     let tokens = cfg.write(config, false);
     (cfg, tokens)
+}
+
+/// Emit a `#[cfg(target_arch = ...)]` attribute when a metadata row carries
+/// a `[SupportedArchitectureAttribute]`. Independent of `--package` /
+/// `--flat` layout — the generated arch gate is always meaningful.
+pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
+    let mut tokens = quote! {};
+
+    if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
+        let arch_value = match attribute.value().first() {
+            Some((_, Value::I32(v))) => Some(*v),
+            Some((_, Value::EnumValue(_, inner))) => {
+                if let Value::I32(v) = inner.as_ref() {
+                    Some(*v)
+                } else {
+                    None
+                }
+            }
+            _ => None,
+        };
+        if let Some(value) = arch_value {
+            let mut arches = BTreeSet::new();
+
+            if value & 1 == 1 {
+                arches.insert("x86");
+            }
+
+            if value & 2 == 2 {
+                arches.insert("x86_64");
+                arches.insert("arm64ec");
+            }
+
+            if value & 4 == 4 {
+                arches.insert("aarch64");
+            }
+
+            match arches.len() {
+                0 => {}
+                1 => tokens.combine(quote! { #[cfg(#(target_arch = #arches),*)] }),
+                _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
+            }
+        }
+    }
+
+    tokens
 }
