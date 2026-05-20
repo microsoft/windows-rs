@@ -820,7 +820,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if !config.no_deps || !config.sys {
+        if config.deps != DepMode::None || !config.sys {
             return quote! {};
         }
 
