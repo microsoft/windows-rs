@@ -54,12 +54,18 @@ pub mod Test {
         type Vtable = <IFoo as windows_core::Interface>::Vtable;
         const IID: windows_core::GUID = <IFoo as windows_core::Interface>::IID;
     }
+    impl core::ops::Deref for Foo {
+        type Target = IFoo;
+        fn deref(&self) -> &Self::Target {
+            unsafe { core::mem::transmute(self) }
+        }
+    }
     impl windows_core::RuntimeName for Foo {
         const NAME: &'static str = "Test.Foo";
     }
     pub const Green: Color = 1i32;
     pub type HANDLE = *mut core::ffi::c_void;
-    windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0xf05f601f_33d2_54fc_adca_2df8c56fe621);
+    windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x29b2ee6f_e8bf_5d03_8e01_81e8ad109076);
     impl windows_core::RuntimeType for IFoo {
         const SIGNATURE: windows_core::imp::ConstBuffer =
             windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -75,6 +81,28 @@ pub mod Test {
                 .map(|| result__)
             }
         }
+        pub fn Name(&self) -> windows_result::Result<String> {
+            unsafe {
+                let mut result__ = core::mem::zeroed();
+                (windows_core::Interface::vtable(self).Name)(
+                    windows_core::Interface::as_raw(self),
+                    &mut result__,
+                )
+                .map(|| {
+                    let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                    hstring.to_string_lossy()
+                })
+            }
+        }
+        pub fn SetName(&self, value: &str) -> windows_result::Result<()> {
+            unsafe {
+                (windows_core::Interface::vtable(self).SetName)(
+                    windows_core::Interface::as_raw(self),
+                    core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+                )
+                .ok()
+            }
+        }
     }
     #[repr(C)]
     #[doc(hidden)]
@@ -82,6 +110,14 @@ pub mod Test {
         pub base__: windows_core::IInspectable_Vtbl,
         pub Direct:
             unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_result::HRESULT,
+        pub Name: unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            *mut *mut core::ffi::c_void,
+        ) -> windows_result::HRESULT,
+        pub SetName: unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            *mut core::ffi::c_void,
+        ) -> windows_result::HRESULT,
     }
     windows_core::imp::define_interface!(IFoo2, IFoo2_Vtbl, 0xd5639aca_50ae_5b48_9f64_938ce24b8683);
     impl windows_core::RuntimeType for IFoo2 {
