@@ -1,4 +1,4 @@
 filter = "Test"
-specific_deps = true
+deps = "specific"
 minimal = true
 references = ["../../../libs/bindgen/default"]

@@ -1,2 +1,2 @@
 filter = "Test.Leaf"
-specific_deps = true
+deps = "specific"

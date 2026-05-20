@@ -108,7 +108,7 @@ impl CppFn {
             // `windows-core`) already emits a `pub type Name = unsafe extern
             // "abi" fn(...)` alias next to the `extern` declaration, so we
             // only need to emit a standalone alias when we are bypassing that
-            // macro (either via `--sys-fn-extern`, or because the user has
+            // macro (either via `--extern`, or because the user has
             // pointed `--link` at a different crate whose `link!` does not
             // emit the alias, such as `windows-targets`).
             let link_emits_fn_ptr = !config.sys_fn_extern

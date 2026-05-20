@@ -1,1 +1,1 @@
-args = "--in default --flat --filter IAsyncAction AsyncStatus --no-deps"
+args = "--in default --flat --filter IAsyncAction AsyncStatus --deps none"

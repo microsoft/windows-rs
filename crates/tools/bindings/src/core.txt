@@ -1,5 +1,5 @@
 --out crates/libs/core/src/imp/bindings.rs
---flat --sys --no-deps
+--flat --sys --deps none
 
 --filter
     CoIncrementMTAUsage
