@@ -22,6 +22,7 @@ fn main() {
         "IAsyncAction",
         "--implement",
         "--flat",
-        "--no-deps",
+        "--deps",
+        "none",
     ]);
 }

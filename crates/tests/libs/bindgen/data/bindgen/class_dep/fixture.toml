@@ -1,1 +1,1 @@
-args = "--in default --flat --filter WwwFormUrlDecoder --no-deps"
+args = "--in default --flat --filter WwwFormUrlDecoder --deps none"

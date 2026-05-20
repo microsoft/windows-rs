@@ -106,7 +106,7 @@ struct FixtureConfig {
     /// includes/excludes.
     filters: Vec<String>,
     minimal: bool,
-    specific_deps: bool,
+    deps: Option<String>,
     implement: bool,
     implements: Vec<String>,
     references: Vec<String>,
@@ -159,7 +159,7 @@ impl FixtureConfig {
                 "filter" => cfg.filter = Some(parse_string(value)),
                 "filters" => cfg.filters = parse_string_list(value),
                 "minimal" => cfg.minimal = parse_bool(value),
-                "specific_deps" => cfg.specific_deps = parse_bool(value),
+                "deps" => cfg.deps = Some(parse_string(value)),
                 "implement" => cfg.implement = parse_bool(value),
                 "implements" => cfg.implements = parse_string_list(value),
                 "references" => cfg.references = parse_string_list(value),
@@ -375,8 +375,14 @@ fn run_bindgen(f: &Fixture) {
     if cfg.minimal {
         bindgen.minimal();
     }
-    if cfg.specific_deps {
-        bindgen.specific_deps();
+    if let Some(mode) = &cfg.deps {
+        let mode = match mode.as_str() {
+            "core" => windows_bindgen::DepMode::Core,
+            "specific" => windows_bindgen::DepMode::Specific,
+            "none" => windows_bindgen::DepMode::None,
+            other => panic!("unknown deps mode {other:?}"),
+        };
+        bindgen.deps(mode);
     }
     if cfg.implement || !cfg.implements.is_empty() {
         bindgen.implement(&cfg.implements);

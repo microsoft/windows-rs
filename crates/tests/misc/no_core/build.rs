@@ -12,7 +12,8 @@ fn main() {
         "VhfStart",                     // windows_result::NTSTATUS
         "RpcMgmtEnableIdleCleanup",     // windows_result::RPC_STATUS
         "--flat",
-        "--specific-deps",
+        "--deps",
+        "specific",
     ])
     .unwrap();
 }
