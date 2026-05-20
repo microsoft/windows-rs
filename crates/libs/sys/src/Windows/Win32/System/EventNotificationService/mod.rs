@@ -1,8 +1,5 @@
-pub type IsDestinationReachableA = unsafe extern "system" fn(lpszdestination: windows_sys::core::PCSTR, lpqocinfo: *mut QOCINFO) -> windows_sys::core::BOOL;
 windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableA(lpszdestination : windows_sys::core::PCSTR, lpqocinfo : *mut QOCINFO) -> windows_sys::core::BOOL);
-pub type IsDestinationReachableW = unsafe extern "system" fn(lpszdestination: windows_sys::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> windows_sys::core::BOOL;
 windows_link::link!("sensapi.dll" "system" fn IsDestinationReachableW(lpszdestination : windows_sys::core::PCWSTR, lpqocinfo : *mut QOCINFO) -> windows_sys::core::BOOL);
-pub type IsNetworkAlive = unsafe extern "system" fn(lpdwflags: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> windows_sys::core::BOOL);
 pub const CONNECTION_AOL: u32 = 4u32;
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = 0u32;

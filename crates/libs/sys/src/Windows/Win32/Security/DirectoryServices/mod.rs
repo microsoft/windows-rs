@@ -1,8 +1,5 @@
 #[cfg(feature = "Win32_UI_Controls")]
-pub type DSCreateSecurityPage = unsafe extern "system" fn(pwszobjectpath: windows_sys::core::PCWSTR, pwszobjectclass: windows_sys::core::PCWSTR, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_UI_Controls")]
 windows_link::link!("dssec.dll" "system" fn DSCreateSecurityPage(pwszobjectpath : windows_sys::core::PCWSTR, pwszobjectclass : windows_sys::core::PCWSTR, dwflags : u32, phpage : *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT);
-pub type DSEditSecurity = unsafe extern "system" fn(hwndowner: super::super::Foundation::HWND, pwszobjectpath: windows_sys::core::PCWSTR, pwszobjectclass: windows_sys::core::PCWSTR, dwflags: u32, pwszcaption: windows_sys::core::PCWSTR, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT;
 windows_link::link!("dssec.dll" "system" fn DSEditSecurity(hwndowner : super::super::Foundation::HWND, pwszobjectpath : windows_sys::core::PCWSTR, pwszobjectclass : windows_sys::core::PCWSTR, dwflags : u32, pwszcaption : windows_sys::core::PCWSTR, pfnreadsd : PFNREADOBJECTSECURITY, pfnwritesd : PFNWRITEOBJECTSECURITY, lpcontext : super::super::Foundation::LPARAM) -> windows_sys::core::HRESULT);
 pub const DSSI_IS_ROOT: u32 = 16u32;
 pub const DSSI_NO_ACCESS_CHECK: u32 = 2u32;

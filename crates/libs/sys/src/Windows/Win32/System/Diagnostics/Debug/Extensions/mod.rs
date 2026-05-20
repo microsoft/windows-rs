@@ -1,12 +1,7 @@
-pub type CreateDataModelManager = unsafe extern "system" fn(debughost: *mut core::ffi::c_void, manager: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : *mut core::ffi::c_void, manager : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type DebugConnect = unsafe extern "system" fn(remoteoptions: windows_sys::core::PCSTR, interfaceid: *const windows_sys::core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("dbgeng.dll" "system" fn DebugConnect(remoteoptions : windows_sys::core::PCSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type DebugConnectWide = unsafe extern "system" fn(remoteoptions: windows_sys::core::PCWSTR, interfaceid: *const windows_sys::core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("dbgeng.dll" "system" fn DebugConnectWide(remoteoptions : windows_sys::core::PCWSTR, interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type DebugCreate = unsafe extern "system" fn(interfaceid: *const windows_sys::core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("dbgeng.dll" "system" fn DebugCreate(interfaceid : *const windows_sys::core::GUID, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type DebugCreateEx = unsafe extern "system" fn(interfaceid: *const windows_sys::core::GUID, dbgengoptions: u32, interface: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("dbgeng.dll" "system" fn DebugCreateEx(interfaceid : *const windows_sys::core::GUID, dbgengoptions : u32, interface : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 pub type AddressSpaceRelation = i32;

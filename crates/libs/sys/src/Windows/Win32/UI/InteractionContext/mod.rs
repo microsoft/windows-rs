@@ -1,72 +1,37 @@
-pub type AddPointerInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn AddPointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type BufferPointerPacketsInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 windows_link::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *const super::Input::Pointer::POINTER_INFO) -> windows_sys::core::HRESULT);
-pub type CreateInteractionContext = unsafe extern "system" fn(interactioncontext: *mut HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn CreateInteractionContext(interactioncontext : *mut HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
-pub type DestroyInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn DestroyInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
-pub type GetCrossSlideParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: *mut f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetCrossSlideParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, threshold : CROSS_SLIDE_THRESHOLD, distance : *mut f32) -> windows_sys::core::HRESULT);
-pub type GetHoldParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: *mut f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
-pub type GetInertiaParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: *mut f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
-pub type GetInteractionConfigurationInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *mut INTERACTION_CONTEXT_CONFIGURATION) -> windows_sys::core::HRESULT);
-pub type GetMouseWheelParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: *mut f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
-pub type GetPropertyInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: *mut u32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type GetStateInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: *const super::Input::Pointer::POINTER_INFO, state: *mut INTERACTION_STATE) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 windows_link::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer::POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_sys::core::HRESULT);
-pub type GetTapParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: *mut f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
-pub type GetTranslationParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: *mut f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn GetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : *mut f32) -> windows_sys::core::HRESULT);
-pub type ProcessBufferedPacketsInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn ProcessBufferedPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
-pub type ProcessInertiaInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn ProcessInertiaInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type ProcessPointerFramesInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 windows_link::link!("ninput.dll" "system" fn ProcessPointerFramesInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointercount : u32, pointerinfo : *const super::Input::Pointer::POINTER_INFO) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type RegisterOutputCallbackInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type RegisterOutputCallbackInteractionContext2 = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext2(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type RemovePointerInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn RemovePointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_sys::core::HRESULT);
-pub type ResetInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn ResetInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
-pub type SetCrossSlideParametersInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parametercount: u32, crossslideparameters: *const CROSS_SLIDE_PARAMETER) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetCrossSlideParametersInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parametercount : u32, crossslideparameters : *const CROSS_SLIDE_PARAMETER) -> windows_sys::core::HRESULT);
-pub type SetHoldParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : f32) -> windows_sys::core::HRESULT);
-pub type SetInertiaParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : f32) -> windows_sys::core::HRESULT);
-pub type SetInteractionConfigurationInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *const INTERACTION_CONTEXT_CONFIGURATION) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *const INTERACTION_CONTEXT_CONFIGURATION) -> windows_sys::core::HRESULT);
-pub type SetMouseWheelParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : f32) -> windows_sys::core::HRESULT);
-pub type SetPivotInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, x: f32, y: f32, radius: f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetPivotInteractionContext(interactioncontext : HINTERACTIONCONTEXT, x : f32, y : f32, radius : f32) -> windows_sys::core::HRESULT);
-pub type SetPropertyInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : u32) -> windows_sys::core::HRESULT);
-pub type SetTapParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : f32) -> windows_sys::core::HRESULT);
-pub type SetTranslationParameterInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn SetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : f32) -> windows_sys::core::HRESULT);
-pub type StopInteractionContext = unsafe extern "system" fn(interactioncontext: HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT;
 windows_link::link!("ninput.dll" "system" fn StopInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_sys::core::HRESULT);
 pub type CROSS_SLIDE_FLAGS = u32;
 pub const CROSS_SLIDE_FLAGS_MAX: CROSS_SLIDE_FLAGS = 4294967295u32;

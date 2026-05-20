@@ -1,57 +1,29 @@
-pub type NetDfsAdd = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, servername: windows_sys::core::PCWSTR, sharename: windows_sys::core::PCWSTR, comment: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsAdd(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, comment : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsAddFtRoot = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, rootshare: windows_sys::core::PCWSTR, ftdfsname: windows_sys::core::PCWSTR, comment: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsAddFtRoot(servername : windows_sys::core::PCWSTR, rootshare : windows_sys::core::PCWSTR, ftdfsname : windows_sys::core::PCWSTR, comment : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsAddRootTarget = unsafe extern "system" fn(pdfspath: windows_sys::core::PCWSTR, ptargetpath: windows_sys::core::PCWSTR, majorversion: u32, pcomment: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsAddRootTarget(pdfspath : windows_sys::core::PCWSTR, ptargetpath : windows_sys::core::PCWSTR, majorversion : u32, pcomment : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsAddStdRoot = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, rootshare: windows_sys::core::PCWSTR, comment: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsAddStdRoot(servername : windows_sys::core::PCWSTR, rootshare : windows_sys::core::PCWSTR, comment : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsEnum = unsafe extern "system" fn(dfsname: windows_sys::core::PCWSTR, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsEnum(dfsname : windows_sys::core::PCWSTR, level : u32, prefmaxlen : u32, buffer : *mut *mut u8, entriesread : *mut u32, resumehandle : *mut u32) -> u32);
-pub type NetDfsGetClientInfo = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, servername: windows_sys::core::PCWSTR, sharename: windows_sys::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsGetClientInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
 #[cfg(feature = "Win32_Security")]
-pub type NetDfsGetFtContainerSecurity = unsafe extern "system" fn(domainname: windows_sys::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsGetFtContainerSecurity(domainname : windows_sys::core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
-pub type NetDfsGetInfo = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, servername: windows_sys::core::PCWSTR, sharename: windows_sys::core::PCWSTR, level: u32, buffer: *mut *mut u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsGetInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
-#[cfg(feature = "Win32_Security")]
-pub type NetDfsGetSecurity = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsGetSecurity(dfsentrypath : windows_sys::core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
 #[cfg(feature = "Win32_Security")]
-pub type NetDfsGetStdContainerSecurity = unsafe extern "system" fn(machinename: windows_sys::core::PCWSTR, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsGetStdContainerSecurity(machinename : windows_sys::core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
-pub type NetDfsGetSupportedNamespaceVersion = unsafe extern "system" fn(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: windows_sys::core::PCWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsGetSupportedNamespaceVersion(origin : DFS_NAMESPACE_VERSION_ORIGIN, pname : windows_sys::core::PCWSTR, ppversioninfo : *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32);
-pub type NetDfsMove = unsafe extern "system" fn(olddfsentrypath: windows_sys::core::PCWSTR, newdfsentrypath: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsMove(olddfsentrypath : windows_sys::core::PCWSTR, newdfsentrypath : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsRemove = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, servername: windows_sys::core::PCWSTR, sharename: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemove(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR) -> u32);
-pub type NetDfsRemoveFtRoot = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, rootshare: windows_sys::core::PCWSTR, ftdfsname: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveFtRoot(servername : windows_sys::core::PCWSTR, rootshare : windows_sys::core::PCWSTR, ftdfsname : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsRemoveFtRootForced = unsafe extern "system" fn(domainname: windows_sys::core::PCWSTR, servername: windows_sys::core::PCWSTR, rootshare: windows_sys::core::PCWSTR, ftdfsname: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveFtRootForced(domainname : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, rootshare : windows_sys::core::PCWSTR, ftdfsname : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsRemoveRootTarget = unsafe extern "system" fn(pdfspath: windows_sys::core::PCWSTR, ptargetpath: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveRootTarget(pdfspath : windows_sys::core::PCWSTR, ptargetpath : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsRemoveStdRoot = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, rootshare: windows_sys::core::PCWSTR, flags: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsRemoveStdRoot(servername : windows_sys::core::PCWSTR, rootshare : windows_sys::core::PCWSTR, flags : u32) -> u32);
-pub type NetDfsSetClientInfo = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, servername: windows_sys::core::PCWSTR, sharename: windows_sys::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsSetClientInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *const u8) -> u32);
 #[cfg(feature = "Win32_Security")]
-pub type NetDfsSetFtContainerSecurity = unsafe extern "system" fn(domainname: windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsSetFtContainerSecurity(domainname : windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> u32);
-pub type NetDfsSetInfo = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, servername: windows_sys::core::PCWSTR, sharename: windows_sys::core::PCWSTR, level: u32, buffer: *const u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetDfsSetInfo(dfsentrypath : windows_sys::core::PCWSTR, servername : windows_sys::core::PCWSTR, sharename : windows_sys::core::PCWSTR, level : u32, buffer : *const u8) -> u32);
 #[cfg(feature = "Win32_Security")]
-pub type NetDfsSetSecurity = unsafe extern "system" fn(dfsentrypath: windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(feature = "Win32_Security")]
-pub type NetDfsSetStdContainerSecurity = unsafe extern "system" fn(machinename: windows_sys::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> u32;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn NetDfsSetStdContainerSecurity(machinename : windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> u32);
 pub const DFS_ADD_VOLUME: u32 = 1u32;

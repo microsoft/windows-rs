@@ -1,16 +1,9 @@
-pub type ComDBClaimNextFreePort = unsafe extern "system" fn(hcomdb: HCOMDB, comnumber: *mut u32) -> i32;
 windows_link::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
-pub type ComDBClaimPort = unsafe extern "system" fn(hcomdb: HCOMDB, comnumber: u32, forceclaim: windows_sys::core::BOOL, forced: *mut windows_sys::core::BOOL) -> i32;
 windows_link::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : windows_sys::core::BOOL, forced : *mut windows_sys::core::BOOL) -> i32);
-pub type ComDBClose = unsafe extern "system" fn(hcomdb: HCOMDB) -> i32;
 windows_link::link!("msports.dll" "system" fn ComDBClose(hcomdb : HCOMDB) -> i32);
-pub type ComDBGetCurrentPortUsage = unsafe extern "system" fn(hcomdb: HCOMDB, buffer: *mut u8, buffersize: u32, reporttype: u32, maxportsreported: *mut u32) -> i32;
 windows_link::link!("msports.dll" "system" fn ComDBGetCurrentPortUsage(hcomdb : HCOMDB, buffer : *mut u8, buffersize : u32, reporttype : u32, maxportsreported : *mut u32) -> i32);
-pub type ComDBOpen = unsafe extern "system" fn(phcomdb: *mut HCOMDB) -> i32;
 windows_link::link!("msports.dll" "system" fn ComDBOpen(phcomdb : *mut HCOMDB) -> i32);
-pub type ComDBReleasePort = unsafe extern "system" fn(hcomdb: HCOMDB, comnumber: u32) -> i32;
 windows_link::link!("msports.dll" "system" fn ComDBReleasePort(hcomdb : HCOMDB, comnumber : u32) -> i32);
-pub type ComDBResizeDatabase = unsafe extern "system" fn(hcomdb: HCOMDB, newsize: u32) -> i32;
 windows_link::link!("msports.dll" "system" fn ComDBResizeDatabase(hcomdb : HCOMDB, newsize : u32) -> i32);
 pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;

@@ -24,3 +24,14 @@ unsafe {
     assert_eq!(GetLastError(), 1234);
 }
 ```
+
+In addition to declaring the function, the macro also emits a `pub type`
+alias of the same name describing the function's signature. This is handy
+when you need to store or pass around the function pointer (for example,
+after resolving the symbol at runtime via `GetProcAddress`):
+
+```rust,ignore
+windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
+// `GetTickCount` is also available as a function-pointer type:
+let f: GetTickCount = GetTickCount;
+```

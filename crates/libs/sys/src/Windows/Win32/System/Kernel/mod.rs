@@ -1,16 +1,9 @@
-pub type RtlFirstEntrySList = unsafe extern "system" fn(listhead: *const SLIST_HEADER) -> *mut SLIST_ENTRY;
 windows_link::link!("ntdll.dll" "system" fn RtlFirstEntrySList(listhead : *const SLIST_HEADER) -> *mut SLIST_ENTRY);
-pub type RtlInitializeSListHead = unsafe extern "system" fn(listhead: *mut SLIST_HEADER);
 windows_link::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : *mut SLIST_HEADER));
-pub type RtlInterlockedFlushSList = unsafe extern "system" fn(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
 windows_link::link!("ntdll.dll" "system" fn RtlInterlockedFlushSList(listhead : *mut SLIST_HEADER) -> *mut SLIST_ENTRY);
-pub type RtlInterlockedPopEntrySList = unsafe extern "system" fn(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY;
 windows_link::link!("ntdll.dll" "system" fn RtlInterlockedPopEntrySList(listhead : *mut SLIST_HEADER) -> *mut SLIST_ENTRY);
-pub type RtlInterlockedPushEntrySList = unsafe extern "system" fn(listhead: *mut SLIST_HEADER, listentry: *mut SLIST_ENTRY) -> *mut SLIST_ENTRY;
 windows_link::link!("ntdll.dll" "system" fn RtlInterlockedPushEntrySList(listhead : *mut SLIST_HEADER, listentry : *mut SLIST_ENTRY) -> *mut SLIST_ENTRY);
-pub type RtlInterlockedPushListSListEx = unsafe extern "system" fn(listhead: *mut SLIST_HEADER, list: *mut SLIST_ENTRY, listend: *mut SLIST_ENTRY, count: u32) -> *mut SLIST_ENTRY;
 windows_link::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : *mut SLIST_HEADER, list : *mut SLIST_ENTRY, listend : *mut SLIST_ENTRY, count : u32) -> *mut SLIST_ENTRY);
-pub type RtlQueryDepthSList = unsafe extern "system" fn(listhead: *const SLIST_HEADER) -> u16;
 windows_link::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : *const SLIST_HEADER) -> u16);
 pub const BackOffice: SUITE_TYPE = 2i32;
 pub const Blade: SUITE_TYPE = 10i32;

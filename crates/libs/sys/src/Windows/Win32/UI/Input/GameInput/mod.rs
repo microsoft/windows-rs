@@ -1,4 +1,3 @@
-pub type GameInputCreate = unsafe extern "system" fn(gameinput: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("gameinput.dll" "system" fn GameInputCreate(gameinput : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub const FACILITY_GAMEINPUT: u32 = 906u32;
 pub const GAMEINPUT_E_DEVICE_DISCONNECTED: windows_sys::core::HRESULT = 0x838A0001_u32 as _;

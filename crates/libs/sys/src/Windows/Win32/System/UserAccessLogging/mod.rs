@@ -1,15 +1,8 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type UalInstrument = unsafe extern "system" fn(data: *const UAL_DATA_BLOB) -> windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("ualapi.dll" "system" fn UalInstrument(data : *const UAL_DATA_BLOB) -> windows_sys::core::HRESULT);
-pub type UalRegisterProduct = unsafe extern "system" fn(wszproductname: windows_sys::core::PCWSTR, wszrolename: windows_sys::core::PCWSTR, wszguid: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("ualapi.dll" "system" fn UalRegisterProduct(wszproductname : windows_sys::core::PCWSTR, wszrolename : windows_sys::core::PCWSTR, wszguid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type UalStart = unsafe extern "system" fn(data: *const UAL_DATA_BLOB) -> windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_BLOB) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub type UalStop = unsafe extern "system" fn(data: *const UAL_DATA_BLOB) -> windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> windows_sys::core::HRESULT);
 #[repr(C)]

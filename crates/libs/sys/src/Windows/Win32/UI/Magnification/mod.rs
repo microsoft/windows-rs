@@ -1,44 +1,23 @@
-pub type MagGetColorEffect = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, peffect: *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagGetColorEffect(hwnd : super::super::Foundation::HWND, peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
-pub type MagGetFullscreenColorEffect = unsafe extern "system" fn(peffect: *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagGetFullscreenColorEffect(peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
-pub type MagGetFullscreenTransform = unsafe extern "system" fn(pmaglevel: *mut f32, pxoffset: *mut i32, pyoffset: *mut i32) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagGetFullscreenTransform(pmaglevel : *mut f32, pxoffset : *mut i32, pyoffset : *mut i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type MagGetImageScalingCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> MagImageScalingCallback;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("magnification.dll" "system" fn MagGetImageScalingCallback(hwnd : super::super::Foundation::HWND) -> MagImageScalingCallback);
-pub type MagGetInputTransform = unsafe extern "system" fn(pfenabled: *mut windows_sys::core::BOOL, prectsource: *mut super::super::Foundation::RECT, prectdest: *mut super::super::Foundation::RECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagGetInputTransform(pfenabled : *mut windows_sys::core::BOOL, prectsource : *mut super::super::Foundation::RECT, prectdest : *mut super::super::Foundation::RECT) -> windows_sys::core::BOOL);
-pub type MagGetWindowFilterList = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, pdwfiltermode: *mut MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> i32;
 windows_link::link!("magnification.dll" "system" fn MagGetWindowFilterList(hwnd : super::super::Foundation::HWND, pdwfiltermode : *mut MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation::HWND) -> i32);
-pub type MagGetWindowSource = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, prect: *mut super::super::Foundation::RECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagGetWindowSource(hwnd : super::super::Foundation::HWND, prect : *mut super::super::Foundation::RECT) -> windows_sys::core::BOOL);
-pub type MagGetWindowTransform = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, ptransform: *mut MAGTRANSFORM) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagGetWindowTransform(hwnd : super::super::Foundation::HWND, ptransform : *mut MAGTRANSFORM) -> windows_sys::core::BOOL);
-pub type MagInitialize = unsafe extern "system" fn() -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagInitialize() -> windows_sys::core::BOOL);
-pub type MagSetColorEffect = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, peffect: *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagSetColorEffect(hwnd : super::super::Foundation::HWND, peffect : *mut MAGCOLOREFFECT) -> windows_sys::core::BOOL);
-pub type MagSetFullscreenColorEffect = unsafe extern "system" fn(peffect: *const MAGCOLOREFFECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagSetFullscreenColorEffect(peffect : *const MAGCOLOREFFECT) -> windows_sys::core::BOOL);
-pub type MagSetFullscreenTransform = unsafe extern "system" fn(maglevel: f32, xoffset: i32, yoffset: i32) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagSetFullscreenTransform(maglevel : f32, xoffset : i32, yoffset : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type MagSetImageScalingCallback = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, callback: MagImageScalingCallback) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("magnification.dll" "system" fn MagSetImageScalingCallback(hwnd : super::super::Foundation::HWND, callback : MagImageScalingCallback) -> windows_sys::core::BOOL);
-pub type MagSetInputTransform = unsafe extern "system" fn(fenabled: windows_sys::core::BOOL, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_sys::core::BOOL, prectsource : *const super::super::Foundation::RECT, prectdest : *const super::super::Foundation::RECT) -> windows_sys::core::BOOL);
-pub type MagSetWindowFilterList = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwfiltermode: MW_FILTERMODE, count: i32, phwnd: *mut super::super::Foundation::HWND) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagSetWindowFilterList(hwnd : super::super::Foundation::HWND, dwfiltermode : MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation::HWND) -> windows_sys::core::BOOL);
-pub type MagSetWindowSource = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, rect: super::super::Foundation::RECT) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagSetWindowSource(hwnd : super::super::Foundation::HWND, rect : super::super::Foundation::RECT) -> windows_sys::core::BOOL);
-pub type MagSetWindowTransform = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, ptransform: *mut MAGTRANSFORM) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagSetWindowTransform(hwnd : super::super::Foundation::HWND, ptransform : *mut MAGTRANSFORM) -> windows_sys::core::BOOL);
-pub type MagShowSystemCursor = unsafe extern "system" fn(fshowcursor: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagShowSystemCursor(fshowcursor : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type MagUninitialize = unsafe extern "system" fn() -> windows_sys::core::BOOL;
 windows_link::link!("magnification.dll" "system" fn MagUninitialize() -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy)]

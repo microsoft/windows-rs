@@ -1,266 +1,134 @@
-pub type BRUSHOBJ_hGetColorTransform = unsafe extern "system" fn(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE;
 windows_link::link!("gdi32.dll" "system" fn BRUSHOBJ_hGetColorTransform(pbo : *mut BRUSHOBJ) -> super::super::Foundation::HANDLE);
-pub type BRUSHOBJ_pvAllocRbrush = unsafe extern "system" fn(pbo: *mut BRUSHOBJ, cj: u32) -> *mut core::ffi::c_void;
 windows_link::link!("gdi32.dll" "system" fn BRUSHOBJ_pvAllocRbrush(pbo : *mut BRUSHOBJ, cj : u32) -> *mut core::ffi::c_void);
-pub type BRUSHOBJ_pvGetRbrush = unsafe extern "system" fn(pbo: *mut BRUSHOBJ) -> *mut core::ffi::c_void;
 windows_link::link!("gdi32.dll" "system" fn BRUSHOBJ_pvGetRbrush(pbo : *mut BRUSHOBJ) -> *mut core::ffi::c_void);
-pub type BRUSHOBJ_ulGetBrushColor = unsafe extern "system" fn(pbo: *mut BRUSHOBJ) -> u32;
 windows_link::link!("gdi32.dll" "system" fn BRUSHOBJ_ulGetBrushColor(pbo : *mut BRUSHOBJ) -> u32);
-pub type CLIPOBJ_bEnum = unsafe extern "system" fn(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_bEnum(pco : *mut CLIPOBJ, cj : u32, pul : *mut u32) -> windows_sys::core::BOOL);
-pub type CLIPOBJ_cEnumStart = unsafe extern "system" fn(pco: *mut CLIPOBJ, ball: windows_sys::core::BOOL, itype: u32, idirection: u32, climit: u32) -> u32;
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_cEnumStart(pco : *mut CLIPOBJ, ball : windows_sys::core::BOOL, itype : u32, idirection : u32, climit : u32) -> u32);
-pub type CLIPOBJ_ppoGetPath = unsafe extern "system" fn(pco: *mut CLIPOBJ) -> *mut PATHOBJ;
 windows_link::link!("gdi32.dll" "system" fn CLIPOBJ_ppoGetPath(pco : *mut CLIPOBJ) -> *mut PATHOBJ);
-pub type CapabilitiesRequestAndCapabilitiesReply = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: windows_sys::core::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn CapabilitiesRequestAndCapabilitiesReply(hmonitor : super::super::Foundation::HANDLE, pszasciicapabilitiesstring : windows_sys::core::PSTR, dwcapabilitiesstringlengthincharacters : u32) -> i32);
-pub type DegaussMonitor = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn DegaussMonitor(hmonitor : super::super::Foundation::HANDLE) -> i32);
-pub type DestroyPhysicalMonitor = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitor(hmonitor : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
-pub type DestroyPhysicalMonitors = unsafe extern "system" fn(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> windows_sys::core::BOOL;
 windows_link::link!("dxva2.dll" "system" fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *const PHYSICAL_MONITOR) -> windows_sys::core::BOOL);
-pub type DisplayConfigGetDeviceInfo = unsafe extern "system" fn(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
 windows_link::link!("user32.dll" "system" fn DisplayConfigGetDeviceInfo(requestpacket : *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
-pub type DisplayConfigSetDeviceInfo = unsafe extern "system" fn(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
 windows_link::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
-pub type EngAcquireSemaphore = unsafe extern "system" fn(hsem: HSEMAPHORE);
 windows_link::link!("gdi32.dll" "system" fn EngAcquireSemaphore(hsem : HSEMAPHORE));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngAlphaBlend = unsafe extern "system" fn(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pblendobj: *mut BLENDOBJ) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngAlphaBlend(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcldest : *mut super::super::Foundation::RECTL, prclsrc : *mut super::super::Foundation::RECTL, pblendobj : *mut BLENDOBJ) -> windows_sys::core::BOOL);
-pub type EngAssociateSurface = unsafe extern "system" fn(hsurf: HSURF, hdev: HDEV, flhooks: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngAssociateSurface(hsurf : HSURF, hdev : HDEV, flhooks : u32) -> windows_sys::core::BOOL);
-pub type EngBitBlt = unsafe extern "system" fn(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngBitBlt(psotrg : *const SURFOBJ, psosrc : *const SURFOBJ, psomask : *const SURFOBJ, pco : *const CLIPOBJ, pxlo : *const XLATEOBJ, prcltrg : *const super::super::Foundation::RECTL, pptlsrc : *const super::super::Foundation::POINTL, pptlmask : *const super::super::Foundation::POINTL, pbo : *const BRUSHOBJ, pptlbrush : *const super::super::Foundation::POINTL, rop4 : u32) -> windows_sys::core::BOOL);
-pub type EngCheckAbort = unsafe extern "system" fn(pso: *mut SURFOBJ) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngCheckAbort(pso : *mut SURFOBJ) -> windows_sys::core::BOOL);
-pub type EngComputeGlyphSet = unsafe extern "system" fn(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET;
 windows_link::link!("gdi32.dll" "system" fn EngComputeGlyphSet(ncodepage : i32, nfirstchar : i32, cchars : i32) -> *mut FD_GLYPHSET);
-pub type EngCopyBits = unsafe extern "system" fn(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, pptlsrc: *mut super::super::Foundation::POINTL) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngCopyBits(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, prcldest : *mut super::super::Foundation::RECTL, pptlsrc : *mut super::super::Foundation::POINTL) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngCreateBitmap = unsafe extern "system" fn(sizl: super::super::Foundation::SIZE, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut core::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngCreateBitmap(sizl : super::super::Foundation::SIZE, lwidth : i32, iformat : u32, fl : u32, pvbits : *mut core::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP);
-pub type EngCreateClip = unsafe extern "system" fn() -> *mut CLIPOBJ;
 windows_link::link!("gdi32.dll" "system" fn EngCreateClip() -> *mut CLIPOBJ);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngCreateDeviceBitmap = unsafe extern "system" fn(dhsurf: DHSURF, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngCreateDeviceBitmap(dhsurf : DHSURF, sizl : super::super::Foundation::SIZE, iformatcompat : u32) -> super::super::Graphics::Gdi::HBITMAP);
-pub type EngCreateDeviceSurface = unsafe extern "system" fn(dhsurf: DHSURF, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> HSURF;
 windows_link::link!("gdi32.dll" "system" fn EngCreateDeviceSurface(dhsurf : DHSURF, sizl : super::super::Foundation::SIZE, iformatcompat : u32) -> HSURF);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngCreatePalette = unsafe extern "system" fn(imode: u32, ccolors: u32, pulcolors: *mut u32, flred: u32, flgreen: u32, flblue: u32) -> super::super::Graphics::Gdi::HPALETTE;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngCreatePalette(imode : u32, ccolors : u32, pulcolors : *mut u32, flred : u32, flgreen : u32, flblue : u32) -> super::super::Graphics::Gdi::HPALETTE);
-pub type EngCreateSemaphore = unsafe extern "system" fn() -> HSEMAPHORE;
 windows_link::link!("gdi32.dll" "system" fn EngCreateSemaphore() -> HSEMAPHORE);
-pub type EngDeleteClip = unsafe extern "system" fn(pco: *const CLIPOBJ);
 windows_link::link!("gdi32.dll" "system" fn EngDeleteClip(pco : *const CLIPOBJ));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngDeletePalette = unsafe extern "system" fn(hpal: super::super::Graphics::Gdi::HPALETTE) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngDeletePalette(hpal : super::super::Graphics::Gdi::HPALETTE) -> windows_sys::core::BOOL);
-pub type EngDeletePath = unsafe extern "system" fn(ppo: *mut PATHOBJ);
 windows_link::link!("gdi32.dll" "system" fn EngDeletePath(ppo : *mut PATHOBJ));
-pub type EngDeleteSemaphore = unsafe extern "system" fn(hsem: HSEMAPHORE);
 windows_link::link!("gdi32.dll" "system" fn EngDeleteSemaphore(hsem : HSEMAPHORE));
-pub type EngDeleteSurface = unsafe extern "system" fn(hsurf: HSURF) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngDeleteSurface(hsurf : HSURF) -> windows_sys::core::BOOL);
-pub type EngEraseSurface = unsafe extern "system" fn(pso: *mut SURFOBJ, prcl: *mut super::super::Foundation::RECTL, icolor: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngEraseSurface(pso : *mut SURFOBJ, prcl : *mut super::super::Foundation::RECTL, icolor : u32) -> windows_sys::core::BOOL);
-pub type EngFillPath = unsafe extern "system" fn(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32, floptions: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngFillPath(pso : *mut SURFOBJ, ppo : *mut PATHOBJ, pco : *mut CLIPOBJ, pbo : *mut BRUSHOBJ, pptlbrushorg : *mut super::super::Foundation::POINTL, mix : u32, floptions : u32) -> windows_sys::core::BOOL);
-pub type EngFindResource = unsafe extern "system" fn(h: super::super::Foundation::HANDLE, iname: i32, itype: i32, pulsize: *mut u32) -> *mut core::ffi::c_void;
 windows_link::link!("gdi32.dll" "system" fn EngFindResource(h : super::super::Foundation::HANDLE, iname : i32, itype : i32, pulsize : *mut u32) -> *mut core::ffi::c_void);
-pub type EngFreeModule = unsafe extern "system" fn(h: super::super::Foundation::HANDLE);
 windows_link::link!("gdi32.dll" "system" fn EngFreeModule(h : super::super::Foundation::HANDLE));
-pub type EngGetCurrentCodePage = unsafe extern "system" fn(oemcodepage: *mut u16, ansicodepage: *mut u16);
 windows_link::link!("gdi32.dll" "system" fn EngGetCurrentCodePage(oemcodepage : *mut u16, ansicodepage : *mut u16));
-pub type EngGetDriverName = unsafe extern "system" fn(hdev: HDEV) -> windows_sys::core::PWSTR;
 windows_link::link!("gdi32.dll" "system" fn EngGetDriverName(hdev : HDEV) -> windows_sys::core::PWSTR);
-pub type EngGetPrinterDataFileName = unsafe extern "system" fn(hdev: HDEV) -> windows_sys::core::PWSTR;
 windows_link::link!("gdi32.dll" "system" fn EngGetPrinterDataFileName(hdev : HDEV) -> windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngGradientFill = unsafe extern "system" fn(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut core::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngGradientFill(psodest : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, pvertex : *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex : u32, pmesh : *mut core::ffi::c_void, nmesh : u32, prclextents : *mut super::super::Foundation::RECTL, pptlditherorg : *mut super::super::Foundation::POINTL, ulmode : u32) -> windows_sys::core::BOOL);
-pub type EngLineTo = unsafe extern "system" fn(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, x1: i32, y1: i32, x2: i32, y2: i32, prclbounds: *mut super::super::Foundation::RECTL, mix: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngLineTo(pso : *mut SURFOBJ, pco : *mut CLIPOBJ, pbo : *mut BRUSHOBJ, x1 : i32, y1 : i32, x2 : i32, y2 : i32, prclbounds : *mut super::super::Foundation::RECTL, mix : u32) -> windows_sys::core::BOOL);
-pub type EngLoadModule = unsafe extern "system" fn(pwsz: windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("gdi32.dll" "system" fn EngLoadModule(pwsz : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
-pub type EngLockSurface = unsafe extern "system" fn(hsurf: HSURF) -> *mut SURFOBJ;
 windows_link::link!("gdi32.dll" "system" fn EngLockSurface(hsurf : HSURF) -> *mut SURFOBJ);
-pub type EngMarkBandingSurface = unsafe extern "system" fn(hsurf: HSURF) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngMarkBandingSurface(hsurf : HSURF) -> windows_sys::core::BOOL);
-pub type EngMultiByteToUnicodeN = unsafe extern "system" fn(unicodestring: windows_sys::core::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: windows_sys::core::PCSTR, bytesinmultibytestring: u32);
 windows_link::link!("gdi32.dll" "system" fn EngMultiByteToUnicodeN(unicodestring : windows_sys::core::PWSTR, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, multibytestring : windows_sys::core::PCSTR, bytesinmultibytestring : u32));
-pub type EngMultiByteToWideChar = unsafe extern "system" fn(codepage: u32, widecharstring: windows_sys::core::PWSTR, bytesinwidecharstring: i32, multibytestring: windows_sys::core::PCSTR, bytesinmultibytestring: i32) -> i32;
 windows_link::link!("gdi32.dll" "system" fn EngMultiByteToWideChar(codepage : u32, widecharstring : windows_sys::core::PWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PCSTR, bytesinmultibytestring : i32) -> i32);
-pub type EngPaint = unsafe extern "system" fn(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngPaint(pso : *mut SURFOBJ, pco : *mut CLIPOBJ, pbo : *mut BRUSHOBJ, pptlbrushorg : *mut super::super::Foundation::POINTL, mix : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngPlgBlt = unsafe extern "system" fn(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngPlgBlt(psotrg : *mut SURFOBJ, psosrc : *mut SURFOBJ, psomsk : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, pca : *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg : *mut super::super::Foundation::POINTL, pptfx : *mut POINTFIX, prcl : *mut super::super::Foundation::RECTL, pptl : *mut super::super::Foundation::POINTL, imode : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngQueryEMFInfo = unsafe extern "system" fn(hdev: HDEV, pemfinfo: *mut EMFINFO) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngQueryEMFInfo(hdev : HDEV, pemfinfo : *mut EMFINFO) -> windows_sys::core::BOOL);
-pub type EngQueryLocalTime = unsafe extern "system" fn(param0: *mut ENG_TIME_FIELDS);
 windows_link::link!("gdi32.dll" "system" fn EngQueryLocalTime(param0 : *mut ENG_TIME_FIELDS));
-pub type EngReleaseSemaphore = unsafe extern "system" fn(hsem: HSEMAPHORE);
 windows_link::link!("gdi32.dll" "system" fn EngReleaseSemaphore(hsem : HSEMAPHORE));
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngStretchBlt = unsafe extern "system" fn(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngStretchBlt(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, psomask : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, pca : *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg : *mut super::super::Foundation::POINTL, prcldest : *mut super::super::Foundation::RECTL, prclsrc : *mut super::super::Foundation::RECTL, pptlmask : *mut super::super::Foundation::POINTL, imode : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type EngStretchBltROP = unsafe extern "system" fn(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EngStretchBltROP(psodest : *mut SURFOBJ, psosrc : *mut SURFOBJ, psomask : *mut SURFOBJ, pco : *mut CLIPOBJ, pxlo : *mut XLATEOBJ, pca : *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg : *mut super::super::Foundation::POINTL, prcldest : *mut super::super::Foundation::RECTL, prclsrc : *mut super::super::Foundation::RECTL, pptlmask : *mut super::super::Foundation::POINTL, imode : u32, pbo : *mut BRUSHOBJ, rop4 : u32) -> windows_sys::core::BOOL);
-pub type EngStrokeAndFillPath = unsafe extern "system" fn(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngStrokeAndFillPath(pso : *mut SURFOBJ, ppo : *mut PATHOBJ, pco : *mut CLIPOBJ, pxo : *mut XFORMOBJ, pbostroke : *mut BRUSHOBJ, plineattrs : *mut LINEATTRS, pbofill : *mut BRUSHOBJ, pptlbrushorg : *mut super::super::Foundation::POINTL, mixfill : u32, floptions : u32) -> windows_sys::core::BOOL);
-pub type EngStrokePath = unsafe extern "system" fn(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut XFORMOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, plineattrs: *mut LINEATTRS, mix: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngStrokePath(pso : *mut SURFOBJ, ppo : *mut PATHOBJ, pco : *mut CLIPOBJ, pxo : *mut XFORMOBJ, pbo : *mut BRUSHOBJ, pptlbrushorg : *mut super::super::Foundation::POINTL, plineattrs : *mut LINEATTRS, mix : u32) -> windows_sys::core::BOOL);
-pub type EngTextOut = unsafe extern "system" fn(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngTextOut(pso : *mut SURFOBJ, pstro : *mut STROBJ, pfo : *mut FONTOBJ, pco : *mut CLIPOBJ, prclextra : *mut super::super::Foundation::RECTL, prclopaque : *mut super::super::Foundation::RECTL, pbofore : *mut BRUSHOBJ, pboopaque : *mut BRUSHOBJ, pptlorg : *mut super::super::Foundation::POINTL, mix : u32) -> windows_sys::core::BOOL);
-pub type EngTransparentBlt = unsafe extern "system" fn(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcldst: *const super::super::Foundation::RECTL, prclsrc: *const super::super::Foundation::RECTL, transcolor: u32, bcalledfrombitblt: u32) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn EngTransparentBlt(psodst : *const SURFOBJ, psosrc : *const SURFOBJ, pco : *const CLIPOBJ, pxlo : *const XLATEOBJ, prcldst : *const super::super::Foundation::RECTL, prclsrc : *const super::super::Foundation::RECTL, transcolor : u32, bcalledfrombitblt : u32) -> windows_sys::core::BOOL);
-pub type EngUnicodeToMultiByteN = unsafe extern "system" fn(multibytestring: windows_sys::core::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: windows_sys::core::PCWSTR, bytesinunicodestring: u32);
 windows_link::link!("gdi32.dll" "system" fn EngUnicodeToMultiByteN(multibytestring : windows_sys::core::PSTR, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : windows_sys::core::PCWSTR, bytesinunicodestring : u32));
-pub type EngUnlockSurface = unsafe extern "system" fn(pso: *mut SURFOBJ);
 windows_link::link!("gdi32.dll" "system" fn EngUnlockSurface(pso : *mut SURFOBJ));
-pub type EngWideCharToMultiByte = unsafe extern "system" fn(codepage: u32, widecharstring: windows_sys::core::PCWSTR, bytesinwidecharstring: i32, multibytestring: windows_sys::core::PSTR, bytesinmultibytestring: i32) -> i32;
 windows_link::link!("gdi32.dll" "system" fn EngWideCharToMultiByte(codepage : u32, widecharstring : windows_sys::core::PCWSTR, bytesinwidecharstring : i32, multibytestring : windows_sys::core::PSTR, bytesinmultibytestring : i32) -> i32);
-pub type FONTOBJ_cGetAllGlyphHandles = unsafe extern "system" fn(pfo: *mut FONTOBJ, phg: *mut u32) -> u32;
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_cGetAllGlyphHandles(pfo : *mut FONTOBJ, phg : *mut u32) -> u32);
-pub type FONTOBJ_cGetGlyphs = unsafe extern "system" fn(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg: *mut u32, ppvglyph: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_cGetGlyphs(pfo : *mut FONTOBJ, imode : u32, cglyph : u32, phg : *mut u32, ppvglyph : *mut *mut core::ffi::c_void) -> u32);
-pub type FONTOBJ_pQueryGlyphAttrs = unsafe extern "system" fn(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR;
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_pQueryGlyphAttrs(pfo : *mut FONTOBJ, imode : u32) -> *mut FD_GLYPHATTR);
-pub type FONTOBJ_pfdg = unsafe extern "system" fn(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET;
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_pfdg(pfo : *mut FONTOBJ) -> *mut FD_GLYPHSET);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type FONTOBJ_pifi = unsafe extern "system" fn(pfo: *const FONTOBJ) -> *mut IFIMETRICS;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_pifi(pfo : *const FONTOBJ) -> *mut IFIMETRICS);
-pub type FONTOBJ_pvTrueTypeFontFile = unsafe extern "system" fn(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut core::ffi::c_void;
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_pvTrueTypeFontFile(pfo : *mut FONTOBJ, pcjfile : *mut u32) -> *mut core::ffi::c_void);
-pub type FONTOBJ_pxoGetXform = unsafe extern "system" fn(pfo: *const FONTOBJ) -> *mut XFORMOBJ;
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_pxoGetXform(pfo : *const FONTOBJ) -> *mut XFORMOBJ);
-pub type FONTOBJ_vGetInfo = unsafe extern "system" fn(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO);
 windows_link::link!("gdi32.dll" "system" fn FONTOBJ_vGetInfo(pfo : *mut FONTOBJ, cjsize : u32, pfi : *mut FONTINFO));
-pub type GetAutoRotationState = unsafe extern "system" fn(pstate: *mut AR_STATE) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetAutoRotationState(pstate : *mut AR_STATE) -> windows_sys::core::BOOL);
-pub type GetCapabilitiesStringLength = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetCapabilitiesStringLength(hmonitor : super::super::Foundation::HANDLE, pdwcapabilitiesstringlengthincharacters : *mut u32) -> i32);
-pub type GetDisplayAutoRotationPreferences = unsafe extern "system" fn(porientation: *mut ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetDisplayAutoRotationPreferences(porientation : *mut ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL);
-pub type GetDisplayConfigBufferSizes = unsafe extern "system" fn(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> super::super::Foundation::WIN32_ERROR;
 windows_link::link!("user32.dll" "system" fn GetDisplayConfigBufferSizes(flags : QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements : *mut u32, nummodeinfoarrayelements : *mut u32) -> super::super::Foundation::WIN32_ERROR);
-pub type GetMonitorBrightness = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorBrightness(hmonitor : super::super::Foundation::HANDLE, pdwminimumbrightness : *mut u32, pdwcurrentbrightness : *mut u32, pdwmaximumbrightness : *mut u32) -> i32);
-pub type GetMonitorCapabilities = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorCapabilities(hmonitor : super::super::Foundation::HANDLE, pdwmonitorcapabilities : *mut u32, pdwsupportedcolortemperatures : *mut u32) -> i32);
-pub type GetMonitorColorTemperature = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorColorTemperature(hmonitor : super::super::Foundation::HANDLE, pctcurrentcolortemperature : *mut MC_COLOR_TEMPERATURE) -> i32);
-pub type GetMonitorContrast = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorContrast(hmonitor : super::super::Foundation::HANDLE, pdwminimumcontrast : *mut u32, pdwcurrentcontrast : *mut u32, pdwmaximumcontrast : *mut u32) -> i32);
-pub type GetMonitorDisplayAreaPosition = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorDisplayAreaPosition(hmonitor : super::super::Foundation::HANDLE, ptpositiontype : MC_POSITION_TYPE, pdwminimumposition : *mut u32, pdwcurrentposition : *mut u32, pdwmaximumposition : *mut u32) -> i32);
-pub type GetMonitorDisplayAreaSize = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorDisplayAreaSize(hmonitor : super::super::Foundation::HANDLE, stsizetype : MC_SIZE_TYPE, pdwminimumwidthorheight : *mut u32, pdwcurrentwidthorheight : *mut u32, pdwmaximumwidthorheight : *mut u32) -> i32);
-pub type GetMonitorRedGreenOrBlueDrive = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorRedGreenOrBlueDrive(hmonitor : super::super::Foundation::HANDLE, dtdrivetype : MC_DRIVE_TYPE, pdwminimumdrive : *mut u32, pdwcurrentdrive : *mut u32, pdwmaximumdrive : *mut u32) -> i32);
-pub type GetMonitorRedGreenOrBlueGain = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorRedGreenOrBlueGain(hmonitor : super::super::Foundation::HANDLE, gtgaintype : MC_GAIN_TYPE, pdwminimumgain : *mut u32, pdwcurrentgain : *mut u32, pdwmaximumgain : *mut u32) -> i32);
-pub type GetMonitorTechnologyType = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetMonitorTechnologyType(hmonitor : super::super::Foundation::HANDLE, pdtydisplaytechnologytype : *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type GetNumberOfPhysicalMonitorsFromHMONITOR = unsafe extern "system" fn(hmonitor: super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors: *mut u32) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type GetPhysicalMonitorsFromHMONITOR = unsafe extern "system" fn(hmonitor: super::super::Graphics::Gdi::HMONITOR, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi::HMONITOR, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> windows_sys::core::BOOL);
-pub type GetTimingReport = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetTimingReport(hmonitor : super::super::Foundation::HANDLE, pmtrmonitortimingreport : *mut MC_TIMING_REPORT) -> i32);
-pub type GetVCPFeatureAndVCPFeatureReply = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn GetVCPFeatureAndVCPFeatureReply(hmonitor : super::super::Foundation::HANDLE, bvcpcode : u8, pvct : *mut MC_VCP_CODE_TYPE, pdwcurrentvalue : *mut u32, pdwmaximumvalue : *mut u32) -> i32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type HT_Get8BPPFormatPalette = unsafe extern "system" fn(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn HT_Get8BPPFormatPalette(ppaletteentry : *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma : u16, greengamma : u16, bluegamma : u16) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type HT_Get8BPPMaskPalette = unsafe extern "system" fn(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: windows_sys::core::BOOL, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn HT_Get8BPPMaskPalette(ppaletteentry : *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal : windows_sys::core::BOOL, cmymask : u8, redgamma : u16, greengamma : u16, bluegamma : u16) -> i32);
-pub type PATHOBJ_bEnum = unsafe extern "system" fn(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn PATHOBJ_bEnum(ppo : *mut PATHOBJ, ppd : *mut PATHDATA) -> windows_sys::core::BOOL);
-pub type PATHOBJ_bEnumClipLines = unsafe extern "system" fn(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPLINE) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn PATHOBJ_bEnumClipLines(ppo : *mut PATHOBJ, cb : u32, pcl : *mut CLIPLINE) -> windows_sys::core::BOOL);
-pub type PATHOBJ_vEnumStart = unsafe extern "system" fn(ppo: *mut PATHOBJ);
 windows_link::link!("gdi32.dll" "system" fn PATHOBJ_vEnumStart(ppo : *mut PATHOBJ));
-pub type PATHOBJ_vEnumStartClipLines = unsafe extern "system" fn(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS);
 windows_link::link!("gdi32.dll" "system" fn PATHOBJ_vEnumStartClipLines(ppo : *mut PATHOBJ, pco : *mut CLIPOBJ, pso : *mut SURFOBJ, pla : *mut LINEATTRS));
-pub type PATHOBJ_vGetBounds = unsafe extern "system" fn(ppo: *mut PATHOBJ, prectfx: *mut RECTFX);
 windows_link::link!("gdi32.dll" "system" fn PATHOBJ_vGetBounds(ppo : *mut PATHOBJ, prectfx : *mut RECTFX));
-pub type QueryDisplayConfig = unsafe extern "system" fn(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> super::super::Foundation::WIN32_ERROR;
 windows_link::link!("user32.dll" "system" fn QueryDisplayConfig(flags : QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements : *mut u32, patharray : *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : *mut u32, modeinfoarray : *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid : *mut DISPLAYCONFIG_TOPOLOGY_ID) -> super::super::Foundation::WIN32_ERROR);
-pub type RestoreMonitorFactoryColorDefaults = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn RestoreMonitorFactoryColorDefaults(hmonitor : super::super::Foundation::HANDLE) -> i32);
-pub type RestoreMonitorFactoryDefaults = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn RestoreMonitorFactoryDefaults(hmonitor : super::super::Foundation::HANDLE) -> i32);
-pub type STROBJ_bEnum = unsafe extern "system" fn(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn STROBJ_bEnum(pstro : *mut STROBJ, pc : *mut u32, ppgpos : *mut *mut GLYPHPOS) -> windows_sys::core::BOOL);
-pub type STROBJ_bEnumPositionsOnly = unsafe extern "system" fn(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn STROBJ_bEnumPositionsOnly(pstro : *mut STROBJ, pc : *mut u32, ppgpos : *mut *mut GLYPHPOS) -> windows_sys::core::BOOL);
-pub type STROBJ_bGetAdvanceWidths = unsafe extern "system" fn(pso: *mut STROBJ, ifirst: u32, c: u32, pptqd: *mut POINTQF) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn STROBJ_bGetAdvanceWidths(pso : *mut STROBJ, ifirst : u32, c : u32, pptqd : *mut POINTQF) -> windows_sys::core::BOOL);
-pub type STROBJ_dwGetCodePage = unsafe extern "system" fn(pstro: *mut STROBJ) -> u32;
 windows_link::link!("gdi32.dll" "system" fn STROBJ_dwGetCodePage(pstro : *mut STROBJ) -> u32);
-pub type STROBJ_vEnumStart = unsafe extern "system" fn(pstro: *mut STROBJ);
 windows_link::link!("gdi32.dll" "system" fn STROBJ_vEnumStart(pstro : *mut STROBJ));
-pub type SaveCurrentMonitorSettings = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SaveCurrentMonitorSettings(hmonitor : super::super::Foundation::HANDLE) -> i32);
-pub type SaveCurrentSettings = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SaveCurrentSettings(hmonitor : super::super::Foundation::HANDLE) -> i32);
-pub type SetDisplayAutoRotationPreferences = unsafe extern "system" fn(orientation: ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn SetDisplayAutoRotationPreferences(orientation : ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL);
-pub type SetDisplayConfig = unsafe extern "system" fn(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: SET_DISPLAY_CONFIG_FLAGS) -> i32;
 windows_link::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : u32, patharray : *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : u32, modeinfoarray : *const DISPLAYCONFIG_MODE_INFO, flags : SET_DISPLAY_CONFIG_FLAGS) -> i32);
-pub type SetMonitorBrightness = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, dwnewbrightness: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetMonitorBrightness(hmonitor : super::super::Foundation::HANDLE, dwnewbrightness : u32) -> i32);
-pub type SetMonitorColorTemperature = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetMonitorColorTemperature(hmonitor : super::super::Foundation::HANDLE, ctcurrentcolortemperature : MC_COLOR_TEMPERATURE) -> i32);
-pub type SetMonitorContrast = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, dwnewcontrast: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetMonitorContrast(hmonitor : super::super::Foundation::HANDLE, dwnewcontrast : u32) -> i32);
-pub type SetMonitorDisplayAreaPosition = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetMonitorDisplayAreaPosition(hmonitor : super::super::Foundation::HANDLE, ptpositiontype : MC_POSITION_TYPE, dwnewposition : u32) -> i32);
-pub type SetMonitorDisplayAreaSize = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetMonitorDisplayAreaSize(hmonitor : super::super::Foundation::HANDLE, stsizetype : MC_SIZE_TYPE, dwnewdisplayareawidthorheight : u32) -> i32);
-pub type SetMonitorRedGreenOrBlueDrive = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueDrive(hmonitor : super::super::Foundation::HANDLE, dtdrivetype : MC_DRIVE_TYPE, dwnewdrive : u32) -> i32);
-pub type SetMonitorRedGreenOrBlueGain = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetMonitorRedGreenOrBlueGain(hmonitor : super::super::Foundation::HANDLE, gtgaintype : MC_GAIN_TYPE, dwnewgain : u32) -> i32);
-pub type SetVCPFeature = unsafe extern "system" fn(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, dwnewvalue: u32) -> i32;
 windows_link::link!("dxva2.dll" "system" fn SetVCPFeature(hmonitor : super::super::Foundation::HANDLE, bvcpcode : u8, dwnewvalue : u32) -> i32);
-pub type XFORMOBJ_bApplyXform = unsafe extern "system" fn(pxo: *mut XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut core::ffi::c_void, pvout: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_bApplyXform(pxo : *mut XFORMOBJ, imode : u32, cpoints : u32, pvin : *mut core::ffi::c_void, pvout : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-pub type XFORMOBJ_iGetXform = unsafe extern "system" fn(pxo: *const XFORMOBJ, pxform: *mut XFORML) -> u32;
 windows_link::link!("gdi32.dll" "system" fn XFORMOBJ_iGetXform(pxo : *const XFORMOBJ, pxform : *mut XFORML) -> u32);
-pub type XLATEOBJ_cGetPalette = unsafe extern "system" fn(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32;
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_cGetPalette(pxlo : *mut XLATEOBJ, ipal : u32, cpal : u32, ppal : *mut u32) -> u32);
-pub type XLATEOBJ_hGetColorTransform = unsafe extern "system" fn(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE;
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_hGetColorTransform(pxlo : *mut XLATEOBJ) -> super::super::Foundation::HANDLE);
-pub type XLATEOBJ_iXlate = unsafe extern "system" fn(pxlo: *mut XLATEOBJ, icolor: u32) -> u32;
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_iXlate(pxlo : *mut XLATEOBJ, icolor : u32) -> u32);
-pub type XLATEOBJ_piVector = unsafe extern "system" fn(pxlo: *mut XLATEOBJ) -> *mut u32;
 windows_link::link!("gdi32.dll" "system" fn XLATEOBJ_piVector(pxlo : *mut XLATEOBJ) -> *mut u32);
 pub const AR_DISABLED: AR_STATE = 1i32;
 pub const AR_DOCKED: AR_STATE = 64i32;

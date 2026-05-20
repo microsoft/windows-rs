@@ -1,392 +1,197 @@
-pub type AVIBuildFilterA = unsafe extern "system" fn(lpszfilter: windows_sys::core::PSTR, cbfilter: i32, fsaving: windows_sys::core::BOOL) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_sys::core::PSTR, cbfilter : i32, fsaving : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-pub type AVIBuildFilterW = unsafe extern "system" fn(lpszfilter: windows_sys::core::PWSTR, cbfilter: i32, fsaving: windows_sys::core::BOOL) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_sys::core::PWSTR, cbfilter : i32, fsaving : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-pub type AVIClearClipboard = unsafe extern "system" fn() -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIClearClipboard() -> windows_sys::core::HRESULT);
-pub type AVIFileAddRef = unsafe extern "system" fn(pfile: *mut core::ffi::c_void) -> u32;
 windows_link::link!("avifil32.dll" "system" fn AVIFileAddRef(pfile : *mut core::ffi::c_void) -> u32);
-pub type AVIFileCreateStreamA = unsafe extern "system" fn(pfile: *mut core::ffi::c_void, ppavi: *mut *mut core::ffi::c_void, psi: *const AVISTREAMINFOA) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileCreateStreamA(pfile : *mut core::ffi::c_void, ppavi : *mut *mut core::ffi::c_void, psi : *const AVISTREAMINFOA) -> windows_sys::core::HRESULT);
-pub type AVIFileCreateStreamW = unsafe extern "system" fn(pfile: *mut core::ffi::c_void, ppavi: *mut *mut core::ffi::c_void, psi: *const AVISTREAMINFOW) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileCreateStreamW(pfile : *mut core::ffi::c_void, ppavi : *mut *mut core::ffi::c_void, psi : *const AVISTREAMINFOW) -> windows_sys::core::HRESULT);
-pub type AVIFileEndRecord = unsafe extern "system" fn(pfile: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileEndRecord(pfile : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type AVIFileExit = unsafe extern "system" fn();
 windows_link::link!("avifil32.dll" "system" fn AVIFileExit());
-pub type AVIFileGetStream = unsafe extern "system" fn(pfile: *mut core::ffi::c_void, ppavi: *mut *mut core::ffi::c_void, fcctype: u32, lparam: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileGetStream(pfile : *mut core::ffi::c_void, ppavi : *mut *mut core::ffi::c_void, fcctype : u32, lparam : i32) -> windows_sys::core::HRESULT);
-pub type AVIFileInfoA = unsafe extern "system" fn(pfile: *mut core::ffi::c_void, pfi: *mut AVIFILEINFOA, lsize: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileInfoA(pfile : *mut core::ffi::c_void, pfi : *mut AVIFILEINFOA, lsize : i32) -> windows_sys::core::HRESULT);
-pub type AVIFileInfoW = unsafe extern "system" fn(pfile: *mut core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileInfoW(pfile : *mut core::ffi::c_void, pfi : *mut AVIFILEINFOW, lsize : i32) -> windows_sys::core::HRESULT);
-pub type AVIFileInit = unsafe extern "system" fn();
 windows_link::link!("avifil32.dll" "system" fn AVIFileInit());
-pub type AVIFileOpenA = unsafe extern "system" fn(ppfile: *mut *mut core::ffi::c_void, szfile: windows_sys::core::PCSTR, umode: u32, lphandler: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCSTR, umode : u32, lphandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-pub type AVIFileOpenW = unsafe extern "system" fn(ppfile: *mut *mut core::ffi::c_void, szfile: windows_sys::core::PCWSTR, umode: u32, lphandler: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCWSTR, umode : u32, lphandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-pub type AVIFileReadData = unsafe extern "system" fn(pfile: *mut core::ffi::c_void, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileReadData(pfile : *mut core::ffi::c_void, ckid : u32, lpdata : *mut core::ffi::c_void, lpcbdata : *mut i32) -> windows_sys::core::HRESULT);
-pub type AVIFileRelease = unsafe extern "system" fn(pfile: *mut core::ffi::c_void) -> u32;
 windows_link::link!("avifil32.dll" "system" fn AVIFileRelease(pfile : *mut core::ffi::c_void) -> u32);
-pub type AVIFileWriteData = unsafe extern "system" fn(pfile: *mut core::ffi::c_void, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIFileWriteData(pfile : *mut core::ffi::c_void, ckid : u32, lpdata : *const core::ffi::c_void, cbdata : i32) -> windows_sys::core::HRESULT);
-pub type AVIGetFromClipboard = unsafe extern "system" fn(lppf: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIGetFromClipboard(lppf : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type AVIMakeCompressedStream = unsafe extern "system" fn(ppscompressed: *mut *mut core::ffi::c_void, ppssource: *mut core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompressed : *mut *mut core::ffi::c_void, ppssource : *mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-pub type AVIMakeFileFromStreams = unsafe extern "system" fn(ppfile: *mut *mut core::ffi::c_void, nstreams: i32, papstreams: *const *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut *mut core::ffi::c_void, nstreams : i32, papstreams : *const *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type AVIMakeStreamFromClipboard = unsafe extern "system" fn(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation::HANDLE, ppstream : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type AVIPutFileOnClipboard = unsafe extern "system" fn(pf: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIPutFileOnClipboard(pf : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type AVISaveA = unsafe extern "C" fn(szfile: windows_sys::core::PCSTR, pclsidhandler: *const windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: *mut core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "C" fn AVISaveA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : *mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
-pub type AVISaveOptions = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const *mut core::ffi::c_void, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
 windows_link::link!("avifil32.dll" "system" fn AVISaveOptions(hwnd : super::super::Foundation::HWND, uiflags : u32, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *mut *mut AVICOMPRESSOPTIONS) -> isize);
-pub type AVISaveOptionsFree = unsafe extern "system" fn(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
-pub type AVISaveVA = unsafe extern "system" fn(szfile: windows_sys::core::PCSTR, pclsidhandler: *const windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const *mut core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_sys::core::PCSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
-pub type AVISaveVW = unsafe extern "system" fn(szfile: windows_sys::core::PCWSTR, pclsidhandler: *const windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const *mut core::ffi::c_void, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const *mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_sys::core::HRESULT);
-pub type AVISaveW = unsafe extern "C" fn(szfile: windows_sys::core::PCWSTR, pclsidhandler: *const windows_sys::core::GUID, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: *mut core::ffi::c_void, lpoptions: *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "C" fn AVISaveW(szfile : windows_sys::core::PCWSTR, pclsidhandler : *const windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : *mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> windows_sys::core::HRESULT);
-pub type AVIStreamAddRef = unsafe extern "system" fn(pavi: *mut core::ffi::c_void) -> u32;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamAddRef(pavi : *mut core::ffi::c_void) -> u32);
-pub type AVIStreamBeginStreaming = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamBeginStreaming(pavi : *mut core::ffi::c_void, lstart : i32, lend : i32, lrate : i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamCreate = unsafe extern "system" fn(ppavi: *mut *mut core::ffi::c_void, lparam1: i32, lparam2: i32, pclsidhandler: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut *mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-pub type AVIStreamEndStreaming = unsafe extern "system" fn(pavi: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamEndStreaming(pavi : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type AVIStreamFindSample = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpos: i32, lflags: i32) -> i32;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamFindSample(pavi : *mut core::ffi::c_void, lpos : i32, lflags : i32) -> i32);
-pub type AVIStreamGetFrame = unsafe extern "system" fn(pg: *mut core::ffi::c_void, lpos: i32) -> *mut core::ffi::c_void;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamGetFrame(pg : *mut core::ffi::c_void, lpos : i32) -> *mut core::ffi::c_void);
-pub type AVIStreamGetFrameClose = unsafe extern "system" fn(pg: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamGetFrameClose(pg : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type AVIStreamGetFrameOpen = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> *mut core::ffi::c_void;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("avifil32.dll" "system" fn AVIStreamGetFrameOpen(pavi : *mut core::ffi::c_void, lpbiwanted : *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> *mut core::ffi::c_void);
-pub type AVIStreamInfoA = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, psi: *mut AVISTREAMINFOA, lsize: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamInfoA(pavi : *mut core::ffi::c_void, psi : *mut AVISTREAMINFOA, lsize : i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamInfoW = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamInfoW(pavi : *mut core::ffi::c_void, psi : *mut AVISTREAMINFOW, lsize : i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamLength = unsafe extern "system" fn(pavi: *mut core::ffi::c_void) -> i32;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamLength(pavi : *mut core::ffi::c_void) -> i32);
-pub type AVIStreamOpenFromFileA = unsafe extern "system" fn(ppavi: *mut *mut core::ffi::c_void, szfile: windows_sys::core::PCSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-pub type AVIStreamOpenFromFileW = unsafe extern "system" fn(ppavi: *mut *mut core::ffi::c_void, szfile: windows_sys::core::PCWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const windows_sys::core::GUID) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut *mut core::ffi::c_void, szfile : windows_sys::core::PCWSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-pub type AVIStreamRead = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamRead(pavi : *mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *mut core::ffi::c_void, cbbuffer : i32, plbytes : *mut i32, plsamples : *mut i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamReadData = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, fcc: u32, lp: *mut core::ffi::c_void, lpcb: *mut i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamReadData(pavi : *mut core::ffi::c_void, fcc : u32, lp : *mut core::ffi::c_void, lpcb : *mut i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamReadFormat = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpos: i32, lpformat: *mut core::ffi::c_void, lpcbformat: *mut i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamReadFormat(pavi : *mut core::ffi::c_void, lpos : i32, lpformat : *mut core::ffi::c_void, lpcbformat : *mut i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamRelease = unsafe extern "system" fn(pavi: *mut core::ffi::c_void) -> u32;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamRelease(pavi : *mut core::ffi::c_void) -> u32);
-pub type AVIStreamSampleToTime = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lsample: i32) -> i32;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamSampleToTime(pavi : *mut core::ffi::c_void, lsample : i32) -> i32);
-pub type AVIStreamSetFormat = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamSetFormat(pavi : *mut core::ffi::c_void, lpos : i32, lpformat : *const core::ffi::c_void, cbformat : i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamStart = unsafe extern "system" fn(pavi: *mut core::ffi::c_void) -> i32;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamStart(pavi : *mut core::ffi::c_void) -> i32);
-pub type AVIStreamTimeToSample = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, ltime: i32) -> i32;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamTimeToSample(pavi : *mut core::ffi::c_void, ltime : i32) -> i32);
-pub type AVIStreamWrite = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamWrite(pavi : *mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *const core::ffi::c_void, cbbuffer : i32, dwflags : u32, plsampwritten : *mut i32, plbyteswritten : *mut i32) -> windows_sys::core::HRESULT);
-pub type AVIStreamWriteData = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn AVIStreamWriteData(pavi : *mut core::ffi::c_void, fcc : u32, lp : *const core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
-pub type CloseDriver = unsafe extern "system" fn(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 windows_link::link!("winmm.dll" "system" fn CloseDriver(hdriver : HDRVR, lparam1 : super::super::Foundation::LPARAM, lparam2 : super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT);
-pub type CreateEditableStream = unsafe extern "system" fn(ppseditable: *mut *mut core::ffi::c_void, pssource: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut *mut core::ffi::c_void, pssource : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type DefDriverProc = unsafe extern "system" fn(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 windows_link::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation::LPARAM, lparam2 : super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibBegin = unsafe extern "system" fn(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi::HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibChangePalette = unsafe extern "system" fn(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi::PALETTEENTRY) -> windows_sys::core::BOOL);
-pub type DrawDibClose = unsafe extern "system" fn(hdd: isize) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibDraw = unsafe extern "system" fn(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi::HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> windows_sys::core::BOOL);
-pub type DrawDibEnd = unsafe extern "system" fn(hdd: isize) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibGetBuffer = unsafe extern "system" fn(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut core::ffi::c_void;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibGetBuffer(hdd : isize, lpbi : *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibGetPalette = unsafe extern "system" fn(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibGetPalette(hdd : isize) -> super::super::Graphics::Gdi::HPALETTE);
-pub type DrawDibOpen = unsafe extern "system" fn() -> isize;
 windows_link::link!("msvfw32.dll" "system" fn DrawDibOpen() -> isize);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibProfileDisplay = unsafe extern "system" fn(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibProfileDisplay(lpbi : *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibRealize = unsafe extern "system" fn(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: windows_sys::core::BOOL) -> u32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi::HDC, fbackground : windows_sys::core::BOOL) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type DrawDibSetPalette = unsafe extern "system" fn(hdd: isize, hpal: super::super::Graphics::Gdi::HPALETTE) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi::HPALETTE) -> windows_sys::core::BOOL);
-pub type DrawDibStart = unsafe extern "system" fn(hdd: isize, rate: u32) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> windows_sys::core::BOOL);
-pub type DrawDibStop = unsafe extern "system" fn(hdd: isize) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> windows_sys::core::BOOL);
-pub type DrawDibTime = unsafe extern "system" fn(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> windows_sys::core::BOOL);
-pub type DriverCallback = unsafe extern "system" fn(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> windows_sys::core::BOOL);
-pub type DrvGetModuleHandle = unsafe extern "system" fn(hdriver: HDRVR) -> super::super::Foundation::HMODULE;
 windows_link::link!("winmm.dll" "system" fn DrvGetModuleHandle(hdriver : HDRVR) -> super::super::Foundation::HMODULE);
-pub type EditStreamClone = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamClone(pavi : *mut core::ffi::c_void, ppresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type EditStreamCopy = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamCopy(pavi : *mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type EditStreamCut = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamCut(pavi : *mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type EditStreamPaste = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut core::ffi::c_void, lstart: i32, lend: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamPaste(pavi : *mut core::ffi::c_void, plpos : *mut i32, pllength : *mut i32, pstream : *mut core::ffi::c_void, lstart : i32, lend : i32) -> windows_sys::core::HRESULT);
-pub type EditStreamSetInfoA = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamSetInfoA(pavi : *mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOA, cbinfo : i32) -> windows_sys::core::HRESULT);
-pub type EditStreamSetInfoW = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamSetInfoW(pavi : *mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOW, cbinfo : i32) -> windows_sys::core::HRESULT);
-pub type EditStreamSetNameA = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpszname: windows_sys::core::PCSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamSetNameA(pavi : *mut core::ffi::c_void, lpszname : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
-pub type EditStreamSetNameW = unsafe extern "system" fn(pavi: *mut core::ffi::c_void, lpszname: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("avifil32.dll" "system" fn EditStreamSetNameW(pavi : *mut core::ffi::c_void, lpszname : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-pub type GetDriverModuleHandle = unsafe extern "system" fn(hdriver: HDRVR) -> super::super::Foundation::HMODULE;
 windows_link::link!("winmm.dll" "system" fn GetDriverModuleHandle(hdriver : HDRVR) -> super::super::Foundation::HMODULE);
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-pub type GetOpenFileNamePreviewA = unsafe extern "system" fn(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 windows_link::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-pub type GetOpenFileNamePreviewW = unsafe extern "system" fn(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
 windows_link::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
-pub type GetSaveFileNamePreviewA = unsafe extern "system" fn(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
 windows_link::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-pub type GetSaveFileNamePreviewW = unsafe extern "system" fn(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_UI_Controls_Dialogs")]
 windows_link::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> windows_sys::core::BOOL);
-pub type ICClose = unsafe extern "system" fn(hic: HIC) -> super::super::Foundation::LRESULT;
 windows_link::link!("msvfw32.dll" "system" fn ICClose(hic : HIC) -> super::super::Foundation::LRESULT);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICCompress = unsafe extern "C" fn(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const core::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "C" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICCompressorChoose = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const core::ffi::c_void, lpdata: *const core::ffi::c_void, pc: *mut COMPVARS, lpsztitle: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation::HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICCompressorFree = unsafe extern "system" fn(pc: *const COMPVARS);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICCompressorFree(pc : *const COMPVARS));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICDecompress = unsafe extern "C" fn(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut core::ffi::c_void) -> u32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "C" fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata : *const core::ffi::c_void, lpbi : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits : *mut core::ffi::c_void) -> u32);
-pub type ICDraw = unsafe extern "C" fn(hic: HIC, dwflags: u32, lpformat: *const core::ffi::c_void, lpdata: *const core::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
 windows_link::link!("msvfw32.dll" "C" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICDrawBegin = unsafe extern "C" fn(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "C" fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::super::Graphics::Gdi::HPALETTE, hwnd : super::super::Foundation::HWND, hdc : super::super::Graphics::Gdi::HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICGetDisplayFormat = unsafe extern "system" fn(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout : *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
-pub type ICGetInfo = unsafe extern "system" fn(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
 windows_link::link!("msvfw32.dll" "system" fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::super::Foundation::LRESULT);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICImageCompress = unsafe extern "system" fn(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi::BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi::BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICImageDecompress = unsafe extern "system" fn(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi::BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE);
-pub type ICInfo = unsafe extern "system" fn(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> windows_sys::core::BOOL);
-pub type ICInstall = unsafe extern "system" fn(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: windows_sys::core::PCSTR, wflags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation::LPARAM, szdesc : windows_sys::core::PCSTR, wflags : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICLocate = unsafe extern "system" fn(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags : u16) -> HIC);
-pub type ICOpen = unsafe extern "system" fn(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
 windows_link::link!("msvfw32.dll" "system" fn ICOpen(fcctype : u32, fcchandler : u32, wmode : u32) -> HIC);
-pub type ICOpenFunction = unsafe extern "system" fn(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC;
 windows_link::link!("msvfw32.dll" "system" fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::super::Foundation::FARPROC) -> HIC);
-pub type ICRemove = unsafe extern "system" fn(fcctype: u32, fcchandler: u32, wflags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> windows_sys::core::BOOL);
-pub type ICSendMessage = unsafe extern "system" fn(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
 windows_link::link!("msvfw32.dll" "system" fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation::LRESULT);
-#[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICSeqCompressFrame = unsafe extern "system" fn(pc: *const COMPVARS, uiflags: u32, lpbits: *const core::ffi::c_void, pfkey: *mut windows_sys::core::BOOL, plsize: *mut i32) -> *mut core::ffi::c_void;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut windows_sys::core::BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICSeqCompressFrameEnd = unsafe extern "system" fn(pc: *const COMPVARS);
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrameEnd(pc : *const COMPVARS));
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type ICSeqCompressFrameStart = unsafe extern "system" fn(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi::BITMAPINFO) -> windows_sys::core::BOOL);
-pub type MCIWndCreateA = unsafe extern "C" fn(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: windows_sys::core::PCSTR) -> super::super::Foundation::HWND;
 windows_link::link!("msvfw32.dll" "C" fn MCIWndCreateA(hwndparent : super::super::Foundation::HWND, hinstance : super::super::Foundation::HINSTANCE, dwstyle : u32, szfile : windows_sys::core::PCSTR) -> super::super::Foundation::HWND);
-pub type MCIWndCreateW = unsafe extern "C" fn(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: windows_sys::core::PCWSTR) -> super::super::Foundation::HWND;
 windows_link::link!("msvfw32.dll" "C" fn MCIWndCreateW(hwndparent : super::super::Foundation::HWND, hinstance : super::super::Foundation::HINSTANCE, dwstyle : u32, szfile : windows_sys::core::PCWSTR) -> super::super::Foundation::HWND);
-pub type MCIWndRegisterClass = unsafe extern "C" fn() -> windows_sys::core::BOOL;
 windows_link::link!("msvfw32.dll" "C" fn MCIWndRegisterClass() -> windows_sys::core::BOOL);
-pub type OpenDriver = unsafe extern "system" fn(szdrivername: windows_sys::core::PCWSTR, szsectionname: windows_sys::core::PCWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
 windows_link::link!("winmm.dll" "system" fn OpenDriver(szdrivername : windows_sys::core::PCWSTR, szsectionname : windows_sys::core::PCWSTR, lparam2 : super::super::Foundation::LPARAM) -> HDRVR);
-pub type SendDriverMessage = unsafe extern "system" fn(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 windows_link::link!("winmm.dll" "system" fn SendDriverMessage(hdriver : HDRVR, message : u32, lparam1 : super::super::Foundation::LPARAM, lparam2 : super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT);
-pub type VideoForWindowsVersion = unsafe extern "system" fn() -> u32;
 windows_link::link!("msvfw32.dll" "system" fn VideoForWindowsVersion() -> u32);
-pub type capCreateCaptureWindowA = unsafe extern "system" fn(lpszwindowname: windows_sys::core::PCSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
 windows_link::link!("avicap32.dll" "system" fn capCreateCaptureWindowA(lpszwindowname : windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation::HWND, nid : i32) -> super::super::Foundation::HWND);
-pub type capCreateCaptureWindowW = unsafe extern "system" fn(lpszwindowname: windows_sys::core::PCWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
 windows_link::link!("avicap32.dll" "system" fn capCreateCaptureWindowW(lpszwindowname : windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation::HWND, nid : i32) -> super::super::Foundation::HWND);
-pub type capGetDriverDescriptionA = unsafe extern "system" fn(wdriverindex: u32, lpszname: windows_sys::core::PSTR, cbname: i32, lpszver: windows_sys::core::PSTR, cbver: i32) -> windows_sys::core::BOOL;
 windows_link::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_sys::core::PSTR, cbname : i32, lpszver : windows_sys::core::PSTR, cbver : i32) -> windows_sys::core::BOOL);
-pub type capGetDriverDescriptionW = unsafe extern "system" fn(wdriverindex: u32, lpszname: windows_sys::core::PWSTR, cbname: i32, lpszver: windows_sys::core::PWSTR, cbver: i32) -> windows_sys::core::BOOL;
 windows_link::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_sys::core::PWSTR, cbname : i32, lpszver : windows_sys::core::PWSTR, cbver : i32) -> windows_sys::core::BOOL);
-pub type joyGetDevCapsA = unsafe extern "system" fn(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : *mut JOYCAPSA, cbjc : u32) -> u32);
-pub type joyGetDevCapsW = unsafe extern "system" fn(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : *mut JOYCAPSW, cbjc : u32) -> u32);
-pub type joyGetNumDevs = unsafe extern "system" fn() -> u32;
 windows_link::link!("winmm.dll" "system" fn joyGetNumDevs() -> u32);
-pub type joyGetPos = unsafe extern "system" fn(ujoyid: u32, pji: *mut JOYINFO) -> u32;
 windows_link::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : *mut JOYINFO) -> u32);
-pub type joyGetPosEx = unsafe extern "system" fn(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
 windows_link::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : *mut JOYINFOEX) -> u32);
-pub type joyGetThreshold = unsafe extern "system" fn(ujoyid: u32, puthreshold: *mut u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : *mut u32) -> u32);
-pub type joyReleaseCapture = unsafe extern "system" fn(ujoyid: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> u32);
-pub type joySetCapture = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: windows_sys::core::BOOL) -> u32;
 windows_link::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation::HWND, ujoyid : u32, uperiod : u32, fchanged : windows_sys::core::BOOL) -> u32);
-pub type joySetThreshold = unsafe extern "system" fn(ujoyid: u32, uthreshold: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> u32);
-pub type mciDriverNotify = unsafe extern "system" fn(hwndcallback: super::super::Foundation::HANDLE, wdeviceid: u32, ustatus: u32) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation::HANDLE, wdeviceid : u32, ustatus : u32) -> windows_sys::core::BOOL);
-pub type mciDriverYield = unsafe extern "system" fn(wdeviceid: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : u32) -> u32);
-pub type mciFreeCommandResource = unsafe extern "system" fn(wtable: u32) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> windows_sys::core::BOOL);
-pub type mciGetCreatorTask = unsafe extern "system" fn(mciid: u32) -> super::super::Foundation::HTASK;
 windows_link::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : u32) -> super::super::Foundation::HTASK);
-pub type mciGetDeviceIDA = unsafe extern "system" fn(pszdevice: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciGetDeviceIDA(pszdevice : windows_sys::core::PCSTR) -> u32);
-pub type mciGetDeviceIDFromElementIDA = unsafe extern "system" fn(dwelementid: u32, lpstrtype: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : u32, lpstrtype : windows_sys::core::PCSTR) -> u32);
-pub type mciGetDeviceIDFromElementIDW = unsafe extern "system" fn(dwelementid: u32, lpstrtype: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDW(dwelementid : u32, lpstrtype : windows_sys::core::PCWSTR) -> u32);
-pub type mciGetDeviceIDW = unsafe extern "system" fn(pszdevice: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciGetDeviceIDW(pszdevice : windows_sys::core::PCWSTR) -> u32);
-pub type mciGetDriverData = unsafe extern "system" fn(wdeviceid: u32) -> usize;
 windows_link::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : u32) -> usize);
-pub type mciGetErrorStringA = unsafe extern "system" fn(mcierr: u32, psztext: windows_sys::core::PSTR, cchtext: u32) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : windows_sys::core::PSTR, cchtext : u32) -> windows_sys::core::BOOL);
-pub type mciGetErrorStringW = unsafe extern "system" fn(mcierr: u32, psztext: windows_sys::core::PWSTR, cchtext: u32) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : windows_sys::core::PWSTR, cchtext : u32) -> windows_sys::core::BOOL);
-pub type mciGetYieldProc = unsafe extern "system" fn(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
 windows_link::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : u32, pdwyielddata : *const u32) -> YIELDPROC);
-pub type mciLoadCommandResource = unsafe extern "system" fn(hinstance: super::super::Foundation::HANDLE, lpresname: windows_sys::core::PCWSTR, wtype: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::super::Foundation::HANDLE, lpresname : windows_sys::core::PCWSTR, wtype : u32) -> u32);
-pub type mciSendCommandA = unsafe extern "system" fn(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciSendCommandA(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-pub type mciSendCommandW = unsafe extern "system" fn(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciSendCommandW(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
-pub type mciSendStringA = unsafe extern "system" fn(lpstrcommand: windows_sys::core::PCSTR, lpstrreturnstring: windows_sys::core::PSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_sys::core::PCSTR, lpstrreturnstring : windows_sys::core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation::HWND) -> u32);
-pub type mciSendStringW = unsafe extern "system" fn(lpstrcommand: windows_sys::core::PCWSTR, lpstrreturnstring: windows_sys::core::PWSTR, ureturnlength: u32, hwndcallback: super::super::Foundation::HWND) -> u32;
 windows_link::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_sys::core::PCWSTR, lpstrreturnstring : windows_sys::core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation::HWND) -> u32);
-pub type mciSetDriverData = unsafe extern "system" fn(wdeviceid: u32, dwdata: usize) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> windows_sys::core::BOOL);
-pub type mciSetYieldProc = unsafe extern "system" fn(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> windows_sys::core::BOOL);
-pub type mmDrvInstall = unsafe extern "system" fn(hdriver: HDRVR, wszdrventry: windows_sys::core::PCWSTR, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : HDRVR, wszdrventry : windows_sys::core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
-pub type mmGetCurrentTask = unsafe extern "system" fn() -> u32;
 windows_link::link!("winmm.dll" "system" fn mmGetCurrentTask() -> u32);
-pub type mmTaskBlock = unsafe extern "system" fn(h: u32);
 windows_link::link!("winmm.dll" "system" fn mmTaskBlock(h : u32));
-pub type mmTaskCreate = unsafe extern "system" fn(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation::HANDLE, dwinst : usize) -> u32);
-pub type mmTaskSignal = unsafe extern "system" fn(h: u32) -> windows_sys::core::BOOL;
 windows_link::link!("winmm.dll" "system" fn mmTaskSignal(h : u32) -> windows_sys::core::BOOL);
-pub type mmTaskYield = unsafe extern "system" fn();
 windows_link::link!("winmm.dll" "system" fn mmTaskYield());
-pub type mmioAdvance = unsafe extern "system" fn(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
-pub type mmioAscend = unsafe extern "system" fn(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> u32);
-pub type mmioClose = unsafe extern "system" fn(hmmio: HMMIO, fuclose: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioClose(hmmio : HMMIO, fuclose : u32) -> u32);
-pub type mmioCreateChunk = unsafe extern "system" fn(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : *const MMCKINFO, fucreate : u32) -> u32);
-pub type mmioDescend = unsafe extern "system" fn(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : *mut MMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> u32);
-pub type mmioFlush = unsafe extern "system" fn(hmmio: HMMIO, fuflush: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : u32) -> u32);
-pub type mmioGetInfo = unsafe extern "system" fn(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> u32);
-pub type mmioInstallIOProcA = unsafe extern "system" fn(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
 windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-pub type mmioInstallIOProcW = unsafe extern "system" fn(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
 windows_link::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
-pub type mmioOpenA = unsafe extern "system" fn(pszfilename: windows_sys::core::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
 windows_link::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_sys::core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-pub type mmioOpenW = unsafe extern "system" fn(pszfilename: windows_sys::core::PWSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
 windows_link::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_sys::core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-pub type mmioRead = unsafe extern "system" fn(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
 windows_link::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
-pub type mmioRenameA = unsafe extern "system" fn(pszfilename: windows_sys::core::PCSTR, psznewfilename: windows_sys::core::PCSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_sys::core::PCSTR, psznewfilename : windows_sys::core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-pub type mmioRenameW = unsafe extern "system" fn(pszfilename: windows_sys::core::PCWSTR, psznewfilename: windows_sys::core::PCWSTR, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_sys::core::PCWSTR, psznewfilename : windows_sys::core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-pub type mmioSeek = unsafe extern "system" fn(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
 windows_link::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : i32, iorigin : i32) -> i32);
-pub type mmioSendMessage = unsafe extern "system" fn(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 windows_link::link!("winmm.dll" "system" fn mmioSendMessage(hmmio : HMMIO, umsg : u32, lparam1 : super::super::Foundation::LPARAM, lparam2 : super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT);
-pub type mmioSetBuffer = unsafe extern "system" fn(hmmio: HMMIO, pchbuffer: windows_sys::core::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : windows_sys::core::PSTR, cchbuffer : i32, fubuffer : u32) -> u32);
-pub type mmioSetInfo = unsafe extern "system" fn(hmmio: HMMIO, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuinfo : u32) -> u32);
-pub type mmioStringToFOURCCA = unsafe extern "system" fn(sz: windows_sys::core::PCSTR, uflags: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioStringToFOURCCA(sz : windows_sys::core::PCSTR, uflags : u32) -> u32);
-pub type mmioStringToFOURCCW = unsafe extern "system" fn(sz: windows_sys::core::PCWSTR, uflags: u32) -> u32;
 windows_link::link!("winmm.dll" "system" fn mmioStringToFOURCCW(sz : windows_sys::core::PCWSTR, uflags : u32) -> u32);
-pub type mmioWrite = unsafe extern "system" fn(hmmio: HMMIO, pch: windows_sys::core::PCSTR, cch: i32) -> i32;
 windows_link::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : windows_sys::core::PCSTR, cch : i32) -> i32);
-pub type sndOpenSound = unsafe extern "system" fn(eventname: windows_sys::core::PCWSTR, appname: windows_sys::core::PCWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
 windows_link::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_sys::core::PCWSTR, appname : windows_sys::core::PCWSTR, flags : i32, filehandle : *mut super::super::Foundation::HANDLE) -> i32);
 pub const ACMDM_BASE: u32 = 24576u32;
 pub const ACM_MPEG_COPYRIGHT: u32 = 2u32;

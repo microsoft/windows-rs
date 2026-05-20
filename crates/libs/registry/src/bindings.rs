@@ -1,142 +1,21 @@
-pub type CloseHandle = unsafe extern "system" fn(hobject: HANDLE) -> BOOL;
 windows_link::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
-pub type CommitTransaction = unsafe extern "system" fn(transactionhandle: HANDLE) -> BOOL;
 windows_link::link!("ktmw32.dll" "system" fn CommitTransaction(transactionhandle : HANDLE) -> BOOL);
-pub type CreateTransaction = unsafe extern "system" fn(
-    lptransactionattributes: *const SECURITY_ATTRIBUTES,
-    uow: *const GUID,
-    createoptions: u32,
-    isolationlevel: u32,
-    isolationflags: u32,
-    timeout: u32,
-    description: PCWSTR,
-) -> HANDLE;
 windows_link::link!("ktmw32.dll" "system" fn CreateTransaction(lptransactionattributes : *const SECURITY_ATTRIBUTES, uow : *const GUID, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : u32, description : PCWSTR) -> HANDLE);
-pub type GetProcessHeap = unsafe extern "system" fn() -> HANDLE;
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
-pub type HeapAlloc = unsafe extern "system" fn(
-    hheap: HANDLE,
-    dwflags: HEAP_FLAGS,
-    dwbytes: usize,
-) -> *mut core::ffi::c_void;
 windows_link::link!("kernel32.dll" "system" fn HeapAlloc(hheap : HANDLE, dwflags : HEAP_FLAGS, dwbytes : usize) -> *mut core::ffi::c_void);
-pub type HeapFree = unsafe extern "system" fn(
-    hheap: HANDLE,
-    dwflags: HEAP_FLAGS,
-    lpmem: *const core::ffi::c_void,
-) -> BOOL;
 windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> BOOL);
-pub type RegCloseKey = unsafe extern "system" fn(hkey: HKEY) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegCloseKey(hkey : HKEY) -> WIN32_ERROR);
-pub type RegCreateKeyExW = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpsubkey: PCWSTR,
-    reserved: u32,
-    lpclass: PCWSTR,
-    dwoptions: REG_OPEN_CREATE_OPTIONS,
-    samdesired: REG_SAM_FLAGS,
-    lpsecurityattributes: *const SECURITY_ATTRIBUTES,
-    phkresult: *mut HKEY,
-    lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : HKEY, lpsubkey : PCWSTR, reserved : u32, lpclass : PCWSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION) -> WIN32_ERROR);
-pub type RegCreateKeyTransactedW = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpsubkey: PCWSTR,
-    reserved: u32,
-    lpclass: PCWSTR,
-    dwoptions: REG_OPEN_CREATE_OPTIONS,
-    samdesired: REG_SAM_FLAGS,
-    lpsecurityattributes: *const SECURITY_ATTRIBUTES,
-    phkresult: *mut HKEY,
-    lpdwdisposition: *mut REG_CREATE_KEY_DISPOSITION,
-    htransaction: HANDLE,
-    pextendedparemeter: *const core::ffi::c_void,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : HKEY, lpsubkey : PCWSTR, reserved : u32, lpclass : PCWSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION, htransaction : HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
-pub type RegDeleteTreeW = unsafe extern "system" fn(hkey: HKEY, lpsubkey: PCWSTR) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegDeleteTreeW(hkey : HKEY, lpsubkey : PCWSTR) -> WIN32_ERROR);
-pub type RegDeleteValueW =
-    unsafe extern "system" fn(hkey: HKEY, lpvaluename: PCWSTR) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegDeleteValueW(hkey : HKEY, lpvaluename : PCWSTR) -> WIN32_ERROR);
-pub type RegEnumKeyExW = unsafe extern "system" fn(
-    hkey: HKEY,
-    dwindex: u32,
-    lpname: PWSTR,
-    lpcchname: *mut u32,
-    lpreserved: *const u32,
-    lpclass: PWSTR,
-    lpcchclass: *mut u32,
-    lpftlastwritetime: *mut FILETIME,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegEnumKeyExW(hkey : HKEY, dwindex : u32, lpname : PWSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : PWSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut FILETIME) -> WIN32_ERROR);
-pub type RegEnumValueW = unsafe extern "system" fn(
-    hkey: HKEY,
-    dwindex: u32,
-    lpvaluename: PWSTR,
-    lpcchvaluename: *mut u32,
-    lpreserved: *const u32,
-    lptype: *mut u32,
-    lpdata: *mut u8,
-    lpcbdata: *mut u32,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegEnumValueW(hkey : HKEY, dwindex : u32, lpvaluename : PWSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
-pub type RegOpenKeyExW = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpsubkey: PCWSTR,
-    uloptions: u32,
-    samdesired: REG_SAM_FLAGS,
-    phkresult: *mut HKEY,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : HKEY, lpsubkey : PCWSTR, uloptions : u32, samdesired : REG_SAM_FLAGS, phkresult : *mut HKEY) -> WIN32_ERROR);
-pub type RegOpenKeyTransactedW = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpsubkey: PCWSTR,
-    uloptions: u32,
-    samdesired: REG_SAM_FLAGS,
-    phkresult: *mut HKEY,
-    htransaction: HANDLE,
-    pextendedparemeter: *const core::ffi::c_void,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : HKEY, lpsubkey : PCWSTR, uloptions : u32, samdesired : REG_SAM_FLAGS, phkresult : *mut HKEY, htransaction : HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
-pub type RegQueryInfoKeyW = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpclass: PWSTR,
-    lpcchclass: *mut u32,
-    lpreserved: *const u32,
-    lpcsubkeys: *mut u32,
-    lpcbmaxsubkeylen: *mut u32,
-    lpcbmaxclasslen: *mut u32,
-    lpcvalues: *mut u32,
-    lpcbmaxvaluenamelen: *mut u32,
-    lpcbmaxvaluelen: *mut u32,
-    lpcbsecuritydescriptor: *mut u32,
-    lpftlastwritetime: *mut FILETIME,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : HKEY, lpclass : PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut FILETIME) -> WIN32_ERROR);
-pub type RegQueryValueExW = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpvaluename: PCWSTR,
-    lpreserved: *const u32,
-    lptype: *mut REG_VALUE_TYPE,
-    lpdata: *mut u8,
-    lpcbdata: *mut u32,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : HKEY, lpvaluename : PCWSTR, lpreserved : *const u32, lptype : *mut REG_VALUE_TYPE, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
-pub type RegRenameKey = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpsubkeyname: PCWSTR,
-    lpnewkeyname: PCWSTR,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubkeyname : PCWSTR, lpnewkeyname : PCWSTR) -> WIN32_ERROR);
-pub type RegSetValueExW = unsafe extern "system" fn(
-    hkey: HKEY,
-    lpvaluename: PCWSTR,
-    reserved: u32,
-    dwtype: REG_VALUE_TYPE,
-    lpdata: *const u8,
-    cbdata: u32,
-) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : PCWSTR, reserved : u32, dwtype : REG_VALUE_TYPE, lpdata : *const u8, cbdata : u32) -> WIN32_ERROR);
 pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: WIN32_ERROR = 13u32;

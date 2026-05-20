@@ -1,10 +1,6 @@
-pub type GetExtensionVersion = unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> windows_sys::core::BOOL;
 windows_link::link!("rpcproxy.dll" "system" fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> windows_sys::core::BOOL);
-pub type GetFilterVersion = unsafe extern "system" fn(pver: *mut HTTP_FILTER_VERSION) -> windows_sys::core::BOOL;
 windows_link::link!("rpcproxy.dll" "system" fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> windows_sys::core::BOOL);
-pub type HttpExtensionProc = unsafe extern "system" fn(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
 windows_link::link!("rpcproxy.dll" "system" fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
-pub type HttpFilterProc = unsafe extern "system" fn(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut core::ffi::c_void) -> u32;
 windows_link::link!("rpcproxy.dll" "system" fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut core::ffi::c_void) -> u32);
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
 pub const ALL_METADATA: METADATATYPES = 0i32;

@@ -1,363 +1,182 @@
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type ADsBuildEnumerator = unsafe extern "system" fn(padscontainer: *mut core::ffi::c_void, ppenumvariant: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("activeds.dll" "system" fn ADsBuildEnumerator(padscontainer : *mut core::ffi::c_void, ppenumvariant : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type ADsBuildVarArrayInt = unsafe extern "system" fn(lpdwobjecttypes: *mut u32, dwobjecttypes: u32, pvar: *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_link::link!("activeds.dll" "system" fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type ADsBuildVarArrayStr = unsafe extern "system" fn(lpppathnames: *const windows_sys::core::PCWSTR, dwpathnames: u32, pvar: *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_link::link!("activeds.dll" "system" fn ADsBuildVarArrayStr(lpppathnames : *const windows_sys::core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT);
-pub type ADsDecodeBinaryData = unsafe extern "system" fn(szsrcdata: windows_sys::core::PCWSTR, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> windows_sys::core::HRESULT;
 windows_link::link!("activeds.dll" "system" fn ADsDecodeBinaryData(szsrcdata : windows_sys::core::PCWSTR, ppbdestdata : *mut *mut u8, pdwdestlen : *mut u32) -> windows_sys::core::HRESULT);
-pub type ADsEncodeBinaryData = unsafe extern "system" fn(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdata: *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("activeds.dll" "system" fn ADsEncodeBinaryData(pbsrcdata : *mut u8, dwsrclen : u32, ppszdestdata : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type ADsEnumerateNext = unsafe extern "system" fn(penumvariant: *mut core::ffi::c_void, celements: u32, pvar: *mut super::super::System::Variant::VARIANT, pcelementsfetched: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_link::link!("activeds.dll" "system" fn ADsEnumerateNext(penumvariant : *mut core::ffi::c_void, celements : u32, pvar : *mut super::super::System::Variant::VARIANT, pcelementsfetched : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Ole")]
-pub type ADsFreeEnumerator = unsafe extern "system" fn(penumvariant: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_System_Ole")]
 windows_link::link!("activeds.dll" "system" fn ADsFreeEnumerator(penumvariant : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type ADsGetLastError = unsafe extern "system" fn(lperror: *mut u32, lperrorbuf: windows_sys::core::PWSTR, dwerrorbuflen: u32, lpnamebuf: windows_sys::core::PWSTR, dwnamebuflen: u32) -> windows_sys::core::HRESULT;
 windows_link::link!("activeds.dll" "system" fn ADsGetLastError(lperror : *mut u32, lperrorbuf : windows_sys::core::PWSTR, dwerrorbuflen : u32, lpnamebuf : windows_sys::core::PWSTR, dwnamebuflen : u32) -> windows_sys::core::HRESULT);
-pub type ADsGetObject = unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR, riid: *const windows_sys::core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("activeds.dll" "system" fn ADsGetObject(lpszpathname : windows_sys::core::PCWSTR, riid : *const windows_sys::core::GUID, ppobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type ADsOpenObject = unsafe extern "system" fn(lpszpathname: windows_sys::core::PCWSTR, lpszusername: windows_sys::core::PCWSTR, lpszpassword: windows_sys::core::PCWSTR, dwreserved: ADS_AUTHENTICATION_ENUM, riid: *const windows_sys::core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("activeds.dll" "system" fn ADsOpenObject(lpszpathname : windows_sys::core::PCWSTR, lpszusername : windows_sys::core::PCWSTR, lpszpassword : windows_sys::core::PCWSTR, dwreserved : ADS_AUTHENTICATION_ENUM, riid : *const windows_sys::core::GUID, ppobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-pub type ADsPropCheckIfWritable = unsafe extern "system" fn(pwzattr: windows_sys::core::PCWSTR, pwritableattrs: *const ADS_ATTR_INFO) -> windows_sys::core::BOOL;
 windows_link::link!("dsprop.dll" "system" fn ADsPropCheckIfWritable(pwzattr : windows_sys::core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Com")]
-pub type ADsPropCreateNotifyObj = unsafe extern "system" fn(pappthddataobj: *mut core::ffi::c_void, pwzadsobjname: windows_sys::core::PCWSTR, phnotifyobj: *mut super::super::Foundation::HWND) -> windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_System_Com")]
 windows_link::link!("dsprop.dll" "system" fn ADsPropCreateNotifyObj(pappthddataobj : *mut core::ffi::c_void, pwzadsobjname : windows_sys::core::PCWSTR, phnotifyobj : *mut super::super::Foundation::HWND) -> windows_sys::core::HRESULT);
-pub type ADsPropGetInitInfo = unsafe extern "system" fn(hnotifyobj: super::super::Foundation::HWND, pinitparams: *mut ADSPROPINITPARAMS) -> windows_sys::core::BOOL;
 windows_link::link!("dsprop.dll" "system" fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation::HWND, pinitparams : *mut ADSPROPINITPARAMS) -> windows_sys::core::BOOL);
-pub type ADsPropSendErrorMessage = unsafe extern "system" fn(hnotifyobj: super::super::Foundation::HWND, perror: *mut ADSPROPERROR) -> windows_sys::core::BOOL;
 windows_link::link!("dsprop.dll" "system" fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation::HWND, perror : *mut ADSPROPERROR) -> windows_sys::core::BOOL);
-pub type ADsPropSetHwnd = unsafe extern "system" fn(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> windows_sys::core::BOOL;
 windows_link::link!("dsprop.dll" "system" fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation::HWND, hpage : super::super::Foundation::HWND) -> windows_sys::core::BOOL);
-pub type ADsPropSetHwndWithTitle = unsafe extern "system" fn(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND, ptztitle: *const i8) -> windows_sys::core::BOOL;
 windows_link::link!("dsprop.dll" "system" fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation::HWND, hpage : super::super::Foundation::HWND, ptztitle : *const i8) -> windows_sys::core::BOOL);
-pub type ADsPropShowErrorDialog = unsafe extern "system" fn(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> windows_sys::core::BOOL;
 windows_link::link!("dsprop.dll" "system" fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation::HWND, hpage : super::super::Foundation::HWND) -> windows_sys::core::BOOL);
-pub type ADsSetLastError = unsafe extern "system" fn(dwerr: u32, pszerror: windows_sys::core::PCWSTR, pszprovider: windows_sys::core::PCWSTR);
 windows_link::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : windows_sys::core::PCWSTR, pszprovider : windows_sys::core::PCWSTR));
-pub type AdsFreeAdsValues = unsafe extern "system" fn(padsvalues: *mut ADSVALUE, dwnumvalues: u32);
 windows_link::link!("activeds.dll" "system" fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32));
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type AdsTypeToPropVariant = unsafe extern "system" fn(padsvalues: *mut ADSVALUE, dwnumvalues: u32, pvariant: *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_link::link!("activeds.dll" "system" fn AdsTypeToPropVariant(padsvalues : *mut ADSVALUE, dwnumvalues : u32, pvariant : *mut super::super::System::Variant::VARIANT) -> windows_sys::core::HRESULT);
-pub type AllocADsMem = unsafe extern "system" fn(cb: u32) -> *mut core::ffi::c_void;
 windows_link::link!("activeds.dll" "system" fn AllocADsMem(cb : u32) -> *mut core::ffi::c_void);
-pub type AllocADsStr = unsafe extern "system" fn(pstr: windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR;
 windows_link::link!("activeds.dll" "system" fn AllocADsStr(pstr : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type BinarySDToSecurityDescriptor = unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pvarsec: *mut super::super::System::Variant::VARIANT, pszservername: windows_sys::core::PCWSTR, username: windows_sys::core::PCWSTR, password: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_link::link!("activeds.dll" "system" fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Variant::VARIANT, pszservername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-pub type DsAddSidHistoryA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: windows_sys::core::PCSTR, srcprincipal: windows_sys::core::PCSTR, srcdomaincontroller: windows_sys::core::PCSTR, srcdomaincreds: *const core::ffi::c_void, dstdomain: windows_sys::core::PCSTR, dstprincipal: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::super::Foundation::HANDLE, flags : u32, srcdomain : windows_sys::core::PCSTR, srcprincipal : windows_sys::core::PCSTR, srcdomaincontroller : windows_sys::core::PCSTR, srcdomaincreds : *const core::ffi::c_void, dstdomain : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
-pub type DsAddSidHistoryW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: windows_sys::core::PCWSTR, srcprincipal: windows_sys::core::PCWSTR, srcdomaincontroller: windows_sys::core::PCWSTR, srcdomaincreds: *const core::ffi::c_void, dstdomain: windows_sys::core::PCWSTR, dstprincipal: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::super::Foundation::HANDLE, flags : u32, srcdomain : windows_sys::core::PCWSTR, srcprincipal : windows_sys::core::PCWSTR, srcdomaincontroller : windows_sys::core::PCWSTR, srcdomaincreds : *const core::ffi::c_void, dstdomain : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub type DsAddressToSiteNamesA = unsafe extern "system" fn(computername: windows_sys::core::PCSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_sys::core::PSTR) -> u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type DsAddressToSiteNamesExA = unsafe extern "system" fn(computername: windows_sys::core::PCSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_sys::core::PSTR, subnetnames: *mut *mut windows_sys::core::PSTR) -> u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PSTR, subnetnames : *mut *mut windows_sys::core::PSTR) -> u32);
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub type DsAddressToSiteNamesExW = unsafe extern "system" fn(computername: windows_sys::core::PCWSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_sys::core::PWSTR, subnetnames: *mut *mut windows_sys::core::PWSTR) -> u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PWSTR, subnetnames : *mut *mut windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type DsAddressToSiteNamesW = unsafe extern "system" fn(computername: windows_sys::core::PCWSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut windows_sys::core::PWSTR) -> u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesW(computername : windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PWSTR) -> u32);
-pub type DsBindA = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCSTR, dnsdomainname: windows_sys::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindByInstanceA = unsafe extern "system" fn(servername: windows_sys::core::PCSTR, annotation: windows_sys::core::PCSTR, instanceguid: *const windows_sys::core::GUID, dnsdomainname: windows_sys::core::PCSTR, authidentity: *const core::ffi::c_void, serviceprincipalname: windows_sys::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_sys::core::PCSTR, annotation : windows_sys::core::PCSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindByInstanceW = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, annotation: windows_sys::core::PCWSTR, instanceguid: *const windows_sys::core::GUID, dnsdomainname: windows_sys::core::PCWSTR, authidentity: *const core::ffi::c_void, serviceprincipalname: windows_sys::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_sys::core::PCWSTR, annotation : windows_sys::core::PCWSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCWSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindToISTGA = unsafe extern "system" fn(sitename: windows_sys::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGA(sitename : windows_sys::core::PCSTR, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindToISTGW = unsafe extern "system" fn(sitename: windows_sys::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGW(sitename : windows_sys::core::PCWSTR, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindW = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCWSTR, dnsdomainname: windows_sys::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindWithCredA = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCSTR, dnsdomainname: windows_sys::core::PCSTR, authidentity: *const core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : *const core::ffi::c_void, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindWithCredW = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCWSTR, dnsdomainname: windows_sys::core::PCWSTR, authidentity: *const core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : *const core::ffi::c_void, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindWithSpnA = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCSTR, dnsdomainname: windows_sys::core::PCSTR, authidentity: *const core::ffi::c_void, serviceprincipalname: windows_sys::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_sys::core::PCSTR, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindWithSpnExA = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCSTR, dnsdomainname: windows_sys::core::PCSTR, authidentity: *const core::ffi::c_void, serviceprincipalname: windows_sys::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindWithSpnExW = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCWSTR, dnsdomainname: windows_sys::core::PCWSTR, authidentity: *const core::ffi::c_void, serviceprincipalname: windows_sys::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindWithSpnW = unsafe extern "system" fn(domaincontrollername: windows_sys::core::PCWSTR, dnsdomainname: windows_sys::core::PCWSTR, authidentity: *const core::ffi::c_void, serviceprincipalname: windows_sys::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : *const core::ffi::c_void, serviceprincipalname : windows_sys::core::PCWSTR, phds : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsBindingSetTimeout = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, ctimeoutsecs: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsBindingSetTimeout(hds : super::super::Foundation::HANDLE, ctimeoutsecs : u32) -> u32);
-#[cfg(feature = "Win32_UI_Shell")]
-pub type DsBrowseForContainerA = unsafe extern "system" fn(pinfo: *mut DSBROWSEINFOA) -> i32;
 #[cfg(feature = "Win32_UI_Shell")]
 windows_link::link!("dsuiext.dll" "system" fn DsBrowseForContainerA(pinfo : *mut DSBROWSEINFOA) -> i32);
 #[cfg(feature = "Win32_UI_Shell")]
-pub type DsBrowseForContainerW = unsafe extern "system" fn(pinfo: *mut DSBROWSEINFOW) -> i32;
-#[cfg(feature = "Win32_UI_Shell")]
 windows_link::link!("dsuiext.dll" "system" fn DsBrowseForContainerW(pinfo : *mut DSBROWSEINFOW) -> i32);
-pub type DsClientMakeSpnForTargetServerA = unsafe extern "system" fn(serviceclass: windows_sys::core::PCSTR, servicename: windows_sys::core::PCSTR, pcspnlength: *mut u32, pszspn: windows_sys::core::PSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PSTR) -> u32);
-pub type DsClientMakeSpnForTargetServerW = unsafe extern "system" fn(serviceclass: windows_sys::core::PCWSTR, servicename: windows_sys::core::PCWSTR, pcspnlength: *mut u32, pszspn: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PWSTR) -> u32);
-pub type DsCrackNamesA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const windows_sys::core::PCSTR, ppresult: *mut *mut DS_NAME_RESULTA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::super::Foundation::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_sys::core::PCSTR, ppresult : *mut *mut DS_NAME_RESULTA) -> u32);
-pub type DsCrackNamesW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const windows_sys::core::PCWSTR, ppresult: *mut *mut DS_NAME_RESULTW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesW(hds : super::super::Foundation::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_sys::core::PCWSTR, ppresult : *mut *mut DS_NAME_RESULTW) -> u32);
-pub type DsCrackSpn2A = unsafe extern "system" fn(pszspn: windows_sys::core::PCSTR, cspn: u32, pcserviceclass: *mut u32, serviceclass: windows_sys::core::PSTR, pcservicename: *mut u32, servicename: windows_sys::core::PSTR, pcinstancename: *mut u32, instancename: windows_sys::core::PSTR, pinstanceport: *mut u16) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsCrackSpn2A(pszspn : windows_sys::core::PCSTR, cspn : u32, pcserviceclass : *mut u32, serviceclass : windows_sys::core::PSTR, pcservicename : *mut u32, servicename : windows_sys::core::PSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PSTR, pinstanceport : *mut u16) -> u32);
-pub type DsCrackSpn2W = unsafe extern "system" fn(pszspn: windows_sys::core::PCWSTR, cspn: u32, pcserviceclass: *mut u32, serviceclass: windows_sys::core::PWSTR, pcservicename: *mut u32, servicename: windows_sys::core::PWSTR, pcinstancename: *mut u32, instancename: windows_sys::core::PWSTR, pinstanceport: *mut u16) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsCrackSpn2W(pszspn : windows_sys::core::PCWSTR, cspn : u32, pcserviceclass : *mut u32, serviceclass : windows_sys::core::PWSTR, pcservicename : *mut u32, servicename : windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PWSTR, pinstanceport : *mut u16) -> u32);
-pub type DsCrackSpn3W = unsafe extern "system" fn(pszspn: windows_sys::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: windows_sys::core::PWSTR, pcinstancename: *mut u32, instancename: windows_sys::core::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: windows_sys::core::PWSTR, pcrealmname: *mut u32, realmname: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsCrackSpn3W(pszspn : windows_sys::core::PCWSTR, cspn : u32, pchostname : *mut u32, hostname : windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PWSTR, pportnumber : *mut u16, pcdomainname : *mut u32, domainname : windows_sys::core::PWSTR, pcrealmname : *mut u32, realmname : windows_sys::core::PWSTR) -> u32);
-pub type DsCrackSpn4W = unsafe extern "system" fn(pszspn: windows_sys::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: windows_sys::core::PWSTR, pcinstancename: *mut u32, instancename: windows_sys::core::PWSTR, pcportname: *mut u32, portname: windows_sys::core::PWSTR, pcdomainname: *mut u32, domainname: windows_sys::core::PWSTR, pcrealmname: *mut u32, realmname: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsCrackSpn4W(pszspn : windows_sys::core::PCWSTR, cspn : u32, pchostname : *mut u32, hostname : windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PWSTR, pcportname : *mut u32, portname : windows_sys::core::PWSTR, pcdomainname : *mut u32, domainname : windows_sys::core::PWSTR, pcrealmname : *mut u32, realmname : windows_sys::core::PWSTR) -> u32);
-pub type DsCrackSpnA = unsafe extern "system" fn(pszspn: windows_sys::core::PCSTR, pcserviceclass: *mut u32, serviceclass: windows_sys::core::PSTR, pcservicename: *mut u32, servicename: windows_sys::core::PSTR, pcinstancename: *mut u32, instancename: windows_sys::core::PSTR, pinstanceport: *mut u16) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsCrackSpnA(pszspn : windows_sys::core::PCSTR, pcserviceclass : *mut u32, serviceclass : windows_sys::core::PSTR, pcservicename : *mut u32, servicename : windows_sys::core::PSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PSTR, pinstanceport : *mut u16) -> u32);
-pub type DsCrackSpnW = unsafe extern "system" fn(pszspn: windows_sys::core::PCWSTR, pcserviceclass: *mut u32, serviceclass: windows_sys::core::PWSTR, pcservicename: *mut u32, servicename: windows_sys::core::PWSTR, pcinstancename: *mut u32, instancename: windows_sys::core::PWSTR, pinstanceport: *mut u16) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsCrackSpnW(pszspn : windows_sys::core::PCWSTR, pcserviceclass : *mut u32, serviceclass : windows_sys::core::PWSTR, pcservicename : *mut u32, servicename : windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : windows_sys::core::PWSTR, pinstanceport : *mut u16) -> u32);
-pub type DsCrackUnquotedMangledRdnA = unsafe extern "system" fn(pszrdn: windows_sys::core::PCSTR, cchrdn: u32, pguid: *mut windows_sys::core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL;
 windows_link::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnA(pszrdn : windows_sys::core::PCSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL);
-pub type DsCrackUnquotedMangledRdnW = unsafe extern "system" fn(pszrdn: windows_sys::core::PCWSTR, cchrdn: u32, pguid: *mut windows_sys::core::GUID, pedsmanglefor: *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL;
 windows_link::link!("dsparse.dll" "system" fn DsCrackUnquotedMangledRdnW(pszrdn : windows_sys::core::PCWSTR, cchrdn : u32, pguid : *mut windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> windows_sys::core::BOOL);
-pub type DsDeregisterDnsHostRecordsA = unsafe extern "system" fn(servername: windows_sys::core::PCSTR, dnsdomainname: windows_sys::core::PCSTR, domainguid: *const windows_sys::core::GUID, dsaguid: *const windows_sys::core::GUID, dnshostname: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsA(servername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCSTR) -> u32);
-pub type DsDeregisterDnsHostRecordsW = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, dnsdomainname: windows_sys::core::PCWSTR, domainguid: *const windows_sys::core::GUID, dsaguid: *const windows_sys::core::GUID, dnshostname: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "Win32_Security")]
-pub type DsEnumerateDomainTrustsA = unsafe extern "system" fn(servername: windows_sys::core::PCSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsA(servername : windows_sys::core::PCSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSA, domaincount : *mut u32) -> u32);
 #[cfg(feature = "Win32_Security")]
-pub type DsEnumerateDomainTrustsW = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsW(servername : windows_sys::core::PCWSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSW, domaincount : *mut u32) -> u32);
-pub type DsFreeDomainControllerInfoA = unsafe extern "system" fn(infolevel: u32, cinfo: u32, pinfo: *const core::ffi::c_void);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
-pub type DsFreeDomainControllerInfoW = unsafe extern "system" fn(infolevel: u32, cinfo: u32, pinfo: *const core::ffi::c_void);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
-pub type DsFreeNameResultA = unsafe extern "system" fn(presult: *const DS_NAME_RESULTA);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const DS_NAME_RESULTA));
-pub type DsFreeNameResultW = unsafe extern "system" fn(presult: *const DS_NAME_RESULTW);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW));
-pub type DsFreePasswordCredentials = unsafe extern "system" fn(authidentity: *const core::ffi::c_void);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : *const core::ffi::c_void));
-pub type DsFreeSchemaGuidMapA = unsafe extern "system" fn(pguidmap: *const DS_SCHEMA_GUID_MAPA);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : *const DS_SCHEMA_GUID_MAPA));
-pub type DsFreeSchemaGuidMapW = unsafe extern "system" fn(pguidmap: *const DS_SCHEMA_GUID_MAPW);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : *const DS_SCHEMA_GUID_MAPW));
-pub type DsFreeSpnArrayA = unsafe extern "system" fn(cspn: u32, rpszspn: *mut windows_sys::core::PSTR);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut windows_sys::core::PSTR));
-pub type DsFreeSpnArrayW = unsafe extern "system" fn(cspn: u32, rpszspn: *mut windows_sys::core::PWSTR);
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut windows_sys::core::PWSTR));
-pub type DsGetDcCloseW = unsafe extern "system" fn(getdccontexthandle: super::super::Foundation::HANDLE);
 windows_link::link!("netapi32.dll" "system" fn DsGetDcCloseW(getdccontexthandle : super::super::Foundation::HANDLE));
-pub type DsGetDcNameA = unsafe extern "system" fn(computername: windows_sys::core::PCSTR, domainname: windows_sys::core::PCSTR, domainguid: *const windows_sys::core::GUID, sitename: windows_sys::core::PCSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetDcNameA(computername : windows_sys::core::PCSTR, domainname : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, sitename : windows_sys::core::PCSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32);
-pub type DsGetDcNameW = unsafe extern "system" fn(computername: windows_sys::core::PCWSTR, domainname: windows_sys::core::PCWSTR, domainguid: *const windows_sys::core::GUID, sitename: windows_sys::core::PCWSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetDcNameW(computername : windows_sys::core::PCWSTR, domainname : windows_sys::core::PCWSTR, domainguid : *const windows_sys::core::GUID, sitename : windows_sys::core::PCWSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32);
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub type DsGetDcNextA = unsafe extern "system" fn(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut windows_sys::core::PSTR) -> u32;
 #[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("netapi32.dll" "system" fn DsGetDcNextA(getdccontexthandle : super::super::Foundation::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname : *mut windows_sys::core::PSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-pub type DsGetDcNextW = unsafe extern "system" fn(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut windows_sys::core::PWSTR) -> u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 windows_link::link!("netapi32.dll" "system" fn DsGetDcNextW(getdccontexthandle : super::super::Foundation::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname : *mut windows_sys::core::PWSTR) -> u32);
-pub type DsGetDcOpenA = unsafe extern "system" fn(dnsname: windows_sys::core::PCSTR, optionflags: u32, sitename: windows_sys::core::PCSTR, domainguid: *const windows_sys::core::GUID, dnsforestname: windows_sys::core::PCSTR, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetDcOpenA(dnsname : windows_sys::core::PCSTR, optionflags : u32, sitename : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, dnsforestname : windows_sys::core::PCSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsGetDcOpenW = unsafe extern "system" fn(dnsname: windows_sys::core::PCWSTR, optionflags: u32, sitename: windows_sys::core::PCWSTR, domainguid: *const windows_sys::core::GUID, dnsforestname: windows_sys::core::PCWSTR, dcflags: u32, retgetdccontext: *mut super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetDcOpenW(dnsname : windows_sys::core::PCWSTR, optionflags : u32, sitename : windows_sys::core::PCWSTR, domainguid : *const windows_sys::core::GUID, dnsforestname : windows_sys::core::PCWSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation::HANDLE) -> u32);
-pub type DsGetDcSiteCoverageA = unsafe extern "system" fn(servername: windows_sys::core::PCSTR, entrycount: *mut u32, sitenames: *mut *mut windows_sys::core::PSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetDcSiteCoverageA(servername : windows_sys::core::PCSTR, entrycount : *mut u32, sitenames : *mut *mut windows_sys::core::PSTR) -> u32);
-pub type DsGetDcSiteCoverageW = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, entrycount: *mut u32, sitenames: *mut *mut windows_sys::core::PWSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetDcSiteCoverageW(servername : windows_sys::core::PCWSTR, entrycount : *mut u32, sitenames : *mut *mut windows_sys::core::PWSTR) -> u32);
-pub type DsGetDomainControllerInfoA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, domainname: windows_sys::core::PCSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoA(hds : super::super::Foundation::HANDLE, domainname : windows_sys::core::PCSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-pub type DsGetDomainControllerInfoW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, domainname: windows_sys::core::PCWSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoW(hds : super::super::Foundation::HANDLE, domainname : windows_sys::core::PCWSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-pub type DsGetForestTrustInformationW = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, trusteddomainname: windows_sys::core::PCWSTR, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32;
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
 windows_link::link!("netapi32.dll" "system" fn DsGetForestTrustInformationW(servername : windows_sys::core::PCWSTR, trusteddomainname : windows_sys::core::PCWSTR, flags : u32, foresttrustinfo : *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32);
-pub type DsGetFriendlyClassName = unsafe extern "system" fn(pszobjectclass: windows_sys::core::PCWSTR, pszbuffer: windows_sys::core::PWSTR, cchbuffer: u32) -> windows_sys::core::HRESULT;
 windows_link::link!("dsuiext.dll" "system" fn DsGetFriendlyClassName(pszobjectclass : windows_sys::core::PCWSTR, pszbuffer : windows_sys::core::PWSTR, cchbuffer : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type DsGetIcon = unsafe extern "system" fn(dwflags: u32, pszobjectclass: windows_sys::core::PCWSTR, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("dsuiext.dll" "system" fn DsGetIcon(dwflags : u32, pszobjectclass : windows_sys::core::PCWSTR, cximage : i32, cyimage : i32) -> super::super::UI::WindowsAndMessaging::HICON);
-pub type DsGetRdnW = unsafe extern "system" fn(ppdn: *mut windows_sys::core::PWSTR, pcdn: *mut u32, ppkey: *mut windows_sys::core::PWSTR, pckey: *mut u32, ppval: *mut windows_sys::core::PWSTR, pcval: *mut u32) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsGetRdnW(ppdn : *mut windows_sys::core::PWSTR, pcdn : *mut u32, ppkey : *mut windows_sys::core::PWSTR, pckey : *mut u32, ppval : *mut windows_sys::core::PWSTR, pcval : *mut u32) -> u32);
-pub type DsGetSiteNameA = unsafe extern "system" fn(computername: windows_sys::core::PCSTR, sitename: *mut windows_sys::core::PSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetSiteNameA(computername : windows_sys::core::PCSTR, sitename : *mut windows_sys::core::PSTR) -> u32);
-pub type DsGetSiteNameW = unsafe extern "system" fn(computername: windows_sys::core::PCWSTR, sitename: *mut windows_sys::core::PWSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsGetSiteNameW(computername : windows_sys::core::PCWSTR, sitename : *mut windows_sys::core::PWSTR) -> u32);
-pub type DsGetSpnA = unsafe extern "system" fn(servicetype: DS_SPN_NAME_TYPE, serviceclass: windows_sys::core::PCSTR, servicename: windows_sys::core::PCSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const windows_sys::core::PCSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut windows_sys::core::PSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_sys::core::PCSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_sys::core::PSTR) -> u32);
-pub type DsGetSpnW = unsafe extern "system" fn(servicetype: DS_SPN_NAME_TYPE, serviceclass: windows_sys::core::PCWSTR, servicename: windows_sys::core::PCWSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const windows_sys::core::PCWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut windows_sys::core::PWSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_sys::core::PCWSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_sys::core::PWSTR) -> u32);
-pub type DsInheritSecurityIdentityA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: windows_sys::core::PCSTR, dstprincipal: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::super::Foundation::HANDLE, flags : u32, srcprincipal : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
-pub type DsInheritSecurityIdentityW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: windows_sys::core::PCWSTR, dstprincipal: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::super::Foundation::HANDLE, flags : u32, srcprincipal : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
-pub type DsIsMangledDnA = unsafe extern "system" fn(pszdn: windows_sys::core::PCSTR, edsmanglefor: DS_MANGLE_FOR) -> windows_sys::core::BOOL;
 windows_link::link!("dsparse.dll" "system" fn DsIsMangledDnA(pszdn : windows_sys::core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
-pub type DsIsMangledDnW = unsafe extern "system" fn(pszdn: windows_sys::core::PCWSTR, edsmanglefor: DS_MANGLE_FOR) -> windows_sys::core::BOOL;
 windows_link::link!("dsparse.dll" "system" fn DsIsMangledDnW(pszdn : windows_sys::core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
-pub type DsIsMangledRdnValueA = unsafe extern "system" fn(pszrdn: windows_sys::core::PCSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> windows_sys::core::BOOL;
 windows_link::link!("dsparse.dll" "system" fn DsIsMangledRdnValueA(pszrdn : windows_sys::core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
-pub type DsIsMangledRdnValueW = unsafe extern "system" fn(pszrdn: windows_sys::core::PCWSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> windows_sys::core::BOOL;
 windows_link::link!("dsparse.dll" "system" fn DsIsMangledRdnValueW(pszrdn : windows_sys::core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> windows_sys::core::BOOL);
-pub type DsListDomainsInSiteA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, site: windows_sys::core::PCSTR, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteA(hds : super::super::Foundation::HANDLE, site : windows_sys::core::PCSTR, ppdomains : *mut *mut DS_NAME_RESULTA) -> u32);
-pub type DsListDomainsInSiteW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, site: windows_sys::core::PCWSTR, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteW(hds : super::super::Foundation::HANDLE, site : windows_sys::core::PCWSTR, ppdomains : *mut *mut DS_NAME_RESULTW) -> u32);
-pub type DsListInfoForServerA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, server: windows_sys::core::PCSTR, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerA(hds : super::super::Foundation::HANDLE, server : windows_sys::core::PCSTR, ppinfo : *mut *mut DS_NAME_RESULTA) -> u32);
-pub type DsListInfoForServerW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, server: windows_sys::core::PCWSTR, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerW(hds : super::super::Foundation::HANDLE, server : windows_sys::core::PCWSTR, ppinfo : *mut *mut DS_NAME_RESULTW) -> u32);
-pub type DsListRolesA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, pproles: *mut *mut DS_NAME_RESULTA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListRolesA(hds : super::super::Foundation::HANDLE, pproles : *mut *mut DS_NAME_RESULTA) -> u32);
-pub type DsListRolesW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, pproles: *mut *mut DS_NAME_RESULTW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListRolesW(hds : super::super::Foundation::HANDLE, pproles : *mut *mut DS_NAME_RESULTW) -> u32);
-pub type DsListServersForDomainInSiteA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, domain: windows_sys::core::PCSTR, site: windows_sys::core::PCSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteA(hds : super::super::Foundation::HANDLE, domain : windows_sys::core::PCSTR, site : windows_sys::core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
-pub type DsListServersForDomainInSiteW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, domain: windows_sys::core::PCWSTR, site: windows_sys::core::PCWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteW(hds : super::super::Foundation::HANDLE, domain : windows_sys::core::PCWSTR, site : windows_sys::core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
-pub type DsListServersInSiteA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, site: windows_sys::core::PCSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteA(hds : super::super::Foundation::HANDLE, site : windows_sys::core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
-pub type DsListServersInSiteW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, site: windows_sys::core::PCWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteW(hds : super::super::Foundation::HANDLE, site : windows_sys::core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
-pub type DsListSitesA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, ppsites: *mut *mut DS_NAME_RESULTA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListSitesA(hds : super::super::Foundation::HANDLE, ppsites : *mut *mut DS_NAME_RESULTA) -> u32);
-pub type DsListSitesW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, ppsites: *mut *mut DS_NAME_RESULTW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsListSitesW(hds : super::super::Foundation::HANDLE, ppsites : *mut *mut DS_NAME_RESULTW) -> u32);
-pub type DsMakePasswordCredentialsA = unsafe extern "system" fn(user: windows_sys::core::PCSTR, domain: windows_sys::core::PCSTR, password: windows_sys::core::PCSTR, pauthidentity: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_sys::core::PCSTR, domain : windows_sys::core::PCSTR, password : windows_sys::core::PCSTR, pauthidentity : *mut *mut core::ffi::c_void) -> u32);
-pub type DsMakePasswordCredentialsW = unsafe extern "system" fn(user: windows_sys::core::PCWSTR, domain: windows_sys::core::PCWSTR, password: windows_sys::core::PCWSTR, pauthidentity: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, pauthidentity : *mut *mut core::ffi::c_void) -> u32);
-pub type DsMakeSpnA = unsafe extern "system" fn(serviceclass: windows_sys::core::PCSTR, servicename: windows_sys::core::PCSTR, instancename: windows_sys::core::PCSTR, instanceport: u16, referrer: windows_sys::core::PCSTR, pcspnlength: *mut u32, pszspn: windows_sys::core::PSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsMakeSpnA(serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, instancename : windows_sys::core::PCSTR, instanceport : u16, referrer : windows_sys::core::PCSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PSTR) -> u32);
-pub type DsMakeSpnW = unsafe extern "system" fn(serviceclass: windows_sys::core::PCWSTR, servicename: windows_sys::core::PCWSTR, instancename: windows_sys::core::PCWSTR, instanceport: u16, referrer: windows_sys::core::PCWSTR, pcspnlength: *mut u32, pszspn: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsMakeSpnW(serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, instancename : windows_sys::core::PCWSTR, instanceport : u16, referrer : windows_sys::core::PCWSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PWSTR) -> u32);
-pub type DsMapSchemaGuidsA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const windows_sys::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::super::Foundation::HANDLE, cguids : u32, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
-pub type DsMapSchemaGuidsW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const windows_sys::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::super::Foundation::HANDLE, cguids : u32, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
-pub type DsMergeForestTrustInformationW = unsafe extern "system" fn(domainname: windows_sys::core::PCWSTR, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32;
-#[cfg(feature = "Win32_Security_Authentication_Identity")]
 windows_link::link!("netapi32.dll" "system" fn DsMergeForestTrustInformationW(domainname : windows_sys::core::PCWSTR, newforesttrustinfo : *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo : *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo : *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32);
-pub type DsQuerySitesByCostA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, pszfromsite: windows_sys::core::PCSTR, rgsztosites: *const windows_sys::core::PCSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::super::Foundation::HANDLE, pszfromsite : windows_sys::core::PCSTR, rgsztosites : *const windows_sys::core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
-pub type DsQuerySitesByCostW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, pwszfromsite: windows_sys::core::PCWSTR, rgwsztosites: *const windows_sys::core::PCWSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostW(hds : super::super::Foundation::HANDLE, pwszfromsite : windows_sys::core::PCWSTR, rgwsztosites : *const windows_sys::core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
-pub type DsQuerySitesFree = unsafe extern "system" fn(rgsiteinfo: *const DS_SITE_COST_INFO);
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : *const DS_SITE_COST_INFO));
-pub type DsQuoteRdnValueA = unsafe extern "system" fn(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: windows_sys::core::PCSTR, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: windows_sys::core::PSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsQuoteRdnValueA(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : windows_sys::core::PCSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : windows_sys::core::PSTR) -> u32);
-pub type DsQuoteRdnValueW = unsafe extern "system" fn(cunquotedrdnvaluelength: u32, psunquotedrdnvalue: windows_sys::core::PCWSTR, pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : windows_sys::core::PCWSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : windows_sys::core::PWSTR) -> u32);
-pub type DsRemoveDsDomainA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, domaindn: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::super::Foundation::HANDLE, domaindn : windows_sys::core::PCSTR) -> u32);
-pub type DsRemoveDsDomainW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, domaindn: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainW(hds : super::super::Foundation::HANDLE, domaindn : windows_sys::core::PCWSTR) -> u32);
-pub type DsRemoveDsServerA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, serverdn: windows_sys::core::PCSTR, domaindn: windows_sys::core::PCSTR, flastdcindomain: *mut windows_sys::core::BOOL, fcommit: windows_sys::core::BOOL) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::super::Foundation::HANDLE, serverdn : windows_sys::core::PCSTR, domaindn : windows_sys::core::PCSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
-pub type DsRemoveDsServerW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, serverdn: windows_sys::core::PCWSTR, domaindn: windows_sys::core::PCWSTR, flastdcindomain: *mut windows_sys::core::BOOL, fcommit: windows_sys::core::BOOL) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::super::Foundation::HANDLE, serverdn : windows_sys::core::PCWSTR, domaindn : windows_sys::core::PCWSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
-pub type DsReplicaAddA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCSTR, sourcedsadn: windows_sys::core::PCSTR, transportdn: windows_sys::core::PCSTR, sourcedsaaddress: windows_sys::core::PCSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCSTR, sourcedsadn : windows_sys::core::PCSTR, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
-pub type DsReplicaAddW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCWSTR, sourcedsadn: windows_sys::core::PCWSTR, transportdn: windows_sys::core::PCWSTR, sourcedsaaddress: windows_sys::core::PCWSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCWSTR, sourcedsadn : windows_sys::core::PCWSTR, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
-pub type DsReplicaConsistencyCheck = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, taskid: DS_KCC_TASKID, dwflags: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::super::Foundation::HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
-pub type DsReplicaDelA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCSTR, dsasrc: windows_sys::core::PCSTR, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelA(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCSTR, dsasrc : windows_sys::core::PCSTR, options : u32) -> u32);
-pub type DsReplicaDelW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCWSTR, dsasrc: windows_sys::core::PCWSTR, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelW(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCWSTR, dsasrc : windows_sys::core::PCWSTR, options : u32) -> u32);
-pub type DsReplicaFreeInfo = unsafe extern "system" fn(infotype: DS_REPL_INFO_TYPE, pinfo: *const core::ffi::c_void);
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const core::ffi::c_void));
-pub type DsReplicaGetInfo2W = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: windows_sys::core::PCWSTR, puuidforsourcedsaobjguid: *const windows_sys::core::GUID, pszattributename: windows_sys::core::PCWSTR, pszvalue: windows_sys::core::PCWSTR, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::super::Foundation::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const windows_sys::core::GUID, pszattributename : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, dwflags : u32, dwenumerationcontext : u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-pub type DsReplicaGetInfoW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: windows_sys::core::PCWSTR, puuidforsourcedsaobjguid: *const windows_sys::core::GUID, ppinfo: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::super::Foundation::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const windows_sys::core::GUID, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-pub type DsReplicaModifyA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCSTR, puuidsourcedsa: *const windows_sys::core::GUID, transportdn: windows_sys::core::PCSTR, sourcedsaaddress: windows_sys::core::PCSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-pub type DsReplicaModifyW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCWSTR, puuidsourcedsa: *const windows_sys::core::GUID, transportdn: windows_sys::core::PCWSTR, sourcedsaaddress: windows_sys::core::PCWSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCWSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-pub type DsReplicaSyncA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCSTR, puuiddsasrc: *const windows_sys::core::GUID, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncA(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const windows_sys::core::GUID, options : u32) -> u32);
-pub type DsReplicaSyncAllA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, psznamecontext: windows_sys::core::PCSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllA(hds : super::super::Foundation::HANDLE, psznamecontext : windows_sys::core::PCSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32);
-pub type DsReplicaSyncAllW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, psznamecontext: windows_sys::core::PCWSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllW(hds : super::super::Foundation::HANDLE, psznamecontext : windows_sys::core::PCWSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32);
-pub type DsReplicaSyncW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCWSTR, puuiddsasrc: *const windows_sys::core::GUID, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncW(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const windows_sys::core::GUID, options : u32) -> u32);
-pub type DsReplicaUpdateRefsA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCSTR, dsadest: windows_sys::core::PCSTR, puuiddsadest: *const windows_sys::core::GUID, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsA(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCSTR, dsadest : windows_sys::core::PCSTR, puuiddsadest : *const windows_sys::core::GUID, options : u32) -> u32);
-pub type DsReplicaUpdateRefsW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCWSTR, dsadest: windows_sys::core::PCWSTR, puuiddsadest: *const windows_sys::core::GUID, options: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsW(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCWSTR, dsadest : windows_sys::core::PCWSTR, puuiddsadest : *const windows_sys::core::GUID, options : u32) -> u32);
-pub type DsReplicaVerifyObjectsA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCSTR, puuiddsasrc: *const windows_sys::core::GUID, uloptions: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsA(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const windows_sys::core::GUID, uloptions : u32) -> u32);
-pub type DsReplicaVerifyObjectsW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, namecontext: windows_sys::core::PCWSTR, puuiddsasrc: *const windows_sys::core::GUID, uloptions: u32) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsW(hds : super::super::Foundation::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const windows_sys::core::GUID, uloptions : u32) -> u32);
-pub type DsRoleFreeMemory = unsafe extern "system" fn(buffer: *mut core::ffi::c_void);
 windows_link::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *mut core::ffi::c_void));
-pub type DsRoleGetPrimaryDomainInformation = unsafe extern "system" fn(lpserver: windows_sys::core::PCWSTR, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut *mut u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsRoleGetPrimaryDomainInformation(lpserver : windows_sys::core::PCWSTR, infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer : *mut *mut u8) -> u32);
-pub type DsServerRegisterSpnA = unsafe extern "system" fn(operation: DS_SPN_WRITE_OP, serviceclass: windows_sys::core::PCSTR, userobjectdn: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnA(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCSTR, userobjectdn : windows_sys::core::PCSTR) -> u32);
-pub type DsServerRegisterSpnW = unsafe extern "system" fn(operation: DS_SPN_WRITE_OP, serviceclass: windows_sys::core::PCWSTR, userobjectdn: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnW(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCWSTR, userobjectdn : windows_sys::core::PCWSTR) -> u32);
-pub type DsUnBindA = unsafe extern "system" fn(phds: *const super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsUnBindA(phds : *const super::super::Foundation::HANDLE) -> u32);
-pub type DsUnBindW = unsafe extern "system" fn(phds: *const super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsUnBindW(phds : *const super::super::Foundation::HANDLE) -> u32);
-pub type DsUnquoteRdnValueA = unsafe extern "system" fn(cquotedrdnvaluelength: u32, psquotedrdnvalue: windows_sys::core::PCSTR, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: windows_sys::core::PSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsUnquoteRdnValueA(cquotedrdnvaluelength : u32, psquotedrdnvalue : windows_sys::core::PCSTR, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : windows_sys::core::PSTR) -> u32);
-pub type DsUnquoteRdnValueW = unsafe extern "system" fn(cquotedrdnvaluelength: u32, psquotedrdnvalue: windows_sys::core::PCWSTR, pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("dsparse.dll" "system" fn DsUnquoteRdnValueW(cquotedrdnvaluelength : u32, psquotedrdnvalue : windows_sys::core::PCWSTR, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : windows_sys::core::PWSTR) -> u32);
-pub type DsValidateSubnetNameA = unsafe extern "system" fn(subnetname: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsValidateSubnetNameA(subnetname : windows_sys::core::PCSTR) -> u32);
-pub type DsValidateSubnetNameW = unsafe extern "system" fn(subnetname: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn DsValidateSubnetNameW(subnetname : windows_sys::core::PCWSTR) -> u32);
-pub type DsWriteAccountSpnA = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: windows_sys::core::PCSTR, cspn: u32, rpszspn: *const windows_sys::core::PCSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::super::Foundation::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCSTR, cspn : u32, rpszspn : *const windows_sys::core::PCSTR) -> u32);
-pub type DsWriteAccountSpnW = unsafe extern "system" fn(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: windows_sys::core::PCWSTR, cspn: u32, rpszspn: *const windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::super::Foundation::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCWSTR, cspn : u32, rpszspn : *const windows_sys::core::PCWSTR) -> u32);
-pub type FreeADsMem = unsafe extern "system" fn(pmem: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("activeds.dll" "system" fn FreeADsMem(pmem : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-pub type FreeADsStr = unsafe extern "system" fn(pstr: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("activeds.dll" "system" fn FreeADsStr(pstr : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type PropVariantToAdsType = unsafe extern "system" fn(pvariant: *mut super::super::System::Variant::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_link::link!("activeds.dll" "system" fn PropVariantToAdsType(pvariant : *mut super::super::System::Variant::VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> windows_sys::core::HRESULT);
-pub type ReallocADsMem = unsafe extern "system" fn(poldmem: *mut core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut core::ffi::c_void;
 windows_link::link!("activeds.dll" "system" fn ReallocADsMem(poldmem : *mut core::ffi::c_void, cbold : u32, cbnew : u32) -> *mut core::ffi::c_void);
-pub type ReallocADsStr = unsafe extern "system" fn(ppstr: *mut windows_sys::core::PWSTR, pstr: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut windows_sys::core::PWSTR, pstr : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type SecurityDescriptorToBinarySD = unsafe extern "system" fn(vvarsecdes: super::super::System::Variant::VARIANT, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: windows_sys::core::PCWSTR, username: windows_sys::core::PCWSTR, password: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 windows_link::link!("activeds.dll" "system" fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant::VARIANT, ppsecuritydescriptor : *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
 pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;

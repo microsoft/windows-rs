@@ -1,8 +1,5 @@
-pub type DoMsCtfMonitor = unsafe extern "system" fn(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
-pub type InitLocalMsCtfMonitor = unsafe extern "system" fn(dwflags: u32) -> windows_sys::core::HRESULT;
 windows_link::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> windows_sys::core::HRESULT);
-pub type UninitLocalMsCtfMonitor = unsafe extern "system" fn() -> windows_sys::core::HRESULT;
 windows_link::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_sys::core::HRESULT);
 pub type ANCHOR_CHANGE_HISTORY_FLAGS = u32;
 pub const AccClientDocMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);

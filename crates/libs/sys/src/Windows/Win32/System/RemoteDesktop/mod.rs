@@ -1,162 +1,82 @@
-pub type ProcessIdToSessionId = unsafe extern "system" fn(dwprocessid: u32, psessionid: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn ProcessIdToSessionId(dwprocessid : u32, psessionid : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSActiveSessionExists = unsafe extern "system" fn(pbactivesessionexists: *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSActiveSessionExists(pbactivesessionexists : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type WTSCloseServer = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE);
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloseServer(hserver : super::super::Foundation::HANDLE));
-pub type WTSCloudAuthClose = unsafe extern "system" fn(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE);
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthClose(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE));
-pub type WTSCloudAuthConvertAssertionToSerializedUserCredential = unsafe extern "system" fn(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, assertion: windows_sys::core::PCSTR, assertionlength: u32, resourceid: windows_sys::core::PCWSTR, usercredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthConvertAssertionToSerializedUserCredential(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, assertion : windows_sys::core::PCSTR, assertionlength : u32, resourceid : windows_sys::core::PCWSTR, usercredential : *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_sys::core::BOOL);
-pub type WTSCloudAuthDuplicateSerializedUserCredential = unsafe extern "system" fn(usercredential: *const WTS_SERIALIZED_USER_CREDENTIAL, duplicatedusercredential: *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthDuplicateSerializedUserCredential(usercredential : *const WTS_SERIALIZED_USER_CREDENTIAL, duplicatedusercredential : *mut *mut WTS_SERIALIZED_USER_CREDENTIAL) -> windows_sys::core::BOOL);
-pub type WTSCloudAuthGetServerNonce = unsafe extern "system" fn(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, servernonce: *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthGetServerNonce(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, servernonce : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-pub type WTSCloudAuthNetworkLogonWithSerializedCredential = unsafe extern "system" fn(cloudauthhandle: WTS_CLOUD_AUTH_HANDLE, usercredential: *const WTS_SERIALIZED_USER_CREDENTIAL, token: *mut super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthNetworkLogonWithSerializedCredential(cloudauthhandle : WTS_CLOUD_AUTH_HANDLE, usercredential : *const WTS_SERIALIZED_USER_CREDENTIAL, token : *mut super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
-pub type WTSCloudAuthOpen = unsafe extern "system" fn(activityid: *const windows_sys::core::GUID) -> WTS_CLOUD_AUTH_HANDLE;
 windows_link::link!("wtsapi32.dll" "system" fn WTSCloudAuthOpen(activityid : *const windows_sys::core::GUID) -> WTS_CLOUD_AUTH_HANDLE);
-pub type WTSConnectSessionA = unsafe extern "system" fn(logonid: u32, targetlogonid: u32, ppassword: windows_sys::core::PCSTR, bwait: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCSTR, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type WTSConnectSessionW = unsafe extern "system" fn(logonid: u32, targetlogonid: u32, ppassword: windows_sys::core::PCWSTR, bwait: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSConnectSessionW(logonid : u32, targetlogonid : u32, ppassword : windows_sys::core::PCWSTR, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type WTSCreateListenerA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCSTR, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerA(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> windows_sys::core::BOOL);
-pub type WTSCreateListenerW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCWSTR, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSCreateListenerW(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : *const WTSLISTENERCONFIGW, flag : u32) -> windows_sys::core::BOOL);
-pub type WTSDisconnectSession = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSDisconnectSession(hserver : super::super::Foundation::HANDLE, sessionid : u32, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type WTSEnableChildSessions = unsafe extern "system" fn(benable: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnableChildSessions(benable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type WTSEnumerateListenersA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateListenersW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
-pub type WTSEnumerateProcessesA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesA(hserver : super::super::Foundation::HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOA, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateProcessesExA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut windows_sys::core::PSTR, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExA(hserver : super::super::Foundation::HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut windows_sys::core::PSTR, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateProcessesExW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut windows_sys::core::PWSTR, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesExW(hserver : super::super::Foundation::HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut windows_sys::core::PWSTR, pcount : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
-pub type WTSEnumerateProcessesW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateProcessesW(hserver : super::super::Foundation::HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOW, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateServersA = unsafe extern "system" fn(pdomainname: windows_sys::core::PCSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateServersA(pdomainname : windows_sys::core::PCSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOA, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateServersW = unsafe extern "system" fn(pdomainname: windows_sys::core::PCWSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateServersW(pdomainname : windows_sys::core::PCWSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOW, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateSessionsA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsA(hserver : super::super::Foundation::HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOA, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateSessionsExA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExA(hserver : super::super::Foundation::HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateSessionsExW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsExW(hserver : super::super::Foundation::HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSEnumerateSessionsW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSEnumerateSessionsW(hserver : super::super::Foundation::HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOW, pcount : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSFreeMemory = unsafe extern "system" fn(pmemory: *mut core::ffi::c_void);
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut core::ffi::c_void));
-pub type WTSFreeMemoryExA = unsafe extern "system" fn(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const core::ffi::c_void, numberofentries: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> windows_sys::core::BOOL);
-pub type WTSFreeMemoryExW = unsafe extern "system" fn(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const core::ffi::c_void, numberofentries: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const core::ffi::c_void, numberofentries : u32) -> windows_sys::core::BOOL);
-pub type WTSGetActiveConsoleSessionId = unsafe extern "system" fn() -> u32;
 windows_link::link!("kernel32.dll" "system" fn WTSGetActiveConsoleSessionId() -> u32);
-pub type WTSGetChildSessionId = unsafe extern "system" fn(psessionid: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSGetChildSessionId(psessionid : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Security")]
-pub type WTSGetListenerSecurityA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCSTR, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, securityinformation : super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
-pub type WTSGetListenerSecurityW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCWSTR, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, securityinformation : super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSIsChildSessionsEnabled = unsafe extern "system" fn(pbenabled: *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSIsChildSessionsEnabled(pbenabled : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type WTSLogoffSession = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSLogoffSession(hserver : super::super::Foundation::HANDLE, sessionid : u32, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-pub type WTSOpenServerA = unsafe extern "system" fn(pservername: windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("wtsapi32.dll" "system" fn WTSOpenServerA(pservername : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
-pub type WTSOpenServerExA = unsafe extern "system" fn(pservername: windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("wtsapi32.dll" "system" fn WTSOpenServerExA(pservername : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
-pub type WTSOpenServerExW = unsafe extern "system" fn(pservername: windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("wtsapi32.dll" "system" fn WTSOpenServerExW(pservername : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
-pub type WTSOpenServerW = unsafe extern "system" fn(pservername: windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("wtsapi32.dll" "system" fn WTSOpenServerW(pservername : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
-pub type WTSQueryListenerConfigA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCSTR, pbuffer: *mut WTSLISTENERCONFIGA) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigA(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, pbuffer : *mut WTSLISTENERCONFIGA) -> windows_sys::core::BOOL);
-pub type WTSQueryListenerConfigW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCWSTR, pbuffer: *mut WTSLISTENERCONFIGW) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSQueryListenerConfigW(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, pbuffer : *mut WTSLISTENERCONFIGW) -> windows_sys::core::BOOL);
-pub type WTSQuerySessionInformationA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut windows_sys::core::PSTR, pbytesreturned: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationA(hserver : super::super::Foundation::HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut windows_sys::core::PSTR, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSQuerySessionInformationW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut windows_sys::core::PWSTR, pbytesreturned: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSQuerySessionInformationW(hserver : super::super::Foundation::HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSQueryUserConfigA = unsafe extern "system" fn(pservername: windows_sys::core::PCSTR, pusername: windows_sys::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut windows_sys::core::PSTR, pbytesreturned: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigA(pservername : windows_sys::core::PCSTR, pusername : windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut windows_sys::core::PSTR, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSQueryUserConfigW = unsafe extern "system" fn(pservername: windows_sys::core::PCWSTR, pusername: windows_sys::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut windows_sys::core::PWSTR, pbytesreturned: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSQueryUserConfigW(pservername : windows_sys::core::PCWSTR, pusername : windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSQueryUserToken = unsafe extern "system" fn(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSQueryUserToken(sessionid : u32, phtoken : *mut super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
-pub type WTSRegisterSessionNotification = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwflags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSRegisterSessionNotification(hwnd : super::super::Foundation::HWND, dwflags : u32) -> windows_sys::core::BOOL);
-pub type WTSRegisterSessionNotificationEx = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND, dwflags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSRegisterSessionNotificationEx(hserver : super::super::Foundation::HANDLE, hwnd : super::super::Foundation::HWND, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type WTSSendMessageA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: windows_sys::core::PCSTR, titlelength: u32, pmessage: windows_sys::core::PCSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSSendMessageA(hserver : super::super::Foundation::HANDLE, sessionid : u32, ptitle : windows_sys::core::PCSTR, titlelength : u32, pmessage : windows_sys::core::PCSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub type WTSSendMessageW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: windows_sys::core::PCWSTR, titlelength: u32, pmessage: windows_sys::core::PCWSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSSendMessageW(hserver : super::super::Foundation::HANDLE, sessionid : u32, ptitle : windows_sys::core::PCWSTR, titlelength : u32, pmessage : windows_sys::core::PCWSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Security")]
-pub type WTSSetListenerSecurityA = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCSTR, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityA(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCSTR, securityinformation : super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
-pub type WTSSetListenerSecurityW = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, preserved: *const core::ffi::c_void, reserved: u32, plistenername: windows_sys::core::PCWSTR, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> windows_sys::core::BOOL;
-#[cfg(feature = "Win32_Security")]
 windows_link::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityW(hserver : super::super::Foundation::HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plistenername : windows_sys::core::PCWSTR, securityinformation : super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security::PSECURITY_DESCRIPTOR) -> windows_sys::core::BOOL);
-pub type WTSSetRenderHint = unsafe extern "system" fn(prenderhintid: *mut u64, hwndowner: super::super::Foundation::HWND, renderhinttype: u32, cbhintdatalength: u32, phintdata: *const u8) -> windows_sys::core::HRESULT;
 windows_link::link!("wtsapi32.dll" "system" fn WTSSetRenderHint(prenderhintid : *mut u64, hwndowner : super::super::Foundation::HWND, renderhinttype : u32, cbhintdatalength : u32, phintdata : *const u8) -> windows_sys::core::HRESULT);
-pub type WTSSetUserConfigA = unsafe extern "system" fn(pservername: windows_sys::core::PCSTR, pusername: windows_sys::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: windows_sys::core::PCSTR, datalength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSSetUserConfigA(pservername : windows_sys::core::PCSTR, pusername : windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : windows_sys::core::PCSTR, datalength : u32) -> windows_sys::core::BOOL);
-pub type WTSSetUserConfigW = unsafe extern "system" fn(pservername: windows_sys::core::PCWSTR, pusername: windows_sys::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: windows_sys::core::PCWSTR, datalength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSSetUserConfigW(pservername : windows_sys::core::PCWSTR, pusername : windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : windows_sys::core::PCWSTR, datalength : u32) -> windows_sys::core::BOOL);
-pub type WTSShutdownSystem = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, shutdownflag: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSShutdownSystem(hserver : super::super::Foundation::HANDLE, shutdownflag : u32) -> windows_sys::core::BOOL);
-pub type WTSStartRemoteControlSessionA = unsafe extern "system" fn(ptargetservername: windows_sys::core::PCSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSStartRemoteControlSessionA(ptargetservername : windows_sys::core::PCSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> windows_sys::core::BOOL);
-pub type WTSStartRemoteControlSessionW = unsafe extern "system" fn(ptargetservername: windows_sys::core::PCWSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSStartRemoteControlSessionW(ptargetservername : windows_sys::core::PCWSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> windows_sys::core::BOOL);
-pub type WTSStopRemoteControlSession = unsafe extern "system" fn(logonid: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSStopRemoteControlSession(logonid : u32) -> windows_sys::core::BOOL);
-pub type WTSTerminateProcess = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, processid: u32, exitcode: u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSTerminateProcess(hserver : super::super::Foundation::HANDLE, processid : u32, exitcode : u32) -> windows_sys::core::BOOL);
-pub type WTSUnRegisterSessionNotification = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSUnRegisterSessionNotification(hwnd : super::super::Foundation::HWND) -> windows_sys::core::BOOL);
-pub type WTSUnRegisterSessionNotificationEx = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSUnRegisterSessionNotificationEx(hserver : super::super::Foundation::HANDLE, hwnd : super::super::Foundation::HWND) -> windows_sys::core::BOOL);
-pub type WTSVirtualChannelClose = unsafe extern "system" fn(hchannelhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelClose(hchannelhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
-pub type WTSVirtualChannelOpen = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, sessionid: u32, pvirtualname: windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpen(hserver : super::super::Foundation::HANDLE, sessionid : u32, pvirtualname : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
-pub type WTSVirtualChannelOpenEx = unsafe extern "system" fn(sessionid: u32, pvirtualname: windows_sys::core::PCSTR, flags: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : windows_sys::core::PCSTR, flags : u32) -> super::super::Foundation::HANDLE);
-pub type WTSVirtualChannelPurgeInput = unsafe extern "system" fn(hchannelhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeInput(hchannelhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
-pub type WTSVirtualChannelPurgeOutput = unsafe extern "system" fn(hchannelhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelPurgeOutput(hchannelhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
-pub type WTSVirtualChannelQuery = unsafe extern "system" fn(hchannelhandle: super::super::Foundation::HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut core::ffi::c_void, pbytesreturned: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelQuery(hchannelhandle : super::super::Foundation::HANDLE, param1 : WTS_VIRTUAL_CLASS, ppbuffer : *mut *mut core::ffi::c_void, pbytesreturned : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSVirtualChannelRead = unsafe extern "system" fn(hchannelhandle: super::super::Foundation::HANDLE, timeout: u32, buffer: windows_sys::core::PSTR, buffersize: u32, pbytesread: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::super::Foundation::HANDLE, timeout : u32, buffer : windows_sys::core::PSTR, buffersize : u32, pbytesread : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSVirtualChannelWrite = unsafe extern "system" fn(hchannelhandle: super::super::Foundation::HANDLE, buffer: windows_sys::core::PCSTR, length: u32, pbyteswritten: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation::HANDLE, buffer : windows_sys::core::PCSTR, length : u32, pbyteswritten : *mut u32) -> windows_sys::core::BOOL);
-pub type WTSWaitSystemEvent = unsafe extern "system" fn(hserver: super::super::Foundation::HANDLE, eventmask: u32, peventflags: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wtsapi32.dll" "system" fn WTSWaitSystemEvent(hserver : super::super::Foundation::HANDLE, eventmask : u32, peventflags : *mut u32) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy)]

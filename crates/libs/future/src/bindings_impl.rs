@@ -1,16 +1,6 @@
-pub type CloseHandle = unsafe extern "system" fn(hobject: HANDLE) -> BOOL;
 windows_link::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
-pub type CreateEventW = unsafe extern "system" fn(
-    lpeventattributes: *const SECURITY_ATTRIBUTES,
-    bmanualreset: BOOL,
-    binitialstate: BOOL,
-    lpname: PCWSTR,
-) -> HANDLE;
 windows_link::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : BOOL, binitialstate : BOOL, lpname : PCWSTR) -> HANDLE);
-pub type SetEvent = unsafe extern "system" fn(hevent: HANDLE) -> BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
-pub type WaitForSingleObject =
-    unsafe extern "system" fn(hhandle: HANDLE, dwmilliseconds: u32) -> WAIT_EVENT;
 windows_link::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WAIT_EVENT);
 pub type BOOL = i32;
 pub type HANDLE = *mut core::ffi::c_void;

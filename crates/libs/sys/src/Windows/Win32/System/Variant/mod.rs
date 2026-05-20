@@ -1,337 +1,169 @@
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type ClearVariantArray = unsafe extern "system" fn(pvars: *mut VARIANT, cvars: u32);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn ClearVariantArray(pvars : *mut VARIANT, cvars : u32));
-pub type DosDateTimeToVariantTime = unsafe extern "system" fn(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32;
 windows_link::link!("oleaut32.dll" "system" fn DosDateTimeToVariantTime(wdosdate : u16, wdostime : u16, pvtime : *mut f64) -> i32);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromBooleanArray = unsafe extern "system" fn(prgf: *const windows_sys::core::BOOL, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromBooleanArray(prgf : *const windows_sys::core::BOOL, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromBuffer = unsafe extern "system" fn(pv: *const core::ffi::c_void, cb: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromBuffer(pv : *const core::ffi::c_void, cb : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromDoubleArray = unsafe extern "system" fn(prgn: *const f64, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromDoubleArray(prgn : *const f64, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromFileTime = unsafe extern "system" fn(pft: *const super::super::Foundation::FILETIME, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTime(pft : *const super::super::Foundation::FILETIME, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromFileTimeArray = unsafe extern "system" fn(prgft: *const super::super::Foundation::FILETIME, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation::FILETIME, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromGUIDAsString = unsafe extern "system" fn(guid: *const windows_sys::core::GUID, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromGUIDAsString(guid : *const windows_sys::core::GUID, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromInt16Array = unsafe extern "system" fn(prgn: *const i16, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromInt16Array(prgn : *const i16, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromInt32Array = unsafe extern "system" fn(prgn: *const i32, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromInt32Array(prgn : *const i32, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromInt64Array = unsafe extern "system" fn(prgn: *const i64, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromInt64Array(prgn : *const i64, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromResource = unsafe extern "system" fn(hinst: super::super::Foundation::HINSTANCE, id: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation::HINSTANCE, id : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromStringArray = unsafe extern "system" fn(prgsz: *const windows_sys::core::PCWSTR, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromStringArray(prgsz : *const windows_sys::core::PCWSTR, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromUInt16Array = unsafe extern "system" fn(prgn: *const u16, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt16Array(prgn : *const u16, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromUInt32Array = unsafe extern "system" fn(prgn: *const u32, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt32Array(prgn : *const u32, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromUInt64Array = unsafe extern "system" fn(prgn: *const u64, celems: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt64Array(prgn : *const u64, celems : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type InitVariantFromVariantArrayElem = unsafe extern "system" fn(varin: *const VARIANT, ielem: u32, pvar: *mut VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn InitVariantFromVariantArrayElem(varin : *const VARIANT, ielem : u32, pvar : *mut VARIANT) -> windows_sys::core::HRESULT);
-pub type SystemTimeToVariantTime = unsafe extern "system" fn(lpsystemtime: *const super::super::Foundation::SYSTEMTIME, pvtime: *mut f64) -> i32;
 windows_link::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation::SYSTEMTIME, pvtime : *mut f64) -> i32);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserFree = unsafe extern "system" fn(param0: *const u32, param1: *const VARIANT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserFree(param0 : *const u32, param1 : *const VARIANT));
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserFree64 = unsafe extern "system" fn(param0: *const u32, param1: *const VARIANT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserFree64(param0 : *const u32, param1 : *const VARIANT));
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserMarshal = unsafe extern "system" fn(param0: *const u32, param1: *mut u8, param2: *const VARIANT) -> *mut u8;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const VARIANT) -> *mut u8);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserMarshal64 = unsafe extern "system" fn(param0: *const u32, param1: *mut u8, param2: *const VARIANT) -> *mut u8;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const VARIANT) -> *mut u8);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserSize = unsafe extern "system" fn(param0: *const u32, param1: u32, param2: *const VARIANT) -> u32;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserSize(param0 : *const u32, param1 : u32, param2 : *const VARIANT) -> u32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserSize64 = unsafe extern "system" fn(param0: *const u32, param1: u32, param2: *const VARIANT) -> u32;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserSize64(param0 : *const u32, param1 : u32, param2 : *const VARIANT) -> u32);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserUnmarshal = unsafe extern "system" fn(param0: *const u32, param1: *const u8, param2: *mut VARIANT) -> *mut u8;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut VARIANT) -> *mut u8);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VARIANT_UserUnmarshal64 = unsafe extern "system" fn(param0: *const u32, param1: *const u8, param2: *mut VARIANT) -> *mut u8;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut VARIANT) -> *mut u8);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantChangeType = unsafe extern "system" fn(pvargdest: *mut VARIANT, pvarsrc: *const VARIANT, wflags: VAR_CHANGE_FLAGS, vt: VARENUM) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantChangeType(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantChangeTypeEx = unsafe extern "system" fn(pvargdest: *mut VARIANT, pvarsrc: *const VARIANT, lcid: u32, wflags: VAR_CHANGE_FLAGS, vt: VARENUM) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantChangeTypeEx(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, lcid : u32, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantClear = unsafe extern "system" fn(pvarg: *mut VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantClear(pvarg : *mut VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantCompare = unsafe extern "system" fn(var1: *const VARIANT, var2: *const VARIANT) -> i32;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantCompare(var1 : *const VARIANT, var2 : *const VARIANT) -> i32);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantCopy = unsafe extern "system" fn(pvargdest: *mut VARIANT, pvargsrc: *const VARIANT) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantCopy(pvargdest : *mut VARIANT, pvargsrc : *const VARIANT) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantCopyInd = unsafe extern "system" fn(pvardest: *mut VARIANT, pvargsrc: *const VARIANT) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantCopyInd(pvardest : *mut VARIANT, pvargsrc : *const VARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetBooleanElem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pfval: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetDoubleElem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pnval: *mut f64) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetDoubleElem(var : *const VARIANT, ielem : u32, pnval : *mut f64) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetElementCount = unsafe extern "system" fn(varin: *const VARIANT) -> u32;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetElementCount(varin : *const VARIANT) -> u32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetInt16Elem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pnval: *mut i16) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut i16) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetInt32Elem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pnval: *mut i32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetInt64Elem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pnval: *mut i64) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut i64) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetStringElem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, ppszval: *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetStringElem(var : *const VARIANT, ielem : u32, ppszval : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetUInt16Elem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pnval: *mut u16) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetUInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut u16) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetUInt32Elem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pnval: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetUInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantGetUInt64Elem = unsafe extern "system" fn(var: *const VARIANT, ielem: u32, pnval: *mut u64) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantGetUInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut u64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantInit = unsafe extern "system" fn(pvarg: *mut VARIANT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut VARIANT));
-pub type VariantTimeToDosDateTime = unsafe extern "system" fn(vtime: f64, pwdosdate: *mut u16, pwdostime: *mut u16) -> i32;
 windows_link::link!("oleaut32.dll" "system" fn VariantTimeToDosDateTime(vtime : f64, pwdosdate : *mut u16, pwdostime : *mut u16) -> i32);
-pub type VariantTimeToSystemTime = unsafe extern "system" fn(vtime: f64, lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) -> i32;
 windows_link::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation::SYSTEMTIME) -> i32);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToBoolean = unsafe extern "system" fn(varin: *const VARIANT, pfret: *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToBooleanArray = unsafe extern "system" fn(var: *const VARIANT, prgf: *mut windows_sys::core::BOOL, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut windows_sys::core::BOOL, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToBooleanArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgf: *mut *mut windows_sys::core::BOOL, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut windows_sys::core::BOOL, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToBooleanWithDefault = unsafe extern "system" fn(varin: *const VARIANT, fdefault: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToBuffer = unsafe extern "system" fn(varin: *const VARIANT, pv: *mut core::ffi::c_void, cb: u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToBuffer(varin : *const VARIANT, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToDosDateTime = unsafe extern "system" fn(varin: *const VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToDosDateTime(varin : *const VARIANT, pwdate : *mut u16, pwtime : *mut u16) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToDouble = unsafe extern "system" fn(varin: *const VARIANT, pdblret: *mut f64) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToDouble(varin : *const VARIANT, pdblret : *mut f64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToDoubleArray = unsafe extern "system" fn(var: *const VARIANT, prgn: *mut f64, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToDoubleArray(var : *const VARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToDoubleArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToDoubleArrayAlloc(var : *const VARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToDoubleWithDefault = unsafe extern "system" fn(varin: *const VARIANT, dbldefault: f64) -> f64;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToDoubleWithDefault(varin : *const VARIANT, dbldefault : f64) -> f64);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToFileTime = unsafe extern "system" fn(varin: *const VARIANT, stfout: PSTIME_FLAGS, pftout: *mut super::super::Foundation::FILETIME) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation::FILETIME) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToGUID = unsafe extern "system" fn(varin: *const VARIANT, pguid: *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToGUID(varin : *const VARIANT, pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt16 = unsafe extern "system" fn(varin: *const VARIANT, piret: *mut i16) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt16(varin : *const VARIANT, piret : *mut i16) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt16Array = unsafe extern "system" fn(var: *const VARIANT, prgn: *mut i16, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt16Array(var : *const VARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt16ArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt16WithDefault = unsafe extern "system" fn(varin: *const VARIANT, idefault: i16) -> i16;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt16WithDefault(varin : *const VARIANT, idefault : i16) -> i16);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt32 = unsafe extern "system" fn(varin: *const VARIANT, plret: *mut i32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt32(varin : *const VARIANT, plret : *mut i32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt32Array = unsafe extern "system" fn(var: *const VARIANT, prgn: *mut i32, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt32Array(var : *const VARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt32ArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt32WithDefault = unsafe extern "system" fn(varin: *const VARIANT, ldefault: i32) -> i32;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt32WithDefault(varin : *const VARIANT, ldefault : i32) -> i32);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt64 = unsafe extern "system" fn(varin: *const VARIANT, pllret: *mut i64) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt64(varin : *const VARIANT, pllret : *mut i64) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt64Array = unsafe extern "system" fn(var: *const VARIANT, prgn: *mut i64, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt64Array(var : *const VARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt64ArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToInt64WithDefault = unsafe extern "system" fn(varin: *const VARIANT, lldefault: i64) -> i64;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToInt64WithDefault(varin : *const VARIANT, lldefault : i64) -> i64);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToString = unsafe extern "system" fn(varin: *const VARIANT, pszbuf: windows_sys::core::PWSTR, cchbuf: u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToString(varin : *const VARIANT, pszbuf : windows_sys::core::PWSTR, cchbuf : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToStringAlloc = unsafe extern "system" fn(varin: *const VARIANT, ppszbuf: *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToStringAlloc(varin : *const VARIANT, ppszbuf : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToStringArray = unsafe extern "system" fn(var: *const VARIANT, prgsz: *mut windows_sys::core::PWSTR, crgsz: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToStringArray(var : *const VARIANT, prgsz : *mut windows_sys::core::PWSTR, crgsz : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToStringArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgsz: *mut *mut windows_sys::core::PWSTR, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToStringArrayAlloc(var : *const VARIANT, pprgsz : *mut *mut windows_sys::core::PWSTR, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToStringWithDefault = unsafe extern "system" fn(varin: *const VARIANT, pszdefault: windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToStringWithDefault(varin : *const VARIANT, pszdefault : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt16 = unsafe extern "system" fn(varin: *const VARIANT, puiret: *mut u16) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt16(varin : *const VARIANT, puiret : *mut u16) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt16Array = unsafe extern "system" fn(var: *const VARIANT, prgn: *mut u16, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt16Array(var : *const VARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt16ArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt16WithDefault = unsafe extern "system" fn(varin: *const VARIANT, uidefault: u16) -> u16;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt16WithDefault(varin : *const VARIANT, uidefault : u16) -> u16);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt32 = unsafe extern "system" fn(varin: *const VARIANT, pulret: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt32(varin : *const VARIANT, pulret : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt32Array = unsafe extern "system" fn(var: *const VARIANT, prgn: *mut u32, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt32Array(var : *const VARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt32ArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt32WithDefault = unsafe extern "system" fn(varin: *const VARIANT, uldefault: u32) -> u32;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt32WithDefault(varin : *const VARIANT, uldefault : u32) -> u32);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt64 = unsafe extern "system" fn(varin: *const VARIANT, pullret: *mut u64) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt64(varin : *const VARIANT, pullret : *mut u64) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt64Array = unsafe extern "system" fn(var: *const VARIANT, prgn: *mut u64, crgn: u32, pcelem: *mut u32) -> windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt64Array(var : *const VARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt64ArrayAlloc = unsafe extern "system" fn(var: *const VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> windows_sys::core::HRESULT;
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type VariantToUInt64WithDefault = unsafe extern "system" fn(varin: *const VARIANT, ulldefault: u64) -> u64;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 windows_link::link!("propsys.dll" "system" fn VariantToUInt64WithDefault(varin : *const VARIANT, ulldefault : u64) -> u64);
 pub const DPF_ERROR: DRAWPROGRESSFLAGS = 4i32;

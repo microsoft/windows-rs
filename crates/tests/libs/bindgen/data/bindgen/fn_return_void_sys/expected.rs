@@ -1,4 +1,3 @@
-pub type GlobalMemoryStatus = unsafe extern "system" fn(lpbuffer: *mut MEMORYSTATUS);
 windows_link::link!("kernel32.dll" "system" fn GlobalMemoryStatus(lpbuffer : *mut MEMORYSTATUS));
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
