@@ -42,6 +42,7 @@ fn main() {
         .filter(namespace)
         .reference("windows")
         .flat()
+        .minimal()
         .write()
         .unwrap();
 }

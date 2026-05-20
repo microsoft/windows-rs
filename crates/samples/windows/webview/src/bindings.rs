@@ -1,481 +1,69 @@
-#[inline]
-pub unsafe fn CompareBrowserVersions(
-    version1: PCWSTR,
-    version2: PCWSTR,
-) -> windows_core::Result<i32> {
-    windows_core::link!("webview2loader.dll" "C" fn CompareBrowserVersions(version1 : PCWSTR, version2 : PCWSTR, result : *mut i32) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CompareBrowserVersions(version1, version2, &mut result__).map(|| result__)
-    }
-}
-#[inline]
-pub unsafe fn CreateCoreWebView2Environment<P0>(
-    environmentcreatedhandler: P0,
-) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateCoreWebView2Environment(environmentcreatedhandler.param().abi()).ok() }
-}
-#[inline]
-pub unsafe fn CreateCoreWebView2EnvironmentWithOptions<P2, P3>(
-    browserexecutablefolder: PCWSTR,
-    userdatafolder: PCWSTR,
-    environmentoptions: P2,
-    environmentcreatedhandler: P3,
-) -> windows_core::Result<()>
-where
-    P2: windows_core::Param<ICoreWebView2EnvironmentOptions>,
-    P3: windows_core::Param<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : PCWSTR, userdatafolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        CreateCoreWebView2EnvironmentWithOptions(
-            browserexecutablefolder,
-            userdatafolder,
-            environmentoptions.param().abi(),
-            environmentcreatedhandler.param().abi(),
-        )
-        .ok()
-    }
-}
-#[inline]
-pub unsafe fn GetAvailableCoreWebView2BrowserVersionString(
-    browserexecutablefolder: PCWSTR,
-) -> windows_core::Result<LPWSTR> {
-    windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionString(browserexecutablefolder : PCWSTR, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetAvailableCoreWebView2BrowserVersionString(browserexecutablefolder, &mut result__)
-            .map(|| result__)
-    }
-}
-#[inline]
-pub unsafe fn GetAvailableCoreWebView2BrowserVersionStringWithOptions<P1>(
-    browserexecutablefolder: PCWSTR,
-    environmentoptions: P1,
-) -> windows_core::Result<LPWSTR>
-where
-    P1: windows_core::Param<ICoreWebView2EnvironmentOptions>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserexecutablefolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        GetAvailableCoreWebView2BrowserVersionStringWithOptions(
-            browserexecutablefolder,
-            environmentoptions.param().abi(),
-            &mut result__,
-        )
-        .map(|| result__)
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_25_ShowSaveAsUI_Proxy<P0, P1>(
-    this: P0,
-    handler: P1,
-) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<ICoreWebView2_25>,
-    P1: windows_core::Param<ICoreWebView2ShowSaveAsUICompletedHandler>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Proxy(this : *mut core::ffi::c_void, handler : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { ICoreWebView2_25_ShowSaveAsUI_Proxy(this.param().abi(), handler.param().abi()).ok() }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_25_ShowSaveAsUI_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_25_ShowSaveAsUI_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy<P0, P1>(
-    this: P0,
-    eventhandler: P1,
-) -> windows_core::Result<i64>
-where
-    P0: windows_core::Param<ICoreWebView2_25>,
-    P1: windows_core::Param<ICoreWebView2SaveAsUIShowingEventHandler>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_25_add_SaveAsUIShowing_Proxy(
-            this.param().abi(),
-            eventhandler.param().abi(),
-            &mut result__,
-        )
-        .map(|| result__)
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_25_add_SaveAsUIShowing_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_25_add_SaveAsUIShowing_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy<P0>(
-    this: P0,
-    token: i64,
-) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<ICoreWebView2_25>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
-    unsafe { ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(this.param().abi(), token).ok() }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_25_remove_SaveAsUIShowing_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy<P0, P1>(
-    this: P0,
-    eventhandler: P1,
-) -> windows_core::Result<i64>
-where
-    P0: windows_core::Param<ICoreWebView2_26>,
-    P1: windows_core::Param<ICoreWebView2SaveFileSecurityCheckStartingEventHandler>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(
-            this.param().abi(),
-            eventhandler.param().abi(),
-            &mut result__,
-        )
-        .map(|| result__)
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy<P0>(
-    this: P0,
-    token: i64,
-) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<ICoreWebView2_26>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
-    unsafe {
-        ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(this.param().abi(), token).ok()
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy<P0, P1>(
-    this: P0,
-    eventhandler: P1,
-) -> windows_core::Result<i64>
-where
-    P0: windows_core::Param<ICoreWebView2_27>,
-    P1: windows_core::Param<ICoreWebView2ScreenCaptureStartingEventHandler>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(
-            this.param().abi(),
-            eventhandler.param().abi(),
-            &mut result__,
-        )
-        .map(|| result__)
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_27_add_ScreenCaptureStarting_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy<P0>(
-    this: P0,
-    token: i64,
-) -> windows_core::Result<()>
-where
-    P0: windows_core::Param<ICoreWebView2_27>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
-    unsafe { ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(this.param().abi(), token).ok() }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_28_get_Find_Proxy<P0>(
-    this: P0,
-) -> windows_core::Result<ICoreWebView2Find>
-where
-    P0: windows_core::Param<ICoreWebView2_28>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Proxy(this : *mut core::ffi::c_void, value : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_28_get_Find_Proxy(this.param().abi(), &mut result__)
-            .and_then(|| windows_core::Type::from_abi(result__))
-    }
-}
-#[inline]
-pub unsafe fn ICoreWebView2_28_get_Find_Stub<P0, P1>(
-    this: P0,
-    _prpcchannelbuffer: P1,
-    _prpcmessage: PRPC_MESSAGE,
-) -> DWORD
-where
-    P0: windows_core::Param<windows::Win32::System::Com::IRpcStubBuffer>,
-    P1: windows_core::Param<windows::Win32::System::Com::IRpcChannelBuffer>,
-{
-    windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        ICoreWebView2_28_get_Find_Stub(
-            this.param().abi(),
-            _prpcchannelbuffer.param().abi(),
-            _prpcmessage,
-            &mut result__,
-        );
-        result__
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BYTE(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_BOUNDS_MODE(pub i32);
-pub const COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE: COREWEBVIEW2_BOUNDS_MODE =
-    COREWEBVIEW2_BOUNDS_MODE(1i32);
-pub const COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS: COREWEBVIEW2_BOUNDS_MODE =
-    COREWEBVIEW2_BOUNDS_MODE(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND(pub i32);
+windows_core::link!("webview2loader.dll" "C" fn CompareBrowserVersions(version1 : PCWSTR, version2 : PCWSTR, result : *mut i32) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2Environment(environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn CreateCoreWebView2EnvironmentWithOptions(browserexecutablefolder : PCWSTR, userdatafolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, environmentcreatedhandler : *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionString(browserexecutablefolder : PCWSTR, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn GetAvailableCoreWebView2BrowserVersionStringWithOptions(browserexecutablefolder : PCWSTR, environmentoptions : *mut core::ffi::c_void, versioninfo : *mut LPWSTR) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Proxy(this : *mut core::ffi::c_void, handler : *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_ShowSaveAsUI_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_add_SaveAsUIShowing_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_25_remove_SaveAsUIShowing_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_add_SaveFileSecurityCheckStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_26_remove_SaveFileSecurityCheckStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Proxy(this : *mut core::ffi::c_void, eventhandler : *mut core::ffi::c_void, token : *mut i64) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_add_ScreenCaptureStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Proxy(this : *mut core::ffi::c_void, token : i64) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_27_remove_ScreenCaptureStarting_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Proxy(this : *mut core::ffi::c_void, value : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+windows_core::link!("webview2loader.dll" "C" fn ICoreWebView2_28_get_Find_Stub(this : *mut core::ffi::c_void, _prpcchannelbuffer : *mut core::ffi::c_void, _prpcmessage : PRPC_MESSAGE, _pdwstubphase : *mut DWORD));
+pub type BYTE = u8;
+pub type COREWEBVIEW2_BOUNDS_MODE = i32;
+pub const COREWEBVIEW2_BOUNDS_MODE_USE_RASTERIZATION_SCALE: COREWEBVIEW2_BOUNDS_MODE = 1i32;
+pub const COREWEBVIEW2_BOUNDS_MODE_USE_RAW_PIXELS: COREWEBVIEW2_BOUNDS_MODE = 0i32;
+pub type COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND = i32;
 pub const COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND_FAILED: COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND =
-    COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND(1i32);
+    1i32;
 pub const COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND_NORMAL: COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND =
-    COREWEBVIEW2_BROWSER_PROCESS_EXIT_KIND(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_BROWSING_DATA_KINDS(pub i32);
-impl COREWEBVIEW2_BROWSING_DATA_KINDS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0);
-    }
-}
-impl core::ops::BitAndAssign for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0);
-    }
-}
-impl core::ops::Not for COREWEBVIEW2_BROWSING_DATA_KINDS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+    0i32;
+pub type COREWEBVIEW2_BROWSING_DATA_KINDS = i32;
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_DOM_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(32i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(16384i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(128i32);
+    32i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_PROFILE: COREWEBVIEW2_BROWSING_DATA_KINDS = 16384i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_ALL_SITE: COREWEBVIEW2_BROWSING_DATA_KINDS = 128i32;
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_BROWSING_HISTORY: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(4096i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(16i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(64i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(256i32);
+    4096i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_CACHE_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS = 16i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_COOKIES: COREWEBVIEW2_BROWSING_DATA_KINDS = 64i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_DISK_CACHE: COREWEBVIEW2_BROWSING_DATA_KINDS = 256i32;
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_DOWNLOAD_HISTORY: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(512i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(1i32);
+    512i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_FILE_SYSTEMS: COREWEBVIEW2_BROWSING_DATA_KINDS = 1i32;
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_GENERAL_AUTOFILL: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(1024i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(2i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(4i32);
+    1024i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_INDEXED_DB: COREWEBVIEW2_BROWSING_DATA_KINDS = 2i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_LOCAL_STORAGE: COREWEBVIEW2_BROWSING_DATA_KINDS = 4i32;
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_PASSWORD_AUTOSAVE: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(2048i32);
+    2048i32;
 pub const COREWEBVIEW2_BROWSING_DATA_KINDS_SERVICE_WORKERS: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(32768i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(8192i32);
-pub const COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL: COREWEBVIEW2_BROWSING_DATA_KINDS =
-    COREWEBVIEW2_BROWSING_DATA_KINDS(8i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT(pub i32);
+    32768i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_SETTINGS: COREWEBVIEW2_BROWSING_DATA_KINDS = 8192i32;
+pub const COREWEBVIEW2_BROWSING_DATA_KINDS_WEB_SQL: COREWEBVIEW2_BROWSING_DATA_KINDS = 8i32;
+pub type COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT = i32;
 pub const COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_JPEG:
-    COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT = COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT(1i32);
+    COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT = 1i32;
 pub const COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT_PNG: COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT =
-    COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_CHANNEL_SEARCH_KIND(pub i32);
-pub const COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE: COREWEBVIEW2_CHANNEL_SEARCH_KIND =
-    COREWEBVIEW2_CHANNEL_SEARCH_KIND(1i32);
-pub const COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE: COREWEBVIEW2_CHANNEL_SEARCH_KIND =
-    COREWEBVIEW2_CHANNEL_SEARCH_KIND(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_CLIENT_CERTIFICATE_KIND(pub i32);
-pub const COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_OTHER: COREWEBVIEW2_CLIENT_CERTIFICATE_KIND =
-    COREWEBVIEW2_CLIENT_CERTIFICATE_KIND(2i32);
-pub const COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_PIN: COREWEBVIEW2_CLIENT_CERTIFICATE_KIND =
-    COREWEBVIEW2_CLIENT_CERTIFICATE_KIND(1i32);
+    0i32;
+pub type COREWEBVIEW2_CHANNEL_SEARCH_KIND = i32;
+pub const COREWEBVIEW2_CHANNEL_SEARCH_KIND_LEAST_STABLE: COREWEBVIEW2_CHANNEL_SEARCH_KIND = 1i32;
+pub const COREWEBVIEW2_CHANNEL_SEARCH_KIND_MOST_STABLE: COREWEBVIEW2_CHANNEL_SEARCH_KIND = 0i32;
+pub type COREWEBVIEW2_CLIENT_CERTIFICATE_KIND = i32;
+pub const COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_OTHER: COREWEBVIEW2_CLIENT_CERTIFICATE_KIND = 2i32;
+pub const COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_PIN: COREWEBVIEW2_CLIENT_CERTIFICATE_KIND = 1i32;
 pub const COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_SMART_CARD: COREWEBVIEW2_CLIENT_CERTIFICATE_KIND =
-    COREWEBVIEW2_CLIENT_CERTIFICATE_KIND(0i32);
+    0i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COREWEBVIEW2_COLOR {
@@ -484,411 +72,221 @@ pub struct COREWEBVIEW2_COLOR {
     pub G: BYTE,
     pub B: BYTE,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND(pub i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_CHECK_BOX: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND(1i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND(0i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_RADIO: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND(2i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SEPARATOR: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND(3i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SUBMENU: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND(4i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND(pub i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_AUDIO: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND(3i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_IMAGE: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND(1i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_PAGE: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND(0i32);
+pub type COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND = i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_CHECK_BOX: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND = 1i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_COMMAND: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND = 0i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_RADIO: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND = 2i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SEPARATOR: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND = 3i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND_SUBMENU: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND = 4i32;
+pub type COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_AUDIO: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = 3i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_IMAGE: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = 1i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_PAGE: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = 0i32;
 pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_SELECTED_TEXT:
-    COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND(2i32);
-pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_VIDEO: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND =
-    COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND(4i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_COOKIE_SAME_SITE_KIND(pub i32);
-pub const COREWEBVIEW2_COOKIE_SAME_SITE_KIND_LAX: COREWEBVIEW2_COOKIE_SAME_SITE_KIND =
-    COREWEBVIEW2_COOKIE_SAME_SITE_KIND(1i32);
-pub const COREWEBVIEW2_COOKIE_SAME_SITE_KIND_NONE: COREWEBVIEW2_COOKIE_SAME_SITE_KIND =
-    COREWEBVIEW2_COOKIE_SAME_SITE_KIND(0i32);
-pub const COREWEBVIEW2_COOKIE_SAME_SITE_KIND_STRICT: COREWEBVIEW2_COOKIE_SAME_SITE_KIND =
-    COREWEBVIEW2_COOKIE_SAME_SITE_KIND(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT(pub i32);
+    COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = 2i32;
+pub const COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND_VIDEO: COREWEBVIEW2_CONTEXT_MENU_TARGET_KIND = 4i32;
+pub type COREWEBVIEW2_COOKIE_SAME_SITE_KIND = i32;
+pub const COREWEBVIEW2_COOKIE_SAME_SITE_KIND_LAX: COREWEBVIEW2_COOKIE_SAME_SITE_KIND = 1i32;
+pub const COREWEBVIEW2_COOKIE_SAME_SITE_KIND_NONE: COREWEBVIEW2_COOKIE_SAME_SITE_KIND = 0i32;
+pub const COREWEBVIEW2_COOKIE_SAME_SITE_KIND_STRICT: COREWEBVIEW2_COOKIE_SAME_SITE_KIND = 2i32;
+pub type COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT = i32;
 pub const COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_LEFT:
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT =
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT(2i32);
+    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT = 2i32;
 pub const COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_BOTTOM_RIGHT:
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT =
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT(3i32);
+    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT = 3i32;
 pub const COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_TOP_LEFT:
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT =
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT(0i32);
+    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT = 0i32;
 pub const COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT_TOP_RIGHT:
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT =
-    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(pub i32);
+    COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT = 1i32;
+pub type COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_DOWNLOAD_PROCESS_CRASHED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(29i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 29i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_ACCESS_DENIED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(2i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 2i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_BLOCKED_BY_POLICY:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(8i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 8i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_FAILED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(1i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 1i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_HASH_MISMATCH:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(11i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 11i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_MALICIOUS:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(6i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 6i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_NAME_TOO_LONG:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(4i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 4i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_NO_SPACE:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(3i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 3i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_SECURITY_CHECK_FAILED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(9i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 9i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_LARGE:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(5i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 5i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TOO_SHORT:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(10i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 10i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_FILE_TRANSIENT_ERROR:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(7i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 7i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_DISCONNECTED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(14i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 14i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_FAILED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(12i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 12i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_INVALID_REQUEST:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(16i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 16i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_SERVER_DOWN:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(15i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 15i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NETWORK_TIMEOUT:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(13i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 13i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_NONE: COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON =
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(0i32);
+    0i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_BAD_CONTENT:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(19i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 19i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CERTIFICATE_PROBLEM:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(21i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 21i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CONTENT_LENGTH_MISMATCH:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(24i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 24i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_CROSS_ORIGIN_REDIRECT:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(25i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 25i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_FAILED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(17i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 17i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_FORBIDDEN:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(22i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 22i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_NO_RANGE:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(18i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 18i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_UNAUTHORIZED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(20i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 20i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_SERVER_UNEXPECTED_RESPONSE:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(23i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 23i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_CANCELED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(26i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 26i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_PAUSED:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(28i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 28i32;
 pub const COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON_USER_SHUTDOWN:
-    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON(27i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_DOWNLOAD_STATE(pub i32);
-pub const COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED: COREWEBVIEW2_DOWNLOAD_STATE =
-    COREWEBVIEW2_DOWNLOAD_STATE(2i32);
-pub const COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED: COREWEBVIEW2_DOWNLOAD_STATE =
-    COREWEBVIEW2_DOWNLOAD_STATE(1i32);
-pub const COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS: COREWEBVIEW2_DOWNLOAD_STATE =
-    COREWEBVIEW2_DOWNLOAD_STATE(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_FAVICON_IMAGE_FORMAT(pub i32);
-pub const COREWEBVIEW2_FAVICON_IMAGE_FORMAT_JPEG: COREWEBVIEW2_FAVICON_IMAGE_FORMAT =
-    COREWEBVIEW2_FAVICON_IMAGE_FORMAT(1i32);
-pub const COREWEBVIEW2_FAVICON_IMAGE_FORMAT_PNG: COREWEBVIEW2_FAVICON_IMAGE_FORMAT =
-    COREWEBVIEW2_FAVICON_IMAGE_FORMAT(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND(pub i32);
+    COREWEBVIEW2_DOWNLOAD_INTERRUPT_REASON = 27i32;
+pub type COREWEBVIEW2_DOWNLOAD_STATE = i32;
+pub const COREWEBVIEW2_DOWNLOAD_STATE_COMPLETED: COREWEBVIEW2_DOWNLOAD_STATE = 2i32;
+pub const COREWEBVIEW2_DOWNLOAD_STATE_INTERRUPTED: COREWEBVIEW2_DOWNLOAD_STATE = 1i32;
+pub const COREWEBVIEW2_DOWNLOAD_STATE_IN_PROGRESS: COREWEBVIEW2_DOWNLOAD_STATE = 0i32;
+pub type COREWEBVIEW2_FAVICON_IMAGE_FORMAT = i32;
+pub const COREWEBVIEW2_FAVICON_IMAGE_FORMAT_JPEG: COREWEBVIEW2_FAVICON_IMAGE_FORMAT = 1i32;
+pub const COREWEBVIEW2_FAVICON_IMAGE_FORMAT_PNG: COREWEBVIEW2_FAVICON_IMAGE_FORMAT = 0i32;
+pub type COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND = i32;
 pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_DIRECTORY: COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND =
-    COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND(1i32);
-pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE: COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND =
-    COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION(pub i32);
+    1i32;
+pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND_FILE: COREWEBVIEW2_FILE_SYSTEM_HANDLE_KIND = 0i32;
+pub type COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION = i32;
 pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_ONLY:
-    COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION = COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION(0i32);
+    COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION = 0i32;
 pub const COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION_READ_WRITE:
-    COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION = COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_FRAME_KIND(pub i32);
-pub const COREWEBVIEW2_FRAME_KIND_EMBED: COREWEBVIEW2_FRAME_KIND = COREWEBVIEW2_FRAME_KIND(3i32);
-pub const COREWEBVIEW2_FRAME_KIND_IFRAME: COREWEBVIEW2_FRAME_KIND = COREWEBVIEW2_FRAME_KIND(2i32);
-pub const COREWEBVIEW2_FRAME_KIND_MAIN_FRAME: COREWEBVIEW2_FRAME_KIND =
-    COREWEBVIEW2_FRAME_KIND(1i32);
-pub const COREWEBVIEW2_FRAME_KIND_OBJECT: COREWEBVIEW2_FRAME_KIND = COREWEBVIEW2_FRAME_KIND(4i32);
-pub const COREWEBVIEW2_FRAME_KIND_UNKNOWN: COREWEBVIEW2_FRAME_KIND = COREWEBVIEW2_FRAME_KIND(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND(pub i32);
+    COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION = 1i32;
+pub type COREWEBVIEW2_FRAME_KIND = i32;
+pub const COREWEBVIEW2_FRAME_KIND_EMBED: COREWEBVIEW2_FRAME_KIND = 3i32;
+pub const COREWEBVIEW2_FRAME_KIND_IFRAME: COREWEBVIEW2_FRAME_KIND = 2i32;
+pub const COREWEBVIEW2_FRAME_KIND_MAIN_FRAME: COREWEBVIEW2_FRAME_KIND = 1i32;
+pub const COREWEBVIEW2_FRAME_KIND_OBJECT: COREWEBVIEW2_FRAME_KIND = 4i32;
+pub const COREWEBVIEW2_FRAME_KIND_UNKNOWN: COREWEBVIEW2_FRAME_KIND = 0i32;
+pub type COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND = i32;
 pub const COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_ALLOW: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND =
-    COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND(1i32);
+    1i32;
 pub const COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND =
-    COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND(0i32);
+    0i32;
 pub const COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_DENY_CORS: COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND =
-    COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_KEY_EVENT_KIND(pub i32);
-pub const COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN: COREWEBVIEW2_KEY_EVENT_KIND =
-    COREWEBVIEW2_KEY_EVENT_KIND(0i32);
-pub const COREWEBVIEW2_KEY_EVENT_KIND_KEY_UP: COREWEBVIEW2_KEY_EVENT_KIND =
-    COREWEBVIEW2_KEY_EVENT_KIND(1i32);
-pub const COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_DOWN: COREWEBVIEW2_KEY_EVENT_KIND =
-    COREWEBVIEW2_KEY_EVENT_KIND(2i32);
-pub const COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_UP: COREWEBVIEW2_KEY_EVENT_KIND =
-    COREWEBVIEW2_KEY_EVENT_KIND(3i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL(pub i32);
-pub const COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL =
-    COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL(1i32);
+    2i32;
+pub type COREWEBVIEW2_KEY_EVENT_KIND = i32;
+pub const COREWEBVIEW2_KEY_EVENT_KIND_KEY_DOWN: COREWEBVIEW2_KEY_EVENT_KIND = 0i32;
+pub const COREWEBVIEW2_KEY_EVENT_KIND_KEY_UP: COREWEBVIEW2_KEY_EVENT_KIND = 1i32;
+pub const COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_DOWN: COREWEBVIEW2_KEY_EVENT_KIND = 2i32;
+pub const COREWEBVIEW2_KEY_EVENT_KIND_SYSTEM_KEY_UP: COREWEBVIEW2_KEY_EVENT_KIND = 3i32;
+pub type COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL = i32;
+pub const COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_LOW: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL = 1i32;
 pub const COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL_NORMAL: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL =
-    COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_MOUSE_EVENT_KIND(pub i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(526i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(675i32);
+    0i32;
+pub type COREWEBVIEW2_MOUSE_EVENT_KIND = i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_HORIZONTAL_WHEEL: COREWEBVIEW2_MOUSE_EVENT_KIND = 526i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_LEAVE: COREWEBVIEW2_MOUSE_EVENT_KIND = 675i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOUBLE_CLICK: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(515i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(513i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(514i32);
+    515i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND = 513i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_LEFT_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND = 514i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOUBLE_CLICK: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(521i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(519i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(520i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(512i32);
+    521i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND = 519i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_MIDDLE_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND = 520i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_MOVE: COREWEBVIEW2_MOUSE_EVENT_KIND = 512i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_DOWN:
-    COREWEBVIEW2_MOUSE_EVENT_KIND = COREWEBVIEW2_MOUSE_EVENT_KIND(164i32);
+    COREWEBVIEW2_MOUSE_EVENT_KIND = 164i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_KIND_NON_CLIENT_RIGHT_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(165i32);
+    165i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOUBLE_CLICK: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(518i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(516i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(517i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(522i32);
+    518i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND = 516i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_RIGHT_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND = 517i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_WHEEL: COREWEBVIEW2_MOUSE_EVENT_KIND = 522i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOUBLE_CLICK: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(525i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(523i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND =
-    COREWEBVIEW2_MOUSE_EVENT_KIND(524i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(pub i32);
-impl COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0);
-    }
-}
-impl core::ops::BitAndAssign for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0);
-    }
-}
-impl core::ops::Not for COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+    525i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_DOWN: COREWEBVIEW2_MOUSE_EVENT_KIND = 523i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_KIND_X_BUTTON_UP: COREWEBVIEW2_MOUSE_EVENT_KIND = 524i32;
+pub type COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_CONTROL: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(8i32);
+    8i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_LEFT_BUTTON: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(1i32);
+    1i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_MIDDLE_BUTTON:
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(16i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_NONE: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(0i32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = 16i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_NONE: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = 0i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_RIGHT_BUTTON:
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(2i32);
-pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_SHIFT: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(4i32);
+    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = 2i32;
+pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_SHIFT: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS = 4i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_X_BUTTON1: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(32i32);
+    32i32;
 pub const COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS_X_BUTTON2: COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS =
-    COREWEBVIEW2_MOUSE_EVENT_VIRTUAL_KEYS(64i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_MOVE_FOCUS_REASON(pub i32);
-pub const COREWEBVIEW2_MOVE_FOCUS_REASON_NEXT: COREWEBVIEW2_MOVE_FOCUS_REASON =
-    COREWEBVIEW2_MOVE_FOCUS_REASON(1i32);
-pub const COREWEBVIEW2_MOVE_FOCUS_REASON_PREVIOUS: COREWEBVIEW2_MOVE_FOCUS_REASON =
-    COREWEBVIEW2_MOVE_FOCUS_REASON(2i32);
-pub const COREWEBVIEW2_MOVE_FOCUS_REASON_PROGRAMMATIC: COREWEBVIEW2_MOVE_FOCUS_REASON =
-    COREWEBVIEW2_MOVE_FOCUS_REASON(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_NAVIGATION_KIND(pub i32);
-pub const COREWEBVIEW2_NAVIGATION_KIND_BACK_OR_FORWARD: COREWEBVIEW2_NAVIGATION_KIND =
-    COREWEBVIEW2_NAVIGATION_KIND(1i32);
-pub const COREWEBVIEW2_NAVIGATION_KIND_NEW_DOCUMENT: COREWEBVIEW2_NAVIGATION_KIND =
-    COREWEBVIEW2_NAVIGATION_KIND(2i32);
-pub const COREWEBVIEW2_NAVIGATION_KIND_RELOAD: COREWEBVIEW2_NAVIGATION_KIND =
-    COREWEBVIEW2_NAVIGATION_KIND(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_NON_CLIENT_REGION_KIND(pub i32);
-pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION: COREWEBVIEW2_NON_CLIENT_REGION_KIND =
-    COREWEBVIEW2_NON_CLIENT_REGION_KIND(2i32);
-pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT: COREWEBVIEW2_NON_CLIENT_REGION_KIND =
-    COREWEBVIEW2_NON_CLIENT_REGION_KIND(1i32);
-pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE: COREWEBVIEW2_NON_CLIENT_REGION_KIND =
-    COREWEBVIEW2_NON_CLIENT_REGION_KIND(20i32);
-pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_MAXIMIZE: COREWEBVIEW2_NON_CLIENT_REGION_KIND =
-    COREWEBVIEW2_NON_CLIENT_REGION_KIND(9i32);
-pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_MINIMIZE: COREWEBVIEW2_NON_CLIENT_REGION_KIND =
-    COREWEBVIEW2_NON_CLIENT_REGION_KIND(8i32);
-pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE: COREWEBVIEW2_NON_CLIENT_REGION_KIND =
-    COREWEBVIEW2_NON_CLIENT_REGION_KIND(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PDF_TOOLBAR_ITEMS(pub i32);
-impl COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0);
-    }
-}
-impl core::ops::BitAndAssign for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0);
-    }
-}
-impl core::ops::Not for COREWEBVIEW2_PDF_TOOLBAR_ITEMS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(256i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FIT_PAGE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(64i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FULL_SCREEN: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(2048i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(4096i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(0i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_LAYOUT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(128i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_SELECTOR: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(512i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PRINT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(2i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ROTATE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(32i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(1i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE_AS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(4i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SEARCH: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(1024i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_IN: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(8i32);
-pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_OUT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS =
-    COREWEBVIEW2_PDF_TOOLBAR_ITEMS(16i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PERMISSION_KIND(pub i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_AUTOPLAY: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(9i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_CAMERA: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(2i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_CLIPBOARD_READ: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(6i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_FILE_READ_WRITE: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(8i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_GEOLOCATION: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(3i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_LOCAL_FONTS: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(10i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_MICROPHONE: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(1i32);
+    64i32;
+pub type COREWEBVIEW2_MOVE_FOCUS_REASON = i32;
+pub const COREWEBVIEW2_MOVE_FOCUS_REASON_NEXT: COREWEBVIEW2_MOVE_FOCUS_REASON = 1i32;
+pub const COREWEBVIEW2_MOVE_FOCUS_REASON_PREVIOUS: COREWEBVIEW2_MOVE_FOCUS_REASON = 2i32;
+pub const COREWEBVIEW2_MOVE_FOCUS_REASON_PROGRAMMATIC: COREWEBVIEW2_MOVE_FOCUS_REASON = 0i32;
+pub type COREWEBVIEW2_NAVIGATION_KIND = i32;
+pub const COREWEBVIEW2_NAVIGATION_KIND_BACK_OR_FORWARD: COREWEBVIEW2_NAVIGATION_KIND = 1i32;
+pub const COREWEBVIEW2_NAVIGATION_KIND_NEW_DOCUMENT: COREWEBVIEW2_NAVIGATION_KIND = 2i32;
+pub const COREWEBVIEW2_NAVIGATION_KIND_RELOAD: COREWEBVIEW2_NAVIGATION_KIND = 0i32;
+pub type COREWEBVIEW2_NON_CLIENT_REGION_KIND = i32;
+pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CAPTION: COREWEBVIEW2_NON_CLIENT_REGION_KIND = 2i32;
+pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLIENT: COREWEBVIEW2_NON_CLIENT_REGION_KIND = 1i32;
+pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_CLOSE: COREWEBVIEW2_NON_CLIENT_REGION_KIND = 20i32;
+pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_MAXIMIZE: COREWEBVIEW2_NON_CLIENT_REGION_KIND = 9i32;
+pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_MINIMIZE: COREWEBVIEW2_NON_CLIENT_REGION_KIND = 8i32;
+pub const COREWEBVIEW2_NON_CLIENT_REGION_KIND_NOWHERE: COREWEBVIEW2_NON_CLIENT_REGION_KIND = 0i32;
+pub type COREWEBVIEW2_PDF_TOOLBAR_ITEMS = i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_BOOKMARKS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 256i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FIT_PAGE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 64i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_FULL_SCREEN: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 2048i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_MORE_SETTINGS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 4096i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_NONE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 0i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_LAYOUT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 128i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PAGE_SELECTOR: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 512i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_PRINT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 2i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ROTATE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 32i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 1i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SAVE_AS: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 4i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_SEARCH: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 1024i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_IN: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 8i32;
+pub const COREWEBVIEW2_PDF_TOOLBAR_ITEMS_ZOOM_OUT: COREWEBVIEW2_PDF_TOOLBAR_ITEMS = 16i32;
+pub type COREWEBVIEW2_PERMISSION_KIND = i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_AUTOPLAY: COREWEBVIEW2_PERMISSION_KIND = 9i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_CAMERA: COREWEBVIEW2_PERMISSION_KIND = 2i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_CLIPBOARD_READ: COREWEBVIEW2_PERMISSION_KIND = 6i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_FILE_READ_WRITE: COREWEBVIEW2_PERMISSION_KIND = 8i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_GEOLOCATION: COREWEBVIEW2_PERMISSION_KIND = 3i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_LOCAL_FONTS: COREWEBVIEW2_PERMISSION_KIND = 10i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_MICROPHONE: COREWEBVIEW2_PERMISSION_KIND = 1i32;
 pub const COREWEBVIEW2_PERMISSION_KIND_MIDI_SYSTEM_EXCLUSIVE_MESSAGES:
-    COREWEBVIEW2_PERMISSION_KIND = COREWEBVIEW2_PERMISSION_KIND(11i32);
+    COREWEBVIEW2_PERMISSION_KIND = 11i32;
 pub const COREWEBVIEW2_PERMISSION_KIND_MULTIPLE_AUTOMATIC_DOWNLOADS: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(7i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_NOTIFICATIONS: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(4i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_OTHER_SENSORS: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(5i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_UNKNOWN_PERMISSION: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(0i32);
-pub const COREWEBVIEW2_PERMISSION_KIND_WINDOW_MANAGEMENT: COREWEBVIEW2_PERMISSION_KIND =
-    COREWEBVIEW2_PERMISSION_KIND(12i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PERMISSION_STATE(pub i32);
-pub const COREWEBVIEW2_PERMISSION_STATE_ALLOW: COREWEBVIEW2_PERMISSION_STATE =
-    COREWEBVIEW2_PERMISSION_STATE(1i32);
-pub const COREWEBVIEW2_PERMISSION_STATE_DEFAULT: COREWEBVIEW2_PERMISSION_STATE =
-    COREWEBVIEW2_PERMISSION_STATE(0i32);
-pub const COREWEBVIEW2_PERMISSION_STATE_DENY: COREWEBVIEW2_PERMISSION_STATE =
-    COREWEBVIEW2_PERMISSION_STATE(2i32);
+    7i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_NOTIFICATIONS: COREWEBVIEW2_PERMISSION_KIND = 4i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_OTHER_SENSORS: COREWEBVIEW2_PERMISSION_KIND = 5i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_UNKNOWN_PERMISSION: COREWEBVIEW2_PERMISSION_KIND = 0i32;
+pub const COREWEBVIEW2_PERMISSION_KIND_WINDOW_MANAGEMENT: COREWEBVIEW2_PERMISSION_KIND = 12i32;
+pub type COREWEBVIEW2_PERMISSION_STATE = i32;
+pub const COREWEBVIEW2_PERMISSION_STATE_ALLOW: COREWEBVIEW2_PERMISSION_STATE = 1i32;
+pub const COREWEBVIEW2_PERMISSION_STATE_DEFAULT: COREWEBVIEW2_PERMISSION_STATE = 0i32;
+pub const COREWEBVIEW2_PERMISSION_STATE_DENY: COREWEBVIEW2_PERMISSION_STATE = 2i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct COREWEBVIEW2_PHYSICAL_KEY_STATUS {
@@ -899,405 +297,192 @@ pub struct COREWEBVIEW2_PHYSICAL_KEY_STATUS {
     pub WasKeyDown: windows_core::BOOL,
     pub IsKeyReleased: windows_core::BOOL,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_POINTER_EVENT_KIND(pub i32);
-pub const COREWEBVIEW2_POINTER_EVENT_KIND_ACTIVATE: COREWEBVIEW2_POINTER_EVENT_KIND =
-    COREWEBVIEW2_POINTER_EVENT_KIND(587i32);
-pub const COREWEBVIEW2_POINTER_EVENT_KIND_DOWN: COREWEBVIEW2_POINTER_EVENT_KIND =
-    COREWEBVIEW2_POINTER_EVENT_KIND(582i32);
-pub const COREWEBVIEW2_POINTER_EVENT_KIND_ENTER: COREWEBVIEW2_POINTER_EVENT_KIND =
-    COREWEBVIEW2_POINTER_EVENT_KIND(585i32);
-pub const COREWEBVIEW2_POINTER_EVENT_KIND_LEAVE: COREWEBVIEW2_POINTER_EVENT_KIND =
-    COREWEBVIEW2_POINTER_EVENT_KIND(586i32);
-pub const COREWEBVIEW2_POINTER_EVENT_KIND_UP: COREWEBVIEW2_POINTER_EVENT_KIND =
-    COREWEBVIEW2_POINTER_EVENT_KIND(583i32);
-pub const COREWEBVIEW2_POINTER_EVENT_KIND_UPDATE: COREWEBVIEW2_POINTER_EVENT_KIND =
-    COREWEBVIEW2_POINTER_EVENT_KIND(581i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PREFERRED_COLOR_SCHEME(pub i32);
-pub const COREWEBVIEW2_PREFERRED_COLOR_SCHEME_AUTO: COREWEBVIEW2_PREFERRED_COLOR_SCHEME =
-    COREWEBVIEW2_PREFERRED_COLOR_SCHEME(0i32);
-pub const COREWEBVIEW2_PREFERRED_COLOR_SCHEME_DARK: COREWEBVIEW2_PREFERRED_COLOR_SCHEME =
-    COREWEBVIEW2_PREFERRED_COLOR_SCHEME(2i32);
-pub const COREWEBVIEW2_PREFERRED_COLOR_SCHEME_LIGHT: COREWEBVIEW2_PREFERRED_COLOR_SCHEME =
-    COREWEBVIEW2_PREFERRED_COLOR_SCHEME(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PRINT_COLLATION(pub i32);
-pub const COREWEBVIEW2_PRINT_COLLATION_COLLATED: COREWEBVIEW2_PRINT_COLLATION =
-    COREWEBVIEW2_PRINT_COLLATION(1i32);
-pub const COREWEBVIEW2_PRINT_COLLATION_DEFAULT: COREWEBVIEW2_PRINT_COLLATION =
-    COREWEBVIEW2_PRINT_COLLATION(0i32);
-pub const COREWEBVIEW2_PRINT_COLLATION_UNCOLLATED: COREWEBVIEW2_PRINT_COLLATION =
-    COREWEBVIEW2_PRINT_COLLATION(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PRINT_COLOR_MODE(pub i32);
-pub const COREWEBVIEW2_PRINT_COLOR_MODE_COLOR: COREWEBVIEW2_PRINT_COLOR_MODE =
-    COREWEBVIEW2_PRINT_COLOR_MODE(1i32);
-pub const COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT: COREWEBVIEW2_PRINT_COLOR_MODE =
-    COREWEBVIEW2_PRINT_COLOR_MODE(0i32);
-pub const COREWEBVIEW2_PRINT_COLOR_MODE_GRAYSCALE: COREWEBVIEW2_PRINT_COLOR_MODE =
-    COREWEBVIEW2_PRINT_COLOR_MODE(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PRINT_DIALOG_KIND(pub i32);
-pub const COREWEBVIEW2_PRINT_DIALOG_KIND_BROWSER: COREWEBVIEW2_PRINT_DIALOG_KIND =
-    COREWEBVIEW2_PRINT_DIALOG_KIND(0i32);
-pub const COREWEBVIEW2_PRINT_DIALOG_KIND_SYSTEM: COREWEBVIEW2_PRINT_DIALOG_KIND =
-    COREWEBVIEW2_PRINT_DIALOG_KIND(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PRINT_DUPLEX(pub i32);
-pub const COREWEBVIEW2_PRINT_DUPLEX_DEFAULT: COREWEBVIEW2_PRINT_DUPLEX =
-    COREWEBVIEW2_PRINT_DUPLEX(0i32);
-pub const COREWEBVIEW2_PRINT_DUPLEX_ONE_SIDED: COREWEBVIEW2_PRINT_DUPLEX =
-    COREWEBVIEW2_PRINT_DUPLEX(1i32);
-pub const COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_LONG_EDGE: COREWEBVIEW2_PRINT_DUPLEX =
-    COREWEBVIEW2_PRINT_DUPLEX(2i32);
-pub const COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_SHORT_EDGE: COREWEBVIEW2_PRINT_DUPLEX =
-    COREWEBVIEW2_PRINT_DUPLEX(3i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PRINT_MEDIA_SIZE(pub i32);
-pub const COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM: COREWEBVIEW2_PRINT_MEDIA_SIZE =
-    COREWEBVIEW2_PRINT_MEDIA_SIZE(1i32);
-pub const COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT: COREWEBVIEW2_PRINT_MEDIA_SIZE =
-    COREWEBVIEW2_PRINT_MEDIA_SIZE(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PRINT_ORIENTATION(pub i32);
-pub const COREWEBVIEW2_PRINT_ORIENTATION_LANDSCAPE: COREWEBVIEW2_PRINT_ORIENTATION =
-    COREWEBVIEW2_PRINT_ORIENTATION(1i32);
-pub const COREWEBVIEW2_PRINT_ORIENTATION_PORTRAIT: COREWEBVIEW2_PRINT_ORIENTATION =
-    COREWEBVIEW2_PRINT_ORIENTATION(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PRINT_STATUS(pub i32);
-pub const COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR: COREWEBVIEW2_PRINT_STATUS =
-    COREWEBVIEW2_PRINT_STATUS(2i32);
-pub const COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE: COREWEBVIEW2_PRINT_STATUS =
-    COREWEBVIEW2_PRINT_STATUS(1i32);
-pub const COREWEBVIEW2_PRINT_STATUS_SUCCEEDED: COREWEBVIEW2_PRINT_STATUS =
-    COREWEBVIEW2_PRINT_STATUS(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PROCESS_FAILED_KIND(pub i32);
+pub type COREWEBVIEW2_POINTER_EVENT_KIND = i32;
+pub const COREWEBVIEW2_POINTER_EVENT_KIND_ACTIVATE: COREWEBVIEW2_POINTER_EVENT_KIND = 587i32;
+pub const COREWEBVIEW2_POINTER_EVENT_KIND_DOWN: COREWEBVIEW2_POINTER_EVENT_KIND = 582i32;
+pub const COREWEBVIEW2_POINTER_EVENT_KIND_ENTER: COREWEBVIEW2_POINTER_EVENT_KIND = 585i32;
+pub const COREWEBVIEW2_POINTER_EVENT_KIND_LEAVE: COREWEBVIEW2_POINTER_EVENT_KIND = 586i32;
+pub const COREWEBVIEW2_POINTER_EVENT_KIND_UP: COREWEBVIEW2_POINTER_EVENT_KIND = 583i32;
+pub const COREWEBVIEW2_POINTER_EVENT_KIND_UPDATE: COREWEBVIEW2_POINTER_EVENT_KIND = 581i32;
+pub type COREWEBVIEW2_PREFERRED_COLOR_SCHEME = i32;
+pub const COREWEBVIEW2_PREFERRED_COLOR_SCHEME_AUTO: COREWEBVIEW2_PREFERRED_COLOR_SCHEME = 0i32;
+pub const COREWEBVIEW2_PREFERRED_COLOR_SCHEME_DARK: COREWEBVIEW2_PREFERRED_COLOR_SCHEME = 2i32;
+pub const COREWEBVIEW2_PREFERRED_COLOR_SCHEME_LIGHT: COREWEBVIEW2_PREFERRED_COLOR_SCHEME = 1i32;
+pub type COREWEBVIEW2_PRINT_COLLATION = i32;
+pub const COREWEBVIEW2_PRINT_COLLATION_COLLATED: COREWEBVIEW2_PRINT_COLLATION = 1i32;
+pub const COREWEBVIEW2_PRINT_COLLATION_DEFAULT: COREWEBVIEW2_PRINT_COLLATION = 0i32;
+pub const COREWEBVIEW2_PRINT_COLLATION_UNCOLLATED: COREWEBVIEW2_PRINT_COLLATION = 2i32;
+pub type COREWEBVIEW2_PRINT_COLOR_MODE = i32;
+pub const COREWEBVIEW2_PRINT_COLOR_MODE_COLOR: COREWEBVIEW2_PRINT_COLOR_MODE = 1i32;
+pub const COREWEBVIEW2_PRINT_COLOR_MODE_DEFAULT: COREWEBVIEW2_PRINT_COLOR_MODE = 0i32;
+pub const COREWEBVIEW2_PRINT_COLOR_MODE_GRAYSCALE: COREWEBVIEW2_PRINT_COLOR_MODE = 2i32;
+pub type COREWEBVIEW2_PRINT_DIALOG_KIND = i32;
+pub const COREWEBVIEW2_PRINT_DIALOG_KIND_BROWSER: COREWEBVIEW2_PRINT_DIALOG_KIND = 0i32;
+pub const COREWEBVIEW2_PRINT_DIALOG_KIND_SYSTEM: COREWEBVIEW2_PRINT_DIALOG_KIND = 1i32;
+pub type COREWEBVIEW2_PRINT_DUPLEX = i32;
+pub const COREWEBVIEW2_PRINT_DUPLEX_DEFAULT: COREWEBVIEW2_PRINT_DUPLEX = 0i32;
+pub const COREWEBVIEW2_PRINT_DUPLEX_ONE_SIDED: COREWEBVIEW2_PRINT_DUPLEX = 1i32;
+pub const COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_LONG_EDGE: COREWEBVIEW2_PRINT_DUPLEX = 2i32;
+pub const COREWEBVIEW2_PRINT_DUPLEX_TWO_SIDED_SHORT_EDGE: COREWEBVIEW2_PRINT_DUPLEX = 3i32;
+pub type COREWEBVIEW2_PRINT_MEDIA_SIZE = i32;
+pub const COREWEBVIEW2_PRINT_MEDIA_SIZE_CUSTOM: COREWEBVIEW2_PRINT_MEDIA_SIZE = 1i32;
+pub const COREWEBVIEW2_PRINT_MEDIA_SIZE_DEFAULT: COREWEBVIEW2_PRINT_MEDIA_SIZE = 0i32;
+pub type COREWEBVIEW2_PRINT_ORIENTATION = i32;
+pub const COREWEBVIEW2_PRINT_ORIENTATION_LANDSCAPE: COREWEBVIEW2_PRINT_ORIENTATION = 1i32;
+pub const COREWEBVIEW2_PRINT_ORIENTATION_PORTRAIT: COREWEBVIEW2_PRINT_ORIENTATION = 0i32;
+pub type COREWEBVIEW2_PRINT_STATUS = i32;
+pub const COREWEBVIEW2_PRINT_STATUS_OTHER_ERROR: COREWEBVIEW2_PRINT_STATUS = 2i32;
+pub const COREWEBVIEW2_PRINT_STATUS_PRINTER_UNAVAILABLE: COREWEBVIEW2_PRINT_STATUS = 1i32;
+pub const COREWEBVIEW2_PRINT_STATUS_SUCCEEDED: COREWEBVIEW2_PRINT_STATUS = 0i32;
+pub type COREWEBVIEW2_PROCESS_FAILED_KIND = i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_BROWSER_PROCESS_EXITED:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(0i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 0i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_FRAME_RENDER_PROCESS_EXITED:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(3i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 3i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_GPU_PROCESS_EXITED: COREWEBVIEW2_PROCESS_FAILED_KIND =
-    COREWEBVIEW2_PROCESS_FAILED_KIND(6i32);
+    6i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_BROKER_PROCESS_EXITED:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(8i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 8i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_PPAPI_PLUGIN_PROCESS_EXITED:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(7i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 7i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_EXITED: COREWEBVIEW2_PROCESS_FAILED_KIND =
-    COREWEBVIEW2_PROCESS_FAILED_KIND(1i32);
+    1i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_RENDER_PROCESS_UNRESPONSIVE:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(2i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 2i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_SANDBOX_HELPER_PROCESS_EXITED:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(5i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 5i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_UNKNOWN_PROCESS_EXITED:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(9i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 9i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_KIND_UTILITY_PROCESS_EXITED:
-    COREWEBVIEW2_PROCESS_FAILED_KIND = COREWEBVIEW2_PROCESS_FAILED_KIND(4i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PROCESS_FAILED_REASON(pub i32);
-pub const COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED: COREWEBVIEW2_PROCESS_FAILED_REASON =
-    COREWEBVIEW2_PROCESS_FAILED_REASON(3i32);
+    COREWEBVIEW2_PROCESS_FAILED_KIND = 4i32;
+pub type COREWEBVIEW2_PROCESS_FAILED_REASON = i32;
+pub const COREWEBVIEW2_PROCESS_FAILED_REASON_CRASHED: COREWEBVIEW2_PROCESS_FAILED_REASON = 3i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_REASON_LAUNCH_FAILED: COREWEBVIEW2_PROCESS_FAILED_REASON =
-    COREWEBVIEW2_PROCESS_FAILED_REASON(4i32);
+    4i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_REASON_OUT_OF_MEMORY: COREWEBVIEW2_PROCESS_FAILED_REASON =
-    COREWEBVIEW2_PROCESS_FAILED_REASON(5i32);
+    5i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_REASON_PROFILE_DELETED: COREWEBVIEW2_PROCESS_FAILED_REASON =
-    COREWEBVIEW2_PROCESS_FAILED_REASON(6i32);
-pub const COREWEBVIEW2_PROCESS_FAILED_REASON_TERMINATED: COREWEBVIEW2_PROCESS_FAILED_REASON =
-    COREWEBVIEW2_PROCESS_FAILED_REASON(2i32);
-pub const COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED: COREWEBVIEW2_PROCESS_FAILED_REASON =
-    COREWEBVIEW2_PROCESS_FAILED_REASON(0i32);
+    6i32;
+pub const COREWEBVIEW2_PROCESS_FAILED_REASON_TERMINATED: COREWEBVIEW2_PROCESS_FAILED_REASON = 2i32;
+pub const COREWEBVIEW2_PROCESS_FAILED_REASON_UNEXPECTED: COREWEBVIEW2_PROCESS_FAILED_REASON = 0i32;
 pub const COREWEBVIEW2_PROCESS_FAILED_REASON_UNRESPONSIVE: COREWEBVIEW2_PROCESS_FAILED_REASON =
-    COREWEBVIEW2_PROCESS_FAILED_REASON(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_PROCESS_KIND(pub i32);
-pub const COREWEBVIEW2_PROCESS_KIND_BROWSER: COREWEBVIEW2_PROCESS_KIND =
-    COREWEBVIEW2_PROCESS_KIND(0i32);
-pub const COREWEBVIEW2_PROCESS_KIND_GPU: COREWEBVIEW2_PROCESS_KIND =
-    COREWEBVIEW2_PROCESS_KIND(4i32);
-pub const COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER: COREWEBVIEW2_PROCESS_KIND =
-    COREWEBVIEW2_PROCESS_KIND(6i32);
-pub const COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN: COREWEBVIEW2_PROCESS_KIND =
-    COREWEBVIEW2_PROCESS_KIND(5i32);
-pub const COREWEBVIEW2_PROCESS_KIND_RENDERER: COREWEBVIEW2_PROCESS_KIND =
-    COREWEBVIEW2_PROCESS_KIND(1i32);
-pub const COREWEBVIEW2_PROCESS_KIND_SANDBOX_HELPER: COREWEBVIEW2_PROCESS_KIND =
-    COREWEBVIEW2_PROCESS_KIND(3i32);
-pub const COREWEBVIEW2_PROCESS_KIND_UTILITY: COREWEBVIEW2_PROCESS_KIND =
-    COREWEBVIEW2_PROCESS_KIND(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_RELEASE_CHANNELS(pub i32);
-impl COREWEBVIEW2_RELEASE_CHANNELS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COREWEBVIEW2_RELEASE_CHANNELS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COREWEBVIEW2_RELEASE_CHANNELS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COREWEBVIEW2_RELEASE_CHANNELS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0);
-    }
-}
-impl core::ops::BitAndAssign for COREWEBVIEW2_RELEASE_CHANNELS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0);
-    }
-}
-impl core::ops::Not for COREWEBVIEW2_RELEASE_CHANNELS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-pub const COREWEBVIEW2_RELEASE_CHANNELS_BETA: COREWEBVIEW2_RELEASE_CHANNELS =
-    COREWEBVIEW2_RELEASE_CHANNELS(2i32);
-pub const COREWEBVIEW2_RELEASE_CHANNELS_CANARY: COREWEBVIEW2_RELEASE_CHANNELS =
-    COREWEBVIEW2_RELEASE_CHANNELS(8i32);
-pub const COREWEBVIEW2_RELEASE_CHANNELS_DEV: COREWEBVIEW2_RELEASE_CHANNELS =
-    COREWEBVIEW2_RELEASE_CHANNELS(4i32);
-pub const COREWEBVIEW2_RELEASE_CHANNELS_NONE: COREWEBVIEW2_RELEASE_CHANNELS =
-    COREWEBVIEW2_RELEASE_CHANNELS(0i32);
-pub const COREWEBVIEW2_RELEASE_CHANNELS_STABLE: COREWEBVIEW2_RELEASE_CHANNELS =
-    COREWEBVIEW2_RELEASE_CHANNELS(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_SAVE_AS_KIND(pub i32);
-pub const COREWEBVIEW2_SAVE_AS_KIND_COMPLETE: COREWEBVIEW2_SAVE_AS_KIND =
-    COREWEBVIEW2_SAVE_AS_KIND(3i32);
-pub const COREWEBVIEW2_SAVE_AS_KIND_DEFAULT: COREWEBVIEW2_SAVE_AS_KIND =
-    COREWEBVIEW2_SAVE_AS_KIND(0i32);
-pub const COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY: COREWEBVIEW2_SAVE_AS_KIND =
-    COREWEBVIEW2_SAVE_AS_KIND(1i32);
-pub const COREWEBVIEW2_SAVE_AS_KIND_SINGLE_FILE: COREWEBVIEW2_SAVE_AS_KIND =
-    COREWEBVIEW2_SAVE_AS_KIND(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_SAVE_AS_UI_RESULT(pub i32);
-pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED: COREWEBVIEW2_SAVE_AS_UI_RESULT =
-    COREWEBVIEW2_SAVE_AS_UI_RESULT(4i32);
-pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS: COREWEBVIEW2_SAVE_AS_UI_RESULT =
-    COREWEBVIEW2_SAVE_AS_UI_RESULT(2i32);
-pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH: COREWEBVIEW2_SAVE_AS_UI_RESULT =
-    COREWEBVIEW2_SAVE_AS_UI_RESULT(1i32);
-pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED: COREWEBVIEW2_SAVE_AS_UI_RESULT =
-    COREWEBVIEW2_SAVE_AS_UI_RESULT(3i32);
-pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS: COREWEBVIEW2_SAVE_AS_UI_RESULT =
-    COREWEBVIEW2_SAVE_AS_UI_RESULT(0i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_SCRIPT_DIALOG_KIND(pub i32);
-pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_ALERT: COREWEBVIEW2_SCRIPT_DIALOG_KIND =
-    COREWEBVIEW2_SCRIPT_DIALOG_KIND(0i32);
-pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_BEFOREUNLOAD: COREWEBVIEW2_SCRIPT_DIALOG_KIND =
-    COREWEBVIEW2_SCRIPT_DIALOG_KIND(3i32);
-pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_CONFIRM: COREWEBVIEW2_SCRIPT_DIALOG_KIND =
-    COREWEBVIEW2_SCRIPT_DIALOG_KIND(1i32);
-pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_PROMPT: COREWEBVIEW2_SCRIPT_DIALOG_KIND =
-    COREWEBVIEW2_SCRIPT_DIALOG_KIND(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_SCROLLBAR_STYLE(pub i32);
-pub const COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT: COREWEBVIEW2_SCROLLBAR_STYLE =
-    COREWEBVIEW2_SCROLLBAR_STYLE(0i32);
-pub const COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY: COREWEBVIEW2_SCROLLBAR_STYLE =
-    COREWEBVIEW2_SCROLLBAR_STYLE(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(pub i32);
+    1i32;
+pub type COREWEBVIEW2_PROCESS_KIND = i32;
+pub const COREWEBVIEW2_PROCESS_KIND_BROWSER: COREWEBVIEW2_PROCESS_KIND = 0i32;
+pub const COREWEBVIEW2_PROCESS_KIND_GPU: COREWEBVIEW2_PROCESS_KIND = 4i32;
+pub const COREWEBVIEW2_PROCESS_KIND_PPAPI_BROKER: COREWEBVIEW2_PROCESS_KIND = 6i32;
+pub const COREWEBVIEW2_PROCESS_KIND_PPAPI_PLUGIN: COREWEBVIEW2_PROCESS_KIND = 5i32;
+pub const COREWEBVIEW2_PROCESS_KIND_RENDERER: COREWEBVIEW2_PROCESS_KIND = 1i32;
+pub const COREWEBVIEW2_PROCESS_KIND_SANDBOX_HELPER: COREWEBVIEW2_PROCESS_KIND = 3i32;
+pub const COREWEBVIEW2_PROCESS_KIND_UTILITY: COREWEBVIEW2_PROCESS_KIND = 2i32;
+pub type COREWEBVIEW2_RELEASE_CHANNELS = i32;
+pub const COREWEBVIEW2_RELEASE_CHANNELS_BETA: COREWEBVIEW2_RELEASE_CHANNELS = 2i32;
+pub const COREWEBVIEW2_RELEASE_CHANNELS_CANARY: COREWEBVIEW2_RELEASE_CHANNELS = 8i32;
+pub const COREWEBVIEW2_RELEASE_CHANNELS_DEV: COREWEBVIEW2_RELEASE_CHANNELS = 4i32;
+pub const COREWEBVIEW2_RELEASE_CHANNELS_NONE: COREWEBVIEW2_RELEASE_CHANNELS = 0i32;
+pub const COREWEBVIEW2_RELEASE_CHANNELS_STABLE: COREWEBVIEW2_RELEASE_CHANNELS = 1i32;
+pub type COREWEBVIEW2_SAVE_AS_KIND = i32;
+pub const COREWEBVIEW2_SAVE_AS_KIND_COMPLETE: COREWEBVIEW2_SAVE_AS_KIND = 3i32;
+pub const COREWEBVIEW2_SAVE_AS_KIND_DEFAULT: COREWEBVIEW2_SAVE_AS_KIND = 0i32;
+pub const COREWEBVIEW2_SAVE_AS_KIND_HTML_ONLY: COREWEBVIEW2_SAVE_AS_KIND = 1i32;
+pub const COREWEBVIEW2_SAVE_AS_KIND_SINGLE_FILE: COREWEBVIEW2_SAVE_AS_KIND = 2i32;
+pub type COREWEBVIEW2_SAVE_AS_UI_RESULT = i32;
+pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_CANCELLED: COREWEBVIEW2_SAVE_AS_UI_RESULT = 4i32;
+pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_FILE_ALREADY_EXISTS: COREWEBVIEW2_SAVE_AS_UI_RESULT = 2i32;
+pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_INVALID_PATH: COREWEBVIEW2_SAVE_AS_UI_RESULT = 1i32;
+pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_KIND_NOT_SUPPORTED: COREWEBVIEW2_SAVE_AS_UI_RESULT = 3i32;
+pub const COREWEBVIEW2_SAVE_AS_UI_RESULT_SUCCESS: COREWEBVIEW2_SAVE_AS_UI_RESULT = 0i32;
+pub type COREWEBVIEW2_SCRIPT_DIALOG_KIND = i32;
+pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_ALERT: COREWEBVIEW2_SCRIPT_DIALOG_KIND = 0i32;
+pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_BEFOREUNLOAD: COREWEBVIEW2_SCRIPT_DIALOG_KIND = 3i32;
+pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_CONFIRM: COREWEBVIEW2_SCRIPT_DIALOG_KIND = 1i32;
+pub const COREWEBVIEW2_SCRIPT_DIALOG_KIND_PROMPT: COREWEBVIEW2_SCRIPT_DIALOG_KIND = 2i32;
+pub type COREWEBVIEW2_SCROLLBAR_STYLE = i32;
+pub const COREWEBVIEW2_SCROLLBAR_STYLE_DEFAULT: COREWEBVIEW2_SCROLLBAR_STYLE = 0i32;
+pub const COREWEBVIEW2_SCROLLBAR_STYLE_FLUENT_OVERLAY: COREWEBVIEW2_SCROLLBAR_STYLE = 1i32;
+pub type COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION = i32;
 pub const COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_ALWAYS_ALLOW:
-    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION =
-    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(0i32);
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION = 0i32;
 pub const COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_CANCEL:
-    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION =
-    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(1i32);
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION = 1i32;
 pub const COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION_DEFAULT:
-    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION =
-    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_SHARED_BUFFER_ACCESS(pub i32);
-pub const COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_ONLY: COREWEBVIEW2_SHARED_BUFFER_ACCESS =
-    COREWEBVIEW2_SHARED_BUFFER_ACCESS(0i32);
-pub const COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_WRITE: COREWEBVIEW2_SHARED_BUFFER_ACCESS =
-    COREWEBVIEW2_SHARED_BUFFER_ACCESS(1i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_TEXT_DIRECTION_KIND(pub i32);
-pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT: COREWEBVIEW2_TEXT_DIRECTION_KIND =
-    COREWEBVIEW2_TEXT_DIRECTION_KIND(0i32);
-pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_LEFT_TO_RIGHT: COREWEBVIEW2_TEXT_DIRECTION_KIND =
-    COREWEBVIEW2_TEXT_DIRECTION_KIND(1i32);
-pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_RIGHT_TO_LEFT: COREWEBVIEW2_TEXT_DIRECTION_KIND =
-    COREWEBVIEW2_TEXT_DIRECTION_KIND(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_TRACKING_PREVENTION_LEVEL(pub i32);
+    COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION = 2i32;
+pub type COREWEBVIEW2_SHARED_BUFFER_ACCESS = i32;
+pub const COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_ONLY: COREWEBVIEW2_SHARED_BUFFER_ACCESS = 0i32;
+pub const COREWEBVIEW2_SHARED_BUFFER_ACCESS_READ_WRITE: COREWEBVIEW2_SHARED_BUFFER_ACCESS = 1i32;
+pub type COREWEBVIEW2_TEXT_DIRECTION_KIND = i32;
+pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_DEFAULT: COREWEBVIEW2_TEXT_DIRECTION_KIND = 0i32;
+pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_LEFT_TO_RIGHT: COREWEBVIEW2_TEXT_DIRECTION_KIND = 1i32;
+pub const COREWEBVIEW2_TEXT_DIRECTION_KIND_RIGHT_TO_LEFT: COREWEBVIEW2_TEXT_DIRECTION_KIND = 2i32;
+pub type COREWEBVIEW2_TRACKING_PREVENTION_LEVEL = i32;
 pub const COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BALANCED: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL =
-    COREWEBVIEW2_TRACKING_PREVENTION_LEVEL(2i32);
+    2i32;
 pub const COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_BASIC: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL =
-    COREWEBVIEW2_TRACKING_PREVENTION_LEVEL(1i32);
+    1i32;
 pub const COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_NONE: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL =
-    COREWEBVIEW2_TRACKING_PREVENTION_LEVEL(0i32);
+    0i32;
 pub const COREWEBVIEW2_TRACKING_PREVENTION_LEVEL_STRICT: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL =
-    COREWEBVIEW2_TRACKING_PREVENTION_LEVEL(3i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_WEB_ERROR_STATUS(pub i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_CANNOT_CONNECT: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(12i32);
+    3i32;
+pub type COREWEBVIEW2_WEB_ERROR_STATUS = i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_CANNOT_CONNECT: COREWEBVIEW2_WEB_ERROR_STATUS = 12i32;
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_COMMON_NAME_IS_INCORRECT:
-    COREWEBVIEW2_WEB_ERROR_STATUS = COREWEBVIEW2_WEB_ERROR_STATUS(1i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_EXPIRED: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(2i32);
+    COREWEBVIEW2_WEB_ERROR_STATUS = 1i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_EXPIRED: COREWEBVIEW2_WEB_ERROR_STATUS = 2i32;
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_IS_INVALID: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(5i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_REVOKED: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(4i32);
+    5i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_CERTIFICATE_REVOKED: COREWEBVIEW2_WEB_ERROR_STATUS = 4i32;
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_CLIENT_CERTIFICATE_CONTAINS_ERRORS:
-    COREWEBVIEW2_WEB_ERROR_STATUS = COREWEBVIEW2_WEB_ERROR_STATUS(3i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(9i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_RESET: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(10i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_DISCONNECTED: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(11i32);
+    COREWEBVIEW2_WEB_ERROR_STATUS = 3i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_ABORTED: COREWEBVIEW2_WEB_ERROR_STATUS = 9i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_CONNECTION_RESET: COREWEBVIEW2_WEB_ERROR_STATUS = 10i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_DISCONNECTED: COREWEBVIEW2_WEB_ERROR_STATUS = 11i32;
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_ERROR_HTTP_INVALID_SERVER_RESPONSE:
-    COREWEBVIEW2_WEB_ERROR_STATUS = COREWEBVIEW2_WEB_ERROR_STATUS(8i32);
+    COREWEBVIEW2_WEB_ERROR_STATUS = 8i32;
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_HOST_NAME_NOT_RESOLVED: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(13i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(14i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_REDIRECT_FAILED: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(15i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_SERVER_UNREACHABLE: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(6i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_TIMEOUT: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(7i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_UNEXPECTED_ERROR: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(16i32);
-pub const COREWEBVIEW2_WEB_ERROR_STATUS_UNKNOWN: COREWEBVIEW2_WEB_ERROR_STATUS =
-    COREWEBVIEW2_WEB_ERROR_STATUS(0i32);
+    13i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_OPERATION_CANCELED: COREWEBVIEW2_WEB_ERROR_STATUS = 14i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_REDIRECT_FAILED: COREWEBVIEW2_WEB_ERROR_STATUS = 15i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_SERVER_UNREACHABLE: COREWEBVIEW2_WEB_ERROR_STATUS = 6i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_TIMEOUT: COREWEBVIEW2_WEB_ERROR_STATUS = 7i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_UNEXPECTED_ERROR: COREWEBVIEW2_WEB_ERROR_STATUS = 16i32;
+pub const COREWEBVIEW2_WEB_ERROR_STATUS_UNKNOWN: COREWEBVIEW2_WEB_ERROR_STATUS = 0i32;
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_VALID_AUTHENTICATION_CREDENTIALS_REQUIRED:
-    COREWEBVIEW2_WEB_ERROR_STATUS = COREWEBVIEW2_WEB_ERROR_STATUS(17i32);
+    COREWEBVIEW2_WEB_ERROR_STATUS = 17i32;
 pub const COREWEBVIEW2_WEB_ERROR_STATUS_VALID_PROXY_AUTHENTICATION_REQUIRED:
-    COREWEBVIEW2_WEB_ERROR_STATUS = COREWEBVIEW2_WEB_ERROR_STATUS(18i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_WEB_RESOURCE_CONTEXT(pub i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(0i32);
+    COREWEBVIEW2_WEB_ERROR_STATUS = 18i32;
+pub type COREWEBVIEW2_WEB_RESOURCE_CONTEXT = i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_ALL: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 0i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_CSP_VIOLATION_REPORT:
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT = COREWEBVIEW2_WEB_RESOURCE_CONTEXT(15i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_DOCUMENT: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(1i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_EVENT_SOURCE: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(10i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_FETCH: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(8i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_FONT: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(5i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(3i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MANIFEST: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(12i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(4i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_OTHER: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(16i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_PING: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(14i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_SCRIPT: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(6i32);
+    COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 15i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_DOCUMENT: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 1i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_EVENT_SOURCE: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 10i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_FETCH: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 8i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_FONT: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 5i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_IMAGE: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 3i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MANIFEST: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 12i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_MEDIA: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 4i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_OTHER: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 16i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_PING: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 14i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_SCRIPT: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 6i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_SIGNED_EXCHANGE: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(13i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_STYLESHEET: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(2i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_TEXT_TRACK: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(9i32);
-pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_WEBSOCKET: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(11i32);
+    13i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_STYLESHEET: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 2i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_TEXT_TRACK: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 9i32;
+pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_WEBSOCKET: COREWEBVIEW2_WEB_RESOURCE_CONTEXT = 11i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_CONTEXT_XML_HTTP_REQUEST: COREWEBVIEW2_WEB_RESOURCE_CONTEXT =
-    COREWEBVIEW2_WEB_RESOURCE_CONTEXT(7i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(pub i32);
-impl COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0);
-    }
-}
-impl core::ops::BitAndAssign for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0);
-    }
-}
-impl core::ops::Not for COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+    7i32;
+pub type COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_ALL:
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(-1i32);
+    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = -1i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_DOCUMENT:
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(1i32);
+    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = 1i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_NONE:
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(0i32);
+    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = 0i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER:
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(4i32);
+    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = 4i32;
 pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER:
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
-    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(2i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DWORD(pub u32);
+    COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS = 2i32;
+pub type DWORD = u32;
 windows_core::imp::define_interface!(
     ICoreWebView2,
     ICoreWebView2_Vtbl,
@@ -44963,76 +44148,14 @@ impl ICoreWebView2_9_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2_9 {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct INT(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct INT32(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct INT64(pub i64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCWSTR(pub *const WCHAR);
-impl LPCWSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSTR(pub *mut WCHAR);
-impl LPWSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCWSTR(pub *const WCHAR);
-impl PCWSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_MESSAGE(pub *mut windows::Win32::System::Rpc::RPC_MESSAGE);
-impl PRPC_MESSAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct UINT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct UINT32(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct UINT64(pub u64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct WCHAR(pub u16);
+pub type INT = i32;
+pub type INT32 = i32;
+pub type INT64 = i64;
+pub type LPCWSTR = *const WCHAR;
+pub type LPWSTR = *mut WCHAR;
+pub type PCWSTR = *const WCHAR;
+pub type PRPC_MESSAGE = *mut windows::Win32::System::Rpc::RPC_MESSAGE;
+pub type UINT = u32;
+pub type UINT32 = u32;
+pub type UINT64 = u64;
+pub type WCHAR = u16;
