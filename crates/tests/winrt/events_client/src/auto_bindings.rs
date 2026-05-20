@@ -35,15 +35,18 @@ impl Class {
             .map(|| result__)
         })
     }
-    pub fn StaticEvent<P0>(handler: P0) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn StaticEvent<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<windows::Foundation::EventHandler<i32>>,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, i32) -> windows_core::Result<()>
+            + Send
+            + 'static,
     {
+        let handler = <windows::Foundation::EventHandler<i32>>::new(handler);
         Self::IClassStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             let token__ = (windows_core::Interface::vtable(this).StaticEvent)(
                 windows_core::Interface::as_raw(this),
-                handler.param().abi(),
+                windows_core::Interface::as_raw(&handler),
                 &mut result__,
             )
             .map(|| result__)?;
@@ -92,15 +95,16 @@ impl IClass {
             .map(|| result__)
         }
     }
-    pub fn Event<P0>(&self, handler: P0) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Event<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        P0: windows_core::Param<windows::Foundation::TypedEventHandler<Class, i32>>,
+        F: Fn(windows_core::Ref<Class>, i32) -> windows_core::Result<()> + Send + 'static,
     {
+        let handler = <windows::Foundation::TypedEventHandler<Class, i32>>::new(handler);
         unsafe {
             let mut result__ = core::mem::zeroed();
             let token__ = (windows_core::Interface::vtable(self).Event)(
                 windows_core::Interface::as_raw(self),
-                handler.param().abi(),
+                windows_core::Interface::as_raw(&handler),
                 &mut result__,
             )
             .map(|| result__)?;

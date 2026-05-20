@@ -675,11 +675,133 @@ impl Method {
             let event_part = &raw_method_name[4..];
             let remove_vname = to_ident(&format!("Remove{event_part}"));
 
+            // Promote the delegate parameter (typically the only input) to a
+            // generic closure so callers can pass a closure directly without
+            // first constructing the delegate. `params` has been shadowed into
+            // a `Vec<TokenStream>` of rendered declarations, so reach for
+            // `self.signature.params` when inspecting the original `Param`s.
+            let sig_params = &self.signature.params[..];
+            let delegate_idx = sig_params
+                .iter()
+                .position(|p| matches!(&p.ty, Type::Delegate(_)));
+
+            let (event_generics, event_where_clause, event_params_decl, event_args, event_prelude) =
+                if let Some(idx) = delegate_idx {
+                    let dp = &sig_params[idx];
+                    let Type::Delegate(d) = &dp.ty else {
+                        unreachable!()
+                    };
+                    let invoke = d.method(config.reader);
+                    let fn_sig = invoke.write_impl_signature(config, false, false);
+                    let delegate_name = d.write_name(config);
+                    let pname = dp.write_ident();
+
+                    // Rebuild typed_args, replacing the delegate slot with a raw
+                    // interface pointer for the locally-constructed delegate.
+                    let event_typed_args: Vec<TokenStream> = typed_args
+                        .iter()
+                        .enumerate()
+                        .map(|(i, ts)| {
+                            if i == idx {
+                                quote! { windows_core::Interface::as_raw(&#pname) }
+                            } else {
+                                ts.clone()
+                            }
+                        })
+                        .collect();
+                    let event_args = quote! { #(#event_typed_args,)* &mut result__ };
+
+                    // Keep all P{n} generics for non-delegate params; add `F` for
+                    // the closure that replaces the delegate parameter.
+                    let mut event_generics: Vec<TokenStream> = sig_params
+                        .iter()
+                        .enumerate()
+                        .filter_map(|(position, param)| {
+                            if position == idx {
+                                return None;
+                            }
+                            if is_ireference_string(param)
+                                || (param.is_convertible()
+                                    && param.ireference_inner(config.reader).is_none())
+                            {
+                                let name: TokenStream = format!("P{position}").parse().unwrap();
+                                Some(name)
+                            } else {
+                                None
+                            }
+                        })
+                        .collect();
+                    event_generics.push(quote! { F });
+
+                    let other_constraints: Vec<TokenStream> = sig_params
+                        .iter()
+                        .enumerate()
+                        .filter_map(|(position, param)| {
+                            if position == idx {
+                                return None;
+                            }
+                            let name: TokenStream = format!("P{position}").parse().unwrap();
+                            if is_ireference_string(param) {
+                                let iref = param.ty.write_name(config);
+                                Some(quote! { #name: core::convert::Into<#iref>, })
+                            } else if param.is_convertible()
+                                && param.ireference_inner(config.reader).is_none()
+                            {
+                                let ty = param.write_name(config);
+                                Some(quote! { #name: windows_core::Param<#ty>, })
+                            } else {
+                                None
+                            }
+                        })
+                        .collect();
+
+                    let event_where_clause = quote! {
+                        where #(#other_constraints)* F: Fn #fn_sig + Send + 'static,
+                    };
+
+                    // Reuse the rendered declarations for non-delegate params and
+                    // replace the delegate slot with `handler: F`.
+                    let event_params_decl: Vec<TokenStream> = params
+                        .iter()
+                        .enumerate()
+                        .map(|(i, rendered)| {
+                            if i == idx {
+                                let pname = sig_params[i].write_ident();
+                                quote! { #pname: F, }
+                            } else {
+                                rendered.clone()
+                            }
+                        })
+                        .collect();
+
+                    let event_prelude = quote! {
+                        #prelude
+                        let #pname = <#delegate_name>::new(#pname);
+                    };
+
+                    (
+                        event_generics,
+                        event_where_clause,
+                        event_params_decl,
+                        event_args,
+                        event_prelude,
+                    )
+                } else {
+                    // No delegate parameter detected: fall back to the existing signature.
+                    (
+                        generics.clone(),
+                        where_clause.clone(),
+                        params.clone(),
+                        args.clone(),
+                        prelude.clone(),
+                    )
+                };
+
             // Raw vtable call that maps the HRESULT into Result<i64> via `?`.
             let raw_vcall = quote! {
                 (windows_core::Interface::vtable(#receiver).#vname)(
                     windows_core::Interface::as_raw(#receiver),
-                    #args
+                    #event_args
                 )
             };
 
@@ -699,8 +821,8 @@ impl Method {
 
             return match kind {
                 InterfaceKind::Default => quote! {
-                    pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker> #where_clause {
-                        #prelude
+                    pub fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                        #event_prelude
                         unsafe {
                             #event_body
                         }
@@ -709,9 +831,9 @@ impl Method {
                 InterfaceKind::None | InterfaceKind::Base => {
                     let interface_name = interface.unwrap().write_name(config);
                     quote! {
-                        pub fn #name<#(#generics,)*>(&self, #(#params)*) -> #result Result<#core EventRevoker> #where_clause {
+                        pub fn #name<#(#event_generics,)*>(&self, #(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
                             let this = &windows_core::Interface::cast::<#interface_name>(self)?;
-                            #prelude
+                            #event_prelude
                             unsafe {
                                 #event_body
                             }
@@ -721,8 +843,8 @@ impl Method {
                 InterfaceKind::Static => {
                     let factory_name = to_ident(trim_tick(interface.unwrap().def.name()));
                     quote! {
-                        pub fn #name<#(#generics,)*>(#(#params)*) -> #result Result<#core EventRevoker> #where_clause {
-                            #prelude
+                        pub fn #name<#(#event_generics,)*>(#(#event_params_decl)*) -> #result Result<#core EventRevoker> #event_where_clause {
+                            #event_prelude
                             Self::#factory_name(|this| unsafe {
                                 #event_body
                             })
