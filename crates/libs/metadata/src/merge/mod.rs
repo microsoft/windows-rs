@@ -84,7 +84,7 @@ impl Merger {
             .ok_or_else(|| Error::new(format!("invalid output path `{}`", self.output)))?;
 
         let files = read_inputs(&self.input)?;
-        let index = reader::TypeIndex::new(files);
+        let index = reader::Index::new(files);
 
         let mut file = writer::File::new(name);
 
@@ -102,11 +102,11 @@ impl Merger {
             let all_arches_mask: i32 = self.arch_inputs.iter().fold(0, |acc, (_, arch)| acc | arch);
 
             // Load each arch-tagged file group.
-            let mut arch_groups: Vec<(reader::TypeIndex, i32)> =
+            let mut arch_groups: Vec<(reader::Index, i32)> =
                 Vec::with_capacity(self.arch_inputs.len());
             for (path, arch_bits) in &self.arch_inputs {
                 let files = read_inputs(std::slice::from_ref(path))?;
-                arch_groups.push((reader::TypeIndex::new(files), *arch_bits));
+                arch_groups.push((reader::Index::new(files), *arch_bits));
             }
 
             // Compute the union of arch bits for each (namespace, name) pair.
@@ -119,8 +119,8 @@ impl Merger {
                 }
             }
 
-            // Build a flat list of (TypeIndex ref, TypeDef, arch_bits) sorted by (ns, name).
-            let mut all_type_refs: Vec<(&reader::TypeIndex, reader::TypeDef<'_>, i32)> = Vec::new();
+            // Build a flat list of (Index ref, TypeDef, arch_bits) sorted by (ns, name).
+            let mut all_type_refs: Vec<(&reader::Index, reader::TypeDef<'_>, i32)> = Vec::new();
             for (idx, arch_bits) in &arch_groups {
                 for ty in idx.types() {
                     all_type_refs.push((idx, ty, *arch_bits));
@@ -208,7 +208,7 @@ fn read_inputs(inputs: &[String]) -> Result<Vec<reader::File>, Error> {
 ///   - `Some(n)`  → drop existing and write `SupportedArchitecture(n)`
 fn write_type(
     file: &mut writer::File,
-    index: &reader::TypeIndex,
+    index: &reader::Index,
     def: reader::TypeDef,
     outer: Option<writer::TypeDef>,
     arch_override: Option<i32>,

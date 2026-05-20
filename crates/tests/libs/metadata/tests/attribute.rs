@@ -60,7 +60,7 @@ fn test() {
     let bytes = file.into_stream();
     std::fs::write("tests/attribute.winmd", bytes).unwrap();
 
-    let index = reader::TypeIndex::read("tests/attribute.winmd").unwrap();
+    let index = reader::Index::read("tests/attribute.winmd").unwrap();
     let ty = index.expect("Namespace", "Name");
 
     let attributes: Vec<_> = ty.attributes().collect();

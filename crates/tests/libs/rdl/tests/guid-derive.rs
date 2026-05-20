@@ -1,11 +1,11 @@
-use windows_metadata::reader::TypeIndex;
+use windows_metadata::reader::Index;
 use windows_metadata::HasAttributes;
 use windows_rdl::*;
 
 /// Read back the GuidAttribute for the named type from `winmd` and assert it equals `expected`.
 /// `expected` is a lower-case hyphenated GUID string "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
 fn assert_guid(winmd: &str, namespace: &str, name: &str, expected: &str) {
-    let files = TypeIndex::read(winmd).expect("failed to read winmd");
+    let files = Index::read(winmd).expect("failed to read winmd");
     let ty = files.expect(namespace, name);
     let attr = ty
         .find_attribute("GuidAttribute")
@@ -39,7 +39,7 @@ fn assert_guid(winmd: &str, namespace: &str, name: &str, expected: &str) {
 
 /// Assert that the named type has no `GuidAttribute` at all.
 fn assert_no_guid(winmd: &str, namespace: &str, name: &str) {
-    let files = TypeIndex::read(winmd).expect("failed to read winmd");
+    let files = Index::read(winmd).expect("failed to read winmd");
     let ty = files.expect(namespace, name);
     assert!(
         ty.find_attribute("GuidAttribute").is_none(),

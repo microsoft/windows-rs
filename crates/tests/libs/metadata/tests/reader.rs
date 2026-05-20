@@ -2,7 +2,7 @@ use windows_metadata::*;
 
 #[test]
 fn type_index() {
-    let index = reader::TypeIndex::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
+    let index = reader::Index::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
 
     let def = index.expect("Windows.Foundation", "Point");
     assert_eq!(def.namespace(), "Windows.Foundation");
@@ -22,27 +22,27 @@ fn type_index() {
 
 #[test]
 fn item_index() {
-    let index = reader::TypeIndex::new(vec![
+    let index = reader::Index::new(vec![
         reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
         reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
         reader::File::read("../../../libs/bindgen/default/Windows.Wdk.winmd").unwrap(),
     ]);
 
-    let index = reader::ItemIndex::new(&index);
-
-    let reader::Item::Type(ty) = index.expect("Windows.Foundation", "Point") else {
+    let reader::Item::Type(ty) = index.expect_item("Windows.Foundation", "Point") else {
         panic!()
     };
     assert_eq!(ty.namespace(), "Windows.Foundation");
     assert_eq!(ty.name(), "Point");
 
-    let reader::Item::Fn(function) = index.expect("Windows.Win32.Storage.FileSystem", "ReadFileEx")
+    let reader::Item::Fn(function) =
+        index.expect_item("Windows.Win32.Storage.FileSystem", "ReadFileEx")
     else {
         panic!()
     };
     assert_eq!(function.name(), "ReadFileEx");
 
-    let reader::Item::Const(constant) = index.expect("Windows.Win32.Foundation", "CONTROL_C_EXIT")
+    let reader::Item::Const(constant) =
+        index.expect_item("Windows.Win32.Foundation", "CONTROL_C_EXIT")
     else {
         panic!()
     };
@@ -51,8 +51,7 @@ fn item_index() {
 
 #[test]
 fn array() {
-    let index =
-        reader::TypeIndex::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
     let def = index
         .types()
         .find(|def| def.name() == "VDMCONTEXT")
@@ -68,8 +67,7 @@ fn array() {
 
 #[test]
 fn nested() {
-    let index =
-        reader::TypeIndex::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
 
     let def = index
         .types()
