@@ -1,1 +1,1 @@
-args = "--in default --flat --filter IAsyncOperation --no-deps"
+args = "--in default --flat --filter IAsyncOperation --deps none"

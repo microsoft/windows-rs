@@ -80,10 +80,9 @@ pub fn builder() -> Bindgen {
 /// | `--rustfmt` | Overrides the default Rust formatting. |
 /// | `--derive` | Extra traits for types to derive. |
 /// | `--flat` | Avoids the default namespace-to-module conversion. |
-/// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
-/// | `--specific-deps` | Uses specific crate dependencies rather than `windows-core`. |
+/// | `--deps` | Selects how generated bindings depend on the `windows-*` crates: `core` (default, uses `windows-core`), `specific` (uses `windows-result`, `windows-strings`, and `windows-link` directly), or `none` (no `windows-*` dependencies). |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
-/// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
+/// | `--extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. Only valid with `--sys`. |
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
@@ -290,12 +289,20 @@ pub fn builder() -> Bindgen {
 /// You'll notice that the bindings are simpler as there's no wrapper functions and other
 /// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
 ///
-/// # `--specific-deps`
+/// # `--deps`
 ///
 /// By default, `windows-bindgen` uses `windows-core` uniformly for most dependencies to provide
-/// consistency and convenience. However, if you want to avoid a dependency on the `windows-core`
-/// crate entirely and instead target specific - and much smaller - crates directly, you can use
-/// the `--specific-deps` option.
+/// consistency and convenience. The `--deps` option selects an alternative dependency strategy:
+///
+/// - `--deps core` (default): bindings depend on `windows-core` and use its re-exports for
+///   shared types as well as the `windows_core::link!` macro.
+/// - `--deps specific`: bindings target specific - and much smaller - crates directly
+///   (`windows-result`, `windows-strings`, `windows-link`) instead of going through
+///   `windows-core`. This can significantly reduce your dependency tree when you don't need
+///   the full `windows-core` functionality.
+/// - `--deps none`: bindings avoid pulling in any of the `windows-*` crates. This is mostly
+///   useful when generating internal `--sys` bindings inside a crate that cannot itself
+///   depend on the rest of the family.
 ///
 /// Consider the following example using the `WindowsStringHasEmbeddedNull` function:
 ///
@@ -314,14 +321,15 @@ pub fn builder() -> Bindgen {
 /// By default, the generated bindings will reference `windows_core` types and use the
 /// `windows_core::link!` macro for convenience and consistent dependency management.
 ///
-/// With the `--specific-deps` option:
+/// With `--deps specific`:
 ///
 /// ```rust,no_run
 /// let args = [
 ///     "--out",
 ///     "src/bindings.rs",
 ///     "--flat",
-///     "--specific-deps",
+///     "--deps",
+///     "specific",
 ///     "--filter",
 ///     "WindowsStringHasEmbeddedNull",
 /// ];
@@ -334,8 +342,8 @@ pub fn builder() -> Bindgen {
 /// for fine-grained dependency management and can significantly reduce your dependency tree if
 /// you don't need the full `windows-core` functionality.
 ///
-/// This option is not the default because this level of control is not for everyone, but if you
-/// need fine-grained dependency management and want to minimize your dependency tree, this option
+/// This is not the default because this level of control is not for everyone, but if you
+/// need fine-grained dependency management and want to minimize your dependency tree, this
 /// provides that flexibility.
 ///
 #[track_caller]
@@ -366,9 +374,7 @@ where
                 "--flat" => {
                     builder.flat();
                 }
-                "--no-deps" => {
-                    builder.no_deps();
-                }
+                "--deps" => kind = ArgKind::Deps,
                 "--no-toml" => {
                     builder.no_toml();
                 }
@@ -381,15 +387,12 @@ where
                 "--minimal" => {
                     builder.minimal();
                 }
-                "--sys-fn-extern" => {
-                    builder.sys_fn_extern();
+                "--extern" => {
+                    builder.extern_fns();
                 }
                 "--implement" => {
                     builder.implement = true;
                     kind = ArgKind::Implement;
-                }
-                "--specific-deps" => {
-                    builder.specific_deps();
                 }
                 "--link" => kind = ArgKind::Link,
                 "--index" => {
@@ -425,6 +428,16 @@ where
             ArgKind::Link => {
                 builder.link(arg);
             }
+            ArgKind::Deps => {
+                builder.deps(match arg.as_str() {
+                    "core" => DepMode::Core,
+                    "specific" => DepMode::Specific,
+                    "none" => DepMode::None,
+                    other => {
+                        panic!("invalid `--deps` value `{other}`; expected `core`, `specific`, or `none`")
+                    }
+                });
+            }
         }
     }
 
@@ -434,6 +447,14 @@ where
 
     if builder.sys && builder.minimal {
         panic!("cannot combine `--sys` and `--minimal`");
+    }
+
+    if builder.no_toml && !builder.package {
+        panic!("`--no-toml` requires `--package`");
+    }
+
+    if builder.sys_fn_extern && !builder.sys {
+        panic!("`--extern` requires `--sys`");
     }
 
     if !has_output {
@@ -591,9 +612,28 @@ impl Bindgen {
         self
     }
 
-    /// Avoid dependencies on the various `windows-*` crates.
-    pub fn no_deps(&mut self) -> &mut Self {
-        self.no_deps = true;
+    /// Select how generated bindings depend on the `windows-*` crates.
+    ///
+    /// - [`DepMode::Core`] (default): bindings depend on `windows-core` and use its
+    ///   re-exports for shared types as well as the `windows_core::link!` macro.
+    /// - [`DepMode::Specific`]: bindings depend on `windows-result`, `windows-strings`,
+    ///   and `windows-link` directly instead of going through `windows-core`.
+    /// - [`DepMode::None`]: bindings avoid pulling in any of the `windows-*` crates.
+    pub fn deps(&mut self, mode: DepMode) -> &mut Self {
+        match mode {
+            DepMode::Core => {
+                self.no_deps = false;
+                self.specific_deps = false;
+            }
+            DepMode::Specific => {
+                self.no_deps = false;
+                self.specific_deps = true;
+            }
+            DepMode::None => {
+                self.no_deps = true;
+                self.specific_deps = false;
+            }
+        }
         self
     }
 
@@ -629,12 +669,6 @@ impl Bindgen {
         for name in names {
             self.implements.push(name.as_ref().to_string());
         }
-        self
-    }
-
-    /// Use specific crate dependencies rather than `windows-core`.
-    pub fn specific_deps(&mut self) -> &mut Self {
-        self.specific_deps = true;
         self
     }
 
@@ -679,8 +713,10 @@ impl Bindgen {
         self
     }
 
-    /// Generate extern declarations rather than link macros for sys-style Rust bindings.
-    pub fn sys_fn_extern(&mut self) -> &mut Self {
+    /// Generate `extern` declarations rather than `link!` macros for sys-style Rust bindings.
+    ///
+    /// Only valid in combination with [`Bindgen::sys`].
+    pub fn extern_fns(&mut self) -> &mut Self {
         self.sys_fn_extern = true;
         self
     }
@@ -737,6 +773,14 @@ impl Bindgen {
 
         if self.sys && self.minimal {
             panic!("cannot combine `--sys` and `--minimal`");
+        }
+
+        if self.no_toml && !self.package {
+            panic!("`--no-toml` requires `--package`");
+        }
+
+        if self.sys_fn_extern && !self.sys {
+            panic!("`--extern` requires `--sys`");
         }
 
         let reader = Reader::new(expand_input(&input));
@@ -876,6 +920,22 @@ enum ArgKind {
     Derive,
     Implement,
     Link,
+    Deps,
+}
+
+/// Selects how generated bindings depend on the `windows-*` crates.
+///
+/// Used with [`Bindgen::deps`].
+#[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DepMode {
+    /// Depend on `windows-core` (the default).
+    #[default]
+    Core,
+    /// Depend on `windows-result`, `windows-strings`, and `windows-link` directly
+    /// instead of going through `windows-core`.
+    Specific,
+    /// Do not depend on any of the `windows-*` crates.
+    None,
 }
 
 #[track_caller]
