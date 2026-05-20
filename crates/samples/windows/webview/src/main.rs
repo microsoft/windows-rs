@@ -118,7 +118,7 @@ fn main() -> windows::core::Result<()> {
         let handler: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler =
             EnvironmentHandler(hwnd).into();
 
-        CreateCoreWebView2Environment(&handler)?;
+        CreateCoreWebView2Environment(handler.as_raw()).ok()?;
         let mut message = MSG::default();
 
         while GetMessageA(&mut message, None, 0, 0).into() {

@@ -37,7 +37,6 @@ Code-style switches (the ones this plan targets):
 | `--sys` | Raw / sys-style bindings (no wrappers, plain handles, etc.). |
 | `--sys-fn-extern` | Use `extern { fn … }` instead of `link!` (only with `--sys`). |
 | `--minimal` | Drop class wrappers, inherited forwarders, handle ergonomics, etc.; auto-revoke events. Mutually exclusive with `--sys`. |
-| `--typedef` | Emit handle types as bare `pub type` aliases. |
 | `--implement` | Emit `_Impl` scaffolding for every WinRT interface in scope. |
 | `--no-deps` | Avoid pulling in `windows-*` crate references. |
 | `--specific-deps` | Reference `windows-result` / `windows-strings` / `windows-link` directly instead of `windows-core`. |

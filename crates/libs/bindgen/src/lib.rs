@@ -385,9 +385,6 @@ where
                 "--sys-fn-extern" => {
                     builder.sys_fn_extern();
                 }
-                "--typedef" => {
-                    builder.typedef();
-                }
                 "--implement" => {
                     builder.implement();
                 }
@@ -478,7 +475,6 @@ pub struct Bindgen {
     specific_deps: bool,
     sys: bool,
     minimal: bool,
-    typedef: bool,
     sys_fn_extern: bool,
     index: bool,
 }
@@ -664,7 +660,7 @@ impl Bindgen {
     /// `cast::<IFoo>()?` to the interface that owns a slot before invoking it.
     ///
     /// Handle types are emitted as bare `pub type` aliases over their
-    /// underlying primitive (matching `--sys` / `--typedef`), without the
+    /// underlying primitive (matching `--sys`), without the
     /// `is_invalid`, `Free`, or `AlsoUsableFor` machinery. Free functions are
     /// emitted as their `link!` (or extern) declaration only, without the
     /// `Result<T>` / `from_thread` / `from_abi` ergonomic wrappers (also
@@ -686,12 +682,6 @@ impl Bindgen {
     /// `--minimal` is mutually exclusive with `--sys`.
     pub fn minimal(&mut self) -> &mut Self {
         self.minimal = true;
-        self
-    }
-
-    /// Generate raw or sys-style type aliases.
-    pub fn typedef(&mut self) -> &mut Self {
-        self.typedef = true;
         self
     }
 
@@ -862,7 +852,6 @@ impl Bindgen {
             output: &self.output,
             sys: self.sys,
             minimal: self.minimal,
-            typedef: self.typedef,
             sys_fn_extern: self.sys_fn_extern,
             implement: self.implement,
             implements: &implements,
