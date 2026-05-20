@@ -60,6 +60,18 @@ fn checked_overflow() {
 }
 
 #[test]
+#[should_panic(expected = "overflow when adding TimeSpan values")]
+fn add_panics_on_overflow() {
+    let _ = TimeSpan::MAX + TimeSpan::from_ticks(1);
+}
+
+#[test]
+#[should_panic(expected = "attempt to divide TimeSpan by zero")]
+fn div_panics_on_zero() {
+    let _ = TimeSpan::from_ticks(1) / 0;
+}
+
+#[test]
 fn saturating_overflow() {
     assert_eq!(
         TimeSpan::MAX.saturating_add(TimeSpan::from_ticks(1)),

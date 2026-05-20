@@ -238,57 +238,61 @@ impl core::hash::Hash for TimeSpan {
 impl core::ops::Add for TimeSpan {
     type Output = Self;
     fn add(self, rhs: Self) -> Self {
-        Self {
-            Duration: self.Duration + rhs.Duration,
-        }
+        self.checked_add(rhs)
+            .expect("overflow when adding TimeSpan values")
     }
 }
 
 impl core::ops::Sub for TimeSpan {
     type Output = Self;
     fn sub(self, rhs: Self) -> Self {
-        Self {
-            Duration: self.Duration - rhs.Duration,
-        }
+        self.checked_sub(rhs)
+            .expect("overflow when subtracting TimeSpan values")
     }
 }
 
 impl core::ops::Neg for TimeSpan {
     type Output = Self;
     fn neg(self) -> Self {
-        Self {
-            Duration: -self.Duration,
-        }
+        self.checked_neg()
+            .expect("overflow when negating TimeSpan value")
     }
 }
 
 impl core::ops::AddAssign for TimeSpan {
     fn add_assign(&mut self, rhs: Self) {
-        self.Duration += rhs.Duration;
+        self.Duration = self
+            .Duration
+            .checked_add(rhs.Duration)
+            .expect("overflow when adding TimeSpan values");
     }
 }
 
 impl core::ops::SubAssign for TimeSpan {
     fn sub_assign(&mut self, rhs: Self) {
-        self.Duration -= rhs.Duration;
+        self.Duration = self
+            .Duration
+            .checked_sub(rhs.Duration)
+            .expect("overflow when subtracting TimeSpan values");
     }
 }
 
 impl core::ops::Mul<i64> for TimeSpan {
     type Output = Self;
     fn mul(self, rhs: i64) -> Self {
-        Self {
-            Duration: self.Duration * rhs,
-        }
+        self.checked_mul(rhs)
+            .expect("overflow when multiplying TimeSpan value")
     }
 }
 
 impl core::ops::Div<i64> for TimeSpan {
     type Output = Self;
     fn div(self, rhs: i64) -> Self {
-        Self {
-            Duration: self.Duration / rhs,
-        }
+        self.checked_div(rhs).expect(if rhs == 0 {
+            "attempt to divide TimeSpan by zero"
+        } else {
+            "overflow when dividing TimeSpan value"
+        })
     }
 }
 

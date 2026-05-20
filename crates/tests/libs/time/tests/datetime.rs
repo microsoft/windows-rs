@@ -97,12 +97,18 @@ fn system_time_round_trip() {
     let now = SystemTime::now();
     let dt: DateTime = now.try_into().unwrap();
     let back: SystemTime = dt.try_into().unwrap();
-    // Round-trip should be within 100ns
+    // Round-trip should be within 1µs.
     let delta = match back.duration_since(now) {
         Ok(d) => d,
         Err(e) => e.duration(),
     };
     assert!(delta < Duration::from_micros(1), "delta = {delta:?}");
+}
+
+#[test]
+#[should_panic(expected = "overflow when adding TimeSpan to DateTime")]
+fn add_panics_on_overflow() {
+    let _ = DateTime::MAX + TimeSpan::from_ticks(1);
 }
 
 #[test]

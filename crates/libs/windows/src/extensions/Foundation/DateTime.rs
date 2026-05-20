@@ -4,7 +4,9 @@ use windows_time::DateTime;
 // `FILETIME` and `DateTime` use the same epoch (1601-01-01 UTC) and the same
 // 100-nanosecond tick unit. `FILETIME` stores its 64-bit count as a pair of
 // `u32`s; `DateTime` stores its as a signed `i64`. Conversion is a lossless
-// reinterpretation of the bit pattern.
+// reinterpretation of the bit pattern, not a range-checked semantic conversion:
+// values outside the shared signed range (`DateTime` < 0 or `FILETIME` > i64::MAX)
+// round-trip bitwise, but do not represent canonical non-negative wall-clock ticks.
 
 impl From<FILETIME> for DateTime {
     fn from(value: FILETIME) -> Self {

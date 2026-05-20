@@ -151,39 +151,42 @@ impl core::hash::Hash for DateTime {
 impl core::ops::Add<TimeSpan> for DateTime {
     type Output = Self;
     fn add(self, rhs: TimeSpan) -> Self {
-        Self {
-            UniversalTime: self.UniversalTime + rhs.Duration,
-        }
+        self.checked_add(rhs)
+            .expect("overflow when adding TimeSpan to DateTime")
     }
 }
 
 impl core::ops::Sub<TimeSpan> for DateTime {
     type Output = Self;
     fn sub(self, rhs: TimeSpan) -> Self {
-        Self {
-            UniversalTime: self.UniversalTime - rhs.Duration,
-        }
+        self.checked_sub(rhs)
+            .expect("overflow when subtracting TimeSpan from DateTime")
     }
 }
 
 impl core::ops::Sub<DateTime> for DateTime {
     type Output = TimeSpan;
     fn sub(self, rhs: DateTime) -> TimeSpan {
-        TimeSpan {
-            Duration: self.UniversalTime - rhs.UniversalTime,
-        }
+        self.checked_duration_since(rhs)
+            .expect("overflow when subtracting DateTime values")
     }
 }
 
 impl core::ops::AddAssign<TimeSpan> for DateTime {
     fn add_assign(&mut self, rhs: TimeSpan) {
-        self.UniversalTime += rhs.Duration;
+        self.UniversalTime = self
+            .UniversalTime
+            .checked_add(rhs.Duration)
+            .expect("overflow when adding TimeSpan to DateTime");
     }
 }
 
 impl core::ops::SubAssign<TimeSpan> for DateTime {
     fn sub_assign(&mut self, rhs: TimeSpan) {
-        self.UniversalTime -= rhs.Duration;
+        self.UniversalTime = self
+            .UniversalTime
+            .checked_sub(rhs.Duration)
+            .expect("overflow when subtracting TimeSpan from DateTime");
     }
 }
 
