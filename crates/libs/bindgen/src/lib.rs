@@ -85,8 +85,7 @@ pub fn builder() -> Bindgen {
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
-/// | `--implement` | Includes implementation traits for WinRT interfaces. |
-/// | `--implements` | Includes implementation traits for the listed types only. |
+/// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 ///
 ///
@@ -170,7 +169,7 @@ pub fn builder() -> Bindgen {
 /// the same opaque-slot mechanism `--minimal` already uses for signature-pruned methods, so ABI is
 /// safe by construction. Mixing allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) entries
 /// on the same type is a hard error, as is using a method-level filter on a type matched by
-/// `--implements` (methods on implemented interfaces are always emitted).
+/// `--implement` (methods on implemented interfaces are always emitted).
 ///
 /// Because demoting a method to an opaque slot leaves the type unable to be implemented through
 /// its `_Impl` trait, the trait is omitted with the same warning the existing dependency-skip
@@ -386,9 +385,9 @@ where
                     builder.sys_fn_extern();
                 }
                 "--implement" => {
-                    builder.implement();
+                    builder.implement = true;
+                    kind = ArgKind::Implement;
                 }
-                "--implements" => kind = ArgKind::Implements,
                 "--specific-deps" => {
                     builder.specific_deps();
                 }
@@ -417,8 +416,8 @@ where
             ArgKind::Derive => {
                 builder.derive(arg);
             }
-            ArgKind::Implements => {
-                builder.implements([arg]);
+            ArgKind::Implement => {
+                builder.implements.push(arg.to_string());
             }
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
@@ -611,27 +610,22 @@ impl Bindgen {
     }
 
     /// Include implementation traits for WinRT interfaces.
-    pub fn implement(&mut self) -> &mut Self {
-        self.implement = true;
-        self
-    }
-
-    /// Add types to the list of types for which implementation scaffolding
-    /// should be emitted.
     ///
     /// Each entry may be a fully-qualified type name (`Namespace.Name`) or a
-    /// namespace prefix that matches every type defined under it. When at
-    /// least one entry is provided and `--implement` is **not** set, the
-    /// `_Impl` scaffolding is generated only for types matching the list,
-    /// rather than for every interface/class in the filter set. This is a
-    /// finer-grained alternative to the broad `--implement` switch and can
-    /// significantly reduce build time when only a handful of interfaces
-    /// need to be implemented.
-    pub fn implements<I, S>(&mut self, names: I) -> &mut Self
+    /// namespace prefix that matches every type defined under it. When called
+    /// with no patterns (an empty iterator), `_Impl` scaffolding is emitted for
+    /// every WinRT interface in scope. When called with one or more patterns,
+    /// `_Impl` scaffolding is emitted only for types matching the patterns,
+    /// rather than for every interface/class in the filter set. The latter is
+    /// a finer-grained alternative to the broad form and can significantly
+    /// reduce build time when only a handful of interfaces need to be
+    /// implemented.
+    pub fn implement<I, S>(&mut self, names: I) -> &mut Self
     where
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
+        self.implement = true;
         for name in names {
             self.implements.push(name.as_ref().to_string());
         }
@@ -902,7 +896,7 @@ enum ArgKind {
     Rustfmt,
     Reference,
     Derive,
-    Implements,
+    Implement,
     Link,
 }
 

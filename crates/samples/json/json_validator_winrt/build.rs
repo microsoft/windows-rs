@@ -23,7 +23,7 @@ fn main() {
         .output("src/bindings.rs")
         .filter("Sample")
         .flat()
-        .implement()
+        .implement(std::iter::empty::<&str>())
         .write()
         .unwrap();
 }
