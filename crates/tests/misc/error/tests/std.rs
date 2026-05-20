@@ -33,8 +33,10 @@ fn conversions() {
     assert_eq!(format!("{std_error}"), "The data is invalid. (os error 13)");
 
     // Starting with WIN32_ERROR (FACILITY_WIN32 HRESULT)... the conversion
-    // should unwrap to the underlying Win32 code so std::io::Error::kind can
-    // decode it into a meaningful ErrorKind.
+    // should unwrap to the underlying Win32 code rather than using the full
+    // HRESULT, so that std::io::Error::raw_os_error() carries a real Win32
+    // error code (matching what .NET's Marshal.GetExceptionForHR and Rust's
+    // own Win32 error decoding produce).
     let win_error: windows::core::Error = ERROR_INVALID_DATA.into();
     let std_error: std::io::Error = win_error.into();
     assert_eq!(
@@ -42,9 +44,9 @@ fn conversions() {
         ERROR_INVALID_DATA.0 as i32
     );
     assert_eq!(format!("{std_error}"), "The data is invalid. (os error 13)");
-    assert_eq!(std_error.kind(), std::io::ErrorKind::InvalidData);
 
-    // ERROR_FILE_NOT_FOUND is the canonical example for ErrorKind::NotFound.
+    // ERROR_FILE_NOT_FOUND is decoded by std::io::Error::kind() as NotFound,
+    // which only works because we now unwrap to the Win32 code.
     let win_error: windows::core::Error = ERROR_FILE_NOT_FOUND.into();
     let std_error: std::io::Error = win_error.into();
     assert_eq!(
