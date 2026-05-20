@@ -15,16 +15,14 @@ pub struct Config<'a> {
     pub filter: &'a Filter,
     pub output: &'a str,
     pub flat: bool,
-    pub no_deps: bool,
+    pub deps: DepMode,
     pub no_toml: bool,
     pub package: bool,
     pub rustfmt: &'a str,
     pub sys: bool,
     pub minimal: bool,
     pub sys_fn_extern: bool,
-    pub implement: bool,
-    pub implements: &'a Implements,
-    pub specific_deps: bool,
+    pub implement: Option<&'a Implements>,
     pub derive: &'a Derive,
     pub link: &'a str,
     pub warnings: &'a WarningBuilder,
@@ -46,13 +44,10 @@ impl Config<'_> {
     /// as COM/Win32 interfaces) and `false` (or some other condition such as
     /// `!is_exclusive`) for WinRT interfaces.
     pub fn should_implement(&self, name: TypeName, default: bool) -> bool {
-        if !self.implement {
-            return default;
-        }
-        if self.implements.is_empty() {
-            true
-        } else {
-            self.implements.matches(name)
+        match self.implement {
+            None => default,
+            Some(implements) if implements.is_empty() => true,
+            Some(implements) => implements.matches(name),
         }
     }
 }

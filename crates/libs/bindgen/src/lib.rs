@@ -391,7 +391,7 @@ where
                     builder.extern_fns();
                 }
                 "--implement" => {
-                    builder.implement = true;
+                    builder.implement.get_or_insert_with(Vec::new);
                     kind = ArgKind::Implement;
                 }
                 "--link" => kind = ArgKind::Link,
@@ -420,7 +420,10 @@ where
                 builder.derive(arg);
             }
             ArgKind::Implement => {
-                builder.implements.push(arg.to_string());
+                builder
+                    .implement
+                    .get_or_insert_with(Vec::new)
+                    .push(arg.to_string());
             }
             ArgKind::Rustfmt => {
                 builder.rustfmt(arg);
@@ -484,15 +487,13 @@ pub struct Bindgen {
     output: String,
     references: Vec<String>,
     derive: Vec<String>,
-    implements: Vec<String>,
+    implement: Option<Vec<String>>,
     rustfmt: String,
     link: String,
     flat: bool,
-    no_deps: bool,
+    deps: DepMode,
     no_toml: bool,
     package: bool,
-    implement: bool,
-    specific_deps: bool,
     sys: bool,
     minimal: bool,
     sys_fn_extern: bool,
@@ -620,20 +621,7 @@ impl Bindgen {
     ///   and `windows-link` directly instead of going through `windows-core`.
     /// - [`DepMode::None`]: bindings avoid pulling in any of the `windows-*` crates.
     pub fn deps(&mut self, mode: DepMode) -> &mut Self {
-        match mode {
-            DepMode::Core => {
-                self.no_deps = false;
-                self.specific_deps = false;
-            }
-            DepMode::Specific => {
-                self.no_deps = false;
-                self.specific_deps = true;
-            }
-            DepMode::None => {
-                self.no_deps = true;
-                self.specific_deps = false;
-            }
-        }
+        self.deps = mode;
         self
     }
 
@@ -665,9 +653,9 @@ impl Bindgen {
         I: IntoIterator<Item = S>,
         S: AsRef<str>,
     {
-        self.implement = true;
+        let list = self.implement.get_or_insert_with(Vec::new);
         for name in names {
-            self.implements.push(name.as_ref().to_string());
+            list.push(name.as_ref().to_string());
         }
         self
     }
@@ -743,7 +731,7 @@ impl Bindgen {
         }
 
         let link = if self.link.is_empty() {
-            if self.sys || self.specific_deps {
+            if self.sys || self.deps == DepMode::Specific {
                 "windows_link"
             } else {
                 "windows_core"
@@ -791,7 +779,7 @@ impl Bindgen {
             .map(|s| ReferenceStage::parse(s))
             .collect();
 
-        if !self.sys && !self.no_deps {
+        if !self.sys && self.deps != DepMode::None {
             // Implicit references onto sibling `windows-*` crates that
             // re-export common WinRT / Win32 types. Each group is registered
             // only when its source namespace is actually present in the
@@ -799,7 +787,7 @@ impl Bindgen {
             // `prepend_default_refs` so they take precedence over any
             // user-supplied `--reference` entries (matching the historical
             // `references.insert(0, …)` ordering).
-            let win32_foundation_crate = if self.specific_deps {
+            let win32_foundation_crate = if self.deps == DepMode::Specific {
                 "windows_result"
             } else {
                 "windows_core"
@@ -863,14 +851,18 @@ impl Bindgen {
         }
 
         let derive_str: Vec<&str> = self.derive.iter().map(|s| s.as_str()).collect();
-        let implements_str: Vec<&str> = self.implements.iter().map(|s| s.as_str()).collect();
+        let implements = self.implement.as_ref().map(|names| {
+            let names_str: Vec<&str> = names.iter().map(|s| s.as_str()).collect();
+            Implements::new(&names_str)
+        });
 
         let filter = Filter::new(&reader, &include, &exclude);
         let references = References::new(&reader, references);
         let types = TypeMap::filter(&reader, &filter, &references);
         let derive = Derive::new(&reader, &types, &derive_str);
-        let implements = Implements::new(&implements_str);
-        filter.validate_implements(&implements);
+        if let Some(implements) = &implements {
+            filter.validate_implements(implements);
+        }
         let warnings = WarningBuilder::default();
         for message in filter.warnings() {
             warnings.add(message.clone());
@@ -883,7 +875,7 @@ impl Bindgen {
             references: &references,
             filter: &filter,
             derive: &derive,
-            no_deps: self.no_deps,
+            deps: self.deps,
             no_toml: self.no_toml,
             package: self.package,
             rustfmt: &self.rustfmt,
@@ -891,9 +883,7 @@ impl Bindgen {
             sys: self.sys,
             minimal: self.minimal,
             sys_fn_extern: self.sys_fn_extern,
-            implement: self.implement,
-            implements: &implements,
-            specific_deps: self.specific_deps,
+            implement: implements.as_ref(),
             link,
             warnings: &warnings,
             namespace: "",

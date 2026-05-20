@@ -15,7 +15,7 @@ impl Config<'_> {
 
     fn write_specific(&self, specific: &str) -> TokenStream {
         if self.sys {
-            if self.package || !self.no_deps {
+            if self.package || self.deps != DepMode::None {
                 quote! { windows_sys::core:: }
             } else if self.flat {
                 quote! {}
@@ -28,7 +28,7 @@ impl Config<'_> {
 
                 path.parse().unwrap()
             }
-        } else if !self.specific_deps {
+        } else if self.deps != DepMode::Specific {
             quote! { windows_core:: }
         } else {
             format!("{specific}::").parse().unwrap()
