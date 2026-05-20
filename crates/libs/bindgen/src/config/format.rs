@@ -26,9 +26,9 @@ impl Config<'_> {
         cmd.stdout(std::process::Stdio::piped());
         cmd.stderr(std::process::Stdio::null());
 
-        if !self.rustfmt.is_empty() {
+        if let Some(config) = self.rustfmt {
             cmd.arg("--config");
-            cmd.arg(self.rustfmt);
+            cmd.arg(config);
         }
 
         let mut child = cmd.spawn().ok()?;

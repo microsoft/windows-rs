@@ -18,7 +18,7 @@ pub struct Config<'a> {
     pub deps: DepMode,
     pub no_toml: bool,
     pub package: bool,
-    pub rustfmt: &'a str,
+    pub rustfmt: Option<&'a str>,
     pub sys: bool,
     pub minimal: bool,
     pub sys_fn_extern: bool,
