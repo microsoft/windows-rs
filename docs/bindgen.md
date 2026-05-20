@@ -1,15 +1,9 @@
 # `windows-bindgen` implementation simplification
 
-This is a review of `crates/libs/bindgen/` (~10.5 kLOC; `lib.rs` alone is 1098
-lines) following the recently-landed option consolidation work (PRs #4441,
-#4443, #4444, #4445 and the `--deps`/`--extern` fold that finally deleted the
-old `docs/options.md`). It records what's in good shape, what can still be
-simplified, what inherently resists further simplification, and a suggested
-order of attack.
-
-## What's in good shape
-
-The user-facing surface is now genuinely small and orthogonal:
+This is a rolling list of internal simplifications for `crates/libs/bindgen/`.
+The recently-landed option consolidation work (PRs #4441, #4443, #4444, #4445
+and the `--deps`/`--extern` fold that retired the old `docs/options.md`) made
+the user-facing surface small and orthogonal:
 
 | Axis | Options |
 |---|---|
@@ -20,162 +14,146 @@ The user-facing surface is now genuinely small and orthogonal:
 | Dependencies | `--deps {core,specific,none}`, `--link` |
 | Misc | `--derive`, `--rustfmt`, `--reference`, `--etc` |
 
-The CLI-level cleanup is done. The internal representation, however, still
-carries the *shape* of the pre-cleanup options. The simplifications below are
-about making the implementation match the surface.
+The follow-up internal work to make the implementation match that surface
+landed `DepMode`, `Option<&Implements>`, and the internal `Style`/`Layout`
+enums with nested sub-flags (the four "set X without Y, panic at write()"
+failure modes are now either unrepresentable or fail at the builder method
+that introduced them). What's below is what's left.
 
-## Concrete simplifications
+## Outstanding simplifications
 
-### 1. Collapse the duplicate state on `Bindgen` and `Config`
+### A. Merge `Bindgen` and `Config` state
 
-`Bindgen` (lib.rs:481–500) and `Config` (config/mod.rs:11–32) hold an almost
-identical set of ~15 fields. `Bindgen::write()` (lib.rs:733–910, ~180 lines)
-does little more than:
+`Bindgen` (lib.rs, ~17 fields) and `Config` (config/mod.rs:11–30, 17 fields)
+still hold parallel state. `Bindgen::write()` (lib.rs ~780–940) is mostly
+plumbing:
 
-- re-run the same validation that `bindgen()` already runs (lib.rs:444–458 vs
-  770–784 — exact duplicates),
-- copy every field one-for-one into a new `Config`.
+- destructure the `Layout` / `Style` enums into the six derived booleans
+  `flat`, `package`, `no_toml`, `sys`, `minimal`, `sys_fn_extern` (lib.rs
+  ~795–800),
+- copy each `Bindgen` field one-for-one into `Config` (lib.rs ~912–931),
+- after which `Config` is purely read-only for the rest of the run.
 
-Two cheap wins:
+Two designs to choose between, both better than the status quo:
 
-- **Make `Config` hold `&Bindgen`** (or merge them — `Bindgen` is the only
-  `Config` builder). All the `config.sys`, `config.minimal`, `config.no_deps`,
-  … field accesses become method calls on a single struct.
-- **Move validation into one place** (`Bindgen::validate()` or
-  `Bindgen::build_config()`). The CLI parser shouldn't be repeating
-  mutual-exclusion checks the builder already enforces.
+1. **`Config<'a>` holds `&'a Bindgen`** — drops the 17 fields, keeps the
+   transient state (`reader`, `types`, `references`, `filter`, `derive`,
+   `warnings`, `namespace`, `link`, `implement: Option<&Implements>`) and
+   exposes the rest via `&self.bindgen.deps`, `&self.bindgen.style`, etc.
+2. **Merge them outright** — `Bindgen` *is* the only `Config` builder, and
+   `Config` has no other constructor. Move the transient fields into
+   `Bindgen` (or into a sibling `RunState` that `Config` owns) and let the
+   emitters take `&Bindgen` directly.
 
-### 2. Replace the `(no_deps: bool, specific_deps: bool)` pair with a single `DepMode` field
+Either way, this is also the point to drop the derived `flat` / `package` /
+`no_toml` / `sys` / `minimal` / `sys_fn_extern` booleans on `Config` and have
+the ~50 emitter call sites match on `Layout` / `Style` directly. That's the
+substantive part of the diff and the reason this step was deferred until the
+enums were in place.
 
-`DepMode` (the new public enum, lib.rs:929–939) is already the user-facing
-model. Internally, `Bindgen::deps()` (lib.rs:622–638) takes a `DepMode` and
-immediately decomposes it back into two booleans that are then forwarded to
-`Config`. Every consumer (`config/names.rs:17–35`, the references block at
-`lib.rs:794–863`, `types/mod.rs:822–823`) re-derives the mode from the two
-booleans. Store it once.
+A few care-abouts when doing this:
 
-### 3. Replace `(implement: bool, implements: Vec<String>)` with `Option<Vec<String>>`
+- `Config::with_namespace` (config/mod.rs:33–37) clones the whole struct on
+  every namespace; reducing `Config`'s size with this merge is also the
+  right time to make `with_namespace` not clone (e.g. by stashing
+  `namespace` in a `Cell` or threading it as a parameter).
+- `Bindgen::write` runs validation in the wrong order today (output / filter
+  presence checks happen *after* the link string and input vec are built
+  unnecessarily). When merging, lift validation into a single
+  `Bindgen::validate()` (or `Bindgen::build_run()`) called at the top of
+  `write` and have `bindgen()` call it too. The CLI parser at lib.rs
+  ~360–445 should not need to repeat any of those checks.
 
-Today `implement=true && implements.is_empty()` means "all";
-`implement=true && !implements.is_empty()` means "narrow"; `implement=false`
-means "off". The empty-vs-not-set distinction is encoded with a parallel
-bool. A single `Option<Vec<String>>` (`None` = off, `Some([])` = all,
-`Some([…])` = narrow) removes the invalid state
-(`implement=false && !implements.is_empty()`) and lets `should_implement`
-(config/mod.rs:48–57) become a straight three-arm match. `Implements::is_empty()`
-(implements.rs:16) — currently ambiguous between "implement nothing" and
-"implement everything" — disappears entirely.
+### B. The `config/` module is mis-named
 
-### 4. Promote "lean modes" to a single enum
+Five of the six files in `config/` are not configuration:
 
-`sys: bool` and `minimal: bool` are mutually exclusive (panic-checked at
-`lib.rs:448–450` and `774–776`). Internally there are a fair number of
-`config.sys || config.minimal` sites (e.g. `config/cpp_handle.rs:9`,
-`types/mod.rs` typedef paths). A `Style { Default, Sys, Minimal }` enum makes
-the invariant unrepresentable, removes the runtime panic, and reads well at
-the call sites:
+- `config/cpp_handle.rs` — `impl Config` block emitting handle types,
+- `config/format.rs` — invokes `rustfmt`,
+- `config/names.rs` — type-path / namespace path emission,
+- `config/value.rs` — value-literal emission,
+- `config/cfg.rs` — `cargo` feature / `#[cfg(...)]` emission for
+  `--package`.
 
-```text
-match config.style { Style::Sys | Style::Minimal => …, Style::Default => … }
-```
+They were attached to `Config` for convenient field access, but
+conceptually they belong with the other emitters under `types/`
+(`types/cpp_handle.rs`, etc.) or as their own top-level module.
 
-The user-facing flags `--sys` / `--minimal` stay (the docs/options.md
-"resolved design choices" section explicitly decided not to merge them) — this
-is purely internal.
+After Step A this becomes pure file moves: `Config` stops being the
+`impl` host and the emitter functions take whatever subset of state they
+actually need. Concrete tasks:
 
-Similarly `flat: bool` and `package: bool` are a mutually exclusive layout
-axis (panic at `lib.rs:444–446` and `770–772`). A
-`Layout { Modules, Flat, Package }` enum has the same shape and benefit.
+- Move `config/cpp_handle.rs` next to `types/cpp_const.rs`,
+  `config/value.rs` next to the value emitters, `config/names.rs` into a
+  new `paths.rs` (its functions are namespace path emission, not
+  configuration).
+- `config/cfg.rs::Cfg::write` early-returns unless `package` is the active
+  layout (it's the only mode that emits cargo features at all). Push that
+  guard into the call sites — or move the whole `Cfg` machinery under a
+  `package_writer` module — so the non-package path stops allocating empty
+  `Cfg` values.
+- `config/format.rs` is just a `rustfmt` shell-out plus a fallback
+  formatter; it can move to a top-level `format.rs` and stop being a
+  `Config` method.
 
-### 5. Make sub-flags structurally sub-flags
+This step is best left until last so review diffs aren't tangled with the
+state-merge in Step A.
 
-`--no-toml` is only meaningful with `--package`, and `--extern` is only
-meaningful with `--sys`. Both are validated by runtime panic today. Inside the
-model, `no_toml` could live as a field on a `Layout::Package { no_toml: bool }`
-variant and `sys_fn_extern` as `Style::Sys { extern_fns: bool }`. After that:
+### C. Smaller leftovers
 
-- `--no-toml` without `--package` becomes structurally impossible to set in
-  the builder API (today: `Bindgen::no_toml()` happily sets the field, and
-  the panic fires only inside `write()`).
-- The four panics at lib.rs:444–458 / 770–784 reduce to one (sys vs minimal) —
-  and that one disappears too if simplification 4 is taken.
+These are independent of A/B and can be picked up in any order.
 
-### 6. The `config/` module is mis-named
-
-Five of the six files in `config/` (`cfg.rs`, `cpp_handle.rs`, `format.rs`,
-`names.rs`, `value.rs`) are not configuration at all — they're
-`impl Config<'_>` blocks that emit `TokenStream`s for handles, type paths,
-value literals, derive-cfg attributes, etc. They were attached to `Config` for
-convenient field access, but conceptually belong with the emitters
-(`types/cpp_handle.rs` next to `types/cpp_const.rs`, etc.). Moving them out
-leaves `config/mod.rs` and the genuine `Cfg` machinery, and lets `Config`
-shrink to a data struct with a few orchestration methods (`write`,
-`with_namespace`).
-
-While moving things, `Cfg::write` (config/cfg.rs:76–141) early-returns unless
-`config.package`, which is the only mode that emits cargo features at all.
-Lifting that check into the call sites (or pushing the whole `Cfg` code under
-`config::write_package`) would let the non-package path stop allocating empty
-`Cfg` values.
-
-### 7. Smaller leftovers
-
-- `Bindgen` has both singular and plural builders for each multi-value option
-  (`input`/`inputs`, `filter`/`filters`, `derive`/`derives`,
-  `reference`/`references`, lib.rs:509–595, ~85 lines). The singular form is
-  `iter::once(x)` of the plural. Worth keeping as a one-liner each but the
-  boilerplate could halve.
-- `rustfmt: String` and `link: String` (lib.rs:488–489) default to `""` with
-  sentinel-string semantics ("empty means use the default"). `Option<String>`
-  would match the public surface (`Bindgen::rustfmt` / `Bindgen::link` always
-  set a value, never clear it).
-- `prepend_default_refs` (lib.rs:1066–1073) uses repeated `Vec::insert(0, …)`
-  to preserve order. An `extend` into a temporary + `splice(0..0, …)` is one
-  allocation and one O(n) shift rather than n shifts.
-- The hand-rolled state-machine arg parser (lib.rs:356–442) plus `ArgKind`
-  (913–924) is fine but is a place where the `--etc` recursion lives
-  undocumented in the public `bindgen` arg table at lib.rs:75–88. Worth
-  either documenting or removing.
+- **Sentinel-string fields.** `Bindgen::rustfmt: String` and `Bindgen::link:
+  String` (lib.rs:475–476) default to `""` and `Bindgen::write` treats
+  empty as "use the default". `Option<String>` matches the public surface
+  — `Bindgen::rustfmt()` / `Bindgen::link()` always set a value, never
+  clear it — and removes the sentinel.
+- **Singular vs plural builders.** `Bindgen` has a singular and a plural
+  builder for each multi-value option (`input`/`inputs`,
+  `filter`/`filters`, `derive`/`derives`, `reference`/`references`,
+  lib.rs:525–608, ~85 lines of near-duplicate code). Each singular form
+  is `iter::once(x)` of the plural. Worth keeping both for ergonomics, but
+  the bodies could collapse into one-liners that delegate to the plural.
+- **`prepend_default_refs`** (lib.rs near the bottom of `write`) uses
+  repeated `Vec::insert(0, …)` to preserve order. An `extend` into a
+  temporary + `splice(0..0, …)` is one allocation and one O(n) shift
+  rather than n shifts. Tiny but trivially correct.
+- **`--etc` recursion.** The hand-rolled state-machine arg parser
+  (lib.rs:355–445) plus `ArgKind` (~944–955) handles `--etc` (response
+  files) by recursing through `expand_args`, but `--etc` is not
+  documented in the `bindgen` arg table comment block at the top of
+  `lib.rs`. Either document it or remove it.
 
 ## What inherently resists further simplification
 
-A few options look noisy but earn their keep, and shouldn't be conflated:
+Recording these so they aren't re-proposed:
 
-- **`--sys` vs `--minimal`**: same "lean mode" axis but different ABI
-  contract — `--minimal` preserves vtable/`_Impl`/`RuntimeType`, `--sys` does
-  not. Merging them would force every consumer to also encode "and which lean
-  variant" everywhere. Two flags, one internal enum, is the right shape.
-- **`--deps none` vs `--sys`**: orthogonal. `--deps none` is *also* meaningful
-  with `--minimal` (for the few `windows-*` crates that bootstrap themselves).
-  Cannot fold one into the other.
-- **`--reference` / `--link` / `--deps`** all touch dependencies but at three
-  different layers (per-type reroute / link! macro source / which crate hosts
-  shared types). Not foldable.
-- **`--filter` method-level grammar** (`?Ns.Type`, `Ns.Type::Method`, etc.,
-  documented at lib.rs:126–176): rich on purpose. A real DSL with documented
-  escape hatches is better than an expanding set of top-level flags.
-- **`--package` vs `--flat` vs default modules**: three distinct output
-  topologies driving different writer code paths. Best modelled as a `Layout`
-  enum (above), not collapsed.
+- **`--sys` vs `--minimal`** are the same "lean mode" axis but produce
+  different ABI contracts — `--minimal` preserves
+  vtable/`_Impl`/`RuntimeType`, `--sys` does not. Two flags, one internal
+  enum (`Style`), is the right shape.
+- **`--deps none` vs `--sys`** are orthogonal. `--deps none` is also
+  meaningful with `--minimal` (for the few `windows-*` crates that
+  bootstrap themselves). Cannot fold one into the other.
+- **`--reference` / `--link` / `--deps`** all touch dependencies but at
+  three different layers (per-type reroute / `link!` macro source / which
+  crate hosts shared types). Not foldable.
+- **`--filter` method-level grammar** (`?Ns.Type`, `Ns.Type::Method`,
+  etc., documented at lib.rs ~115–165): rich on purpose. A real DSL with
+  documented escape hatches is better than an expanding set of top-level
+  flags.
+- **`--package` vs `--flat` vs default modules** are three distinct output
+  topologies driving different writer code paths. Already modelled as a
+  `Layout` enum; collapsing further would force the writer to fork on
+  every emit.
 
 ## Suggested order of attack
 
-1. **Steps 2 + 3** (collapse `DepMode` and `Option<Vec<String>>` for
-   implement) — mechanical, isolated, immediate readability win, and
-   `should_implement`/dep-mode call sites simplify on the spot.
-2. **Step 5** (move sub-flags into enum variants) — small but removes two of
-   the four runtime panics.
-3. **Step 4** (Style/Layout enums) — touches more files (every
-   `config.sys || config.minimal` site, every `config.flat`/`config.package`
-   site) but is purely a `&str` → enum substitution.
-4. **Step 1** (merge `Bindgen` and `Config` state) — depends on 2–4 being
-   done first, otherwise you're moving boilerplate around.
-5. **Step 6** (split the `config/` directory) — pure file moves once the rest
-   is done, and best left until last so review diffs aren't tangled with
-   logic changes.
-
-Steps 1–4 should cut `lib.rs` roughly in half (the validation duplication +
-the field-copying + the `DepMode` re-decomposition + the
-`implement`/`implements` parallel state account for most of `Bindgen::write`'s
-180 lines), and remove three of the four "if you set X without Y, panic at
-runtime" failure modes by making them unrepresentable.
+1. **Step C** — pick off the small wins independently. They're isolated
+   one-file changes and don't block A or B.
+2. **Step A** — merge `Bindgen` and `Config`. This is the substantive
+   change and the one that pays the most: ~30 fewer fields in flight,
+   ~25 fewer lines of plumbing in `write`, and the emitter sites finally
+   get to match on `Layout` / `Style` directly.
+3. **Step B** — once `config/` is no longer the impl host, splitting it
+   becomes mechanical file moves with no logic change.
