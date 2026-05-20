@@ -82,13 +82,25 @@ impl Delegate {
             }
         };
 
+        // Under `--minimal`, the delegate's `new` accepts a closure that
+        // returns nothing; the boxed `Invoke` calls it and returns `S_OK`
+        // directly, avoiding a `Result` round trip. This also lets the
+        // generated event-add wrappers reuse the same closure signature.
         let fn_constraint = {
-            let signature = method.write_impl_signature(config, false, false);
+            let signature = if config.minimal {
+                method.write_impl_signature_no_return(config)
+            } else {
+                method.write_impl_signature(config, false, false)
+            };
 
             quote! { F: Fn #signature + Send + 'static }
         };
 
-        let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false, config);
+        let invoke_upcall = if config.minimal {
+            method.write_upcall_no_return(quote! { (this.invoke) }, false, config)
+        } else {
+            method.write_upcall(quote! { (this.invoke) }, false, config)
+        };
 
         quote! {
             #definition
