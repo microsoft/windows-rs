@@ -1,9 +1,9 @@
 # `windows-bindgen` options: consolidation plan
 
 This document inventories every option `windows-bindgen` exposes today (CLI flag
-plus matching `Bindgen` builder method), groups them by intent, and proposes a
-smaller, more orthogonal set. The goal is fewer knobs, clearer defaults, and no
-options that only exist to combine with another option.
+plus matching `Bindgen` builder method) and tracks the remaining work to shrink
+that surface. The goal is fewer knobs, clearer defaults, and no options that
+only exist to combine with another option.
 
 ## 1. Current options
 
@@ -42,32 +42,31 @@ Code-style switches (the ones this plan targets):
 
 ## 2. Problems observed
 
-1. **`--sys` vs `--minimal` are sibling "drop ergonomics" modes** that are
-   mutually exclusive and overlap heavily:
-   - Both: bare handles, no `Result<T>` free-function wrappers, no
-     `IntoIterator`, no per-class wrappers (minimal explicitly; sys by
-     construction).
-   - `--sys` additionally: collapses enums/structs (no `derive`s, no traits,
-     vararg, etc.), no vtables for interfaces, single `link!` per fn.
-   - `--minimal` additionally: keeps vtables/ABI/`_Impl`, auto-revokes events.
-   The user-facing axis is the same ("how stripped-down do you want it?"),
-   but they're spelled with two flags and explicitly forbidden together.
-2. **`--no-deps` and `--specific-deps` describe the dep graph from opposite
-   ends** but live alongside `--sys`, `--link`, and `--reference` with no
-   single conceptual home.
-3. **`--no-toml` is a sub-flag of `--package`**, with no meaning otherwise.
-4. **`--sys-fn-extern` is a sub-flag of `--sys`**, and is silently a no-op
-   without it.
+1. **`--no-deps` and `--specific-deps` describe the dep graph from opposite
+   ends.** They live alongside `--sys`, `--link`, and `--reference` with no
+   single conceptual home and no shared spelling, even though they're
+   mutually exclusive picks on the same axis.
+2. **`--no-toml` is a sub-flag of `--package`**, with no meaning otherwise.
+   Today it silently no-ops when `--package` is absent.
+3. **`--sys-fn-extern` is a sub-flag of `--sys`**, and is silently a no-op
+   without it. The name also doesn't read well as a top-level CLI switch.
+4. **`--sys` vs `--minimal` are sibling "drop ergonomics" modes** that are
+   mutually exclusive and overlap heavily (no `Result<T>` wrappers, no
+   `IntoIterator`, no per-class wrappers, bare handles). They differ on
+   vtables/ABI/`_Impl` (kept by `--minimal`, dropped by `--sys`) and on
+   event auto-revocation (`--minimal` only). They are documented as two
+   flags; this is intentional but worth re-checking against usage data.
 
 ## 3. Proposed option set
 
 Replace the current code-style/cosmetic options with the table below.
-"Structural" and "layout" options stay as-is.
+"Structural" and "layout" options stay as-is (modulo the `--no-toml` cleanup
+in §4).
 
 | Option | Replaces | Notes |
 |--------|----------|-------|
 | `--sys` | unchanged | Still emits `fn`-pointer typedefs alongside the `link!` (folded in from the removed `--sys-fn-ptrs`). Handle typedef behavior is implied (folded in from the removed `--typedef`). |
-| `--extern` | `--sys-fn-extern` | Renamed and promoted to a top-level "use `extern { fn … }` instead of `link!`" switch. Still only meaningful with `--sys`; documented as such, validated at parse time. (Alternative: drop entirely and always emit `link!`; we keep it because some downstream users want raw `extern` blocks.) |
+| `--extern` | `--sys-fn-extern` | Renamed and promoted to a top-level "use `extern { fn … }` instead of `link!`" switch. Still only meaningful with `--sys`; documented as such, validated at parse time. |
 | `--minimal` | unchanged | Handle typedef behavior is implied (folded in from the removed `--typedef`). |
 | `--deps <mode>` | `--no-deps`, `--specific-deps` | Three values: `core` (default — today's behavior, depend on `windows-core`), `specific` (today's `--specific-deps` — depend on `windows-result`, `windows-strings`, `windows-link` directly), `none` (today's `--no-deps`). One axis, one option, exhaustive. |
 | `--link <crate>` | unchanged | Still overrides the `link!` macro source. |
@@ -76,10 +75,10 @@ Replace the current code-style/cosmetic options with the table below.
 
 - `--no-toml` stays but is documented strictly as a `--package` modifier and
   rejected at parse time if `--package` is absent (today it silently no-ops).
-- The mutual-exclusion check between `--sys` and `--minimal` stays. Likewise
-  `--package` vs `--flat`.
 - `--extern` (renamed `--sys-fn-extern`) is rejected without `--sys` rather
   than silently ignored.
+- The mutual-exclusion check between `--sys` and `--minimal` stays. Likewise
+  `--package` vs `--flat`.
 
 ## 5. Net change
 
@@ -88,9 +87,8 @@ Remaining work removes: `--no-deps`, `--specific-deps`, `--sys-fn-extern`.
 
 Adds: `--extern`, `--deps`. (2 to add.)
 
-Combined with earlier landings (`--sys-fn-ptrs`, `--typedef`, and the
-`--implement` / `--implements` fold), the original 11 code-style/cosmetic
-options shrink to 5, with each remaining option controlling one independent
+Combined with the items in §7, the original 11 code-style/cosmetic options
+shrink to 5, with each remaining option controlling one independent
 dimension of the output.
 
 ## 6. Migration
@@ -109,23 +107,28 @@ The builder API mirrors the CLI: `sys()`, `extern_fns()`, `minimal()`,
 
 - `--sys-fn-ptrs` folded into `--sys` (#4443).
 - `--typedef` removed; behavior implied by `--sys` / `--minimal` (#4444).
+- `--no-allow` / `--no-comment` removed (#4441).
+- `--noexcept` removed (#4385).
 - `--implement` and `--implements` folded into a single `--implement[=<filter>]`
-  option: bare flag emits `_Impl` for every WinRT interface in scope, optional
-  trailing patterns narrow emission to the listed types. The
+  option (#4445): bare flag emits `_Impl` for every WinRT interface in scope,
+  optional trailing patterns narrow emission to the listed types. The
   `Bindgen::implements(...)` builder method has been deleted; the surviving
-  `Bindgen::implement(names)` accepts an iterable (empty for broad,
-  non-empty for narrow).
+  `Bindgen::implement(names)` accepts an iterable (empty for broad, non-empty
+  for narrow).
 
-## 8. Open questions
+## 8. Resolved design choices
 
-- Should `--extern` survive at all, or is the small set of users who want raw
-  `extern` blocks better served by `--sys` plus a post-processing step? If we
-  drop it we get to 4 style options.
-- Should `--sys` and `--minimal` merge into a single `--style <sys|minimal>`
-  (or even a single `--lean` flag with a documented "best-effort sys" filter
-  recipe)? They are already mutually exclusive, so a single option with values
-  is the natural shape; the cost is a slightly noisier CLI for the common case
-  (`--style sys` vs `--sys`). Recommendation: keep them as two flags for
-  ergonomics, but document them as "pick at most one of these style modes."
-- `--index` is orthogonal but rarely used; consider promoting it to a separate
-  `windows-bindgen index` sub-command in a follow-up.
+These were previously open questions; recorded here so the next pass doesn't
+relitigate them.
+
+- **Keep `--extern` (renamed from `--sys-fn-extern`)** rather than dropping
+  it. The downstream cost of forcing a post-processing step on `link!` output
+  outweighs the savings of removing one flag, and the rename plus parse-time
+  validation already addresses the discoverability complaint.
+- **Keep `--sys` and `--minimal` as two flags** rather than merging into
+  `--style <sys|minimal>`. They are mutually exclusive, but the common case
+  (`--sys` / `--minimal`) is short and unambiguous; a single option with
+  values would only make the common case noisier.
+- **Leave `--index` as an option on the main command**, not a sub-command.
+  It composes cleanly with `--package` / `--out` and a sub-command split
+  would require its own duplicated argument parsing.
