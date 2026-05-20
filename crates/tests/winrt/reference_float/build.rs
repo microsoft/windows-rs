@@ -17,7 +17,6 @@ fn main() {
         "--filter",
         "test_reference_float",
         "--implement",
-        "--no-comment",
         "--flat",
     ]);
 }

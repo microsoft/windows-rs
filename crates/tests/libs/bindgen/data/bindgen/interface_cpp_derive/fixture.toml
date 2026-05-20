@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter IPersistFile"
+args = "--in default --flat --filter IPersistFile"

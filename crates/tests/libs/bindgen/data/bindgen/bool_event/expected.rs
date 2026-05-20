@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 #[inline]
 pub unsafe fn CreateEventW<P3>(
     lpeventattributes: Option<*const windows::Win32::Security::SECURITY_ATTRIBUTES>,

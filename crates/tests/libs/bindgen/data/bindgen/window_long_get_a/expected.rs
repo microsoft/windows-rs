@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 #[inline]
 pub unsafe fn GetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX) -> i32 {
     windows_core::link!("user32.dll" "system" fn GetWindowLongA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX) -> i32);

@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter IDynamicConceptProviderConcept IModelObject IKeyStore"
+args = "--in default --flat --filter IDynamicConceptProviderConcept IModelObject IKeyStore"

@@ -17,7 +17,6 @@ fn main() {
         "--filter",
         "test_composable_aggregation",
         "--implement",
-        "--no-comment",
         "--flat",
     ])
     .unwrap();

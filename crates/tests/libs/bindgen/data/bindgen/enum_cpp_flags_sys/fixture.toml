@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter GENERIC_ACCESS_RIGHTS --sys"
+args = "--in default --flat --filter GENERIC_ACCESS_RIGHTS --sys"

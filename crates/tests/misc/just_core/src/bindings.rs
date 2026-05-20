@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 #[inline]
 pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
     windows_core::link!("ole32.dll" "system" fn CoGetCallerTID(lpdwtid : *mut u32) -> windows_core::HRESULT);

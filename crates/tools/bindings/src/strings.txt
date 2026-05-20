@@ -1,5 +1,5 @@
 --out crates/libs/strings/src/bindings.rs
---flat --sys --no-deps --no-comment
+--flat --sys --no-deps
 
 --filter
     GetProcessHeap

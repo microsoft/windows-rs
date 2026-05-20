@@ -1,1 +1,1 @@
-args = "--no-comment --filter IMemoryBufferReference"
+args = "--filter IMemoryBufferReference"

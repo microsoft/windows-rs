@@ -17,7 +17,6 @@ fn main() {
         "--filter",
         "test_events",
         "--implement",
-        "--no-comment",
         "--flat",
         "--reference",
         "windows",

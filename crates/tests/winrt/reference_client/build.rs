@@ -9,7 +9,6 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "test_reference",
-        "--no-comment",
         "--flat",
         "--reference",
         "windows",

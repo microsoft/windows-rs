@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter InkTrailPoint --reference windows,skip-root,Point"
+args = "--in default --flat --filter InkTrailPoint --reference windows,skip-root,Point"

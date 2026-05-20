@@ -41,7 +41,6 @@ fn msvc_main() {
         "Test",
         "--implement",
         "--flat",
-        "--no-comment",
     ])
     .unwrap();
 

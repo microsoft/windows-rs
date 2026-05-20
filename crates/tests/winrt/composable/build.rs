@@ -33,7 +33,6 @@ fn main() {
         "--filter",
         "test_composable",
         "--implement",
-        "--no-comment",
         "--flat",
     ])
     .unwrap();

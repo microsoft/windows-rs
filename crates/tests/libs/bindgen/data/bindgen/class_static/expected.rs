@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 pub struct GuidHelper;
 impl GuidHelper {
     pub fn CreateNewGuid() -> windows_core::Result<windows_core::GUID> {

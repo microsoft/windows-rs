@@ -15,7 +15,6 @@ fn msvc_main() {
         "src/bindings.rs",
         "--filter",
         "test_component",
-        "--no-comment",
         "--flat",
         "--reference",
         "windows",

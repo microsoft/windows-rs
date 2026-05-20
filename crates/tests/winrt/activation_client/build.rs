@@ -13,7 +13,6 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "test_activation",
-        "--no-comment",
         "--flat",
     ])
     .unwrap();

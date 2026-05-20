@@ -80,8 +80,6 @@ pub fn builder() -> Bindgen {
 /// | `--rustfmt` | Overrides the default Rust formatting. |
 /// | `--derive` | Extra traits for types to derive. |
 /// | `--flat` | Avoids the default namespace-to-module conversion. |
-/// | `--no-allow` | Avoids generating the default `allow` attribute. |
-/// | `--no-comment` | Avoids generating the code generation comment. |
 /// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
 /// | `--specific-deps` | Uses specific crate dependencies rather than `windows-core`. |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
@@ -267,24 +265,6 @@ pub fn builder() -> Bindgen {
 /// }
 /// ```
 ///
-/// # `--no-allow`
-///
-/// The bindings also include an allow attribute that covers various common warnings inherent in
-/// generated bindings.
-///
-/// ```rust
-/// #![allow(
-///     non_snake_case,
-///     non_upper_case_globals,
-///     non_camel_case_types,
-///     dead_code,
-///     clippy::all
-/// )]
-/// ```
-///
-/// You can prevent this from being generated if you prefer to manage this yourself with the `--no-allow`
-/// argument.
-///
 /// # `--sys`
 ///
 /// The `--sys` argument instruct the `bindgen` function to generate raw, sometimes called sys-style Rust
@@ -387,12 +367,6 @@ where
                 "--derive" => kind = ArgKind::Derive,
                 "--flat" => {
                     builder.flat();
-                }
-                "--no-allow" => {
-                    builder.no_allow();
-                }
-                "--no-comment" => {
-                    builder.no_comment();
                 }
                 "--no-deps" => {
                     builder.no_deps();
@@ -501,8 +475,6 @@ pub struct Bindgen {
     rustfmt: String,
     link: String,
     flat: bool,
-    no_allow: bool,
-    no_comment: bool,
     no_deps: bool,
     no_toml: bool,
     package: bool,
@@ -626,18 +598,6 @@ impl Bindgen {
     /// Avoid the default namespace-to-module conversion.
     pub fn flat(&mut self) -> &mut Self {
         self.flat = true;
-        self
-    }
-
-    /// Avoid generating the default `allow` attribute.
-    pub fn no_allow(&mut self) -> &mut Self {
-        self.no_allow = true;
-        self
-    }
-
-    /// Avoid generating the code generation comment.
-    pub fn no_comment(&mut self) -> &mut Self {
-        self.no_comment = true;
         self
     }
 
@@ -906,8 +866,6 @@ impl Bindgen {
             references: &references,
             filter: &filter,
             derive: &derive,
-            no_allow: self.no_allow,
-            no_comment: self.no_comment,
             no_deps: self.no_deps,
             no_toml: self.no_toml,
             package: self.package,

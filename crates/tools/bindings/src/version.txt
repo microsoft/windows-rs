@@ -1,5 +1,5 @@
 --out crates/libs/version/src/bindings.rs
---flat --sys --no-comment --no-allow --no-deps
+--flat --sys --no-deps
 
 --filter
     RtlGetVersion

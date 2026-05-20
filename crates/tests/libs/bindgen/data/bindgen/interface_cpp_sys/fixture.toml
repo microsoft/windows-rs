@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter IPersist --sys"
+args = "--in default --flat --filter IPersist --sys"

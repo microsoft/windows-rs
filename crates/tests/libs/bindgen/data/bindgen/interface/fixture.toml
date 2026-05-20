@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter IStringable"
+args = "--in default --flat --filter IStringable"

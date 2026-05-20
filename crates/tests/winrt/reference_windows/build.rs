@@ -18,7 +18,6 @@ fn main() {
         "Test",
         "--implement",
         "--flat",
-        "--no-comment",
         "--reference",
         "windows",
     ])

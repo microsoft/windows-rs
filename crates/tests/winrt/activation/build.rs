@@ -34,7 +34,6 @@ fn main() {
         "--filter",
         "test_activation",
         "--implement",
-        "--no-comment",
         "--flat",
     ])
     .unwrap();

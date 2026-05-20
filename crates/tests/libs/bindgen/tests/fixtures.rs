@@ -105,8 +105,6 @@ struct FixtureConfig {
     /// fixture needs both a base type include and one or more method
     /// includes/excludes.
     filters: Vec<String>,
-    no_allow: bool,
-    no_comment: bool,
     minimal: bool,
     specific_deps: bool,
     implement: bool,
@@ -160,8 +158,6 @@ impl FixtureConfig {
             match key {
                 "filter" => cfg.filter = Some(parse_string(value)),
                 "filters" => cfg.filters = parse_string_list(value),
-                "no_allow" => cfg.no_allow = parse_bool(value),
-                "no_comment" => cfg.no_comment = parse_bool(value),
                 "minimal" => cfg.minimal = parse_bool(value),
                 "specific_deps" => cfg.specific_deps = parse_bool(value),
                 "implement" => cfg.implement = parse_bool(value),
@@ -375,12 +371,6 @@ fn run_bindgen(f: &Fixture) {
         .filter(filter);
     for f in &cfg.filters {
         bindgen.filter(f);
-    }
-    if cfg.no_allow {
-        bindgen.no_allow();
-    }
-    if cfg.no_comment {
-        bindgen.no_comment();
     }
     if cfg.minimal {
         bindgen.minimal();

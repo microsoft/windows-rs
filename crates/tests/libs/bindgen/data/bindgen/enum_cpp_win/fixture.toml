@@ -1,1 +1,1 @@
-args = "--no-comment --in default --flat --filter WAIT_EVENT"
+args = "--in default --flat --filter WAIT_EVENT"

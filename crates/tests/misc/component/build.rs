@@ -27,7 +27,6 @@ fn msvc_main() {
         "test_component",
         "--flat",
         "--implement",
-        "--no-comment",
         "--reference",
         "windows",
     ])
