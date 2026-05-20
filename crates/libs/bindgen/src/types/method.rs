@@ -179,6 +179,8 @@ impl Method {
 
         let return_type_tokens = if self.signature.return_type == Type::Void {
             quote! { () }
+        } else if config.minimal && matches!(self.signature.return_type, Type::String) {
+            quote! { String }
         } else {
             let tokens = self.signature.return_type.write_name(config);
 
@@ -380,6 +382,10 @@ impl Method {
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
+                } else if config.minimal && param.is_input() && matches!(param.ty, Type::String) {
+                    // In minimal mode, string params accept &str directly.
+                    // Convert to HSTRING and pass its abi.
+                    quote! { core::mem::transmute_copy(&windows_core::HSTRING::from(#name)) }
                 } else if param.is_copyable(config.reader) {
                     if param.is_const_ref() {
                         quote! { &#name }
@@ -440,6 +446,12 @@ impl Method {
         // (only IReference<HSTRING> sugar; value-like inner doesn't need a generic).
         let is_ireference_string = |param: &Param| -> bool {
             matches!(param.ireference_inner(config.reader), Some(Type::String))
+        };
+
+        // In minimal mode, HSTRING input params accept `&str` directly — the generated
+        // method body handles the conversion to HSTRING internally.
+        let is_string_param = |param: &Param| -> bool {
+            config.minimal && param.is_input() && matches!(param.ty, Type::String)
         };
 
         let generics: Vec<TokenStream> = params
@@ -548,6 +560,8 @@ impl Method {
                     } else if let Some(inner) = param.ireference_inner(config.reader) {
                         let inner_name = inner.write_name(config);
                         quote! { #name: Option<#inner_name>, }
+                    } else if is_string_param(param) {
+                        quote! { #name: &str, }
                     } else if param.is_convertible() {
                         let kind: TokenStream = format!("P{position}").parse().unwrap();
                         quote! { #name: #kind, }
@@ -584,7 +598,10 @@ impl Method {
         let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
             _ => {
-                let tokens = if let Some(inner) = return_unwrap_inner {
+                let tokens = if config.minimal && matches!(self.signature.return_type, Type::String)
+                {
+                    quote! { String }
+                } else if let Some(inner) = return_unwrap_inner {
                     inner.write_name(config)
                 } else {
                     self.signature.return_type.write_name(config)
@@ -659,6 +676,16 @@ impl Method {
                                 #assert_success
                                 result__
                             }
+                        } else if config.minimal
+                            && matches!(self.signature.return_type, Type::String)
+                        {
+                            quote! {
+                                let mut result__ = core::mem::zeroed();
+                                let hresult__ = #vcall;
+                                #assert_success
+                                let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                                hstring.to_string_lossy()
+                            }
                         } else {
                             quote! {
                                 let mut result__ = core::mem::zeroed();
@@ -678,6 +705,17 @@ impl Method {
                             quote! {
                                 let mut result__ = core::mem::zeroed();
                                 #vcall.#map.and_then(|r__: #iref| r__.Value())
+                            }
+                        } else if config.minimal
+                            && matches!(self.signature.return_type, Type::String)
+                        {
+                            // In minimal mode, return String instead of HSTRING.
+                            quote! {
+                                let mut result__ = core::mem::zeroed();
+                                #vcall.map(|| {
+                                    let hstring: windows_core::HSTRING = core::mem::transmute(result__);
+                                    hstring.to_string_lossy()
+                                })
                             }
                         } else {
                             quote! {

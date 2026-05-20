@@ -201,6 +201,20 @@ impl Class {
                     })
             };
 
+            let deref = if config.minimal {
+                quote! {
+                    #cfg
+                    impl core::ops::Deref for #name {
+                        type Target = #default_interface;
+                        fn deref(&self) -> &Self::Target {
+                            unsafe { core::mem::transmute(self) }
+                        }
+                    }
+                }
+            } else {
+                quote! {}
+            };
+
             quote! {
                 #cfg
                 #[repr(transparent)]
@@ -224,6 +238,7 @@ impl Class {
                     type Vtable = <#default_interface as windows_core::Interface>::Vtable;
                     const IID: windows_core::GUID = <#default_interface as windows_core::Interface>::IID;
                 }
+                #deref
                 #runtime_name
                 #agile
                 #into_iterator
