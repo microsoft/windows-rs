@@ -58,7 +58,7 @@ fn main() -> windows::core::Result<()> {
                 let webview = controller.CoreWebView2()?;
 
                 let uri = w!("https://github.com/microsoft/windows-rs");
-                webview.Navigate(*uri)?;
+                webview.Navigate(LPCWSTR(*uri))?;
             }
 
             // TODO: need to keep the controller alive.

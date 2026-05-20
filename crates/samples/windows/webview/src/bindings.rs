@@ -368,7 +368,9 @@ where
         result__
     }
 }
-pub type BYTE = u8;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct BYTE(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_BOUNDS_MODE(pub i32);
@@ -1293,7 +1295,9 @@ pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SERVICE_WORKER:
 pub const COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS_SHARED_WORKER:
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS =
     COREWEBVIEW2_WEB_RESOURCE_REQUEST_SOURCE_KINDS(2i32);
-pub type DWORD = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct DWORD(pub u32);
 windows_core::imp::define_interface!(
     ICoreWebView2,
     ICoreWebView2_Vtbl,
@@ -44959,14 +44963,76 @@ impl ICoreWebView2_9_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2_9 {}
-pub type INT = i32;
-pub type INT32 = i32;
-pub type INT64 = i64;
-pub type LPCWSTR = *const WCHAR;
-pub type LPWSTR = *mut WCHAR;
-pub type PCWSTR = *const WCHAR;
-pub type PRPC_MESSAGE = *mut windows::Win32::System::Rpc::RPC_MESSAGE;
-pub type UINT = u32;
-pub type UINT32 = u32;
-pub type UINT64 = u64;
-pub type WCHAR = u16;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct INT(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct INT32(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct INT64(pub i64);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPCWSTR(pub *const WCHAR);
+impl LPCWSTR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for LPCWSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPWSTR(pub *mut WCHAR);
+impl LPWSTR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for LPWSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PCWSTR(pub *const WCHAR);
+impl PCWSTR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PCWSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PRPC_MESSAGE(pub *mut windows::Win32::System::Rpc::RPC_MESSAGE);
+impl PRPC_MESSAGE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for PRPC_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct UINT(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct UINT32(pub u32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct UINT64(pub u64);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct WCHAR(pub u16);
