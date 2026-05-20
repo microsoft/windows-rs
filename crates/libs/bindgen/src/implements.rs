@@ -1,6 +1,6 @@
 use super::*;
 
-/// Matcher used by the `--implements` option to determine whether the `_Impl`
+/// Matcher used by the `--implement` option to determine whether the `_Impl`
 /// scaffolding for a given type should be emitted.
 ///
 /// Patterns may be a fully-qualified type name (`Namespace.Name`) or a

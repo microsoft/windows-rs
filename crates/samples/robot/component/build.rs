@@ -16,7 +16,7 @@ fn main() {
         .output("src/bindings.rs")
         .filter("Robotics")
         .flat()
-        .implement()
+        .implement(std::iter::empty::<&str>())
         .write()
         .unwrap();
 }

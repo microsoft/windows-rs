@@ -95,7 +95,7 @@ impl Filter {
     }
 
     /// Validate that no method-level filter entry targets a type matched by
-    /// `--implements`. Methods on implemented types must always be emitted.
+    /// `--implement`. Methods on implemented types must always be emitted.
     #[track_caller]
     pub fn validate_implements(&self, implements: &Implements) {
         if implements.is_empty() {
@@ -104,7 +104,7 @@ impl Filter {
         for (namespace, name) in self.methods.keys() {
             if implements.matches_str(namespace, name) {
                 panic!(
-                    "method-level filter on `{namespace}.{name}` conflicts with `--implements`: \
+                    "method-level filter on `{namespace}.{name}` conflicts with `--implement`: \
                      methods on implemented interfaces are always emitted"
                 );
             }

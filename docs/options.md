@@ -15,7 +15,7 @@ Structural (required / always-on inputs):
 | `--out` / `output` | Output file or package directory. |
 | `--filter` / `filter` | Include / exclude rules (incl. method-level). |
 | `--reference` / `reference` | External crate references. |
-| `--implements` / `implements` | Per-type list to emit `_Impl` for. |
+| `--implement` / `implement` | Per-type list to emit `_Impl` for (or all-in-scope when no list is provided). |
 | `--rustfmt` / `rustfmt` | Override `rustfmt` config. |
 | `--link` / `link` | Override the `link!` macro source crate. |
 | `--derive` / `derive` | Extra `derive`s for selected types. |
@@ -34,23 +34,15 @@ Code-style switches (the ones this plan targets):
 
 | Option | Purpose |
 |--------|---------|
-| `--sys` | Raw / sys-style bindings (no wrappers, plain handles, etc.). |
+| `--sys` | Raw / sys-style bindings (no wrappers, plain handles, etc.). Always emits `fn`-pointer typedefs alongside the `link!`. |
 | `--sys-fn-extern` | Use `extern { fn … }` instead of `link!` (only with `--sys`). |
 | `--minimal` | Drop class wrappers, inherited forwarders, handle ergonomics, etc.; auto-revoke events. Mutually exclusive with `--sys`. |
-| `--implement` | Emit `_Impl` scaffolding for every WinRT interface in scope. |
 | `--no-deps` | Avoid pulling in `windows-*` crate references. |
 | `--specific-deps` | Reference `windows-result` / `windows-strings` / `windows-link` directly instead of `windows-core`. |
 
 ## 2. Problems observed
 
-1. **`--sys-fn-ptrs` and `--sys-fn-extern` are sub-flags of `--sys`.** Both are
-   no-ops without `--sys` (see `cpp_fn.rs`: `config.sys && config.sys_fn_ptrs`).
-   They double the number of options a sys-style user has to learn.
-2. **`--typedef` overlaps with both `--sys` and `--minimal`.** The only place
-   `typedef` is consulted is `config/cpp_handle.rs`, where the test is
-   `self.sys || self.typedef || self.minimal` — i.e. `--typedef` already gets
-   set implicitly whenever the user picks either of the other two style modes.
-3. **`--sys` vs `--minimal` are sibling "drop ergonomics" modes** that are
+1. **`--sys` vs `--minimal` are sibling "drop ergonomics" modes** that are
    mutually exclusive and overlap heavily:
    - Both: bare handles, no `Result<T>` free-function wrappers, no
      `IntoIterator`, no per-class wrappers (minimal explicitly; sys by
@@ -60,10 +52,12 @@ Code-style switches (the ones this plan targets):
    - `--minimal` additionally: keeps vtables/ABI/`_Impl`, auto-revokes events.
    The user-facing axis is the same ("how stripped-down do you want it?"),
    but they're spelled with two flags and explicitly forbidden together.
-4. **`--no-deps` and `--specific-deps` describe the dep graph from opposite
+2. **`--no-deps` and `--specific-deps` describe the dep graph from opposite
    ends** but live alongside `--sys`, `--link`, and `--reference` with no
    single conceptual home.
-5. **`--no-toml` is a sub-flag of `--package`**, with no meaning otherwise.
+3. **`--no-toml` is a sub-flag of `--package`**, with no meaning otherwise.
+4. **`--sys-fn-extern` is a sub-flag of `--sys`**, and is silently a no-op
+   without it.
 
 ## 3. Proposed option set
 
@@ -72,16 +66,11 @@ Replace the current code-style/cosmetic options with the table below.
 
 | Option | Replaces | Notes |
 |--------|----------|-------|
-| `--sys` | `--sys`, `--sys-fn-ptrs`, `--typedef` (sys path) | `--sys` always emits `fn`-pointer typedefs alongside the `link!`. (`sys-fn-ptrs` is folded in; the cost is small and the output is strictly more useful.) Handle `--typedef` behavior is implied. |
+| `--sys` | unchanged | Still emits `fn`-pointer typedefs alongside the `link!` (folded in from the removed `--sys-fn-ptrs`). Handle typedef behavior is implied (folded in from the removed `--typedef`). |
 | `--extern` | `--sys-fn-extern` | Renamed and promoted to a top-level "use `extern { fn … }` instead of `link!`" switch. Still only meaningful with `--sys`; documented as such, validated at parse time. (Alternative: drop entirely and always emit `link!`; we keep it because some downstream users want raw `extern` blocks.) |
-| `--minimal` | `--minimal`, `--typedef` (minimal path) | Unchanged semantically. `--typedef` removed: handle aliasing is now an implementation detail of `--sys` / `--minimal`. |
-| `--implement[=<filter>]` | `--implement`, `--implements` | Single option. With no value, behaves like today's `--implement` (emit `_Impl` for all WinRT interfaces in scope). With one or more values, behaves like today's `--implements` (only the listed types). This collapses two redundant builder methods into one with overloaded semantics. |
+| `--minimal` | unchanged | Handle typedef behavior is implied (folded in from the removed `--typedef`). |
 | `--deps <mode>` | `--no-deps`, `--specific-deps` | Three values: `core` (default — today's behavior, depend on `windows-core`), `specific` (today's `--specific-deps` — depend on `windows-result`, `windows-strings`, `windows-link` directly), `none` (today's `--no-deps`). One axis, one option, exhaustive. |
 | `--link <crate>` | unchanged | Still overrides the `link!` macro source. |
-
-`--typedef` is removed outright. Today it is only consumed in `cpp_handle.rs`
-under a three-way `||` with `sys` and `minimal`, so folding it into those two
-modes is a no-op for the only output it controls.
 
 ## 4. Sub-option cleanups
 
@@ -94,34 +83,40 @@ modes is a no-op for the only output it controls.
 
 ## 5. Net change
 
-Removed: `--no-deps`, `--specific-deps`,
-`--sys-fn-ptrs`, `--sys-fn-extern`, `--typedef`, `--implements` *(option
-name)*. (6 removed.)
+Remaining work removes: `--no-deps`, `--specific-deps`, `--sys-fn-extern`.
+(3 to remove.)
 
-Added: `--extern`, `--deps`. (2 added; `--implement` gains an optional list
-value.)
+Adds: `--extern`, `--deps`. (2 to add.)
 
-Result: 11 code-style/cosmetic options → 5, with each remaining option
-controlling one independent dimension of the output.
+Combined with earlier landings (`--sys-fn-ptrs`, `--typedef`, and the
+`--implement` / `--implements` fold), the original 11 code-style/cosmetic
+options shrink to 5, with each remaining option controlling one independent
+dimension of the output.
 
 ## 6. Migration
 
 | Old invocation | New invocation |
 |----------------|----------------|
-| `--sys --sys-fn-ptrs` | `--sys` |
 | `--sys --sys-fn-extern` | `--sys --extern` |
-| `--sys --typedef` / `--minimal --typedef` | `--sys` / `--minimal` |
 | `--specific-deps` | `--deps specific` |
 | `--no-deps` | `--deps none` |
-| `--implements Ns.Foo Ns.Bar` | `--implement Ns.Foo Ns.Bar` |
-| `--implement` | `--implement` (unchanged) |
 
 The builder API mirrors the CLI: `sys()`, `extern_fns()`, `minimal()`,
-`deps(DepMode::{Core, Specific, None})`, `implement([…])`. Today's
-`no_deps()`, `specific_deps()`, `typedef()`,
-`sys_fn_ptrs()`, `sys_fn_extern()`, and `implements()` methods are deleted.
+`deps(DepMode::{Core, Specific, None})`. Today's `no_deps()`,
+`specific_deps()`, and `sys_fn_extern()` methods are deleted.
 
-## 7. Open questions
+## 7. Already landed
+
+- `--sys-fn-ptrs` folded into `--sys` (#4443).
+- `--typedef` removed; behavior implied by `--sys` / `--minimal` (#4444).
+- `--implement` and `--implements` folded into a single `--implement[=<filter>]`
+  option: bare flag emits `_Impl` for every WinRT interface in scope, optional
+  trailing patterns narrow emission to the listed types. The
+  `Bindgen::implements(...)` builder method has been deleted; the surviving
+  `Bindgen::implement(names)` accepts an iterable (empty for broad,
+  non-empty for narrow).
+
+## 8. Open questions
 
 - Should `--extern` survive at all, or is the small set of users who want raw
   `extern` blocks better served by `--sys` plus a post-processing step? If we
