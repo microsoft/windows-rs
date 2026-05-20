@@ -1,2 +1,2 @@
 filter = "Test.Derived"
-specific_deps = true
+deps = "specific"

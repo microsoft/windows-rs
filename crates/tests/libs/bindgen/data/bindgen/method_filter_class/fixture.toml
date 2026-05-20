@@ -1,4 +1,4 @@
 filter = "Test"
 filters = ["!Test.Foo::DropStatic", "!Test.Foo::DropFactory"]
-specific_deps = true
+deps = "specific"
 references = ["../../../libs/bindgen/default"]

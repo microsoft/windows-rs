@@ -1,5 +1,5 @@
 --out crates/libs/registry/src/bindings.rs
---flat --sys --no-deps
+--flat --sys --deps none
 
 --filter
     CloseHandle

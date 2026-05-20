@@ -1,4 +1,4 @@
 filter = "Test"
 filters = ["!Test.IFoo::InsertKeyFrameWithEasingFunction"]
-specific_deps = true
+deps = "specific"
 references = ["../../../libs/bindgen/default"]
