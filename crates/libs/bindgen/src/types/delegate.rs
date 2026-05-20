@@ -87,7 +87,7 @@ impl Delegate {
         // directly, avoiding a `Result` round trip. This also lets the
         // generated event-add wrappers reuse the same closure signature.
         let fn_constraint = {
-            let signature = if config.minimal {
+            let signature = if config.bindgen.style.is_minimal() {
                 method.write_impl_signature_no_return(config)
             } else {
                 method.write_impl_signature(config, false, false)
@@ -96,7 +96,7 @@ impl Delegate {
             quote! { F: Fn #signature + Send + 'static }
         };
 
-        let invoke_upcall = if config.minimal {
+        let invoke_upcall = if config.bindgen.style.is_minimal() {
             method.write_upcall_no_return(quote! { (this.invoke) }, false, config)
         } else {
             method.write_upcall(quote! { (this.invoke) }, false, config)

@@ -86,7 +86,7 @@ fn write_param(config: &Config, param: &Param) -> TokenStream {
     let name = param.write_ident();
     let type_name = param.write_name(config);
 
-    if config.sys {
+    if config.bindgen.style.is_sys() {
         return quote! { #name: #type_name, };
     }
 

@@ -97,21 +97,23 @@ impl CppStruct {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
 
-                let ty = if !config.sys && is_union && !ty.is_copyable(config.reader) {
-                    let ty = ty.write_default(config);
-                    quote! { core::mem::ManuallyDrop<#ty> }
-                } else if !config.sys && ty.is_dropped(config.reader) {
-                    if let Type::ArrayFixed(ty, len) = ty {
-                        let ty = ty.write_default(config);
-                        let len = Literal::usize_unsuffixed(*len);
-                        quote! { [core::mem::ManuallyDrop<#ty>; #len] }
-                    } else {
+                let ty =
+                    if !config.bindgen.style.is_sys() && is_union && !ty.is_copyable(config.reader)
+                    {
                         let ty = ty.write_default(config);
                         quote! { core::mem::ManuallyDrop<#ty> }
-                    }
-                } else {
-                    ty.write_default(config)
-                };
+                    } else if !config.bindgen.style.is_sys() && ty.is_dropped(config.reader) {
+                        if let Type::ArrayFixed(ty, len) = ty {
+                            let ty = ty.write_default(config);
+                            let len = Literal::usize_unsuffixed(*len);
+                            quote! { [core::mem::ManuallyDrop<#ty>; #len] }
+                        } else {
+                            let ty = ty.write_default(config);
+                            quote! { core::mem::ManuallyDrop<#ty> }
+                        }
+                    } else {
+                        ty.write_default(config)
+                    };
 
                 quote! { pub #name: #ty, }
             });
@@ -138,7 +140,7 @@ impl CppStruct {
         let mut derive = DeriveWriter::new(config, self.type_name());
         let mut manual_clone = None;
 
-        if config.sys || is_copyable {
+        if config.bindgen.style.is_sys() || is_copyable {
             derive.extend(["Clone", "Copy"]);
         } else if !matches!(
             TypeName(self.def.namespace(), self.def.name()),
@@ -158,7 +160,7 @@ impl CppStruct {
             }
         }
 
-        if !config.sys && !has_explicit_layout && !has_packing {
+        if !config.bindgen.style.is_sys() && !has_explicit_layout && !has_packing {
             derive.extend(["Debug"]);
 
             if !self.has_cpp_delegate(config.reader) {
@@ -250,7 +252,7 @@ impl CppStruct {
             && !self.def.fields().any(|field| {
                 let ty = field.field_type(Some(self), config.reader);
 
-                if config.sys {
+                if config.bindgen.style.is_sys() {
                     if let Type::CppStruct(ty) = &ty {
                         if ty.is_handle(config.reader)
                             && ty.def.underlying_type_ext(config.reader).is_pointer()

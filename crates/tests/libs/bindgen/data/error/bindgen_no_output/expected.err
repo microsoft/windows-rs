@@ -1,2 +1,2 @@
 
-error: exactly one `--out` is required
+error: output is required (call `.output()` or pass `--out`)

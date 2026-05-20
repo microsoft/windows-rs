@@ -18,51 +18,17 @@ The follow-up internal work to make the implementation match that surface
 landed `DepMode`, `Option<&Implements>`, and the internal `Style`/`Layout`
 enums with nested sub-flags (the four "set X without Y, panic at write()"
 failure modes are now either unrepresentable or fail at the builder method
-that introduced them). What's below is what's left.
+that introduced them). Step A landed the first half of the `Bindgen`/`Config`
+state-merge: `Config<'a>` now holds `&'a Bindgen` (design 1), the six
+derived booleans (`flat`/`package`/`no_toml`/`sys`/`minimal`/`sys_fn_extern`)
+are gone, and emitter call sites query the `Layout` / `Style` enums
+directly through predicate helpers (`is_sys`, `is_package`, `no_toml`, …).
+Validation has been lifted to the top of `Bindgen::write` so it runs
+before any expensive plumbing. The outright merge (design 2) is still
+available as a follow-up — see "Follow-up to Step A" below. What's below
+is what's left.
 
 ## Outstanding simplifications
-
-### A. Merge `Bindgen` and `Config` state
-
-`Bindgen` (lib.rs, ~17 fields) and `Config` (config/mod.rs:11–30, 17 fields)
-still hold parallel state. `Bindgen::write()` (lib.rs ~780–940) is mostly
-plumbing:
-
-- destructure the `Layout` / `Style` enums into the six derived booleans
-  `flat`, `package`, `no_toml`, `sys`, `minimal`, `sys_fn_extern` (lib.rs
-  ~795–800),
-- copy each `Bindgen` field one-for-one into `Config` (lib.rs ~912–931),
-- after which `Config` is purely read-only for the rest of the run.
-
-Two designs to choose between, both better than the status quo:
-
-1. **`Config<'a>` holds `&'a Bindgen`** — drops the 17 fields, keeps the
-   transient state (`reader`, `types`, `references`, `filter`, `derive`,
-   `warnings`, `namespace`, `link`, `implement: Option<&Implements>`) and
-   exposes the rest via `&self.bindgen.deps`, `&self.bindgen.style`, etc.
-2. **Merge them outright** — `Bindgen` *is* the only `Config` builder, and
-   `Config` has no other constructor. Move the transient fields into
-   `Bindgen` (or into a sibling `RunState` that `Config` owns) and let the
-   emitters take `&Bindgen` directly.
-
-Either way, this is also the point to drop the derived `flat` / `package` /
-`no_toml` / `sys` / `minimal` / `sys_fn_extern` booleans on `Config` and have
-the ~50 emitter call sites match on `Layout` / `Style` directly. That's the
-substantive part of the diff and the reason this step was deferred until the
-enums were in place.
-
-A few care-abouts when doing this:
-
-- `Config::with_namespace` (config/mod.rs:33–37) clones the whole struct on
-  every namespace; reducing `Config`'s size with this merge is also the
-  right time to make `with_namespace` not clone (e.g. by stashing
-  `namespace` in a `Cell` or threading it as a parameter).
-- `Bindgen::write` runs validation in the wrong order today (output / filter
-  presence checks happen *after* the link string and input vec are built
-  unnecessarily). When merging, lift validation into a single
-  `Bindgen::validate()` (or `Bindgen::build_run()`) called at the top of
-  `write` and have `bindgen()` call it too. The CLI parser at lib.rs
-  ~360–445 should not need to repeat any of those checks.
 
 ### B. The `config/` module is mis-named
 
@@ -79,9 +45,10 @@ They were attached to `Config` for convenient field access, but
 conceptually they belong with the other emitters under `types/`
 (`types/cpp_handle.rs`, etc.) or as their own top-level module.
 
-After Step A this becomes pure file moves: `Config` stops being the
-`impl` host and the emitter functions take whatever subset of state they
-actually need. Concrete tasks:
+Now that Step A has landed, this becomes pure file moves: `Config` no
+longer needs to be the `impl` host (its remaining state is small and
+exposed via `&self.bindgen`), and the emitter functions can take whatever
+subset of state they actually need. Concrete tasks:
 
 - Move `config/cpp_handle.rs` next to `types/cpp_const.rs`,
   `config/value.rs` next to the value emitters, `config/names.rs` into a
@@ -96,8 +63,29 @@ actually need. Concrete tasks:
   formatter; it can move to a top-level `format.rs` and stop being a
   `Config` method.
 
-This step is best left until last so review diffs aren't tangled with the
-state-merge in Step A.
+### Follow-up to Step A
+
+Step A picked design 1 from the original doc (`Config<'a>` holds
+`&'a Bindgen`) because it landed cleanly without churning the emitter
+signatures. Design 2 — merge `Bindgen` and `Config` outright, so the
+emitters take `&Bindgen` directly and the `bindgen` indirection
+disappears — is still on the table as a further refinement:
+
+- `Config<'a>` today is essentially a sidecar of run-state references
+  (`reader`, `types`, `references`, `filter`, `derive`, `warnings`,
+  `namespace`, `link`, `implement`) plus `&Bindgen`. Folding the run-state
+  into `Bindgen` (or into a sibling `RunState` that `Bindgen` owns for the
+  duration of `write`) removes the last duplicate type.
+- That move is also the right time to make `Config::with_namespace` not
+  clone (it currently clones the whole struct on every namespace; even
+  though `Config` is now small (~10 reference fields), stashing
+  `namespace` in a `Cell` or threading it as a parameter avoids the clone
+  entirely).
+
+Doing this *now* would mostly be churn — every emitter call site would
+flip from `config: &Config` to `bindgen: &Bindgen` (or similar) with no
+behavioural change. It makes more sense to fold this in alongside Step
+B, when the `config/` files are being moved out anyway.
 
 ## What inherently resists further simplification
 
@@ -122,11 +110,3 @@ Recording these so they aren't re-proposed:
   `Layout` enum; collapsing further would force the writer to fork on
   every emit.
 
-## Suggested order of attack
-
-1. **Step A** — merge `Bindgen` and `Config`. This is the substantive
-   change and the one that pays the most: ~30 fewer fields in flight,
-   ~25 fewer lines of plumbing in `write`, and the emitter sites finally
-   get to match on `Layout` / `Style` directly.
-2. **Step B** — once `config/` is no longer the impl host, splitting it
-   becomes mechanical file moves with no logic change.

@@ -9,19 +9,11 @@ pub use cfg::*;
 
 #[derive(Clone)]
 pub struct Config<'a> {
+    pub bindgen: &'a Bindgen,
     pub reader: &'a Reader,
     pub types: &'a TypeMap,
     pub references: &'a References,
     pub filter: &'a Filter,
-    pub output: &'a str,
-    pub flat: bool,
-    pub deps: DepMode,
-    pub no_toml: bool,
-    pub package: bool,
-    pub rustfmt: Option<&'a str>,
-    pub sys: bool,
-    pub minimal: bool,
-    pub sys_fn_extern: bool,
     pub implement: Option<&'a Implements>,
     pub derive: &'a Derive,
     pub link: &'a str,
@@ -55,7 +47,7 @@ impl Config<'_> {
 impl<'a> Config<'a> {
     #[track_caller]
     pub fn write(&self, tree: TypeTree) {
-        if self.package {
+        if self.bindgen.layout.is_package() {
             self.write_package(&tree);
         } else {
             self.write_file(tree);
@@ -64,13 +56,13 @@ impl<'a> Config<'a> {
 
     #[track_caller]
     fn write_file(&self, tree: TypeTree) {
-        let tokens = if self.flat {
+        let tokens = if self.bindgen.layout.is_flat() {
             self.write_flat(tree)
         } else {
             self.write_modules(&tree)
         };
 
-        write_to_file(self.output, self.format(&tokens.into_string()));
+        write_to_file(&self.bindgen.output, self.format(&tokens.into_string()));
     }
 
     fn write_flat(&self, tree: TypeTree) -> TokenStream {
@@ -100,14 +92,15 @@ impl<'a> Config<'a> {
     }
 
     fn write_package(&self, tree: &TypeTree) {
+        let output = &self.bindgen.output;
         for name in tree.nested.keys() {
-            _ = std::fs::remove_dir_all(format!("{}/src/{name}", self.output));
+            _ = std::fs::remove_dir_all(format!("{output}/src/{name}"));
         }
 
         let trees = tree.flatten_trees();
 
         for_each(trees.iter(), |tree| {
-            let directory = format!("{}/src/{}", self.output, tree.namespace.replace('.', "/"));
+            let directory = format!("{output}/src/{}", tree.namespace.replace('.', "/"));
 
             let mut tokens = TokenStream::new();
 
@@ -127,15 +120,15 @@ impl<'a> Config<'a> {
                 tokens.combine(ty.write(&config));
             }
 
-            let output = format!("{directory}/mod.rs");
-            write_to_file(&output, self.format(&tokens.into_string()));
+            let path = format!("{directory}/mod.rs");
+            write_to_file(&path, self.format(&tokens.into_string()));
         });
 
-        if self.no_toml {
+        if self.bindgen.layout.no_toml() {
             return;
         }
 
-        let toml_path = format!("{}/Cargo.toml", self.output);
+        let toml_path = format!("{output}/Cargo.toml");
         let mut toml = String::new();
 
         for line in read_file_lines(&toml_path) {

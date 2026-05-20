@@ -377,7 +377,7 @@ impl Type {
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
-        if config.sys && self.is_interface() {
+        if config.bindgen.style.is_sys() && self.is_interface() {
             return quote! { *mut core::ffi::c_void };
         }
 
@@ -472,7 +472,7 @@ impl Type {
             Self::ArrayRef(ty) => ty.write_name(config),
             Self::ConstRef(ty) => ty.write_name(config),
             Self::PrimitiveOrEnum(primitive, ty) => {
-                if config.sys {
+                if config.bindgen.style.is_sys() {
                     primitive.write_name(config)
                 } else {
                     ty.write_name(config)
@@ -483,7 +483,7 @@ impl Type {
     }
 
     pub fn write_default(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             return self.write_name(config);
         }
 
@@ -515,7 +515,7 @@ impl Type {
     }
 
     pub fn write_abi(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             return self.write_name(config);
         }
 
@@ -820,7 +820,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if config.deps != DepMode::None || !config.sys {
+        if config.bindgen.deps != DepMode::None || !config.bindgen.style.is_sys() {
             return quote! {};
         }
 
@@ -1053,7 +1053,7 @@ fn write_ptr_const(pointers: usize) -> TokenStream {
 /// Helper for types whose `write_cfg` only needs their own dependencies.
 /// Returns an empty token stream when packaging is disabled.
 fn write_simple_cfg(ty: &impl Dependencies, config: &Config) -> TokenStream {
-    if !config.package {
+    if !config.bindgen.layout.is_package() {
         return quote! {};
     }
     Cfg::new(&ty.dependencies(config.reader), config).write(config, false)
@@ -1062,7 +1062,7 @@ fn write_simple_cfg(ty: &impl Dependencies, config: &Config) -> TokenStream {
 /// Helper for types whose `write_cfg` needs to return both the `Cfg` value and its token form.
 /// Returns default/empty values when packaging is disabled.
 fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream) {
-    if !config.package {
+    if !config.bindgen.layout.is_package() {
         return (Cfg::default(), quote! {});
     }
     let cfg = Cfg::new(&ty.dependencies(config.reader), config);
