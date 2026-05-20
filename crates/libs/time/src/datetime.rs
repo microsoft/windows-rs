@@ -209,19 +209,15 @@ const fn civil_from_days(z: i64) -> (i64, u32, u32) {
 impl core::fmt::Display for DateTime {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         let ticks = self.UniversalTime;
-        // Convert to (days since Unix epoch, ticks within day)
-        let unix_ticks = ticks.wrapping_sub(UNIX_EPOCH_TICKS);
-        let (days, intraday) = if unix_ticks >= 0 {
-            (unix_ticks / TICKS_PER_DAY, unix_ticks % TICKS_PER_DAY)
-        } else {
-            let mut days = unix_ticks / TICKS_PER_DAY;
-            let mut intraday = unix_ticks % TICKS_PER_DAY;
-            if intraday != 0 {
-                days -= 1;
-                intraday += TICKS_PER_DAY;
-            }
-            (days, intraday)
-        };
+        // Use i128 to avoid overflow when subtracting the Unix epoch offset
+        // for extreme DateTime values (near i64::MIN / i64::MAX).
+        let unix_ticks = (ticks as i128) - (UNIX_EPOCH_TICKS as i128);
+        let ticks_per_day = TICKS_PER_DAY as i128;
+        // div_euclid gives floored division; rem_euclid gives remainder in [0, ticks_per_day).
+        // The day count fits in i64: ticks are bounded by i64::MIN/MAX, so days are at most
+        // ~±10_811_000 (i.e., ±29_584 years), well within i64 range.
+        let days = unix_ticks.div_euclid(ticks_per_day) as i64;
+        let intraday = unix_ticks.rem_euclid(ticks_per_day) as i64;
         let (year, month, day) = civil_from_days(days);
 
         let secs = intraday / TICKS_PER_SECOND;
@@ -292,17 +288,17 @@ impl TryFrom<DateTime> for std::time::SystemTime {
     type Error = TimeRangeError;
     fn try_from(value: DateTime) -> Result<Self, Self::Error> {
         let ticks = value.UniversalTime;
-        let unix_ticks = ticks.wrapping_sub(UNIX_EPOCH_TICKS);
-        // Convert to a Duration relative to UNIX_EPOCH and add/sub
+        // Use i128 to avoid overflow for extreme DateTime values (near i64::MIN / i64::MAX).
+        let unix_ticks = (ticks as i128) - (UNIX_EPOCH_TICKS as i128);
         if unix_ticks >= 0 {
-            let nanos = (unix_ticks as u128) * 100;
+            let nanos = unix_ticks as u128 * 100;
             let secs = (nanos / 1_000_000_000) as u64;
             let subsec = (nanos % 1_000_000_000) as u32;
             std::time::SystemTime::UNIX_EPOCH
                 .checked_add(std::time::Duration::new(secs, subsec))
                 .ok_or(TimeRangeError)
         } else {
-            let abs_ticks = (unix_ticks as i128).unsigned_abs();
+            let abs_ticks = (-unix_ticks) as u128;
             let nanos = abs_ticks * 100;
             let secs = (nanos / 1_000_000_000) as u64;
             let subsec = (nanos % 1_000_000_000) as u32;

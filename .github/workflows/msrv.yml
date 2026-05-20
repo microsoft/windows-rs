@@ -110,8 +110,6 @@ jobs:
         run: rustup update --no-self-update 1.82 && rustup default 1.82
       - name: Check windows-threading
         run:  cargo check -p windows-threading --all-features
-      - name: Rust version
-        run: rustup update --no-self-update 1.82 && rustup default 1.82
       - name: Check windows-time
         run:  cargo check -p windows-time --all-features
       - name: Rust version

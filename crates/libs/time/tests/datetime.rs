@@ -1,5 +1,5 @@
 use std::time::{Duration, SystemTime};
-use windows_time::{DateTime, TimeRangeError, TimeSpan};
+use windows_time::{DateTime, TimeSpan};
 
 #[test]
 fn unix_epoch_ticks() {
@@ -126,9 +126,11 @@ fn checked_duration_since() {
 }
 
 #[test]
-fn now_is_after_unix_epoch() {
+fn now_converts_to_system_time() {
     let n = DateTime::now();
-    assert!(n.unix_secs() > 0);
-    // Force-use TimeRangeError to silence unused-import warning if any
-    let _e: Result<DateTime, TimeRangeError> = Ok(n);
+    // Verify that DateTime::now() round-trips through SystemTime without
+    // assuming the system clock is after the Unix epoch.
+    let st: std::time::SystemTime = n.try_into().unwrap();
+    let back: DateTime = st.try_into().unwrap();
+    assert_eq!(n, back);
 }
