@@ -48,6 +48,7 @@ mod Test {
     #[Windows::Foundation::Metadata::ExclusiveTo(Foo)]
     interface IFoo: IFoo2 {
         fn Direct(&self) -> i32;
+        Name: String;
     }
     interface IFoo2 {
         fn Bar(&self) -> i32;
