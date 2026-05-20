@@ -1,48 +1,94 @@
+pub type DestroySyntheticPointerDevice = unsafe extern "system" fn(device: HSYNTHETICPOINTERDEVICE);
 windows_link::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE));
+pub type EnableMouseInPointer = unsafe extern "system" fn(fenable: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type GetPointerCursorId = unsafe extern "system" fn(pointerid: u32, cursorid: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetPointerCursorId(pointerid : u32, cursorid : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub type GetPointerDevice = unsafe extern "system" fn(device: super::super::super::Foundation::HANDLE, pointerdevice: *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("user32.dll" "system" fn GetPointerDevice(device : super::super::super::Foundation::HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
+pub type GetPointerDeviceCursors = unsafe extern "system" fn(device: super::super::super::Foundation::HANDLE, cursorcount: *mut u32, devicecursors: *mut POINTER_DEVICE_CURSOR_INFO) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::super::super::Foundation::HANDLE, cursorcount : *mut u32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_sys::core::BOOL);
+pub type GetPointerDeviceProperties = unsafe extern "system" fn(device: super::super::super::Foundation::HANDLE, propertycount: *mut u32, pointerproperties: *mut POINTER_DEVICE_PROPERTY) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::super::super::Foundation::HANDLE, propertycount : *mut u32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_sys::core::BOOL);
+pub type GetPointerDeviceRects = unsafe extern "system" fn(device: super::super::super::Foundation::HANDLE, pointerdevicerect: *mut super::super::super::Foundation::RECT, displayrect: *mut super::super::super::Foundation::RECT) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::super::super::Foundation::HANDLE, pointerdevicerect : *mut super::super::super::Foundation::RECT, displayrect : *mut super::super::super::Foundation::RECT) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type GetPointerDevices = unsafe extern "system" fn(devicecount: *mut u32, pointerdevices: *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("user32.dll" "system" fn GetPointerDevices(devicecount : *mut u32, pointerdevices : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerFrameInfo = unsafe extern "system" fn(pointerid: u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameInfo(pointerid : u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerFrameInfoHistory = unsafe extern "system" fn(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, pointerinfo: *mut POINTER_INFO) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerFramePenInfo = unsafe extern "system" fn(pointerid: u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfo(pointerid : u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerFramePenInfoHistory = unsafe extern "system" fn(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerFrameTouchInfo = unsafe extern "system" fn(pointerid: u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfo(pointerid : u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerFrameTouchInfoHistory = unsafe extern "system" fn(pointerid: u32, entriescount: *mut u32, pointercount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerInfo = unsafe extern "system" fn(pointerid: u32, pointerinfo: *mut POINTER_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerInfo(pointerid : u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerInfoHistory = unsafe extern "system" fn(pointerid: u32, entriescount: *mut u32, pointerinfo: *mut POINTER_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerInfoHistory(pointerid : u32, entriescount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
+pub type GetPointerInputTransform = unsafe extern "system" fn(pointerid: u32, historycount: u32, inputtransform: *mut INPUT_TRANSFORM) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetPointerInputTransform(pointerid : u32, historycount : u32, inputtransform : *mut INPUT_TRANSFORM) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerPenInfo = unsafe extern "system" fn(pointerid: u32, peninfo: *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerPenInfo(pointerid : u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerPenInfoHistory = unsafe extern "system" fn(pointerid: u32, entriescount: *mut u32, peninfo: *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerPenInfoHistory(pointerid : u32, entriescount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerTouchInfo = unsafe extern "system" fn(pointerid: u32, touchinfo: *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerTouchInfoHistory = unsafe extern "system" fn(pointerid: u32, entriescount: *mut u32, touchinfo: *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : u32, entriescount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type GetPointerType = unsafe extern "system" fn(pointerid: u32, pointertype: *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut super::super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
+pub type GetRawPointerDeviceData = unsafe extern "system" fn(pointerid: u32, historycount: u32, propertiescount: u32, pproperties: *const POINTER_DEVICE_PROPERTY, pvalues: *mut i32) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : u32, historycount : u32, propertiescount : u32, pproperties : *const POINTER_DEVICE_PROPERTY, pvalues : *mut i32) -> windows_sys::core::BOOL);
+pub type GetUnpredictedMessagePos = unsafe extern "system" fn() -> u32;
 windows_link::link!("user32.dll" "system" fn GetUnpredictedMessagePos() -> u32);
+pub type InitializeTouchInjection = unsafe extern "system" fn(maxcount: u32, dwmode: TOUCH_FEEDBACK_MODE) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount : u32, dwmode : TOUCH_FEEDBACK_MODE) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type InjectSyntheticPointerInput = unsafe extern "system" fn(device: HSYNTHETICPOINTERDEVICE, pointerinfo: *const POINTER_TYPE_INFO, count: u32) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : HSYNTHETICPOINTERDEVICE, pointerinfo : *const POINTER_TYPE_INFO, count : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub type InjectTouchInput = unsafe extern "system" fn(count: u32, contacts: *const POINTER_TOUCH_INFO) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 windows_link::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *const POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+pub type IsMouseInPointerEnabled = unsafe extern "system" fn() -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn IsMouseInPointerEnabled() -> windows_sys::core::BOOL);
+pub type SkipPointerFrameMessages = unsafe extern "system" fn(pointerid: u32) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn SkipPointerFrameMessages(pointerid : u32) -> windows_sys::core::BOOL);
 pub type HSYNTHETICPOINTERDEVICE = *mut core::ffi::c_void;
 #[repr(C)]

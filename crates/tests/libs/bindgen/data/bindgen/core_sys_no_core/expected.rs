@@ -21,6 +21,11 @@ pub mod Windows {
     pub mod Win32 {
         pub mod System {
             pub mod Com {
+                pub type CoCreateGuid =
+                    unsafe extern "system" fn(
+                        pguid: *mut super::super::super::super::GUID,
+                    )
+                        -> super::super::super::super::HRESULT;
                 windows_link::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut super::super::super::super::GUID) -> super::super::super::super::HRESULT);
             }
         }

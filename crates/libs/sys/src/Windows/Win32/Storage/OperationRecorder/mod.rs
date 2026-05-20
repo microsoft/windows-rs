@@ -1,4 +1,6 @@
+pub type OperationEnd = unsafe extern "system" fn(operationendparams: *const OPERATION_END_PARAMETERS) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn OperationEnd(operationendparams : *const OPERATION_END_PARAMETERS) -> windows_sys::core::BOOL);
+pub type OperationStart = unsafe extern "system" fn(operationstartparams: *const OPERATION_START_PARAMETERS) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn OperationStart(operationstartparams : *const OPERATION_START_PARAMETERS) -> windows_sys::core::BOOL);
 pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = 1u32;
 #[repr(C)]

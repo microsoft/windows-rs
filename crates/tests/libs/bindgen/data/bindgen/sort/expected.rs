@@ -1,4 +1,6 @@
+pub type FatalExit = unsafe extern "system" fn(exitcode: i32) -> !;
 windows_link::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
+pub type GetTickCount = unsafe extern "system" fn() -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
 pub const ERROR_OUTOFMEMORY: WIN32_ERROR = 14u32;
 pub const E_FAIL: HRESULT = 0x80004005_u32 as _;

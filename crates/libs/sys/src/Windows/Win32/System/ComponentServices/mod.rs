@@ -1,12 +1,22 @@
+pub type CoCreateActivity = unsafe extern "system" fn(piunknown: *mut core::ffi::c_void, riid: *const windows_sys::core::GUID, ppobj: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type CoEnterServiceDomain = unsafe extern "system" fn(pconfigobject: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
+pub type CoGetDefaultContext = unsafe extern "system" fn(apttype: super::Com::APTTYPE, riid: *const windows_sys::core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_System_Com")]
 windows_link::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com::APTTYPE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type CoLeaveServiceDomain = unsafe extern "system" fn(punkstatus: *mut core::ffi::c_void);
 windows_link::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : *mut core::ffi::c_void));
+pub type GetDispenserManager = unsafe extern "C" fn(param0: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("mtxdm.dll" "C" fn GetDispenserManager(param0 : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type GetManagedExtensions = unsafe extern "system" fn(dwexts: *mut u32) -> windows_sys::core::HRESULT;
 windows_link::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> windows_sys::core::HRESULT);
+pub type MTSCreateActivity = unsafe extern "system" fn(riid: *const windows_sys::core::GUID, ppobj: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_sys::core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type RecycleSurrogate = unsafe extern "C" fn(lreasoncode: i32) -> windows_sys::core::HRESULT;
 windows_link::link!("comsvcs.dll" "C" fn RecycleSurrogate(lreasoncode : i32) -> windows_sys::core::HRESULT);
+pub type SafeRef = unsafe extern "C" fn(rid: *const windows_sys::core::GUID, punk: *mut core::ffi::c_void) -> *mut core::ffi::c_void;
 windows_link::link!("comsvcs.dll" "C" fn SafeRef(rid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
 #[repr(C)]
 #[derive(Clone, Copy)]

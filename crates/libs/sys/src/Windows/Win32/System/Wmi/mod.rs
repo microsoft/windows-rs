@@ -1,3 +1,4 @@
+pub type MI_Application_InitializeV1 = unsafe extern "C" fn(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result;
 windows_link::link!("mi.dll" "C" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
 pub type CIMTYPE_ENUMERATION = i32;
 pub const CIM_BOOLEAN: CIMTYPE_ENUMERATION = 11i32;

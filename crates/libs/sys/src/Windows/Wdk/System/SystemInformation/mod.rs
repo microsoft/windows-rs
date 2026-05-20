@@ -1,8 +1,14 @@
+pub type NtQuerySystemInformation = unsafe extern "system" fn(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS;
 windows_link::link!("ntdll.dll" "system" fn NtQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub type NtQuerySystemTime = unsafe extern "system" fn(systemtime: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS;
 windows_link::link!("ntdll.dll" "system" fn NtQuerySystemTime(systemtime : *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub type NtQueryTimerResolution = unsafe extern "system" fn(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS;
 windows_link::link!("ntdll.dll" "system" fn NtQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub type ZwQuerySystemInformation = unsafe extern "system" fn(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS;
 windows_link::link!("ntdll.dll" "system" fn ZwQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub type ZwQuerySystemTime = unsafe extern "system" fn(systemtime: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS;
 windows_link::link!("ntdll.dll" "system" fn ZwQuerySystemTime(systemtime : *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub type ZwQueryTimerResolution = unsafe extern "system" fn(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS;
 windows_link::link!("ntdll.dll" "system" fn ZwQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> super::super::super::Win32::Foundation::NTSTATUS);
 pub type SYSTEM_INFORMATION_CLASS = i32;
 pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = 0i32;

@@ -1,12 +1,41 @@
+pub type FormatMessageW = unsafe extern "system" fn(
+    dwflags: FORMAT_MESSAGE_OPTIONS,
+    lpsource: *const core::ffi::c_void,
+    dwmessageid: u32,
+    dwlanguageid: u32,
+    lpbuffer: PWSTR,
+    nsize: u32,
+    arguments: *const *const i8,
+) -> u32;
 windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
+pub type GetErrorInfo =
+    unsafe extern "system" fn(dwreserved: u32, pperrinfo: *mut *mut core::ffi::c_void) -> HRESULT;
 windows_link::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut *mut core::ffi::c_void) -> HRESULT);
+pub type GetLastError = unsafe extern "system" fn() -> WIN32_ERROR;
 windows_link::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
+pub type GetProcessHeap = unsafe extern "system" fn() -> HANDLE;
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
+pub type HeapFree = unsafe extern "system" fn(
+    hheap: HANDLE,
+    dwflags: HEAP_FLAGS,
+    lpmem: *const core::ffi::c_void,
+) -> BOOL;
 windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : HEAP_FLAGS, lpmem : *const core::ffi::c_void) -> BOOL);
+pub type LoadLibraryExA = unsafe extern "system" fn(
+    lplibfilename: PCSTR,
+    hfile: HANDLE,
+    dwflags: LOAD_LIBRARY_FLAGS,
+) -> HMODULE;
 windows_link::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : PCSTR, hfile : HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> HMODULE);
+pub type RoOriginateErrorW =
+    unsafe extern "system" fn(error: HRESULT, cchmax: u32, message: PCWSTR) -> BOOL;
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : HRESULT, cchmax : u32, message : PCWSTR) -> BOOL);
+pub type SetErrorInfo =
+    unsafe extern "system" fn(dwreserved: u32, perrinfo: *mut core::ffi::c_void) -> HRESULT;
 windows_link::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : *mut core::ffi::c_void) -> HRESULT);
+pub type SysFreeString = unsafe extern "system" fn(bstrstring: BSTR);
 windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : BSTR));
+pub type SysStringLen = unsafe extern "system" fn(pbstr: BSTR) -> u32;
 windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : BSTR) -> u32);
 pub type BOOL = i32;
 pub type BSTR = *const u16;

@@ -1,4 +1,8 @@
+pub type FileTimeToLocalFileTime =
+    unsafe extern "system" fn(lpfiletime: *const FILETIME, lplocalfiletime: *mut FILETIME) -> BOOL;
 windows_link::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime : *const FILETIME, lplocalfiletime : *mut FILETIME) -> BOOL);
+pub type FileTimeToSystemTime =
+    unsafe extern "system" fn(lpfiletime: *const FILETIME, lpsystemtime: *mut SYSTEMTIME) -> BOOL;
 windows_link::link!("kernel32.dll" "system" fn FileTimeToSystemTime(lpfiletime : *const FILETIME, lpsystemtime : *mut SYSTEMTIME) -> BOOL);
 pub type BOOL = i32;
 #[repr(C)]

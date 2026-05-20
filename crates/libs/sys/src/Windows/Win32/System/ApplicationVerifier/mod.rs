@@ -1,3 +1,4 @@
+pub type VerifierEnumerateResource = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: u32, resourcecallback: AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext: *mut core::ffi::c_void) -> u32;
 windows_link::link!("verifier.dll" "system" fn VerifierEnumerateResource(process : super::super::Foundation::HANDLE, flags : VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype : u32, resourcecallback : AVRF_RESOURCE_ENUMERATE_CALLBACK, enumerationcontext : *mut core::ffi::c_void) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -1,9 +1,16 @@
+pub type WscGetAntiMalwareUri = unsafe extern "system" fn(ppszuri: *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+pub type WscGetSecurityProviderHealth = unsafe extern "system" fn(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_sys::core::HRESULT;
 windows_link::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_sys::core::HRESULT);
+pub type WscQueryAntiMalwareUri = unsafe extern "system" fn() -> windows_sys::core::HRESULT;
 windows_link::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Threading")]
+pub type WscRegisterForChanges = unsafe extern "system" fn(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_sys::core::HRESULT;
+#[cfg(feature = "Win32_System_Threading")]
 windows_link::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation::HANDLE, lpcallbackaddress : super::Threading::LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type WscRegisterForUserNotifications = unsafe extern "system" fn() -> windows_sys::core::HRESULT;
 windows_link::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_sys::core::HRESULT);
+pub type WscUnRegisterChanges = unsafe extern "system" fn(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT;
 windows_link::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT);
 pub type SECURITY_PRODUCT_TYPE = i32;
 pub const SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = 2i32;

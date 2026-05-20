@@ -1,5 +1,8 @@
+pub type SRRemoveRestorePoint = unsafe extern "system" fn(dwrpnum: u32) -> u32;
 windows_link::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
+pub type SRSetRestorePointA = unsafe extern "system" fn(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> windows_sys::core::BOOL;
 windows_link::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> windows_sys::core::BOOL);
+pub type SRSetRestorePointW = unsafe extern "system" fn(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> windows_sys::core::BOOL;
 windows_link::link!("sfc.dll" "system" fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> windows_sys::core::BOOL);
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = 0u32;

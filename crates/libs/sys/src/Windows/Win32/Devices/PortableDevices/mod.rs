@@ -1,3 +1,4 @@
+pub type DMProcessConfigXMLFiltered = unsafe extern "system" fn(pszxmlin: windows_sys::core::PCWSTR, rgszallowedcspnodes: *const windows_sys::core::PCWSTR, dwnumallowedcspnodes: u32, pbstrxmlout: *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("dmprocessxmlfiltered.dll" "system" fn DMProcessConfigXMLFiltered(pszxmlin : windows_sys::core::PCWSTR, rgszallowedcspnodes : *const windows_sys::core::PCWSTR, dwnumallowedcspnodes : u32, pbstrxmlout : *mut windows_sys::core::BSTR) -> windows_sys::core::HRESULT);
 pub const CLSID_WPD_NAMESPACE_EXTENSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x35786d3c_b075_49b9_88dd_029876e11c01);
 pub type DELETE_OBJECT_OPTIONS = i32;

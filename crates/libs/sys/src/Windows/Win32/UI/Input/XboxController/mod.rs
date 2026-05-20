@@ -1,9 +1,16 @@
+pub type XInputEnable = unsafe extern "system" fn(enable: windows_sys::core::BOOL);
 windows_link::link!("xinput1_4.dll" "system" fn XInputEnable(enable : windows_sys::core::BOOL));
+pub type XInputGetAudioDeviceIds = unsafe extern "system" fn(dwuserindex: u32, prenderdeviceid: windows_sys::core::PWSTR, prendercount: *mut u32, pcapturedeviceid: windows_sys::core::PWSTR, pcapturecount: *mut u32) -> u32;
 windows_link::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_sys::core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_sys::core::PWSTR, pcapturecount : *mut u32) -> u32);
+pub type XInputGetBatteryInformation = unsafe extern "system" fn(dwuserindex: u32, devtype: BATTERY_DEVTYPE, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
 windows_link::link!("xinput1_4.dll" "system" fn XInputGetBatteryInformation(dwuserindex : u32, devtype : BATTERY_DEVTYPE, pbatteryinformation : *mut XINPUT_BATTERY_INFORMATION) -> u32);
+pub type XInputGetCapabilities = unsafe extern "system" fn(dwuserindex: u32, dwflags: XINPUT_FLAG, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
 windows_link::link!("xinput1_4.dll" "system" fn XInputGetCapabilities(dwuserindex : u32, dwflags : XINPUT_FLAG, pcapabilities : *mut XINPUT_CAPABILITIES) -> u32);
+pub type XInputGetKeystroke = unsafe extern "system" fn(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
 windows_link::link!("xinput1_4.dll" "system" fn XInputGetKeystroke(dwuserindex : u32, dwreserved : u32, pkeystroke : *mut XINPUT_KEYSTROKE) -> u32);
+pub type XInputGetState = unsafe extern "system" fn(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
 windows_link::link!("xinput1_4.dll" "system" fn XInputGetState(dwuserindex : u32, pstate : *mut XINPUT_STATE) -> u32);
+pub type XInputSetState = unsafe extern "system" fn(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
 windows_link::link!("xinput1_4.dll" "system" fn XInputSetState(dwuserindex : u32, pvibration : *const XINPUT_VIBRATION) -> u32);
 pub type BATTERY_DEVTYPE = u8;
 pub const BATTERY_DEVTYPE_GAMEPAD: BATTERY_DEVTYPE = 0u8;

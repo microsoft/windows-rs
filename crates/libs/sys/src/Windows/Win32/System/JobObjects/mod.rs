@@ -1,18 +1,34 @@
+pub type AssignProcessToJobObject = unsafe extern "system" fn(hjob: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn AssignProcessToJobObject(hjob : super::super::Foundation::HANDLE, hprocess : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type CreateJobObjectA = unsafe extern "system" fn(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security::SECURITY_ATTRIBUTES, lpname : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
+pub type CreateJobObjectW = unsafe extern "system" fn(lpjobattributes: *const super::super::Security::SECURITY_ATTRIBUTES, lpname: windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security::SECURITY_ATTRIBUTES, lpname : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
+pub type CreateJobSet = unsafe extern "system" fn(numjob: u32, userjobset: *const JOB_SET_ARRAY, flags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CreateJobSet(numjob : u32, userjobset : *const JOB_SET_ARRAY, flags : u32) -> windows_sys::core::BOOL);
+pub type FreeMemoryJobObject = unsafe extern "system" fn(buffer: *const core::ffi::c_void);
 windows_link::link!("kernel32.dll" "system" fn FreeMemoryJobObject(buffer : *const core::ffi::c_void));
+pub type IsProcessInJob = unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, jobhandle: super::super::Foundation::HANDLE, result: *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn IsProcessInJob(processhandle : super::super::Foundation::HANDLE, jobhandle : super::super::Foundation::HANDLE, result : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type OpenJobObjectA = unsafe extern "system" fn(dwdesiredaccess: u32, binherithandle: windows_sys::core::BOOL, lpname: windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : windows_sys::core::BOOL, lpname : windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE);
+pub type OpenJobObjectW = unsafe extern "system" fn(dwdesiredaccess: u32, binherithandle: windows_sys::core::BOOL, lpname: windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : windows_sys::core::BOOL, lpname : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
+pub type QueryInformationJobObject = unsafe extern "system" fn(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *mut core::ffi::c_void, cbjobobjectinformationlength: u32, lpreturnlength: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::super::Foundation::HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : *mut u32) -> windows_sys::core::BOOL);
+pub type QueryIoRateControlInformationJobObject = unsafe extern "system" fn(hjob: super::super::Foundation::HANDLE, volumename: windows_sys::core::PCWSTR, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn QueryIoRateControlInformationJobObject(hjob : super::super::Foundation::HANDLE, volumename : windows_sys::core::PCWSTR, infoblocks : *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount : *mut u32) -> u32);
+pub type SetInformationJobObject = unsafe extern "system" fn(hjob: super::super::Foundation::HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: *const core::ffi::c_void, cbjobobjectinformationlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetInformationJobObject(hjob : super::super::Foundation::HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *const core::ffi::c_void, cbjobobjectinformationlength : u32) -> windows_sys::core::BOOL);
+pub type SetIoRateControlInformationJobObject = unsafe extern "system" fn(hjob: super::super::Foundation::HANDLE, ioratecontrolinfo: *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32;
 windows_link::link!("kernel32.dll" "system" fn SetIoRateControlInformationJobObject(hjob : super::super::Foundation::HANDLE, ioratecontrolinfo : *const JOBOBJECT_IO_RATE_CONTROL_INFORMATION) -> u32);
+pub type TerminateJobObject = unsafe extern "system" fn(hjob: super::super::Foundation::HANDLE, uexitcode: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn TerminateJobObject(hjob : super::super::Foundation::HANDLE, uexitcode : u32) -> windows_sys::core::BOOL);
+pub type UserHandleGrantAccess = unsafe extern "system" fn(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("user32.dll" "system" fn UserHandleGrantAccess(huserhandle : super::super::Foundation::HANDLE, hjob : super::super::Foundation::HANDLE, bgrant : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 pub type JOBOBJECTINFOCLASS = i32;
 #[repr(C)]

@@ -1,4 +1,15 @@
+pub type RegGetValueA = unsafe extern "system" fn(
+    hkey: HKEY,
+    lpsubkey: PCSTR,
+    lpvalue: PCSTR,
+    dwflags: REG_ROUTINE_FLAGS,
+    pdwtype: *mut REG_VALUE_TYPE,
+    pvdata: *mut core::ffi::c_void,
+    pcbdata: *mut u32,
+) -> WIN32_ERROR;
 windows_link::link!("advapi32.dll" "system" fn RegGetValueA(hkey : HKEY, lpsubkey : PCSTR, lpvalue : PCSTR, dwflags : REG_ROUTINE_FLAGS, pdwtype : *mut REG_VALUE_TYPE, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> WIN32_ERROR);
+pub type RtlGetVersion =
+    unsafe extern "system" fn(lpversioninformation: *mut OSVERSIONINFOW) -> NTSTATUS;
 windows_link::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : *mut OSVERSIONINFOW) -> NTSTATUS);
 pub type HKEY = *mut core::ffi::c_void;
 pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646i32 as _;

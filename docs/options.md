@@ -35,7 +35,6 @@ Code-style switches (the ones this plan targets):
 | Option | Purpose |
 |--------|---------|
 | `--sys` | Raw / sys-style bindings (no wrappers, plain handles, etc.). |
-| `--sys-fn-ptrs` | Also emit `fn`-pointer typedefs (only meaningful with `--sys`). |
 | `--sys-fn-extern` | Use `extern { fn … }` instead of `link!` (only with `--sys`). |
 | `--minimal` | Drop class wrappers, inherited forwarders, handle ergonomics, etc.; auto-revoke events. Mutually exclusive with `--sys`. |
 | `--typedef` | Emit handle types as bare `pub type` aliases. |

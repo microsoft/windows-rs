@@ -1,488 +1,974 @@
+pub type AddLogContainer = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pcbcontainer: *const u64, pwszcontainerpath: windows_sys::core::PCWSTR, preserved: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn AddLogContainer(hlog : super::super::Foundation::HANDLE, pcbcontainer : *const u64, pwszcontainerpath : windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type AddLogContainerSet = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const windows_sys::core::PCWSTR, preserved: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn AddLogContainerSet(hlog : super::super::Foundation::HANDLE, ccontainer : u16, pcbcontainer : *const u64, rgwszcontainerpath : *const windows_sys::core::PCWSTR, preserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type AddUsersToEncryptedFile = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : windows_sys::core::PCWSTR, pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST) -> u32);
 #[cfg(feature = "Win32_System_IO")]
+pub type AdvanceLogBase = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn AdvanceLogBase(pvmarshal : *mut core::ffi::c_void, plsnbase : *mut CLS_LSN, fflags : u32, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type AlignReservedLog = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn AlignReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, rgcbreservation : *mut i64, pcbalignreservation : *mut i64) -> windows_sys::core::BOOL);
+pub type AllocReservedLog = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn AllocReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, pcbadjustment : *mut i64) -> windows_sys::core::BOOL);
+pub type AreFileApisANSI = unsafe extern "system" fn() -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn AreFileApisANSI() -> windows_sys::core::BOOL);
+pub type AreShortNamesEnabled = unsafe extern "system" fn(handle: super::super::Foundation::HANDLE, enabled: *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn AreShortNamesEnabled(handle : super::super::Foundation::HANDLE, enabled : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type BackupRead = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: windows_sys::core::BOOL, bprocesssecurity: windows_sys::core::BOOL, lpcontext: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn BackupRead(hfile : super::super::Foundation::HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, babort : windows_sys::core::BOOL, bprocesssecurity : windows_sys::core::BOOL, lpcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type BackupSeek = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn BackupSeek(hfile : super::super::Foundation::HANDLE, dwlowbytestoseek : u32, dwhighbytestoseek : u32, lpdwlowbyteseeked : *mut u32, lpdwhighbyteseeked : *mut u32, lpcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type BackupWrite = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: windows_sys::core::BOOL, bprocesssecurity: windows_sys::core::BOOL, lpcontext: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn BackupWrite(hfile : super::super::Foundation::HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, babort : windows_sys::core::BOOL, bprocesssecurity : windows_sys::core::BOOL, lpcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type BuildIoRingCancelRequest = unsafe extern "system" fn(ioring: HIORING, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingCancelRequest(ioring : HIORING, file : IORING_HANDLE_REF, optocancel : usize, userdata : usize) -> windows_sys::core::HRESULT);
+pub type BuildIoRingFlushFile = unsafe extern "system" fn(ioring: HIORING, fileref: IORING_HANDLE_REF, flushmode: FILE_FLUSH_MODE, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_sys::core::HRESULT;
 windows_link::link!("kernel32.dll" "system" fn BuildIoRingFlushFile(ioring : HIORING, fileref : IORING_HANDLE_REF, flushmode : FILE_FLUSH_MODE, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_sys::core::HRESULT);
+pub type BuildIoRingReadFile = unsafe extern "system" fn(ioring: HIORING, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingReadFile(ioring : HIORING, fileref : IORING_HANDLE_REF, dataref : IORING_BUFFER_REF, numberofbytestoread : u32, fileoffset : u64, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_sys::core::HRESULT);
+pub type BuildIoRingReadFileScatter = unsafe extern "system" fn(ioring: HIORING, fileref: IORING_HANDLE_REF, segmentcount: u32, segmentarray: *const FILE_SEGMENT_ELEMENT, numberofbytestoread: u32, fileoffset: u64, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_sys::core::HRESULT;
 windows_link::link!("kernel32.dll" "system" fn BuildIoRingReadFileScatter(ioring : HIORING, fileref : IORING_HANDLE_REF, segmentcount : u32, segmentarray : *const FILE_SEGMENT_ELEMENT, numberofbytestoread : u32, fileoffset : u64, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_sys::core::HRESULT);
+pub type BuildIoRingRegisterBuffers = unsafe extern "system" fn(ioring: HIORING, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingRegisterBuffers(ioring : HIORING, count : u32, buffers : *const IORING_BUFFER_INFO, userdata : usize) -> windows_sys::core::HRESULT);
+pub type BuildIoRingRegisterFileHandles = unsafe extern "system" fn(ioring: HIORING, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn BuildIoRingRegisterFileHandles(ioring : HIORING, count : u32, handles : *const super::super::Foundation::HANDLE, userdata : usize) -> windows_sys::core::HRESULT);
+pub type BuildIoRingWriteFile = unsafe extern "system" fn(ioring: HIORING, fileref: IORING_HANDLE_REF, bufferref: IORING_BUFFER_REF, numberofbytestowrite: u32, fileoffset: u64, writeflags: FILE_WRITE_FLAGS, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_sys::core::HRESULT;
 windows_link::link!("kernel32.dll" "system" fn BuildIoRingWriteFile(ioring : HIORING, fileref : IORING_HANDLE_REF, bufferref : IORING_BUFFER_REF, numberofbytestowrite : u32, fileoffset : u64, writeflags : FILE_WRITE_FLAGS, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_sys::core::HRESULT);
+pub type BuildIoRingWriteFileGather = unsafe extern "system" fn(ioring: HIORING, fileref: IORING_HANDLE_REF, segmentcount: u32, segmentarray: *const FILE_SEGMENT_ELEMENT, numberofbytestowrite: u32, fileoffset: u64, writeflags: FILE_WRITE_FLAGS, userdata: usize, sqeflags: IORING_SQE_FLAGS) -> windows_sys::core::HRESULT;
 windows_link::link!("kernel32.dll" "system" fn BuildIoRingWriteFileGather(ioring : HIORING, fileref : IORING_HANDLE_REF, segmentcount : u32, segmentarray : *const FILE_SEGMENT_ELEMENT, numberofbytestowrite : u32, fileoffset : u64, writeflags : FILE_WRITE_FLAGS, userdata : usize, sqeflags : IORING_SQE_FLAGS) -> windows_sys::core::HRESULT);
+pub type CheckNameLegalDOS8Dot3A = unsafe extern "system" fn(lpname: windows_sys::core::PCSTR, lpoemname: windows_sys::core::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut windows_sys::core::BOOL, pbnamelegal: *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CheckNameLegalDOS8Dot3A(lpname : windows_sys::core::PCSTR, lpoemname : windows_sys::core::PSTR, oemnamesize : u32, pbnamecontainsspaces : *mut windows_sys::core::BOOL, pbnamelegal : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type CheckNameLegalDOS8Dot3W = unsafe extern "system" fn(lpname: windows_sys::core::PCWSTR, lpoemname: windows_sys::core::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut windows_sys::core::BOOL, pbnamelegal: *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CheckNameLegalDOS8Dot3W(lpname : windows_sys::core::PCWSTR, lpoemname : windows_sys::core::PSTR, oemnamesize : u32, pbnamecontainsspaces : *mut windows_sys::core::BOOL, pbnamelegal : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type CloseAndResetLogFile = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn CloseAndResetLogFile(hlog : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type CloseEncryptedFileRaw = unsafe extern "system" fn(pvcontext: *const core::ffi::c_void);
 windows_link::link!("advapi32.dll" "system" fn CloseEncryptedFileRaw(pvcontext : *const core::ffi::c_void));
+pub type CloseIoRing = unsafe extern "system" fn(ioring: HIORING) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CloseIoRing(ioring : HIORING) -> windows_sys::core::HRESULT);
+pub type CommitComplete = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn CommitComplete(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type CommitEnlistment = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn CommitEnlistment(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type CommitTransaction = unsafe extern "system" fn(transactionhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn CommitTransaction(transactionhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type CommitTransactionAsync = unsafe extern "system" fn(transactionhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn CommitTransactionAsync(transactionhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type CompareFileTime = unsafe extern "system" fn(lpfiletime1: *const super::super::Foundation::FILETIME, lpfiletime2: *const super::super::Foundation::FILETIME) -> i32;
 windows_link::link!("kernel32.dll" "system" fn CompareFileTime(lpfiletime1 : *const super::super::Foundation::FILETIME, lpfiletime2 : *const super::super::Foundation::FILETIME) -> i32);
+pub type CopyFile2 = unsafe extern "system" fn(pwszexistingfilename: windows_sys::core::PCWSTR, pwsznewfilename: windows_sys::core::PCWSTR, pextendedparameters: *const COPYFILE2_EXTENDED_PARAMETERS) -> windows_sys::core::HRESULT;
 windows_link::link!("kernel32.dll" "system" fn CopyFile2(pwszexistingfilename : windows_sys::core::PCWSTR, pwsznewfilename : windows_sys::core::PCWSTR, pextendedparameters : *const COPYFILE2_EXTENDED_PARAMETERS) -> windows_sys::core::HRESULT);
+pub type CopyFileA = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCSTR, lpnewfilename: windows_sys::core::PCSTR, bfailifexists: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CopyFileA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, bfailifexists : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type CopyFileExA = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCSTR, lpnewfilename: windows_sys::core::PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, pbcancel: *mut windows_sys::core::BOOL, dwcopyflags: COPYFILE_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CopyFileExA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut windows_sys::core::BOOL, dwcopyflags : COPYFILE_FLAGS) -> windows_sys::core::BOOL);
+pub type CopyFileExW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, pbcancel: *mut windows_sys::core::BOOL, dwcopyflags: COPYFILE_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CopyFileExW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *mut windows_sys::core::BOOL, dwcopyflags : COPYFILE_FLAGS) -> windows_sys::core::BOOL);
+pub type CopyFileFromAppW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR, bfailifexists: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CopyFileFromAppW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, bfailifexists : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type CopyFileTransactedA = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCSTR, lpnewfilename: windows_sys::core::PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, pbcancel: *const windows_sys::core::BOOL, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CopyFileTransactedA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const windows_sys::core::BOOL, dwcopyflags : u32, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type CopyFileTransactedW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, pbcancel: *const windows_sys::core::BOOL, dwcopyflags: u32, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CopyFileTransactedW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, pbcancel : *const windows_sys::core::BOOL, dwcopyflags : u32, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type CopyFileW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR, bfailifexists: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn CopyFileW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, bfailifexists : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type CopyLZFile = unsafe extern "system" fn(hfsource: i32, hfdest: i32) -> i32;
 windows_link::link!("kernel32.dll" "system" fn CopyLZFile(hfsource : i32, hfdest : i32) -> i32);
+pub type CreateBindLink = unsafe extern "system" fn(virtualpath: windows_sys::core::PCWSTR, backingpath: windows_sys::core::PCWSTR, createbindlinkflags: CREATE_BIND_LINK_FLAGS, exceptioncount: u32, exceptionpaths: *const windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("bindfltapi.dll" "system" fn CreateBindLink(virtualpath : windows_sys::core::PCWSTR, backingpath : windows_sys::core::PCWSTR, createbindlinkflags : CREATE_BIND_LINK_FLAGS, exceptioncount : u32, exceptionpaths : *const windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Security")]
+pub type CreateDirectory2A = unsafe extern "system" fn(lppathname: windows_sys::core::PCSTR, dwdesiredaccess: u32, dwsharemode: u32, directoryflags: DIRECTORY_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectory2A(lppathname : windows_sys::core::PCSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
+pub type CreateDirectory2W = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32, directoryflags: DIRECTORY_FLAGS, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectory2W(lppathname : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, directoryflags : DIRECTORY_FLAGS, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_Security")]
+pub type CreateDirectoryA = unsafe extern "system" fn(lppathname: windows_sys::core::PCSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectoryA(lppathname : windows_sys::core::PCSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateDirectoryExA = unsafe extern "system" fn(lptemplatedirectory: windows_sys::core::PCSTR, lpnewdirectory: windows_sys::core::PCSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectoryExA(lptemplatedirectory : windows_sys::core::PCSTR, lpnewdirectory : windows_sys::core::PCSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type CreateDirectoryExW = unsafe extern "system" fn(lptemplatedirectory: windows_sys::core::PCWSTR, lpnewdirectory: windows_sys::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectoryExW(lptemplatedirectory : windows_sys::core::PCWSTR, lpnewdirectory : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateDirectoryFromAppW = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateDirectoryFromAppW(lppathname : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type CreateDirectoryTransactedA = unsafe extern "system" fn(lptemplatedirectory: windows_sys::core::PCSTR, lpnewdirectory: windows_sys::core::PCSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectoryTransactedA(lptemplatedirectory : windows_sys::core::PCSTR, lpnewdirectory : windows_sys::core::PCSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateDirectoryTransactedW = unsafe extern "system" fn(lptemplatedirectory: windows_sys::core::PCWSTR, lpnewdirectory: windows_sys::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectoryTransactedW(lptemplatedirectory : windows_sys::core::PCWSTR, lpnewdirectory : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type CreateDirectoryW = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateDirectoryW(lppathname : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateEnlistment = unsafe extern "system" fn(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: super::super::Foundation::HANDLE, transactionhandle: super::super::Foundation::HANDLE, notificationmask: u32, createoptions: u32, enlistmentkey: *mut core::ffi::c_void) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("ktmw32.dll" "system" fn CreateEnlistment(lpenlistmentattributes : *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle : super::super::Foundation::HANDLE, transactionhandle : super::super::Foundation::HANDLE, notificationmask : u32, createoptions : u32, enlistmentkey : *mut core::ffi::c_void) -> super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_Security")]
+pub type CreateFile2 = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateFile2(lpfilename : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, dwcreationdisposition : FILE_CREATION_DISPOSITION, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
+pub type CreateFile2FromAppW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFile2FromAppW(lpfilename : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_Security")]
+pub type CreateFile3 = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE3_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateFile3(lpfilename : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE3_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
+pub type CreateFileA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateFileA(lpfilename : windows_sys::core::PCSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_Security")]
+pub type CreateFileFromAppW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFileFromAppW(lpfilename : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
+pub type CreateFileTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *const core::ffi::c_void) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateFileTransactedA(lpfilename : windows_sys::core::PCSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation::HANDLE, htransaction : super::super::Foundation::HANDLE, pusminiversion : *const TXFS_MINIVERSION, lpextendedparameter : *const core::ffi::c_void) -> super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_Security")]
+pub type CreateFileTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE, htransaction: super::super::Foundation::HANDLE, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *const core::ffi::c_void) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateFileTransactedW(lpfilename : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation::HANDLE, htransaction : super::super::Foundation::HANDLE, pusminiversion : *const TXFS_MINIVERSION, lpextendedparameter : *const core::ffi::c_void) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
+pub type CreateFileW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateFileW(lpfilename : windows_sys::core::PCWSTR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition : FILE_CREATION_DISPOSITION, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES, htemplatefile : super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_Security")]
+pub type CreateHardLinkA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpexistingfilename: windows_sys::core::PCSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateHardLinkA(lpfilename : windows_sys::core::PCSTR, lpexistingfilename : windows_sys::core::PCSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateHardLinkTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpexistingfilename: windows_sys::core::PCSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateHardLinkTransactedA(lpfilename : windows_sys::core::PCSTR, lpexistingfilename : windows_sys::core::PCSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type CreateHardLinkTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, lpexistingfilename: windows_sys::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateHardLinkTransactedW(lpfilename : windows_sys::core::PCWSTR, lpexistingfilename : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateHardLinkW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, lpexistingfilename: windows_sys::core::PCWSTR, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn CreateHardLinkW(lpfilename : windows_sys::core::PCWSTR, lpexistingfilename : windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> windows_sys::core::BOOL);
+pub type CreateIoRing = unsafe extern "system" fn(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32, h: *mut HIORING) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CreateIoRing(ioringversion : IORING_VERSION, flags : IORING_CREATE_FLAGS, submissionqueuesize : u32, completionqueuesize : u32, h : *mut HIORING) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_IO")]
+pub type CreateLogContainerScanContext = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn CreateLogContainerScanContext(hlog : super::super::Foundation::HANDLE, cfromcontainer : u32, ccontainers : u32, escanmode : u8, pcxscan : *mut CLS_SCAN_CONTEXT, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateLogFile = unsafe extern "system" fn(pszlogfilename: windows_sys::core::PCWSTR, fdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("clfsw32.dll" "system" fn CreateLogFile(pszlogfilename : windows_sys::core::PCWSTR, fdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, psalogfile : *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition : FILE_CREATION_DISPOSITION, fflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE);
+pub type CreateLogMarshallingArea = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pfnallocbuffer: CLFS_BLOCK_ALLOCATION, pfnfreebuffer: CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: *mut core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn CreateLogMarshallingArea(hlog : super::super::Foundation::HANDLE, pfnallocbuffer : CLFS_BLOCK_ALLOCATION, pfnfreebuffer : CLFS_BLOCK_DEALLOCATION, pvblockalloccontext : *mut core::ffi::c_void, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, ppvmarshal : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type CreateResourceManager = unsafe extern "system" fn(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut windows_sys::core::GUID, createoptions: u32, tmhandle: super::super::Foundation::HANDLE, description: windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("ktmw32.dll" "system" fn CreateResourceManager(lpresourcemanagerattributes : *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid : *mut windows_sys::core::GUID, createoptions : u32, tmhandle : super::super::Foundation::HANDLE, description : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
+pub type CreateSymbolicLinkA = unsafe extern "system" fn(lpsymlinkfilename: windows_sys::core::PCSTR, lptargetfilename: windows_sys::core::PCSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> bool;
 windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkA(lpsymlinkfilename : windows_sys::core::PCSTR, lptargetfilename : windows_sys::core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
+pub type CreateSymbolicLinkTransactedA = unsafe extern "system" fn(lpsymlinkfilename: windows_sys::core::PCSTR, lptargetfilename: windows_sys::core::PCSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> bool;
 windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedA(lpsymlinkfilename : windows_sys::core::PCSTR, lptargetfilename : windows_sys::core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation::HANDLE) -> bool);
+pub type CreateSymbolicLinkTransactedW = unsafe extern "system" fn(lpsymlinkfilename: windows_sys::core::PCWSTR, lptargetfilename: windows_sys::core::PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: super::super::Foundation::HANDLE) -> bool;
 windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedW(lpsymlinkfilename : windows_sys::core::PCWSTR, lptargetfilename : windows_sys::core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation::HANDLE) -> bool);
+pub type CreateSymbolicLinkW = unsafe extern "system" fn(lpsymlinkfilename: windows_sys::core::PCWSTR, lptargetfilename: windows_sys::core::PCWSTR, dwflags: SYMBOLIC_LINK_FLAGS) -> bool;
 windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkW(lpsymlinkfilename : windows_sys::core::PCWSTR, lptargetfilename : windows_sys::core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
+pub type CreateTapePartition = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn CreateTapePartition(hdevice : super::super::Foundation::HANDLE, dwpartitionmethod : CREATE_TAPE_PARTITION_METHOD, dwcount : u32, dwsize : u32) -> u32);
+#[cfg(feature = "Win32_Security")]
+pub type CreateTransaction = unsafe extern "system" fn(lptransactionattributes: *const super::super::Security::SECURITY_ATTRIBUTES, uow: *const windows_sys::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("ktmw32.dll" "system" fn CreateTransaction(lptransactionattributes : *const super::super::Security::SECURITY_ATTRIBUTES, uow : *const windows_sys::core::GUID, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : u32, description : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Security")]
+pub type CreateTransactionManager = unsafe extern "system" fn(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: windows_sys::core::PCWSTR, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("ktmw32.dll" "system" fn CreateTransactionManager(lptransactionattributes : *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename : windows_sys::core::PCWSTR, createoptions : u32, commitstrength : u32) -> super::super::Foundation::HANDLE);
+pub type DecryptFileA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, dwreserved: u32) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn DecryptFileA(lpfilename : windows_sys::core::PCSTR, dwreserved : u32) -> windows_sys::core::BOOL);
+pub type DecryptFileW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwreserved: u32) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn DecryptFileW(lpfilename : windows_sys::core::PCWSTR, dwreserved : u32) -> windows_sys::core::BOOL);
+pub type DefineDosDeviceA = unsafe extern "system" fn(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: windows_sys::core::PCSTR, lptargetpath: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DefineDosDeviceA(dwflags : DEFINE_DOS_DEVICE_FLAGS, lpdevicename : windows_sys::core::PCSTR, lptargetpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type DefineDosDeviceW = unsafe extern "system" fn(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: windows_sys::core::PCWSTR, lptargetpath: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DefineDosDeviceW(dwflags : DEFINE_DOS_DEVICE_FLAGS, lpdevicename : windows_sys::core::PCWSTR, lptargetpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type DeleteFile2A = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, flags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteFile2A(lpfilename : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::BOOL);
+pub type DeleteFile2W = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, flags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteFile2W(lpfilename : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::BOOL);
+pub type DeleteFileA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteFileA(lpfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type DeleteFileFromAppW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn DeleteFileFromAppW(lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type DeleteFileTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteFileTransactedA(lpfilename : windows_sys::core::PCSTR, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type DeleteFileTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteFileTransactedW(lpfilename : windows_sys::core::PCWSTR, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type DeleteFileW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteFileW(lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type DeleteLogByHandle = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn DeleteLogByHandle(hlog : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type DeleteLogFile = unsafe extern "system" fn(pszlogfilename: windows_sys::core::PCWSTR, pvreserved: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn DeleteLogFile(pszlogfilename : windows_sys::core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type DeleteLogMarshallingArea = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn DeleteLogMarshallingArea(pvmarshal : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type DeleteVolumeMountPointA = unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteVolumeMountPointA(lpszvolumemountpoint : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type DeleteVolumeMountPointW = unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn DeleteVolumeMountPointW(lpszvolumemountpoint : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type DeregisterManageableLogClient = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn DeregisterManageableLogClient(hlog : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type DuplicateEncryptionInfoFile = unsafe extern "system" fn(srcfilename: windows_sys::core::PCWSTR, dstfilename: windows_sys::core::PCWSTR, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> u32;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn DuplicateEncryptionInfoFile(srcfilename : windows_sys::core::PCWSTR, dstfilename : windows_sys::core::PCWSTR, dwcreationdistribution : u32, dwattributes : u32, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES) -> u32);
+pub type EncryptFileA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn EncryptFileA(lpfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type EncryptFileW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn EncryptFileW(lpfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type EncryptionDisable = unsafe extern "system" fn(dirpath: windows_sys::core::PCWSTR, disable: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn EncryptionDisable(dirpath : windows_sys::core::PCWSTR, disable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type EraseTape = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwerasetype: ERASE_TAPE_TYPE, bimmediate: windows_sys::core::BOOL) -> u32;
 windows_link::link!("kernel32.dll" "system" fn EraseTape(hdevice : super::super::Foundation::HANDLE, dwerasetype : ERASE_TAPE_TYPE, bimmediate : windows_sys::core::BOOL) -> u32);
+pub type FileEncryptionStatusA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpstatus: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn FileEncryptionStatusA(lpfilename : windows_sys::core::PCSTR, lpstatus : *mut u32) -> windows_sys::core::BOOL);
+pub type FileEncryptionStatusW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, lpstatus: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("advapi32.dll" "system" fn FileEncryptionStatusW(lpfilename : windows_sys::core::PCWSTR, lpstatus : *mut u32) -> windows_sys::core::BOOL);
+pub type FileTimeToLocalFileTime = unsafe extern "system" fn(lpfiletime: *const super::super::Foundation::FILETIME, lplocalfiletime: *mut super::super::Foundation::FILETIME) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FileTimeToLocalFileTime(lpfiletime : *const super::super::Foundation::FILETIME, lplocalfiletime : *mut super::super::Foundation::FILETIME) -> windows_sys::core::BOOL);
+pub type FindClose = unsafe extern "system" fn(hfindfile: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindClose(hfindfile : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type FindCloseChangeNotification = unsafe extern "system" fn(hchangehandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindCloseChangeNotification(hchangehandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type FindFirstChangeNotificationA = unsafe extern "system" fn(lppathname: windows_sys::core::PCSTR, bwatchsubtree: windows_sys::core::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstChangeNotificationA(lppathname : windows_sys::core::PCSTR, bwatchsubtree : windows_sys::core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation::HANDLE);
+pub type FindFirstChangeNotificationW = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR, bwatchsubtree: windows_sys::core::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstChangeNotificationW(lppathname : windows_sys::core::PCWSTR, bwatchsubtree : windows_sys::core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpfindfiledata: *mut WIN32_FIND_DATAA) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileA(lpfilename : windows_sys::core::PCSTR, lpfindfiledata : *mut WIN32_FIND_DATAA) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileExA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *const core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileExA(lpfilename : windows_sys::core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileExFromAppW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *const core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn FindFirstFileExFromAppW(lpfilename : windows_sys::core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileExW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *const core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileExW(lpfilename : windows_sys::core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : FIND_FIRST_EX_FLAGS) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileNameTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwflags: u32, stringlength: *mut u32, linkname: windows_sys::core::PWSTR, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileNameTransactedW(lpfilename : windows_sys::core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_sys::core::PWSTR, htransaction : super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileNameW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwflags: u32, stringlength: *mut u32, linkname: windows_sys::core::PWSTR) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileNameW(lpfilename : windows_sys::core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_sys::core::PWSTR) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *const core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileTransactedA(lpfilename : windows_sys::core::PCSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *const core::ffi::c_void, dwadditionalflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileTransactedW(lpfilename : windows_sys::core::PCWSTR, finfolevelid : FINDEX_INFO_LEVELS, lpfindfiledata : *mut core::ffi::c_void, fsearchop : FINDEX_SEARCH_OPS, lpsearchfilter : *const core::ffi::c_void, dwadditionalflags : u32, htransaction : super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE);
+pub type FindFirstFileW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstFileW(lpfilename : windows_sys::core::PCWSTR, lpfindfiledata : *mut WIN32_FIND_DATAW) -> super::super::Foundation::HANDLE);
+pub type FindFirstStreamTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut core::ffi::c_void, dwflags: u32, htransaction: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstStreamTransactedW(lpfilename : windows_sys::core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut core::ffi::c_void, dwflags : u32, htransaction : super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE);
+pub type FindFirstStreamW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut core::ffi::c_void, dwflags: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstStreamW(lpfilename : windows_sys::core::PCWSTR, infolevel : STREAM_INFO_LEVELS, lpfindstreamdata : *mut core::ffi::c_void, dwflags : u32) -> super::super::Foundation::HANDLE);
+pub type FindFirstVolumeA = unsafe extern "system" fn(lpszvolumename: windows_sys::core::PSTR, cchbufferlength: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstVolumeA(lpszvolumename : windows_sys::core::PSTR, cchbufferlength : u32) -> super::super::Foundation::HANDLE);
+pub type FindFirstVolumeMountPointA = unsafe extern "system" fn(lpszrootpathname: windows_sys::core::PCSTR, lpszvolumemountpoint: windows_sys::core::PSTR, cchbufferlength: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstVolumeMountPointA(lpszrootpathname : windows_sys::core::PCSTR, lpszvolumemountpoint : windows_sys::core::PSTR, cchbufferlength : u32) -> super::super::Foundation::HANDLE);
+pub type FindFirstVolumeMountPointW = unsafe extern "system" fn(lpszrootpathname: windows_sys::core::PCWSTR, lpszvolumemountpoint: windows_sys::core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstVolumeMountPointW(lpszrootpathname : windows_sys::core::PCWSTR, lpszvolumemountpoint : windows_sys::core::PWSTR, cchbufferlength : u32) -> super::super::Foundation::HANDLE);
+pub type FindFirstVolumeW = unsafe extern "system" fn(lpszvolumename: windows_sys::core::PWSTR, cchbufferlength: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn FindFirstVolumeW(lpszvolumename : windows_sys::core::PWSTR, cchbufferlength : u32) -> super::super::Foundation::HANDLE);
+pub type FindNextChangeNotification = unsafe extern "system" fn(hchangehandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextChangeNotification(hchangehandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type FindNextFileA = unsafe extern "system" fn(hfindfile: super::super::Foundation::HANDLE, lpfindfiledata: *mut WIN32_FIND_DATAA) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextFileA(hfindfile : super::super::Foundation::HANDLE, lpfindfiledata : *mut WIN32_FIND_DATAA) -> windows_sys::core::BOOL);
+pub type FindNextFileNameW = unsafe extern "system" fn(hfindstream: super::super::Foundation::HANDLE, stringlength: *mut u32, linkname: windows_sys::core::PWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextFileNameW(hfindstream : super::super::Foundation::HANDLE, stringlength : *mut u32, linkname : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+pub type FindNextFileW = unsafe extern "system" fn(hfindfile: super::super::Foundation::HANDLE, lpfindfiledata: *mut WIN32_FIND_DATAW) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextFileW(hfindfile : super::super::Foundation::HANDLE, lpfindfiledata : *mut WIN32_FIND_DATAW) -> windows_sys::core::BOOL);
+pub type FindNextStreamW = unsafe extern "system" fn(hfindstream: super::super::Foundation::HANDLE, lpfindstreamdata: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextStreamW(hfindstream : super::super::Foundation::HANDLE, lpfindstreamdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type FindNextVolumeA = unsafe extern "system" fn(hfindvolume: super::super::Foundation::HANDLE, lpszvolumename: windows_sys::core::PSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextVolumeA(hfindvolume : super::super::Foundation::HANDLE, lpszvolumename : windows_sys::core::PSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type FindNextVolumeMountPointA = unsafe extern "system" fn(hfindvolumemountpoint: super::super::Foundation::HANDLE, lpszvolumemountpoint: windows_sys::core::PSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextVolumeMountPointA(hfindvolumemountpoint : super::super::Foundation::HANDLE, lpszvolumemountpoint : windows_sys::core::PSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type FindNextVolumeMountPointW = unsafe extern "system" fn(hfindvolumemountpoint: super::super::Foundation::HANDLE, lpszvolumemountpoint: windows_sys::core::PWSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextVolumeMountPointW(hfindvolumemountpoint : super::super::Foundation::HANDLE, lpszvolumemountpoint : windows_sys::core::PWSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type FindNextVolumeW = unsafe extern "system" fn(hfindvolume: super::super::Foundation::HANDLE, lpszvolumename: windows_sys::core::PWSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindNextVolumeW(hfindvolume : super::super::Foundation::HANDLE, lpszvolumename : windows_sys::core::PWSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type FindVolumeClose = unsafe extern "system" fn(hfindvolume: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindVolumeClose(hfindvolume : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type FindVolumeMountPointClose = unsafe extern "system" fn(hfindvolumemountpoint: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FindVolumeMountPointClose(hfindvolumemountpoint : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type FlushFileBuffers = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn FlushFileBuffers(hfile : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_System_IO")]
+pub type FlushLogBuffers = unsafe extern "system" fn(pvmarshal: *const core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn FlushLogBuffers(pvmarshal : *const core::ffi::c_void, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type FlushLogToLsn = unsafe extern "system" fn(pvmarshalcontext: *mut core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn FlushLogToLsn(pvmarshalcontext : *mut core::ffi::c_void, plsnflush : *mut CLS_LSN, plsnlastflushed : *mut CLS_LSN, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type FreeEncryptedFileMetadata = unsafe extern "system" fn(pbmetadata: *const u8);
 windows_link::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : *const u8));
 #[cfg(feature = "Win32_Security")]
+pub type FreeEncryptionCertificateHashList = unsafe extern "system" fn(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST);
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn FreeEncryptionCertificateHashList(pusers : *const ENCRYPTION_CERTIFICATE_HASH_LIST));
+pub type FreeReservedLog = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn FreeReservedLog(pvmarshal : *mut core::ffi::c_void, creservedrecords : u32, pcbadjustment : *mut i64) -> windows_sys::core::BOOL);
+pub type GetBinaryTypeA = unsafe extern "system" fn(lpapplicationname: windows_sys::core::PCSTR, lpbinarytype: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetBinaryTypeA(lpapplicationname : windows_sys::core::PCSTR, lpbinarytype : *mut u32) -> windows_sys::core::BOOL);
+pub type GetBinaryTypeW = unsafe extern "system" fn(lpapplicationname: windows_sys::core::PCWSTR, lpbinarytype: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetBinaryTypeW(lpapplicationname : windows_sys::core::PCWSTR, lpbinarytype : *mut u32) -> windows_sys::core::BOOL);
+pub type GetCompressedFileSizeA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpfilesizehigh: *mut u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetCompressedFileSizeA(lpfilename : windows_sys::core::PCSTR, lpfilesizehigh : *mut u32) -> u32);
+pub type GetCompressedFileSizeTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpfilesizehigh: *mut u32, htransaction: super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetCompressedFileSizeTransactedA(lpfilename : windows_sys::core::PCSTR, lpfilesizehigh : *mut u32, htransaction : super::super::Foundation::HANDLE) -> u32);
+pub type GetCompressedFileSizeTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, lpfilesizehigh: *mut u32, htransaction: super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetCompressedFileSizeTransactedW(lpfilename : windows_sys::core::PCWSTR, lpfilesizehigh : *mut u32, htransaction : super::super::Foundation::HANDLE) -> u32);
+pub type GetCompressedFileSizeW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, lpfilesizehigh: *mut u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetCompressedFileSizeW(lpfilename : windows_sys::core::PCWSTR, lpfilesizehigh : *mut u32) -> u32);
+pub type GetCurrentClockTransactionManager = unsafe extern "system" fn(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn GetCurrentClockTransactionManager(transactionmanagerhandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type GetDiskFreeSpaceA = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCSTR, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetDiskFreeSpaceA(lprootpathname : windows_sys::core::PCSTR, lpsectorspercluster : *mut u32, lpbytespersector : *mut u32, lpnumberoffreeclusters : *mut u32, lptotalnumberofclusters : *mut u32) -> windows_sys::core::BOOL);
+pub type GetDiskFreeSpaceExA = unsafe extern "system" fn(lpdirectoryname: windows_sys::core::PCSTR, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExA(lpdirectoryname : windows_sys::core::PCSTR, lpfreebytesavailabletocaller : *mut u64, lptotalnumberofbytes : *mut u64, lptotalnumberoffreebytes : *mut u64) -> windows_sys::core::BOOL);
+pub type GetDiskFreeSpaceExW = unsafe extern "system" fn(lpdirectoryname: windows_sys::core::PCWSTR, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetDiskFreeSpaceExW(lpdirectoryname : windows_sys::core::PCWSTR, lpfreebytesavailabletocaller : *mut u64, lptotalnumberofbytes : *mut u64, lptotalnumberoffreebytes : *mut u64) -> windows_sys::core::BOOL);
+pub type GetDiskFreeSpaceW = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCWSTR, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetDiskFreeSpaceW(lprootpathname : windows_sys::core::PCWSTR, lpsectorspercluster : *mut u32, lpbytespersector : *mut u32, lpnumberoffreeclusters : *mut u32, lptotalnumberofclusters : *mut u32) -> windows_sys::core::BOOL);
+pub type GetDiskSpaceInformationA = unsafe extern "system" fn(rootpath: windows_sys::core::PCSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_sys::core::HRESULT;
 windows_link::link!("kernel32.dll" "system" fn GetDiskSpaceInformationA(rootpath : windows_sys::core::PCSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_sys::core::HRESULT);
+pub type GetDiskSpaceInformationW = unsafe extern "system" fn(rootpath: windows_sys::core::PCWSTR, diskspaceinfo: *mut DISK_SPACE_INFORMATION) -> windows_sys::core::HRESULT;
 windows_link::link!("kernel32.dll" "system" fn GetDiskSpaceInformationW(rootpath : windows_sys::core::PCWSTR, diskspaceinfo : *mut DISK_SPACE_INFORMATION) -> windows_sys::core::HRESULT);
+pub type GetDriveTypeA = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetDriveTypeA(lprootpathname : windows_sys::core::PCSTR) -> u32);
+pub type GetDriveTypeW = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetDriveTypeW(lprootpathname : windows_sys::core::PCWSTR) -> u32);
+pub type GetEncryptedFileMetadata = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, pcbmetadata: *mut u32, ppbmetadata: *mut *mut u8) -> u32;
 windows_link::link!("advapi32.dll" "system" fn GetEncryptedFileMetadata(lpfilename : windows_sys::core::PCWSTR, pcbmetadata : *mut u32, ppbmetadata : *mut *mut u8) -> u32);
+pub type GetEnlistmentId = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentid: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn GetEnlistmentId(enlistmenthandle : super::super::Foundation::HANDLE, enlistmentid : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
+pub type GetEnlistmentRecoveryInformation = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut core::ffi::c_void, bufferused: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn GetEnlistmentRecoveryInformation(enlistmenthandle : super::super::Foundation::HANDLE, buffersize : u32, buffer : *mut core::ffi::c_void, bufferused : *mut u32) -> windows_sys::core::BOOL);
+pub type GetExpandedNameA = unsafe extern "system" fn(lpszsource: windows_sys::core::PCSTR, lpszbuffer: windows_sys::core::PSTR) -> i32;
 windows_link::link!("kernel32.dll" "system" fn GetExpandedNameA(lpszsource : windows_sys::core::PCSTR, lpszbuffer : windows_sys::core::PSTR) -> i32);
+pub type GetExpandedNameW = unsafe extern "system" fn(lpszsource: windows_sys::core::PCWSTR, lpszbuffer: windows_sys::core::PWSTR) -> i32;
 windows_link::link!("kernel32.dll" "system" fn GetExpandedNameW(lpszsource : windows_sys::core::PCWSTR, lpszbuffer : windows_sys::core::PWSTR) -> i32);
+pub type GetFileAttributesA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFileAttributesA(lpfilename : windows_sys::core::PCSTR) -> u32);
+pub type GetFileAttributesExA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileAttributesExA(lpfilename : windows_sys::core::PCSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type GetFileAttributesExFromAppW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn GetFileAttributesExFromAppW(lpfilename : windows_sys::core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type GetFileAttributesExW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileAttributesExW(lpfilename : windows_sys::core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type GetFileAttributesTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileAttributesTransactedA(lpfilename : windows_sys::core::PCSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type GetFileAttributesTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut core::ffi::c_void, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileAttributesTransactedW(lpfilename : windows_sys::core::PCWSTR, finfolevelid : GET_FILEEX_INFO_LEVELS, lpfileinformation : *mut core::ffi::c_void, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type GetFileAttributesW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFileAttributesW(lpfilename : windows_sys::core::PCWSTR) -> u32);
+pub type GetFileBandwidthReservation = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut windows_sys::core::BOOL, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileBandwidthReservation(hfile : super::super::Foundation::HANDLE, lpperiodmilliseconds : *mut u32, lpbytesperperiod : *mut u32, pdiscardable : *mut windows_sys::core::BOOL, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> windows_sys::core::BOOL);
+pub type GetFileInformationByHandle = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileInformationByHandle(hfile : super::super::Foundation::HANDLE, lpfileinformation : *mut BY_HANDLE_FILE_INFORMATION) -> windows_sys::core::BOOL);
+pub type GetFileInformationByHandleEx = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut core::ffi::c_void, dwbuffersize: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileInformationByHandleEx(hfile : super::super::Foundation::HANDLE, fileinformationclass : FILE_INFO_BY_HANDLE_CLASS, lpfileinformation : *mut core::ffi::c_void, dwbuffersize : u32) -> windows_sys::core::BOOL);
+pub type GetFileInformationByName = unsafe extern "system" fn(filename: windows_sys::core::PCWSTR, fileinformationclass: FILE_INFO_BY_NAME_CLASS, fileinfobuffer: *mut core::ffi::c_void, fileinfobuffersize: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileInformationByName(filename : windows_sys::core::PCWSTR, fileinformationclass : FILE_INFO_BY_NAME_CLASS, fileinfobuffer : *mut core::ffi::c_void, fileinfobuffersize : u32) -> windows_sys::core::BOOL);
+pub type GetFileSize = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpfilesizehigh: *mut u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFileSize(hfile : super::super::Foundation::HANDLE, lpfilesizehigh : *mut u32) -> u32);
+pub type GetFileSizeEx = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpfilesize: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileSizeEx(hfile : super::super::Foundation::HANDLE, lpfilesize : *mut i64) -> windows_sys::core::BOOL);
+pub type GetFileTime = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpcreationtime: *mut super::super::Foundation::FILETIME, lplastaccesstime: *mut super::super::Foundation::FILETIME, lplastwritetime: *mut super::super::Foundation::FILETIME) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetFileTime(hfile : super::super::Foundation::HANDLE, lpcreationtime : *mut super::super::Foundation::FILETIME, lplastaccesstime : *mut super::super::Foundation::FILETIME, lplastwritetime : *mut super::super::Foundation::FILETIME) -> windows_sys::core::BOOL);
+pub type GetFileType = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE) -> FILE_TYPE;
 windows_link::link!("kernel32.dll" "system" fn GetFileType(hfile : super::super::Foundation::HANDLE) -> FILE_TYPE);
+pub type GetFileVersionInfoA = unsafe extern "system" fn(lptstrfilename: windows_sys::core::PCSTR, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoA(lptstrfilename : windows_sys::core::PCSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type GetFileVersionInfoExA = unsafe extern "system" fn(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: windows_sys::core::PCSTR, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoExA(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_sys::core::PCSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type GetFileVersionInfoExW = unsafe extern "system" fn(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: windows_sys::core::PCWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoExW(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_sys::core::PCWSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type GetFileVersionInfoSizeA = unsafe extern "system" fn(lptstrfilename: windows_sys::core::PCSTR, lpdwhandle: *mut u32) -> u32;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoSizeA(lptstrfilename : windows_sys::core::PCSTR, lpdwhandle : *mut u32) -> u32);
+pub type GetFileVersionInfoSizeExA = unsafe extern "system" fn(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: windows_sys::core::PCSTR, lpdwhandle: *mut u32) -> u32;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoSizeExA(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_sys::core::PCSTR, lpdwhandle : *mut u32) -> u32);
+pub type GetFileVersionInfoSizeExW = unsafe extern "system" fn(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: windows_sys::core::PCWSTR, lpdwhandle: *mut u32) -> u32;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoSizeExW(dwflags : GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename : windows_sys::core::PCWSTR, lpdwhandle : *mut u32) -> u32);
+pub type GetFileVersionInfoSizeW = unsafe extern "system" fn(lptstrfilename: windows_sys::core::PCWSTR, lpdwhandle: *mut u32) -> u32;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoSizeW(lptstrfilename : windows_sys::core::PCWSTR, lpdwhandle : *mut u32) -> u32);
+pub type GetFileVersionInfoW = unsafe extern "system" fn(lptstrfilename: windows_sys::core::PCWSTR, dwhandle: u32, dwlen: u32, lpdata: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("version.dll" "system" fn GetFileVersionInfoW(lptstrfilename : windows_sys::core::PCWSTR, dwhandle : u32, dwlen : u32, lpdata : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type GetFinalPathNameByHandleA = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpszfilepath: windows_sys::core::PSTR, cchfilepath: u32, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleA(hfile : super::super::Foundation::HANDLE, lpszfilepath : windows_sys::core::PSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
+pub type GetFinalPathNameByHandleW = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpszfilepath: windows_sys::core::PWSTR, cchfilepath: u32, dwflags: GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFinalPathNameByHandleW(hfile : super::super::Foundation::HANDLE, lpszfilepath : windows_sys::core::PWSTR, cchfilepath : u32, dwflags : GETFINALPATHNAMEBYHANDLE_FLAGS) -> u32);
+pub type GetFullPathNameA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, nbufferlength: u32, lpbuffer: windows_sys::core::PSTR, lpfilepart: *mut windows_sys::core::PSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFullPathNameA(lpfilename : windows_sys::core::PCSTR, nbufferlength : u32, lpbuffer : windows_sys::core::PSTR, lpfilepart : *mut windows_sys::core::PSTR) -> u32);
+pub type GetFullPathNameTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, nbufferlength: u32, lpbuffer: windows_sys::core::PSTR, lpfilepart: *mut windows_sys::core::PSTR, htransaction: super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFullPathNameTransactedA(lpfilename : windows_sys::core::PCSTR, nbufferlength : u32, lpbuffer : windows_sys::core::PSTR, lpfilepart : *mut windows_sys::core::PSTR, htransaction : super::super::Foundation::HANDLE) -> u32);
+pub type GetFullPathNameTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, nbufferlength: u32, lpbuffer: windows_sys::core::PWSTR, lpfilepart: *mut windows_sys::core::PWSTR, htransaction: super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFullPathNameTransactedW(lpfilename : windows_sys::core::PCWSTR, nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR, lpfilepart : *mut windows_sys::core::PWSTR, htransaction : super::super::Foundation::HANDLE) -> u32);
+pub type GetFullPathNameW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, nbufferlength: u32, lpbuffer: windows_sys::core::PWSTR, lpfilepart: *mut windows_sys::core::PWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetFullPathNameW(lpfilename : windows_sys::core::PCWSTR, nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR, lpfilepart : *mut windows_sys::core::PWSTR) -> u32);
+pub type GetIoRingInfo = unsafe extern "system" fn(ioring: HIORING, info: *mut IORING_INFO) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn GetIoRingInfo(ioring : HIORING, info : *mut IORING_INFO) -> windows_sys::core::HRESULT);
+pub type GetLogContainerName = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, cidlogicalcontainer: u32, pwstrcontainername: windows_sys::core::PCWSTR, clencontainername: u32, pcactuallencontainername: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn GetLogContainerName(hlog : super::super::Foundation::HANDLE, cidlogicalcontainer : u32, pwstrcontainername : windows_sys::core::PCWSTR, clencontainername : u32, pcactuallencontainername : *mut u32) -> windows_sys::core::BOOL);
+pub type GetLogFileInformation = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn GetLogFileInformation(hlog : super::super::Foundation::HANDLE, pinfobuffer : *mut CLS_INFORMATION, cbbuffer : *mut u32) -> windows_sys::core::BOOL);
+pub type GetLogIoStatistics = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pvstatsbuffer: *mut core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn GetLogIoStatistics(hlog : super::super::Foundation::HANDLE, pvstatsbuffer : *mut core::ffi::c_void, cbstatsbuffer : u32, estatsclass : CLFS_IOSTATS_CLASS, pcbstatswritten : *mut u32) -> windows_sys::core::BOOL);
+pub type GetLogReservationInfo = unsafe extern "system" fn(pvmarshal: *const core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn GetLogReservationInfo(pvmarshal : *const core::ffi::c_void, pcbrecordnumber : *mut u32, pcbuserreservation : *mut i64, pcbcommitreservation : *mut i64) -> windows_sys::core::BOOL);
+pub type GetLogicalDriveStringsA = unsafe extern "system" fn(nbufferlength: u32, lpbuffer: windows_sys::core::PSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetLogicalDriveStringsA(nbufferlength : u32, lpbuffer : windows_sys::core::PSTR) -> u32);
+pub type GetLogicalDriveStringsW = unsafe extern "system" fn(nbufferlength: u32, lpbuffer: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetLogicalDriveStringsW(nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR) -> u32);
+pub type GetLogicalDrives = unsafe extern "system" fn() -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetLogicalDrives() -> u32);
+pub type GetLongPathNameA = unsafe extern "system" fn(lpszshortpath: windows_sys::core::PCSTR, lpszlongpath: windows_sys::core::PSTR, cchbuffer: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetLongPathNameA(lpszshortpath : windows_sys::core::PCSTR, lpszlongpath : windows_sys::core::PSTR, cchbuffer : u32) -> u32);
+pub type GetLongPathNameTransactedA = unsafe extern "system" fn(lpszshortpath: windows_sys::core::PCSTR, lpszlongpath: windows_sys::core::PSTR, cchbuffer: u32, htransaction: super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetLongPathNameTransactedA(lpszshortpath : windows_sys::core::PCSTR, lpszlongpath : windows_sys::core::PSTR, cchbuffer : u32, htransaction : super::super::Foundation::HANDLE) -> u32);
+pub type GetLongPathNameTransactedW = unsafe extern "system" fn(lpszshortpath: windows_sys::core::PCWSTR, lpszlongpath: windows_sys::core::PWSTR, cchbuffer: u32, htransaction: super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetLongPathNameTransactedW(lpszshortpath : windows_sys::core::PCWSTR, lpszlongpath : windows_sys::core::PWSTR, cchbuffer : u32, htransaction : super::super::Foundation::HANDLE) -> u32);
+pub type GetLongPathNameW = unsafe extern "system" fn(lpszshortpath: windows_sys::core::PCWSTR, lpszlongpath: windows_sys::core::PWSTR, cchbuffer: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetLongPathNameW(lpszshortpath : windows_sys::core::PCWSTR, lpszlongpath : windows_sys::core::PWSTR, cchbuffer : u32) -> u32);
+pub type GetNextLogArchiveExtent = unsafe extern "system" fn(pvarchivecontext: *mut core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn GetNextLogArchiveExtent(pvarchivecontext : *mut core::ffi::c_void, rgadextent : *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors : u32, pcdescriptorsreturned : *mut u32) -> windows_sys::core::BOOL);
+pub type GetNotificationResourceManager = unsafe extern "system" fn(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn GetNotificationResourceManager(resourcemanagerhandle : super::super::Foundation::HANDLE, transactionnotification : *mut TRANSACTION_NOTIFICATION, notificationlength : u32, dwmilliseconds : u32, returnlength : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type GetNotificationResourceManagerAsync = unsafe extern "system" fn(resourcemanagerhandle: super::super::Foundation::HANDLE, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("ktmw32.dll" "system" fn GetNotificationResourceManagerAsync(resourcemanagerhandle : super::super::Foundation::HANDLE, transactionnotification : *mut TRANSACTION_NOTIFICATION, transactionnotificationlength : u32, returnlength : *mut u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type GetShortPathNameA = unsafe extern "system" fn(lpszlongpath: windows_sys::core::PCSTR, lpszshortpath: windows_sys::core::PSTR, cchbuffer: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetShortPathNameA(lpszlongpath : windows_sys::core::PCSTR, lpszshortpath : windows_sys::core::PSTR, cchbuffer : u32) -> u32);
+pub type GetShortPathNameW = unsafe extern "system" fn(lpszlongpath: windows_sys::core::PCWSTR, lpszshortpath: windows_sys::core::PWSTR, cchbuffer: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetShortPathNameW(lpszlongpath : windows_sys::core::PCWSTR, lpszshortpath : windows_sys::core::PWSTR, cchbuffer : u32) -> u32);
+pub type GetTapeParameters = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut core::ffi::c_void) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTapeParameters(hdevice : super::super::Foundation::HANDLE, dwoperation : GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize : *mut u32, lptapeinformation : *mut core::ffi::c_void) -> u32);
+pub type GetTapePosition = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTapePosition(hdevice : super::super::Foundation::HANDLE, dwpositiontype : TAPE_POSITION_TYPE, lpdwpartition : *mut u32, lpdwoffsetlow : *mut u32, lpdwoffsethigh : *mut u32) -> u32);
+pub type GetTapeStatus = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTapeStatus(hdevice : super::super::Foundation::HANDLE) -> u32);
+pub type GetTempFileNameA = unsafe extern "system" fn(lppathname: windows_sys::core::PCSTR, lpprefixstring: windows_sys::core::PCSTR, uunique: u32, lptempfilename: windows_sys::core::PSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTempFileNameA(lppathname : windows_sys::core::PCSTR, lpprefixstring : windows_sys::core::PCSTR, uunique : u32, lptempfilename : windows_sys::core::PSTR) -> u32);
+pub type GetTempFileNameW = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR, lpprefixstring: windows_sys::core::PCWSTR, uunique: u32, lptempfilename: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTempFileNameW(lppathname : windows_sys::core::PCWSTR, lpprefixstring : windows_sys::core::PCWSTR, uunique : u32, lptempfilename : windows_sys::core::PWSTR) -> u32);
+pub type GetTempPath2A = unsafe extern "system" fn(bufferlength: u32, buffer: windows_sys::core::PSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTempPath2A(bufferlength : u32, buffer : windows_sys::core::PSTR) -> u32);
+pub type GetTempPath2W = unsafe extern "system" fn(bufferlength: u32, buffer: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTempPath2W(bufferlength : u32, buffer : windows_sys::core::PWSTR) -> u32);
+pub type GetTempPathA = unsafe extern "system" fn(nbufferlength: u32, lpbuffer: windows_sys::core::PSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTempPathA(nbufferlength : u32, lpbuffer : windows_sys::core::PSTR) -> u32);
+pub type GetTempPathW = unsafe extern "system" fn(nbufferlength: u32, lpbuffer: windows_sys::core::PWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn GetTempPathW(nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR) -> u32);
+pub type GetTransactionId = unsafe extern "system" fn(transactionhandle: super::super::Foundation::HANDLE, transactionid: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn GetTransactionId(transactionhandle : super::super::Foundation::HANDLE, transactionid : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
+pub type GetTransactionInformation = unsafe extern "system" fn(transactionhandle: super::super::Foundation::HANDLE, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, bufferlength: u32, description: windows_sys::core::PWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn GetTransactionInformation(transactionhandle : super::super::Foundation::HANDLE, outcome : *mut u32, isolationlevel : *mut u32, isolationflags : *mut u32, timeout : *mut u32, bufferlength : u32, description : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+pub type GetTransactionManagerId = unsafe extern "system" fn(transactionmanagerhandle: super::super::Foundation::HANDLE, transactionmanagerid: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn GetTransactionManagerId(transactionmanagerhandle : super::super::Foundation::HANDLE, transactionmanagerid : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
+pub type GetVolumeInformationA = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCSTR, lpvolumenamebuffer: windows_sys::core::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: windows_sys::core::PSTR, nfilesystemnamesize: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumeInformationA(lprootpathname : windows_sys::core::PCSTR, lpvolumenamebuffer : windows_sys::core::PSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_sys::core::PSTR, nfilesystemnamesize : u32) -> windows_sys::core::BOOL);
+pub type GetVolumeInformationByHandleW = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpvolumenamebuffer: windows_sys::core::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: windows_sys::core::PWSTR, nfilesystemnamesize: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumeInformationByHandleW(hfile : super::super::Foundation::HANDLE, lpvolumenamebuffer : windows_sys::core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_sys::core::PWSTR, nfilesystemnamesize : u32) -> windows_sys::core::BOOL);
+pub type GetVolumeInformationW = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCWSTR, lpvolumenamebuffer: windows_sys::core::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: windows_sys::core::PWSTR, nfilesystemnamesize: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumeInformationW(lprootpathname : windows_sys::core::PCWSTR, lpvolumenamebuffer : windows_sys::core::PWSTR, nvolumenamesize : u32, lpvolumeserialnumber : *mut u32, lpmaximumcomponentlength : *mut u32, lpfilesystemflags : *mut u32, lpfilesystemnamebuffer : windows_sys::core::PWSTR, nfilesystemnamesize : u32) -> windows_sys::core::BOOL);
+pub type GetVolumeNameForVolumeMountPointA = unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCSTR, lpszvolumename: windows_sys::core::PSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint : windows_sys::core::PCSTR, lpszvolumename : windows_sys::core::PSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type GetVolumeNameForVolumeMountPointW = unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCWSTR, lpszvolumename: windows_sys::core::PWSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint : windows_sys::core::PCWSTR, lpszvolumename : windows_sys::core::PWSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type GetVolumePathNameA = unsafe extern "system" fn(lpszfilename: windows_sys::core::PCSTR, lpszvolumepathname: windows_sys::core::PSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumePathNameA(lpszfilename : windows_sys::core::PCSTR, lpszvolumepathname : windows_sys::core::PSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type GetVolumePathNameW = unsafe extern "system" fn(lpszfilename: windows_sys::core::PCWSTR, lpszvolumepathname: windows_sys::core::PWSTR, cchbufferlength: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumePathNameW(lpszfilename : windows_sys::core::PCWSTR, lpszvolumepathname : windows_sys::core::PWSTR, cchbufferlength : u32) -> windows_sys::core::BOOL);
+pub type GetVolumePathNamesForVolumeNameA = unsafe extern "system" fn(lpszvolumename: windows_sys::core::PCSTR, lpszvolumepathnames: windows_sys::core::PSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameA(lpszvolumename : windows_sys::core::PCSTR, lpszvolumepathnames : windows_sys::core::PSTR, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> windows_sys::core::BOOL);
+pub type GetVolumePathNamesForVolumeNameW = unsafe extern "system" fn(lpszvolumename: windows_sys::core::PCWSTR, lpszvolumepathnames: windows_sys::core::PWSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn GetVolumePathNamesForVolumeNameW(lpszvolumename : windows_sys::core::PCWSTR, lpszvolumepathnames : windows_sys::core::PWSTR, cchbufferlength : u32, lpcchreturnlength : *mut u32) -> windows_sys::core::BOOL);
+pub type HandleLogFull = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn HandleLogFull(hlog : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type InstallLogPolicy = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, ppolicy: *mut CLFS_MGMT_POLICY) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn InstallLogPolicy(hlog : super::super::Foundation::HANDLE, ppolicy : *mut CLFS_MGMT_POLICY) -> windows_sys::core::BOOL);
+pub type IsIoRingOpSupported = unsafe extern "system" fn(ioring: HIORING, op: IORING_OP_CODE) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn IsIoRingOpSupported(ioring : HIORING, op : IORING_OP_CODE) -> windows_sys::core::BOOL);
+pub type LZClose = unsafe extern "system" fn(hfile: i32);
 windows_link::link!("kernel32.dll" "system" fn LZClose(hfile : i32));
+pub type LZCopy = unsafe extern "system" fn(hfsource: i32, hfdest: i32) -> i32;
 windows_link::link!("kernel32.dll" "system" fn LZCopy(hfsource : i32, hfdest : i32) -> i32);
+pub type LZDone = unsafe extern "system" fn();
 windows_link::link!("kernel32.dll" "system" fn LZDone());
+pub type LZInit = unsafe extern "system" fn(hfsource: i32) -> i32;
 windows_link::link!("kernel32.dll" "system" fn LZInit(hfsource : i32) -> i32);
+pub type LZOpenFileA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
 windows_link::link!("kernel32.dll" "system" fn LZOpenFileA(lpfilename : windows_sys::core::PCSTR, lpreopenbuf : *mut OFSTRUCT, wstyle : LZOPENFILE_STYLE) -> i32);
+pub type LZOpenFileW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32;
 windows_link::link!("kernel32.dll" "system" fn LZOpenFileW(lpfilename : windows_sys::core::PCWSTR, lpreopenbuf : *mut OFSTRUCT, wstyle : LZOPENFILE_STYLE) -> i32);
+pub type LZRead = unsafe extern "system" fn(hfile: i32, lpbuffer: windows_sys::core::PSTR, cbread: i32) -> i32;
 windows_link::link!("kernel32.dll" "system" fn LZRead(hfile : i32, lpbuffer : windows_sys::core::PSTR, cbread : i32) -> i32);
+pub type LZSeek = unsafe extern "system" fn(hfile: i32, loffset: i32, iorigin: i32) -> i32;
 windows_link::link!("kernel32.dll" "system" fn LZSeek(hfile : i32, loffset : i32, iorigin : i32) -> i32);
+pub type LZStart = unsafe extern "system" fn() -> i32;
 windows_link::link!("kernel32.dll" "system" fn LZStart() -> i32);
+pub type LocalFileTimeToFileTime = unsafe extern "system" fn(lplocalfiletime: *const super::super::Foundation::FILETIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn LocalFileTimeToFileTime(lplocalfiletime : *const super::super::Foundation::FILETIME, lpfiletime : *mut super::super::Foundation::FILETIME) -> windows_sys::core::BOOL);
+pub type LockFile = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn LockFile(hfile : super::super::Foundation::HANDLE, dwfileoffsetlow : u32, dwfileoffsethigh : u32, nnumberofbytestolocklow : u32, nnumberofbytestolockhigh : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type LockFileEx = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn LockFileEx(hfile : super::super::Foundation::HANDLE, dwflags : LOCK_FILE_FLAGS, dwreserved : u32, nnumberofbytestolocklow : u32, nnumberofbytestolockhigh : u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type LogTailAdvanceFailure = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, dwreason: u32) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn LogTailAdvanceFailure(hlog : super::super::Foundation::HANDLE, dwreason : u32) -> windows_sys::core::BOOL);
+pub type LsnBlockOffset = unsafe extern "system" fn(plsn: *const CLS_LSN) -> u32;
 windows_link::link!("clfsw32.dll" "system" fn LsnBlockOffset(plsn : *const CLS_LSN) -> u32);
+pub type LsnContainer = unsafe extern "system" fn(plsn: *const CLS_LSN) -> u32;
 windows_link::link!("clfsw32.dll" "system" fn LsnContainer(plsn : *const CLS_LSN) -> u32);
+pub type LsnCreate = unsafe extern "system" fn(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN;
 windows_link::link!("clfsw32.dll" "system" fn LsnCreate(cidcontainer : u32, offblock : u32, crecord : u32) -> CLS_LSN);
+pub type LsnEqual = unsafe extern "system" fn(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> bool;
 windows_link::link!("clfsw32.dll" "system" fn LsnEqual(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
+pub type LsnGreater = unsafe extern "system" fn(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> bool;
 windows_link::link!("clfsw32.dll" "system" fn LsnGreater(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
+pub type LsnIncrement = unsafe extern "system" fn(plsn: *const CLS_LSN) -> CLS_LSN;
 windows_link::link!("clfsw32.dll" "system" fn LsnIncrement(plsn : *const CLS_LSN) -> CLS_LSN);
+pub type LsnInvalid = unsafe extern "system" fn(plsn: *const CLS_LSN) -> bool;
 windows_link::link!("clfsw32.dll" "system" fn LsnInvalid(plsn : *const CLS_LSN) -> bool);
+pub type LsnLess = unsafe extern "system" fn(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> bool;
 windows_link::link!("clfsw32.dll" "system" fn LsnLess(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
+pub type LsnNull = unsafe extern "system" fn(plsn: *const CLS_LSN) -> bool;
 windows_link::link!("clfsw32.dll" "system" fn LsnNull(plsn : *const CLS_LSN) -> bool);
+pub type LsnRecordSequence = unsafe extern "system" fn(plsn: *const CLS_LSN) -> u32;
 windows_link::link!("clfsw32.dll" "system" fn LsnRecordSequence(plsn : *const CLS_LSN) -> u32);
+pub type MoveFileA = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCSTR, lpnewfilename: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type MoveFileExA = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCSTR, lpnewfilename: windows_sys::core::PCSTR, dwflags: MOVE_FILE_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileExA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, dwflags : MOVE_FILE_FLAGS) -> windows_sys::core::BOOL);
+pub type MoveFileExW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR, dwflags: MOVE_FILE_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileExW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, dwflags : MOVE_FILE_FLAGS) -> windows_sys::core::BOOL);
+pub type MoveFileFromAppW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn MoveFileFromAppW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type MoveFileTransactedA = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCSTR, lpnewfilename: windows_sys::core::PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileTransactedA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type MoveFileTransactedW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileTransactedW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type MoveFileW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type MoveFileWithProgressA = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCSTR, lpnewfilename: windows_sys::core::PCSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileWithProgressA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> windows_sys::core::BOOL);
+pub type MoveFileWithProgressW = unsafe extern "system" fn(lpexistingfilename: windows_sys::core::PCWSTR, lpnewfilename: windows_sys::core::PCWSTR, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn MoveFileWithProgressW(lpexistingfilename : windows_sys::core::PCWSTR, lpnewfilename : windows_sys::core::PCWSTR, lpprogressroutine : LPPROGRESS_ROUTINE, lpdata : *const core::ffi::c_void, dwflags : MOVE_FILE_FLAGS) -> windows_sys::core::BOOL);
+pub type NetConnectionEnum = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, qualifier: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetConnectionEnum(servername : windows_sys::core::PCWSTR, qualifier : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+pub type NetFileClose = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, fileid: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetFileClose(servername : windows_sys::core::PCWSTR, fileid : u32) -> u32);
+pub type NetFileEnum = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, basepath: windows_sys::core::PCWSTR, username: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetFileEnum(servername : windows_sys::core::PCWSTR, basepath : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut usize) -> u32);
+pub type NetFileGetInfo = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetFileGetInfo(servername : windows_sys::core::PCWSTR, fileid : u32, level : u32, bufptr : *mut *mut u8) -> u32);
+pub type NetServerAliasAdd = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, level: u32, buf: *const u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetServerAliasAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8) -> u32);
+pub type NetServerAliasDel = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, level: u32, buf: *const u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetServerAliasDel(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8) -> u32);
+pub type NetServerAliasEnum = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetServerAliasEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resumehandle : *mut u32) -> u32);
+pub type NetSessionDel = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, uncclientname: windows_sys::core::PCWSTR, username: windows_sys::core::PCWSTR) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetSessionDel(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR) -> u32);
+pub type NetSessionEnum = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, uncclientname: windows_sys::core::PCWSTR, username: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetSessionEnum(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+pub type NetSessionGetInfo = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, uncclientname: windows_sys::core::PCWSTR, username: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetSessionGetInfo(servername : windows_sys::core::PCWSTR, uncclientname : windows_sys::core::PCWSTR, username : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
+pub type NetShareAdd = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareAdd(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+pub type NetShareCheck = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, device: windows_sys::core::PCWSTR, r#type: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareCheck(servername : windows_sys::core::PCWSTR, device : windows_sys::core::PCWSTR, r#type : *mut u32) -> u32);
+pub type NetShareDel = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, netname: windows_sys::core::PCWSTR, reserved: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareDel(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
+pub type NetShareDelEx = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, level: u32, buf: *const u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareDelEx(servername : windows_sys::core::PCWSTR, level : u32, buf : *const u8) -> u32);
+pub type NetShareDelSticky = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, netname: windows_sys::core::PCWSTR, reserved: u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareDelSticky(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, reserved : u32) -> u32);
+pub type NetShareEnum = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareEnum(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+pub type NetShareEnumSticky = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareEnumSticky(servername : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8, prefmaxlen : u32, entriesread : *mut u32, totalentries : *mut u32, resume_handle : *mut u32) -> u32);
+pub type NetShareGetInfo = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, netname: windows_sys::core::PCWSTR, level: u32, bufptr: *mut *mut u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareGetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, bufptr : *mut *mut u8) -> u32);
+pub type NetShareSetInfo = unsafe extern "system" fn(servername: windows_sys::core::PCWSTR, netname: windows_sys::core::PCWSTR, level: u32, buf: *const u8, parm_err: *mut u32) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetShareSetInfo(servername : windows_sys::core::PCWSTR, netname : windows_sys::core::PCWSTR, level : u32, buf : *const u8, parm_err : *mut u32) -> u32);
+pub type NetStatisticsGet = unsafe extern "system" fn(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32;
 windows_link::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : *const i8, service : *const i8, level : u32, options : u32, buffer : *mut *mut u8) -> u32);
+pub type OpenEncryptedFileRawA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, ulflags: u32, pvcontext: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("advapi32.dll" "system" fn OpenEncryptedFileRawA(lpfilename : windows_sys::core::PCSTR, ulflags : u32, pvcontext : *mut *mut core::ffi::c_void) -> u32);
+pub type OpenEncryptedFileRawW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, ulflags: u32, pvcontext: *mut *mut core::ffi::c_void) -> u32;
 windows_link::link!("advapi32.dll" "system" fn OpenEncryptedFileRawW(lpfilename : windows_sys::core::PCWSTR, ulflags : u32, pvcontext : *mut *mut core::ffi::c_void) -> u32);
+pub type OpenEnlistment = unsafe extern "system" fn(dwdesiredaccess: u32, resourcemanagerhandle: super::super::Foundation::HANDLE, enlistmentid: *mut windows_sys::core::GUID) -> super::super::Foundation::HANDLE;
 windows_link::link!("ktmw32.dll" "system" fn OpenEnlistment(dwdesiredaccess : u32, resourcemanagerhandle : super::super::Foundation::HANDLE, enlistmentid : *mut windows_sys::core::GUID) -> super::super::Foundation::HANDLE);
+pub type OpenFile = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, lpreopenbuff: *mut OFSTRUCT, ustyle: u32) -> i32;
 windows_link::link!("kernel32.dll" "system" fn OpenFile(lpfilename : windows_sys::core::PCSTR, lpreopenbuff : *mut OFSTRUCT, ustyle : u32) -> i32);
 #[cfg(feature = "Win32_Security")]
+pub type OpenFileById = unsafe extern "system" fn(hvolumehint: super::super::Foundation::HANDLE, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("kernel32.dll" "system" fn OpenFileById(hvolumehint : super::super::Foundation::HANDLE, lpfileid : *const FILE_ID_DESCRIPTOR, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, lpsecurityattributes : *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE);
+pub type OpenResourceManager = unsafe extern "system" fn(dwdesiredaccess: u32, tmhandle: super::super::Foundation::HANDLE, resourcemanagerid: *mut windows_sys::core::GUID) -> super::super::Foundation::HANDLE;
 windows_link::link!("ktmw32.dll" "system" fn OpenResourceManager(dwdesiredaccess : u32, tmhandle : super::super::Foundation::HANDLE, resourcemanagerid : *mut windows_sys::core::GUID) -> super::super::Foundation::HANDLE);
+pub type OpenTransaction = unsafe extern "system" fn(dwdesiredaccess: u32, transactionid: *mut windows_sys::core::GUID) -> super::super::Foundation::HANDLE;
 windows_link::link!("ktmw32.dll" "system" fn OpenTransaction(dwdesiredaccess : u32, transactionid : *mut windows_sys::core::GUID) -> super::super::Foundation::HANDLE);
+pub type OpenTransactionManager = unsafe extern "system" fn(logfilename: windows_sys::core::PCWSTR, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("ktmw32.dll" "system" fn OpenTransactionManager(logfilename : windows_sys::core::PCWSTR, desiredaccess : u32, openoptions : u32) -> super::super::Foundation::HANDLE);
+pub type OpenTransactionManagerById = unsafe extern "system" fn(transactionmanagerid: *const windows_sys::core::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE;
 windows_link::link!("ktmw32.dll" "system" fn OpenTransactionManagerById(transactionmanagerid : *const windows_sys::core::GUID, desiredaccess : u32, openoptions : u32) -> super::super::Foundation::HANDLE);
+pub type PopIoRingCompletion = unsafe extern "system" fn(ioring: HIORING, cqe: *mut IORING_CQE) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn PopIoRingCompletion(ioring : HIORING, cqe : *mut IORING_CQE) -> windows_sys::core::HRESULT);
+pub type PrePrepareComplete = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn PrePrepareComplete(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type PrePrepareEnlistment = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn PrePrepareEnlistment(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type PrepareComplete = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn PrepareComplete(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type PrepareEnlistment = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn PrepareEnlistment(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type PrepareLogArchive = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pszbaselogfilename: windows_sys::core::PWSTR, clen: u32, plsnlow: *const CLS_LSN, plsnhigh: *const CLS_LSN, pcactuallength: *mut u32, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn PrepareLogArchive(hlog : super::super::Foundation::HANDLE, pszbaselogfilename : windows_sys::core::PWSTR, clen : u32, plsnlow : *const CLS_LSN, plsnhigh : *const CLS_LSN, pcactuallength : *mut u32, poffbaselogfiledata : *mut u64, pcbbaselogfilelength : *mut u64, plsnbase : *mut CLS_LSN, plsnlast : *mut CLS_LSN, plsncurrentarchivetail : *mut CLS_LSN, ppvarchivecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type PrepareTape = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: windows_sys::core::BOOL) -> u32;
 windows_link::link!("kernel32.dll" "system" fn PrepareTape(hdevice : super::super::Foundation::HANDLE, dwoperation : PREPARE_TAPE_OPERATION, bimmediate : windows_sys::core::BOOL) -> u32);
+pub type QueryDosDeviceA = unsafe extern "system" fn(lpdevicename: windows_sys::core::PCSTR, lptargetpath: windows_sys::core::PSTR, ucchmax: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn QueryDosDeviceA(lpdevicename : windows_sys::core::PCSTR, lptargetpath : windows_sys::core::PSTR, ucchmax : u32) -> u32);
+pub type QueryDosDeviceW = unsafe extern "system" fn(lpdevicename: windows_sys::core::PCWSTR, lptargetpath: windows_sys::core::PWSTR, ucchmax: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn QueryDosDeviceW(lpdevicename : windows_sys::core::PCWSTR, lptargetpath : windows_sys::core::PWSTR, ucchmax : u32) -> u32);
+pub type QueryIoRingCapabilities = unsafe extern "system" fn(capabilities: *mut IORING_CAPABILITIES) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn QueryIoRingCapabilities(capabilities : *mut IORING_CAPABILITIES) -> windows_sys::core::HRESULT);
+pub type QueryLogPolicy = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn QueryLogPolicy(hlog : super::super::Foundation::HANDLE, epolicytype : CLFS_MGMT_POLICY_TYPE, ppolicybuffer : *mut CLFS_MGMT_POLICY, pcbpolicybuffer : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type QueryRecoveryAgentsOnEncryptedFile = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, precoveryagents: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn QueryRecoveryAgentsOnEncryptedFile(lpfilename : windows_sys::core::PCWSTR, precoveryagents : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
 #[cfg(feature = "Win32_Security")]
+pub type QueryUsersOnEncryptedFile = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, pusers: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn QueryUsersOnEncryptedFile(lpfilename : windows_sys::core::PCWSTR, pusers : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
+pub type ReOpenFile = unsafe extern "system" fn(horiginalfile: super::super::Foundation::HANDLE, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE;
 windows_link::link!("kernel32.dll" "system" fn ReOpenFile(horiginalfile : super::super::Foundation::HANDLE, dwdesiredaccess : u32, dwsharemode : FILE_SHARE_MODE, dwflagsandattributes : FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE);
+#[cfg(feature = "Win32_System_IO")]
+pub type ReadDirectoryChangesExW = unsafe extern "system" fn(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: windows_sys::core::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn ReadDirectoryChangesExW(hdirectory : super::super::Foundation::HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : windows_sys::core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine : super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type ReadDirectoryChangesW = unsafe extern "system" fn(hdirectory: super::super::Foundation::HANDLE, lpbuffer: *mut core::ffi::c_void, nbufferlength: u32, bwatchsubtree: windows_sys::core::BOOL, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn ReadDirectoryChangesW(hdirectory : super::super::Foundation::HANDLE, lpbuffer : *mut core::ffi::c_void, nbufferlength : u32, bwatchsubtree : windows_sys::core::BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine : super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_sys::core::BOOL);
+pub type ReadEncryptedFileRaw = unsafe extern "system" fn(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: *const core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> u32;
 windows_link::link!("advapi32.dll" "system" fn ReadEncryptedFileRaw(pfexportcallback : PFE_EXPORT_FUNC, pvcallbackcontext : *const core::ffi::c_void, pvcontext : *const core::ffi::c_void) -> u32);
+#[cfg(feature = "Win32_System_IO")]
+pub type ReadFile = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn ReadFile(hfile : super::super::Foundation::HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type ReadFileEx = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn ReadFileEx(hfile : super::super::Foundation::HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine : super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type ReadFileScatter = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: *const u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn ReadFileScatter(hfile : super::super::Foundation::HANDLE, asegmentarray : *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread : u32, lpreserved : *const u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type ReadLogArchiveMetadata = unsafe extern "system" fn(pvarchivecontext: *mut core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn ReadLogArchiveMetadata(pvarchivecontext : *mut core::ffi::c_void, cboffset : u32, cbbytestoread : u32, pbreadbuffer : *mut u8, pcbbytesread : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_System_IO")]
+pub type ReadLogNotification = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pnotification: *mut CLFS_MGMT_NOTIFICATION, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn ReadLogNotification(hlog : super::super::Foundation::HANDLE, pnotification : *mut CLFS_MGMT_NOTIFICATION, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type ReadLogRecord = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn ReadLogRecord(pvmarshal : *mut core::ffi::c_void, plsnfirst : *mut CLS_LSN, econtextmode : CLFS_CONTEXT_MODE, ppvreadbuffer : *mut *mut core::ffi::c_void, pcbreadbuffer : *mut u32, perecordtype : *mut u8, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, ppvreadcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_System_IO")]
+pub type ReadLogRestartArea = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn ReadLogRestartArea(pvmarshal : *mut core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsn : *mut CLS_LSN, ppvcontext : *mut *mut core::ffi::c_void, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type ReadNextLogRecord = unsafe extern "system" fn(pvreadcontext: *mut core::ffi::c_void, ppvbuffer: *mut *mut core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn ReadNextLogRecord(pvreadcontext : *mut core::ffi::c_void, ppvbuffer : *mut *mut core::ffi::c_void, pcbbuffer : *mut u32, perecordtype : *mut u8, plsnuser : *mut CLS_LSN, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, plsnrecord : *mut CLS_LSN, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type ReadOnlyEnlistment = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn ReadOnlyEnlistment(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type ReadPreviousLogRestartArea = unsafe extern "system" fn(pvreadcontext: *mut core::ffi::c_void, ppvrestartbuffer: *mut *mut core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn ReadPreviousLogRestartArea(pvreadcontext : *mut core::ffi::c_void, ppvrestartbuffer : *mut *mut core::ffi::c_void, pcbrestartbuffer : *mut u32, plsnrestart : *mut CLS_LSN, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type RecoverEnlistment = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, enlistmentkey: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RecoverEnlistment(enlistmenthandle : super::super::Foundation::HANDLE, enlistmentkey : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type RecoverResourceManager = unsafe extern "system" fn(resourcemanagerhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RecoverResourceManager(resourcemanagerhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type RecoverTransactionManager = unsafe extern "system" fn(transactionmanagerhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RecoverTransactionManager(transactionmanagerhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type RegisterForLogWriteNotification = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, cbthreshold: u32, fenable: windows_sys::core::BOOL) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn RegisterForLogWriteNotification(hlog : super::super::Foundation::HANDLE, cbthreshold : u32, fenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+pub type RegisterManageableLogClient = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pcallbacks: *mut LOG_MANAGEMENT_CALLBACKS) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn RegisterManageableLogClient(hlog : super::super::Foundation::HANDLE, pcallbacks : *mut LOG_MANAGEMENT_CALLBACKS) -> windows_sys::core::BOOL);
+pub type RemoveBindLink = unsafe extern "system" fn(virtualpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("bindfltapi.dll" "system" fn RemoveBindLink(virtualpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+pub type RemoveDirectory2A = unsafe extern "system" fn(lppathname: windows_sys::core::PCSTR, directoryflags: DIRECTORY_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn RemoveDirectory2A(lppathname : windows_sys::core::PCSTR, directoryflags : DIRECTORY_FLAGS) -> windows_sys::core::BOOL);
+pub type RemoveDirectory2W = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR, directoryflags: DIRECTORY_FLAGS) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn RemoveDirectory2W(lppathname : windows_sys::core::PCWSTR, directoryflags : DIRECTORY_FLAGS) -> windows_sys::core::BOOL);
+pub type RemoveDirectoryA = unsafe extern "system" fn(lppathname: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn RemoveDirectoryA(lppathname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type RemoveDirectoryFromAppW = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn RemoveDirectoryFromAppW(lppathname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type RemoveDirectoryTransactedA = unsafe extern "system" fn(lppathname: windows_sys::core::PCSTR, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn RemoveDirectoryTransactedA(lppathname : windows_sys::core::PCSTR, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type RemoveDirectoryTransactedW = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn RemoveDirectoryTransactedW(lppathname : windows_sys::core::PCWSTR, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type RemoveDirectoryW = unsafe extern "system" fn(lppathname: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn RemoveDirectoryW(lppathname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type RemoveLogContainer = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pwszcontainerpath: windows_sys::core::PCWSTR, fforce: windows_sys::core::BOOL, preserved: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn RemoveLogContainer(hlog : super::super::Foundation::HANDLE, pwszcontainerpath : windows_sys::core::PCWSTR, fforce : windows_sys::core::BOOL, preserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type RemoveLogContainerSet = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, ccontainer: u16, rgwszcontainerpath: *const windows_sys::core::PCWSTR, fforce: windows_sys::core::BOOL, preserved: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn RemoveLogContainerSet(hlog : super::super::Foundation::HANDLE, ccontainer : u16, rgwszcontainerpath : *const windows_sys::core::PCWSTR, fforce : windows_sys::core::BOOL, preserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type RemoveLogPolicy = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, epolicytype: CLFS_MGMT_POLICY_TYPE) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn RemoveLogPolicy(hlog : super::super::Foundation::HANDLE, epolicytype : CLFS_MGMT_POLICY_TYPE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type RemoveUsersFromEncryptedFile = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn RemoveUsersFromEncryptedFile(lpfilename : windows_sys::core::PCWSTR, phashes : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
+pub type RenameTransactionManager = unsafe extern "system" fn(logfilename: windows_sys::core::PCWSTR, existingtransactionmanagerguid: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RenameTransactionManager(logfilename : windows_sys::core::PCWSTR, existingtransactionmanagerguid : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
+pub type ReplaceFileA = unsafe extern "system" fn(lpreplacedfilename: windows_sys::core::PCSTR, lpreplacementfilename: windows_sys::core::PCSTR, lpbackupfilename: windows_sys::core::PCSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *const core::ffi::c_void, lpreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn ReplaceFileA(lpreplacedfilename : windows_sys::core::PCSTR, lpreplacementfilename : windows_sys::core::PCSTR, lpbackupfilename : windows_sys::core::PCSTR, dwreplaceflags : REPLACE_FILE_FLAGS, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type ReplaceFileFromAppW = unsafe extern "system" fn(lpreplacedfilename: windows_sys::core::PCWSTR, lpreplacementfilename: windows_sys::core::PCWSTR, lpbackupfilename: windows_sys::core::PCWSTR, dwreplaceflags: u32, lpexclude: *const core::ffi::c_void, lpreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn ReplaceFileFromAppW(lpreplacedfilename : windows_sys::core::PCWSTR, lpreplacementfilename : windows_sys::core::PCWSTR, lpbackupfilename : windows_sys::core::PCWSTR, dwreplaceflags : u32, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type ReplaceFileW = unsafe extern "system" fn(lpreplacedfilename: windows_sys::core::PCWSTR, lpreplacementfilename: windows_sys::core::PCWSTR, lpbackupfilename: windows_sys::core::PCWSTR, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *const core::ffi::c_void, lpreserved: *const core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn ReplaceFileW(lpreplacedfilename : windows_sys::core::PCWSTR, lpreplacementfilename : windows_sys::core::PCWSTR, lpbackupfilename : windows_sys::core::PCWSTR, dwreplaceflags : REPLACE_FILE_FLAGS, lpexclude : *const core::ffi::c_void, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_System_IO")]
+pub type ReserveAndAppendLog = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn ReserveAndAppendLog(pvmarshal : *mut core::ffi::c_void, rgwriteentries : *mut CLS_WRITE_ENTRY, cwriteentries : u32, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : CLFS_FLAG, plsn : *mut CLS_LSN, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type ReserveAndAppendLogAligned = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn ReserveAndAppendLogAligned(pvmarshal : *mut core::ffi::c_void, rgwriteentries : *mut CLS_WRITE_ENTRY, cwriteentries : u32, cbentryalignment : u32, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : CLFS_FLAG, plsn : *mut CLS_LSN, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type RollbackComplete = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RollbackComplete(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type RollbackEnlistment = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RollbackEnlistment(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type RollbackTransaction = unsafe extern "system" fn(transactionhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RollbackTransaction(transactionhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type RollbackTransactionAsync = unsafe extern "system" fn(transactionhandle: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RollbackTransactionAsync(transactionhandle : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type RollforwardTransactionManager = unsafe extern "system" fn(transactionmanagerhandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn RollforwardTransactionManager(transactionmanagerhandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type ScanLogContainers = unsafe extern "system" fn(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn ScanLogContainers(pcxscan : *mut CLS_SCAN_CONTEXT, escanmode : u8, preserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type SearchPathA = unsafe extern "system" fn(lppath: windows_sys::core::PCSTR, lpfilename: windows_sys::core::PCSTR, lpextension: windows_sys::core::PCSTR, nbufferlength: u32, lpbuffer: windows_sys::core::PSTR, lpfilepart: *mut windows_sys::core::PSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn SearchPathA(lppath : windows_sys::core::PCSTR, lpfilename : windows_sys::core::PCSTR, lpextension : windows_sys::core::PCSTR, nbufferlength : u32, lpbuffer : windows_sys::core::PSTR, lpfilepart : *mut windows_sys::core::PSTR) -> u32);
+pub type SearchPathW = unsafe extern "system" fn(lppath: windows_sys::core::PCWSTR, lpfilename: windows_sys::core::PCWSTR, lpextension: windows_sys::core::PCWSTR, nbufferlength: u32, lpbuffer: windows_sys::core::PWSTR, lpfilepart: *mut windows_sys::core::PWSTR) -> u32;
 windows_link::link!("kernel32.dll" "system" fn SearchPathW(lppath : windows_sys::core::PCWSTR, lpfilename : windows_sys::core::PCWSTR, lpextension : windows_sys::core::PCWSTR, nbufferlength : u32, lpbuffer : windows_sys::core::PWSTR, lpfilepart : *mut windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Security")]
+pub type SetEncryptedFileMetadata = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, pboldmetadata: *const u8, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn SetEncryptedFileMetadata(lpfilename : windows_sys::core::PCWSTR, pboldmetadata : *const u8, pbnewmetadata : *const u8, pownerhash : *const ENCRYPTION_CERTIFICATE_HASH, dwoperation : u32, pcertificatesadded : *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
+pub type SetEndOfFile = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetEndOfFile(hfile : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type SetEndOfLog = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, plsnend: *mut CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn SetEndOfLog(hlog : super::super::Foundation::HANDLE, plsnend : *mut CLS_LSN, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type SetEnlistmentRecoveryInformation = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, buffersize: u32, buffer: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn SetEnlistmentRecoveryInformation(enlistmenthandle : super::super::Foundation::HANDLE, buffersize : u32, buffer : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type SetFileApisToANSI = unsafe extern "system" fn();
 windows_link::link!("kernel32.dll" "system" fn SetFileApisToANSI());
+pub type SetFileApisToOEM = unsafe extern "system" fn();
 windows_link::link!("kernel32.dll" "system" fn SetFileApisToOEM());
+pub type SetFileAttributesA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileAttributesA(lpfilename : windows_sys::core::PCSTR, dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES) -> windows_sys::core::BOOL);
+pub type SetFileAttributesFromAppW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwfileattributes: u32) -> windows_sys::core::BOOL;
 windows_link::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn SetFileAttributesFromAppW(lpfilename : windows_sys::core::PCWSTR, dwfileattributes : u32) -> windows_sys::core::BOOL);
+pub type SetFileAttributesTransactedA = unsafe extern "system" fn(lpfilename: windows_sys::core::PCSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileAttributesTransactedA(lpfilename : windows_sys::core::PCSTR, dwfileattributes : u32, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type SetFileAttributesTransactedW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwfileattributes: u32, htransaction: super::super::Foundation::HANDLE) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileAttributesTransactedW(lpfilename : windows_sys::core::PCWSTR, dwfileattributes : u32, htransaction : super::super::Foundation::HANDLE) -> windows_sys::core::BOOL);
+pub type SetFileAttributesW = unsafe extern "system" fn(lpfilename: windows_sys::core::PCWSTR, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileAttributesW(lpfilename : windows_sys::core::PCWSTR, dwfileattributes : FILE_FLAGS_AND_ATTRIBUTES) -> windows_sys::core::BOOL);
+pub type SetFileBandwidthReservation = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: windows_sys::core::BOOL, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileBandwidthReservation(hfile : super::super::Foundation::HANDLE, nperiodmilliseconds : u32, nbytesperperiod : u32, bdiscardable : windows_sys::core::BOOL, lptransfersize : *mut u32, lpnumoutstandingrequests : *mut u32) -> windows_sys::core::BOOL);
+pub type SetFileCompletionNotificationModes = unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, flags: u8) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileCompletionNotificationModes(filehandle : super::super::Foundation::HANDLE, flags : u8) -> windows_sys::core::BOOL);
+pub type SetFileInformationByHandle = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const core::ffi::c_void, dwbuffersize: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileInformationByHandle(hfile : super::super::Foundation::HANDLE, fileinformationclass : FILE_INFO_BY_HANDLE_CLASS, lpfileinformation : *const core::ffi::c_void, dwbuffersize : u32) -> windows_sys::core::BOOL);
+pub type SetFileIoOverlappedRange = unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, overlappedrangestart: *const u8, length: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileIoOverlappedRange(filehandle : super::super::Foundation::HANDLE, overlappedrangestart : *const u8, length : u32) -> windows_sys::core::BOOL);
+pub type SetFilePointer = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32;
 windows_link::link!("kernel32.dll" "system" fn SetFilePointer(hfile : super::super::Foundation::HANDLE, ldistancetomove : i32, lpdistancetomovehigh : *mut i32, dwmovemethod : SET_FILE_POINTER_MOVE_METHOD) -> u32);
+pub type SetFilePointerEx = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFilePointerEx(hfile : super::super::Foundation::HANDLE, lidistancetomove : i64, lpnewfilepointer : *mut i64, dwmovemethod : SET_FILE_POINTER_MOVE_METHOD) -> windows_sys::core::BOOL);
+pub type SetFileShortNameA = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpshortname: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileShortNameA(hfile : super::super::Foundation::HANDLE, lpshortname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type SetFileShortNameW = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpshortname: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileShortNameW(hfile : super::super::Foundation::HANDLE, lpshortname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type SetFileTime = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpcreationtime: *const super::super::Foundation::FILETIME, lplastaccesstime: *const super::super::Foundation::FILETIME, lplastwritetime: *const super::super::Foundation::FILETIME) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileTime(hfile : super::super::Foundation::HANDLE, lpcreationtime : *const super::super::Foundation::FILETIME, lplastaccesstime : *const super::super::Foundation::FILETIME, lplastwritetime : *const super::super::Foundation::FILETIME) -> windows_sys::core::BOOL);
+pub type SetFileValidData = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, validdatalength: i64) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetFileValidData(hfile : super::super::Foundation::HANDLE, validdatalength : i64) -> windows_sys::core::BOOL);
+pub type SetIoRingCompletionEvent = unsafe extern "system" fn(ioring: HIORING, hevent: super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn SetIoRingCompletionEvent(ioring : HIORING, hevent : super::super::Foundation::HANDLE) -> windows_sys::core::HRESULT);
+pub type SetLogArchiveMode = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, emode: CLFS_LOG_ARCHIVE_MODE) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn SetLogArchiveMode(hlog : super::super::Foundation::HANDLE, emode : CLFS_LOG_ARCHIVE_MODE) -> windows_sys::core::BOOL);
+pub type SetLogArchiveTail = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, plsnarchivetail: *mut CLS_LSN, preserved: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn SetLogArchiveTail(hlog : super::super::Foundation::HANDLE, plsnarchivetail : *mut CLS_LSN, preserved : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type SetLogFileSizeWithPolicy = unsafe extern "system" fn(hlog: super::super::Foundation::HANDLE, pdesiredsize: *const u64, presultingsize: *mut u64) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn SetLogFileSizeWithPolicy(hlog : super::super::Foundation::HANDLE, pdesiredsize : *const u64, presultingsize : *mut u64) -> windows_sys::core::BOOL);
+pub type SetResourceManagerCompletionPort = unsafe extern "system" fn(resourcemanagerhandle: super::super::Foundation::HANDLE, iocompletionporthandle: super::super::Foundation::HANDLE, completionkey: usize) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn SetResourceManagerCompletionPort(resourcemanagerhandle : super::super::Foundation::HANDLE, iocompletionporthandle : super::super::Foundation::HANDLE, completionkey : usize) -> windows_sys::core::BOOL);
+pub type SetSearchPathMode = unsafe extern "system" fn(flags: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetSearchPathMode(flags : u32) -> windows_sys::core::BOOL);
+pub type SetTapeParameters = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const core::ffi::c_void) -> u32;
 windows_link::link!("kernel32.dll" "system" fn SetTapeParameters(hdevice : super::super::Foundation::HANDLE, dwoperation : TAPE_INFORMATION_TYPE, lptapeinformation : *const core::ffi::c_void) -> u32);
+pub type SetTapePosition = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: windows_sys::core::BOOL) -> u32;
 windows_link::link!("kernel32.dll" "system" fn SetTapePosition(hdevice : super::super::Foundation::HANDLE, dwpositionmethod : TAPE_POSITION_METHOD, dwpartition : u32, dwoffsetlow : u32, dwoffsethigh : u32, bimmediate : windows_sys::core::BOOL) -> u32);
+pub type SetTransactionInformation = unsafe extern "system" fn(transactionhandle: super::super::Foundation::HANDLE, isolationlevel: u32, isolationflags: u32, timeout: u32, description: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn SetTransactionInformation(transactionhandle : super::super::Foundation::HANDLE, isolationlevel : u32, isolationflags : u32, timeout : u32, description : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security")]
+pub type SetUserFileEncryptionKey = unsafe extern "system" fn(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE) -> u32;
 #[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn SetUserFileEncryptionKey(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE) -> u32);
 #[cfg(feature = "Win32_Security")]
+pub type SetUserFileEncryptionKeyEx = unsafe extern "system" fn(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *const core::ffi::c_void) -> u32;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("advapi32.dll" "system" fn SetUserFileEncryptionKeyEx(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE, dwcapabilities : u32, dwflags : u32, pvreserved : *const core::ffi::c_void) -> u32);
+pub type SetVolumeLabelA = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCSTR, lpvolumename: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetVolumeLabelA(lprootpathname : windows_sys::core::PCSTR, lpvolumename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type SetVolumeLabelW = unsafe extern "system" fn(lprootpathname: windows_sys::core::PCWSTR, lpvolumename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetVolumeLabelW(lprootpathname : windows_sys::core::PCWSTR, lpvolumename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type SetVolumeMountPointA = unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCSTR, lpszvolumename: windows_sys::core::PCSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetVolumeMountPointA(lpszvolumemountpoint : windows_sys::core::PCSTR, lpszvolumename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+pub type SetVolumeMountPointW = unsafe extern "system" fn(lpszvolumemountpoint: windows_sys::core::PCWSTR, lpszvolumename: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn SetVolumeMountPointW(lpszvolumemountpoint : windows_sys::core::PCWSTR, lpszvolumename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+pub type SinglePhaseReject = unsafe extern "system" fn(enlistmenthandle: super::super::Foundation::HANDLE, tmvirtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("ktmw32.dll" "system" fn SinglePhaseReject(enlistmenthandle : super::super::Foundation::HANDLE, tmvirtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type SubmitIoRing = unsafe extern "system" fn(ioring: HIORING, waitoperations: u32, milliseconds: u32, submittedentries: *mut u32) -> windows_sys::core::HRESULT;
 windows_link::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn SubmitIoRing(ioring : HIORING, waitoperations : u32, milliseconds : u32, submittedentries : *mut u32) -> windows_sys::core::HRESULT);
+pub type TerminateLogArchive = unsafe extern "system" fn(pvarchivecontext: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn TerminateLogArchive(pvarchivecontext : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type TerminateReadLog = unsafe extern "system" fn(pvcursorcontext: *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("clfsw32.dll" "system" fn TerminateReadLog(pvcursorcontext : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type TruncateLog = unsafe extern "system" fn(pvmarshal: *const core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn TruncateLog(pvmarshal : *const core::ffi::c_void, plsnend : *const CLS_LSN, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type TxfGetThreadMiniVersionForCreate = unsafe extern "system" fn(miniversion: *mut u16);
 windows_link::link!("txfw32.dll" "system" fn TxfGetThreadMiniVersionForCreate(miniversion : *mut u16));
+pub type TxfLogCreateFileReadContext = unsafe extern "system" fn(logpath: windows_sys::core::PCWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, txffileid: *const TXF_ID, txflogcontext: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("txfw32.dll" "system" fn TxfLogCreateFileReadContext(logpath : windows_sys::core::PCWSTR, beginninglsn : CLS_LSN, endinglsn : CLS_LSN, txffileid : *const TXF_ID, txflogcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type TxfLogCreateRangeReadContext = unsafe extern "system" fn(logpath: windows_sys::core::PCWSTR, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("txfw32.dll" "system" fn TxfLogCreateRangeReadContext(logpath : windows_sys::core::PCWSTR, beginninglsn : CLS_LSN, endinglsn : CLS_LSN, beginningvirtualclock : *const i64, endingvirtualclock : *const i64, recordtypemask : u32, txflogcontext : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type TxfLogDestroyReadContext = unsafe extern "system" fn(txflogcontext: *const core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("txfw32.dll" "system" fn TxfLogDestroyReadContext(txflogcontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type TxfLogReadRecords = unsafe extern "system" fn(txflogcontext: *const core::ffi::c_void, bufferlength: u32, buffer: *mut core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("txfw32.dll" "system" fn TxfLogReadRecords(txflogcontext : *const core::ffi::c_void, bufferlength : u32, buffer : *mut core::ffi::c_void, bytesused : *mut u32, recordcount : *mut u32) -> windows_sys::core::BOOL);
+pub type TxfLogRecordGetFileName = unsafe extern "system" fn(recordbuffer: *const core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: windows_sys::core::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> windows_sys::core::BOOL;
 windows_link::link!("txfw32.dll" "system" fn TxfLogRecordGetFileName(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, namebuffer : windows_sys::core::PWSTR, namebufferlengthinbytes : *mut u32, txfid : *mut TXF_ID) -> windows_sys::core::BOOL);
+pub type TxfLogRecordGetGenericType = unsafe extern "system" fn(recordbuffer: *const core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> windows_sys::core::BOOL;
 windows_link::link!("txfw32.dll" "system" fn TxfLogRecordGetGenericType(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, generictype : *mut u32, virtualclock : *mut i64) -> windows_sys::core::BOOL);
+pub type TxfReadMetadataInfo = unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut windows_sys::core::GUID) -> windows_sys::core::BOOL;
 windows_link::link!("txfw32.dll" "system" fn TxfReadMetadataInfo(filehandle : super::super::Foundation::HANDLE, txffileid : *mut TXF_ID, lastlsn : *mut CLS_LSN, transactionstate : *mut u32, lockingtransaction : *mut windows_sys::core::GUID) -> windows_sys::core::BOOL);
+pub type TxfSetThreadMiniVersionForCreate = unsafe extern "system" fn(miniversion: u16);
 windows_link::link!("txfw32.dll" "system" fn TxfSetThreadMiniVersionForCreate(miniversion : u16));
+pub type UnlockFile = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn UnlockFile(hfile : super::super::Foundation::HANDLE, dwfileoffsetlow : u32, dwfileoffsethigh : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_System_IO")]
+pub type UnlockFileEx = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn UnlockFileEx(hfile : super::super::Foundation::HANDLE, dwreserved : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Security")]
+pub type ValidateLog = unsafe extern "system" fn(pszlogfilename: windows_sys::core::PCWSTR, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: *mut CLS_INFORMATION, pcbbuffer: *mut u32) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_Security")]
 windows_link::link!("clfsw32.dll" "system" fn ValidateLog(pszlogfilename : windows_sys::core::PCWSTR, psalogfile : *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer : *mut CLS_INFORMATION, pcbbuffer : *mut u32) -> windows_sys::core::BOOL);
+pub type VerFindFileA = unsafe extern "system" fn(uflags: VER_FIND_FILE_FLAGS, szfilename: windows_sys::core::PCSTR, szwindir: windows_sys::core::PCSTR, szappdir: windows_sys::core::PCSTR, szcurdir: windows_sys::core::PSTR, pucurdirlen: *mut u32, szdestdir: windows_sys::core::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
 windows_link::link!("version.dll" "system" fn VerFindFileA(uflags : VER_FIND_FILE_FLAGS, szfilename : windows_sys::core::PCSTR, szwindir : windows_sys::core::PCSTR, szappdir : windows_sys::core::PCSTR, szcurdir : windows_sys::core::PSTR, pucurdirlen : *mut u32, szdestdir : windows_sys::core::PSTR, pudestdirlen : *mut u32) -> VER_FIND_FILE_STATUS);
+pub type VerFindFileW = unsafe extern "system" fn(uflags: VER_FIND_FILE_FLAGS, szfilename: windows_sys::core::PCWSTR, szwindir: windows_sys::core::PCWSTR, szappdir: windows_sys::core::PCWSTR, szcurdir: windows_sys::core::PWSTR, pucurdirlen: *mut u32, szdestdir: windows_sys::core::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS;
 windows_link::link!("version.dll" "system" fn VerFindFileW(uflags : VER_FIND_FILE_FLAGS, szfilename : windows_sys::core::PCWSTR, szwindir : windows_sys::core::PCWSTR, szappdir : windows_sys::core::PCWSTR, szcurdir : windows_sys::core::PWSTR, pucurdirlen : *mut u32, szdestdir : windows_sys::core::PWSTR, pudestdirlen : *mut u32) -> VER_FIND_FILE_STATUS);
+pub type VerInstallFileA = unsafe extern "system" fn(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: windows_sys::core::PCSTR, szdestfilename: windows_sys::core::PCSTR, szsrcdir: windows_sys::core::PCSTR, szdestdir: windows_sys::core::PCSTR, szcurdir: windows_sys::core::PCSTR, sztmpfile: windows_sys::core::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
 windows_link::link!("version.dll" "system" fn VerInstallFileA(uflags : VER_INSTALL_FILE_FLAGS, szsrcfilename : windows_sys::core::PCSTR, szdestfilename : windows_sys::core::PCSTR, szsrcdir : windows_sys::core::PCSTR, szdestdir : windows_sys::core::PCSTR, szcurdir : windows_sys::core::PCSTR, sztmpfile : windows_sys::core::PSTR, putmpfilelen : *mut u32) -> VER_INSTALL_FILE_STATUS);
+pub type VerInstallFileW = unsafe extern "system" fn(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: windows_sys::core::PCWSTR, szdestfilename: windows_sys::core::PCWSTR, szsrcdir: windows_sys::core::PCWSTR, szdestdir: windows_sys::core::PCWSTR, szcurdir: windows_sys::core::PCWSTR, sztmpfile: windows_sys::core::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS;
 windows_link::link!("version.dll" "system" fn VerInstallFileW(uflags : VER_INSTALL_FILE_FLAGS, szsrcfilename : windows_sys::core::PCWSTR, szdestfilename : windows_sys::core::PCWSTR, szsrcdir : windows_sys::core::PCWSTR, szdestdir : windows_sys::core::PCWSTR, szcurdir : windows_sys::core::PCWSTR, sztmpfile : windows_sys::core::PWSTR, putmpfilelen : *mut u32) -> VER_INSTALL_FILE_STATUS);
+pub type VerLanguageNameA = unsafe extern "system" fn(wlang: u32, szlang: windows_sys::core::PSTR, cchlang: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn VerLanguageNameA(wlang : u32, szlang : windows_sys::core::PSTR, cchlang : u32) -> u32);
+pub type VerLanguageNameW = unsafe extern "system" fn(wlang: u32, szlang: windows_sys::core::PWSTR, cchlang: u32) -> u32;
 windows_link::link!("kernel32.dll" "system" fn VerLanguageNameW(wlang : u32, szlang : windows_sys::core::PWSTR, cchlang : u32) -> u32);
+pub type VerQueryValueA = unsafe extern "system" fn(pblock: *const core::ffi::c_void, lpsubblock: windows_sys::core::PCSTR, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("version.dll" "system" fn VerQueryValueA(pblock : *const core::ffi::c_void, lpsubblock : windows_sys::core::PCSTR, lplpbuffer : *mut *mut core::ffi::c_void, pulen : *mut u32) -> windows_sys::core::BOOL);
+pub type VerQueryValueW = unsafe extern "system" fn(pblock: *const core::ffi::c_void, lpsubblock: windows_sys::core::PCWSTR, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("version.dll" "system" fn VerQueryValueW(pblock : *const core::ffi::c_void, lpsubblock : windows_sys::core::PCWSTR, lplpbuffer : *mut *mut core::ffi::c_void, pulen : *mut u32) -> windows_sys::core::BOOL);
+pub type WofEnumEntries = unsafe extern "system" fn(volumename: windows_sys::core::PCWSTR, provider: u32, enumproc: WofEnumEntryProc, userdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofEnumEntries(volumename : windows_sys::core::PCWSTR, provider : u32, enumproc : WofEnumEntryProc, userdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type WofFileEnumFiles = unsafe extern "system" fn(volumename: windows_sys::core::PCWSTR, algorithm: u32, enumproc: WofEnumFilesProc, userdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofFileEnumFiles(volumename : windows_sys::core::PCWSTR, algorithm : u32, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type WofGetDriverVersion = unsafe extern "system" fn(fileorvolumehandle: super::super::Foundation::HANDLE, provider: u32, wofversion: *mut u32) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofGetDriverVersion(fileorvolumehandle : super::super::Foundation::HANDLE, provider : u32, wofversion : *mut u32) -> windows_sys::core::HRESULT);
+pub type WofIsExternalFile = unsafe extern "system" fn(filepath: windows_sys::core::PCWSTR, isexternalfile: *mut windows_sys::core::BOOL, provider: *mut u32, externalfileinfo: *mut core::ffi::c_void, bufferlength: *mut u32) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofIsExternalFile(filepath : windows_sys::core::PCWSTR, isexternalfile : *mut windows_sys::core::BOOL, provider : *mut u32, externalfileinfo : *mut core::ffi::c_void, bufferlength : *mut u32) -> windows_sys::core::HRESULT);
+pub type WofSetFileDataLocation = unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, provider: u32, externalfileinfo: *const core::ffi::c_void, length: u32) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofSetFileDataLocation(filehandle : super::super::Foundation::HANDLE, provider : u32, externalfileinfo : *const core::ffi::c_void, length : u32) -> windows_sys::core::HRESULT);
+pub type WofShouldCompressBinaries = unsafe extern "system" fn(volume: windows_sys::core::PCWSTR, algorithm: *mut u32) -> windows_sys::core::BOOL;
 windows_link::link!("wofutil.dll" "system" fn WofShouldCompressBinaries(volume : windows_sys::core::PCWSTR, algorithm : *mut u32) -> windows_sys::core::BOOL);
+pub type WofWimAddEntry = unsafe extern "system" fn(volumename: windows_sys::core::PCWSTR, wimpath: windows_sys::core::PCWSTR, wimtype: u32, wimindex: u32, datasourceid: *mut i64) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofWimAddEntry(volumename : windows_sys::core::PCWSTR, wimpath : windows_sys::core::PCWSTR, wimtype : u32, wimindex : u32, datasourceid : *mut i64) -> windows_sys::core::HRESULT);
+pub type WofWimEnumFiles = unsafe extern "system" fn(volumename: windows_sys::core::PCWSTR, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofWimEnumFiles(volumename : windows_sys::core::PCWSTR, datasourceid : i64, enumproc : WofEnumFilesProc, userdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
+pub type WofWimRemoveEntry = unsafe extern "system" fn(volumename: windows_sys::core::PCWSTR, datasourceid: i64) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofWimRemoveEntry(volumename : windows_sys::core::PCWSTR, datasourceid : i64) -> windows_sys::core::HRESULT);
+pub type WofWimSuspendEntry = unsafe extern "system" fn(volumename: windows_sys::core::PCWSTR, datasourceid: i64) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofWimSuspendEntry(volumename : windows_sys::core::PCWSTR, datasourceid : i64) -> windows_sys::core::HRESULT);
+pub type WofWimUpdateEntry = unsafe extern "system" fn(volumename: windows_sys::core::PCWSTR, datasourceid: i64, newwimpath: windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT;
 windows_link::link!("wofutil.dll" "system" fn WofWimUpdateEntry(volumename : windows_sys::core::PCWSTR, datasourceid : i64, newwimpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+pub type Wow64DisableWow64FsRedirection = unsafe extern "system" fn(oldvalue: *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn Wow64DisableWow64FsRedirection(oldvalue : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type Wow64EnableWow64FsRedirection = unsafe extern "system" fn(wow64fsenableredirection: bool) -> bool;
 windows_link::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : bool) -> bool);
+pub type Wow64RevertWow64FsRedirection = unsafe extern "system" fn(olvalue: *const core::ffi::c_void) -> windows_sys::core::BOOL;
 windows_link::link!("kernel32.dll" "system" fn Wow64RevertWow64FsRedirection(olvalue : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+pub type WriteEncryptedFileRaw = unsafe extern "system" fn(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackcontext: *const core::ffi::c_void, pvcontext: *const core::ffi::c_void) -> u32;
 windows_link::link!("advapi32.dll" "system" fn WriteEncryptedFileRaw(pfimportcallback : PFE_IMPORT_FUNC, pvcallbackcontext : *const core::ffi::c_void, pvcontext : *const core::ffi::c_void) -> u32);
+#[cfg(feature = "Win32_System_IO")]
+pub type WriteFile = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn WriteFile(hfile : super::super::Foundation::HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type WriteFileEx = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn WriteFileEx(hfile : super::super::Foundation::HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine : super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_System_IO")]
+pub type WriteFileGather = unsafe extern "system" fn(hfile: super::super::Foundation::HANDLE, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: *const u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_System_IO")]
 windows_link::link!("kernel32.dll" "system" fn WriteFileGather(hfile : super::super::Foundation::HANDLE, asegmentarray : *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite : u32, lpreserved : *const u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_IO")]
+pub type WriteLogRestartArea = unsafe extern "system" fn(pvmarshal: *mut core::ffi::c_void, pvrestartbuffer: *mut core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL;
+#[cfg(feature = "Win32_System_IO")]
 windows_link::link!("clfsw32.dll" "system" fn WriteLogRestartArea(pvmarshal : *mut core::ffi::c_void, pvrestartbuffer : *mut core::ffi::c_void, cbrestartbuffer : u32, plsnbase : *mut CLS_LSN, fflags : CLFS_FLAG, pcbwritten : *mut u32, plsnnext : *mut CLS_LSN, poverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_sys::core::BOOL);
+pub type WriteTapemark = unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: windows_sys::core::BOOL) -> u32;
 windows_link::link!("kernel32.dll" "system" fn WriteTapemark(hdevice : super::super::Foundation::HANDLE, dwtapemarktype : TAPEMARK_TYPE, dwtapemarkcount : u32, bimmediate : windows_sys::core::BOOL) -> u32);
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = 32768u32;
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = 32u32;

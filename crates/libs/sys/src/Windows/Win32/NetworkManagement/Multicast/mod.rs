@@ -1,9 +1,16 @@
+pub type McastApiCleanup = unsafe extern "system" fn();
 windows_link::link!("dhcpcsvc.dll" "system" fn McastApiCleanup());
+pub type McastApiStartup = unsafe extern "system" fn(version: *mut u32) -> u32;
 windows_link::link!("dhcpcsvc.dll" "system" fn McastApiStartup(version : *mut u32) -> u32);
+pub type McastEnumerateScopes = unsafe extern "system" fn(addrfamily: u16, requery: windows_sys::core::BOOL, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32;
 windows_link::link!("dhcpcsvc.dll" "system" fn McastEnumerateScopes(addrfamily : u16, requery : windows_sys::core::BOOL, pscopelist : *mut MCAST_SCOPE_ENTRY, pscopelen : *mut u32, pscopecount : *mut u32) -> u32);
+pub type McastGenUID = unsafe extern "system" fn(prequestid: *mut MCAST_CLIENT_UID) -> u32;
 windows_link::link!("dhcpcsvc.dll" "system" fn McastGenUID(prequestid : *mut MCAST_CLIENT_UID) -> u32);
+pub type McastReleaseAddress = unsafe extern "system" fn(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, preleaserequest: *mut MCAST_LEASE_REQUEST) -> u32;
 windows_link::link!("dhcpcsvc.dll" "system" fn McastReleaseAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, preleaserequest : *mut MCAST_LEASE_REQUEST) -> u32);
+pub type McastRenewAddress = unsafe extern "system" fn(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, prenewrequest: *mut MCAST_LEASE_REQUEST, prenewresponse: *mut MCAST_LEASE_RESPONSE) -> u32;
 windows_link::link!("dhcpcsvc.dll" "system" fn McastRenewAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, prenewrequest : *mut MCAST_LEASE_REQUEST, prenewresponse : *mut MCAST_LEASE_RESPONSE) -> u32);
+pub type McastRequestAddress = unsafe extern "system" fn(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, pscopectx: *mut MCAST_SCOPE_CTX, paddrrequest: *mut MCAST_LEASE_REQUEST, paddrresponse: *mut MCAST_LEASE_RESPONSE) -> u32;
 windows_link::link!("dhcpcsvc.dll" "system" fn McastRequestAddress(addrfamily : u16, prequestid : *mut MCAST_CLIENT_UID, pscopectx : *mut MCAST_SCOPE_CTX, paddrrequest : *mut MCAST_LEASE_REQUEST, paddrresponse : *mut MCAST_LEASE_RESPONSE) -> u32);
 #[repr(C)]
 #[derive(Clone, Copy)]

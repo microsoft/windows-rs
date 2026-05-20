@@ -1,25 +1,49 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub type AbortDoc = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC) -> i32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn AbortDoc(hdc : super::super::Graphics::Gdi::HDC) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type DeviceCapabilitiesA = unsafe extern "system" fn(pdevice: windows_sys::core::PCSTR, pport: windows_sys::core::PCSTR, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: windows_sys::core::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("winspool.drv" "system" fn DeviceCapabilitiesA(pdevice : windows_sys::core::PCSTR, pport : windows_sys::core::PCSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_sys::core::PSTR, pdevmode : *const super::super::Graphics::Gdi::DEVMODEA) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub type DeviceCapabilitiesW = unsafe extern "system" fn(pdevice: windows_sys::core::PCWSTR, pport: windows_sys::core::PCWSTR, fwcapability: PRINTER_DEVICE_CAPABILITIES, poutput: windows_sys::core::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("winspool.drv" "system" fn DeviceCapabilitiesW(pdevice : windows_sys::core::PCWSTR, pport : windows_sys::core::PCWSTR, fwcapability : PRINTER_DEVICE_CAPABILITIES, poutput : windows_sys::core::PWSTR, pdevmode : *const super::super::Graphics::Gdi::DEVMODEW) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type EndDoc = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC) -> i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EndDoc(hdc : super::super::Graphics::Gdi::HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub type EndPage = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC) -> i32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn EndPage(hdc : super::super::Graphics::Gdi::HDC) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type Escape = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjin: i32, pvin: windows_sys::core::PCSTR, pvout: *mut core::ffi::c_void) -> i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn Escape(hdc : super::super::Graphics::Gdi::HDC, iescape : i32, cjin : i32, pvin : windows_sys::core::PCSTR, pvout : *mut core::ffi::c_void) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub type ExtEscape = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, iescape: i32, cjinput: i32, lpindata: windows_sys::core::PCSTR, cjoutput: i32, lpoutdata: windows_sys::core::PSTR) -> i32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn ExtEscape(hdc : super::super::Graphics::Gdi::HDC, iescape : i32, cjinput : i32, lpindata : windows_sys::core::PCSTR, cjoutput : i32, lpoutdata : windows_sys::core::PSTR) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type PrintWindow = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, hdcblt: super::super::Graphics::Gdi::HDC, nflags: PRINT_WINDOW_FLAGS) -> windows_sys::core::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("user32.dll" "system" fn PrintWindow(hwnd : super::super::Foundation::HWND, hdcblt : super::super::Graphics::Gdi::HDC, nflags : PRINT_WINDOW_FLAGS) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub type SetAbortProc = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, proc: ABORTPROC) -> i32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn SetAbortProc(hdc : super::super::Graphics::Gdi::HDC, proc : ABORTPROC) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type StartDocA = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOA) -> i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn StartDocA(hdc : super::super::Graphics::Gdi::HDC, lpdi : *const DOCINFOA) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub type StartDocW = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, lpdi: *const DOCINFOW) -> i32;
+#[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn StartDocW(hdc : super::super::Graphics::Gdi::HDC, lpdi : *const DOCINFOW) -> i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub type StartPage = unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC) -> i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 windows_link::link!("gdi32.dll" "system" fn StartPage(hdc : super::super::Graphics::Gdi::HDC) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
