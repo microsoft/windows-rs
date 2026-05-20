@@ -18,13 +18,15 @@ The follow-up internal work to make the implementation match that surface
 landed `DepMode`, `Option<&Implements>`, and the internal `Style`/`Layout`
 enums with nested sub-flags (the four "set X without Y, panic at write()"
 failure modes are now either unrepresentable or fail at the builder method
-that introduced them). The `Bindgen`/`Config` state-merge (Step A) has now
-also landed: `Config<'a>` holds `&'a Bindgen`, the six derived booleans
-(`flat`/`package`/`no_toml`/`sys`/`minimal`/`sys_fn_extern`) are gone, and
-emitter call sites now query the `Layout` / `Style` enums directly through
-predicate helpers (`is_sys`, `is_package`, `no_toml`, …). Validation has
-been lifted to the top of `Bindgen::write` so it runs before any expensive
-plumbing. What's below is what's left.
+that introduced them). Step A landed the first half of the `Bindgen`/`Config`
+state-merge: `Config<'a>` now holds `&'a Bindgen` (design 1), the six
+derived booleans (`flat`/`package`/`no_toml`/`sys`/`minimal`/`sys_fn_extern`)
+are gone, and emitter call sites query the `Layout` / `Style` enums
+directly through predicate helpers (`is_sys`, `is_package`, `no_toml`, …).
+Validation has been lifted to the top of `Bindgen::write` so it runs
+before any expensive plumbing. The outright merge (design 2) is still
+available as a follow-up — see "Follow-up to Step A" below. What's below
+is what's left.
 
 ## Outstanding simplifications
 
@@ -63,14 +65,27 @@ subset of state they actually need. Concrete tasks:
 
 ### Follow-up to Step A
 
-A few care-abouts deferred from Step A that can be picked off
-opportunistically:
+Step A picked design 1 from the original doc (`Config<'a>` holds
+`&'a Bindgen`) because it landed cleanly without churning the emitter
+signatures. Design 2 — merge `Bindgen` and `Config` outright, so the
+emitters take `&Bindgen` directly and the `bindgen` indirection
+disappears — is still on the table as a further refinement:
 
-- `Config::with_namespace` (config/mod.rs) still clones the whole struct
-  on every namespace. Even though `Config` is now small (~10 reference
-  fields), making `with_namespace` not clone (e.g. by stashing
-  `namespace` in a `Cell` or threading it as a parameter) is a worthwhile
-  follow-up.
+- `Config<'a>` today is essentially a sidecar of run-state references
+  (`reader`, `types`, `references`, `filter`, `derive`, `warnings`,
+  `namespace`, `link`, `implement`) plus `&Bindgen`. Folding the run-state
+  into `Bindgen` (or into a sibling `RunState` that `Bindgen` owns for the
+  duration of `write`) removes the last duplicate type.
+- That move is also the right time to make `Config::with_namespace` not
+  clone (it currently clones the whole struct on every namespace; even
+  though `Config` is now small (~10 reference fields), stashing
+  `namespace` in a `Cell` or threading it as a parameter avoids the clone
+  entirely).
+
+Doing this *now* would mostly be churn — every emitter call site would
+flip from `config: &Config` to `bindgen: &Bindgen` (or similar) with no
+behavioural change. It makes more sense to fold this in alongside Step
+B, when the `config/` files are being moved out anyway.
 
 ## What inherently resists further simplification
 
