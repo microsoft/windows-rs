@@ -83,7 +83,6 @@ pub fn builder() -> Bindgen {
 /// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
 /// | `--specific-deps` | Uses specific crate dependencies rather than `windows-core`. |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
-/// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
@@ -383,9 +382,6 @@ where
                 "--minimal" => {
                     builder.minimal();
                 }
-                "--sys-fn-ptrs" => {
-                    builder.sys_fn_ptrs();
-                }
                 "--sys-fn-extern" => {
                     builder.sys_fn_extern();
                 }
@@ -483,7 +479,6 @@ pub struct Bindgen {
     sys: bool,
     minimal: bool,
     typedef: bool,
-    sys_fn_ptrs: bool,
     sys_fn_extern: bool,
     index: bool,
 }
@@ -700,12 +695,6 @@ impl Bindgen {
         self
     }
 
-    /// Additionally generate function pointers for sys-style Rust bindings.
-    pub fn sys_fn_ptrs(&mut self) -> &mut Self {
-        self.sys_fn_ptrs = true;
-        self
-    }
-
     /// Generate extern declarations rather than link macros for sys-style Rust bindings.
     pub fn sys_fn_extern(&mut self) -> &mut Self {
         self.sys_fn_extern = true;
@@ -874,7 +863,6 @@ impl Bindgen {
             sys: self.sys,
             minimal: self.minimal,
             typedef: self.typedef,
-            sys_fn_ptrs: self.sys_fn_ptrs,
             sys_fn_extern: self.sys_fn_extern,
             implement: self.implement,
             implements: &implements,

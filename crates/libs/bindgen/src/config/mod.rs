@@ -22,7 +22,6 @@ pub struct Config<'a> {
     pub sys: bool,
     pub minimal: bool,
     pub typedef: bool,
-    pub sys_fn_ptrs: bool,
     pub sys_fn_extern: bool,
     pub implement: bool,
     pub implements: &'a Implements,
