@@ -104,7 +104,7 @@ impl Reader {
             );
         }
 
-        let reference = metadata::reader::TypeIndex::new(reference);
+        let reference = metadata::reader::Index::new(reference);
         validate_use_declarations(&input, &index, &reference)?;
 
         let assembly_name = std::path::Path::new(&self.output)
@@ -345,7 +345,7 @@ fn read_winrt<S: syn::spanned::Spanned>(
 fn validate_use_declarations(
     input: &[File],
     index: &Index,
-    reference: &metadata::reader::TypeIndex,
+    reference: &metadata::reader::Index,
 ) -> Result<(), Error> {
     for file in input {
         for use_item in &file.uses {

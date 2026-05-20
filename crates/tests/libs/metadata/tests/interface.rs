@@ -41,7 +41,7 @@ fn test() {
     let bytes = file.into_stream();
     std::fs::write("tests/interface.winmd", bytes).unwrap();
 
-    let index = reader::TypeIndex::read("tests/interface.winmd").unwrap();
+    let index = reader::Index::read("tests/interface.winmd").unwrap();
     let ty = index.expect("Namespace", "Name");
 
     let methods: Vec<_> = ty.methods().collect();
