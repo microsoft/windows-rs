@@ -74,6 +74,12 @@ unsafe impl windows_core::Interface for Class {
     type Vtable = <IClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClass as windows_core::Interface>::IID;
 }
+impl core::ops::Deref for Class {
+    type Target = IClass;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 impl windows_core::RuntimeName for Class {
     const NAME: &'static str = "test_events.Class";
 }
