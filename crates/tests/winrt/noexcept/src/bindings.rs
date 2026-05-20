@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 windows_core::imp::define_interface!(ITest, ITest_Vtbl, 0x37b05fc1_6ee1_5798_b48d_602875fb73a2);
 impl windows_core::RuntimeType for ITest {
     const SIGNATURE: windows_core::imp::ConstBuffer =
