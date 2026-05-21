@@ -1,6 +1,6 @@
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
-#![expect(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 
 #[cfg(windows)]
 #[expect(dead_code)]

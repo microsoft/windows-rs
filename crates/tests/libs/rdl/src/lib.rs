@@ -1,6 +1,6 @@
-#[expect(non_snake_case)]
+#[allow(non_snake_case, dead_code)]
 mod fn_abi;
-#[expect(non_snake_case)]
+#[allow(non_snake_case)]
 pub mod struct_fields;
-#[expect(non_snake_case)]
+#[allow(non_snake_case)]
 pub mod struct_values;
