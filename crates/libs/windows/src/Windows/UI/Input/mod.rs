@@ -639,14 +639,14 @@ impl GestureRecognizer {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetHoldRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldStartDelay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn HoldStartDelay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetHoldStartDelay(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetHoldStartDelay)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -996,8 +996,8 @@ pub struct IGestureRecognizer2_Vtbl {
     pub SetHoldMaxContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub HoldRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetHoldRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub HoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetHoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub HoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetHoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub TranslationMinContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTranslationMinContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub TranslationMaxContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1227,8 +1227,8 @@ pub struct IPhysicalGestureRecognizer_Vtbl {
     pub SetHoldMaxContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub HoldRadius: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetHoldRadius: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub HoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetHoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub HoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetHoldStartDelay: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub TranslationMinContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetTranslationMinContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub TranslationMaxContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -2470,13 +2470,13 @@ impl PhysicalGestureRecognizer {
     pub fn SetHoldRadius(&self, value: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHoldRadius)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn HoldStartDelay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn HoldStartDelay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HoldStartDelay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetHoldStartDelay(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHoldStartDelay)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn TranslationMinContactCount(&self) -> windows_core::Result<u32> {

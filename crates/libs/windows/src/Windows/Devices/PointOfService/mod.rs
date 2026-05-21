@@ -1228,10 +1228,10 @@ unsafe impl Sync for CashDrawerCapabilities {}
 pub struct CashDrawerCloseAlarm(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CashDrawerCloseAlarm, windows_core::IUnknown, windows_core::IInspectable);
 impl CashDrawerCloseAlarm {
-    pub fn SetAlarmTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetAlarmTimeout(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAlarmTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn AlarmTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn AlarmTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlarmTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1246,19 +1246,19 @@ impl CashDrawerCloseAlarm {
             (windows_core::Interface::vtable(self).BeepFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBeepDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetBeepDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBeepDuration)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn BeepDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn BeepDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BeepDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBeepDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetBeepDelay(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBeepDelay)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn BeepDelay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn BeepDelay(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BeepDelay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2893,13 +2893,13 @@ impl ClaimedSlipPrinter {
     pub fn CloseJaws(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CloseJaws)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn InsertSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn InsertSlipAsync(&self, timeout: windows_time::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InsertSlipAsync)(windows_core::Interface::as_raw(self), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn RemoveSlipAsync(&self, timeout: windows_time::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemoveSlipAsync)(windows_core::Interface::as_raw(self), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3387,14 +3387,14 @@ impl windows_core::RuntimeType for ICashDrawerCloseAlarm {
 #[doc(hidden)]
 pub struct ICashDrawerCloseAlarm_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SetAlarmTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub AlarmTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetAlarmTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub AlarmTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub SetBeepFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub BeepFrequency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetBeepDuration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub BeepDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetBeepDelay: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub BeepDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub SetBeepDuration: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub BeepDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetBeepDelay: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub BeepDelay: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub AlarmTimeoutExpired: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveAlarmTimeoutExpired: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -3873,8 +3873,8 @@ pub struct IClaimedSlipPrinter_Vtbl {
     pub PrintArea: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
     pub OpenJaws: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CloseJaws: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub InsertSlipAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveSlipAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InsertSlipAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveSlipAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChangePrintSide: unsafe extern "system" fn(*mut core::ffi::c_void, PosPrinterPrintSide) -> windows_core::HRESULT,
     pub CreateJob: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -4945,8 +4945,8 @@ pub struct ILineDisplayAttributes_Vtbl {
     pub SetIsPowerNotifyEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub Brightness: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetBrightness: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub BlinkRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetBlinkRate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub BlinkRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetBlinkRate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub ScreenSizeInCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
     pub SetScreenSizeInCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Size) -> windows_core::HRESULT,
     pub CharacterSet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -5043,10 +5043,10 @@ pub struct ILineDisplayMarquee_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LineDisplayMarqueeFormat) -> windows_core::HRESULT,
     pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, LineDisplayMarqueeFormat) -> windows_core::HRESULT,
-    pub RepeatWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetRepeatWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub ScrollWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetScrollWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub RepeatWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetRepeatWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub ScrollWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetScrollWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub TryStartScrollingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, LineDisplayScrollDirection, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryStopScrollingAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
@@ -5115,8 +5115,8 @@ impl windows_core::RuntimeType for ILineDisplayWindow {
 pub struct ILineDisplayWindow_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SizeInCharacters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Size) -> windows_core::HRESULT,
-    pub InterCharacterWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetInterCharacterWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub InterCharacterWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetInterCharacterWaitInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub TryRefreshAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryDisplayTextAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LineDisplayTextAttribute, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryDisplayTextAtPositionAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, LineDisplayTextAttribute, super::super::Foundation::Point, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -6356,13 +6356,13 @@ impl LineDisplayAttributes {
     pub fn SetBrightness(&self, value: i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBrightness)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn BlinkRate(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn BlinkRate(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlinkRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBlinkRate(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetBlinkRate(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBlinkRate)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn ScreenSizeInCharacters(&self) -> windows_core::Result<super::super::Foundation::Size> {
@@ -6771,22 +6771,22 @@ impl LineDisplayMarquee {
     pub fn SetFormat(&self, value: LineDisplayMarqueeFormat) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn RepeatWaitInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RepeatWaitInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RepeatWaitInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRepeatWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetRepeatWaitInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRepeatWaitInterval)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn ScrollWaitInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ScrollWaitInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScrollWaitInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetScrollWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetScrollWaitInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetScrollWaitInterval)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn TryStartScrollingAsync(&self, direction: LineDisplayScrollDirection) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
@@ -7008,13 +7008,13 @@ impl LineDisplayWindow {
             (windows_core::Interface::vtable(self).SizeInCharacters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn InterCharacterWaitInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn InterCharacterWaitInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InterCharacterWaitInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInterCharacterWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetInterCharacterWaitInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterCharacterWaitInterval)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn TryRefreshAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {

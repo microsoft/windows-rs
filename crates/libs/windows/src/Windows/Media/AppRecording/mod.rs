@@ -20,7 +20,7 @@ impl AppRecordingManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P2) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
+    pub fn RecordTimeSpanToFileAsync<P2>(&self, starttime: windows_time::DateTime, duration: windows_time::TimeSpan, file: P2) -> windows_core::Result<windows_future::IAsyncOperation<AppRecordingResult>>
     where
         P2: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -86,7 +86,7 @@ impl AppRecordingResult {
             (windows_core::Interface::vtable(self).ExtendedError)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -208,7 +208,7 @@ impl AppRecordingStatus {
             (windows_core::Interface::vtable(self).CanRecordTimeSpan)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn HistoricalBufferDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn HistoricalBufferDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HistoricalBufferDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -319,7 +319,7 @@ pub struct IAppRecordingManager_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     StartRecordingToFileAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub RecordTimeSpanToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RecordTimeSpanToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     RecordTimeSpanToFileAsync: usize,
     pub SupportedScreenshotMediaEncodingSubtypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -348,7 +348,7 @@ pub struct IAppRecordingResult_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub IsFileTruncated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppRecordingSaveScreenshotResult, IAppRecordingSaveScreenshotResult_Vtbl, 0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
@@ -387,7 +387,7 @@ pub struct IAppRecordingStatus_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CanRecord: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CanRecordTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub HistoricalBufferDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub HistoricalBufferDuration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub Details: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAppRecordingStatusDetails, IAppRecordingStatusDetails_Vtbl, 0xb538a9b0_14ed_4412_ac45_6d672c9c9949);

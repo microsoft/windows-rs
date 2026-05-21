@@ -159,10 +159,10 @@ where
     fn GetGuid(&self) -> Result<GUID> {
         cast_value(&self.value)
     }
-    fn GetDateTime(&self) -> Result<bindings::DateTime> {
+    fn GetDateTime(&self) -> Result<windows_time::DateTime> {
         cast_value(&self.value)
     }
-    fn GetTimeSpan(&self) -> Result<bindings::TimeSpan> {
+    fn GetTimeSpan(&self) -> Result<windows_time::TimeSpan> {
         cast_value(&self.value)
     }
     fn GetPoint(&self) -> Result<bindings::Point> {
@@ -216,10 +216,10 @@ where
     fn GetGuidArray(&self, _value: &mut Array<GUID>) -> Result<()> {
         Err(Error::from_hresult(E_NOTIMPL))
     }
-    fn GetDateTimeArray(&self, _value: &mut Array<bindings::DateTime>) -> Result<()> {
+    fn GetDateTimeArray(&self, _value: &mut Array<windows_time::DateTime>) -> Result<()> {
         Err(Error::from_hresult(E_NOTIMPL))
     }
-    fn GetTimeSpanArray(&self, _value: &mut Array<bindings::TimeSpan>) -> Result<()> {
+    fn GetTimeSpanArray(&self, _value: &mut Array<windows_time::TimeSpan>) -> Result<()> {
         Err(Error::from_hresult(E_NOTIMPL))
     }
     fn GetPointArray(&self, _value: &mut Array<bindings::Point>) -> Result<()> {

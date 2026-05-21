@@ -110,13 +110,13 @@ impl Calendar {
     pub fn ChangeClock(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ChangeClock)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn GetDateTime(&self) -> windows_core::Result<super::Foundation::DateTime> {
+    pub fn GetDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDateTime(&self, value: super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetDateTime(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDateTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn SetToNow(&self) -> windows_core::Result<()> {
@@ -518,7 +518,7 @@ impl Calendar {
             (windows_core::Interface::vtable(self).Compare)(windows_core::Interface::as_raw(self), other.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CompareDateTime(&self, other: super::Foundation::DateTime) -> windows_core::Result<i32> {
+    pub fn CompareDateTime(&self, other: windows_time::DateTime) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CompareDateTime)(windows_core::Interface::as_raw(self), other, &mut result__).map(|| result__)
@@ -1960,8 +1960,8 @@ pub struct ICalendar_Vtbl {
     pub ChangeCalendarSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ChangeClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub SetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub GetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub SetDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
     pub SetToNow: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FirstEra: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub LastEra: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -2038,7 +2038,7 @@ pub struct ICalendar_Vtbl {
     pub NanosecondAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NanosecondAsPaddedString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Compare: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub CompareDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::DateTime, *mut i32) -> windows_core::HRESULT,
+    pub CompareDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut i32) -> windows_core::HRESULT,
     pub CopyTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FirstMinuteInThisHour: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub LastMinuteInThisHour: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,

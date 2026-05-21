@@ -120,13 +120,13 @@ impl IGpioPinProvider {
     pub fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveValueChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
-    pub fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DebounceTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DebounceTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDebounceTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDebounceTimeout(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDebounceTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn PinNumber(&self) -> windows_core::Result<i32> {
@@ -172,8 +172,8 @@ impl windows_core::RuntimeName for IGpioPinProvider {
 pub trait IGpioPinProvider_Impl: windows_core::IUnknownImpl {
     fn ValueChanged(&self, handler: windows_core::Ref<super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()>;
-    fn DebounceTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan>;
-    fn SetDebounceTimeout(&self, value: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
+    fn DebounceTimeout(&self) -> windows_core::Result<windows_time::TimeSpan>;
+    fn SetDebounceTimeout(&self, value: &windows_time::TimeSpan) -> windows_core::Result<()>;
     fn PinNumber(&self) -> windows_core::Result<i32>;
     fn SharingMode(&self) -> windows_core::Result<ProviderGpioSharingMode>;
     fn IsDriveModeSupported(&self, driveMode: ProviderGpioPinDriveMode) -> windows_core::Result<bool>;
@@ -202,7 +202,7 @@ impl IGpioPinProvider_Vtbl {
                 IGpioPinProvider_Impl::RemoveValueChanged(this, token).into()
             }
         }
-        unsafe extern "system" fn DebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn DebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGpioPinProvider_Impl::DebounceTimeout(this) {
@@ -214,7 +214,7 @@ impl IGpioPinProvider_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDebounceTimeout<Identity: IGpioPinProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGpioPinProvider_Impl::SetDebounceTimeout(this, core::mem::transmute(&value)).into()
@@ -317,8 +317,8 @@ pub struct IGpioPinProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveValueChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub DebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetDebounceTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub PinNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SharingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ProviderGpioSharingMode) -> windows_core::HRESULT,
     pub IsDriveModeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinDriveMode, *mut bool) -> windows_core::HRESULT,

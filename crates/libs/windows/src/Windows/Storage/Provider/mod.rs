@@ -989,7 +989,7 @@ impl IStorageProviderSearchHandler {
             (windows_core::Interface::vtable(self).Find)(windows_core::Interface::as_raw(self), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportUsage(&self, resultusagekind: StorageProviderResultUsageKind, remotefileid: &windows_core::HSTRING, resultid: &windows_core::HSTRING, latency: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn ReportUsage(&self, resultusagekind: StorageProviderResultUsageKind, remotefileid: &windows_core::HSTRING, resultid: &windows_core::HSTRING, latency: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReportUsage)(windows_core::Interface::as_raw(self), resultusagekind, core::mem::transmute_copy(remotefileid), core::mem::transmute_copy(resultid), latency).ok() }
     }
 }
@@ -998,7 +998,7 @@ impl windows_core::RuntimeName for IStorageProviderSearchHandler {
 }
 pub trait IStorageProviderSearchHandler_Impl: windows_core::IUnknownImpl {
     fn Find(&self, options: windows_core::Ref<StorageProviderSearchQueryOptions>) -> windows_core::Result<StorageProviderQueryResultSet>;
-    fn ReportUsage(&self, resultUsageKind: StorageProviderResultUsageKind, remoteFileId: &windows_core::HSTRING, resultId: &windows_core::HSTRING, latency: &super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
+    fn ReportUsage(&self, resultUsageKind: StorageProviderResultUsageKind, remoteFileId: &windows_core::HSTRING, resultId: &windows_core::HSTRING, latency: &windows_time::TimeSpan) -> windows_core::Result<()>;
 }
 impl IStorageProviderSearchHandler_Vtbl {
     pub const fn new<Identity: IStorageProviderSearchHandler_Impl, const OFFSET: isize>() -> Self {
@@ -1015,7 +1015,7 @@ impl IStorageProviderSearchHandler_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReportUsage<Identity: IStorageProviderSearchHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultusagekind: StorageProviderResultUsageKind, remotefileid: *mut core::ffi::c_void, resultid: *mut core::ffi::c_void, latency: super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReportUsage<Identity: IStorageProviderSearchHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultusagekind: StorageProviderResultUsageKind, remotefileid: *mut core::ffi::c_void, resultid: *mut core::ffi::c_void, latency: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStorageProviderSearchHandler_Impl::ReportUsage(this, resultusagekind, core::mem::transmute(&remotefileid), core::mem::transmute(&resultid), core::mem::transmute(&latency)).into()
@@ -1036,7 +1036,7 @@ impl IStorageProviderSearchHandler_Vtbl {
 pub struct IStorageProviderSearchHandler_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Find: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportUsage: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderResultUsageKind, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ReportUsage: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderResultUsageKind, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderSearchHandlerFactory, IStorageProviderSearchHandlerFactory_Vtbl, 0xb0dcad80_f3f5_516b_8ace_4e77022c9598);
 impl windows_core::RuntimeType for IStorageProviderSearchHandlerFactory {
@@ -1410,7 +1410,7 @@ impl IStorageProviderSuggestionsHandler {
             (windows_core::Interface::vtable(self).GetDetails)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(remotefileid), propertiestofetch.len().try_into().unwrap(), core::mem::transmute(propertiestofetch.as_ptr()), core::mem::transmute_copy(queryid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportUsage(&self, resultusagekind: StorageProviderResultUsageKind, remotefileid: &windows_core::HSTRING, resultid: &windows_core::HSTRING, latency: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn ReportUsage(&self, resultusagekind: StorageProviderResultUsageKind, remotefileid: &windows_core::HSTRING, resultid: &windows_core::HSTRING, latency: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReportUsage)(windows_core::Interface::as_raw(self), resultusagekind, core::mem::transmute_copy(remotefileid), core::mem::transmute_copy(resultid), latency).ok() }
     }
 }
@@ -1422,7 +1422,7 @@ pub trait IStorageProviderSuggestionsHandler_Impl: windows_core::IUnknownImpl {
     fn Add(&self, kind: StorageProviderResultKind, remoteFileId: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Remove(&self, kind: StorageProviderResultKind, remoteFileId: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn GetDetails(&self, remoteFileId: &windows_core::HSTRING, propertiesToFetch: &[windows_core::HSTRING], queryId: &windows_core::HSTRING) -> windows_core::Result<StorageProviderSuggestionResult>;
-    fn ReportUsage(&self, resultUsageKind: StorageProviderResultUsageKind, remoteFileId: &windows_core::HSTRING, resultId: &windows_core::HSTRING, latency: &super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
+    fn ReportUsage(&self, resultUsageKind: StorageProviderResultUsageKind, remoteFileId: &windows_core::HSTRING, resultId: &windows_core::HSTRING, latency: &windows_time::TimeSpan) -> windows_core::Result<()>;
 }
 impl IStorageProviderSuggestionsHandler_Vtbl {
     pub const fn new<Identity: IStorageProviderSuggestionsHandler_Impl, const OFFSET: isize>() -> Self {
@@ -1464,7 +1464,7 @@ impl IStorageProviderSuggestionsHandler_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ReportUsage<Identity: IStorageProviderSuggestionsHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultusagekind: StorageProviderResultUsageKind, remotefileid: *mut core::ffi::c_void, resultid: *mut core::ffi::c_void, latency: super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReportUsage<Identity: IStorageProviderSuggestionsHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resultusagekind: StorageProviderResultUsageKind, remotefileid: *mut core::ffi::c_void, resultid: *mut core::ffi::c_void, latency: windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IStorageProviderSuggestionsHandler_Impl::ReportUsage(this, resultusagekind, core::mem::transmute(&remotefileid), core::mem::transmute(&resultid), core::mem::transmute(&latency)).into()
@@ -1491,7 +1491,7 @@ pub struct IStorageProviderSuggestionsHandler_Vtbl {
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderResultKind, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderResultKind, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::HSTRING, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ReportUsage: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderResultUsageKind, *mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ReportUsage: unsafe extern "system" fn(*mut core::ffi::c_void, StorageProviderResultUsageKind, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageProviderSuggestionsHandlerFactory, IStorageProviderSuggestionsHandlerFactory_Vtbl, 0xdc7b35d8_a25b_58a3_ace7_b3543106a2aa);
 impl windows_core::RuntimeType for IStorageProviderSuggestionsHandlerFactory {

@@ -162,7 +162,7 @@ impl ActionEntityFactory {
             (windows_core::Interface::vtable(this).CreateArrayEntity)(windows_core::Interface::as_raw(this), kind, entities.len().try_into().unwrap(), core::mem::transmute(entities.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateDateTimeEntity(&self, datetime: super::super::Foundation::DateTime) -> windows_core::Result<DateTimeActionEntity> {
+    pub fn CreateDateTimeEntity(&self, datetime: windows_time::DateTime) -> windows_core::Result<DateTimeActionEntity> {
         let this = &windows_core::Interface::cast::<IActionEntityFactory6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -819,7 +819,7 @@ impl CustomActionEntityStore {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetLastModifiedTime(&self, kind: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn GetLastModifiedTime(&self, kind: &windows_core::HSTRING) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastModifiedTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(kind), &mut result__).map(|| result__)
@@ -943,7 +943,7 @@ impl DateTimeActionEntity {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn DateTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DateTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1160,7 +1160,7 @@ impl windows_core::RuntimeType for IActionEntityFactory6 {
 #[doc(hidden)]
 pub struct IActionEntityFactory6_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub CreateDateTimeEntity: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateDateTimeEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "ApplicationModel_Appointments")]
     pub CreateAppointmentEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const ContactActionEntity, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Appointments"))]
@@ -1402,7 +1402,7 @@ impl windows_core::RuntimeType for ICustomActionEntityStore {
 #[doc(hidden)]
 pub struct ICustomActionEntityStore_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GetLastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub GetLastModifiedTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Insert: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InsertMany: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const CustomTextActionEntity) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1436,7 +1436,7 @@ impl windows_core::RuntimeType for IDateTimeActionEntity {
 #[doc(hidden)]
 pub struct IDateTimeActionEntity_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub DateTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDocumentActionEntity, IDocumentActionEntity_Vtbl, 0x56715297_960b_59ff_af4b_ece1098b2e36);
 impl windows_core::RuntimeType for IDocumentActionEntity {
@@ -1792,16 +1792,16 @@ impl RemoteFileActionEntity {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCreator)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn LastUpdatedTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LastUpdatedTime(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastUpdatedTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).LastUpdatedTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetLastUpdatedTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
+    pub fn SetLastUpdatedTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IRemoteFileActionEntity2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetLastUpdatedTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn SetContributors(&self, contributors: &[Option<ContactActionEntity>]) -> windows_core::Result<()> {

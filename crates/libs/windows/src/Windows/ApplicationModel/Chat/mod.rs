@@ -156,7 +156,7 @@ impl ChatConversation {
             (windows_core::Interface::vtable(self).MarkAllMessagesAsReadAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MarkMessagesAsReadAsync(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn MarkMessagesAsReadAsync(&self, value: windows_time::DateTime) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MarkMessagesAsReadAsync)(windows_core::Interface::as_raw(self), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -407,13 +407,13 @@ impl ChatMessage {
             (windows_core::Interface::vtable(self).IsRead)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn LocalTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LocalTimestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocalTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn NetworkTimestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn NetworkTimestamp(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NetworkTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -521,7 +521,7 @@ impl ChatMessage {
             (windows_core::Interface::vtable(this).IsSimMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetLocalTimestamp(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetLocalTimestamp(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IChatMessage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLocalTimestamp)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -547,7 +547,7 @@ impl ChatMessage {
         let this = &windows_core::Interface::cast::<IChatMessage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMessageOperatorKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetNetworkTimestamp(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetNetworkTimestamp(&self, value: windows_time::DateTime) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IChatMessage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNetworkTimestamp)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1153,7 +1153,7 @@ impl ChatMessageStore {
             (windows_core::Interface::vtable(self).GetMessageReader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetMessageReader2(&self, recenttimelimit: super::super::Foundation::TimeSpan) -> windows_core::Result<ChatMessageReader> {
+    pub fn GetMessageReader2(&self, recenttimelimit: windows_time::TimeSpan) -> windows_core::Result<ChatMessageReader> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMessageReader2)(windows_core::Interface::as_raw(self), recenttimelimit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1642,24 +1642,24 @@ impl ChatRecipientDeliveryInfo {
     pub fn SetTransportAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransportAddress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DeliveryTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DeliveryTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeliveryTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).DeliveryTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetDeliveryTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetDeliveryTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetDeliveryTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ReadTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ReadTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReadTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ReadTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetReadTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetReadTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetReadTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn TransportErrorCodeCategory(&self) -> windows_core::Result<ChatTransportErrorCodeCategory> {
@@ -1954,7 +1954,7 @@ pub struct IChatConversation_Vtbl {
     pub DeleteAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMessageReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MarkAllMessagesAsReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MarkMessagesAsReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MarkMessagesAsReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub NotifyLocalParticipantComposing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub NotifyRemoteParticipantComposing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -2062,8 +2062,8 @@ pub struct IChatMessage_Vtbl {
     pub IsForwardingDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsIncoming: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsRead: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub LocalTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
-    pub NetworkTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub LocalTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
+    pub NetworkTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub Recipients: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RecipientSendStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageStatus) -> windows_core::HRESULT,
@@ -2092,12 +2092,12 @@ pub struct IChatMessage2_Vtbl {
     pub IsSeen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsSeen: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub IsSimMessage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetLocalTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub SetLocalTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
     pub MessageKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageKind) -> windows_core::HRESULT,
     pub SetMessageKind: unsafe extern "system" fn(*mut core::ffi::c_void, ChatMessageKind) -> windows_core::HRESULT,
     pub MessageOperatorKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatMessageOperatorKind) -> windows_core::HRESULT,
     pub SetMessageOperatorKind: unsafe extern "system" fn(*mut core::ffi::c_void, ChatMessageOperatorKind) -> windows_core::HRESULT,
-    pub SetNetworkTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub SetNetworkTimestamp: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
     pub IsReceivedDuringQuietHours: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsReceivedDuringQuietHours: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SetRemoteId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2342,7 +2342,7 @@ pub struct IChatMessageStore_Vtbl {
     pub DownloadMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMessageReader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetMessageReader2: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetMessageReader2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MarkMessageReadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RetrySendMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendMessageAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,

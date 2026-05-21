@@ -670,7 +670,7 @@ impl windows_core::RuntimeType for IProtectedAccessSuspendingEventArgs {
 pub struct IProtectedAccessSuspendingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Identities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IProtectedContainerExportResult, IProtectedContainerExportResult_Vtbl, 0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
@@ -814,7 +814,7 @@ impl windows_core::RuntimeType for IProtectionPolicyManagerStatics2 {
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub HasContentBeenRevokedSince: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, *mut bool) -> windows_core::HRESULT,
+    pub HasContentBeenRevokedSince: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, *mut bool) -> windows_core::HRESULT,
     pub CheckAccessForApp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ProtectionPolicyEvaluationResult) -> windows_core::HRESULT,
     pub RequestAccessForAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEnforcementLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut EnforcementLevel) -> windows_core::HRESULT,
@@ -920,7 +920,7 @@ impl ProtectedAccessSuspendingEventArgs {
             (windows_core::Interface::vtable(self).Identities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1300,7 +1300,7 @@ impl ProtectionPolicyManager {
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceidentity), core::mem::transmute_copy(targetidentity), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn HasContentBeenRevokedSince(identity: &windows_core::HSTRING, since: super::super::Foundation::DateTime) -> windows_core::Result<bool> {
+    pub fn HasContentBeenRevokedSince(identity: &windows_core::HSTRING, since: windows_time::DateTime) -> windows_core::Result<bool> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasContentBeenRevokedSince)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identity), since, &mut result__).map(|| result__)

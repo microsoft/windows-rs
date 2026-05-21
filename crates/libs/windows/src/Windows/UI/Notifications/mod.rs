@@ -84,14 +84,14 @@ impl BadgeNotification {
             (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -246,7 +246,7 @@ impl BadgeUpdater {
     {
         unsafe { (windows_core::Interface::vtable(self).StartPeriodicUpdate)(windows_core::Interface::as_raw(self), badgecontent.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateAtTime<P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<P0>(&self, badgecontent: P0, starttime: windows_time::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -435,7 +435,7 @@ pub struct IBadgeUpdater_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
-    pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
+    pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
     pub StopPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IKnownAdaptiveNotificationHintsStatics, IKnownAdaptiveNotificationHintsStatics_Vtbl, 0x06206598_d496_497d_8692_4f7d7c2770df);
@@ -567,7 +567,7 @@ pub struct IScheduledTileNotification_Vtbl {
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     Content: usize,
-    pub DeliveryTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub DeliveryTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub SetExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -584,7 +584,7 @@ impl windows_core::RuntimeType for IScheduledTileNotificationFactory {
 pub struct IScheduledTileNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
-    pub CreateScheduledTileNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateScheduledTileNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateScheduledTileNotification: usize,
 }
@@ -600,7 +600,7 @@ pub struct IScheduledToastNotification_Vtbl {
     pub Content: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     Content: usize,
-    pub DeliveryTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub DeliveryTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
     pub SnoozeInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MaximumSnoozeCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -654,11 +654,11 @@ impl windows_core::RuntimeType for IScheduledToastNotificationFactory {
 pub struct IScheduledToastNotificationFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Data_Xml_Dom")]
-    pub CreateScheduledToastNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateScheduledToastNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateScheduledToastNotification: usize,
     #[cfg(feature = "Data_Xml_Dom")]
-    pub CreateScheduledToastNotificationRecurring: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, super::super::Foundation::TimeSpan, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateScheduledToastNotificationRecurring: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, windows_time::TimeSpan, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateScheduledToastNotificationRecurring: usize,
 }
@@ -740,7 +740,7 @@ pub struct ITileFlyoutUpdater_Vtbl {
     pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
-    pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
+    pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
     pub StopPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Setting: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NotificationSetting) -> windows_core::HRESULT,
 }
@@ -835,10 +835,10 @@ pub struct ITileUpdater_Vtbl {
     pub RemoveFromSchedule: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetScheduledTileNotifications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
-    pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
+    pub StartPeriodicUpdateAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
     pub StopPeriodicUpdate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartPeriodicUpdateBatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
-    pub StartPeriodicUpdateBatchAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
+    pub StartPeriodicUpdateBatchAtTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::DateTime, PeriodicUpdateRecurrence) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITileUpdater2, ITileUpdater2_Vtbl, 0xa2266e12_15ee_43ed_83f5_65b352bb1a84);
 impl windows_core::RuntimeType for ITileUpdater2 {
@@ -1228,7 +1228,7 @@ pub struct IUserNotification_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     AppInfo: usize,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub CreationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUserNotificationChangedEventArgs, IUserNotificationChangedEventArgs_Vtbl, 0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
 impl windows_core::RuntimeType for IUserNotificationChangedEventArgs {
@@ -1439,14 +1439,14 @@ impl Notification {
         static SHARED: windows_core::imp::FactoryCache<Notification, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetExpirationTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn Visual(&self) -> windows_core::Result<NotificationVisual> {
@@ -1740,20 +1740,20 @@ impl ScheduledTileNotification {
             (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeliveryTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DeliveryTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeliveryTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetExpirationTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -1775,7 +1775,7 @@ impl ScheduledTileNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledTileNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> windows_core::Result<ScheduledTileNotification>
+    pub fn CreateScheduledTileNotification<P0>(content: P0, deliverytime: windows_time::DateTime) -> windows_core::Result<ScheduledTileNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1813,16 +1813,16 @@ impl ScheduledToastNotification {
             (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeliveryTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DeliveryTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeliveryTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SnoozeInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn SnoozeInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SnoozeInterval)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).SnoozeInterval)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
     pub fn MaximumSnoozeCount(&self) -> windows_core::Result<u32> {
@@ -1895,20 +1895,20 @@ impl ScheduledToastNotification {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetExpirationTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
+    pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification4>(self)?;
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> windows_core::Result<ScheduledToastNotification>
+    pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: windows_time::DateTime) -> windows_core::Result<ScheduledToastNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1918,7 +1918,7 @@ impl ScheduledToastNotification {
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledToastNotificationRecurring<P0>(content: P0, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> windows_core::Result<ScheduledToastNotification>
+    pub fn CreateScheduledToastNotificationRecurring<P0>(content: P0, deliverytime: windows_time::DateTime, snoozeinterval: windows_time::TimeSpan, maximumsnoozecount: u32) -> windows_core::Result<ScheduledToastNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -2019,14 +2019,14 @@ impl TileFlyoutNotification {
             (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -2123,7 +2123,7 @@ impl TileFlyoutUpdater {
     {
         unsafe { (windows_core::Interface::vtable(self).StartPeriodicUpdate)(windows_core::Interface::as_raw(self), tileflyoutcontent.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateAtTime<P0>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<P0>(&self, tileflyoutcontent: P0, starttime: windows_time::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2161,14 +2161,14 @@ impl TileNotification {
             (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
@@ -2483,7 +2483,7 @@ impl TileUpdater {
     {
         unsafe { (windows_core::Interface::vtable(self).StartPeriodicUpdate)(windows_core::Interface::as_raw(self), tilecontent.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateAtTime<P0>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<P0>(&self, tilecontent: P0, starttime: windows_time::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2498,7 +2498,7 @@ impl TileUpdater {
     {
         unsafe { (windows_core::Interface::vtable(self).StartPeriodicUpdateBatch)(windows_core::Interface::as_raw(self), tilecontents.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateBatchAtTime<P0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateBatchAtTime<P0>(&self, tilecontents: P0, starttime: windows_time::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
@@ -2779,14 +2779,14 @@ impl ToastNotification {
             (windows_core::Interface::vtable(self).Content)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime(&self, value: Option<super::super::Foundation::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Foundation::DateTime> as core::convert::From<_>>::from);
+    pub fn SetExpirationTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as core::convert::From<_>>::from);
         unsafe { (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Foundation::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
     pub fn Dismissed<P0>(&self, handler: P0) -> windows_core::Result<i64>
@@ -3368,7 +3368,7 @@ impl UserNotification {
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn CreationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn CreationTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

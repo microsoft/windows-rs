@@ -82,8 +82,8 @@ pub struct ILocalLocationHoursOfOperationItem_Vtbl {
     pub Day: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Globalization::DayOfWeek) -> windows_core::HRESULT,
     #[cfg(not(feature = "Globalization"))]
     Day: usize,
-    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Span: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Span: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILocalLocationRatingInfo, ILocalLocationRatingInfo_Vtbl, 0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
 impl windows_core::RuntimeType for ILocalLocationRatingInfo {
@@ -328,13 +328,13 @@ impl LocalLocationHoursOfOperationItem {
             (windows_core::Interface::vtable(self).Day)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Start(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Start(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Span(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Span(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Span)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

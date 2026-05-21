@@ -70,7 +70,7 @@ impl windows_core::RuntimeType for IMidiMessage {
 }
 windows_core::imp::interface_hierarchy!(IMidiMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl IMidiMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -96,14 +96,14 @@ impl windows_core::RuntimeName for IMidiMessage {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IMidiMessage_Impl: windows_core::IUnknownImpl {
-    fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
+    fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan>;
     fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer>;
     fn Type(&self) -> windows_core::Result<MidiMessageType>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IMidiMessage_Vtbl {
     pub const fn new<Identity: IMidiMessage_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Timestamp<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Timestamp<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_time::TimeSpan) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMidiMessage_Impl::Timestamp(this) {
@@ -155,7 +155,7 @@ impl IMidiMessage_Vtbl {
 #[doc(hidden)]
 pub struct IMidiMessage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
     pub RawData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
@@ -501,7 +501,7 @@ impl MidiActiveSensingMessage {
         static SHARED: windows_core::imp::FactoryCache<MidiActiveSensingMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -557,7 +557,7 @@ impl MidiChannelPressureMessage {
             (windows_core::Interface::vtable(this).CreateMidiChannelPressureMessage)(windows_core::Interface::as_raw(this), channel, pressure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -608,7 +608,7 @@ impl MidiContinueMessage {
         static SHARED: windows_core::imp::FactoryCache<MidiContinueMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -670,7 +670,7 @@ impl MidiControlChangeMessage {
             (windows_core::Interface::vtable(this).CreateMidiControlChangeMessage)(windows_core::Interface::as_raw(this), channel, controller, controlvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -827,7 +827,7 @@ pub struct MidiNoteOffMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOffMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiNoteOffMessage, IMidiMessage);
 impl MidiNoteOffMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -896,7 +896,7 @@ pub struct MidiNoteOnMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOnMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiNoteOnMessage, IMidiMessage);
 impl MidiNoteOnMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1023,7 +1023,7 @@ pub struct MidiPitchBendChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPitchBendChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiPitchBendChangeMessage, IMidiMessage);
 impl MidiPitchBendChangeMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1086,7 +1086,7 @@ pub struct MidiPolyphonicKeyPressureMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPolyphonicKeyPressureMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiPolyphonicKeyPressureMessage, IMidiMessage);
 impl MidiPolyphonicKeyPressureMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1155,7 +1155,7 @@ pub struct MidiProgramChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiProgramChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiProgramChangeMessage, IMidiMessage);
 impl MidiProgramChangeMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1218,7 +1218,7 @@ pub struct MidiSongPositionPointerMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongPositionPointerMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSongPositionPointerMessage, IMidiMessage);
 impl MidiSongPositionPointerMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1275,7 +1275,7 @@ pub struct MidiSongSelectMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongSelectMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSongSelectMessage, IMidiMessage);
 impl MidiSongSelectMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1338,7 +1338,7 @@ impl MidiStartMessage {
         static SHARED: windows_core::imp::FactoryCache<MidiStartMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1382,7 +1382,7 @@ impl MidiStopMessage {
         static SHARED: windows_core::imp::FactoryCache<MidiStopMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1510,7 +1510,7 @@ unsafe impl Sync for MidiSynthesizer {}
 pub struct MidiSystemExclusiveMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSystemExclusiveMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiSystemExclusiveMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1568,7 +1568,7 @@ impl MidiSystemResetMessage {
         static SHARED: windows_core::imp::FactoryCache<MidiSystemResetMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1606,7 +1606,7 @@ pub struct MidiTimeCodeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTimeCodeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiTimeCodeMessage, IMidiMessage);
 impl MidiTimeCodeMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1675,7 +1675,7 @@ impl MidiTimingClockMessage {
         static SHARED: windows_core::imp::FactoryCache<MidiTimingClockMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1719,7 +1719,7 @@ impl MidiTuneRequestMessage {
         static SHARED: windows_core::imp::FactoryCache<MidiTuneRequestMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

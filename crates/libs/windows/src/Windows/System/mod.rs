@@ -976,7 +976,7 @@ impl windows_core::RuntimeType for AutoUpdateTimeZoneStatus {
 }
 pub struct DateTimeSettings;
 impl DateTimeSettings {
-    pub fn SetSystemDateTime(utcdatetime: super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetSystemDateTime(utcdatetime: windows_time::DateTime) -> windows_core::Result<()> {
         Self::IDateTimeSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetSystemDateTime)(windows_core::Interface::as_raw(this), utcdatetime).ok() })
     }
     fn IDateTimeSettingsStatics<R, F: FnOnce(&IDateTimeSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1204,13 +1204,13 @@ unsafe impl Sync for DispatcherQueueShutdownStartingEventArgs {}
 pub struct DispatcherQueueTimer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DispatcherQueueTimer, windows_core::IUnknown, windows_core::IInspectable);
 impl DispatcherQueueTimer {
-    pub fn Interval(&self) -> windows_core::Result<super::Foundation::TimeSpan> {
+    pub fn Interval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Interval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInterval(&self, value: super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetInterval(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInterval)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn IsRunning(&self) -> windows_core::Result<bool> {
@@ -1667,7 +1667,7 @@ impl windows_core::RuntimeType for IDateTimeSettingsStatics {
 #[doc(hidden)]
 pub struct IDateTimeSettingsStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SetSystemDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub SetSystemDateTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDispatcherQueue, IDispatcherQueue_Vtbl, 0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
 impl windows_core::RuntimeType for IDispatcherQueue {
@@ -1744,8 +1744,8 @@ impl windows_core::RuntimeType for IDispatcherQueueTimer {
 #[doc(hidden)]
 pub struct IDispatcherQueueTimer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub Interval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetInterval: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Interval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetInterval: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub IsRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub IsRepeating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsRepeating: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -2249,7 +2249,7 @@ impl windows_core::RuntimeType for IShutdownManagerStatics {
 #[doc(hidden)]
 pub struct IShutdownManagerStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub BeginShutdown: unsafe extern "system" fn(*mut core::ffi::c_void, ShutdownKind, super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub BeginShutdown: unsafe extern "system" fn(*mut core::ffi::c_void, ShutdownKind, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub CancelShutdown: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IShutdownManagerStatics2, IShutdownManagerStatics2_Vtbl, 0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504);
@@ -2262,7 +2262,7 @@ pub struct IShutdownManagerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsPowerStateSupported: unsafe extern "system" fn(*mut core::ffi::c_void, PowerState, *mut bool) -> windows_core::HRESULT,
     pub EnterPowerState: unsafe extern "system" fn(*mut core::ffi::c_void, PowerState) -> windows_core::HRESULT,
-    pub EnterPowerStateWithTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, PowerState, super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub EnterPowerStateWithTimeSpan: unsafe extern "system" fn(*mut core::ffi::c_void, PowerState, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITimeZoneSettingsStatics, ITimeZoneSettingsStatics_Vtbl, 0x9b3b2bea_a101_41ae_9fbd_028728bab73d);
 impl windows_core::RuntimeType for ITimeZoneSettingsStatics {
@@ -2285,7 +2285,7 @@ impl windows_core::RuntimeType for ITimeZoneSettingsStatics2 {
 #[doc(hidden)]
 pub struct ITimeZoneSettingsStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub AutoUpdateTimeZoneAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AutoUpdateTimeZoneAsync: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUser, IUser_Vtbl, 0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
 impl windows_core::RuntimeType for IUser {
@@ -3558,7 +3558,7 @@ impl windows_core::RuntimeType for ShutdownKind {
 }
 pub struct ShutdownManager;
 impl ShutdownManager {
-    pub fn BeginShutdown(shutdownkind: ShutdownKind, timeout: super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn BeginShutdown(shutdownkind: ShutdownKind, timeout: windows_time::TimeSpan) -> windows_core::Result<()> {
         Self::IShutdownManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).BeginShutdown)(windows_core::Interface::as_raw(this), shutdownkind, timeout).ok() })
     }
     pub fn CancelShutdown() -> windows_core::Result<()> {
@@ -3573,7 +3573,7 @@ impl ShutdownManager {
     pub fn EnterPowerState(powerstate: PowerState) -> windows_core::Result<()> {
         Self::IShutdownManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).EnterPowerState)(windows_core::Interface::as_raw(this), powerstate).ok() })
     }
-    pub fn EnterPowerStateWithTimeSpan(powerstate: PowerState, wakeupafter: super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn EnterPowerStateWithTimeSpan(powerstate: PowerState, wakeupafter: windows_time::TimeSpan) -> windows_core::Result<()> {
         Self::IShutdownManagerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).EnterPowerStateWithTimeSpan)(windows_core::Interface::as_raw(this), powerstate, wakeupafter).ok() })
     }
     fn IShutdownManagerStatics<R, F: FnOnce(&IShutdownManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -3611,7 +3611,7 @@ impl TimeZoneSettings {
     pub fn ChangeTimeZoneByDisplayName(timezonedisplayname: &windows_core::HSTRING) -> windows_core::Result<()> {
         Self::ITimeZoneSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).ChangeTimeZoneByDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(timezonedisplayname)).ok() })
     }
-    pub fn AutoUpdateTimeZoneAsync(timeout: super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
+    pub fn AutoUpdateTimeZoneAsync(timeout: windows_time::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<AutoUpdateTimeZoneStatus>> {
         Self::ITimeZoneSettingsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoUpdateTimeZoneAsync)(windows_core::Interface::as_raw(this), timeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

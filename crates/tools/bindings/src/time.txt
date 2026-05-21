@@ -1,0 +1,6 @@
+--out crates/libs/time/src/bindings.rs
+--flat
+
+--filter
+    Windows.Foundation.DateTime
+    Windows.Foundation.TimeSpan

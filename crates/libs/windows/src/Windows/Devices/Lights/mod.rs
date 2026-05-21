@@ -39,7 +39,7 @@ pub struct ILampArray_Vtbl {
     pub HardwareVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub LampArrayKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LampArrayKind) -> windows_core::HRESULT,
     pub LampCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub MinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub MinUpdateInterval: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub BoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_numerics::Vector3) -> windows_core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIsEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
@@ -146,7 +146,7 @@ pub struct ILampInfo_Vtbl {
     pub GetNearestSupportedColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::UI::Color, *mut super::super::UI::Color) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     GetNearestSupportedColor: usize,
-    pub UpdateLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub UpdateLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILampStatics, ILampStatics_Vtbl, 0xa822416c_8885_401e_b821_8e8b38a8e8ec);
 impl windows_core::RuntimeType for ILampStatics {
@@ -299,7 +299,7 @@ impl LampArray {
             (windows_core::Interface::vtable(self).LampCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn MinUpdateInterval(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn MinUpdateInterval(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinUpdateInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -565,7 +565,7 @@ impl LampInfo {
             (windows_core::Interface::vtable(self).GetNearestSupportedColor)(windows_core::Interface::as_raw(self), desiredcolor, &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateLatency(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn UpdateLatency(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)

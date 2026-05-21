@@ -914,25 +914,25 @@ impl BooleanKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1383,14 +1383,14 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1671,14 +1671,14 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1959,14 +1959,14 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2367,25 +2367,25 @@ impl ColorKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -16052,10 +16052,10 @@ impl windows_core::RuntimeType for IKeyFrameAnimation {
 #[doc(hidden)]
 pub struct IKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub DelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetDelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub IterationBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AnimationIterationBehavior) -> windows_core::HRESULT,
     pub SetIterationBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, AnimationIterationBehavior) -> windows_core::HRESULT,
     pub IterationCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -16138,8 +16138,8 @@ pub struct INaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DelayBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AnimationDelayBehavior) -> windows_core::HRESULT,
     pub SetDelayBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, AnimationDelayBehavior) -> windows_core::HRESULT,
-    pub DelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetDelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub DelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetDelayTime: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
     pub StopBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AnimationStopBehavior) -> windows_core::HRESULT,
     pub SetStopBehavior: unsafe extern "system" fn(*mut core::ffi::c_void, AnimationStopBehavior) -> windows_core::HRESULT,
 }
@@ -16414,8 +16414,8 @@ pub struct ISpringScalarNaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetDampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpringVector2NaturalMotionAnimation, ISpringVector2NaturalMotionAnimation_Vtbl, 0x23f494b5_ee73_4f0f_a423_402b946df4b3);
 impl windows_core::RuntimeType for ISpringVector2NaturalMotionAnimation {
@@ -16427,8 +16427,8 @@ pub struct ISpringVector2NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetDampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpringVector3NaturalMotionAnimation, ISpringVector3NaturalMotionAnimation_Vtbl, 0x6c8749df_d57b_4794_8e2d_cecb11e194e5);
 impl windows_core::RuntimeType for ISpringVector3NaturalMotionAnimation {
@@ -16440,8 +16440,8 @@ pub struct ISpringVector3NaturalMotionAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub DampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetDampingRatio: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
-    pub SetPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub Period: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
+    pub SetPeriod: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::TimeSpan) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISpriteVisual, ISpriteVisual_Vtbl, 0x08e05581_1ad1_4f97_9757_402d76e4233b);
 impl windows_core::RuntimeType for ISpriteVisual {
@@ -17569,22 +17569,22 @@ impl KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DelayTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDelayTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn IterationBehavior(&self) -> windows_core::Result<AnimationIterationBehavior> {
@@ -18391,13 +18391,13 @@ impl NaturalMotionAnimation {
     pub fn SetDelayBehavior(&self, value: AnimationDelayBehavior) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDelayBehavior)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DelayTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDelayTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn StopBehavior(&self) -> windows_core::Result<AnimationStopBehavior> {
@@ -18611,25 +18611,25 @@ impl PathKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -19300,25 +19300,25 @@ impl QuaternionKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20403,25 +20403,25 @@ impl ScalarKeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -20720,14 +20720,14 @@ impl ScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -21816,14 +21816,14 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -21882,13 +21882,13 @@ impl SpringScalarNaturalMotionAnimation {
     pub fn SetDampingRatio(&self, value: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDampingRatio)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Period(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Period(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Period)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetPeriod(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPeriod)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -22104,14 +22104,14 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22135,13 +22135,13 @@ impl SpringVector2NaturalMotionAnimation {
     pub fn SetDampingRatio(&self, value: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDampingRatio)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Period(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Period(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Period)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetPeriod(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPeriod)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn FinalValue(&self) -> windows_core::Result<windows_numerics::Vector2> {
@@ -22392,14 +22392,14 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -22423,13 +22423,13 @@ impl SpringVector3NaturalMotionAnimation {
     pub fn SetDampingRatio(&self, value: f32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDampingRatio)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn Period(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Period(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Period)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetPeriod(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPeriod)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn FinalValue(&self) -> windows_core::Result<windows_numerics::Vector3> {
@@ -23243,25 +23243,25 @@ impl Vector2KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23560,14 +23560,14 @@ impl Vector2NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -23813,25 +23813,25 @@ impl Vector3KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -24130,14 +24130,14 @@ impl Vector3NaturalMotionAnimation {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -24383,25 +24383,25 @@ impl Vector4KeyFrameAnimation {
         let this = &windows_core::Interface::cast::<ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
-    pub fn DelayTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DelayTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DelayTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDelayTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }

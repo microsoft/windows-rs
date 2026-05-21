@@ -171,7 +171,7 @@ impl DisplayDevice {
             (windows_core::Interface::vtable(self).CreateTaskPool)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreatePeriodicFence<P0>(&self, target: P0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> windows_core::Result<DisplayFence>
+    pub fn CreatePeriodicFence<P0>(&self, target: P0, offsetfromvblank: windows_time::TimeSpan) -> windows_core::Result<DisplayFence>
     where
         P0: windows_core::Param<DisplayTarget>,
     {
@@ -2141,7 +2141,7 @@ pub struct IDisplayDevice_Vtbl {
     pub CreateScanoutSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreatePrimary: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateTaskPool: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreatePeriodicFence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreatePeriodicFence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_time::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WaitForVBlank: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSimpleScanout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsCapabilitySupported: unsafe extern "system" fn(*mut core::ffi::c_void, DisplayDeviceCapability, *mut bool) -> windows_core::HRESULT,

@@ -1006,7 +1006,7 @@ impl windows_core::RuntimeType for IStorageLibraryContentChangedTriggerDetails {
 pub struct IStorageLibraryContentChangedTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Folder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CreateModifiedSinceQuery: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateModifiedSinceQuery: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IStorageQueryResultBase, IStorageQueryResultBase_Vtbl, 0xc297d70d_7353_47ab_ba58_8c61425dc54b);
 impl windows_core::RuntimeType for IStorageQueryResultBase {
@@ -1897,7 +1897,7 @@ impl StorageLibraryContentChangedTriggerDetails {
             (windows_core::Interface::vtable(self).Folder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateModifiedSinceQuery(&self, lastquerytime: super::super::Foundation::DateTime) -> windows_core::Result<StorageItemQueryResult> {
+    pub fn CreateModifiedSinceQuery(&self, lastquerytime: windows_time::DateTime) -> windows_core::Result<StorageItemQueryResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateModifiedSinceQuery)(windows_core::Interface::as_raw(self), lastquerytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))

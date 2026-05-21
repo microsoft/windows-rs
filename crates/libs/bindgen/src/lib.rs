@@ -898,6 +898,11 @@ impl Bindgen {
                     &["Windows.Foundation.IReference"][..],
                 ),
                 (
+                    "Windows.Foundation",
+                    "windows_time",
+                    &["Windows.Foundation.DateTime", "Windows.Foundation.TimeSpan"][..],
+                ),
+                (
                     "Windows.Foundation.Numerics",
                     "windows_numerics",
                     &[
@@ -919,7 +924,24 @@ impl Bindgen {
                 ),
             ] {
                 if reader.contains_key(probe_namespace) {
-                    prepend_default_refs(&mut references, crate_name, paths);
+                    let filtered: Vec<&str> = paths
+                        .iter()
+                        .copied()
+                        .filter(|path| {
+                            if let Some((namespace, name)) = path.rsplit_once('.') {
+                                if let Some(ns_map) = reader.get(namespace) {
+                                    if let Some(prefix) = name.strip_suffix('*') {
+                                        return ns_map.keys().any(|k| k.starts_with(prefix));
+                                    }
+                                    return ns_map.contains_key(name);
+                                }
+                            }
+                            false
+                        })
+                        .collect();
+                    if !filtered.is_empty() {
+                        prepend_default_refs(&mut references, crate_name, &filtered);
+                    }
                 }
             }
         }

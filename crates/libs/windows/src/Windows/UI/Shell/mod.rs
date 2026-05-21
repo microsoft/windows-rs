@@ -68,7 +68,7 @@ impl FocusSessionManager {
             (windows_core::Interface::vtable(self).TryStartFocusSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryStartFocusSession2(&self, endtime: super::super::Foundation::DateTime) -> windows_core::Result<FocusSession> {
+    pub fn TryStartFocusSession2(&self, endtime: windows_time::DateTime) -> windows_core::Result<FocusSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TryStartFocusSession2)(windows_core::Interface::as_raw(self), endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -235,7 +235,7 @@ pub struct IFocusSessionManager_Vtbl {
     pub IsFocusActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GetSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TryStartFocusSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TryStartFocusSession2: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryStartFocusSession2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_time::DateTime, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeactivateFocus: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsFocusActiveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveIsFocusActiveChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,

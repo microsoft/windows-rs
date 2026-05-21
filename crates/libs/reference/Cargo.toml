@@ -11,10 +11,11 @@ readme = "readme.md"
 
 [dependencies]
 windows-core = { workspace = true, default-features = false }
+windows-time = { workspace = true }
 
 [features]
 default = ["std"]
-std = ["windows-core/std"]
+std = ["windows-core/std", "windows-time/std"]
 
 [lints]
 workspace = true

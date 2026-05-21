@@ -1154,7 +1154,7 @@ impl windows_core::RuntimeType for IWebViewControlLongRunningScriptDetectedEvent
 #[doc(hidden)]
 pub struct IWebViewControlLongRunningScriptDetectedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub ExecutionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT,
+    pub ExecutionTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_time::TimeSpan) -> windows_core::HRESULT,
     pub StopPageScriptExecution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetStopPageScriptExecution: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
@@ -1394,7 +1394,7 @@ impl windows_core::RuntimeName for WebViewControlDeferredPermissionRequest {
 pub struct WebViewControlLongRunningScriptDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebViewControlLongRunningScriptDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebViewControlLongRunningScriptDetectedEventArgs {
-    pub fn ExecutionTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ExecutionTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExecutionTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
