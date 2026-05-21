@@ -1,0 +1,20 @@
+// Exercises accessor-only sugar in method-level `--filter` entries:
+//
+//   * `Test.IFoo::set:Value` — allow-list mode keeps only the `put_Value`
+//     setter; the `get_Value` accessor demotes to `Slot: usize`.
+//   * `!Test.IBar::get:Other` — deny-list mode demotes only `get_Other`;
+//     `put_Other` remains a typed slot with a callable wrapper.
+//
+// Useful for reactive-UI code where state flows one direction and many
+// properties only need a setter; spelling out `put_Foo` for every
+// property is verbose, and the bare `Foo` sugar pulls in unused getters.
+
+#[winrt]
+mod Test {
+    interface IFoo {
+        Value: i32;
+    }
+    interface IBar {
+        Other: i32;
+    }
+}

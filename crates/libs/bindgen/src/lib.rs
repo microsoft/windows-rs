@@ -151,16 +151,34 @@ pub fn builder() -> Bindgen {
 /// |-------------------------------|---------------------------------------------------------------------------------|
 /// | `Ns.Type`                     | Keep the type and all its methods (existing behavior; backwards-compatible).    |
 /// | `?Ns.Type`                    | Trait-only emit: vtable + `_Impl` trait + thunks, but no inherent `impl IFace { fn X(&self) … }` caller-side wrapper block. |
-/// | `Ns.Type::Method`             | Allowlist mode: only listed methods are kept; the rest demote to `Slot: usize`. |
-/// | `!Ns.Type::Method`            | Denylist mode: the listed methods demote to `Slot: usize`; the rest are kept.   |
+/// | `??Ns.Type`                   | Skeleton-only emit: struct + IID + hierarchy + `Interface` impl, but every vtable slot demoted to `Slot: usize` and no caller-side wrapper block (the `_Impl` trait is omitted via the existing has-skipped-methods path). |
+/// | `Ns.Type::Method`             | Allowlist entry: keep this method. Unlisted methods demote when at least one allow entry exists on the type. |
+/// | `!Ns.Type::Method`            | Denylist entry: demote this method to `Slot: usize`.                            |
 /// | `Ns.Type::Property`           | Sugar for `Ns.Type::get_Property` + `Ns.Type::put_Property` (whichever exist).  |
+/// | `Ns.Type::get:Property`       | Accessor-only sugar: only the `get_Property` getter.                            |
+/// | `Ns.Type::set:Property`       | Accessor-only sugar: only the `put_Property` setter.                            |
 /// | `Ns.Type::Event`              | Sugar for `Ns.Type::add_Event` + `Ns.Type::remove_Event` (whichever exist).     |
+/// | `Ns.Type::add:Event`          | Accessor-only sugar: only the `add_Event` subscriber.                           |
+/// | `Ns.Type::remove:Event`       | Accessor-only sugar: only the `remove_Event` unsubscriber.                      |
 ///
 /// The `?Ns.Type` prefix is for required-but-uncalled interfaces (e.g. `IPropertyValue` on
 /// an `IReference<T>` implementation): callers never invoke the methods through this projection,
 /// but implementers must still stub them (typically with `E_NOTIMPL`) to satisfy the WinRT
 /// required-interface contract. Trait-only emission preserves ABI, the `_Impl` super-trait chain,
 /// and `QueryInterface` support; it only drops the caller-side wrappers that nobody calls.
+///
+/// The `??Ns.Type` prefix is for interfaces needed only for class / `QueryInterface` hierarchy
+/// (e.g. an abstract base) that the caller never invokes through this projection and never
+/// implements. The type still participates in `interface_hierarchy!` / `required_hierarchy!` so
+/// `cast::<T>(&derived)?` works, but every vtable slot becomes opaque and the `_Impl` trait is
+/// omitted; this combines `?` (no caller wrappers) with whole-vtable demotion.
+///
+/// Allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) method-level entries may coexist on
+/// the same type. Deny wins on overlap. When at least one allow entry exists on the type,
+/// unlisted methods are demoted (allow-list mode treats them as opt-out); with deny entries
+/// only, unlisted methods are kept (deny-only mode). This lets you start from a denylist and
+/// add explicit `keep` entries later, or vice-versa, without rewriting all entries to a single
+/// style.
 ///
 /// When `Ns.Type` is a runtime class, the entry resolves against the class's required interfaces
 /// (instance default, static factory, activation/composable factory, base interfaces) and registers
@@ -171,9 +189,8 @@ pub fn builder() -> Bindgen {
 ///
 /// Vtable layout is preserved: demoted methods become `Slot: usize` at their original offset using
 /// the same opaque-slot mechanism `--minimal` already uses for signature-pruned methods, so ABI is
-/// safe by construction. Mixing allow (`Ns.Type::Method`) and deny (`!Ns.Type::Method`) entries
-/// on the same type is a hard error, as is using a method-level filter on a type matched by
-/// `--implement` (methods on implemented interfaces are always emitted).
+/// safe by construction. Using a method-level filter on a type matched by `--implement` is a hard
+/// error (methods on implemented interfaces are always emitted).
 ///
 /// Because demoting a method to an opaque slot leaves the type unable to be implemented through
 /// its `_Impl` trait, the trait is omitted with the same warning the existing dependency-skip
