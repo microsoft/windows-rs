@@ -1,0 +1,4 @@
+filter = "Test.IDerived"
+filters = ["??Test.IRequired"]
+deps = "specific"
+references = ["../../../libs/bindgen/default"]

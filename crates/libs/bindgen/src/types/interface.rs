@@ -137,7 +137,7 @@ impl Interface {
                 }
             });
 
-            let hide_vtbl = if config.sys {
+            let hide_vtbl = if config.bindgen.style.is_sys() {
                 quote! {}
             } else {
                 quote! { #[doc(hidden)] }
@@ -157,10 +157,10 @@ impl Interface {
             }
         };
 
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             let mut result = quote! {};
 
-            if !config.package {
+            if !config.bindgen.layout.is_package() {
                 if let Some(guid) = self.def.guid_attribute() {
                     let name: TokenStream = format!("IID_{}", trim_tick(self.def.name()))
                         .parse()
@@ -253,9 +253,10 @@ impl Interface {
             // suppressed. This is used for required-but-uncalled interfaces (e.g.
             // `IPropertyValue` on an `IReference<T>` impl) where no projection caller invokes
             // the methods through this type.
-            let is_factory = is_exclusive && config.minimal && self.is_factory(config.reader);
+            let is_factory =
+                is_exclusive && config.bindgen.style.is_minimal() && self.is_factory(config.reader);
             let is_trait_only = config.filter.is_trait_only(type_name);
-            if !is_exclusive || (config.minimal && !is_factory) {
+            if !is_exclusive || (config.bindgen.style.is_minimal() && !is_factory) {
                 if !is_trait_only {
                     let method_names = &mut MethodNames::new();
                     let virtual_names = &mut MethodNames::new();
@@ -283,7 +284,7 @@ impl Interface {
 
                     for interface in &required_interfaces {
                         // In `minimal` mode callers `cast` to the owning interface explicitly.
-                        if config.minimal {
+                        if config.bindgen.style.is_minimal() {
                             continue;
                         }
                         let virtual_names = &mut MethodNames::new();
@@ -332,7 +333,7 @@ impl Interface {
                     });
                 }
 
-                let into_iterator = if config.minimal {
+                let into_iterator = if config.bindgen.style.is_minimal() {
                     None
                 } else {
                     required_interfaces
@@ -384,7 +385,7 @@ impl Interface {
 
                 let runtime_name = format!("{type_name}");
 
-                let cfg = if config.package {
+                let cfg = if config.bindgen.layout.is_package() {
                     fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
                         for method in interface.get_methods(config).iter() {
                             if let MethodOrName::Method(method) = method {

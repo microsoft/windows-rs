@@ -5,6 +5,7 @@ mod cpp_const;
 mod cpp_delegate;
 mod cpp_enum;
 mod cpp_fn;
+mod cpp_handle;
 mod cpp_interface;
 mod cpp_method;
 mod cpp_struct;
@@ -377,7 +378,7 @@ impl Type {
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
-        if config.sys && self.is_interface() {
+        if config.bindgen.style.is_sys() && self.is_interface() {
             return quote! { *mut core::ffi::c_void };
         }
 
@@ -472,7 +473,7 @@ impl Type {
             Self::ArrayRef(ty) => ty.write_name(config),
             Self::ConstRef(ty) => ty.write_name(config),
             Self::PrimitiveOrEnum(primitive, ty) => {
-                if config.sys {
+                if config.bindgen.style.is_sys() {
                     primitive.write_name(config)
                 } else {
                     ty.write_name(config)
@@ -483,7 +484,7 @@ impl Type {
     }
 
     pub fn write_default(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             return self.write_name(config);
         }
 
@@ -515,7 +516,7 @@ impl Type {
     }
 
     pub fn write_abi(&self, config: &Config) -> TokenStream {
-        if config.sys {
+        if config.bindgen.style.is_sys() {
             return self.write_name(config);
         }
 
@@ -820,7 +821,7 @@ impl Type {
     }
 
     fn write_no_deps(&self, config: &Config) -> TokenStream {
-        if !config.no_deps || !config.sys {
+        if config.bindgen.deps != DepMode::None || !config.bindgen.style.is_sys() {
             return quote! {};
         }
 
@@ -1053,7 +1054,7 @@ fn write_ptr_const(pointers: usize) -> TokenStream {
 /// Helper for types whose `write_cfg` only needs their own dependencies.
 /// Returns an empty token stream when packaging is disabled.
 fn write_simple_cfg(ty: &impl Dependencies, config: &Config) -> TokenStream {
-    if !config.package {
+    if !config.bindgen.layout.is_package() {
         return quote! {};
     }
     Cfg::new(&ty.dependencies(config.reader), config).write(config, false)
@@ -1062,10 +1063,55 @@ fn write_simple_cfg(ty: &impl Dependencies, config: &Config) -> TokenStream {
 /// Helper for types whose `write_cfg` needs to return both the `Cfg` value and its token form.
 /// Returns default/empty values when packaging is disabled.
 fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream) {
-    if !config.package {
+    if !config.bindgen.layout.is_package() {
         return (Cfg::default(), quote! {});
     }
     let cfg = Cfg::new(&ty.dependencies(config.reader), config);
     let tokens = cfg.write(config, false);
     (cfg, tokens)
+}
+
+/// Emit a `#[cfg(target_arch = ...)]` attribute when a metadata row carries
+/// a `[SupportedArchitectureAttribute]`. Independent of `--package` /
+/// `--flat` layout — the generated arch gate is always meaningful.
+pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
+    let mut tokens = quote! {};
+
+    if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
+        let arch_value = match attribute.value().first() {
+            Some((_, Value::I32(v))) => Some(*v),
+            Some((_, Value::EnumValue(_, inner))) => {
+                if let Value::I32(v) = inner.as_ref() {
+                    Some(*v)
+                } else {
+                    None
+                }
+            }
+            _ => None,
+        };
+        if let Some(value) = arch_value {
+            let mut arches = BTreeSet::new();
+
+            if value & 1 == 1 {
+                arches.insert("x86");
+            }
+
+            if value & 2 == 2 {
+                arches.insert("x86_64");
+                arches.insert("arm64ec");
+            }
+
+            if value & 4 == 4 {
+                arches.insert("aarch64");
+            }
+
+            match arches.len() {
+                0 => {}
+                1 => tokens.combine(quote! { #[cfg(#(target_arch = #arches),*)] }),
+                _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
+            }
+        }
+    }
+
+    tokens
 }

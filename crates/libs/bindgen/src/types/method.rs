@@ -21,7 +21,7 @@ impl Method {
     }
 
     pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
-        if !config.package {
+        if !config.bindgen.layout.is_package() {
             return quote! {};
         }
 
@@ -380,7 +380,7 @@ impl Method {
                     quote! { windows_core::Param::param(#local.as_ref()).abi() }
                 } else if param.is_convertible() {
                     quote! { #name.param().abi() }
-                } else if config.minimal && param.is_input() && matches!(param.ty, Type::String) {
+                } else if config.bindgen.style.is_minimal() && param.is_input() && matches!(param.ty, Type::String) {
                     // In minimal mode, string params accept &str directly.
                     // Convert to HSTRING and pass its abi.
                     quote! { core::mem::transmute_copy(&windows_core::HSTRING::from(#name)) }
@@ -449,7 +449,9 @@ impl Method {
         // In minimal mode, HSTRING input params accept `&str` directly — the generated
         // method body handles the conversion to HSTRING internally.
         let is_string_param = |param: &Param| -> bool {
-            config.minimal && param.is_input() && matches!(param.ty, Type::String)
+            config.bindgen.style.is_minimal()
+                && param.is_input()
+                && matches!(param.ty, Type::String)
         };
 
         let generics: Vec<TokenStream> = params
@@ -596,7 +598,8 @@ impl Method {
         let return_type = match &self.signature.return_type {
             Type::Void => quote! { () },
             _ => {
-                let tokens = if config.minimal && matches!(self.signature.return_type, Type::String)
+                let tokens = if config.bindgen.style.is_minimal()
+                    && matches!(self.signature.return_type, Type::String)
                 {
                     quote! { String }
                 } else if let Some(inner) = return_unwrap_inner {
@@ -674,7 +677,7 @@ impl Method {
                                 #assert_success
                                 result__
                             }
-                        } else if config.minimal
+                        } else if config.bindgen.style.is_minimal()
                             && matches!(self.signature.return_type, Type::String)
                         {
                             quote! {
@@ -704,7 +707,7 @@ impl Method {
                                 let mut result__ = core::mem::zeroed();
                                 #vcall.#map.and_then(|r__: #iref| r__.Value())
                             }
-                        } else if config.minimal
+                        } else if config.bindgen.style.is_minimal()
                             && matches!(self.signature.return_type, Type::String)
                         {
                             // In minimal mode, return String instead of HSTRING.
@@ -732,10 +735,10 @@ impl Method {
         // with a combined wrapper returning EventRevoker.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
-            && config.minimal
+            && config.bindgen.style.is_minimal()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = config.minimal
+        let is_event_remove = config.bindgen.style.is_minimal()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
         let suppress_event_remove = is_event_remove

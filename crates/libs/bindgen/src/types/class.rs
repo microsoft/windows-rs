@@ -34,7 +34,7 @@ impl Class {
         for interface in &required_interfaces {
             // In `minimal` mode keep only static and composable factory helpers; callers
             // invoke instance methods via `cast::<IFoo>()?`.
-            if config.minimal
+            if config.bindgen.style.is_minimal()
                 && !matches!(
                     interface.kind,
                     InterfaceKind::Static | InterfaceKind::Composable
@@ -95,7 +95,7 @@ impl Class {
                         let method_name = to_ident(trim_tick(interface.def.name()));
                         let interface_type = interface.write_name(config);
 
-                        let cfg = if config.package {
+                        let cfg = if config.bindgen.layout.is_package() {
                             class_cfg.difference(&interface.dependencies(config.reader), config).write(config, false)
                         } else {
                             quote! {}
@@ -167,7 +167,7 @@ impl Class {
                 }
             });
 
-            let into_iterator = if config.minimal {
+            let into_iterator = if config.bindgen.style.is_minimal() {
                 None
             } else {
                 required_interfaces
@@ -201,7 +201,7 @@ impl Class {
                     })
             };
 
-            let deref = if config.minimal {
+            let deref = if config.bindgen.style.is_minimal() {
                 quote! {
                     #cfg
                     impl core::ops::Deref for #name {
