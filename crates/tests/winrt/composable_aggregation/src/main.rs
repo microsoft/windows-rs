@@ -6,13 +6,7 @@
 //! by instantiating a mock `IFooFactory` directly. This lets us exercise the
 //! `Compose::compose` path end-to-end on a non-Windows host.
 
-#[allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#[expect(non_snake_case, non_camel_case_types)]
 mod bindings;
 use bindings::{Foo, IFoo, IFooFactory, IFooFactory_Impl, IFoo_Impl};
 use std::sync::atomic::{AtomicUsize, Ordering};

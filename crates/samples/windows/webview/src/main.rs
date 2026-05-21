@@ -2,13 +2,7 @@
 fn main() {}
 
 #[cfg(windows)]
-#[allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#[expect(non_snake_case, non_camel_case_types, dead_code, clippy::all)]
 mod bindings;
 
 #[cfg(windows)]
