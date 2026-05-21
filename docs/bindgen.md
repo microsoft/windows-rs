@@ -1,8 +1,7 @@
 # `windows-bindgen` implementation simplification
 
 The user-facing CLI surface, after the option-consolidation work (PRs #4441,
-#4443, #4444, #4445, and the `--deps`/`--extern` fold that retired the old
-`docs/options.md`), is small and orthogonal:
+#4443, #4444, #4445, and the `--deps`/`--extern` fold), is small and orthogonal:
 
 | Axis | Options |
 |---|---|
