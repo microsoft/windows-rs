@@ -19,12 +19,14 @@ This repo is the home of the following crates (and other supporting crates):
 * [windows-future](https://crates.io/crates/windows-future) - Windows async type support.
 * [windows-link](https://crates.io/crates/windows-link) - Linking for Windows.
 * [windows-numerics](https://crates.io/crates/windows-numerics) - Windows numeric types.
+* [windows-reference](https://crates.io/crates/windows-reference) - Stock implementation of `IReference<T>`.
 * [windows-registry](https://crates.io/crates/windows-registry) - Windows registry.
 * [windows-result](https://crates.io/crates/windows-result) - Windows error handling.
 * [windows-services](https://crates.io/crates/windows-services) - Windows services.
 * [windows-strings](https://crates.io/crates/windows-strings) - Windows string types.
 * [windows-targets](https://crates.io/crates/windows-targets) - Import libs for Windows (and the precursor to `windows-link` for older compilers).
 * [windows-threading](https://crates.io/crates/windows-threading) - Windows threading.
+* [windows-time](https://crates.io/crates/windows-time) - Windows time types.
 * [windows-version](https://crates.io/crates/windows-version) - Windows version information.
 
 * [cppwinrt](https://crates.io/crates/cppwinrt) - Bundles the C++/WinRT compiler for use in Rust.
