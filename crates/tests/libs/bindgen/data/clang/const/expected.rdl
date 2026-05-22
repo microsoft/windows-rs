@@ -19,6 +19,10 @@ mod Test {
     const STATUS_ZERO: TestStatusCode = 0;
     type TestStatus = i64;
     type TestStatusCode = i64;
+    const U16_CONST: u32 = 8000;
+    const U32_CONST: u32 = 524288836;
+    const U64_CONST: u64 = 2251803404419006464;
+    const U8_CONST: u32 = 31;
     #[Windows::Win32::Foundation::Metadata::NativeEncoding("ansi")]
     const UDAT_YEAR_NUM_MONTH_DAY: String = "yMd";
     #[Windows::Win32::Foundation::Metadata::NativeEncoding("utf-16")]

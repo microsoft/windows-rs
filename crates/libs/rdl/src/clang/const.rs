@@ -350,12 +350,19 @@ fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
     // On Windows (LLP64): long = 32-bit, long long = 64-bit.
     let value = match suffix.to_uppercase().as_str() {
         // Unsigned: U, UL, LU — negated unsigned constants are not representable.
+        // Per the C standard, a `u`-suffixed literal takes the first type from
+        // (unsigned int, unsigned long, unsigned long long) that can represent
+        // the value; on Windows (LLP64) `unsigned long` is also 32-bit, so we
+        // pick u32 when the value fits and promote to u64 otherwise.
         "U" | "UL" | "LU" => {
             if negate {
                 return None;
             }
-            let v = u32::try_from(raw).ok()?;
-            metadata::Value::U32(v)
+            if let Ok(v) = u32::try_from(raw) {
+                metadata::Value::U32(v)
+            } else {
+                metadata::Value::U64(raw)
+            }
         }
         // Unsigned long long: ULL, LLU
         "ULL" | "LLU" => {
