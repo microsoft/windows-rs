@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Storage_Streams",
     "System_Threading",

@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Win32_Graphics_Direct3D",
     "Win32_Graphics_Direct3D10",

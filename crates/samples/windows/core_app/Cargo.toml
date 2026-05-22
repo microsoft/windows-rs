@@ -6,6 +6,7 @@ publish = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "ApplicationModel_Core",
     "UI_Core",

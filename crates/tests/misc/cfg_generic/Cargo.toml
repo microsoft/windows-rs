@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Foundation_Collections",
     "Media_Playback",

@@ -12,7 +12,7 @@ crate-type = ["cdylib"]
 jsonschema = { version = "0.23", default-features = false }
 serde_json = { workspace = true }
 windows = { workspace = true, features = ["Win32_System_WinRT"] }
-windows-core = { workspace = true }
+windows-core = { workspace = true , default-features = true }
 
 [build-dependencies]
 windows-rdl = { workspace = true }

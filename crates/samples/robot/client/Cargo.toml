@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-windows-core = { workspace = true }
+windows-core = { workspace = true , default-features = true }
 robot = { path = "../component" }
 
 [build-dependencies]

@@ -18,6 +18,7 @@ workspace = true
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Foundation",
     "Win32_System_WinRT",

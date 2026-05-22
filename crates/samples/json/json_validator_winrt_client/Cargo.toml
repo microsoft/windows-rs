@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dev-dependencies]
-windows-core = { workspace = true }
+windows-core = { workspace = true , default-features = true }
 windows = { workspace = true, features = ["Win32_Foundation"] }
 
 [build-dependencies]
