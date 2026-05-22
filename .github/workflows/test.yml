@@ -87,6 +87,15 @@ jobs:
         if: runner.os == 'Linux'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
         shell: bash
+      - name: Install .NET 9 x86 runtime
+        # The windows-2025-vs2026 image ships .NET 9 only for x64/arm64; the
+        # i686 csharp_client test launches a win-x86 process that needs the
+        # x86 .NET 9 runtime.
+        if: matrix.target == 'i686-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile dotnet-install.ps1
+          ./dotnet-install.ps1 -Channel 9.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
       - name: Test
         # The 32-bit i686 test process has a 2 GB user-mode address space; the
         # ~110 bindgen fixtures in test_fixtures each load the large default
