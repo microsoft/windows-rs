@@ -69,9 +69,6 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
-      - name: Install libtinfo5 (Linux)
-        if: runner.os == 'Linux'
-        run: sudo apt-get install -y libtinfo5
       - name: Install LLVM and Clang
         uses: KyleMayes/install-llvm-action@v2
         with:

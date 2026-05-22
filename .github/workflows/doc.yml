@@ -82,8 +82,6 @@ jobs:
           version: "18"
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
-      - name: Install libtinfo5
-        run: sudo apt-get install -y libtinfo5
       - name: Doc
         run: |
           set -euxo pipefail
