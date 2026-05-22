@@ -1,0 +1,11 @@
+[package]
+name = "tool_clippy_all"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+helpers = { workspace = true }
+
+[lints]
+workspace = true

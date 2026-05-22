@@ -9,6 +9,7 @@ windows-core = { workspace = true }
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Win32_Foundation",
     "Win32_Graphics_Gdi",

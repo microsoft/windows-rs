@@ -6,6 +6,7 @@ publish = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Win32_System_Com",
     "Win32_Networking_BackgroundIntelligentTransferService",
