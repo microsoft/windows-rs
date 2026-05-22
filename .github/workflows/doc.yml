@@ -80,6 +80,8 @@ jobs:
         uses: KyleMayes/install-llvm-action@v2
         with:
           version: "18"
+      - name: Symlink libtinfo
+        run: sudo ln -sf /lib/x86_64-linux-gnu/libtinfo.so.6 /lib/x86_64-linux-gnu/libtinfo.so.5
       - name: Set LIBCLANG_PATH
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
       - name: Doc
