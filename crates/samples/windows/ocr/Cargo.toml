@@ -6,6 +6,7 @@ publish = false
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "Media_Ocr",
     "Graphics_Imaging",

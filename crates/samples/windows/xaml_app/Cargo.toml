@@ -12,6 +12,7 @@ windows-numerics = { workspace = true }
 
 [dependencies.windows]
 workspace = true
+default-features = true
 features = [
     "ApplicationModel",
     "ApplicationModel_Activation",

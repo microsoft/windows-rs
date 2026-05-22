@@ -1,4 +1,4 @@
-use super::TimeSpan;
+use super::*;
 
 /// Number of 100-nanosecond ticks per microsecond.
 pub const TICKS_PER_MICROSECOND: i64 = 10;

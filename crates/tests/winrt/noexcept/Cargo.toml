@@ -10,6 +10,7 @@ doctest = false
 
 [dependencies.windows-core]
 workspace = true
+default-features = true
 
 [build-dependencies.windows-bindgen]
 workspace = true
