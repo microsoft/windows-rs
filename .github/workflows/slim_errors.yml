@@ -36,7 +36,7 @@ jobs:
             target: x86_64-pc-windows-msvc
           - name: i686
             target: i686-pc-windows-msvc
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
         uses: actions/checkout@v6

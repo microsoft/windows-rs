@@ -33,12 +33,12 @@ jobs:
             version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
-            runner: windows-2025
+            runner: windows-2025-vs2026
           - name: nightly i686
             version: nightly
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
-            runner: windows-2025
+            runner: windows-2025-vs2026
           - name: stable arm64
             version: stable
             host: aarch64-pc-windows-msvc
@@ -48,7 +48,7 @@ jobs:
             version: stable
             host: x86_64-unknown-linux-gnu
             target: x86_64-unknown-linux-gnu
-            runner: ubuntu-22.04
+            runner: ubuntu-24.04
 
     runs-on: ${{ matrix.runner }}
 

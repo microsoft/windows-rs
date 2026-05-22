@@ -26,7 +26,7 @@ concurrency:
 jobs:
   windows:
     name: windows
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -35,7 +35,7 @@ jobs:
 
   windows-sys:
     name: windows-sys
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -44,7 +44,7 @@ jobs:
 
   other-crates:
     name: other-crates
-    runs-on: windows-2025
+    runs-on: windows-2025-vs2026
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -68,7 +68,7 @@ jobs:
     # The publishable-docs surface for fully cross-platform crates must keep
     # building on a non-Windows target. The list is intentionally narrower
     # than `--workspace`.
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       RUSTFLAGS: -D warnings
     steps:
