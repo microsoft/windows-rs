@@ -56,8 +56,8 @@ fn value_u64() -> Result<()> {
 
 #[test]
 fn value_f32() -> Result<()> {
-    let r = IReference::<f32>::from(3.14_f32);
-    assert_eq!(r.Value()?, 3.14_f32);
+    let r = IReference::<f32>::from(1.23_f32);
+    assert_eq!(r.Value()?, 1.23_f32);
     Ok(())
 }
 
