@@ -559,7 +559,7 @@ impl IPortableDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDevice_Impl::Advise(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&pparameters)) {
                     Ok(ok__) => {
-                        ppszcookie.write(core::mem::transmute(ok__));
+                        ppszcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -577,7 +577,7 @@ impl IPortableDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDevice_Impl::GetPnPDeviceID(this) {
                     Ok(ok__) => {
-                        ppszpnpdeviceid.write(core::mem::transmute(ok__));
+                        ppszpnpdeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -946,7 +946,7 @@ impl IPortableDeviceConnector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceConnector_Impl::GetPnPID(this) {
                     Ok(ok__) => {
-                        ppwszpnpid.write(core::mem::transmute(ok__));
+                        ppwszpnpid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1273,7 +1273,7 @@ impl IPortableDeviceDataStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceDataStream_Impl::GetObjectID(this) {
                     Ok(ok__) => {
-                        ppszobjectid.write(core::mem::transmute(ok__));
+                        ppszobjectid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1667,7 +1667,7 @@ impl IPortableDevicePropVariantCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDevicePropVariantCollection_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pvt.write(core::mem::transmute(ok__));
+                        pvt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1923,7 +1923,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDevicePropertiesBulk_Impl::QueueGetValuesByObjectList(this, core::mem::transmute_copy(&pobjectids), core::mem::transmute_copy(&pkeys), core::mem::transmute_copy(&pcallback)) {
                     Ok(ok__) => {
-                        pcontext.write(core::mem::transmute(ok__));
+                        pcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1935,7 +1935,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDevicePropertiesBulk_Impl::QueueGetValuesByObjectFormat(this, core::mem::transmute_copy(&pguidobjectformat), core::mem::transmute(&pszparentobjectid), core::mem::transmute_copy(&dwdepth), core::mem::transmute_copy(&pkeys), core::mem::transmute_copy(&pcallback)) {
                     Ok(ok__) => {
-                        pcontext.write(core::mem::transmute(ok__));
+                        pcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1947,7 +1947,7 @@ impl IPortableDevicePropertiesBulk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDevicePropertiesBulk_Impl::QueueSetValuesByObjectList(this, core::mem::transmute_copy(&pobjectvalues), core::mem::transmute_copy(&pcallback)) {
                     Ok(ok__) => {
-                        pcontext.write(core::mem::transmute(ok__));
+                        pcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2342,7 +2342,7 @@ impl IPortableDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceService_Impl::GetServiceObjectID(this) {
                     Ok(ok__) => {
-                        ppszserviceobjectid.write(core::mem::transmute(ok__));
+                        ppszserviceobjectid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2354,7 +2354,7 @@ impl IPortableDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceService_Impl::GetPnPServiceID(this) {
                     Ok(ok__) => {
-                        ppszpnpserviceid.write(core::mem::transmute(ok__));
+                        ppszpnpserviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2366,7 +2366,7 @@ impl IPortableDeviceService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceService_Impl::Advise(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&pparameters)) {
                     Ok(ok__) => {
-                        ppszcookie.write(core::mem::transmute(ok__));
+                        ppszcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2854,7 +2854,7 @@ impl IPortableDeviceServiceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceServiceManager_Impl::GetDeviceForService(this, core::mem::transmute(&pszpnpserviceid)) {
                     Ok(ok__) => {
-                        ppszpnpdeviceid.write(core::mem::transmute(ok__));
+                        ppszpnpdeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3392,7 +3392,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetStringValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3410,7 +3410,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetUnsignedIntegerValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3428,7 +3428,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetSignedIntegerValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3446,7 +3446,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetUnsignedLargeIntegerValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3464,7 +3464,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetSignedLargeIntegerValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3482,7 +3482,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetFloatValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3500,7 +3500,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetErrorValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3530,7 +3530,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetBoolValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3566,7 +3566,7 @@ impl IPortableDeviceValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPortableDeviceValues_Impl::GetGuidValue(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3963,7 +3963,7 @@ impl IRadioInstance_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRadioInstance_Impl::GetRadioManagerSignature(this) {
                     Ok(ok__) => {
-                        pguidsignature.write(core::mem::transmute(ok__));
+                        pguidsignature.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3999,7 +3999,7 @@ impl IRadioInstance_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRadioInstance_Impl::GetRadioState(this) {
                     Ok(ok__) => {
-                        pradiostate.write(core::mem::transmute(ok__));
+                        pradiostate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4074,7 +4074,7 @@ impl IRadioInstanceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRadioInstanceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcinstance.write(core::mem::transmute(ok__));
+                        pcinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4177,7 +4177,7 @@ impl IWpdSerializer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWpdSerializer_Impl::GetSerializedSize(this, core::mem::transmute_copy(&psource)) {
                     Ok(ok__) => {
-                        pdwsize.write(core::mem::transmute(ok__));
+                        pdwsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

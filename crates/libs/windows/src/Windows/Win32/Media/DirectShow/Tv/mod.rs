@@ -836,7 +836,7 @@ impl IATSCChannelTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCChannelTuneRequest_Impl::MinorChannel(this) {
                     Ok(ok__) => {
-                        minorchannel.write(core::mem::transmute(ok__));
+                        minorchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -905,7 +905,7 @@ impl IATSCComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCComponentType_Impl::Flags(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -983,7 +983,7 @@ impl IATSCLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCLocator_Impl::PhysicalChannel(this) {
                     Ok(ok__) => {
-                        physicalchannel.write(core::mem::transmute(ok__));
+                        physicalchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IATSCLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCLocator_Impl::TSID(this) {
                     Ok(ok__) => {
-                        tsid.write(core::mem::transmute(ok__));
+                        tsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1072,7 +1072,7 @@ impl IATSCLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCLocator2_Impl::ProgramNumber(this) {
                     Ok(ok__) => {
-                        programnumber.write(core::mem::transmute(ok__));
+                        programnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1180,7 +1180,7 @@ impl IATSCTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCTuningSpace_Impl::MinMinorChannel(this) {
                     Ok(ok__) => {
-                        minminorchannelval.write(core::mem::transmute(ok__));
+                        minminorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1198,7 +1198,7 @@ impl IATSCTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCTuningSpace_Impl::MaxMinorChannel(this) {
                     Ok(ok__) => {
-                        maxminorchannelval.write(core::mem::transmute(ok__));
+                        maxminorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1216,7 +1216,7 @@ impl IATSCTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCTuningSpace_Impl::MinPhysicalChannel(this) {
                     Ok(ok__) => {
-                        minphysicalchannelval.write(core::mem::transmute(ok__));
+                        minphysicalchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1234,7 +1234,7 @@ impl IATSCTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSCTuningSpace_Impl::MaxPhysicalChannel(this) {
                     Ok(ok__) => {
-                        maxphysicalchannelval.write(core::mem::transmute(ok__));
+                        maxphysicalchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1388,7 +1388,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1400,7 +1400,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetSourceId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1412,7 +1412,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetProtocolVersion(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1436,7 +1436,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetRecordEventId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1448,7 +1448,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetRecordStartTime(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pmdtval.write(core::mem::transmute(ok__));
+                        pmdtval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1460,7 +1460,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetRecordEtmLocation(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1472,7 +1472,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetRecordDuration(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pmdval.write(core::mem::transmute(ok__));
+                        pmdval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1490,7 +1490,7 @@ impl IATSC_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_EIT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1599,7 +1599,7 @@ impl IATSC_ETT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_ETT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl IATSC_ETT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_ETT_Impl::GetProtocolVersion(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1623,7 +1623,7 @@ impl IATSC_ETT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_ETT_Impl::GetEtmId(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1770,7 +1770,7 @@ impl IATSC_MGT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_MGT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1782,7 +1782,7 @@ impl IATSC_MGT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_MGT_Impl::GetProtocolVersion(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1794,7 +1794,7 @@ impl IATSC_MGT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_MGT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1806,7 +1806,7 @@ impl IATSC_MGT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_MGT_Impl::GetRecordType(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1818,7 +1818,7 @@ impl IATSC_MGT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_MGT_Impl::GetRecordTypePid(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        ppidval.write(core::mem::transmute(ok__));
+                        ppidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1830,7 +1830,7 @@ impl IATSC_MGT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_MGT_Impl::GetRecordVersionNumber(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1842,7 +1842,7 @@ impl IATSC_MGT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_MGT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1999,7 +1999,7 @@ impl IATSC_STT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_STT_Impl::GetProtocolVersion(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2011,7 +2011,7 @@ impl IATSC_STT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_STT_Impl::GetSystemTime(this) {
                     Ok(ok__) => {
-                        pmdtsystemtime.write(core::mem::transmute(ok__));
+                        pmdtsystemtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2023,7 +2023,7 @@ impl IATSC_STT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_STT_Impl::GetGpsUtcOffset(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2035,7 +2035,7 @@ impl IATSC_STT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_STT_Impl::GetDaylightSavings(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2047,7 +2047,7 @@ impl IATSC_STT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_STT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2313,7 +2313,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2325,7 +2325,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetTransportStreamId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2337,7 +2337,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetProtocolVersion(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2349,7 +2349,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2361,7 +2361,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordName(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwsname.write(core::mem::transmute(ok__));
+                        pwsname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2373,7 +2373,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordMajorChannelNumber(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2385,7 +2385,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordMinorChannelNumber(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2397,7 +2397,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordModulationMode(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2409,7 +2409,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordCarrierFrequency(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2421,7 +2421,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordTransportStreamId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2433,7 +2433,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordProgramNumber(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2445,7 +2445,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordEtmLocation(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2457,7 +2457,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsAccessControlledBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2469,7 +2469,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsHiddenBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2481,7 +2481,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsPathSelectBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2493,7 +2493,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsOutOfBandBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2505,7 +2505,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordIsHideGuideBitSet(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2517,7 +2517,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordServiceType(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2529,7 +2529,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordSourceId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2541,7 +2541,7 @@ impl IATSC_VCT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IATSC_VCT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2669,7 +2669,7 @@ impl IAnalogAudioComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogAudioComponentType_Impl::AnalogAudioMode(this) {
                     Ok(ok__) => {
-                        mode.write(core::mem::transmute(ok__));
+                        mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2738,7 +2738,7 @@ impl IAnalogLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogLocator_Impl::VideoStandard(this) {
                     Ok(ok__) => {
-                        avs.write(core::mem::transmute(ok__));
+                        avs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2833,7 +2833,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogRadioTuningSpace_Impl::MinFrequency(this) {
                     Ok(ok__) => {
-                        minfrequencyval.write(core::mem::transmute(ok__));
+                        minfrequencyval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2851,7 +2851,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogRadioTuningSpace_Impl::MaxFrequency(this) {
                     Ok(ok__) => {
-                        maxfrequencyval.write(core::mem::transmute(ok__));
+                        maxfrequencyval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2869,7 +2869,7 @@ impl IAnalogRadioTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogRadioTuningSpace_Impl::Step(this) {
                     Ok(ok__) => {
-                        stepval.write(core::mem::transmute(ok__));
+                        stepval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2942,7 +2942,7 @@ impl IAnalogRadioTuningSpace2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogRadioTuningSpace2_Impl::CountryCode(this) {
                     Ok(ok__) => {
-                        countrycodeval.write(core::mem::transmute(ok__));
+                        countrycodeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3050,7 +3050,7 @@ impl IAnalogTVTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogTVTuningSpace_Impl::MinChannel(this) {
                     Ok(ok__) => {
-                        minchannelval.write(core::mem::transmute(ok__));
+                        minchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3068,7 +3068,7 @@ impl IAnalogTVTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogTVTuningSpace_Impl::MaxChannel(this) {
                     Ok(ok__) => {
-                        maxchannelval.write(core::mem::transmute(ok__));
+                        maxchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3086,7 +3086,7 @@ impl IAnalogTVTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogTVTuningSpace_Impl::InputType(this) {
                     Ok(ok__) => {
-                        inputtypeval.write(core::mem::transmute(ok__));
+                        inputtypeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3104,7 +3104,7 @@ impl IAnalogTVTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnalogTVTuningSpace_Impl::CountryCode(this) {
                     Ok(ok__) => {
-                        countrycodeval.write(core::mem::transmute(ok__));
+                        countrycodeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3214,7 +3214,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscContentAdvisoryDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3226,7 +3226,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscContentAdvisoryDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3238,7 +3238,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscContentAdvisoryDescriptor_Impl::GetRatingRegionCount(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3250,7 +3250,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscContentAdvisoryDescriptor_Impl::GetRecordRatingRegion(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3262,7 +3262,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscContentAdvisoryDescriptor_Impl::GetRecordRatedDimensions(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3274,7 +3274,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscContentAdvisoryDescriptor_Impl::GetRecordRatingDimension(this, core::mem::transmute_copy(&bindexouter), core::mem::transmute_copy(&bindexinner)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3286,7 +3286,7 @@ impl IAtscContentAdvisoryDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAtscContentAdvisoryDescriptor_Impl::GetRecordRatingValue(this, core::mem::transmute_copy(&bindexouter), core::mem::transmute_copy(&bindexinner)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3599,7 +3599,7 @@ impl IAttributeGet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAttributeGet_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3735,7 +3735,7 @@ impl IAuxInTuningSpace2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAuxInTuningSpace2_Impl::CountryCode(this) {
                     Ok(ok__) => {
-                        countrycodeval.write(core::mem::transmute(ok__));
+                        countrycodeval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3842,7 +3842,7 @@ impl IBDAComparable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBDAComparable_Impl::CompareExact(this, core::mem::transmute_copy(&compareto)) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3854,7 +3854,7 @@ impl IBDAComparable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBDAComparable_Impl::CompareEquivalent(this, core::mem::transmute_copy(&compareto), core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3866,7 +3866,7 @@ impl IBDAComparable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBDAComparable_Impl::HashExact(this) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3878,7 +3878,7 @@ impl IBDAComparable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBDAComparable_Impl::HashExactIncremental(this, core::mem::transmute_copy(&partialresult)) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3890,7 +3890,7 @@ impl IBDAComparable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBDAComparable_Impl::HashEquivalent(this, core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3902,7 +3902,7 @@ impl IBDAComparable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBDAComparable_Impl::HashEquivalentIncremental(this, core::mem::transmute_copy(&partialresult), core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        result.write(core::mem::transmute(ok__));
+                        result.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4106,7 +4106,7 @@ impl ICAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICAT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4118,7 +4118,7 @@ impl ICAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICAT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4254,7 +4254,7 @@ impl ICaptionServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICaptionServiceDescriptor_Impl::GetNumberOfServices(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4272,7 +4272,7 @@ impl ICaptionServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICaptionServiceDescriptor_Impl::GetCaptionServiceNumber(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4284,7 +4284,7 @@ impl ICaptionServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICaptionServiceDescriptor_Impl::GetCCType(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4296,7 +4296,7 @@ impl ICaptionServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICaptionServiceDescriptor_Impl::GetEasyReader(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4308,7 +4308,7 @@ impl ICaptionServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICaptionServiceDescriptor_Impl::GetWideAspectRatio(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4439,7 +4439,7 @@ impl IChannelTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IChannelTuneRequest_Impl::Channel(this) {
                     Ok(ok__) => {
-                        channel.write(core::mem::transmute(ok__));
+                        channel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4572,7 +4572,7 @@ impl IComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponent_Impl::DescLangID(this) {
                     Ok(ok__) => {
-                        langid.write(core::mem::transmute(ok__));
+                        langid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4590,7 +4590,7 @@ impl IComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponent_Impl::Status(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4803,7 +4803,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::Category(this) {
                     Ok(ok__) => {
-                        category.write(core::mem::transmute(ok__));
+                        category.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4839,7 +4839,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::_MediaMajorType(this) {
                     Ok(ok__) => {
-                        mediamajortypeguid.write(core::mem::transmute(ok__));
+                        mediamajortypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4875,7 +4875,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::_MediaSubType(this) {
                     Ok(ok__) => {
-                        mediasubtypeguid.write(core::mem::transmute(ok__));
+                        mediasubtypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4911,7 +4911,7 @@ impl IComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentType_Impl::_MediaFormatType(this) {
                     Ok(ok__) => {
-                        mediaformattypeguid.write(core::mem::transmute(ok__));
+                        mediaformattypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5096,7 +5096,7 @@ impl IComponentTypes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentTypes_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5308,7 +5308,7 @@ impl IComponents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponents_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5508,7 +5508,7 @@ impl IComponentsOld_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComponentsOld_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5709,7 +5709,7 @@ impl IDTFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter_Impl::EvalRatObjOK(this) {
                     Ok(ok__) => {
-                        phrcocreateretval.write(core::mem::transmute(ok__));
+                        phrcocreateretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5727,7 +5727,7 @@ impl IDTFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter_Impl::get_BlockedRatingAttributes(this, core::mem::transmute_copy(&ensystem), core::mem::transmute_copy(&enlevel)) {
                     Ok(ok__) => {
-                        plbfenattr.write(core::mem::transmute(ok__));
+                        plbfenattr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5745,7 +5745,7 @@ impl IDTFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter_Impl::BlockUnRated(this) {
                     Ok(ok__) => {
-                        pfblockunratedshows.write(core::mem::transmute(ok__));
+                        pfblockunratedshows.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5763,7 +5763,7 @@ impl IDTFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter_Impl::BlockUnRatedDelay(this) {
                     Ok(ok__) => {
-                        pmsecsdelaybeforeblock.write(core::mem::transmute(ok__));
+                        pmsecsdelaybeforeblock.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5850,7 +5850,7 @@ impl IDTFilter2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter2_Impl::GetCurrLicenseExpDate(this, core::mem::transmute_copy(&prottype)) {
                     Ok(ok__) => {
-                        lpdatetime.write(core::mem::transmute(ok__));
+                        lpdatetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5920,7 +5920,7 @@ impl IDTFilter3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter3_Impl::GetProtectionType(this) {
                     Ok(ok__) => {
-                        pprotectiontype.write(core::mem::transmute(ok__));
+                        pprotectiontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5932,7 +5932,7 @@ impl IDTFilter3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDTFilter3_Impl::LicenseHasExpirationDate(this) {
                     Ok(ok__) => {
-                        pflicensehasexpirationdate.write(core::mem::transmute(ok__));
+                        pflicensehasexpirationdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6184,7 +6184,7 @@ impl IDVBSLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator_Impl::SignalPolarisation(this) {
                     Ok(ok__) => {
-                        polarisationval.write(core::mem::transmute(ok__));
+                        polarisationval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6202,7 +6202,7 @@ impl IDVBSLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator_Impl::WestPosition(this) {
                     Ok(ok__) => {
-                        westlongitude.write(core::mem::transmute(ok__));
+                        westlongitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6220,7 +6220,7 @@ impl IDVBSLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator_Impl::OrbitalPosition(this) {
                     Ok(ok__) => {
-                        longitude.write(core::mem::transmute(ok__));
+                        longitude.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6238,7 +6238,7 @@ impl IDVBSLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator_Impl::Azimuth(this) {
                     Ok(ok__) => {
-                        azimuth.write(core::mem::transmute(ok__));
+                        azimuth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6256,7 +6256,7 @@ impl IDVBSLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator_Impl::Elevation(this) {
                     Ok(ok__) => {
-                        elevation.write(core::mem::transmute(ok__));
+                        elevation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6411,7 +6411,7 @@ impl IDVBSLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator2_Impl::DiseqLNBSource(this) {
                     Ok(ok__) => {
-                        diseqlnbsourceval.write(core::mem::transmute(ok__));
+                        diseqlnbsourceval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6429,7 +6429,7 @@ impl IDVBSLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator2_Impl::LocalOscillatorOverrideLow(this) {
                     Ok(ok__) => {
-                        localoscillatoroverridelowval.write(core::mem::transmute(ok__));
+                        localoscillatoroverridelowval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6447,7 +6447,7 @@ impl IDVBSLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator2_Impl::LocalOscillatorOverrideHigh(this) {
                     Ok(ok__) => {
-                        localoscillatoroverridehighval.write(core::mem::transmute(ok__));
+                        localoscillatoroverridehighval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6465,7 +6465,7 @@ impl IDVBSLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator2_Impl::LocalLNBSwitchOverride(this) {
                     Ok(ok__) => {
-                        locallnbswitchoverrideval.write(core::mem::transmute(ok__));
+                        locallnbswitchoverrideval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6483,7 +6483,7 @@ impl IDVBSLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator2_Impl::LocalSpectralInversionOverride(this) {
                     Ok(ok__) => {
-                        localspectralinversionoverrideval.write(core::mem::transmute(ok__));
+                        localspectralinversionoverrideval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6501,7 +6501,7 @@ impl IDVBSLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator2_Impl::SignalRollOff(this) {
                     Ok(ok__) => {
-                        rolloffval.write(core::mem::transmute(ok__));
+                        rolloffval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6519,7 +6519,7 @@ impl IDVBSLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSLocator2_Impl::SignalPilot(this) {
                     Ok(ok__) => {
-                        pilotval.write(core::mem::transmute(ok__));
+                        pilotval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6652,7 +6652,7 @@ impl IDVBSTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSTuningSpace_Impl::LowOscillator(this) {
                     Ok(ok__) => {
-                        lowoscillator.write(core::mem::transmute(ok__));
+                        lowoscillator.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6670,7 +6670,7 @@ impl IDVBSTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSTuningSpace_Impl::HighOscillator(this) {
                     Ok(ok__) => {
-                        highoscillator.write(core::mem::transmute(ok__));
+                        highoscillator.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6688,7 +6688,7 @@ impl IDVBSTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSTuningSpace_Impl::LNBSwitch(this) {
                     Ok(ok__) => {
-                        lnbswitch.write(core::mem::transmute(ok__));
+                        lnbswitch.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6724,7 +6724,7 @@ impl IDVBSTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBSTuningSpace_Impl::SpectralInversion(this) {
                     Ok(ok__) => {
-                        spectralinversionval.write(core::mem::transmute(ok__));
+                        spectralinversionval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6879,7 +6879,7 @@ impl IDVBTLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator_Impl::Bandwidth(this) {
                     Ok(ok__) => {
-                        bandwidthval.write(core::mem::transmute(ok__));
+                        bandwidthval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6897,7 +6897,7 @@ impl IDVBTLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator_Impl::LPInnerFEC(this) {
                     Ok(ok__) => {
-                        fec.write(core::mem::transmute(ok__));
+                        fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6915,7 +6915,7 @@ impl IDVBTLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator_Impl::LPInnerFECRate(this) {
                     Ok(ok__) => {
-                        fec.write(core::mem::transmute(ok__));
+                        fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6933,7 +6933,7 @@ impl IDVBTLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator_Impl::HAlpha(this) {
                     Ok(ok__) => {
-                        alpha.write(core::mem::transmute(ok__));
+                        alpha.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6951,7 +6951,7 @@ impl IDVBTLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator_Impl::Guard(this) {
                     Ok(ok__) => {
-                        gi.write(core::mem::transmute(ok__));
+                        gi.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6969,7 +6969,7 @@ impl IDVBTLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator_Impl::Mode(this) {
                     Ok(ok__) => {
-                        mode.write(core::mem::transmute(ok__));
+                        mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6987,7 +6987,7 @@ impl IDVBTLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator_Impl::OtherFrequencyInUse(this) {
                     Ok(ok__) => {
-                        otherfrequencyinuseval.write(core::mem::transmute(ok__));
+                        otherfrequencyinuseval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7068,7 +7068,7 @@ impl IDVBTLocator2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTLocator2_Impl::PhysicalLayerPipeId(this) {
                     Ok(ok__) => {
-                        physicallayerpipeidval.write(core::mem::transmute(ok__));
+                        physicallayerpipeidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7163,7 +7163,7 @@ impl IDVBTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTuneRequest_Impl::ONID(this) {
                     Ok(ok__) => {
-                        onid.write(core::mem::transmute(ok__));
+                        onid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7181,7 +7181,7 @@ impl IDVBTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTuneRequest_Impl::TSID(this) {
                     Ok(ok__) => {
-                        tsid.write(core::mem::transmute(ok__));
+                        tsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7199,7 +7199,7 @@ impl IDVBTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTuneRequest_Impl::SID(this) {
                     Ok(ok__) => {
-                        sid.write(core::mem::transmute(ok__));
+                        sid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7272,7 +7272,7 @@ impl IDVBTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTuningSpace_Impl::SystemType(this) {
                     Ok(ok__) => {
-                        systype.write(core::mem::transmute(ok__));
+                        systype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7341,7 +7341,7 @@ impl IDVBTuningSpace2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVBTuningSpace2_Impl::NetworkID(this) {
                     Ok(ok__) => {
-                        networkid.write(core::mem::transmute(ok__));
+                        networkid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7501,7 +7501,7 @@ impl IDVB_BAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_BAT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7513,7 +7513,7 @@ impl IDVB_BAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_BAT_Impl::GetBouquetId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7525,7 +7525,7 @@ impl IDVB_BAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_BAT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7549,7 +7549,7 @@ impl IDVB_BAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_BAT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7561,7 +7561,7 @@ impl IDVB_BAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_BAT_Impl::GetRecordTransportStreamId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7573,7 +7573,7 @@ impl IDVB_BAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_BAT_Impl::GetRecordOriginalNetworkId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7585,7 +7585,7 @@ impl IDVB_BAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_BAT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7705,7 +7705,7 @@ impl IDVB_DIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_DIT_Impl::GetTransitionFlag(this) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7904,7 +7904,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7916,7 +7916,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetServiceId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7928,7 +7928,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetTransportStreamId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7940,7 +7940,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetOriginalNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7952,7 +7952,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetSegmentLastSectionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7964,7 +7964,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetLastTableId(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7976,7 +7976,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7988,7 +7988,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetRecordEventId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8000,7 +8000,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetRecordStartTime(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pmdtval.write(core::mem::transmute(ok__));
+                        pmdtval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8012,7 +8012,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetRecordDuration(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pmdval.write(core::mem::transmute(ok__));
+                        pmdval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8024,7 +8024,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetRecordRunningStatus(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8036,7 +8036,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetRecordFreeCAMode(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8048,7 +8048,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8108,7 +8108,7 @@ impl IDVB_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8188,7 +8188,7 @@ impl IDVB_EIT2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_EIT2_Impl::GetRecordSection(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8352,7 +8352,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8364,7 +8364,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8376,7 +8376,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8406,7 +8406,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8418,7 +8418,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetRecordTransportStreamId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8430,7 +8430,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetRecordOriginalNetworkId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8442,7 +8442,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8502,7 +8502,7 @@ impl IDVB_NIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_NIT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8615,7 +8615,7 @@ impl IDVB_RST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_RST_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8627,7 +8627,7 @@ impl IDVB_RST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_RST_Impl::GetRecordTransportStreamId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8639,7 +8639,7 @@ impl IDVB_RST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_RST_Impl::GetRecordOriginalNetworkId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8651,7 +8651,7 @@ impl IDVB_RST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_RST_Impl::GetRecordServiceId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8663,7 +8663,7 @@ impl IDVB_RST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_RST_Impl::GetRecordEventId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8675,7 +8675,7 @@ impl IDVB_RST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_RST_Impl::GetRecordRunningStatus(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8855,7 +8855,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8867,7 +8867,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetTransportStreamId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8879,7 +8879,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetOriginalNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8891,7 +8891,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8903,7 +8903,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordServiceId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8915,7 +8915,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordEITScheduleFlag(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8927,7 +8927,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordEITPresentFollowingFlag(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8939,7 +8939,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordRunningStatus(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8951,7 +8951,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordFreeCAMode(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8963,7 +8963,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9023,7 +9023,7 @@ impl IDVB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SDT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9187,7 +9187,7 @@ impl IDVB_SIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SIT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9199,7 +9199,7 @@ impl IDVB_SIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SIT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9229,7 +9229,7 @@ impl IDVB_SIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SIT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9241,7 +9241,7 @@ impl IDVB_SIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SIT_Impl::GetRecordServiceId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9253,7 +9253,7 @@ impl IDVB_SIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SIT_Impl::GetRecordRunningStatus(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9265,7 +9265,7 @@ impl IDVB_SIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_SIT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9392,7 +9392,7 @@ impl IDVB_ST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_ST_Impl::GetDataLength(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9404,7 +9404,7 @@ impl IDVB_ST_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_ST_Impl::GetData(this) {
                     Ok(ok__) => {
-                        ppdata.write(core::mem::transmute(ok__));
+                        ppdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9463,7 +9463,7 @@ impl IDVB_TDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_TDT_Impl::GetUTCTime(this) {
                     Ok(ok__) => {
-                        pmdtval.write(core::mem::transmute(ok__));
+                        pmdtval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9542,7 +9542,7 @@ impl IDVB_TOT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_TOT_Impl::GetUTCTime(this) {
                     Ok(ok__) => {
-                        pmdtval.write(core::mem::transmute(ok__));
+                        pmdtval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9554,7 +9554,7 @@ impl IDVB_TOT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDVB_TOT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9680,7 +9680,7 @@ impl IDigitalCableTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDigitalCableTuneRequest_Impl::MajorChannel(this) {
                     Ok(ok__) => {
-                        pmajorchannel.write(core::mem::transmute(ok__));
+                        pmajorchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9698,7 +9698,7 @@ impl IDigitalCableTuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDigitalCableTuneRequest_Impl::SourceID(this) {
                     Ok(ok__) => {
-                        psourceid.write(core::mem::transmute(ok__));
+                        psourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9808,7 +9808,7 @@ impl IDigitalCableTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDigitalCableTuningSpace_Impl::MinMajorChannel(this) {
                     Ok(ok__) => {
-                        minmajorchannelval.write(core::mem::transmute(ok__));
+                        minmajorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9826,7 +9826,7 @@ impl IDigitalCableTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDigitalCableTuningSpace_Impl::MaxMajorChannel(this) {
                     Ok(ok__) => {
-                        maxmajorchannelval.write(core::mem::transmute(ok__));
+                        maxmajorchannelval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9844,7 +9844,7 @@ impl IDigitalCableTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDigitalCableTuningSpace_Impl::MinSourceID(this) {
                     Ok(ok__) => {
-                        minsourceidval.write(core::mem::transmute(ok__));
+                        minsourceidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9862,7 +9862,7 @@ impl IDigitalCableTuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDigitalCableTuningSpace_Impl::MaxSourceID(this) {
                     Ok(ok__) => {
-                        maxsourceidval.write(core::mem::transmute(ok__));
+                        maxsourceidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9997,7 +9997,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbCableDeliverySystemDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10009,7 +10009,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbCableDeliverySystemDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10021,7 +10021,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbCableDeliverySystemDescriptor_Impl::GetFrequency(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10033,7 +10033,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbCableDeliverySystemDescriptor_Impl::GetFECOuter(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10045,7 +10045,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbCableDeliverySystemDescriptor_Impl::GetModulation(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10057,7 +10057,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbCableDeliverySystemDescriptor_Impl::GetSymbolRate(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10069,7 +10069,7 @@ impl IDvbCableDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbCableDeliverySystemDescriptor_Impl::GetFECInner(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10163,7 +10163,7 @@ impl IDvbComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbComponentDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10175,7 +10175,7 @@ impl IDvbComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbComponentDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10187,7 +10187,7 @@ impl IDvbComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbComponentDescriptor_Impl::GetStreamContent(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10199,7 +10199,7 @@ impl IDvbComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbComponentDescriptor_Impl::GetComponentType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10211,7 +10211,7 @@ impl IDvbComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbComponentDescriptor_Impl::GetComponentTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10304,7 +10304,7 @@ impl IDvbContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbContentDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10316,7 +10316,7 @@ impl IDvbContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbContentDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10328,7 +10328,7 @@ impl IDvbContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbContentDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10408,7 +10408,7 @@ impl IDvbContentIdentifierDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbContentIdentifierDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10420,7 +10420,7 @@ impl IDvbContentIdentifierDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbContentIdentifierDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10432,7 +10432,7 @@ impl IDvbContentIdentifierDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbContentIdentifierDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10542,7 +10542,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10554,7 +10554,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10566,7 +10566,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastDescriptor_Impl::GetDataBroadcastID(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10578,7 +10578,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastDescriptor_Impl::GetComponentTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10590,7 +10590,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastDescriptor_Impl::GetSelectorLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10608,7 +10608,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastDescriptor_Impl::GetLangID(this) {
                     Ok(ok__) => {
-                        pulval.write(core::mem::transmute(ok__));
+                        pulval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10620,7 +10620,7 @@ impl IDvbDataBroadcastDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastDescriptor_Impl::GetTextLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10698,7 +10698,7 @@ impl IDvbDataBroadcastIDDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastIDDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10710,7 +10710,7 @@ impl IDvbDataBroadcastIDDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastIDDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10722,7 +10722,7 @@ impl IDvbDataBroadcastIDDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDataBroadcastIDDescriptor_Impl::GetDataBroadcastID(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10787,7 +10787,7 @@ impl IDvbDefaultAuthorityDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDefaultAuthorityDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10799,7 +10799,7 @@ impl IDvbDefaultAuthorityDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbDefaultAuthorityDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10924,7 +10924,7 @@ impl IDvbExtendedEventDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbExtendedEventDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10936,7 +10936,7 @@ impl IDvbExtendedEventDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbExtendedEventDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10948,7 +10948,7 @@ impl IDvbExtendedEventDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbExtendedEventDescriptor_Impl::GetDescriptorNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10960,7 +10960,7 @@ impl IDvbExtendedEventDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbExtendedEventDescriptor_Impl::GetLastDescriptorNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10978,7 +10978,7 @@ impl IDvbExtendedEventDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbExtendedEventDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11105,7 +11105,7 @@ impl IDvbFrequencyListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbFrequencyListDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11117,7 +11117,7 @@ impl IDvbFrequencyListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbFrequencyListDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11129,7 +11129,7 @@ impl IDvbFrequencyListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbFrequencyListDescriptor_Impl::GetCodingType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11141,7 +11141,7 @@ impl IDvbFrequencyListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbFrequencyListDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11153,7 +11153,7 @@ impl IDvbFrequencyListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbFrequencyListDescriptor_Impl::GetRecordCentreFrequency(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11276,7 +11276,7 @@ impl IDvbLinkageDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLinkageDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11288,7 +11288,7 @@ impl IDvbLinkageDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLinkageDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11300,7 +11300,7 @@ impl IDvbLinkageDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLinkageDescriptor_Impl::GetTSId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11312,7 +11312,7 @@ impl IDvbLinkageDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLinkageDescriptor_Impl::GetONId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11324,7 +11324,7 @@ impl IDvbLinkageDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLinkageDescriptor_Impl::GetServiceId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11336,7 +11336,7 @@ impl IDvbLinkageDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLinkageDescriptor_Impl::GetLinkageType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11348,7 +11348,7 @@ impl IDvbLinkageDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLinkageDescriptor_Impl::GetPrivateDataLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11463,7 +11463,7 @@ impl IDvbLogicalChannel2Descriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannel2Descriptor_Impl::GetCountOfLists(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11475,7 +11475,7 @@ impl IDvbLogicalChannel2Descriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannel2Descriptor_Impl::GetListId(this, core::mem::transmute_copy(&blistindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11505,7 +11505,7 @@ impl IDvbLogicalChannel2Descriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannel2Descriptor_Impl::GetListCountOfRecords(this, core::mem::transmute_copy(&bchannellistindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11517,7 +11517,7 @@ impl IDvbLogicalChannel2Descriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannel2Descriptor_Impl::GetListRecordServiceId(this, core::mem::transmute_copy(&blistindex), core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11529,7 +11529,7 @@ impl IDvbLogicalChannel2Descriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannel2Descriptor_Impl::GetListRecordLogicalChannelNumber(this, core::mem::transmute_copy(&blistindex), core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11541,7 +11541,7 @@ impl IDvbLogicalChannel2Descriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannel2Descriptor_Impl::GetListRecordLogicalChannelAndVisibility(this, core::mem::transmute_copy(&blistindex), core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11623,7 +11623,7 @@ impl IDvbLogicalChannelDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannelDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11635,7 +11635,7 @@ impl IDvbLogicalChannelDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannelDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11647,7 +11647,7 @@ impl IDvbLogicalChannelDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannelDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11659,7 +11659,7 @@ impl IDvbLogicalChannelDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannelDescriptor_Impl::GetRecordServiceId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11671,7 +11671,7 @@ impl IDvbLogicalChannelDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannelDescriptor_Impl::GetRecordLogicalChannelNumber(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11724,7 +11724,7 @@ impl IDvbLogicalChannelDescriptor2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbLogicalChannelDescriptor2_Impl::GetRecordLogicalChannelAndVisibility(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11807,7 +11807,7 @@ impl IDvbMultilingualServiceNameDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbMultilingualServiceNameDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11819,7 +11819,7 @@ impl IDvbMultilingualServiceNameDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbMultilingualServiceNameDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11831,7 +11831,7 @@ impl IDvbMultilingualServiceNameDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbMultilingualServiceNameDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11843,7 +11843,7 @@ impl IDvbMultilingualServiceNameDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbMultilingualServiceNameDescriptor_Impl::GetRecordLangId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        ulval.write(core::mem::transmute(ok__));
+                        ulval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11939,7 +11939,7 @@ impl IDvbNetworkNameDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbNetworkNameDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11951,7 +11951,7 @@ impl IDvbNetworkNameDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbNetworkNameDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11963,7 +11963,7 @@ impl IDvbNetworkNameDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbNetworkNameDescriptor_Impl::GetNetworkName(this) {
                     Ok(ok__) => {
-                        pszname.write(core::mem::transmute(ok__));
+                        pszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12042,7 +12042,7 @@ impl IDvbParentalRatingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbParentalRatingDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12054,7 +12054,7 @@ impl IDvbParentalRatingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbParentalRatingDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12066,7 +12066,7 @@ impl IDvbParentalRatingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbParentalRatingDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12134,7 +12134,7 @@ impl IDvbPrivateDataSpecifierDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbPrivateDataSpecifierDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12146,7 +12146,7 @@ impl IDvbPrivateDataSpecifierDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbPrivateDataSpecifierDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12158,7 +12158,7 @@ impl IDvbPrivateDataSpecifierDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbPrivateDataSpecifierDescriptor_Impl::GetPrivateDataSpecifier(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12267,7 +12267,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12279,7 +12279,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12291,7 +12291,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetFrequency(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12303,7 +12303,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetOrbitalPosition(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12315,7 +12315,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetWestEastFlag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12327,7 +12327,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetPolarization(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12339,7 +12339,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetModulation(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12351,7 +12351,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetSymbolRate(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12363,7 +12363,7 @@ impl IDvbSatelliteDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSatelliteDeliverySystemDescriptor_Impl::GetFECInner(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12454,7 +12454,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12466,7 +12466,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12478,7 +12478,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12490,7 +12490,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetRecordServiceId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12502,7 +12502,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetRecordNumericSelectionFlag(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12514,7 +12514,7 @@ impl IDvbServiceAttributeDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceAttributeDescriptor_Impl::GetRecordVisibleServiceFlag(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12618,7 +12618,7 @@ impl IDvbServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12630,7 +12630,7 @@ impl IDvbServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12642,7 +12642,7 @@ impl IDvbServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceDescriptor_Impl::GetServiceType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12654,7 +12654,7 @@ impl IDvbServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceDescriptor_Impl::GetServiceProviderName(this) {
                     Ok(ok__) => {
-                        pszname.write(core::mem::transmute(ok__));
+                        pszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12678,7 +12678,7 @@ impl IDvbServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceDescriptor_Impl::GetServiceName(this) {
                     Ok(ok__) => {
-                        pszname.write(core::mem::transmute(ok__));
+                        pszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12854,7 +12854,7 @@ impl IDvbServiceListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceListDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12866,7 +12866,7 @@ impl IDvbServiceListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceListDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12878,7 +12878,7 @@ impl IDvbServiceListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceListDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12890,7 +12890,7 @@ impl IDvbServiceListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceListDescriptor_Impl::GetRecordServiceId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12902,7 +12902,7 @@ impl IDvbServiceListDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbServiceListDescriptor_Impl::GetRecordServiceType(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12978,7 +12978,7 @@ impl IDvbShortEventDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbShortEventDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12990,7 +12990,7 @@ impl IDvbShortEventDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbShortEventDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13492,7 +13492,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSubtitlingDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13504,7 +13504,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSubtitlingDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13516,7 +13516,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSubtitlingDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13528,7 +13528,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSubtitlingDescriptor_Impl::GetRecordLangId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pulval.write(core::mem::transmute(ok__));
+                        pulval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13540,7 +13540,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSubtitlingDescriptor_Impl::GetRecordSubtitlingType(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13552,7 +13552,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSubtitlingDescriptor_Impl::GetRecordCompositionPageID(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13564,7 +13564,7 @@ impl IDvbSubtitlingDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbSubtitlingDescriptor_Impl::GetRecordAncillaryPageID(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13661,7 +13661,7 @@ impl IDvbTeletextDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTeletextDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13673,7 +13673,7 @@ impl IDvbTeletextDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTeletextDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13685,7 +13685,7 @@ impl IDvbTeletextDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTeletextDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13697,7 +13697,7 @@ impl IDvbTeletextDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTeletextDescriptor_Impl::GetRecordLangId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pulval.write(core::mem::transmute(ok__));
+                        pulval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13709,7 +13709,7 @@ impl IDvbTeletextDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTeletextDescriptor_Impl::GetRecordTeletextType(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13721,7 +13721,7 @@ impl IDvbTeletextDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTeletextDescriptor_Impl::GetRecordMagazineNumber(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13733,7 +13733,7 @@ impl IDvbTeletextDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTeletextDescriptor_Impl::GetRecordPageNumber(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13878,7 +13878,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13890,7 +13890,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13902,7 +13902,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetTagExtension(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13914,7 +13914,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetCentreFrequency(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13926,7 +13926,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetPLPId(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13938,7 +13938,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetT2SystemId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13950,7 +13950,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetMultipleInputMode(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13962,7 +13962,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetBandwidth(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13974,7 +13974,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetGuardInterval(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13986,7 +13986,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetTransmissionMode(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13998,7 +13998,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetCellId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14010,7 +14010,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetOtherFrequencyFlag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14022,7 +14022,7 @@ impl IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrial2DeliverySystemDescriptor_Impl::GetTFSFlag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14157,7 +14157,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14169,7 +14169,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14181,7 +14181,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetCentreFrequency(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14193,7 +14193,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetBandwidth(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14205,7 +14205,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetConstellation(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14217,7 +14217,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetHierarchyInformation(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14229,7 +14229,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetCodeRateHPStream(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14241,7 +14241,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetCodeRateLPStream(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14253,7 +14253,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetGuardInterval(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14265,7 +14265,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetTransmissionMode(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14277,7 +14277,7 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDvbTerrestrialDeliverySystemDescriptor_Impl::GetOtherFrequencyFlag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14338,7 +14338,7 @@ impl IESCloseMmiEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESCloseMmiEvent_Impl::GetDialogNumber(this) {
                     Ok(ok__) => {
-                        pdialognumber.write(core::mem::transmute(ok__));
+                        pdialognumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14611,7 +14611,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::GetTunerId(this) {
                     Ok(ok__) => {
-                        pguidtunerid.write(core::mem::transmute(ok__));
+                        pguidtunerid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14623,7 +14623,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::GetExpiryDate(this) {
                     Ok(ok__) => {
-                        pqwexpirydate.write(core::mem::transmute(ok__));
+                        pqwexpirydate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14635,7 +14635,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::GetFinalExpiryDate(this) {
                     Ok(ok__) => {
-                        pqwexpirydate.write(core::mem::transmute(ok__));
+                        pqwexpirydate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14647,7 +14647,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::GetMaxRenewalCount(this) {
                     Ok(ok__) => {
-                        dwmaxrenewalcount.write(core::mem::transmute(ok__));
+                        dwmaxrenewalcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14659,7 +14659,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::IsEntitlementTokenPresent(this) {
                     Ok(ok__) => {
-                        pfenttokenpresent.write(core::mem::transmute(ok__));
+                        pfenttokenpresent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14671,7 +14671,7 @@ impl IESFileExpiryDateEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESFileExpiryDateEvent_Impl::DoesExpireAfterFirstUse(this) {
                     Ok(ok__) => {
-                        pfexpireafterfirstuse.write(core::mem::transmute(ok__));
+                        pfexpireafterfirstuse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14756,7 +14756,7 @@ impl IESIsdbCasResponseEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESIsdbCasResponseEvent_Impl::GetRequestId(this) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14768,7 +14768,7 @@ impl IESIsdbCasResponseEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESIsdbCasResponseEvent_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14780,7 +14780,7 @@ impl IESIsdbCasResponseEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESIsdbCasResponseEvent_Impl::GetDataLength(this) {
                     Ok(ok__) => {
-                        prequestlength.write(core::mem::transmute(ok__));
+                        prequestlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14792,7 +14792,7 @@ impl IESIsdbCasResponseEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESIsdbCasResponseEvent_Impl::GetResponseData(this) {
                     Ok(ok__) => {
-                        pbdata.write(core::mem::transmute(ok__));
+                        pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14931,7 +14931,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetCallersId(this) {
                     Ok(ok__) => {
-                        pdwcallersid.write(core::mem::transmute(ok__));
+                        pdwcallersid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14955,7 +14955,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::IsRenewalSuccessful(this) {
                     Ok(ok__) => {
-                        pfrenewalsuccessful.write(core::mem::transmute(ok__));
+                        pfrenewalsuccessful.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14967,7 +14967,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::IsCheckEntitlementCallRequired(this) {
                     Ok(ok__) => {
-                        pfcheckenttokencallneeded.write(core::mem::transmute(ok__));
+                        pfcheckenttokencallneeded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14979,7 +14979,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetDescrambledStatus(this) {
                     Ok(ok__) => {
-                        pdescrambledstatus.write(core::mem::transmute(ok__));
+                        pdescrambledstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14991,7 +14991,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetRenewalResultCode(this) {
                     Ok(ok__) => {
-                        pdwrenewalresultcode.write(core::mem::transmute(ok__));
+                        pdwrenewalresultcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15003,7 +15003,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetCASFailureCode(this) {
                     Ok(ok__) => {
-                        pdwcasfailurecode.write(core::mem::transmute(ok__));
+                        pdwcasfailurecode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15015,7 +15015,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetRenewalHResult(this) {
                     Ok(ok__) => {
-                        phr.write(core::mem::transmute(ok__));
+                        phr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15027,7 +15027,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetEntitlementTokenLength(this) {
                     Ok(ok__) => {
-                        pdwlength.write(core::mem::transmute(ok__));
+                        pdwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15039,7 +15039,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetEntitlementToken(this) {
                     Ok(ok__) => {
-                        pbdata.write(core::mem::transmute(ok__));
+                        pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15051,7 +15051,7 @@ impl IESLicenseRenewalResultEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESLicenseRenewalResultEvent_Impl::GetExpiryDate(this) {
                     Ok(ok__) => {
-                        pqwexpirydate.write(core::mem::transmute(ok__));
+                        pqwexpirydate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15141,7 +15141,7 @@ impl IESOpenMmiEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESOpenMmiEvent_Impl::GetDialogNumber(this, core::mem::transmute_copy(&pdialogrequest)) {
                     Ok(ok__) => {
-                        pdialognumber.write(core::mem::transmute(ok__));
+                        pdialognumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15153,7 +15153,7 @@ impl IESOpenMmiEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESOpenMmiEvent_Impl::GetDialogType(this) {
                     Ok(ok__) => {
-                        guiddialogtype.write(core::mem::transmute(ok__));
+                        guiddialogtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15165,7 +15165,7 @@ impl IESOpenMmiEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESOpenMmiEvent_Impl::GetDialogData(this) {
                     Ok(ok__) => {
-                        pbdata.write(core::mem::transmute(ok__));
+                        pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15256,7 +15256,7 @@ impl IESRequestTunerEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESRequestTunerEvent_Impl::GetPriority(this) {
                     Ok(ok__) => {
-                        pbypriority.write(core::mem::transmute(ok__));
+                        pbypriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15268,7 +15268,7 @@ impl IESRequestTunerEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESRequestTunerEvent_Impl::GetReason(this) {
                     Ok(ok__) => {
-                        pbyreason.write(core::mem::transmute(ok__));
+                        pbyreason.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15280,7 +15280,7 @@ impl IESRequestTunerEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESRequestTunerEvent_Impl::GetConsequences(this) {
                     Ok(ok__) => {
-                        pbyconsequences.write(core::mem::transmute(ok__));
+                        pbyconsequences.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15292,7 +15292,7 @@ impl IESRequestTunerEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESRequestTunerEvent_Impl::GetEstimatedTime(this) {
                     Ok(ok__) => {
-                        pdwestimatedtime.write(core::mem::transmute(ok__));
+                        pdwestimatedtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15351,7 +15351,7 @@ impl IESValueUpdatedEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IESValueUpdatedEvent_Impl::GetValueNames(this) {
                     Ok(ok__) => {
-                        pbstrnames.write(core::mem::transmute(ok__));
+                        pbstrnames.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15415,7 +15415,7 @@ impl IETFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IETFilter_Impl::EvalRatObjOK(this) {
                     Ok(ok__) => {
-                        phrcocreateretval.write(core::mem::transmute(ok__));
+                        phrcocreateretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15433,7 +15433,7 @@ impl IETFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IETFilter_Impl::GetCurrLicenseExpDate(this, core::mem::transmute_copy(&prottype)) {
                     Ok(ok__) => {
-                        lpdatetime.write(core::mem::transmute(ok__));
+                        lpdatetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16206,7 +16206,7 @@ impl IEvalRat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEvalRat_Impl::get_BlockedRatingAttributes(this, core::mem::transmute_copy(&ensystem), core::mem::transmute_copy(&enlevel)) {
                     Ok(ok__) => {
-                        plbfattrs.write(core::mem::transmute(ok__));
+                        plbfattrs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16224,7 +16224,7 @@ impl IEvalRat_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEvalRat_Impl::BlockUnRated(this) {
                     Ok(ok__) => {
-                        pfblockunratedshows.write(core::mem::transmute(ok__));
+                        pfblockunratedshows.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16318,7 +16318,7 @@ impl IGenericDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGenericDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16330,7 +16330,7 @@ impl IGenericDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGenericDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16342,7 +16342,7 @@ impl IGenericDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGenericDescriptor_Impl::GetBody(this) {
                     Ok(ok__) => {
-                        ppbval.write(core::mem::transmute(ok__));
+                        ppbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16405,7 +16405,7 @@ impl IGenericDescriptor2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGenericDescriptor2_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16871,7 +16871,7 @@ impl IGuideDataProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGuideDataProperty_Impl::Language(this) {
                     Ok(ok__) => {
-                        idlang.write(core::mem::transmute(ok__));
+                        idlang.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17056,7 +17056,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17068,7 +17068,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetOriginalNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17080,7 +17080,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetBroadcastViewPropriety(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17092,7 +17092,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17122,7 +17122,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17134,7 +17134,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetRecordBroadcasterId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17146,7 +17146,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17176,7 +17176,7 @@ impl IISDB_BIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_BIT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17323,7 +17323,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17335,7 +17335,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetDownloadDataId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17347,7 +17347,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetSectionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17359,7 +17359,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetOriginalNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17371,7 +17371,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetDataType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17383,7 +17383,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17413,7 +17413,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetSizeOfDataModule(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17425,7 +17425,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetDataModule(this) {
                     Ok(ok__) => {
-                        pbdata.write(core::mem::transmute(ok__));
+                        pbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17437,7 +17437,7 @@ impl IISDB_CDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_CDT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17540,7 +17540,7 @@ impl IISDB_EMM_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_EMM_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17552,7 +17552,7 @@ impl IISDB_EMM_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_EMM_Impl::GetTableIdExtension(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17582,7 +17582,7 @@ impl IISDB_EMM_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_EMM_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17715,7 +17715,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17727,7 +17727,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetOriginalServiceId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17739,7 +17739,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetTransportStreamId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17751,7 +17751,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetOriginalNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17763,7 +17763,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17775,7 +17775,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetRecordDescriptionId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17787,7 +17787,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17817,7 +17817,7 @@ impl IISDB_LDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_LDT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17986,7 +17986,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17998,7 +17998,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetOriginalNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18010,7 +18010,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18022,7 +18022,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordInformationId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18034,7 +18034,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordInformationType(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18046,7 +18046,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordDescriptionBodyLocation(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18058,7 +18058,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordMessageSectionNumber(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18070,7 +18070,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordUserDefined(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18082,7 +18082,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordNumberOfKeys(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18094,7 +18094,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordKeys(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbkeys.write(core::mem::transmute(ok__));
+                        pbkeys.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18106,7 +18106,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18136,7 +18136,7 @@ impl IISDB_NBIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_NBIT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18199,7 +18199,7 @@ impl IISDB_SDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDT_Impl::GetRecordEITUserDefinedFlags(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18395,7 +18395,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18407,7 +18407,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetTableIdExt(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18419,7 +18419,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetTransportStreamId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18431,7 +18431,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetOriginalNetworkId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18443,7 +18443,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetServiceId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18455,7 +18455,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18467,7 +18467,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordGroup(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18479,7 +18479,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordTargetVersion(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18491,7 +18491,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordNewVersion(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18503,7 +18503,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordDownloadLevel(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18515,7 +18515,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordVersionIndicator(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18527,7 +18527,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordScheduleTimeShiftInformation(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18539,7 +18539,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordCountOfSchedules(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18551,7 +18551,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordStartTimeByIndex(this, core::mem::transmute_copy(&dwrecordindex), core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pmdtval.write(core::mem::transmute(ok__));
+                        pmdtval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18563,7 +18563,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordDurationByIndex(this, core::mem::transmute_copy(&dwrecordindex), core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pmdval.write(core::mem::transmute(ok__));
+                        pmdval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18575,7 +18575,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18605,7 +18605,7 @@ impl IISDB_SDTT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IISDB_SDTT_Impl::GetVersionHash(this) {
                     Ok(ok__) => {
-                        pdwversionhash.write(core::mem::transmute(ok__));
+                        pdwversionhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18765,7 +18765,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18777,7 +18777,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18789,7 +18789,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetStreamContent(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18801,7 +18801,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetComponentType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18813,7 +18813,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetComponentTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18825,7 +18825,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetStreamType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18837,7 +18837,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetSimulcastGroupTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18849,7 +18849,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetESMultiLingualFlag(this) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18861,7 +18861,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetMainComponentFlag(this) {
                     Ok(ok__) => {
-                        pfval.write(core::mem::transmute(ok__));
+                        pfval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18873,7 +18873,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetQualityIndicator(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18885,7 +18885,7 @@ impl IIsdbAudioComponentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbAudioComponentDescriptor_Impl::GetSamplingRate(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19029,7 +19029,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19041,7 +19041,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19053,7 +19053,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetCASystemId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19065,7 +19065,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetCAUnitId(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19077,7 +19077,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19089,7 +19089,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetRecordComponentTag(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19101,7 +19101,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetContractVerificationInfoLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19113,7 +19113,7 @@ impl IIsdbCAContractInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAContractInformationDescriptor_Impl::GetContractVerificationInfo(this, core::mem::transmute_copy(&bbuflength)) {
                     Ok(ok__) => {
-                        pbbuf.write(core::mem::transmute(ok__));
+                        pbbuf.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19213,7 +19213,7 @@ impl IIsdbCADescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCADescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19225,7 +19225,7 @@ impl IIsdbCADescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCADescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19237,7 +19237,7 @@ impl IIsdbCADescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCADescriptor_Impl::GetCASystemId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19249,7 +19249,7 @@ impl IIsdbCADescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCADescriptor_Impl::GetReservedBits(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19261,7 +19261,7 @@ impl IIsdbCADescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCADescriptor_Impl::GetCAPID(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19352,7 +19352,7 @@ impl IIsdbCAServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAServiceDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19364,7 +19364,7 @@ impl IIsdbCAServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAServiceDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19376,7 +19376,7 @@ impl IIsdbCAServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAServiceDescriptor_Impl::GetCASystemId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19388,7 +19388,7 @@ impl IIsdbCAServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAServiceDescriptor_Impl::GetCABroadcasterGroupId(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19400,7 +19400,7 @@ impl IIsdbCAServiceDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbCAServiceDescriptor_Impl::GetMessageControl(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19534,7 +19534,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19546,7 +19546,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19558,7 +19558,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetComponentGroupType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19570,7 +19570,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19582,7 +19582,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetRecordGroupId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19594,7 +19594,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetRecordNumberOfCAUnit(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19606,7 +19606,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetRecordCAUnitCAUnitId(this, core::mem::transmute_copy(&brecordindex), core::mem::transmute_copy(&bcaunitindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19618,7 +19618,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetRecordCAUnitNumberOfComponents(this, core::mem::transmute_copy(&brecordindex), core::mem::transmute_copy(&bcaunitindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19630,7 +19630,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetRecordCAUnitComponentTag(this, core::mem::transmute_copy(&brecordindex), core::mem::transmute_copy(&bcaunitindex), core::mem::transmute_copy(&bcomponentindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19642,7 +19642,7 @@ impl IIsdbComponentGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbComponentGroupDescriptor_Impl::GetRecordTotalBitRate(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19776,7 +19776,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19788,7 +19788,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19800,7 +19800,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetDataComponentId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19812,7 +19812,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetEntryComponent(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19824,7 +19824,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetSelectorLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19836,7 +19836,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetSelectorBytes(this, core::mem::transmute_copy(&bbuflength)) {
                     Ok(ok__) => {
-                        pbbuf.write(core::mem::transmute(ok__));
+                        pbbuf.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19848,7 +19848,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19860,7 +19860,7 @@ impl IIsdbDataContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDataContentDescriptor_Impl::GetRecordComponentRef(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19956,7 +19956,7 @@ impl IIsdbDigitalCopyControlDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDigitalCopyControlDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19968,7 +19968,7 @@ impl IIsdbDigitalCopyControlDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDigitalCopyControlDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19986,7 +19986,7 @@ impl IIsdbDigitalCopyControlDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDigitalCopyControlDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20161,7 +20161,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20173,7 +20173,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20191,7 +20191,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetComponentSize(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20203,7 +20203,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetDownloadId(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20215,7 +20215,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetTimeOutValueDII(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20227,7 +20227,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetLeakRate(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20239,7 +20239,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetComponentTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20251,7 +20251,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetCompatiblityDescriptorLength(this) {
                     Ok(ok__) => {
-                        pwlength.write(core::mem::transmute(ok__));
+                        pwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20263,7 +20263,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetCompatiblityDescriptor(this) {
                     Ok(ok__) => {
-                        ppbdata.write(core::mem::transmute(ok__));
+                        ppbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20275,7 +20275,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20287,7 +20287,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetRecordModuleId(this, core::mem::transmute_copy(&wrecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20299,7 +20299,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetRecordModuleSize(this, core::mem::transmute_copy(&wrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20311,7 +20311,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetRecordModuleInfoLength(this, core::mem::transmute_copy(&wrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20323,7 +20323,7 @@ impl IIsdbDownloadContentDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbDownloadContentDescriptor_Impl::GetRecordModuleInfo(this, core::mem::transmute_copy(&wrecordindex)) {
                     Ok(ok__) => {
-                        ppbdata.write(core::mem::transmute(ok__));
+                        ppbdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20445,7 +20445,7 @@ impl IIsdbEmergencyInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEmergencyInformationDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20457,7 +20457,7 @@ impl IIsdbEmergencyInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEmergencyInformationDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20469,7 +20469,7 @@ impl IIsdbEmergencyInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEmergencyInformationDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20481,7 +20481,7 @@ impl IIsdbEmergencyInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEmergencyInformationDescriptor_Impl::GetServiceId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20493,7 +20493,7 @@ impl IIsdbEmergencyInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEmergencyInformationDescriptor_Impl::GetStartEndFlag(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20505,7 +20505,7 @@ impl IIsdbEmergencyInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEmergencyInformationDescriptor_Impl::GetSignalLevel(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20602,7 +20602,7 @@ impl IIsdbEventGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEventGroupDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20614,7 +20614,7 @@ impl IIsdbEventGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEventGroupDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20626,7 +20626,7 @@ impl IIsdbEventGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEventGroupDescriptor_Impl::GetGroupType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20638,7 +20638,7 @@ impl IIsdbEventGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEventGroupDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20656,7 +20656,7 @@ impl IIsdbEventGroupDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbEventGroupDescriptor_Impl::GetCountOfRefRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20751,7 +20751,7 @@ impl IIsdbHierarchicalTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbHierarchicalTransmissionDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20763,7 +20763,7 @@ impl IIsdbHierarchicalTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbHierarchicalTransmissionDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20775,7 +20775,7 @@ impl IIsdbHierarchicalTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbHierarchicalTransmissionDescriptor_Impl::GetFutureUse1(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20787,7 +20787,7 @@ impl IIsdbHierarchicalTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbHierarchicalTransmissionDescriptor_Impl::GetQualityLevel(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20799,7 +20799,7 @@ impl IIsdbHierarchicalTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbHierarchicalTransmissionDescriptor_Impl::GetFutureUse2(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20811,7 +20811,7 @@ impl IIsdbHierarchicalTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbHierarchicalTransmissionDescriptor_Impl::GetReferencePid(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20907,7 +20907,7 @@ impl IIsdbLogoTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbLogoTransmissionDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20919,7 +20919,7 @@ impl IIsdbLogoTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbLogoTransmissionDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20931,7 +20931,7 @@ impl IIsdbLogoTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbLogoTransmissionDescriptor_Impl::GetLogoTransmissionType(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20943,7 +20943,7 @@ impl IIsdbLogoTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbLogoTransmissionDescriptor_Impl::GetLogoId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20955,7 +20955,7 @@ impl IIsdbLogoTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbLogoTransmissionDescriptor_Impl::GetLogoVersion(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20967,7 +20967,7 @@ impl IIsdbLogoTransmissionDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbLogoTransmissionDescriptor_Impl::GetDownloadDataId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21081,7 +21081,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSIParameterDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21093,7 +21093,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSIParameterDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21105,7 +21105,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSIParameterDescriptor_Impl::GetParameterVersion(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21117,7 +21117,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSIParameterDescriptor_Impl::GetUpdateTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21129,7 +21129,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSIParameterDescriptor_Impl::GetRecordNumberOfTable(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21141,7 +21141,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSIParameterDescriptor_Impl::GetTableId(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21153,7 +21153,7 @@ impl IIsdbSIParameterDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSIParameterDescriptor_Impl::GetTableDescriptionLength(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21270,7 +21270,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSeriesDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21282,7 +21282,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSeriesDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21294,7 +21294,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSeriesDescriptor_Impl::GetSeriesId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21306,7 +21306,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSeriesDescriptor_Impl::GetRepeatLabel(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21318,7 +21318,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSeriesDescriptor_Impl::GetProgramPattern(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21336,7 +21336,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSeriesDescriptor_Impl::GetEpisodeNumber(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21348,7 +21348,7 @@ impl IIsdbSeriesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbSeriesDescriptor_Impl::GetLastEpisodeNumber(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21642,7 +21642,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTSInformationDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21654,7 +21654,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTSInformationDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21666,7 +21666,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTSInformationDescriptor_Impl::GetRemoteControlKeyId(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21690,7 +21690,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTSInformationDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21702,7 +21702,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTSInformationDescriptor_Impl::GetRecordTransmissionTypeInfo(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21714,7 +21714,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTSInformationDescriptor_Impl::GetRecordNumberOfServices(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21726,7 +21726,7 @@ impl IIsdbTSInformationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTSInformationDescriptor_Impl::GetRecordServiceIdByIndex(this, core::mem::transmute_copy(&brecordindex), core::mem::transmute_copy(&bserviceindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21824,7 +21824,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTerrestrialDeliverySystemDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21836,7 +21836,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTerrestrialDeliverySystemDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21848,7 +21848,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTerrestrialDeliverySystemDescriptor_Impl::GetAreaCode(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21860,7 +21860,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTerrestrialDeliverySystemDescriptor_Impl::GetGuardInterval(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21872,7 +21872,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTerrestrialDeliverySystemDescriptor_Impl::GetTransmissionMode(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21884,7 +21884,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTerrestrialDeliverySystemDescriptor_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21896,7 +21896,7 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsdbTerrestrialDeliverySystemDescriptor_Impl::GetRecordFrequency(this, core::mem::transmute_copy(&brecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21963,7 +21963,7 @@ impl ILanguageComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILanguageComponentType_Impl::LangID(this) {
                     Ok(ok__) => {
-                        langid.write(core::mem::transmute(ok__));
+                        langid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22114,7 +22114,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::CarrierFrequency(this) {
                     Ok(ok__) => {
-                        frequency.write(core::mem::transmute(ok__));
+                        frequency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22132,7 +22132,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::InnerFEC(this) {
                     Ok(ok__) => {
-                        fec.write(core::mem::transmute(ok__));
+                        fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22150,7 +22150,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::InnerFECRate(this) {
                     Ok(ok__) => {
-                        fec.write(core::mem::transmute(ok__));
+                        fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22168,7 +22168,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::OuterFEC(this) {
                     Ok(ok__) => {
-                        fec.write(core::mem::transmute(ok__));
+                        fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22186,7 +22186,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::OuterFECRate(this) {
                     Ok(ok__) => {
-                        fec.write(core::mem::transmute(ok__));
+                        fec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22204,7 +22204,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::Modulation(this) {
                     Ok(ok__) => {
-                        modulation.write(core::mem::transmute(ok__));
+                        modulation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22222,7 +22222,7 @@ impl ILocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocator_Impl::SymbolRate(this) {
                     Ok(ok__) => {
-                        rate.write(core::mem::transmute(ok__));
+                        rate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22342,7 +22342,7 @@ impl IMPEG2Component_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2Component_Impl::PID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22360,7 +22360,7 @@ impl IMPEG2Component_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2Component_Impl::PCRPID(this) {
                     Ok(ok__) => {
-                        pcrpid.write(core::mem::transmute(ok__));
+                        pcrpid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22378,7 +22378,7 @@ impl IMPEG2Component_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2Component_Impl::ProgramNumber(this) {
                     Ok(ok__) => {
-                        programnumber.write(core::mem::transmute(ok__));
+                        programnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22451,7 +22451,7 @@ impl IMPEG2ComponentType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2ComponentType_Impl::StreamType(this) {
                     Ok(ok__) => {
-                        mp2streamtype.write(core::mem::transmute(ok__));
+                        mp2streamtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22533,7 +22533,7 @@ impl IMPEG2TuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2TuneRequest_Impl::TSID(this) {
                     Ok(ok__) => {
-                        tsid.write(core::mem::transmute(ok__));
+                        tsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22551,7 +22551,7 @@ impl IMPEG2TuneRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2TuneRequest_Impl::ProgNo(this) {
                     Ok(ok__) => {
-                        progno.write(core::mem::transmute(ok__));
+                        progno.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22730,7 +22730,7 @@ impl IMPEG2_TIF_CONTROL_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMPEG2_TIF_CONTROL_Impl::GetPIDCount(this) {
                     Ok(ok__) => {
-                        pulcpids.write(core::mem::transmute(ok__));
+                        pulcpids.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22805,7 +22805,7 @@ impl IMSEventBinder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSEventBinder_Impl::Bind(this, core::mem::transmute_copy(&peventobject), core::mem::transmute(&eventname), core::mem::transmute(&eventhandler)) {
                     Ok(ok__) => {
-                        cancelid.write(core::mem::transmute(ok__));
+                        cancelid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22924,7 +22924,7 @@ impl IMSVidAnalogTuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner_Impl::Channel(this) {
                     Ok(ok__) => {
-                        channel.write(core::mem::transmute(ok__));
+                        channel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22942,7 +22942,7 @@ impl IMSVidAnalogTuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner_Impl::VideoFrequency(this) {
                     Ok(ok__) => {
-                        lcc.write(core::mem::transmute(ok__));
+                        lcc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22954,7 +22954,7 @@ impl IMSVidAnalogTuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner_Impl::AudioFrequency(this) {
                     Ok(ok__) => {
-                        lcc.write(core::mem::transmute(ok__));
+                        lcc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22966,7 +22966,7 @@ impl IMSVidAnalogTuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner_Impl::CountryCode(this) {
                     Ok(ok__) => {
-                        lcc.write(core::mem::transmute(ok__));
+                        lcc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22984,7 +22984,7 @@ impl IMSVidAnalogTuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner_Impl::SAP(this) {
                     Ok(ok__) => {
-                        pfsapon.write(core::mem::transmute(ok__));
+                        pfsapon.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23002,7 +23002,7 @@ impl IMSVidAnalogTuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner_Impl::ChannelAvailable(this, core::mem::transmute_copy(&nchannel), core::mem::transmute_copy(&signalstrength)) {
                     Ok(ok__) => {
-                        fsignalpresent.write(core::mem::transmute(ok__));
+                        fsignalpresent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23083,7 +23083,7 @@ impl IMSVidAnalogTuner2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner2_Impl::TVFormats(this) {
                     Ok(ok__) => {
-                        formats.write(core::mem::transmute(ok__));
+                        formats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23095,7 +23095,7 @@ impl IMSVidAnalogTuner2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner2_Impl::TunerModes(this) {
                     Ok(ok__) => {
-                        modes.write(core::mem::transmute(ok__));
+                        modes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23107,7 +23107,7 @@ impl IMSVidAnalogTuner2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAnalogTuner2_Impl::NumAuxInputs(this) {
                     Ok(ok__) => {
-                        inputs.write(core::mem::transmute(ok__));
+                        inputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23220,7 +23220,7 @@ impl IMSVidAudioRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAudioRenderer_Impl::Volume(this) {
                     Ok(ok__) => {
-                        lvol.write(core::mem::transmute(ok__));
+                        lvol.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23238,7 +23238,7 @@ impl IMSVidAudioRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAudioRenderer_Impl::Balance(this) {
                     Ok(ok__) => {
-                        lbal.write(core::mem::transmute(ok__));
+                        lbal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23339,7 +23339,7 @@ impl IMSVidAudioRendererDevices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidAudioRendererDevices_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23603,7 +23603,7 @@ impl IMSVidClosedCaptioning_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidClosedCaptioning_Impl::Enable(this) {
                     Ok(ok__) => {
-                        on.write(core::mem::transmute(ok__));
+                        on.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23668,7 +23668,7 @@ impl IMSVidClosedCaptioning2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidClosedCaptioning2_Impl::Service(this) {
                     Ok(ok__) => {
-                        on.write(core::mem::transmute(ok__));
+                        on.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24169,7 +24169,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::AutoSize(this) {
                     Ok(ok__) => {
-                        pbool.write(core::mem::transmute(ok__));
+                        pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24187,7 +24187,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::BackColor(this) {
                     Ok(ok__) => {
-                        backcolor.write(core::mem::transmute(ok__));
+                        backcolor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24205,7 +24205,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pbool.write(core::mem::transmute(ok__));
+                        pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24223,7 +24223,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::TabStop(this) {
                     Ok(ok__) => {
-                        pbool.write(core::mem::transmute(ok__));
+                        pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24241,7 +24241,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::Window(this) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24259,7 +24259,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::DisplaySize(this) {
                     Ok(ok__) => {
-                        currentvalue.write(core::mem::transmute(ok__));
+                        currentvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24277,7 +24277,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::MaintainAspectRatio(this) {
                     Ok(ok__) => {
-                        currentvalue.write(core::mem::transmute(ok__));
+                        currentvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24295,7 +24295,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::ColorKey(this) {
                     Ok(ok__) => {
-                        currentvalue.write(core::mem::transmute(ok__));
+                        currentvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24487,7 +24487,7 @@ impl IMSVidCtl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidCtl_Impl::State(this) {
                     Ok(ok__) => {
-                        lstate.write(core::mem::transmute(ok__));
+                        lstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24776,7 +24776,7 @@ impl IMSVidDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidDevice_Impl::Status(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24794,7 +24794,7 @@ impl IMSVidDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidDevice_Impl::Power(this) {
                     Ok(ok__) => {
-                        power.write(core::mem::transmute(ok__));
+                        power.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24830,7 +24830,7 @@ impl IMSVidDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidDevice_Impl::_Category(this) {
                     Ok(ok__) => {
-                        guid.write(core::mem::transmute(ok__));
+                        guid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24842,7 +24842,7 @@ impl IMSVidDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidDevice_Impl::_ClassID(this) {
                     Ok(ok__) => {
-                        clsid.write(core::mem::transmute(ok__));
+                        clsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24854,7 +24854,7 @@ impl IMSVidDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidDevice_Impl::IsEqualDevice(this, core::mem::transmute_copy(&device)) {
                     Ok(ok__) => {
-                        isequal.write(core::mem::transmute(ok__));
+                        isequal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25060,7 +25060,7 @@ impl IMSVidEVR_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidEVR_Impl::SuppressEffects(this) {
                     Ok(ok__) => {
-                        bsuppress.write(core::mem::transmute(ok__));
+                        bsuppress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25344,7 +25344,7 @@ impl IMSVidFeatures_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidFeatures_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25612,7 +25612,7 @@ impl IMSVidGenericSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidGenericSink_Impl::SinkStreams(this) {
                     Ok(ok__) => {
-                        pstreams.write(core::mem::transmute(ok__));
+                        pstreams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25873,7 +25873,7 @@ impl IMSVidGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidGraphSegment_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25885,7 +25885,7 @@ impl IMSVidGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidGraphSegment_Impl::Category(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26383,7 +26383,7 @@ impl IMSVidInputDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidInputDevice_Impl::IsViewable(this, core::mem::transmute_copy(&v)) {
                     Ok(ok__) => {
-                        pfviewable.write(core::mem::transmute(ok__));
+                        pfviewable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26514,7 +26514,7 @@ impl IMSVidInputDevices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidInputDevices_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26712,7 +26712,7 @@ impl IMSVidOutputDevices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidOutputDevices_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26889,7 +26889,7 @@ impl IMSVidPlayback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidPlayback_Impl::EnableResetOnStop(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26925,7 +26925,7 @@ impl IMSVidPlayback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidPlayback_Impl::get_CanStep(this, core::mem::transmute_copy(&fbackwards)) {
                     Ok(ok__) => {
-                        pfcan.write(core::mem::transmute(ok__));
+                        pfcan.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26949,7 +26949,7 @@ impl IMSVidPlayback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidPlayback_Impl::Rate(this) {
                     Ok(ok__) => {
-                        plrate.write(core::mem::transmute(ok__));
+                        plrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26967,7 +26967,7 @@ impl IMSVidPlayback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidPlayback_Impl::CurrentPosition(this) {
                     Ok(ok__) => {
-                        lposition.write(core::mem::transmute(ok__));
+                        lposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26985,7 +26985,7 @@ impl IMSVidPlayback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidPlayback_Impl::PositionMode(this) {
                     Ok(ok__) => {
-                        lpositionmode.write(core::mem::transmute(ok__));
+                        lpositionmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26997,7 +26997,7 @@ impl IMSVidPlayback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidPlayback_Impl::Length(this) {
                     Ok(ok__) => {
-                        llength.write(core::mem::transmute(ok__));
+                        llength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27180,7 +27180,7 @@ impl IMSVidRect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidRect_Impl::Top(this) {
                     Ok(ok__) => {
-                        topval.write(core::mem::transmute(ok__));
+                        topval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27198,7 +27198,7 @@ impl IMSVidRect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidRect_Impl::Left(this) {
                     Ok(ok__) => {
-                        leftval.write(core::mem::transmute(ok__));
+                        leftval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27216,7 +27216,7 @@ impl IMSVidRect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidRect_Impl::Width(this) {
                     Ok(ok__) => {
-                        widthval.write(core::mem::transmute(ok__));
+                        widthval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27234,7 +27234,7 @@ impl IMSVidRect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidRect_Impl::Height(this) {
                     Ok(ok__) => {
-                        heightval.write(core::mem::transmute(ok__));
+                        heightval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27252,7 +27252,7 @@ impl IMSVidRect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidRect_Impl::HWnd(this) {
                     Ok(ok__) => {
-                        hwndval.write(core::mem::transmute(ok__));
+                        hwndval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27381,7 +27381,7 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferRecordingControl_Impl::StartTime(this) {
                     Ok(ok__) => {
-                        rtstart.write(core::mem::transmute(ok__));
+                        rtstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27399,7 +27399,7 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferRecordingControl_Impl::StopTime(this) {
                     Ok(ok__) => {
-                        rtstop.write(core::mem::transmute(ok__));
+                        rtstop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27417,7 +27417,7 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferRecordingControl_Impl::RecordingStopped(this) {
                     Ok(ok__) => {
-                        phresult.write(core::mem::transmute(ok__));
+                        phresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27429,7 +27429,7 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferRecordingControl_Impl::RecordingStarted(this) {
                     Ok(ok__) => {
-                        phresult.write(core::mem::transmute(ok__));
+                        phresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27441,7 +27441,7 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferRecordingControl_Impl::RecordingType(this) {
                     Ok(ok__) => {
-                        dwtype.write(core::mem::transmute(ok__));
+                        dwtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27824,7 +27824,7 @@ impl IMSVidStreamBufferSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferSink3_Impl::SetMinSeek(this) {
                     Ok(ok__) => {
-                        pdwmin.write(core::mem::transmute(ok__));
+                        pdwmin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27908,7 +27908,7 @@ impl IMSVidStreamBufferSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferSink3_Impl::_AudioAnalysisFilter(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27944,7 +27944,7 @@ impl IMSVidStreamBufferSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferSink3_Impl::_VideoAnalysisFilter(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27980,7 +27980,7 @@ impl IMSVidStreamBufferSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferSink3_Impl::_DataAnalysisFilter(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27992,7 +27992,7 @@ impl IMSVidStreamBufferSink3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferSink3_Impl::LicenseErrorCode(this) {
                     Ok(ok__) => {
-                        hres.write(core::mem::transmute(ok__));
+                        hres.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28324,7 +28324,7 @@ impl IMSVidStreamBufferSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidStreamBufferSource_Impl::Start(this) {
                     Ok(ok__) => {
-                        lstart.write(core::mem::transmute(ok__));
+                        lstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29181,7 +29181,7 @@ impl IMSVidVMR9_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVMR9_Impl::Allocator_ID(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29205,7 +29205,7 @@ impl IMSVidVMR9_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVMR9_Impl::SuppressEffects(this) {
                     Ok(ok__) => {
-                        bsuppress.write(core::mem::transmute(ok__));
+                        bsuppress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29415,7 +29415,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::Owner(this) {
                     Ok(ok__) => {
-                        window.write(core::mem::transmute(ok__));
+                        window.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29427,7 +29427,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::UseOverlay(this) {
                     Ok(ok__) => {
-                        useoverlayval.write(core::mem::transmute(ok__));
+                        useoverlayval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29445,7 +29445,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::Visible(this) {
                     Ok(ok__) => {
-                        visible.write(core::mem::transmute(ok__));
+                        visible.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29463,7 +29463,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::ColorKey(this) {
                     Ok(ok__) => {
-                        colorkey.write(core::mem::transmute(ok__));
+                        colorkey.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29481,7 +29481,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::Source(this) {
                     Ok(ok__) => {
-                        r.write(core::mem::transmute(ok__));
+                        r.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29499,7 +29499,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::Destination(this) {
                     Ok(ok__) => {
-                        r.write(core::mem::transmute(ok__));
+                        r.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29523,7 +29523,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::BorderColor(this) {
                     Ok(ok__) => {
-                        color.write(core::mem::transmute(ok__));
+                        color.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29541,7 +29541,7 @@ impl IMSVidVRGraphSegment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVRGraphSegment_Impl::MaintainAspectRatio(this) {
                     Ok(ok__) => {
-                        fmaintain.write(core::mem::transmute(ok__));
+                        fmaintain.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29919,7 +29919,7 @@ impl IMSVidVideoRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer_Impl::_CustomCompositorClass(this) {
                     Ok(ok__) => {
-                        compositorclsid.write(core::mem::transmute(ok__));
+                        compositorclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30009,7 +30009,7 @@ impl IMSVidVideoRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer_Impl::MixerBitmapOpacity(this) {
                     Ok(ok__) => {
-                        opacity.write(core::mem::transmute(ok__));
+                        opacity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30033,7 +30033,7 @@ impl IMSVidVideoRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer_Impl::SourceSize(this) {
                     Ok(ok__) => {
-                        currentsize.write(core::mem::transmute(ok__));
+                        currentsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30051,7 +30051,7 @@ impl IMSVidVideoRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer_Impl::OverScan(this) {
                     Ok(ok__) => {
-                        plpercent.write(core::mem::transmute(ok__));
+                        plpercent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30123,7 +30123,7 @@ impl IMSVidVideoRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer_Impl::UsingOverlay(this) {
                     Ok(ok__) => {
-                        useoverlayval.write(core::mem::transmute(ok__));
+                        useoverlayval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30153,7 +30153,7 @@ impl IMSVidVideoRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer_Impl::FramesPerSecond(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30165,7 +30165,7 @@ impl IMSVidVideoRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer_Impl::DecimateInput(this) {
                     Ok(ok__) => {
-                        pdeci.write(core::mem::transmute(ok__));
+                        pdeci.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30326,7 +30326,7 @@ impl IMSVidVideoRenderer2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer2_Impl::Allocator_ID(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30356,7 +30356,7 @@ impl IMSVidVideoRenderer2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRenderer2_Impl::SuppressEffects(this) {
                     Ok(ok__) => {
-                        bsuppress.write(core::mem::transmute(ok__));
+                        bsuppress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30460,7 +30460,7 @@ impl IMSVidVideoRendererDevices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidVideoRendererDevices_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31372,7 +31372,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::ButtonsAvailable(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31384,7 +31384,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentButton(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31444,7 +31444,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_ButtonAtPosition(this, core::mem::transmute_copy(&xpos), core::mem::transmute_copy(&ypos)) {
                     Ok(ok__) => {
-                        plbutton.write(core::mem::transmute(ok__));
+                        plbutton.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31456,7 +31456,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_NumberOfChapters(this, core::mem::transmute_copy(&ltitle)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31480,7 +31480,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::TitlesAvailable(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31492,7 +31492,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::VolumesAvailable(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31504,7 +31504,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentVolume(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31516,7 +31516,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentDiscSide(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31528,7 +31528,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentDomain(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31540,7 +31540,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentChapter(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31552,7 +31552,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentTitle(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31606,7 +31606,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::IsSubpictureStreamEnabled(this, core::mem::transmute_copy(&lstream)) {
                     Ok(ok__) => {
-                        fenabled.write(core::mem::transmute(ok__));
+                        fenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31618,7 +31618,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::IsAudioStreamEnabled(this, core::mem::transmute_copy(&lstream)) {
                     Ok(ok__) => {
-                        fenabled.write(core::mem::transmute(ok__));
+                        fenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31630,7 +31630,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentSubpictureStream(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31660,7 +31660,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentAudioStream(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31678,7 +31678,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::AudioStreamsAvailable(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31690,7 +31690,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::AnglesAvailable(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31702,7 +31702,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::CurrentAngle(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31720,7 +31720,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::SubpictureStreamsAvailable(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31732,7 +31732,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::SubpictureOn(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31786,7 +31786,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_TitleParentalLevels(this, core::mem::transmute_copy(&ltitle)) {
                     Ok(ok__) => {
-                        plparentallevels.write(core::mem::transmute(ok__));
+                        plparentallevels.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31798,7 +31798,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::PlayerParentalCountry(this) {
                     Ok(ok__) => {
-                        plcountrycode.write(core::mem::transmute(ok__));
+                        plcountrycode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31810,7 +31810,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::PlayerParentalLevel(this) {
                     Ok(ok__) => {
-                        plparentallevel.write(core::mem::transmute(ok__));
+                        plparentallevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31828,7 +31828,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::UOPValid(this, core::mem::transmute_copy(&luop)) {
                     Ok(ok__) => {
-                        pfvalid.write(core::mem::transmute(ok__));
+                        pfvalid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31840,7 +31840,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_SPRM(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
-                        pssprm.write(core::mem::transmute(ok__));
+                        pssprm.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31852,7 +31852,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_GPRM(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
-                        pssprm.write(core::mem::transmute(ok__));
+                        pssprm.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31870,7 +31870,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_DVDTextStringType(this, core::mem::transmute_copy(&llangindex), core::mem::transmute_copy(&lstringindex)) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31894,7 +31894,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_DVDTextNumberOfStrings(this, core::mem::transmute_copy(&llangindex)) {
                     Ok(ok__) => {
-                        plnumofstrings.write(core::mem::transmute(ok__));
+                        plnumofstrings.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31906,7 +31906,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::DVDTextNumberOfLanguages(this) {
                     Ok(ok__) => {
-                        plnumoflangs.write(core::mem::transmute(ok__));
+                        plnumoflangs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31918,7 +31918,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_DVDTextLanguageLCID(this, core::mem::transmute_copy(&llangindex)) {
                     Ok(ok__) => {
-                        lcid.write(core::mem::transmute(ok__));
+                        lcid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31978,7 +31978,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::PreferredSubpictureStream(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31990,7 +31990,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::DefaultMenuLanguage(this) {
                     Ok(ok__) => {
-                        lang.write(core::mem::transmute(ok__));
+                        lang.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32008,7 +32008,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::DefaultSubpictureLanguage(this) {
                     Ok(ok__) => {
-                        lang.write(core::mem::transmute(ok__));
+                        lang.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32020,7 +32020,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::DefaultAudioLanguage(this) {
                     Ok(ok__) => {
-                        lang.write(core::mem::transmute(ok__));
+                        lang.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32032,7 +32032,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::DefaultSubpictureLanguageExt(this) {
                     Ok(ok__) => {
-                        ext.write(core::mem::transmute(ok__));
+                        ext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32044,7 +32044,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::DefaultAudioLanguageExt(this) {
                     Ok(ok__) => {
-                        ext.write(core::mem::transmute(ok__));
+                        ext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32068,7 +32068,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::KaraokeAudioPresentationMode(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32086,7 +32086,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_KaraokeChannelContent(this, core::mem::transmute_copy(&lstream), core::mem::transmute_copy(&lchan)) {
                     Ok(ok__) => {
-                        lcontent.write(core::mem::transmute(ok__));
+                        lcontent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32098,7 +32098,7 @@ impl IMSVidWebDVD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVD_Impl::get_KaraokeChannelAssignment(this, core::mem::transmute_copy(&lstream)) {
                     Ok(ok__) => {
-                        lchannelassignment.write(core::mem::transmute(ok__));
+                        lchannelassignment.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32446,7 +32446,7 @@ impl IMSVidWebDVDAdm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVDAdm_Impl::ConfirmPassword(this, core::mem::transmute(&strusername), core::mem::transmute(&strpassword)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32458,7 +32458,7 @@ impl IMSVidWebDVDAdm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVDAdm_Impl::GetParentalLevel(this) {
                     Ok(ok__) => {
-                        llevel.write(core::mem::transmute(ok__));
+                        llevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32470,7 +32470,7 @@ impl IMSVidWebDVDAdm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVDAdm_Impl::GetParentalCountry(this) {
                     Ok(ok__) => {
-                        lcountry.write(core::mem::transmute(ok__));
+                        lcountry.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32482,7 +32482,7 @@ impl IMSVidWebDVDAdm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVDAdm_Impl::DefaultAudioLCID(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32500,7 +32500,7 @@ impl IMSVidWebDVDAdm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVDAdm_Impl::DefaultSubpictureLCID(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32518,7 +32518,7 @@ impl IMSVidWebDVDAdm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVDAdm_Impl::DefaultMenuLCID(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32536,7 +32536,7 @@ impl IMSVidWebDVDAdm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSVidWebDVDAdm_Impl::BookmarkOnStop(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33351,7 +33351,7 @@ impl IPAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPAT_Impl::GetTransportStreamId(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33363,7 +33363,7 @@ impl IPAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPAT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33375,7 +33375,7 @@ impl IPAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPAT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33387,7 +33387,7 @@ impl IPAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPAT_Impl::GetRecordProgramNumber(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33399,7 +33399,7 @@ impl IPAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPAT_Impl::GetRecordProgramMapPid(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33411,7 +33411,7 @@ impl IPAT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPAT_Impl::FindRecordProgramMapPid(this, core::mem::transmute_copy(&wprogramnumber)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33507,7 +33507,7 @@ impl IPBDAAttributesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDAAttributesDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33519,7 +33519,7 @@ impl IPBDAAttributesDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDAAttributesDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33583,7 +33583,7 @@ impl IPBDAEntitlementDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDAEntitlementDescriptor_Impl::GetTag(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33595,7 +33595,7 @@ impl IPBDAEntitlementDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDAEntitlementDescriptor_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33805,7 +33805,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetTableId(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33817,7 +33817,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33829,7 +33829,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetServiceIdx(this) {
                     Ok(ok__) => {
-                        plwval.write(core::mem::transmute(ok__));
+                        plwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33841,7 +33841,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33853,7 +33853,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetRecordEventId(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        plwval.write(core::mem::transmute(ok__));
+                        plwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33865,7 +33865,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetRecordStartTime(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pmdtval.write(core::mem::transmute(ok__));
+                        pmdtval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33877,7 +33877,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetRecordDuration(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pmdval.write(core::mem::transmute(ok__));
+                        pmdval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33889,7 +33889,7 @@ impl IPBDA_EIT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_EIT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33979,7 +33979,7 @@ impl IPBDA_Services_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_Services_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33991,7 +33991,7 @@ impl IPBDA_Services_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPBDA_Services_Impl::GetRecordByIndex(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pul64serviceidx.write(core::mem::transmute(ok__));
+                        pul64serviceidx.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34166,7 +34166,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetProgramNumber(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34178,7 +34178,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34190,7 +34190,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetPcrPid(this) {
                     Ok(ok__) => {
-                        ppidval.write(core::mem::transmute(ok__));
+                        ppidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34202,7 +34202,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34232,7 +34232,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetCountOfRecords(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34244,7 +34244,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetRecordStreamType(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34256,7 +34256,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetRecordElementaryPid(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        ppidval.write(core::mem::transmute(ok__));
+                        ppidval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34268,7 +34268,7 @@ impl IPMT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMT_Impl::GetRecordCountOfDescriptors(this, core::mem::transmute_copy(&dwrecordindex)) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35021,7 +35021,7 @@ impl ISBE2MediaTypeProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISBE2MediaTypeProfile_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35033,7 +35033,7 @@ impl ISBE2MediaTypeProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISBE2MediaTypeProfile_Impl::GetStream(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppmediatype.write(core::mem::transmute(ok__));
+                        ppmediatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35412,7 +35412,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35424,7 +35424,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetSequencyNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35436,7 +35436,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetProtocolVersion(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35448,7 +35448,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetEASEventID(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35460,7 +35460,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetOriginatorCode(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35472,7 +35472,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetEASEventCodeLen(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35484,7 +35484,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetEASEventCode(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35496,7 +35496,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetRawNatureOfActivationTextLen(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35508,7 +35508,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetRawNatureOfActivationText(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35532,7 +35532,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetTimeRemaining(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35544,7 +35544,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetStartTime(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35556,7 +35556,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetDuration(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35568,7 +35568,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetAlertPriority(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35580,7 +35580,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetDetailsOOBSourceID(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35592,7 +35592,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetDetailsMajor(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35604,7 +35604,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetDetailsMinor(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35616,7 +35616,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetDetailsAudioOOBSourceID(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35640,7 +35640,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetRawAlertTextLen(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35652,7 +35652,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetRawAlertText(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35664,7 +35664,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetLocationCount(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35682,7 +35682,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetExceptionCount(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35700,7 +35700,7 @@ impl ISCTE_EAS_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCTE_EAS_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35831,7 +35831,7 @@ impl ISIInbandEPG_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISIInbandEPG_Impl::IsSIEPGScanRunning(this) {
                     Ok(ok__) => {
-                        brunning.write(core::mem::transmute(ok__));
+                        brunning.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36060,7 +36060,7 @@ impl IScanningTunerEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScanningTunerEx_Impl::TerminateCurrentScan(this) {
                     Ok(ok__) => {
-                        pcurrentfreq.write(core::mem::transmute(ok__));
+                        pcurrentfreq.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36192,7 +36192,7 @@ impl ISectionList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISectionList_Impl::GetNumberOfSections(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36288,7 +36288,7 @@ impl IServiceLocationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IServiceLocationDescriptor_Impl::GetPCR_PID(this) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36300,7 +36300,7 @@ impl IServiceLocationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IServiceLocationDescriptor_Impl::GetNumberOfElements(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36312,7 +36312,7 @@ impl IServiceLocationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IServiceLocationDescriptor_Impl::GetElementStreamType(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36324,7 +36324,7 @@ impl IServiceLocationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IServiceLocationDescriptor_Impl::GetElementPID(this, core::mem::transmute_copy(&bindex)) {
                     Ok(ok__) => {
-                        pwval.write(core::mem::transmute(ok__));
+                        pwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36414,7 +36414,7 @@ impl IStreamBufferConfigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferConfigure_Impl::GetDirectory(this) {
                     Ok(ok__) => {
-                        ppszdirectoryname.write(core::mem::transmute(ok__));
+                        ppszdirectoryname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36444,7 +36444,7 @@ impl IStreamBufferConfigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferConfigure_Impl::GetBackingFileDuration(this) {
                     Ok(ok__) => {
-                        pdwseconds.write(core::mem::transmute(ok__));
+                        pdwseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36519,7 +36519,7 @@ impl IStreamBufferConfigure2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferConfigure2_Impl::GetMultiplexedPacketSize(this) {
                     Ok(ok__) => {
-                        pcbbytesperpacket.write(core::mem::transmute(ok__));
+                        pcbbytesperpacket.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36610,7 +36610,7 @@ impl IStreamBufferConfigure3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferConfigure3_Impl::GetStartRecConfig(this) {
                     Ok(ok__) => {
-                        pfstartstopscur.write(core::mem::transmute(ok__));
+                        pfstartstopscur.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36628,7 +36628,7 @@ impl IStreamBufferConfigure3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferConfigure3_Impl::GetNamespace(this) {
                     Ok(ok__) => {
-                        ppsznamespace.write(core::mem::transmute(ok__));
+                        ppsznamespace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36882,7 +36882,7 @@ impl IStreamBufferRecComp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferRecComp_Impl::GetCurrentLength(this) {
                     Ok(ok__) => {
-                        pcseconds.write(core::mem::transmute(ok__));
+                        pcseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37035,7 +37035,7 @@ impl IStreamBufferRecordingAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamBufferRecordingAttribute_Impl::GetAttributeCount(this, core::mem::transmute_copy(&ulreserved)) {
                     Ok(ok__) => {
-                        pcattributes.write(core::mem::transmute(ok__));
+                        pcattributes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37346,7 +37346,7 @@ impl ITSDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITSDT_Impl::GetVersionNumber(this) {
                     Ok(ok__) => {
-                        pbval.write(core::mem::transmute(ok__));
+                        pbval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37358,7 +37358,7 @@ impl ITSDT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITSDT_Impl::GetCountOfTableDescriptors(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38013,7 +38013,7 @@ impl ITuner_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuner_Impl::SignalStrength(this) {
                     Ok(ok__) => {
-                        strength.write(core::mem::transmute(ok__));
+                        strength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38130,7 +38130,7 @@ impl ITunerCapEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITunerCapEx_Impl::Has608_708Caption(this) {
                     Ok(ok__) => {
-                        pbhascaption.write(core::mem::transmute(ok__));
+                        pbhascaption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38378,7 +38378,7 @@ impl ITuningSpace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpace_Impl::_NetworkType(this) {
                     Ok(ok__) => {
-                        networktypeguid.write(core::mem::transmute(ok__));
+                        networktypeguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38677,7 +38677,7 @@ impl ITuningSpaceContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaceContainer_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38755,7 +38755,7 @@ impl ITuningSpaceContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaceContainer_Impl::FindID(this, core::mem::transmute_copy(&tuningspace)) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38797,7 +38797,7 @@ impl ITuningSpaceContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaceContainer_Impl::MaxCount(this) {
                     Ok(ok__) => {
-                        maxcount.write(core::mem::transmute(ok__));
+                        maxcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38904,7 +38904,7 @@ impl ITuningSpaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITuningSpaces_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39023,7 +39023,7 @@ impl IXDSCodec_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXDSCodec_Impl::XDSToRatObjOK(this) {
                     Ok(ok__) => {
-                        phrcocreateretval.write(core::mem::transmute(ok__));
+                        phrcocreateretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39041,7 +39041,7 @@ impl IXDSCodec_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXDSCodec_Impl::CCSubstreamService(this) {
                     Ok(ok__) => {
-                        psubstreammask.write(core::mem::transmute(ok__));
+                        psubstreammask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39065,7 +39065,7 @@ impl IXDSCodec_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXDSCodec_Impl::GetCurrLicenseExpDate(this, core::mem::transmute_copy(&prottype)) {
                     Ok(ok__) => {
-                        lpdatetime.write(core::mem::transmute(ok__));
+                        lpdatetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

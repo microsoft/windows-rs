@@ -807,7 +807,7 @@ impl IDxcContainerReflection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcContainerReflection_Impl::GetPartCount(this) {
                     Ok(ok__) => {
-                        presult.write(core::mem::transmute(ok__));
+                        presult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -819,7 +819,7 @@ impl IDxcContainerReflection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcContainerReflection_Impl::GetPartKind(this, core::mem::transmute_copy(&idx)) {
                     Ok(ok__) => {
-                        presult.write(core::mem::transmute(ok__));
+                        presult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -843,7 +843,7 @@ impl IDxcContainerReflection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcContainerReflection_Impl::FindFirstPartKind(this, core::mem::transmute_copy(&kind)) {
                     Ok(ok__) => {
-                        presult.write(core::mem::transmute(ok__));
+                        presult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1327,7 +1327,7 @@ impl IDxcOperationResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcOperationResult_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1412,7 +1412,7 @@ impl IDxcOptimizer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcOptimizer_Impl::GetAvailablePassCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1507,7 +1507,7 @@ impl IDxcOptimizerPass_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcOptimizerPass_Impl::GetOptionName(this) {
                     Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
+                        ppresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1519,7 +1519,7 @@ impl IDxcOptimizerPass_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcOptimizerPass_Impl::GetDescription(this) {
                     Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
+                        ppresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1531,7 +1531,7 @@ impl IDxcOptimizerPass_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcOptimizerPass_Impl::GetOptionArgCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1543,7 +1543,7 @@ impl IDxcOptimizerPass_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcOptimizerPass_Impl::GetOptionArgName(this, core::mem::transmute_copy(&argindex)) {
                     Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
+                        ppresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1555,7 +1555,7 @@ impl IDxcOptimizerPass_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcOptimizerPass_Impl::GetOptionArgDescription(this, core::mem::transmute_copy(&argindex)) {
                     Ok(ok__) => {
-                        ppresult.write(core::mem::transmute(ok__));
+                        ppresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1783,7 +1783,7 @@ impl IDxcPdbUtils_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils_Impl::GetSourceCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1819,7 +1819,7 @@ impl IDxcPdbUtils_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils_Impl::GetFlagCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1843,7 +1843,7 @@ impl IDxcPdbUtils_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils_Impl::GetArgCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1867,7 +1867,7 @@ impl IDxcPdbUtils_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils_Impl::GetArgPairCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1885,7 +1885,7 @@ impl IDxcPdbUtils_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils_Impl::GetDefineCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2266,7 +2266,7 @@ impl IDxcPdbUtils2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils2_Impl::GetSourceCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2314,7 +2314,7 @@ impl IDxcPdbUtils2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils2_Impl::GetFlagCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2338,7 +2338,7 @@ impl IDxcPdbUtils2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils2_Impl::GetArgCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2362,7 +2362,7 @@ impl IDxcPdbUtils2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils2_Impl::GetArgPairCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2380,7 +2380,7 @@ impl IDxcPdbUtils2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils2_Impl::GetDefineCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2476,7 +2476,7 @@ impl IDxcPdbUtils2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcPdbUtils2_Impl::GetCustomToolchainID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3078,7 +3078,7 @@ impl IDxcVersionInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcVersionInfo_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3159,7 +3159,7 @@ impl IDxcVersionInfo3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDxcVersionInfo3_Impl::GetCustomVersionString(this) {
                     Ok(ok__) => {
-                        pversionstring.write(core::mem::transmute(ok__));
+                        pversionstring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

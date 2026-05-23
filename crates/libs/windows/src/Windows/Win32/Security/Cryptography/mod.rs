@@ -11199,7 +11199,7 @@ impl ICertSrvSetup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertSrvSetup_Impl::CAErrorId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11247,7 +11247,7 @@ impl ICertSrvSetup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertSrvSetup_Impl::IsPropertyEditable(this, core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
-                        pbeditable.write(core::mem::transmute(ok__));
+                        pbeditable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11545,7 +11545,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertSrvSetupKeyInformation_Impl::Length(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11563,7 +11563,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertSrvSetupKeyInformation_Impl::Existing(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11743,7 +11743,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertSrvSetupKeyInformationCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12186,7 +12186,7 @@ impl IMSCEPSetup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSCEPSetup_Impl::MSCEPErrorId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12240,7 +12240,7 @@ impl IMSCEPSetup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSCEPSetup_Impl::IsMSCEPStoreEmpty(this) {
                     Ok(ok__) => {
-                        pbempty.write(core::mem::transmute(ok__));
+                        pbempty.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

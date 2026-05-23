@@ -1302,7 +1302,7 @@ impl IDeviceModelPlugIn_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceModelPlugIn_Impl::GetNumChannels(this) {
                     Ok(ok__) => {
-                        pnumchannels.write(core::mem::transmute(ok__));
+                        pnumchannels.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1320,7 +1320,7 @@ impl IDeviceModelPlugIn_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceModelPlugIn_Impl::ColorimetricToDeviceColors(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pxyzcolors)) {
                     Ok(ok__) => {
-                        pdevicevalues.write(core::mem::transmute(ok__));
+                        pdevicevalues.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1332,7 +1332,7 @@ impl IDeviceModelPlugIn_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceModelPlugIn_Impl::ColorimetricToDeviceColorsWithBlack(this, core::mem::transmute_copy(&ccolors), core::mem::transmute_copy(&cchannels), core::mem::transmute_copy(&pxyzcolors), core::mem::transmute_copy(&pblackinformation)) {
                     Ok(ok__) => {
-                        pdevicevalues.write(core::mem::transmute(ok__));
+                        pdevicevalues.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1368,7 +1368,7 @@ impl IDeviceModelPlugIn_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeviceModelPlugIn_Impl::GetNeutralAxisSize(this) {
                     Ok(ok__) => {
-                        pccolors.write(core::mem::transmute(ok__));
+                        pccolors.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

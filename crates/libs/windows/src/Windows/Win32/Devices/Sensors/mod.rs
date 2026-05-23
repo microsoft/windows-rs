@@ -346,7 +346,7 @@ impl ILocationPermissions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILocationPermissions_Impl::GetGlobalLocationPermission(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -526,7 +526,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::GetID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -538,7 +538,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::GetCategory(this) {
                     Ok(ok__) => {
-                        psensorcategory.write(core::mem::transmute(ok__));
+                        psensorcategory.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -550,7 +550,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::GetType(this) {
                     Ok(ok__) => {
-                        psensortype.write(core::mem::transmute(ok__));
+                        psensortype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -622,7 +622,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::SupportsDataField(this, core::mem::transmute_copy(&key)) {
                     Ok(ok__) => {
-                        pissupported.write(core::mem::transmute(ok__));
+                        pissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -634,7 +634,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::GetState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl ISensor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensor_Impl::SupportsEvent(this, core::mem::transmute_copy(&eventguid)) {
                     Ok(ok__) => {
-                        pissupported.write(core::mem::transmute(ok__));
+                        pissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -780,7 +780,7 @@ impl ISensorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensorCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -881,7 +881,7 @@ impl ISensorDataReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISensorDataReport_Impl::GetTimestamp(this) {
                     Ok(ok__) => {
-                        ptimestamp.write(core::mem::transmute(ok__));
+                        ptimestamp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

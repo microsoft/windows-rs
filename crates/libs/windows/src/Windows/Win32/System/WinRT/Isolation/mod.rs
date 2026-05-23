@@ -24,7 +24,7 @@ impl IIsolatedEnvironmentInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsolatedEnvironmentInterop_Impl::GetHostHwndInterop(this, core::mem::transmute_copy(&containerhwnd)) {
                     Ok(ok__) => {
-                        hosthwnd.write(core::mem::transmute(ok__));
+                        hosthwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

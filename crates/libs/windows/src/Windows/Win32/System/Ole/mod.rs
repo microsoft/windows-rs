@@ -5723,7 +5723,7 @@ impl IDispError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispError_Impl::GetHresult(this) {
                     Ok(ok__) => {
-                        phr.write(core::mem::transmute(ok__));
+                        phr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5868,7 +5868,7 @@ impl IDispatchEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispatchEx_Impl::GetDispID(this, core::mem::transmute(&bstrname), core::mem::transmute_copy(&grfdex)) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5898,7 +5898,7 @@ impl IDispatchEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispatchEx_Impl::GetMemberProperties(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&grfdexfetch)) {
                     Ok(ok__) => {
-                        pgrfdex.write(core::mem::transmute(ok__));
+                        pgrfdex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5922,7 +5922,7 @@ impl IDispatchEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispatchEx_Impl::GetNextDispID(this, core::mem::transmute_copy(&grfdex), core::mem::transmute_copy(&id)) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6189,7 +6189,7 @@ impl IEnterpriseDropTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnterpriseDropTarget_Impl::IsEvaluatingEdpPolicy(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6756,7 +6756,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::Size(this) {
                     Ok(ok__) => {
-                        psize.write(core::mem::transmute(ok__));
+                        psize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6774,7 +6774,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::Bold(this) {
                     Ok(ok__) => {
-                        pbold.write(core::mem::transmute(ok__));
+                        pbold.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6792,7 +6792,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::Italic(this) {
                     Ok(ok__) => {
-                        pitalic.write(core::mem::transmute(ok__));
+                        pitalic.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6810,7 +6810,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::Underline(this) {
                     Ok(ok__) => {
-                        punderline.write(core::mem::transmute(ok__));
+                        punderline.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6828,7 +6828,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::Strikethrough(this) {
                     Ok(ok__) => {
-                        pstrikethrough.write(core::mem::transmute(ok__));
+                        pstrikethrough.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6846,7 +6846,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::Weight(this) {
                     Ok(ok__) => {
-                        pweight.write(core::mem::transmute(ok__));
+                        pweight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6864,7 +6864,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::Charset(this) {
                     Ok(ok__) => {
-                        pcharset.write(core::mem::transmute(ok__));
+                        pcharset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6882,7 +6882,7 @@ impl IFont_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFont_Impl::hFont(this) {
                     Ok(ok__) => {
-                        phfont.write(core::mem::transmute(ok__));
+                        phfont.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7321,7 +7321,7 @@ impl IOleAdviseHolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleAdviseHolder_Impl::Advise(this, core::mem::transmute_copy(&padvise)) {
                     Ok(ok__) => {
-                        pdwconnection.write(core::mem::transmute(ok__));
+                        pdwconnection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7450,7 +7450,7 @@ impl IOleCache_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleCache_Impl::Cache(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&advf)) {
                     Ok(ok__) => {
-                        pdwconnection.write(core::mem::transmute(ok__));
+                        pdwconnection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8116,7 +8116,7 @@ impl IOleDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocument_Impl::GetDocMiscStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8329,7 +8329,7 @@ impl IOleDocumentView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleDocumentView_Impl::GetRect(this) {
                     Ok(ok__) => {
-                        prcview.write(core::mem::transmute(ok__));
+                        prcview.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8749,7 +8749,7 @@ impl IOleInPlaceObjectWindowless_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleInPlaceObjectWindowless_Impl::OnWindowMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                     Ok(ok__) => {
-                        plresult.write(core::mem::transmute(ok__));
+                        plresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9135,7 +9135,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleInPlaceSiteWindowless_Impl::GetDC(this, core::mem::transmute_copy(&prect), core::mem::transmute_copy(&grfflags)) {
                     Ok(ok__) => {
-                        phdc.write(core::mem::transmute(ok__));
+                        phdc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9177,7 +9177,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleInPlaceSiteWindowless_Impl::OnDefWindowMessage(this, core::mem::transmute_copy(&msg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)) {
                     Ok(ok__) => {
-                        plresult.write(core::mem::transmute(ok__));
+                        plresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9257,7 +9257,7 @@ impl IOleInPlaceUIWindow_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleInPlaceUIWindow_Impl::GetBorder(this) {
                     Ok(ok__) => {
-                        lprectborder.write(core::mem::transmute(ok__));
+                        lprectborder.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9506,7 +9506,7 @@ impl IOleLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleLink_Impl::GetUpdateOptions(this) {
                     Ok(ok__) => {
-                        pdwupdateopt.write(core::mem::transmute(ok__));
+                        pdwupdateopt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9542,7 +9542,7 @@ impl IOleLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleLink_Impl::GetSourceDisplayName(this) {
                     Ok(ok__) => {
-                        ppszdisplayname.write(core::mem::transmute(ok__));
+                        ppszdisplayname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9920,7 +9920,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::GetUserClassID(this) {
                     Ok(ok__) => {
-                        pclsid.write(core::mem::transmute(ok__));
+                        pclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9932,7 +9932,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::GetUserType(this, core::mem::transmute(&dwformoftype)) {
                     Ok(ok__) => {
-                        pszusertype.write(core::mem::transmute(ok__));
+                        pszusertype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9950,7 +9950,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::GetExtent(this, core::mem::transmute_copy(&dwdrawaspect)) {
                     Ok(ok__) => {
-                        psizel.write(core::mem::transmute(ok__));
+                        psizel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9962,7 +9962,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::Advise(this, core::mem::transmute_copy(&padvsink)) {
                     Ok(ok__) => {
-                        pdwconnection.write(core::mem::transmute(ok__));
+                        pdwconnection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9992,7 +9992,7 @@ impl IOleObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleObject_Impl::GetMiscStatus(this, core::mem::transmute_copy(&dwaspect)) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10124,7 +10124,7 @@ impl IOleParentUndoUnit_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleParentUndoUnit_Impl::GetParentState(this) {
                     Ok(ok__) => {
-                        pdwstate.write(core::mem::transmute(ok__));
+                        pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10221,7 +10221,7 @@ impl IOleUILinkContainerA_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleUILinkContainerA_Impl::GetLinkUpdateOptions(this, core::mem::transmute_copy(&dwlink)) {
                     Ok(ok__) => {
-                        lpdwupdateopt.write(core::mem::transmute(ok__));
+                        lpdwupdateopt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10351,7 +10351,7 @@ impl IOleUILinkContainerW_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleUILinkContainerW_Impl::GetLinkUpdateOptions(this, core::mem::transmute_copy(&dwlink)) {
                     Ok(ok__) => {
-                        lpdwupdateopt.write(core::mem::transmute(ok__));
+                        lpdwupdateopt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10437,7 +10437,7 @@ impl IOleUILinkInfoA_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleUILinkInfoA_Impl::GetLastUpdate(this, core::mem::transmute_copy(&dwlink)) {
                     Ok(ok__) => {
-                        lplastupdate.write(core::mem::transmute(ok__));
+                        lplastupdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10483,7 +10483,7 @@ impl IOleUILinkInfoW_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleUILinkInfoW_Impl::GetLastUpdate(this, core::mem::transmute_copy(&dwlink)) {
                     Ok(ok__) => {
-                        lplastupdate.write(core::mem::transmute(ok__));
+                        lplastupdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10790,7 +10790,7 @@ impl IOleUndoManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleUndoManager_Impl::GetOpenParentState(this) {
                     Ok(ok__) => {
-                        pdwstate.write(core::mem::transmute(ok__));
+                        pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11003,7 +11003,7 @@ impl IOleWindow_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOleWindow_Impl::GetWindow(this) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11134,7 +11134,7 @@ impl IPerPropertyBrowsing_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPerPropertyBrowsing_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid)) {
                     Ok(ok__) => {
-                        pclsid.write(core::mem::transmute(ok__));
+                        pclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11495,7 +11495,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11507,7 +11507,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::hPal(this) {
                     Ok(ok__) => {
-                        phpal.write(core::mem::transmute(ok__));
+                        phpal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11519,7 +11519,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11531,7 +11531,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::Width(this) {
                     Ok(ok__) => {
-                        pwidth.write(core::mem::transmute(ok__));
+                        pwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11543,7 +11543,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::Height(this) {
                     Ok(ok__) => {
-                        pheight.write(core::mem::transmute(ok__));
+                        pheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11567,7 +11567,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::CurDC(this) {
                     Ok(ok__) => {
-                        phdc.write(core::mem::transmute(ok__));
+                        phdc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11585,7 +11585,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::KeepOriginalFormat(this) {
                     Ok(ok__) => {
-                        pkeep.write(core::mem::transmute(ok__));
+                        pkeep.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11609,7 +11609,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::SaveAsFile(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&fsavememcopy)) {
                     Ok(ok__) => {
-                        pcbsize.write(core::mem::transmute(ok__));
+                        pcbsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11621,7 +11621,7 @@ impl IPicture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture_Impl::Attributes(this) {
                     Ok(ok__) => {
-                        pdwattr.write(core::mem::transmute(ok__));
+                        pdwattr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11788,7 +11788,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11800,7 +11800,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::hPal(this) {
                     Ok(ok__) => {
-                        phpal.write(core::mem::transmute(ok__));
+                        phpal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11812,7 +11812,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11824,7 +11824,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::Width(this) {
                     Ok(ok__) => {
-                        pwidth.write(core::mem::transmute(ok__));
+                        pwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11836,7 +11836,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::Height(this) {
                     Ok(ok__) => {
-                        pheight.write(core::mem::transmute(ok__));
+                        pheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11860,7 +11860,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::CurDC(this) {
                     Ok(ok__) => {
-                        phdc.write(core::mem::transmute(ok__));
+                        phdc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11878,7 +11878,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::KeepOriginalFormat(this) {
                     Ok(ok__) => {
-                        pkeep.write(core::mem::transmute(ok__));
+                        pkeep.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11902,7 +11902,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::SaveAsFile(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&fsavememcopy)) {
                     Ok(ok__) => {
-                        pcbsize.write(core::mem::transmute(ok__));
+                        pcbsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11914,7 +11914,7 @@ impl IPicture2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPicture2_Impl::Attributes(this) {
                     Ok(ok__) => {
-                        pdwattr.write(core::mem::transmute(ok__));
+                        pdwattr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12011,7 +12011,7 @@ impl IPointerInactive_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPointerInactive_Impl::GetActivationPolicy(this) {
                     Ok(ok__) => {
-                        pdwpolicy.write(core::mem::transmute(ok__));
+                        pdwpolicy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12419,7 +12419,7 @@ impl IPropertyPageSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyPageSite_Impl::GetLocaleID(this) {
                     Ok(ok__) => {
-                        plocaleid.write(core::mem::transmute(ok__));
+                        plocaleid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12484,7 +12484,7 @@ impl IProtectFocus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtectFocus_Impl::AllowFocusChange(this) {
                     Ok(ok__) => {
-                        pfallow.write(core::mem::transmute(ok__));
+                        pfallow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12561,7 +12561,7 @@ impl IProtectedModeMenuServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtectedModeMenuServices_Impl::CreateMenu(this) {
                     Ok(ok__) => {
-                        phmenu.write(core::mem::transmute(ok__));
+                        phmenu.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12573,7 +12573,7 @@ impl IProtectedModeMenuServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtectedModeMenuServices_Impl::LoadMenu(this, core::mem::transmute(&pszmodulename), core::mem::transmute(&pszmenuname)) {
                     Ok(ok__) => {
-                        phmenu.write(core::mem::transmute(ok__));
+                        phmenu.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12585,7 +12585,7 @@ impl IProtectedModeMenuServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProtectedModeMenuServices_Impl::LoadMenuID(this, core::mem::transmute(&pszmodulename), core::mem::transmute_copy(&wresourceid)) {
                     Ok(ok__) => {
-                        phmenu.write(core::mem::transmute(ok__));
+                        phmenu.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12686,7 +12686,7 @@ impl IProvideClassInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideClassInfo2_Impl::GetGUID(this, core::mem::transmute_copy(&dwguidkind)) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12744,7 +12744,7 @@ impl IProvideMultipleClassInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideMultipleClassInfo_Impl::GetMultiTypeInfoCount(this) {
                     Ok(ok__) => {
-                        pcti.write(core::mem::transmute(ok__));
+                        pcti.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12854,7 +12854,7 @@ impl IQuickActivate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IQuickActivate_Impl::GetContentExtent(this) {
                     Ok(ok__) => {
-                        psizel.write(core::mem::transmute(ok__));
+                        psizel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13042,7 +13042,7 @@ impl IRecordInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRecordInfo_Impl::GetGuid(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13066,7 +13066,7 @@ impl IRecordInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRecordInfo_Impl::GetSize(this) {
                     Ok(ok__) => {
-                        pcbsize.write(core::mem::transmute(ok__));
+                        pcbsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13243,7 +13243,7 @@ impl ISpecifyPropertyPages_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpecifyPropertyPages_Impl::GetPages(this) {
                     Ok(ok__) => {
-                        ppages.write(core::mem::transmute(ok__));
+                        ppages.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13306,7 +13306,7 @@ impl ITypeChangeEvents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeChangeEvents_Impl::RequestTypeChange(this, core::mem::transmute_copy(&changekind), core::mem::transmute_copy(&ptinfobefore), core::mem::transmute(&pstrname)) {
                     Ok(ok__) => {
-                        pfcancel.write(core::mem::transmute(ok__));
+                        pfcancel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13422,7 +13422,7 @@ impl ITypeMarshal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeMarshal_Impl::Size(this, core::mem::transmute_copy(&pvtype), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext)) {
                     Ok(ok__) => {
-                        psize.write(core::mem::transmute(ok__));
+                        psize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13741,7 +13741,7 @@ impl IViewObject2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObject2_Impl::GetExtent(this, core::mem::transmute_copy(&dwdrawaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&ptd)) {
                     Ok(ok__) => {
-                        lpsizel.write(core::mem::transmute(ok__));
+                        lpsizel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13826,7 +13826,7 @@ impl IViewObjectEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::GetRect(this, core::mem::transmute_copy(&dwaspect)) {
                     Ok(ok__) => {
-                        prect.write(core::mem::transmute(ok__));
+                        prect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13838,7 +13838,7 @@ impl IViewObjectEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::GetViewStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13850,7 +13850,7 @@ impl IViewObjectEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::QueryHitPoint(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&prectbounds), core::mem::transmute(&ptlloc), core::mem::transmute_copy(&lclosehint)) {
                     Ok(ok__) => {
-                        phitresult.write(core::mem::transmute(ok__));
+                        phitresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13862,7 +13862,7 @@ impl IViewObjectEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::QueryHitRect(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&prectbounds), core::mem::transmute_copy(&prectloc), core::mem::transmute_copy(&lclosehint)) {
                     Ok(ok__) => {
-                        phitresult.write(core::mem::transmute(ok__));
+                        phitresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13874,7 +13874,7 @@ impl IViewObjectEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewObjectEx_Impl::GetNaturalExtent(this, core::mem::transmute_copy(&dwaspect), core::mem::transmute_copy(&lindex), core::mem::transmute_copy(&ptd), core::mem::transmute_copy(&hictargetdev), core::mem::transmute_copy(&pextentinfo)) {
                     Ok(ok__) => {
-                        psizel.write(core::mem::transmute(ok__));
+                        psizel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

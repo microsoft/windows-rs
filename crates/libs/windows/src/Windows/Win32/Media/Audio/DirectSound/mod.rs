@@ -758,7 +758,7 @@ impl IDirectSound_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound_Impl::GetSpeakerConfig(this) {
                     Ok(ok__) => {
-                        pdwspeakerconfig.write(core::mem::transmute(ok__));
+                        pdwspeakerconfig.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -957,7 +957,7 @@ impl IDirectSound3DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DBuffer_Impl::GetConeOrientation(this) {
                     Ok(ok__) => {
-                        pvorientation.write(core::mem::transmute(ok__));
+                        pvorientation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -969,7 +969,7 @@ impl IDirectSound3DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DBuffer_Impl::GetConeOutsideVolume(this) {
                     Ok(ok__) => {
-                        plconeoutsidevolume.write(core::mem::transmute(ok__));
+                        plconeoutsidevolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IDirectSound3DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DBuffer_Impl::GetMaxDistance(this) {
                     Ok(ok__) => {
-                        pflmaxdistance.write(core::mem::transmute(ok__));
+                        pflmaxdistance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -993,7 +993,7 @@ impl IDirectSound3DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DBuffer_Impl::GetMinDistance(this) {
                     Ok(ok__) => {
-                        pflmindistance.write(core::mem::transmute(ok__));
+                        pflmindistance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1005,7 +1005,7 @@ impl IDirectSound3DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DBuffer_Impl::GetMode(this) {
                     Ok(ok__) => {
-                        pdwmode.write(core::mem::transmute(ok__));
+                        pdwmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1017,7 +1017,7 @@ impl IDirectSound3DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DBuffer_Impl::GetPosition(this) {
                     Ok(ok__) => {
-                        pvposition.write(core::mem::transmute(ok__));
+                        pvposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1029,7 +1029,7 @@ impl IDirectSound3DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DBuffer_Impl::GetVelocity(this) {
                     Ok(ok__) => {
-                        pvvelocity.write(core::mem::transmute(ok__));
+                        pvvelocity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1254,7 +1254,7 @@ impl IDirectSound3DListener_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DListener_Impl::GetDistanceFactor(this) {
                     Ok(ok__) => {
-                        pfldistancefactor.write(core::mem::transmute(ok__));
+                        pfldistancefactor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1266,7 +1266,7 @@ impl IDirectSound3DListener_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DListener_Impl::GetDopplerFactor(this) {
                     Ok(ok__) => {
-                        pfldopplerfactor.write(core::mem::transmute(ok__));
+                        pfldopplerfactor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1284,7 +1284,7 @@ impl IDirectSound3DListener_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DListener_Impl::GetPosition(this) {
                     Ok(ok__) => {
-                        pvposition.write(core::mem::transmute(ok__));
+                        pvposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1296,7 +1296,7 @@ impl IDirectSound3DListener_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DListener_Impl::GetRolloffFactor(this) {
                     Ok(ok__) => {
-                        pflrollofffactor.write(core::mem::transmute(ok__));
+                        pflrollofffactor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1308,7 +1308,7 @@ impl IDirectSound3DListener_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound3DListener_Impl::GetVelocity(this) {
                     Ok(ok__) => {
-                        pvvelocity.write(core::mem::transmute(ok__));
+                        pvvelocity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1420,7 +1420,7 @@ impl IDirectSound8_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSound8_Impl::VerifyCertification(this) {
                     Ok(ok__) => {
-                        pdwcertified.write(core::mem::transmute(ok__));
+                        pdwcertified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1575,7 +1575,7 @@ impl IDirectSoundBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundBuffer_Impl::GetVolume(this) {
                     Ok(ok__) => {
-                        plvolume.write(core::mem::transmute(ok__));
+                        plvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1587,7 +1587,7 @@ impl IDirectSoundBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundBuffer_Impl::GetPan(this) {
                     Ok(ok__) => {
-                        plpan.write(core::mem::transmute(ok__));
+                        plpan.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1599,7 +1599,7 @@ impl IDirectSoundBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundBuffer_Impl::GetFrequency(this) {
                     Ok(ok__) => {
-                        pdwfrequency.write(core::mem::transmute(ok__));
+                        pdwfrequency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl IDirectSoundBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundBuffer_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1820,7 +1820,7 @@ impl IDirectSoundCapture_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundCapture_Impl::GetCaps(this) {
                     Ok(ok__) => {
-                        pdsccaps.write(core::mem::transmute(ok__));
+                        pdsccaps.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1917,7 +1917,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundCaptureBuffer_Impl::GetCaps(this) {
                     Ok(ok__) => {
-                        pdscbcaps.write(core::mem::transmute(ok__));
+                        pdscbcaps.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1941,7 +1941,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundCaptureBuffer_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2098,7 +2098,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundCaptureFXAec_Impl::GetAllParameters(this) {
                     Ok(ok__) => {
-                        pdscfxaec.write(core::mem::transmute(ok__));
+                        pdscfxaec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2110,7 +2110,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundCaptureFXAec_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwstatus.write(core::mem::transmute(ok__));
+                        pdwstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2178,7 +2178,7 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundCaptureFXNoiseSuppress_Impl::GetAllParameters(this) {
                     Ok(ok__) => {
-                        pdscfxnoisesuppress.write(core::mem::transmute(ok__));
+                        pdscfxnoisesuppress.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2470,7 +2470,7 @@ impl IDirectSoundFXGargle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundFXGargle_Impl::GetAllParameters(this) {
                     Ok(ok__) => {
-                        pdsfxgargle.write(core::mem::transmute(ok__));
+                        pdsfxgargle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2560,7 +2560,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundFXI3DL2Reverb_Impl::GetPreset(this) {
                     Ok(ok__) => {
-                        pdwpreset.write(core::mem::transmute(ok__));
+                        pdwpreset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2578,7 +2578,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundFXI3DL2Reverb_Impl::GetQuality(this) {
                     Ok(ok__) => {
-                        plquality.write(core::mem::transmute(ok__));
+                        plquality.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2637,7 +2637,7 @@ impl IDirectSoundFXParamEq_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundFXParamEq_Impl::GetAllParameters(this) {
                     Ok(ok__) => {
-                        pdsfxparameq.write(core::mem::transmute(ok__));
+                        pdsfxparameq.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2692,7 +2692,7 @@ impl IDirectSoundFXWavesReverb_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectSoundFXWavesReverb_Impl::GetAllParameters(this) {
                     Ok(ok__) => {
-                        pdsfxwavesreverb.write(core::mem::transmute(ok__));
+                        pdsfxwavesreverb.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

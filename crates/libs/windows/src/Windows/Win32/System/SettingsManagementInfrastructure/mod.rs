@@ -56,7 +56,7 @@ impl IItemEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IItemEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        itemvalid.write(core::mem::transmute(ok__));
+                        itemvalid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -175,7 +175,7 @@ impl ISettingsContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsContext_Impl::Deserialize(this, core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&ptarget), core::mem::transmute_copy(&pppresults)) {
                     Ok(ok__) => {
-                        pcresultcount.write(core::mem::transmute(ok__));
+                        pcresultcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl ISettingsContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsContext_Impl::GetUserData(this) {
                     Ok(ok__) => {
-                        puserdata.write(core::mem::transmute(ok__));
+                        puserdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -445,7 +445,7 @@ impl ISettingsEngine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsEngine_Impl::GetStoreStatus(this, core::mem::transmute_copy(&reserved)) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -535,7 +535,7 @@ impl ISettingsEngine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsEngine_Impl::ApplySettingsContext(this, core::mem::transmute_copy(&settingscontext), core::mem::transmute_copy(&pppwzidentities)) {
                     Ok(ok__) => {
-                        pcidentities.write(core::mem::transmute(ok__));
+                        pcidentities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -649,7 +649,7 @@ impl ISettingsIdentity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsIdentity_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -931,7 +931,7 @@ impl ISettingsItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsItem_Impl::GetSettingType(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -943,7 +943,7 @@ impl ISettingsItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsItem_Impl::GetDataType(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -955,7 +955,7 @@ impl ISettingsItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsItem_Impl::GetValueRaw(this, core::mem::transmute_copy(&data)) {
                     Ok(ok__) => {
-                        datasize.write(core::mem::transmute(ok__));
+                        datasize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -973,7 +973,7 @@ impl ISettingsItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsItem_Impl::HasChild(this) {
                     Ok(ok__) => {
-                        itemhaschild.write(core::mem::transmute(ok__));
+                        itemhaschild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1039,7 +1039,7 @@ impl ISettingsItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsItem_Impl::GetListKeyInformation(this, core::mem::transmute_copy(&keyname)) {
                     Ok(ok__) => {
-                        datatype.write(core::mem::transmute(ok__));
+                        datatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1105,7 +1105,7 @@ impl ISettingsItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsItem_Impl::GetRestrictionFacets(this) {
                     Ok(ok__) => {
-                        restrictionfacets.write(core::mem::transmute(ok__));
+                        restrictionfacets.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1425,7 +1425,7 @@ impl ISettingsResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsResult_Impl::GetErrorCode(this) {
                     Ok(ok__) => {
-                        hrout.write(core::mem::transmute(ok__));
+                        hrout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1449,7 +1449,7 @@ impl ISettingsResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsResult_Impl::GetLine(this) {
                     Ok(ok__) => {
-                        dwline.write(core::mem::transmute(ok__));
+                        dwline.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1461,7 +1461,7 @@ impl ISettingsResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISettingsResult_Impl::GetColumn(this) {
                     Ok(ok__) => {
-                        dwcolumn.write(core::mem::transmute(ok__));
+                        dwcolumn.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1693,7 +1693,7 @@ impl ITargetInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITargetInfo_Impl::GetTargetMode(this) {
                     Ok(ok__) => {
-                        targetmode.write(core::mem::transmute(ok__));
+                        targetmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1825,7 +1825,7 @@ impl ITargetInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITargetInfo_Impl::LoadModule(this, core::mem::transmute(&module)) {
                     Ok(ok__) => {
-                        modulehandle.write(core::mem::transmute(ok__));
+                        modulehandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

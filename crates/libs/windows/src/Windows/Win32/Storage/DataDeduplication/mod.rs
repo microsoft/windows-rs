@@ -362,7 +362,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::LookupChunks(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&phashes)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -374,7 +374,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::InsertChunks(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), core::mem::transmute_copy(&pchunkdata)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -386,7 +386,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::InsertChunksWithStream(this, core::mem::transmute_copy(&chunkcount), core::mem::transmute_copy(&pchunkmetadata), core::mem::transmute_copy(&databytecount), core::mem::transmute_copy(&pchunkdatastream)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -398,7 +398,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::CommitStreams(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), core::mem::transmute_copy(&pentries)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -410,7 +410,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::CommitStreamsWithStream(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams), core::mem::transmute_copy(&entrycount), core::mem::transmute_copy(&pentriesstream)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -422,7 +422,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::GetStreams(this, core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreampaths)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::GetChunks(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&phashes)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -458,7 +458,7 @@ impl IDedupDataPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPort_Impl::GetRequestStatus(this, core::mem::transmute(&requestid)) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -538,7 +538,7 @@ impl IDedupDataPortManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDedupDataPortManager_Impl::GetVolumeStatus(this, core::mem::transmute_copy(&options), core::mem::transmute(&path)) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -29,7 +29,7 @@ impl IWsbApplicationAsync_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWsbApplicationAsync_Impl::QueryStatus(this) {
                     Ok(ok__) => {
-                        phrresult.write(core::mem::transmute(ok__));
+                        phrresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -163,7 +163,7 @@ impl IWsbApplicationRestoreSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWsbApplicationRestoreSupport_Impl::IsRollForwardSupported(this) {
                     Ok(ok__) => {
-                        pbrollforwardsupported.write(core::mem::transmute(ok__));
+                        pbrollforwardsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

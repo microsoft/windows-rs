@@ -298,7 +298,7 @@ impl IFhConfigMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhConfigMgr_Impl::GetLocalPolicy(this, core::mem::transmute_copy(&localpolicytype)) {
                     Ok(ok__) => {
-                        policyvalue.write(core::mem::transmute(ok__));
+                        policyvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IFhConfigMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhConfigMgr_Impl::GetBackupStatus(this) {
                     Ok(ok__) => {
-                        backupstatus.write(core::mem::transmute(ok__));
+                        backupstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl IFhConfigMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhConfigMgr_Impl::ValidateTarget(this, core::mem::transmute(&targeturl)) {
                     Ok(ok__) => {
-                        validationresult.write(core::mem::transmute(ok__));
+                        validationresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IFhReassociation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhReassociation_Impl::ValidateTarget(this, core::mem::transmute(&targeturl)) {
                     Ok(ok__) => {
-                        validationresult.write(core::mem::transmute(ok__));
+                        validationresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -586,7 +586,7 @@ impl IFhTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFhTarget_Impl::GetNumericalProperty(this, core::mem::transmute_copy(&propertytype)) {
                     Ok(ok__) => {
-                        propertyvalue.write(core::mem::transmute(ok__));
+                        propertyvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

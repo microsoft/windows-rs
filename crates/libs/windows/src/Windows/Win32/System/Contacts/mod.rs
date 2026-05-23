@@ -305,7 +305,7 @@ impl IContactAggregationAggregate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationAggregate_Impl::AntiLink(this) {
                     Ok(ok__) => {
-                        ppantilink.write(core::mem::transmute(ok__));
+                        ppantilink.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -323,7 +323,7 @@ impl IContactAggregationAggregate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationAggregate_Impl::FavoriteOrder(this) {
                     Ok(ok__) => {
-                        pfavoriteorder.write(core::mem::transmute(ok__));
+                        pfavoriteorder.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IContactAggregationAggregate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationAggregate_Impl::Id(this) {
                     Ok(ok__) => {
-                        ppitemid.write(core::mem::transmute(ok__));
+                        ppitemid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -455,7 +455,7 @@ impl IContactAggregationAggregateCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationAggregateCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -643,7 +643,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::AccountId(this) {
                     Ok(ok__) => {
-                        ppaccountid.write(core::mem::transmute(ok__));
+                        ppaccountid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -661,7 +661,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::AggregateId(this) {
                     Ok(ok__) => {
-                        ppaggregateid.write(core::mem::transmute(ok__));
+                        ppaggregateid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -673,7 +673,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::Id(this) {
                     Ok(ok__) => {
-                        ppitemid.write(core::mem::transmute(ok__));
+                        ppitemid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -685,7 +685,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::IsMe(this) {
                     Ok(ok__) => {
-                        pisme.write(core::mem::transmute(ok__));
+                        pisme.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::IsExternal(this) {
                     Ok(ok__) => {
-                        pisexternal.write(core::mem::transmute(ok__));
+                        pisexternal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -709,7 +709,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::NetworkSourceId(this) {
                     Ok(ok__) => {
-                        pnetworksourceid.write(core::mem::transmute(ok__));
+                        pnetworksourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -727,7 +727,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::NetworkSourceIdString(this) {
                     Ok(ok__) => {
-                        ppnetworksourceid.write(core::mem::transmute(ok__));
+                        ppnetworksourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -745,7 +745,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::RemoteObjectId(this) {
                     Ok(ok__) => {
-                        ppremoteobjectid.write(core::mem::transmute(ok__));
+                        ppremoteobjectid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -763,7 +763,7 @@ impl IContactAggregationContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContact_Impl::SyncIdentityHash(this) {
                     Ok(ok__) => {
-                        ppsyncidentityhash.write(core::mem::transmute(ok__));
+                        ppsyncidentityhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -905,7 +905,7 @@ impl IContactAggregationContactCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationContactCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1063,7 +1063,7 @@ impl IContactAggregationGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationGroup_Impl::GlobalObjectId(this) {
                     Ok(ok__) => {
-                        pglobalobjectid.write(core::mem::transmute(ok__));
+                        pglobalobjectid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1081,7 +1081,7 @@ impl IContactAggregationGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationGroup_Impl::Id(this) {
                     Ok(ok__) => {
-                        ppitemid.write(core::mem::transmute(ok__));
+                        ppitemid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1093,7 +1093,7 @@ impl IContactAggregationGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationGroup_Impl::Name(this) {
                     Ok(ok__) => {
-                        ppname.write(core::mem::transmute(ok__));
+                        ppname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1211,7 +1211,7 @@ impl IContactAggregationGroupCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationGroupCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1382,7 +1382,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::AccountId(this) {
                     Ok(ok__) => {
-                        ppaccountid.write(core::mem::transmute(ok__));
+                        ppaccountid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1400,7 +1400,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::Id(this) {
                     Ok(ok__) => {
-                        ppitemid.write(core::mem::transmute(ok__));
+                        ppitemid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1412,7 +1412,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::IsLinkResolved(this) {
                     Ok(ok__) => {
-                        pislinkresolved.write(core::mem::transmute(ok__));
+                        pislinkresolved.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1430,7 +1430,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::NetworkSourceIdString(this) {
                     Ok(ok__) => {
-                        ppnetworksourceid.write(core::mem::transmute(ok__));
+                        ppnetworksourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1448,7 +1448,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::RemoteObjectId(this) {
                     Ok(ok__) => {
-                        ppremoteobjectid.write(core::mem::transmute(ok__));
+                        ppremoteobjectid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1466,7 +1466,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::ServerPerson(this) {
                     Ok(ok__) => {
-                        ppserverpersonid.write(core::mem::transmute(ok__));
+                        ppserverpersonid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1484,7 +1484,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::ServerPersonBaseline(this) {
                     Ok(ok__) => {
-                        ppserverpersonid.write(core::mem::transmute(ok__));
+                        ppserverpersonid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1502,7 +1502,7 @@ impl IContactAggregationLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLink_Impl::SyncIdentityHash(this) {
                     Ok(ok__) => {
-                        ppsyncidentityhash.write(core::mem::transmute(ok__));
+                        ppsyncidentityhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IContactAggregationLinkCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationLinkCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::AggregateId(this) {
                     Ok(ok__) => {
-                        ppaggregateid.write(core::mem::transmute(ok__));
+                        ppaggregateid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2199,7 +2199,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::AntiLink(this) {
                     Ok(ok__) => {
-                        ppantilink.write(core::mem::transmute(ok__));
+                        ppantilink.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2217,7 +2217,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::AntiLinkBaseline(this) {
                     Ok(ok__) => {
-                        ppantilink.write(core::mem::transmute(ok__));
+                        ppantilink.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2235,7 +2235,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::FavoriteOrder(this) {
                     Ok(ok__) => {
-                        pfavoriteorder.write(core::mem::transmute(ok__));
+                        pfavoriteorder.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2253,7 +2253,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::FavoriteOrderBaseline(this) {
                     Ok(ok__) => {
-                        pfavoriteorder.write(core::mem::transmute(ok__));
+                        pfavoriteorder.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2271,7 +2271,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::Groups(this) {
                     Ok(ok__) => {
-                        pgroups.write(core::mem::transmute(ok__));
+                        pgroups.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2289,7 +2289,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::GroupsBaseline(this) {
                     Ok(ok__) => {
-                        ppgroups.write(core::mem::transmute(ok__));
+                        ppgroups.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2307,7 +2307,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::Id(this) {
                     Ok(ok__) => {
-                        ppid.write(core::mem::transmute(ok__));
+                        ppid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2319,7 +2319,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::IsTombstone(this) {
                     Ok(ok__) => {
-                        pistombstone.write(core::mem::transmute(ok__));
+                        pistombstone.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2337,7 +2337,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::LinkedAggregateId(this) {
                     Ok(ok__) => {
-                        pplinkedaggregateid.write(core::mem::transmute(ok__));
+                        pplinkedaggregateid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2355,7 +2355,7 @@ impl IContactAggregationServerPerson_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPerson_Impl::ObjectId(this) {
                     Ok(ok__) => {
-                        ppobjectid.write(core::mem::transmute(ok__));
+                        ppobjectid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2535,7 +2535,7 @@ impl IContactAggregationServerPersonCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContactAggregationServerPersonCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

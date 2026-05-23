@@ -478,7 +478,7 @@ impl IVdsAdvancedDisk3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsAdvancedDisk3_Impl::GetUniqueId(this) {
                     Ok(ok__) => {
-                        ppwszid.write(core::mem::transmute(ok__));
+                        ppwszid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1189,7 +1189,7 @@ impl IVdsDiskPartitionMF_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsDiskPartitionMF_Impl::GetPartitionFileSystemTypeName(this, core::mem::transmute_copy(&ulloffset)) {
                     Ok(ok__) => {
-                        ppwszfilesystemtypename.write(core::mem::transmute(ok__));
+                        ppwszfilesystemtypename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1547,7 +1547,7 @@ impl IVdsHwProviderPrivate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsHwProviderPrivate_Impl::QueryIfCreatedLun(this, core::mem::transmute(&pwszdevicepath), core::mem::transmute_copy(&pvdsluninformation)) {
                     Ok(ok__) => {
-                        plunid.write(core::mem::transmute(ok__));
+                        plunid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1661,7 +1661,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsHwProviderStoragePools_Impl::QueryMaxLunCreateSizeInStoragePool(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&storagepoolid), core::mem::transmute_copy(&phints2)) {
                     Ok(ok__) => {
-                        pullmaxlunsize.write(core::mem::transmute(ok__));
+                        pullmaxlunsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1706,7 +1706,7 @@ impl IVdsHwProviderType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsHwProviderType_Impl::GetProviderType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1746,7 +1746,7 @@ impl IVdsHwProviderType2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsHwProviderType2_Impl::GetProviderType2(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1930,7 +1930,7 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiInitiatorPortal_Impl::GetIpsecSecurity(this, core::mem::transmute(&targetportalid)) {
                     Ok(ok__) => {
-                        pullsecurityflags.write(core::mem::transmute(ok__));
+                        pullsecurityflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2061,7 +2061,7 @@ impl IVdsIscsiPortal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsIscsiPortal_Impl::GetIpsecSecurity(this, core::mem::transmute_copy(&pinitiatorportaladdress)) {
                     Ok(ok__) => {
-                        pullsecurityflags.write(core::mem::transmute(ok__));
+                        pullsecurityflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2733,7 +2733,7 @@ impl IVdsLun_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLun_Impl::QueryMaxLunExtendSize(this, core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives)) {
                     Ok(ok__) => {
-                        pullmaxbytestobeadded.write(core::mem::transmute(ok__));
+                        pullmaxbytestobeadded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2981,7 +2981,7 @@ impl IVdsLunMpio_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLunMpio_Impl::GetSupportedLbPolicies(this) {
                     Ok(ok__) => {
-                        pullbflags.write(core::mem::transmute(ok__));
+                        pullbflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3061,7 +3061,7 @@ impl IVdsLunNumber_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsLunNumber_Impl::GetLunNumber(this) {
                     Ok(ok__) => {
-                        pullunnumber.write(core::mem::transmute(ok__));
+                        pullunnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3748,7 +3748,7 @@ impl IVdsProviderSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsProviderSupport_Impl::GetVersionSupport(this) {
                     Ok(ok__) => {
-                        ulversionsupport.write(core::mem::transmute(ok__));
+                        ulversionsupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3940,7 +3940,7 @@ impl IVdsService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsService_Impl::GetProperties(this) {
                     Ok(ok__) => {
-                        pserviceprop.write(core::mem::transmute(ok__));
+                        pserviceprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4030,7 +4030,7 @@ impl IVdsService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsService_Impl::Advise(this, core::mem::transmute_copy(&psink)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4220,7 +4220,7 @@ impl IVdsServiceIscsi_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsServiceIscsi_Impl::GetInitiatorName(this) {
                     Ok(ok__) => {
-                        ppwsziscsiname.write(core::mem::transmute(ok__));
+                        ppwsziscsiname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4359,7 +4359,7 @@ impl IVdsServiceSAN_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsServiceSAN_Impl::GetSANPolicy(this) {
                     Ok(ok__) => {
-                        psanpolicy.write(core::mem::transmute(ok__));
+                        psanpolicy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4457,7 +4457,7 @@ impl IVdsServiceUninstallDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsServiceUninstallDisk_Impl::GetDiskIdFromLunInfo(this, core::mem::transmute_copy(&pluninfo)) {
                     Ok(ok__) => {
-                        pdiskid.write(core::mem::transmute(ok__));
+                        pdiskid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4806,7 +4806,7 @@ impl IVdsSubSystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem_Impl::QueryMaxLunCreateSize(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints)) {
                     Ok(ok__) => {
-                        pullmaxlunsize.write(core::mem::transmute(ok__));
+                        pullmaxlunsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4914,7 +4914,7 @@ impl IVdsSubSystem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystem2_Impl::QueryMaxLunCreateSize2(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdriveidarray), core::mem::transmute_copy(&lnumberofdrives), core::mem::transmute_copy(&phints2)) {
                     Ok(ok__) => {
-                        pullmaxlunsize.write(core::mem::transmute(ok__));
+                        pullmaxlunsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4968,7 +4968,7 @@ impl IVdsSubSystemImportTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystemImportTarget_Impl::GetImportTarget(this) {
                     Ok(ok__) => {
-                        ppwsziscsiname.write(core::mem::transmute(ok__));
+                        ppwsziscsiname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5018,7 +5018,7 @@ impl IVdsSubSystemInterconnect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsSubSystemInterconnect_Impl::GetSupportedInterconnects(this) {
                     Ok(ok__) => {
-                        pulsupportedinterconnectsflag.write(core::mem::transmute(ok__));
+                        pulsupportedinterconnectsflag.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5318,7 +5318,7 @@ impl IVdsVDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVDisk_Impl::GetDeviceName(this) {
                     Ok(ok__) => {
-                        ppdevicename.write(core::mem::transmute(ok__));
+                        ppdevicename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5923,7 +5923,7 @@ impl IVdsVolumeMF2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolumeMF2_Impl::GetFileSystemTypeName(this) {
                     Ok(ok__) => {
-                        ppwszfilesystemtypename.write(core::mem::transmute(ok__));
+                        ppwszfilesystemtypename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6184,7 +6184,7 @@ impl IVdsVolumeShrink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVdsVolumeShrink_Impl::QueryMaxReclaimableBytes(this) {
                     Ok(ok__) => {
-                        pullmaxnumberofreclaimablebytes.write(core::mem::transmute(ok__));
+                        pullmaxnumberofreclaimablebytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

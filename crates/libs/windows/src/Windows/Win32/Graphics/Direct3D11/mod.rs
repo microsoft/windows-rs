@@ -5414,7 +5414,7 @@ impl ID3D11AuthenticatedChannel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11AuthenticatedChannel_Impl::GetCertificateSize(this) {
                     Ok(ok__) => {
-                        pcertificatesize.write(core::mem::transmute(ok__));
+                        pcertificatesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5919,7 +5919,7 @@ impl ID3D11CryptoSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11CryptoSession_Impl::GetCertificateSize(this) {
                     Ok(ok__) => {
-                        pcertificatesize.write(core::mem::transmute(ok__));
+                        pcertificatesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6700,7 +6700,7 @@ impl ID3D11Device_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11Device_Impl::CheckFormatSupport(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
-                        pformatsupport.write(core::mem::transmute(ok__));
+                        pformatsupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6712,7 +6712,7 @@ impl ID3D11Device_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11Device_Impl::CheckMultisampleQualityLevels(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&samplecount)) {
                     Ok(ok__) => {
-                        pnumqualitylevels.write(core::mem::transmute(ok__));
+                        pnumqualitylevels.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7057,7 +7057,7 @@ impl ID3D11Device2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11Device2_Impl::CheckMultisampleQualityLevels1(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&samplecount), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pnumqualitylevels.write(core::mem::transmute(ok__));
+                        pnumqualitylevels.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7329,7 +7329,7 @@ impl ID3D11Device4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11Device4_Impl::RegisterDeviceRemovedEvent(this, core::mem::transmute_copy(&hevent)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9900,7 +9900,7 @@ impl ID3D11Fence_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11Fence_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&dwaccess), core::mem::transmute(&lpname)) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10889,7 +10889,7 @@ impl ID3D11LibraryReflection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11LibraryReflection_Impl::GetDesc(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12078,7 +12078,7 @@ impl ID3D11ShaderReflection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11ShaderReflection_Impl::GetMinFeatureLevel(this) {
                     Ok(ok__) => {
-                        plevel.write(core::mem::transmute(ok__));
+                        plevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14415,7 +14415,7 @@ impl ID3D11VideoContext1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoContext1_Impl::GetDataForNewHardwareKey(this, core::mem::transmute_copy(&pcryptosession), core::mem::transmute_copy(&privateinputsize), core::mem::transmute_copy(&pprivatinputdata)) {
                     Ok(ok__) => {
-                        pprivateoutputdata.write(core::mem::transmute(ok__));
+                        pprivateoutputdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14427,7 +14427,7 @@ impl ID3D11VideoContext1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoContext1_Impl::CheckCryptoSessionStatus(this, core::mem::transmute_copy(&pcryptosession)) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14499,7 +14499,7 @@ impl ID3D11VideoContext1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoContext1_Impl::VideoProcessorGetBehaviorHints(this, core::mem::transmute_copy(&pvideoprocessor), core::mem::transmute_copy(&outputwidth), core::mem::transmute_copy(&outputheight), core::mem::transmute_copy(&outputformat), core::mem::transmute_copy(&streamcount), core::mem::transmute_copy(&pstreams)) {
                     Ok(ok__) => {
-                        pbehaviorhints.write(core::mem::transmute(ok__));
+                        pbehaviorhints.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14762,7 +14762,7 @@ impl ID3D11VideoDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoDecoder_Impl::GetDriverHandle(this) {
                     Ok(ok__) => {
-                        pdriverhandle.write(core::mem::transmute(ok__));
+                        pdriverhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15077,7 +15077,7 @@ impl ID3D11VideoDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoDevice_Impl::GetVideoDecoderProfile(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pdecoderprofile.write(core::mem::transmute(ok__));
+                        pdecoderprofile.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15089,7 +15089,7 @@ impl ID3D11VideoDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoDevice_Impl::CheckVideoDecoderFormat(this, core::mem::transmute_copy(&pdecoderprofile), core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
-                        psupported.write(core::mem::transmute(ok__));
+                        psupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15101,7 +15101,7 @@ impl ID3D11VideoDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoDevice_Impl::GetVideoDecoderConfigCount(this, core::mem::transmute_copy(&pdesc)) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15125,7 +15125,7 @@ impl ID3D11VideoDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoDevice_Impl::CheckCryptoKeyExchange(this, core::mem::transmute_copy(&pcryptotype), core::mem::transmute_copy(&pdecoderprofile), core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pkeyexchangetype.write(core::mem::transmute(ok__));
+                        pkeyexchangetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15243,7 +15243,7 @@ impl ID3D11VideoDevice1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoDevice1_Impl::GetVideoDecoderCaps(this, core::mem::transmute_copy(&pdecoderprofile), core::mem::transmute_copy(&samplewidth), core::mem::transmute_copy(&sampleheight), core::mem::transmute_copy(&pframerate), core::mem::transmute_copy(&bitrate), core::mem::transmute_copy(&pcryptotype)) {
                     Ok(ok__) => {
-                        pdecodercaps.write(core::mem::transmute(ok__));
+                        pdecodercaps.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15261,7 +15261,7 @@ impl ID3D11VideoDevice1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoDevice1_Impl::RecommendVideoDecoderDownsampleParameters(this, core::mem::transmute_copy(&pinputdesc), core::mem::transmute_copy(&inputcolorspace), core::mem::transmute_copy(&pinputconfig), core::mem::transmute_copy(&pframerate)) {
                     Ok(ok__) => {
-                        precommendedoutputdesc.write(core::mem::transmute(ok__));
+                        precommendedoutputdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15489,7 +15489,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoProcessorEnumerator_Impl::CheckVideoProcessorFormat(this, core::mem::transmute_copy(&format)) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15519,7 +15519,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoProcessorEnumerator_Impl::GetVideoProcessorFilterRange(this, core::mem::transmute_copy(&filter)) {
                     Ok(ok__) => {
-                        prange.write(core::mem::transmute(ok__));
+                        prange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15582,7 +15582,7 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3D11VideoProcessorEnumerator1_Impl::CheckVideoProcessorFormatConversion(this, core::mem::transmute_copy(&inputformat), core::mem::transmute_copy(&inputcolorspace), core::mem::transmute_copy(&outputformat), core::mem::transmute_copy(&outputcolorspace)) {
                     Ok(ok__) => {
-                        psupported.write(core::mem::transmute(ok__));
+                        psupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

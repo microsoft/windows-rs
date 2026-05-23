@@ -441,7 +441,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionDiscoveryProvider_Impl::Initialize(this, core::mem::transmute_copy(&pifunctiondiscoveryproviderfactory), core::mem::transmute_copy(&pifunctiondiscoverynotification), core::mem::transmute_copy(&lciduserdefault)) {
                     Ok(ok__) => {
-                        pdwstgaccesscapabilities.write(core::mem::transmute(ok__));
+                        pdwstgaccesscapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -823,7 +823,7 @@ impl IFunctionInstance_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstance_Impl::GetID(this) {
                     Ok(ok__) => {
-                        ppszcomemidentity.write(core::mem::transmute(ok__));
+                        ppszcomemidentity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -835,7 +835,7 @@ impl IFunctionInstance_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstance_Impl::GetProviderInstanceID(this) {
                     Ok(ok__) => {
-                        ppszcomemproviderinstanceidentity.write(core::mem::transmute(ok__));
+                        ppszcomemproviderinstanceidentity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -963,7 +963,7 @@ impl IFunctionInstanceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFunctionInstanceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1392,7 +1392,7 @@ impl IPropertyStoreCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyStoreCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1544,7 +1544,7 @@ impl IProviderProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProviderProperties_Impl::GetCount(this, core::mem::transmute_copy(&pifunctioninstance), core::mem::transmute_copy(&iproviderinstancecontext)) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1654,7 +1654,7 @@ impl IProviderPropertyConstraintCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProviderPropertyConstraintCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1834,7 +1834,7 @@ impl IProviderQueryConstraintCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProviderQueryConstraintCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1846,7 +1846,7 @@ impl IProviderQueryConstraintCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProviderQueryConstraintCollection_Impl::Get(this, core::mem::transmute(&pszconstraintname)) {
                     Ok(ok__) => {
-                        ppszconstraintvalue.write(core::mem::transmute(ok__));
+                        ppszconstraintvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

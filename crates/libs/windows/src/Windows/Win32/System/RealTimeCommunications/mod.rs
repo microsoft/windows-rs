@@ -144,7 +144,7 @@ impl IRTCBuddy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCBuddy_Impl::Status(this) {
                     Ok(ok__) => {
-                        penstatus.write(core::mem::transmute(ok__));
+                        penstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -343,7 +343,7 @@ impl IRTCBuddy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCBuddy2_Impl::SubscriptionType(this) {
                     Ok(ok__) => {
-                        pensubscriptiontype.write(core::mem::transmute(ok__));
+                        pensubscriptiontype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -477,7 +477,7 @@ impl IRTCBuddyEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCBuddyEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peventtype.write(core::mem::transmute(ok__));
+                        peventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -489,7 +489,7 @@ impl IRTCBuddyEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCBuddyEvent2_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -772,7 +772,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCBuddyGroupEvent_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peventtype.write(core::mem::transmute(ok__));
+                        peventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -808,7 +808,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCBuddyGroupEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1157,7 +1157,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::EventFilter(this) {
                     Ok(ok__) => {
-                        plfilter.write(core::mem::transmute(ok__));
+                        plfilter.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1175,7 +1175,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::PreferredMediaTypes(this) {
                     Ok(ok__) => {
-                        plmediatypes.write(core::mem::transmute(ok__));
+                        plmediatypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1187,7 +1187,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::MediaCapabilities(this) {
                     Ok(ok__) => {
-                        plmediatypes.write(core::mem::transmute(ok__));
+                        plmediatypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1217,7 +1217,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::ListenForIncomingSessions(this) {
                     Ok(ok__) => {
-                        penlisten.write(core::mem::transmute(ok__));
+                        penlisten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1247,7 +1247,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::get_Volume(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
-                        plvolume.write(core::mem::transmute(ok__));
+                        plvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1265,7 +1265,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::get_AudioMuted(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
-                        pfmuted.write(core::mem::transmute(ok__));
+                        pfmuted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1313,7 +1313,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::get_PreferredVolume(this, core::mem::transmute_copy(&endevice)) {
                     Ok(ok__) => {
-                        plvolume.write(core::mem::transmute(ok__));
+                        plvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1331,7 +1331,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::PreferredAEC(this) {
                     Ok(ok__) => {
-                        pbenabled.write(core::mem::transmute(ok__));
+                        pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1361,7 +1361,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::ActiveMedia(this) {
                     Ok(ok__) => {
-                        plmediatype.write(core::mem::transmute(ok__));
+                        plmediatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1379,7 +1379,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::MaxBitrate(this) {
                     Ok(ok__) => {
-                        plmaxbitrate.write(core::mem::transmute(ok__));
+                        plmaxbitrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1397,7 +1397,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::TemporalSpatialTradeOff(this) {
                     Ok(ok__) => {
-                        plvalue.write(core::mem::transmute(ok__));
+                        plvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1409,7 +1409,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::NetworkQuality(this) {
                     Ok(ok__) => {
-                        plnetworkquality.write(core::mem::transmute(ok__));
+                        plnetworkquality.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1433,7 +1433,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::get_IsT120AppletRunning(this, core::mem::transmute_copy(&enapplet)) {
                     Ok(ok__) => {
-                        pfrunning.write(core::mem::transmute(ok__));
+                        pfrunning.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1499,7 +1499,7 @@ impl IRTCClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient_Impl::IsTuned(this) {
                     Ok(ok__) => {
-                        pftuned.write(core::mem::transmute(ok__));
+                        pftuned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1676,7 +1676,7 @@ impl IRTCClient2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient2_Impl::get_AnswerMode(this, core::mem::transmute_copy(&entype)) {
                     Ok(ok__) => {
-                        penmode.write(core::mem::transmute(ok__));
+                        penmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1694,7 +1694,7 @@ impl IRTCClient2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient2_Impl::Version(this) {
                     Ok(ok__) => {
-                        plversion.write(core::mem::transmute(ok__));
+                        plversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1748,7 +1748,7 @@ impl IRTCClient2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
-                        pensecuritylevel.write(core::mem::transmute(ok__));
+                        pensecuritylevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1766,7 +1766,7 @@ impl IRTCClient2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClient2_Impl::get_AllowedPorts(this, core::mem::transmute_copy(&ltransport)) {
                     Ok(ok__) => {
-                        penlistenmode.write(core::mem::transmute(ok__));
+                        penlistenmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1843,7 +1843,7 @@ impl IRTCClientEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClientEvent_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peneventtype.write(core::mem::transmute(ok__));
+                        peneventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2229,7 +2229,7 @@ impl IRTCClientPresence_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClientPresence_Impl::OfferWatcherMode(this) {
                     Ok(ok__) => {
-                        penmode.write(core::mem::transmute(ok__));
+                        penmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2247,7 +2247,7 @@ impl IRTCClientPresence_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClientPresence_Impl::PrivacyMode(this) {
                     Ok(ok__) => {
-                        penmode.write(core::mem::transmute(ok__));
+                        penmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2725,7 +2725,7 @@ impl IRTCClientProvisioning_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCClientProvisioning_Impl::SessionCapabilities(this) {
                     Ok(ok__) => {
-                        plsupportedsessions.write(core::mem::transmute(ok__));
+                        plsupportedsessions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2851,7 +2851,7 @@ impl IRTCCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3702,7 +3702,7 @@ impl IRTCIntensityEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCIntensityEvent_Impl::Level(this) {
                     Ok(ok__) => {
-                        pllevel.write(core::mem::transmute(ok__));
+                        pllevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3714,7 +3714,7 @@ impl IRTCIntensityEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCIntensityEvent_Impl::Min(this) {
                     Ok(ok__) => {
-                        plmin.write(core::mem::transmute(ok__));
+                        plmin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3726,7 +3726,7 @@ impl IRTCIntensityEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCIntensityEvent_Impl::Max(this) {
                     Ok(ok__) => {
-                        plmax.write(core::mem::transmute(ok__));
+                        plmax.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3738,7 +3738,7 @@ impl IRTCIntensityEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCIntensityEvent_Impl::Direction(this) {
                     Ok(ok__) => {
-                        pendirection.write(core::mem::transmute(ok__));
+                        pendirection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3814,7 +3814,7 @@ impl IRTCMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMediaEvent_Impl::MediaType(this) {
                     Ok(ok__) => {
-                        pmediatype.write(core::mem::transmute(ok__));
+                        pmediatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3826,7 +3826,7 @@ impl IRTCMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMediaEvent_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peneventtype.write(core::mem::transmute(ok__));
+                        peneventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3838,7 +3838,7 @@ impl IRTCMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMediaEvent_Impl::EventReason(this) {
                     Ok(ok__) => {
-                        peneventreason.write(core::mem::transmute(ok__));
+                        peneventreason.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3951,7 +3951,7 @@ impl IRTCMediaRequestEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMediaRequestEvent_Impl::ProposedMedia(this) {
                     Ok(ok__) => {
-                        plmediatypes.write(core::mem::transmute(ok__));
+                        plmediatypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3963,7 +3963,7 @@ impl IRTCMediaRequestEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMediaRequestEvent_Impl::CurrentMedia(this) {
                     Ok(ok__) => {
-                        plmediatypes.write(core::mem::transmute(ok__));
+                        plmediatypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3981,7 +3981,7 @@ impl IRTCMediaRequestEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMediaRequestEvent_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
-                        pensecuritylevel.write(core::mem::transmute(ok__));
+                        pensecuritylevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3999,7 +3999,7 @@ impl IRTCMediaRequestEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMediaRequestEvent_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4126,7 +4126,7 @@ impl IRTCMessagingEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMessagingEvent_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peneventtype.write(core::mem::transmute(ok__));
+                        peneventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4162,7 +4162,7 @@ impl IRTCMessagingEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCMessagingEvent_Impl::UserStatus(this) {
                     Ok(ok__) => {
-                        penuserstatus.write(core::mem::transmute(ok__));
+                        penuserstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4267,7 +4267,7 @@ impl IRTCParticipant_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCParticipant_Impl::Removable(this) {
                     Ok(ok__) => {
-                        pfremovable.write(core::mem::transmute(ok__));
+                        pfremovable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4279,7 +4279,7 @@ impl IRTCParticipant_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCParticipant_Impl::State(this) {
                     Ok(ok__) => {
-                        penstate.write(core::mem::transmute(ok__));
+                        penstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4379,7 +4379,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCParticipantStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
-                        penstate.write(core::mem::transmute(ok__));
+                        penstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4391,7 +4391,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCParticipantStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4593,7 +4593,7 @@ impl IRTCPresenceContact_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCPresenceContact_Impl::Persistent(this) {
                     Ok(ok__) => {
-                        pfpersistent.write(core::mem::transmute(ok__));
+                        pfpersistent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4675,7 +4675,7 @@ impl IRTCPresenceDataEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCPresenceDataEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4760,7 +4760,7 @@ impl IRTCPresenceDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCPresenceDevice_Impl::Status(this) {
                     Ok(ok__) => {
-                        penstatus.write(core::mem::transmute(ok__));
+                        penstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4873,7 +4873,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCPresencePropertyEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4897,7 +4897,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCPresencePropertyEvent_Impl::PresenceProperty(this) {
                     Ok(ok__) => {
-                        penpresprop.write(core::mem::transmute(ok__));
+                        penpresprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4982,7 +4982,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCPresenceStatusEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5263,7 +5263,7 @@ impl IRTCProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCProfile_Impl::ClientBanner(this) {
                     Ok(ok__) => {
-                        pfbanner.write(core::mem::transmute(ok__));
+                        pfbanner.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5365,7 +5365,7 @@ impl IRTCProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCProfile_Impl::SessionCapabilities(this) {
                     Ok(ok__) => {
-                        plsupportedsessions.write(core::mem::transmute(ok__));
+                        plsupportedsessions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5377,7 +5377,7 @@ impl IRTCProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCProfile_Impl::State(this) {
                     Ok(ok__) => {
-                        penstate.write(core::mem::transmute(ok__));
+                        penstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5479,7 +5479,7 @@ impl IRTCProfile2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCProfile2_Impl::AllowedAuth(this) {
                     Ok(ok__) => {
-                        plallowedauth.write(core::mem::transmute(ok__));
+                        plallowedauth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5572,7 +5572,7 @@ impl IRTCProfileEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCProfileEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
-                        plcookie.write(core::mem::transmute(ok__));
+                        plcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5584,7 +5584,7 @@ impl IRTCProfileEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCProfileEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5643,7 +5643,7 @@ impl IRTCProfileEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCProfileEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peventtype.write(core::mem::transmute(ok__));
+                        peventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5744,7 +5744,7 @@ impl IRTCReInviteEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCReInviteEvent_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5847,7 +5847,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCRegistrationStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
-                        penstate.write(core::mem::transmute(ok__));
+                        penstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5859,7 +5859,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCRegistrationStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5955,7 +5955,7 @@ impl IRTCRoamingEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCRoamingEvent_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peventtype.write(core::mem::transmute(ok__));
+                        peventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5979,7 +5979,7 @@ impl IRTCRoamingEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCRoamingEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6184,7 +6184,7 @@ impl IRTCSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSession_Impl::State(this) {
                     Ok(ok__) => {
-                        penstate.write(core::mem::transmute(ok__));
+                        penstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6196,7 +6196,7 @@ impl IRTCSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSession_Impl::Type(this) {
                     Ok(ok__) => {
-                        pentype.write(core::mem::transmute(ok__));
+                        pentype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6280,7 +6280,7 @@ impl IRTCSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSession_Impl::CanAddParticipants(this) {
                     Ok(ok__) => {
-                        pfcanadd.write(core::mem::transmute(ok__));
+                        pfcanadd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6451,7 +6451,7 @@ impl IRTCSession2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSession2_Impl::get_PreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
-                        pensecuritylevel.write(core::mem::transmute(ok__));
+                        pensecuritylevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6463,7 +6463,7 @@ impl IRTCSession2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSession2_Impl::IsSecurityEnabled(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
-                        pfsecurityenabled.write(core::mem::transmute(ok__));
+                        pfsecurityenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6630,7 +6630,7 @@ impl IRTCSessionCallControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionCallControl_Impl::IsReferred(this) {
                     Ok(ok__) => {
-                        pfisreferred.write(core::mem::transmute(ok__));
+                        pfisreferred.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6761,7 +6761,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionOperationCompleteEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
-                        plcookie.write(core::mem::transmute(ok__));
+                        plcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6773,7 +6773,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionOperationCompleteEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6984,7 +6984,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionReferStatusEvent_Impl::ReferStatus(this) {
                     Ok(ok__) => {
-                        penreferstatus.write(core::mem::transmute(ok__));
+                        penreferstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6996,7 +6996,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionReferStatusEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7260,7 +7260,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionStateChangeEvent_Impl::State(this) {
                     Ok(ok__) => {
-                        penstate.write(core::mem::transmute(ok__));
+                        penstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7272,7 +7272,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionStateChangeEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7365,7 +7365,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionStateChangeEvent2_Impl::MediaTypes(this) {
                     Ok(ok__) => {
-                        pmediatypes.write(core::mem::transmute(ok__));
+                        pmediatypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7377,7 +7377,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionStateChangeEvent2_Impl::get_RemotePreferredSecurityLevel(this, core::mem::transmute_copy(&ensecuritytype)) {
                     Ok(ok__) => {
-                        pensecuritylevel.write(core::mem::transmute(ok__));
+                        pensecuritylevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7389,7 +7389,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCSessionStateChangeEvent2_Impl::IsForked(this) {
                     Ok(ok__) => {
-                        pfisforked.write(core::mem::transmute(ok__));
+                        pfisforked.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7576,7 +7576,7 @@ impl IRTCUserSearchQuery_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCUserSearchQuery_Impl::get_SearchPreference(this, core::mem::transmute_copy(&enpreference)) {
                     Ok(ok__) => {
-                        plvalue.write(core::mem::transmute(ok__));
+                        plvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7792,7 +7792,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCUserSearchResultsEvent_Impl::Cookie(this) {
                     Ok(ok__) => {
-                        plcookie.write(core::mem::transmute(ok__));
+                        plcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7804,7 +7804,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCUserSearchResultsEvent_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7816,7 +7816,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCUserSearchResultsEvent_Impl::MoreAvailable(this) {
                     Ok(ok__) => {
-                        pfmoreavailable.write(core::mem::transmute(ok__));
+                        pfmoreavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7877,7 +7877,7 @@ impl IRTCWatcher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCWatcher_Impl::State(this) {
                     Ok(ok__) => {
-                        penstate.write(core::mem::transmute(ok__));
+                        penstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7949,7 +7949,7 @@ impl IRTCWatcher2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCWatcher2_Impl::Scope(this) {
                     Ok(ok__) => {
-                        penscope.write(core::mem::transmute(ok__));
+                        penscope.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8064,7 +8064,7 @@ impl IRTCWatcherEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCWatcherEvent2_Impl::EventType(this) {
                     Ok(ok__) => {
-                        peventtype.write(core::mem::transmute(ok__));
+                        peventtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8076,7 +8076,7 @@ impl IRTCWatcherEvent2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRTCWatcherEvent2_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        plstatuscode.write(core::mem::transmute(ok__));
+                        plstatuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

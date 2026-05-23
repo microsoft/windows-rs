@@ -1131,7 +1131,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManConnectionOptionsEx2_Impl::ProxyIEConfig(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1143,7 +1143,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManConnectionOptionsEx2_Impl::ProxyWinHttpConfig(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1155,7 +1155,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManConnectionOptionsEx2_Impl::ProxyAutoDetect(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1167,7 +1167,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManConnectionOptionsEx2_Impl::ProxyNoProxyServer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1179,7 +1179,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManConnectionOptionsEx2_Impl::ProxyAuthenticationUseNegotiate(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1191,7 +1191,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManConnectionOptionsEx2_Impl::ProxyAuthenticationUseBasic(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1203,7 +1203,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManConnectionOptionsEx2_Impl::ProxyAuthenticationUseDigest(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1295,7 +1295,7 @@ impl IWSManEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEnumerator_Impl::AtEndOfStream(this) {
                     Ok(ok__) => {
-                        eos.write(core::mem::transmute(ok__));
+                        eos.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1530,7 +1530,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagUTF8(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1542,7 +1542,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagCredUsernamePassword(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1554,7 +1554,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagSkipCACheck(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1566,7 +1566,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagSkipCNCheck(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1578,7 +1578,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagUseDigest(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1590,7 +1590,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagUseNegotiate(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1602,7 +1602,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagUseBasic(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1614,7 +1614,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagUseKerberos(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1626,7 +1626,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagNoEncryption(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1638,7 +1638,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagEnableSPNServerPort(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1650,7 +1650,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::SessionFlagUseNoAuthentication(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1662,7 +1662,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::EnumerationFlagNonXmlText(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1674,7 +1674,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::EnumerationFlagReturnEPR(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1686,7 +1686,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::EnumerationFlagReturnObjectAndEPR(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::EnumerationFlagHierarchyDeep(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1722,7 +1722,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::EnumerationFlagHierarchyShallow(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1734,7 +1734,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::EnumerationFlagHierarchyDeepBasePropsOnly(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1746,7 +1746,7 @@ impl IWSManEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx_Impl::EnumerationFlagReturnObject(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1822,7 +1822,7 @@ impl IWSManEx2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx2_Impl::SessionFlagUseClientCertificate(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1924,7 +1924,7 @@ impl IWSManEx3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx3_Impl::SessionFlagUTF16(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1936,7 +1936,7 @@ impl IWSManEx3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx3_Impl::SessionFlagUseCredSsp(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1948,7 +1948,7 @@ impl IWSManEx3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx3_Impl::EnumerationFlagAssociationInstance(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1960,7 +1960,7 @@ impl IWSManEx3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx3_Impl::EnumerationFlagAssociatedInstance(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1972,7 +1972,7 @@ impl IWSManEx3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx3_Impl::SessionFlagSkipRevocationCheck(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1984,7 +1984,7 @@ impl IWSManEx3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx3_Impl::SessionFlagAllowNegotiateImplicitCredentials(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1996,7 +1996,7 @@ impl IWSManEx3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManEx3_Impl::SessionFlagUseSsl(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2278,7 +2278,7 @@ impl IWSManResourceLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManResourceLocator_Impl::MustUnderstandOptions(this) {
                     Ok(ok__) => {
-                        mustunderstand.write(core::mem::transmute(ok__));
+                        mustunderstand.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2575,7 +2575,7 @@ impl IWSManSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManSession_Impl::BatchItems(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2593,7 +2593,7 @@ impl IWSManSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSManSession_Impl::Timeout(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

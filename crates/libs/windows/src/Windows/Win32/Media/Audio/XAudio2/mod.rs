@@ -269,7 +269,7 @@ impl IXAPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXAPO_Impl::GetRegistrationProperties(this) {
                     Ok(ok__) => {
-                        ppregistrationproperties.write(core::mem::transmute(ok__));
+                        ppregistrationproperties.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -785,7 +785,7 @@ impl IXAudio2MasteringVoice_Vtbl {
                 let this = &*((*this).this as *const Identity);
                 match IXAudio2MasteringVoice_Impl::GetChannelMask(this) {
                     Ok(ok__) => {
-                        pchannelmask.write(core::mem::transmute(ok__));
+                        pchannelmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

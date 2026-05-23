@@ -189,7 +189,7 @@ impl IDMOQualityControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDMOQualityControl_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -255,7 +255,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDMOVideoOutputOptimizations_Impl::QueryOperationModePreferences(this, core::mem::transmute_copy(&uloutputstreamindex)) {
                     Ok(ok__) => {
-                        pdwrequestedcapabilities.write(core::mem::transmute(ok__));
+                        pdwrequestedcapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -273,7 +273,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDMOVideoOutputOptimizations_Impl::GetCurrentOperationMode(this, core::mem::transmute_copy(&uloutputstreamindex)) {
                     Ok(ok__) => {
-                        pdwenabledfeatures.write(core::mem::transmute(ok__));
+                        pdwenabledfeatures.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDMOVideoOutputOptimizations_Impl::GetCurrentSampleRequirements(this, core::mem::transmute_copy(&uloutputstreamindex)) {
                     Ok(ok__) => {
-                        pdwrequestedfeatures.write(core::mem::transmute(ok__));
+                        pdwrequestedfeatures.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -426,7 +426,7 @@ impl IMediaBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaBuffer_Impl::GetMaxLength(this) {
                     Ok(ok__) => {
-                        pcbmaxlength.write(core::mem::transmute(ok__));
+                        pcbmaxlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -595,7 +595,7 @@ impl IMediaObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaObject_Impl::GetInputStreamInfo(this, core::mem::transmute_copy(&dwinputstreamindex)) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -607,7 +607,7 @@ impl IMediaObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaObject_Impl::GetOutputStreamInfo(this, core::mem::transmute_copy(&dwoutputstreamindex)) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -667,7 +667,7 @@ impl IMediaObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaObject_Impl::GetInputMaxLatency(this, core::mem::transmute_copy(&dwinputstreamindex)) {
                     Ok(ok__) => {
-                        prtmaxlatency.write(core::mem::transmute(ok__));
+                        prtmaxlatency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -709,7 +709,7 @@ impl IMediaObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaObject_Impl::GetInputStatus(this, core::mem::transmute_copy(&dwinputstreamindex)) {
                     Ok(ok__) => {
-                        dwflags.write(core::mem::transmute(ok__));
+                        dwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -821,7 +821,7 @@ impl IMediaObjectInPlace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaObjectInPlace_Impl::GetLatency(this) {
                     Ok(ok__) => {
-                        platencytime.write(core::mem::transmute(ok__));
+                        platencytime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

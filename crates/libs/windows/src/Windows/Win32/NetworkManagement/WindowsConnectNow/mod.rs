@@ -157,7 +157,7 @@ impl IWCNDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWCNDevice_Impl::GetIntegerAttribute(this, core::mem::transmute_copy(&attributetype)) {
                     Ok(ok__) => {
-                        puinteger.write(core::mem::transmute(ok__));
+                        puinteger.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

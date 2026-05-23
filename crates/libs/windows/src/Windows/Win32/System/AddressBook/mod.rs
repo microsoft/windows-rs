@@ -816,7 +816,7 @@ impl IABContainer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IABContainer_Impl::ResolveNames(this, core::mem::transmute_copy(&lpproptagarray), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lpadrlist)) {
                     Ok(ok__) => {
-                        lpflaglist.write(core::mem::transmute(ok__));
+                        lpflaglist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1224,7 +1224,7 @@ impl IDistList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDistList_Impl::ResolveNames(this, core::mem::transmute_copy(&lpproptagarray), core::mem::transmute_copy(&ulflags), core::mem::transmute_copy(&lpadrlist)) {
                     Ok(ok__) => {
-                        lpflaglist.write(core::mem::transmute(ok__));
+                        lpflaglist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1436,7 +1436,7 @@ impl IMAPIControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMAPIControl_Impl::GetLastError(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&ulflags)) {
                     Ok(ok__) => {
-                        lppmapierror.write(core::mem::transmute(ok__));
+                        lppmapierror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1623,7 +1623,7 @@ impl IMAPIFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMAPIFolder_Impl::GetMessageStatus(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&ulflags)) {
                     Ok(ok__) => {
-                        lpulmessagestatus.write(core::mem::transmute(ok__));
+                        lpulmessagestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1635,7 +1635,7 @@ impl IMAPIFolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMAPIFolder_Impl::SetMessageStatus(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&ulnewstatus), core::mem::transmute_copy(&ulnewstatusmask)) {
                     Ok(ok__) => {
-                        lpuloldstatus.write(core::mem::transmute(ok__));
+                        lpuloldstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2689,7 +2689,7 @@ impl IMsgStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMsgStore_Impl::Advise(this, core::mem::transmute_copy(&cbentryid), core::mem::transmute_copy(&lpentryid), core::mem::transmute_copy(&uleventmask), core::mem::transmute_copy(&lpadvisesink)) {
                     Ok(ok__) => {
-                        lpulconnection.write(core::mem::transmute(ok__));
+                        lpulconnection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2707,7 +2707,7 @@ impl IMsgStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMsgStore_Impl::CompareEntryIDs(this, core::mem::transmute_copy(&cbentryid1), core::mem::transmute_copy(&lpentryid1), core::mem::transmute_copy(&cbentryid2), core::mem::transmute_copy(&lpentryid2), core::mem::transmute_copy(&ulflags)) {
                     Ok(ok__) => {
-                        lpulresult.write(core::mem::transmute(ok__));
+                        lpulresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2975,7 +2975,7 @@ impl IProviderAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProviderAdmin_Impl::GetLastError(this, core::mem::transmute_copy(&hresult), core::mem::transmute_copy(&ulflags)) {
                     Ok(ok__) => {
-                        lppmapierror.write(core::mem::transmute(ok__));
+                        lppmapierror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2999,7 +2999,7 @@ impl IProviderAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProviderAdmin_Impl::CreateProvider(this, core::mem::transmute_copy(&lpszprovider), core::mem::transmute_copy(&cvalues), core::mem::transmute_copy(&lpprops), core::mem::transmute_copy(&uluiparam), core::mem::transmute_copy(&ulflags)) {
                     Ok(ok__) => {
-                        lpuid.write(core::mem::transmute(ok__));
+                        lpuid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

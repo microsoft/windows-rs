@@ -504,7 +504,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Year(this) {
                     Ok(ok__) => {
-                        iyear.write(core::mem::transmute(ok__));
+                        iyear.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::YearSpecified(this) {
                     Ok(ok__) => {
-                        byearspecified.write(core::mem::transmute(ok__));
+                        byearspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Month(this) {
                     Ok(ok__) => {
-                        imonth.write(core::mem::transmute(ok__));
+                        imonth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -558,7 +558,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::MonthSpecified(this) {
                     Ok(ok__) => {
-                        bmonthspecified.write(core::mem::transmute(ok__));
+                        bmonthspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -576,7 +576,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Day(this) {
                     Ok(ok__) => {
-                        iday.write(core::mem::transmute(ok__));
+                        iday.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -594,7 +594,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::DaySpecified(this) {
                     Ok(ok__) => {
-                        bdayspecified.write(core::mem::transmute(ok__));
+                        bdayspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -612,7 +612,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Hours(this) {
                     Ok(ok__) => {
-                        ihours.write(core::mem::transmute(ok__));
+                        ihours.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -630,7 +630,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::HoursSpecified(this) {
                     Ok(ok__) => {
-                        bhoursspecified.write(core::mem::transmute(ok__));
+                        bhoursspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Minutes(this) {
                     Ok(ok__) => {
-                        iminutes.write(core::mem::transmute(ok__));
+                        iminutes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -666,7 +666,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::MinutesSpecified(this) {
                     Ok(ok__) => {
-                        bminutesspecified.write(core::mem::transmute(ok__));
+                        bminutesspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Seconds(this) {
                     Ok(ok__) => {
-                        iseconds.write(core::mem::transmute(ok__));
+                        iseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::SecondsSpecified(this) {
                     Ok(ok__) => {
-                        bsecondsspecified.write(core::mem::transmute(ok__));
+                        bsecondsspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -720,7 +720,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::Microseconds(this) {
                     Ok(ok__) => {
-                        imicroseconds.write(core::mem::transmute(ok__));
+                        imicroseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -738,7 +738,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::MicrosecondsSpecified(this) {
                     Ok(ok__) => {
-                        bmicrosecondsspecified.write(core::mem::transmute(ok__));
+                        bmicrosecondsspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -756,7 +756,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::UTC(this) {
                     Ok(ok__) => {
-                        iutc.write(core::mem::transmute(ok__));
+                        iutc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::UTCSpecified(this) {
                     Ok(ok__) => {
-                        butcspecified.write(core::mem::transmute(ok__));
+                        butcspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -792,7 +792,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::IsInterval(this) {
                     Ok(ok__) => {
-                        bisinterval.write(core::mem::transmute(ok__));
+                        bisinterval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -810,7 +810,7 @@ impl ISWbemDateTime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemDateTime_Impl::GetVarDate(this, core::mem::transmute_copy(&bislocal)) {
                     Ok(ok__) => {
-                        dvardate.write(core::mem::transmute(ok__));
+                        dvardate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1300,7 +1300,7 @@ impl ISWbemMethodSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemMethodSet_Impl::Count(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1527,7 +1527,7 @@ impl ISWbemNamedValueSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemNamedValueSet_Impl::Count(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2042,7 +2042,7 @@ impl ISWbemObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObject_Impl::CompareTo_(this, core::mem::transmute_copy(&objwbemobject), core::mem::transmute_copy(&iflags)) {
                     Ok(ok__) => {
-                        bresult.write(core::mem::transmute(ok__));
+                        bresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2572,7 +2572,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::IsClass(this) {
                     Ok(ok__) => {
-                        bisclass.write(core::mem::transmute(ok__));
+                        bisclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2590,7 +2590,7 @@ impl ISWbemObjectPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectPath_Impl::IsSingleton(this) {
                     Ok(ok__) => {
-                        bissingleton.write(core::mem::transmute(ok__));
+                        bissingleton.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2791,7 +2791,7 @@ impl ISWbemObjectSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemObjectSet_Impl::Count(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2905,7 +2905,7 @@ impl ISWbemPrivilege_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilege_Impl::IsEnabled(this) {
                     Ok(ok__) => {
-                        bisenabled.write(core::mem::transmute(ok__));
+                        bisenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2947,7 +2947,7 @@ impl ISWbemPrivilege_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilege_Impl::Identifier(this) {
                     Ok(ok__) => {
-                        iprivilege.write(core::mem::transmute(ok__));
+                        iprivilege.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3074,7 +3074,7 @@ impl ISWbemPrivilegeSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPrivilegeSet_Impl::Count(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3264,7 +3264,7 @@ impl ISWbemProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemProperty_Impl::IsLocal(this) {
                     Ok(ok__) => {
-                        bislocal.write(core::mem::transmute(ok__));
+                        bislocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3288,7 +3288,7 @@ impl ISWbemProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemProperty_Impl::CIMType(this) {
                     Ok(ok__) => {
-                        icimtype.write(core::mem::transmute(ok__));
+                        icimtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3312,7 +3312,7 @@ impl ISWbemProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemProperty_Impl::IsArray(this) {
                     Ok(ok__) => {
-                        bisarray.write(core::mem::transmute(ok__));
+                        bisarray.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3429,7 +3429,7 @@ impl ISWbemPropertySet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemPropertySet_Impl::Count(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3614,7 +3614,7 @@ impl ISWbemQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifier_Impl::IsLocal(this) {
                     Ok(ok__) => {
-                        bislocal.write(core::mem::transmute(ok__));
+                        bislocal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3626,7 +3626,7 @@ impl ISWbemQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifier_Impl::PropagatesToSubclass(this) {
                     Ok(ok__) => {
-                        bpropagatestosubclass.write(core::mem::transmute(ok__));
+                        bpropagatestosubclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3644,7 +3644,7 @@ impl ISWbemQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifier_Impl::PropagatesToInstance(this) {
                     Ok(ok__) => {
-                        bpropagatestoinstance.write(core::mem::transmute(ok__));
+                        bpropagatestoinstance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3662,7 +3662,7 @@ impl ISWbemQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifier_Impl::IsOverridable(this) {
                     Ok(ok__) => {
-                        bisoverridable.write(core::mem::transmute(ok__));
+                        bisoverridable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3680,7 +3680,7 @@ impl ISWbemQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifier_Impl::IsAmended(this) {
                     Ok(ok__) => {
-                        bisamended.write(core::mem::transmute(ok__));
+                        bisamended.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3804,7 +3804,7 @@ impl ISWbemQualifierSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemQualifierSet_Impl::Count(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3920,7 +3920,7 @@ impl ISWbemRefreshableItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefreshableItem_Impl::Index(this) {
                     Ok(ok__) => {
-                        iindex.write(core::mem::transmute(ok__));
+                        iindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3944,7 +3944,7 @@ impl ISWbemRefreshableItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefreshableItem_Impl::IsSet(this) {
                     Ok(ok__) => {
-                        bisset.write(core::mem::transmute(ok__));
+                        bisset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4128,7 +4128,7 @@ impl ISWbemRefresher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefresher_Impl::Count(this) {
                     Ok(ok__) => {
-                        icount.write(core::mem::transmute(ok__));
+                        icount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4176,7 +4176,7 @@ impl ISWbemRefresher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemRefresher_Impl::AutoReconnect(this) {
                     Ok(ok__) => {
-                        bcount.write(core::mem::transmute(ok__));
+                        bcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4280,7 +4280,7 @@ impl ISWbemSecurity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemSecurity_Impl::ImpersonationLevel(this) {
                     Ok(ok__) => {
-                        iimpersonationlevel.write(core::mem::transmute(ok__));
+                        iimpersonationlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4298,7 +4298,7 @@ impl ISWbemSecurity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISWbemSecurity_Impl::AuthenticationLevel(this) {
                     Ok(ok__) => {
-                        iauthenticationlevel.write(core::mem::transmute(ok__));
+                        iauthenticationlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5281,7 +5281,7 @@ impl IWbemCallResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemCallResult_Impl::GetCallStatus(this, core::mem::transmute_copy(&ltimeout)) {
                     Ok(ok__) => {
-                        plstatus.write(core::mem::transmute(ok__));
+                        plstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5558,7 +5558,7 @@ impl IWbemClassObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemClassObject_Impl::GetNames(this, core::mem::transmute(&wszqualifiername), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pqualifierval)) {
                     Ok(ok__) => {
-                        pnames.write(core::mem::transmute(ok__));
+                        pnames.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6203,7 +6203,7 @@ impl IWbemContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemContext_Impl::GetNames(this, core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
-                        pnames.write(core::mem::transmute(ok__));
+                        pnames.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6832,7 +6832,7 @@ impl IWbemHiPerfProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemHiPerfProvider_Impl::CreateRefreshableEnum(this, core::mem::transmute_copy(&pnamespace), core::mem::transmute(&wszclass), core::mem::transmute_copy(&prefresher), core::mem::transmute_copy(&lflags), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&phiperfenum)) {
                     Ok(ok__) => {
-                        plid.write(core::mem::transmute(ok__));
+                        plid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6926,7 +6926,7 @@ impl IWbemLevel1Login_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemLevel1Login_Impl::EstablishPosition(this, core::mem::transmute(&wszlocalelist), core::mem::transmute_copy(&dwnumlocales)) {
                     Ok(ok__) => {
-                        reserved.write(core::mem::transmute(ok__));
+                        reserved.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6938,7 +6938,7 @@ impl IWbemLevel1Login_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemLevel1Login_Impl::RequestChallenge(this, core::mem::transmute(&wsznetworkresource), core::mem::transmute(&wszuser)) {
                     Ok(ok__) => {
-                        nonce.write(core::mem::transmute(ok__));
+                        nonce.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7128,7 +7128,7 @@ impl IWbemObjectAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemObjectAccess_Impl::ReadDWORD(this, core::mem::transmute_copy(&lhandle)) {
                     Ok(ok__) => {
-                        pdw.write(core::mem::transmute(ok__));
+                        pdw.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7146,7 +7146,7 @@ impl IWbemObjectAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemObjectAccess_Impl::ReadQWORD(this, core::mem::transmute_copy(&lhandle)) {
                     Ok(ok__) => {
-                        pqw.write(core::mem::transmute(ok__));
+                        pqw.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7312,7 +7312,7 @@ impl IWbemObjectSinkEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemObjectSinkEx_Impl::WriteError(this, core::mem::transmute_copy(&pobjerror)) {
                     Ok(ok__) => {
-                        pureturned.write(core::mem::transmute(ok__));
+                        pureturned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7324,7 +7324,7 @@ impl IWbemObjectSinkEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemObjectSinkEx_Impl::PromptUser(this, core::mem::transmute(&strmessage), core::mem::transmute_copy(&uprompttype)) {
                     Ok(ok__) => {
-                        pureturned.write(core::mem::transmute(ok__));
+                        pureturned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7636,7 +7636,7 @@ impl IWbemPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPath_Impl::GetInfo(this, core::mem::transmute_copy(&urequestedinfo)) {
                     Ok(ok__) => {
-                        puresponse.write(core::mem::transmute(ok__));
+                        puresponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7660,7 +7660,7 @@ impl IWbemPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPath_Impl::GetNamespaceCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7696,7 +7696,7 @@ impl IWbemPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPath_Impl::GetScopeCount(this) {
                     Ok(ok__) => {
-                        pucount.write(core::mem::transmute(ok__));
+                        pucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7927,7 +7927,7 @@ impl IWbemPathKeyList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPathKeyList_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pukeycount.write(core::mem::transmute(ok__));
+                        pukeycount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7981,7 +7981,7 @@ impl IWbemPathKeyList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemPathKeyList_Impl::GetInfo(this, core::mem::transmute_copy(&urequestedinfo)) {
                     Ok(ok__) => {
-                        puresponse.write(core::mem::transmute(ok__));
+                        puresponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8285,7 +8285,7 @@ impl IWbemQualifierSet_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWbemQualifierSet_Impl::GetNames(this, core::mem::transmute_copy(&lflags)) {
                     Ok(ok__) => {
-                        pnames.write(core::mem::transmute(ok__));
+                        pnames.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

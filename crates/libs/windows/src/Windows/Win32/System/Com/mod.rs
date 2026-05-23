@@ -2515,7 +2515,7 @@ impl IActivationFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IActivationFilter_Impl::HandleActivation(this, core::mem::transmute_copy(&dwactivationtype), core::mem::transmute_copy(&rclsid)) {
                     Ok(ok__) => {
-                        preplacementclsid.write(core::mem::transmute(ok__));
+                        preplacementclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2836,7 +2836,7 @@ impl IAsyncManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAsyncManager_Impl::GetState(this) {
                     Ok(ok__) => {
-                        pulstateflags.write(core::mem::transmute(ok__));
+                        pulstateflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3336,7 +3336,7 @@ impl IBindStatusCallback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBindStatusCallback_Impl::GetPriority(this) {
                     Ok(ok__) => {
-                        pnpriority.write(core::mem::transmute(ok__));
+                        pnpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3516,7 +3516,7 @@ impl IBinding_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBinding_Impl::GetPriority(this) {
                     Ok(ok__) => {
-                        pnpriority.write(core::mem::transmute(ok__));
+                        pnpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3746,7 +3746,7 @@ impl ICatInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatInformation_Impl::GetCategoryDesc(this, core::mem::transmute_copy(&rcatid), core::mem::transmute_copy(&lcid)) {
                     Ok(ok__) => {
-                        pszdesc.write(core::mem::transmute(ok__));
+                        pszdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4224,7 +4224,7 @@ impl IComThreadingInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComThreadingInfo_Impl::GetCurrentApartmentType(this) {
                     Ok(ok__) => {
-                        papttype.write(core::mem::transmute(ok__));
+                        papttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4236,7 +4236,7 @@ impl IComThreadingInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComThreadingInfo_Impl::GetCurrentThreadType(this) {
                     Ok(ok__) => {
-                        pthreadtype.write(core::mem::transmute(ok__));
+                        pthreadtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4248,7 +4248,7 @@ impl IComThreadingInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComThreadingInfo_Impl::GetCurrentLogicalThreadId(this) {
                     Ok(ok__) => {
-                        pguidlogicalthreadid.write(core::mem::transmute(ok__));
+                        pguidlogicalthreadid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4332,7 +4332,7 @@ impl IConnectionPoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConnectionPoint_Impl::GetConnectionInterface(this) {
                     Ok(ok__) => {
-                        piid.write(core::mem::transmute(ok__));
+                        piid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4356,7 +4356,7 @@ impl IConnectionPoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConnectionPoint_Impl::Advise(this, core::mem::transmute_copy(&punksink)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4673,7 +4673,7 @@ impl IDataAdviseHolder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataAdviseHolder_Impl::Advise(this, core::mem::transmute_copy(&pdataobject), core::mem::transmute_copy(&pfetc), core::mem::transmute_copy(&advf), core::mem::transmute_copy(&padvise)) {
                     Ok(ok__) => {
-                        pdwconnection.write(core::mem::transmute(ok__));
+                        pdwconnection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4857,7 +4857,7 @@ impl IDataObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDataObject_Impl::DAdvise(this, core::mem::transmute_copy(&pformatetc), core::mem::transmute_copy(&advf), core::mem::transmute_copy(&padvsink)) {
                     Ok(ok__) => {
-                        pdwconnection.write(core::mem::transmute(ok__));
+                        pdwconnection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4951,7 +4951,7 @@ impl IDispatch_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDispatch_Impl::GetTypeInfoCount(this) {
                     Ok(ok__) => {
-                        pctinfo.write(core::mem::transmute(ok__));
+                        pctinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5312,7 +5312,7 @@ impl IEnumContextProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumContextProps_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcelt.write(core::mem::transmute(ok__));
+                        pcelt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5865,7 +5865,7 @@ impl IErrorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IErrorInfo_Impl::GetGUID(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5913,7 +5913,7 @@ impl IErrorInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IErrorInfo_Impl::GetHelpContext(this) {
                     Ok(ok__) => {
-                        pdwhelpcontext.write(core::mem::transmute(ok__));
+                        pdwhelpcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6101,7 +6101,7 @@ impl IGlobalInterfaceTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGlobalInterfaceTable_Impl::RegisterInterfaceInGlobal(this, core::mem::transmute_copy(&punk), core::mem::transmute_copy(&riid)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6169,7 +6169,7 @@ impl IGlobalOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGlobalOptions_Impl::Query(this, core::mem::transmute_copy(&dwproperty)) {
                     Ok(ok__) => {
-                        pdwvalue.write(core::mem::transmute(ok__));
+                        pdwvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6369,7 +6369,7 @@ impl IMachineGlobalObjectTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMachineGlobalObjectTable_Impl::RegisterObject(this, core::mem::transmute_copy(&clsid), core::mem::transmute(&identifier), core::mem::transmute_copy(&object)) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6889,7 +6889,7 @@ impl IMoniker_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMoniker_Impl::Hash(this) {
                     Ok(ok__) => {
-                        pdwhash.write(core::mem::transmute(ok__));
+                        pdwhash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6907,7 +6907,7 @@ impl IMoniker_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMoniker_Impl::GetTimeOfLastChange(this, core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pmktoleft)) {
                     Ok(ok__) => {
-                        pfiletime.write(core::mem::transmute(ok__));
+                        pfiletime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6955,7 +6955,7 @@ impl IMoniker_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMoniker_Impl::GetDisplayName(this, core::mem::transmute_copy(&pbc), core::mem::transmute_copy(&pmktoleft)) {
                     Ok(ok__) => {
-                        ppszdisplayname.write(core::mem::transmute(ok__));
+                        ppszdisplayname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6973,7 +6973,7 @@ impl IMoniker_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMoniker_Impl::IsSystemMoniker(this) {
                     Ok(ok__) => {
-                        pdwmksys.write(core::mem::transmute(ok__));
+                        pdwmksys.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7209,7 +7209,7 @@ impl IPackagedComSyntaxSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPackagedComSyntaxSupport_Impl::GetSupportedVersion(this) {
                     Ok(ok__) => {
-                        supportedversion.write(core::mem::transmute(ok__));
+                        supportedversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7249,7 +7249,7 @@ impl IPersist_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersist_Impl::GetClassID(this) {
                     Ok(ok__) => {
-                        pclassid.write(core::mem::transmute(ok__));
+                        pclassid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7348,7 +7348,7 @@ impl IPersistFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistFile_Impl::GetCurFile(this) {
                     Ok(ok__) => {
-                        ppszfilename.write(core::mem::transmute(ok__));
+                        ppszfilename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7439,7 +7439,7 @@ impl IPersistMemory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistMemory_Impl::GetSizeMax(this) {
                     Ok(ok__) => {
-                        pcbsize.write(core::mem::transmute(ok__));
+                        pcbsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7537,7 +7537,7 @@ impl IPersistStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistStream_Impl::GetSizeMax(this) {
                     Ok(ok__) => {
-                        pcbsize.write(core::mem::transmute(ok__));
+                        pcbsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7633,7 +7633,7 @@ impl IPersistStreamInit_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPersistStreamInit_Impl::GetSizeMax(this) {
                     Ok(ok__) => {
-                        pcbsize.write(core::mem::transmute(ok__));
+                        pcbsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8073,7 +8073,7 @@ impl IRpcChannelBuffer2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRpcChannelBuffer2_Impl::GetProtocolVersion(this) {
                     Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
+                        pdwversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8182,7 +8182,7 @@ impl IRpcChannelBuffer3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRpcChannelBuffer3_Impl::GetState(this, core::mem::transmute_copy(&pmsg)) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8245,7 +8245,7 @@ impl IRpcHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRpcHelper_Impl::GetDCOMProtocolVersion(this) {
                     Ok(ok__) => {
-                        pcomversion.write(core::mem::transmute(ok__));
+                        pcomversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8257,7 +8257,7 @@ impl IRpcHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRpcHelper_Impl::GetIIDFromOBJREF(this, core::mem::transmute_copy(&pobjref)) {
                     Ok(ok__) => {
-                        piid.write(core::mem::transmute(ok__));
+                        piid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8318,7 +8318,7 @@ impl IRpcOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRpcOptions_Impl::Query(this, core::mem::transmute_copy(&pprx), core::mem::transmute_copy(&dwproperty)) {
                     Ok(ok__) => {
-                        pdwvalue.write(core::mem::transmute(ok__));
+                        pdwvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8575,7 +8575,7 @@ impl IRunnableObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRunnableObject_Impl::GetRunningClass(this) {
                     Ok(ok__) => {
-                        lpclsid.write(core::mem::transmute(ok__));
+                        lpclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8698,7 +8698,7 @@ impl IRunningObjectTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRunningObjectTable_Impl::Register(this, core::mem::transmute_copy(&grfflags), core::mem::transmute_copy(&punkobject), core::mem::transmute_copy(&pmkobjectname)) {
                     Ok(ok__) => {
-                        pdwregister.write(core::mem::transmute(ok__));
+                        pdwregister.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8740,7 +8740,7 @@ impl IRunningObjectTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRunningObjectTable_Impl::GetTimeOfLastChange(this, core::mem::transmute_copy(&pmkobjectname)) {
                     Ok(ok__) => {
-                        pfiletime.write(core::mem::transmute(ok__));
+                        pfiletime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8948,7 +8948,7 @@ impl IStdMarshalInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStdMarshalInfo_Impl::GetClassForHandler(this, core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext)) {
                     Ok(ok__) => {
-                        pclsid.write(core::mem::transmute(ok__));
+                        pclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9372,7 +9372,7 @@ impl ISurrogateService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISurrogateService_Impl::Init(this, core::mem::transmute_copy(&rguidprocessid), core::mem::transmute_copy(&pprocesslock)) {
                     Ok(ok__) => {
-                        pfapplicationaware.write(core::mem::transmute(ok__));
+                        pfapplicationaware.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9596,7 +9596,7 @@ impl ISynchronizeHandle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISynchronizeHandle_Impl::GetHandle(this) {
                     Ok(ok__) => {
-                        ph.write(core::mem::transmute(ok__));
+                        ph.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9911,7 +9911,7 @@ impl ITypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetTypeAttr(this) {
                     Ok(ok__) => {
-                        pptypeattr.write(core::mem::transmute(ok__));
+                        pptypeattr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9935,7 +9935,7 @@ impl ITypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetFuncDesc(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppfuncdesc.write(core::mem::transmute(ok__));
+                        ppfuncdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9947,7 +9947,7 @@ impl ITypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetVarDesc(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppvardesc.write(core::mem::transmute(ok__));
+                        ppvardesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9965,7 +9965,7 @@ impl ITypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetRefTypeOfImplType(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        preftype.write(core::mem::transmute(ok__));
+                        preftype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9977,7 +9977,7 @@ impl ITypeInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo_Impl::GetImplTypeFlags(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pimpltypeflags.write(core::mem::transmute(ok__));
+                        pimpltypeflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10280,7 +10280,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetTypeKind(this) {
                     Ok(ok__) => {
-                        ptypekind.write(core::mem::transmute(ok__));
+                        ptypekind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10292,7 +10292,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetTypeFlags(this) {
                     Ok(ok__) => {
-                        ptypeflags.write(core::mem::transmute(ok__));
+                        ptypeflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10304,7 +10304,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetFuncIndexOfMemId(this, core::mem::transmute_copy(&memid), core::mem::transmute_copy(&invkind)) {
                     Ok(ok__) => {
-                        pfuncindex.write(core::mem::transmute(ok__));
+                        pfuncindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10316,7 +10316,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetVarIndexOfMemId(this, core::mem::transmute_copy(&memid)) {
                     Ok(ok__) => {
-                        pvarindex.write(core::mem::transmute(ok__));
+                        pvarindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10394,7 +10394,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetAllCustData(this) {
                     Ok(ok__) => {
-                        pcustdata.write(core::mem::transmute(ok__));
+                        pcustdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10406,7 +10406,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetAllFuncCustData(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pcustdata.write(core::mem::transmute(ok__));
+                        pcustdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10418,7 +10418,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetAllParamCustData(this, core::mem::transmute_copy(&indexfunc), core::mem::transmute_copy(&indexparam)) {
                     Ok(ok__) => {
-                        pcustdata.write(core::mem::transmute(ok__));
+                        pcustdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10430,7 +10430,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetAllVarCustData(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pcustdata.write(core::mem::transmute(ok__));
+                        pcustdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10442,7 +10442,7 @@ impl ITypeInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeInfo2_Impl::GetAllImplTypeCustData(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pcustdata.write(core::mem::transmute(ok__));
+                        pcustdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10577,7 +10577,7 @@ impl ITypeLib_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLib_Impl::GetTypeInfoType(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ptkind.write(core::mem::transmute(ok__));
+                        ptkind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10601,7 +10601,7 @@ impl ITypeLib_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLib_Impl::GetLibAttr(this) {
                     Ok(ok__) => {
-                        pptlibattr.write(core::mem::transmute(ok__));
+                        pptlibattr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10747,7 +10747,7 @@ impl ITypeLib2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLib2_Impl::GetAllCustData(this) {
                     Ok(ok__) => {
-                        pcustdata.write(core::mem::transmute(ok__));
+                        pcustdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10850,7 +10850,7 @@ impl ITypeLibRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLibRegistration_Impl::GetGuid(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10874,7 +10874,7 @@ impl ITypeLibRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLibRegistration_Impl::GetLcid(this) {
                     Ok(ok__) => {
-                        plcid.write(core::mem::transmute(ok__));
+                        plcid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10922,7 +10922,7 @@ impl ITypeLibRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITypeLibRegistration_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11228,7 +11228,7 @@ impl IUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUri_Impl::HasProperty(this, core::mem::transmute_copy(&uriprop)) {
                     Ok(ok__) => {
-                        pfhasproperty.write(core::mem::transmute(ok__));
+                        pfhasproperty.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11420,7 +11420,7 @@ impl IUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUri_Impl::GetHostType(this) {
                     Ok(ok__) => {
-                        pdwhosttype.write(core::mem::transmute(ok__));
+                        pdwhosttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11432,7 +11432,7 @@ impl IUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUri_Impl::GetPort(this) {
                     Ok(ok__) => {
-                        pdwport.write(core::mem::transmute(ok__));
+                        pdwport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11444,7 +11444,7 @@ impl IUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUri_Impl::GetScheme(this) {
                     Ok(ok__) => {
-                        pdwscheme.write(core::mem::transmute(ok__));
+                        pdwscheme.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11456,7 +11456,7 @@ impl IUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUri_Impl::GetZone(this) {
                     Ok(ok__) => {
-                        pdwzone.write(core::mem::transmute(ok__));
+                        pdwzone.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11468,7 +11468,7 @@ impl IUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUri_Impl::GetProperties(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11480,7 +11480,7 @@ impl IUri_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUri_Impl::IsEqual(this, core::mem::transmute_copy(&puri)) {
                     Ok(ok__) => {
-                        pfequal.write(core::mem::transmute(ok__));
+                        pfequal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11849,7 +11849,7 @@ impl IUriBuilder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUriBuilder_Impl::HasBeenModified(this) {
                     Ok(ok__) => {
-                        pfmodified.write(core::mem::transmute(ok__));
+                        pfmodified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

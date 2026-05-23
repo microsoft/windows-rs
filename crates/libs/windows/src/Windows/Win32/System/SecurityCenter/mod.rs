@@ -135,7 +135,7 @@ impl IWSCProductList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWSCProductList_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -266,7 +266,7 @@ impl IWscProduct_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct_Impl::ProductState(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -278,7 +278,7 @@ impl IWscProduct_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct_Impl::SignatureStatus(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -326,7 +326,7 @@ impl IWscProduct_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct_Impl::ProductIsDefault(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IWscProduct2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct2_Impl::AntivirusScanSubstatus(this) {
                     Ok(ok__) => {
-                        pestatus.write(core::mem::transmute(ok__));
+                        pestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -441,7 +441,7 @@ impl IWscProduct2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct2_Impl::AntivirusSettingsSubstatus(this) {
                     Ok(ok__) => {
-                        pestatus.write(core::mem::transmute(ok__));
+                        pestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl IWscProduct2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct2_Impl::AntivirusProtectionUpdateSubstatus(this) {
                     Ok(ok__) => {
-                        pestatus.write(core::mem::transmute(ok__));
+                        pestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -465,7 +465,7 @@ impl IWscProduct2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct2_Impl::FirewallDomainProfileSubstatus(this) {
                     Ok(ok__) => {
-                        pestatus.write(core::mem::transmute(ok__));
+                        pestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -477,7 +477,7 @@ impl IWscProduct2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct2_Impl::FirewallPrivateProfileSubstatus(this) {
                     Ok(ok__) => {
-                        pestatus.write(core::mem::transmute(ok__));
+                        pestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -489,7 +489,7 @@ impl IWscProduct2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct2_Impl::FirewallPublicProfileSubstatus(this) {
                     Ok(ok__) => {
-                        pestatus.write(core::mem::transmute(ok__));
+                        pestatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -551,7 +551,7 @@ impl IWscProduct3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWscProduct3_Impl::AntivirusDaysUntilExpired(this) {
                     Ok(ok__) => {
-                        pdwdays.write(core::mem::transmute(ok__));
+                        pdwdays.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

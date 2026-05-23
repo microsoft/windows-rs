@@ -60,7 +60,7 @@ impl ITpmVirtualSmartCardManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITpmVirtualSmartCardManager_Impl::DestroyVirtualSmartCard(this, core::mem::transmute(&pszinstanceid), core::mem::transmute_copy(&pstatuscallback)) {
                     Ok(ok__) => {
-                        pfneedreboot.write(core::mem::transmute(ok__));
+                        pfneedreboot.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl ITpmVirtualSmartCardManager3_Vtbl {
                     core::mem::transmute_copy(&pstatuscallback),
                 ) {
                     Ok(ok__) => {
-                        ppszinstanceid.write(core::mem::transmute(ok__));
+                        ppszinstanceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

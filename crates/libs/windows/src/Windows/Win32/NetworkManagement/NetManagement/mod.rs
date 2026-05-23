@@ -3031,7 +3031,7 @@ impl INetCfgBindingPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetCfgBindingPath_Impl::GetDepth(this) {
                     Ok(ok__) => {
-                        pcinterfaces.write(core::mem::transmute(ok__));
+                        pcinterfaces.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3336,7 +3336,7 @@ impl INetCfgComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetCfgComponent_Impl::GetCharacteristics(this) {
                     Ok(ok__) => {
-                        pdwcharacteristics.write(core::mem::transmute(ok__));
+                        pdwcharacteristics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3372,7 +3372,7 @@ impl INetCfgComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetCfgComponent_Impl::GetDeviceStatus(this) {
                     Ok(ok__) => {
-                        pulstatus.write(core::mem::transmute(ok__));
+                        pulstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3733,7 +3733,7 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetCfgComponentNotifyGlobal_Impl::GetSupportedNotifications(this) {
                     Ok(ok__) => {
-                        dwnotifications.write(core::mem::transmute(ok__));
+                        dwnotifications.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4276,7 +4276,7 @@ impl INetLanConnectionUiInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetLanConnectionUiInfo_Impl::GetDeviceGuid(this) {
                     Ok(ok__) => {
-                        pguid.write(core::mem::transmute(ok__));
+                        pguid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4415,7 +4415,7 @@ impl IProvisioningProfileWireless_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvisioningProfileWireless_Impl::CreateProfile(this, core::mem::transmute(&bstrxmlwirelessconfigprofile), core::mem::transmute(&bstrxmlconnectionconfigprofile), core::mem::transmute_copy(&padapterinstanceguid)) {
                     Ok(ok__) => {
-                        pulstatus.write(core::mem::transmute(ok__));
+                        pulstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
