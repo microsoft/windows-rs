@@ -21,6 +21,18 @@ where
 impl<T: RuntimeType + 'static> imp::CanInto<IUnknown> for IReference<T> {}
 impl<T: RuntimeType + 'static> imp::CanInto<IInspectable> for IReference<T> {}
 
+impl<T: RuntimeType + 'static> From<IReference<T>> for IInspectable {
+    fn from(value: IReference<T>) -> Self {
+        unsafe { core::mem::transmute(value) }
+    }
+}
+
+impl<T: RuntimeType + 'static> From<&IReference<T>> for &IInspectable {
+    fn from(value: &IReference<T>) -> Self {
+        unsafe { core::mem::transmute(value) }
+    }
+}
+
 unsafe impl<T: RuntimeType + 'static> Interface for IReference<T> {
     type Vtable = bindings::IReference_Vtbl<T>;
     const IID: GUID = GUID::from_signature(<Self as RuntimeType>::SIGNATURE);
