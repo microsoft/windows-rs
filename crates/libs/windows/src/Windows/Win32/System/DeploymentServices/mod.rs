@@ -662,7 +662,7 @@ impl IWdsTransportCacheable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportCacheable_Impl::Dirty(this) {
                     Ok(ok__) => {
-                        pbdirty.write(core::mem::transmute(ok__));
+                        pbdirty.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -837,7 +837,7 @@ impl IWdsTransportClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportClient_Impl::Id(this) {
                     Ok(ok__) => {
-                        pulid.write(core::mem::transmute(ok__));
+                        pulid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -885,7 +885,7 @@ impl IWdsTransportClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportClient_Impl::PercentCompletion(this) {
                     Ok(ok__) => {
-                        pulpercentcompletion.write(core::mem::transmute(ok__));
+                        pulpercentcompletion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -897,7 +897,7 @@ impl IWdsTransportClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportClient_Impl::JoinDuration(this) {
                     Ok(ok__) => {
-                        puljoinduration.write(core::mem::transmute(ok__));
+                        puljoinduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -909,7 +909,7 @@ impl IWdsTransportClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportClient_Impl::CpuUtilization(this) {
                     Ok(ok__) => {
-                        pulcpuutilization.write(core::mem::transmute(ok__));
+                        pulcpuutilization.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IWdsTransportClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportClient_Impl::MemoryUtilization(this) {
                     Ok(ok__) => {
-                        pulmemoryutilization.write(core::mem::transmute(ok__));
+                        pulmemoryutilization.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -933,7 +933,7 @@ impl IWdsTransportClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportClient_Impl::NetworkUtilization(this) {
                     Ok(ok__) => {
-                        pulnetworkutilization.write(core::mem::transmute(ok__));
+                        pulnetworkutilization.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1035,7 +1035,7 @@ impl IWdsTransportCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pulcount.write(core::mem::transmute(ok__));
+                        pulcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1188,7 +1188,7 @@ impl IWdsTransportConfigurationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportConfigurationManager_Impl::get_WdsTransportServicesRunning(this, core::mem::transmute_copy(&brealtimestatus)) {
                     Ok(ok__) => {
-                        pbservicesrunning.write(core::mem::transmute(ok__));
+                        pbservicesrunning.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1384,7 +1384,7 @@ impl IWdsTransportContent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportContent_Impl::Id(this) {
                     Ok(ok__) => {
-                        pulid.write(core::mem::transmute(ok__));
+                        pulid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1613,7 +1613,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportDiagnosticsPolicy_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pbenabled.write(core::mem::transmute(ok__));
+                        pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IWdsTransportDiagnosticsPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportDiagnosticsPolicy_Impl::Components(this) {
                     Ok(ok__) => {
-                        pulcomponents.write(core::mem::transmute(ok__));
+                        pulcomponents.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1795,7 +1795,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportMulticastSessionPolicy_Impl::SlowClientHandling(this) {
                     Ok(ok__) => {
-                        pslowclienthandling.write(core::mem::transmute(ok__));
+                        pslowclienthandling.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1813,7 +1813,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportMulticastSessionPolicy_Impl::AutoDisconnectThreshold(this) {
                     Ok(ok__) => {
-                        pulthreshold.write(core::mem::transmute(ok__));
+                        pulthreshold.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1831,7 +1831,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportMulticastSessionPolicy_Impl::MultistreamStreamCount(this) {
                     Ok(ok__) => {
-                        pulstreamcount.write(core::mem::transmute(ok__));
+                        pulstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1849,7 +1849,7 @@ impl IWdsTransportMulticastSessionPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportMulticastSessionPolicy_Impl::SlowClientFallback(this) {
                     Ok(ok__) => {
-                        pbclientfallback.write(core::mem::transmute(ok__));
+                        pbclientfallback.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2055,7 +2055,7 @@ impl IWdsTransportNamespace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespace_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2067,7 +2067,7 @@ impl IWdsTransportNamespace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespace_Impl::Id(this) {
                     Ok(ok__) => {
-                        pulid.write(core::mem::transmute(ok__));
+                        pulid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2169,7 +2169,7 @@ impl IWdsTransportNamespace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespace_Impl::Registered(this) {
                     Ok(ok__) => {
-                        pbregistered.write(core::mem::transmute(ok__));
+                        pbregistered.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl IWdsTransportNamespace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespace_Impl::Tombstoned(this) {
                     Ok(ok__) => {
-                        pbtombstoned.write(core::mem::transmute(ok__));
+                        pbtombstoned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2193,7 +2193,7 @@ impl IWdsTransportNamespace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespace_Impl::TombstoneTime(this) {
                     Ok(ok__) => {
-                        ptombstonetime.write(core::mem::transmute(ok__));
+                        ptombstonetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2205,7 +2205,7 @@ impl IWdsTransportNamespace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespace_Impl::TransmissionStarted(this) {
                     Ok(ok__) => {
-                        pbtransmissionstarted.write(core::mem::transmute(ok__));
+                        pbtransmissionstarted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2516,7 +2516,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespaceScheduledCastAutoStart_Impl::MinimumClients(this) {
                     Ok(ok__) => {
-                        pulminimumclients.write(core::mem::transmute(ok__));
+                        pulminimumclients.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2534,7 +2534,7 @@ impl IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportNamespaceScheduledCastAutoStart_Impl::StartTime(this) {
                     Ok(ok__) => {
-                        pstarttime.write(core::mem::transmute(ok__));
+                        pstarttime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2886,7 +2886,7 @@ impl IWdsTransportServicePolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportServicePolicy_Impl::get_IpAddressSource(this, core::mem::transmute_copy(&addresstype)) {
                     Ok(ok__) => {
-                        psourcetype.write(core::mem::transmute(ok__));
+                        psourcetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2940,7 +2940,7 @@ impl IWdsTransportServicePolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportServicePolicy_Impl::StartPort(this) {
                     Ok(ok__) => {
-                        pulstartport.write(core::mem::transmute(ok__));
+                        pulstartport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2958,7 +2958,7 @@ impl IWdsTransportServicePolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportServicePolicy_Impl::EndPort(this) {
                     Ok(ok__) => {
-                        pulendport.write(core::mem::transmute(ok__));
+                        pulendport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2976,7 +2976,7 @@ impl IWdsTransportServicePolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportServicePolicy_Impl::NetworkProfile(this) {
                     Ok(ok__) => {
-                        pprofiletype.write(core::mem::transmute(ok__));
+                        pprofiletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3081,7 +3081,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportServicePolicy2_Impl::UdpPortPolicy(this) {
                     Ok(ok__) => {
-                        pudpportpolicy.write(core::mem::transmute(ok__));
+                        pudpportpolicy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3099,7 +3099,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportServicePolicy2_Impl::TftpMaximumBlockSize(this) {
                     Ok(ok__) => {
-                        pultftpmaximumblocksize.write(core::mem::transmute(ok__));
+                        pultftpmaximumblocksize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3117,7 +3117,7 @@ impl IWdsTransportServicePolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportServicePolicy2_Impl::EnableTftpVariableWindowExtension(this) {
                     Ok(ok__) => {
-                        pbenabletftpvariablewindowextension.write(core::mem::transmute(ok__));
+                        pbenabletftpvariablewindowextension.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3250,7 +3250,7 @@ impl IWdsTransportSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportSession_Impl::Id(this) {
                     Ok(ok__) => {
-                        pulid.write(core::mem::transmute(ok__));
+                        pulid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3286,7 +3286,7 @@ impl IWdsTransportSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportSession_Impl::TransferRate(this) {
                     Ok(ok__) => {
-                        pultransferrate.write(core::mem::transmute(ok__));
+                        pultransferrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3298,7 +3298,7 @@ impl IWdsTransportSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportSession_Impl::MasterClientId(this) {
                     Ok(ok__) => {
-                        pulmasterclientid.write(core::mem::transmute(ok__));
+                        pulmasterclientid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3406,7 +3406,7 @@ impl IWdsTransportSetupManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportSetupManager_Impl::Version(this) {
                     Ok(ok__) => {
-                        pullversion.write(core::mem::transmute(ok__));
+                        pullversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3418,7 +3418,7 @@ impl IWdsTransportSetupManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportSetupManager_Impl::InstalledFeatures(this) {
                     Ok(ok__) => {
-                        pulinstalledfeatures.write(core::mem::transmute(ok__));
+                        pulinstalledfeatures.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3430,7 +3430,7 @@ impl IWdsTransportSetupManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportSetupManager_Impl::Protocols(this) {
                     Ok(ok__) => {
-                        pulprotocols.write(core::mem::transmute(ok__));
+                        pulprotocols.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3511,7 +3511,7 @@ impl IWdsTransportSetupManager2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportSetupManager2_Impl::TftpCapabilities(this) {
                     Ok(ok__) => {
-                        pultftpcapabilities.write(core::mem::transmute(ok__));
+                        pultftpcapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3653,7 +3653,7 @@ impl IWdsTransportTftpClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportTftpClient_Impl::Timeout(this) {
                     Ok(ok__) => {
-                        pultimeout.write(core::mem::transmute(ok__));
+                        pultimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3665,7 +3665,7 @@ impl IWdsTransportTftpClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportTftpClient_Impl::CurrentFileOffset(this) {
                     Ok(ok__) => {
-                        pul64currentoffset.write(core::mem::transmute(ok__));
+                        pul64currentoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3677,7 +3677,7 @@ impl IWdsTransportTftpClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportTftpClient_Impl::FileSize(this) {
                     Ok(ok__) => {
-                        pul64filesize.write(core::mem::transmute(ok__));
+                        pul64filesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3689,7 +3689,7 @@ impl IWdsTransportTftpClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportTftpClient_Impl::BlockSize(this) {
                     Ok(ok__) => {
-                        pulblocksize.write(core::mem::transmute(ok__));
+                        pulblocksize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3701,7 +3701,7 @@ impl IWdsTransportTftpClient_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWdsTransportTftpClient_Impl::WindowSize(this) {
                     Ok(ok__) => {
-                        pulwindowsize.write(core::mem::transmute(ok__));
+                        pulwindowsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

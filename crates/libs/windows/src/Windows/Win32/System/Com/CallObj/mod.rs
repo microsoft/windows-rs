@@ -280,7 +280,7 @@ impl ICallFrame_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICallFrame_Impl::GetParamInfo(this, core::mem::transmute_copy(&iparam)) {
                     Ok(ok__) => {
-                        pinfo.write(core::mem::transmute(ok__));
+                        pinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl ICallFrame_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICallFrame_Impl::GetMarshalSizeMax(this, core::mem::transmute_copy(&pmshlcontext), core::mem::transmute_copy(&mshlflags)) {
                     Ok(ok__) => {
-                        pcbbufferneeded.write(core::mem::transmute(ok__));
+                        pcbbufferneeded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl ICallFrame_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICallFrame_Impl::Unmarshal(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&cbbuffer), core::mem::transmute_copy(&datarep), core::mem::transmute_copy(&pcontext)) {
                     Ok(ok__) => {
-                        pcbunmarshalled.write(core::mem::transmute(ok__));
+                        pcbunmarshalled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl ICallIndirect_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICallIndirect_Impl::GetStackSize(this, core::mem::transmute_copy(&imethod)) {
                     Ok(ok__) => {
-                        cbargs.write(core::mem::transmute(ok__));
+                        cbargs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IInterfaceRelated_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInterfaceRelated_Impl::GetIID(this) {
                     Ok(ok__) => {
-                        piid.write(core::mem::transmute(ok__));
+                        piid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

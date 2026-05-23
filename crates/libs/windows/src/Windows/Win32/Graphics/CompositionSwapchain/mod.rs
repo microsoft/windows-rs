@@ -332,7 +332,7 @@ impl IPresentationBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPresentationBuffer_Impl::GetAvailableEvent(this) {
                     Ok(ok__) => {
-                        availableeventhandle.write(core::mem::transmute(ok__));
+                        availableeventhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -344,7 +344,7 @@ impl IPresentationBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPresentationBuffer_Impl::IsAvailable(this) {
                     Ok(ok__) => {
-                        isavailable.write(core::mem::transmute(ok__));
+                        isavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -650,7 +650,7 @@ impl IPresentationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPresentationManager_Impl::GetLostEvent(this) {
                     Ok(ok__) => {
-                        losteventhandle.write(core::mem::transmute(ok__));
+                        losteventhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -662,7 +662,7 @@ impl IPresentationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPresentationManager_Impl::GetPresentStatisticsAvailableEvent(this) {
                     Ok(ok__) => {
-                        presentstatisticsavailableeventhandle.write(core::mem::transmute(ok__));
+                        presentstatisticsavailableeventhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

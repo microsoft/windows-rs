@@ -1081,7 +1081,7 @@ impl IAlternativeName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAlternativeName_Impl::Type(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1226,7 +1226,7 @@ impl IAlternativeNames_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAlternativeNames_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1975,7 +1975,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::MyStoreFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2029,7 +2029,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::CAStoreFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2083,7 +2083,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::RootStoreFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2137,7 +2137,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::RequestStoreFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2191,7 +2191,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::ProviderType(this) {
                     Ok(ok__) => {
-                        pdwtype.write(core::mem::transmute(ok__));
+                        pdwtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2209,7 +2209,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::KeySpec(this) {
                     Ok(ok__) => {
-                        pdw.write(core::mem::transmute(ok__));
+                        pdw.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2227,7 +2227,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::ProviderFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2245,7 +2245,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::UseExistingKeySet(this) {
                     Ok(ok__) => {
-                        fuseexistingkeys.write(core::mem::transmute(ok__));
+                        fuseexistingkeys.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2263,7 +2263,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::GenKeyFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2281,7 +2281,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::DeleteRequestCert(this) {
                     Ok(ok__) => {
-                        fdelete.write(core::mem::transmute(ok__));
+                        fdelete.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2299,7 +2299,7 @@ impl ICEnroll_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll_Impl::WriteCertToCSP(this) {
                     Ok(ok__) => {
-                        fbool.write(core::mem::transmute(ok__));
+                        fbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2511,7 +2511,7 @@ impl ICEnroll2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll2_Impl::WriteCertToUserDS(this) {
                     Ok(ok__) => {
-                        fbool.write(core::mem::transmute(ok__));
+                        fbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2529,7 +2529,7 @@ impl ICEnroll2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll2_Impl::EnableT61DNEncoding(this) {
                     Ok(ok__) => {
-                        fbool.write(core::mem::transmute(ok__));
+                        fbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2695,7 +2695,7 @@ impl ICEnroll3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::GetSupportedKeySpec(this) {
                     Ok(ok__) => {
-                        pdwkeyspec.write(core::mem::transmute(ok__));
+                        pdwkeyspec.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2707,7 +2707,7 @@ impl ICEnroll3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::GetKeyLen(this, core::mem::transmute_copy(&fmin), core::mem::transmute_copy(&fexchange)) {
                     Ok(ok__) => {
-                        pdwkeysize.write(core::mem::transmute(ok__));
+                        pdwkeysize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2719,7 +2719,7 @@ impl ICEnroll3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::EnumAlgs(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&algclass)) {
                     Ok(ok__) => {
-                        pdwalgid.write(core::mem::transmute(ok__));
+                        pdwalgid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2749,7 +2749,7 @@ impl ICEnroll3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::ReuseHardwareKeyIfUnableToGenNew(this) {
                     Ok(ok__) => {
-                        freusehardwarekeyifunabletogennew.write(core::mem::transmute(ok__));
+                        freusehardwarekeyifunabletogennew.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2767,7 +2767,7 @@ impl ICEnroll3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::HashAlgID(this) {
                     Ok(ok__) => {
-                        hashalgid.write(core::mem::transmute(ok__));
+                        hashalgid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2785,7 +2785,7 @@ impl ICEnroll3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::LimitExchangeKeyToEncipherment(this) {
                     Ok(ok__) => {
-                        flimitexchangekeytoencipherment.write(core::mem::transmute(ok__));
+                        flimitexchangekeytoencipherment.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2803,7 +2803,7 @@ impl ICEnroll3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll3_Impl::EnableSMIMECapabilities(this) {
                     Ok(ok__) => {
-                        fenablesmimecapabilities.write(core::mem::transmute(ok__));
+                        fenablesmimecapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3262,7 +3262,7 @@ impl ICEnroll4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll4_Impl::GetKeyLenEx(this, core::mem::transmute_copy(&lsizespec), core::mem::transmute_copy(&lkeyspec)) {
                     Ok(ok__) => {
-                        pdwkeysize.write(core::mem::transmute(ok__));
+                        pdwkeysize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3274,7 +3274,7 @@ impl ICEnroll4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll4_Impl::InstallPKCS7Ex(this, core::mem::transmute(&pkcs7)) {
                     Ok(ok__) => {
-                        plcertinstalled.write(core::mem::transmute(ok__));
+                        plcertinstalled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3292,7 +3292,7 @@ impl ICEnroll4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll4_Impl::getProviderType(this, core::mem::transmute(&strprovname)) {
                     Ok(ok__) => {
-                        plprovtype.write(core::mem::transmute(ok__));
+                        plprovtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3316,7 +3316,7 @@ impl ICEnroll4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll4_Impl::ClientId(this) {
                     Ok(ok__) => {
-                        plclientid.write(core::mem::transmute(ok__));
+                        plclientid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3346,7 +3346,7 @@ impl ICEnroll4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICEnroll4_Impl::IncludeSubjectKeyID(this) {
                     Ok(ok__) => {
-                        pfinclude.write(core::mem::transmute(ok__));
+                        pfinclude.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3498,7 +3498,7 @@ impl ICertAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::IsValidCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strserialnumber)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3510,7 +3510,7 @@ impl ICertAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::GetRevocationReason(this) {
                     Ok(ok__) => {
-                        preason.write(core::mem::transmute(ok__));
+                        preason.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3546,7 +3546,7 @@ impl ICertAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::ResubmitRequest(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3576,7 +3576,7 @@ impl ICertAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin_Impl::ImportCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute(&strcertificate), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3750,7 +3750,7 @@ impl ICertAdmin2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::GetCAPropertyFlags(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
-                        ppropflags.write(core::mem::transmute(ok__));
+                        ppropflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3810,7 +3810,7 @@ impl ICertAdmin2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::GetMyRoles(this, core::mem::transmute(&strconfig)) {
                     Ok(ok__) => {
-                        proles.write(core::mem::transmute(ok__));
+                        proles.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3822,7 +3822,7 @@ impl ICertAdmin2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertAdmin2_Impl::DeleteRow(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&date), core::mem::transmute_copy(&table), core::mem::transmute_copy(&rowid)) {
                     Ok(ok__) => {
-                        pcdeleted.write(core::mem::transmute(ok__));
+                        pcdeleted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3913,7 +3913,7 @@ impl ICertConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertConfig_Impl::Reset(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3925,7 +3925,7 @@ impl ICertConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertConfig_Impl::Next(this) {
                     Ok(ok__) => {
-                        pindex.write(core::mem::transmute(ok__));
+                        pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4099,7 +4099,7 @@ impl ICertEncodeAltName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeAltName_Impl::GetNameCount(this) {
                     Ok(ok__) => {
-                        pnamecount.write(core::mem::transmute(ok__));
+                        pnamecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4111,7 +4111,7 @@ impl ICertEncodeAltName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeAltName_Impl::GetNameChoice(this, core::mem::transmute_copy(&nameindex)) {
                     Ok(ok__) => {
-                        pnamechoice.write(core::mem::transmute(ok__));
+                        pnamechoice.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4339,7 +4339,7 @@ impl ICertEncodeBitString_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeBitString_Impl::GetBitCount(this) {
                     Ok(ok__) => {
-                        pbitcount.write(core::mem::transmute(ok__));
+                        pbitcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4571,7 +4571,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeCRLDistInfo_Impl::GetDistPointCount(this) {
                     Ok(ok__) => {
-                        pdistpointcount.write(core::mem::transmute(ok__));
+                        pdistpointcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4583,7 +4583,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeCRLDistInfo_Impl::GetNameCount(this, core::mem::transmute_copy(&distpointindex)) {
                     Ok(ok__) => {
-                        pnamecount.write(core::mem::transmute(ok__));
+                        pnamecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4595,7 +4595,7 @@ impl ICertEncodeCRLDistInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeCRLDistInfo_Impl::GetNameChoice(this, core::mem::transmute_copy(&distpointindex), core::mem::transmute_copy(&nameindex)) {
                     Ok(ok__) => {
-                        pnamechoice.write(core::mem::transmute(ok__));
+                        pnamechoice.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4808,7 +4808,7 @@ impl ICertEncodeDateArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeDateArray_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4820,7 +4820,7 @@ impl ICertEncodeDateArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeDateArray_Impl::GetValue(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5012,7 +5012,7 @@ impl ICertEncodeLongArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeLongArray_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5024,7 +5024,7 @@ impl ICertEncodeLongArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeLongArray_Impl::GetValue(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5224,7 +5224,7 @@ impl ICertEncodeStringArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeStringArray_Impl::GetStringType(this) {
                     Ok(ok__) => {
-                        pstringtype.write(core::mem::transmute(ok__));
+                        pstringtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5236,7 +5236,7 @@ impl ICertEncodeStringArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertEncodeStringArray_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5417,7 +5417,7 @@ impl ICertExit_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertExit_Impl::Initialize(this, core::mem::transmute(&strconfig)) {
                     Ok(ok__) => {
-                        peventmask.write(core::mem::transmute(ok__));
+                        peventmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5715,7 +5715,7 @@ impl ICertPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPolicy_Impl::VerifyRequest(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&context), core::mem::transmute_copy(&bnewrequest), core::mem::transmute_copy(&flags)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5898,7 +5898,7 @@ impl ICertProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertProperties_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6042,7 +6042,7 @@ impl ICertProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertProperty_Impl::PropertyId(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6146,7 +6146,7 @@ impl ICertPropertyArchived_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyArchived_Impl::Archived(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6368,7 +6368,7 @@ impl ICertPropertyBackedUp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyBackedUp_Impl::BackedUpValue(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6380,7 +6380,7 @@ impl ICertPropertyBackedUp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyBackedUp_Impl::BackedUpTime(this) {
                     Ok(ok__) => {
-                        pdate.write(core::mem::transmute(ok__));
+                        pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6540,7 +6540,7 @@ impl ICertPropertyEnrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyEnrollment_Impl::RequestId(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6752,7 +6752,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyEnrollmentPolicyServer_Impl::GetPropertyFlags(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6764,7 +6764,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyEnrollmentPolicyServer_Impl::GetUrlFlags(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6776,7 +6776,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyEnrollmentPolicyServer_Impl::GetAuthentication(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6788,7 +6788,7 @@ impl ICertPropertyEnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertPropertyEnrollmentPolicyServer_Impl::GetEnrollmentServerAuthentication(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7269,7 +7269,7 @@ impl ICertRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest_Impl::Submit(this, core::mem::transmute_copy(&flags), core::mem::transmute(&strrequest), core::mem::transmute(&strattributes), core::mem::transmute(&strconfig)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7281,7 +7281,7 @@ impl ICertRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest_Impl::RetrievePending(this, core::mem::transmute_copy(&requestid), core::mem::transmute(&strconfig)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7293,7 +7293,7 @@ impl ICertRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest_Impl::GetLastStatus(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7305,7 +7305,7 @@ impl ICertRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest_Impl::GetRequestId(this) {
                     Ok(ok__) => {
-                        prequestid.write(core::mem::transmute(ok__));
+                        prequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7452,7 +7452,7 @@ impl ICertRequest2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest2_Impl::GetIssuedCertificate(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&requestid), core::mem::transmute(&strserialnumber)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7488,7 +7488,7 @@ impl ICertRequest2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest2_Impl::GetCAPropertyFlags(this, core::mem::transmute(&strconfig), core::mem::transmute_copy(&propid)) {
                     Ok(ok__) => {
-                        ppropflags.write(core::mem::transmute(ok__));
+                        ppropflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7613,7 +7613,7 @@ impl ICertRequest3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest3_Impl::GetIssuedCertificate2(this, core::mem::transmute(&strconfig), core::mem::transmute(&strrequestid), core::mem::transmute(&strserialnumber)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7625,7 +7625,7 @@ impl ICertRequest3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequest3_Impl::GetRefreshPolicy(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7698,7 +7698,7 @@ impl ICertRequestD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequestD_Impl::GetCACert(this, core::mem::transmute_copy(&fchain), core::mem::transmute(&pwszauthority)) {
                     Ok(ok__) => {
-                        pctbout.write(core::mem::transmute(ok__));
+                        pctbout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7790,7 +7790,7 @@ impl ICertRequestD2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertRequestD2_Impl::GetCAProperty(this, core::mem::transmute(&pwszauthority), core::mem::transmute_copy(&propid), core::mem::transmute_copy(&propindex), core::mem::transmute_copy(&proptype)) {
                     Ok(ok__) => {
-                        pctbpropertyvalue.write(core::mem::transmute(ok__));
+                        pctbpropertyvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8000,7 +8000,7 @@ impl ICertServerExit_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerExit_Impl::GetCertificateExtensionFlags(this) {
                     Ok(ok__) => {
-                        pextflags.write(core::mem::transmute(ok__));
+                        pextflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8279,7 +8279,7 @@ impl ICertServerPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertServerPolicy_Impl::GetCertificateExtensionFlags(this) {
                     Ok(ok__) => {
-                        pextflags.write(core::mem::transmute(ok__));
+                        pextflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8798,7 +8798,7 @@ impl ICertificatePolicies_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertificatePolicies_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9042,7 +9042,7 @@ impl ICertificationAuthorities_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICertificationAuthorities_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9385,7 +9385,7 @@ impl ICryptAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICryptAttributes_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9427,7 +9427,7 @@ impl ICryptAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICryptAttributes_Impl::get_IndexByObjectId(this, core::mem::transmute_copy(&pobjectid)) {
                     Ok(ok__) => {
-                        pindex.write(core::mem::transmute(ok__));
+                        pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9581,7 +9581,7 @@ impl ICspAlgorithm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithm_Impl::DefaultLength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9593,7 +9593,7 @@ impl ICspAlgorithm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithm_Impl::IncrementLength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9617,7 +9617,7 @@ impl ICspAlgorithm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithm_Impl::Valid(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9629,7 +9629,7 @@ impl ICspAlgorithm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithm_Impl::MaxLength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9641,7 +9641,7 @@ impl ICspAlgorithm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithm_Impl::MinLength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9665,7 +9665,7 @@ impl ICspAlgorithm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithm_Impl::Type(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9677,7 +9677,7 @@ impl ICspAlgorithm_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithm_Impl::Operations(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9808,7 +9808,7 @@ impl ICspAlgorithms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithms_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9862,7 +9862,7 @@ impl ICspAlgorithms_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspAlgorithms_Impl::get_IndexByObjectId(this, core::mem::transmute_copy(&pobjectid)) {
                     Ok(ok__) => {
-                        pindex.write(core::mem::transmute(ok__));
+                        pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10078,7 +10078,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::HasHardwareRandomNumberGenerator(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10090,7 +10090,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::IsHardwareDevice(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10102,7 +10102,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::IsRemovable(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10114,7 +10114,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::IsSoftwareDevice(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10126,7 +10126,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::Valid(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10138,7 +10138,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::MaxKeyContainerNameLength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10162,7 +10162,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::Type(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10174,7 +10174,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::Version(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10186,7 +10186,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::KeySpec(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10198,7 +10198,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::IsSmartCard(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10222,7 +10222,7 @@ impl ICspInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformation_Impl::LegacyCsp(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10407,7 +10407,7 @@ impl ICspInformations_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspInformations_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10623,7 +10623,7 @@ impl ICspStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspStatus_Impl::Ordinal(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10821,7 +10821,7 @@ impl ICspStatuses_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICspStatuses_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13223,7 +13223,7 @@ impl INDESPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDESPolicy_Impl::GenerateChallenge(this, core::mem::transmute(&pwsztemplate), core::mem::transmute(&pwszparams)) {
                     Ok(ok__) => {
-                        ppwszresponse.write(core::mem::transmute(ok__));
+                        ppwszresponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13235,7 +13235,7 @@ impl INDESPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INDESPolicy_Impl::VerifyRequest(this, core::mem::transmute_copy(&pctbrequest), core::mem::transmute_copy(&pctbsigningcertencoded), core::mem::transmute(&pwsztemplate), core::mem::transmute(&pwsztransactionid)) {
                     Ok(ok__) => {
-                        pfverified.write(core::mem::transmute(ok__));
+                        pfverified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13405,7 +13405,7 @@ impl IOCSPAdmin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPAdmin_Impl::GetMyRoles(this, core::mem::transmute(&bstrservername)) {
                     Ok(ok__) => {
-                        proles.write(core::mem::transmute(ok__));
+                        proles.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13746,7 +13746,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::SigningFlags(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13782,7 +13782,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::ReminderDuration(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13800,7 +13800,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::ErrorCode(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13824,7 +13824,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::KeySpec(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13872,7 +13872,7 @@ impl IOCSPCAConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfiguration_Impl::Modified(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14079,7 +14079,7 @@ impl IOCSPCAConfigurationCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPCAConfigurationCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14230,7 +14230,7 @@ impl IOCSPProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPProperty_Impl::Modified(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14384,7 +14384,7 @@ impl IOCSPPropertyCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IOCSPPropertyCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14558,7 +14558,7 @@ impl IObjectId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IObjectId_Impl::Name(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14718,7 +14718,7 @@ impl IObjectIds_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IObjectIds_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14876,7 +14876,7 @@ impl IPolicyQualifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPolicyQualifier_Impl::Type(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14995,7 +14995,7 @@ impl IPolicyQualifiers_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPolicyQualifiers_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15190,7 +15190,7 @@ impl ISignerCertificate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISignerCertificate_Impl::Silent(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15208,7 +15208,7 @@ impl ISignerCertificate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISignerCertificate_Impl::ParentWindow(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15374,7 +15374,7 @@ impl ISignerCertificates_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISignerCertificates_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15416,7 +15416,7 @@ impl ISignerCertificates_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISignerCertificates_Impl::Find(this, core::mem::transmute_copy(&psignercert)) {
                     Ok(ok__) => {
-                        pisignercert.write(core::mem::transmute(ok__));
+                        pisignercert.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15538,7 +15538,7 @@ impl ISmimeCapabilities_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISmimeCapabilities_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15678,7 +15678,7 @@ impl ISmimeCapability_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISmimeCapability_Impl::BitCount(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15998,7 +15998,7 @@ impl IX509AttributeArchiveKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509AttributeArchiveKey_Impl::EncryptionStrength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16186,7 +16186,7 @@ impl IX509AttributeClientId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509AttributeClientId_Impl::ClientId(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16322,7 +16322,7 @@ impl IX509AttributeCspProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509AttributeCspProvider_Impl::KeySpec(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16699,7 +16699,7 @@ impl IX509Attributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Attributes_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16983,7 +16983,7 @@ impl IX509CertificateRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequest_Impl::Type(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16995,7 +16995,7 @@ impl IX509CertificateRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequest_Impl::EnrollmentContext(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17007,7 +17007,7 @@ impl IX509CertificateRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequest_Impl::Silent(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17025,7 +17025,7 @@ impl IX509CertificateRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequest_Impl::ParentWindow(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17061,7 +17061,7 @@ impl IX509CertificateRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequest_Impl::SuppressDefaults(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17097,7 +17097,7 @@ impl IX509CertificateRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequest_Impl::ClientId(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17151,7 +17151,7 @@ impl IX509CertificateRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequest_Impl::AlternateSignatureAlgorithm(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17345,7 +17345,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCertificate_Impl::NotBefore(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17363,7 +17363,7 @@ impl IX509CertificateRequestCertificate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCertificate_Impl::NotAfter(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17762,7 +17762,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCmc_Impl::NullSigned(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17834,7 +17834,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCmc_Impl::TransactionId(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17882,7 +17882,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCmc_Impl::ArchivePrivateKey(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17936,7 +17936,7 @@ impl IX509CertificateRequestCmc_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestCmc_Impl::EncryptionStrength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18417,7 +18417,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10_Impl::IsSmartCard(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18465,7 +18465,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10_Impl::NullSigned(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18477,7 +18477,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10_Impl::ReuseKey(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18531,7 +18531,7 @@ impl IX509CertificateRequestPkcs10_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10_Impl::SmimeCapabilities(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18931,7 +18931,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10V3_Impl::AttestPrivateKey(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18985,7 +18985,7 @@ impl IX509CertificateRequestPkcs10V3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10V3_Impl::EncryptionStrength(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19106,7 +19106,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10V4_Impl::ClaimType(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19124,7 +19124,7 @@ impl IX509CertificateRequestPkcs10V4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRequestPkcs10V4_Impl::AttestPrivateKeyPreferred(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19716,7 +19716,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::ThisUpdate(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19734,7 +19734,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::NextUpdate(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19824,7 +19824,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::CAVersion(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19842,7 +19842,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::BaseCRL(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19854,7 +19854,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::NullSigned(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19884,7 +19884,7 @@ impl IX509CertificateRevocationList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationList_Impl::AlternateSignatureAlgorithm(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20087,7 +20087,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationListEntries_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20129,7 +20129,7 @@ impl IX509CertificateRevocationListEntries_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationListEntries_Impl::get_IndexBySerialNumber(this, core::mem::transmute_copy(&encoding), core::mem::transmute(&serialnumber)) {
                     Ok(ok__) => {
-                        pindex.write(core::mem::transmute(ok__));
+                        pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20259,7 +20259,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationListEntry_Impl::RevocationDate(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20271,7 +20271,7 @@ impl IX509CertificateRevocationListEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateRevocationListEntry_Impl::RevocationReason(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20612,7 +20612,7 @@ impl IX509CertificateTemplates_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509CertificateTemplates_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20813,7 +20813,7 @@ impl IX509EndorsementKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EndorsementKey_Impl::Length(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20825,7 +20825,7 @@ impl IX509EndorsementKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EndorsementKey_Impl::Opened(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20861,7 +20861,7 @@ impl IX509EndorsementKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EndorsementKey_Impl::GetCertificateCount(this, core::mem::transmute_copy(&manufactureronly)) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21170,7 +21170,7 @@ impl IX509Enrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Enrollment_Impl::Silent(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21188,7 +21188,7 @@ impl IX509Enrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Enrollment_Impl::ParentWindow(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21218,7 +21218,7 @@ impl IX509Enrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Enrollment_Impl::EnrollmentContext(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21302,7 +21302,7 @@ impl IX509Enrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Enrollment_Impl::RequestId(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21856,7 +21856,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetNextUpdateTime(this) {
                     Ok(ok__) => {
-                        pdate.write(core::mem::transmute(ok__));
+                        pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21868,7 +21868,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetLastUpdateTime(this) {
                     Ok(ok__) => {
-                        pdate.write(core::mem::transmute(ok__));
+                        pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21916,7 +21916,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetIsDefaultCEP(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21928,7 +21928,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetUseClientId(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21940,7 +21940,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetAllowUnTrustedCA(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21976,7 +21976,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::GetAuthFlags(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21994,7 +21994,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::QueryChanges(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22024,7 +22024,7 @@ impl IX509EnrollmentPolicyServer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentPolicyServer_Impl::Cost(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22204,7 +22204,7 @@ impl IX509EnrollmentStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentStatus_Impl::Selected(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22222,7 +22222,7 @@ impl IX509EnrollmentStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentStatus_Impl::Display(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22240,7 +22240,7 @@ impl IX509EnrollmentStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentStatus_Impl::Status(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22258,7 +22258,7 @@ impl IX509EnrollmentStatus_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509EnrollmentStatus_Impl::Error(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22457,7 +22457,7 @@ impl IX509Extension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Extension_Impl::Critical(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22719,7 +22719,7 @@ impl IX509ExtensionBasicConstraints_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509ExtensionBasicConstraints_Impl::IsCA(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22731,7 +22731,7 @@ impl IX509ExtensionBasicConstraints_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509ExtensionBasicConstraints_Impl::PathLenConstraint(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22981,7 +22981,7 @@ impl IX509ExtensionKeyUsage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509ExtensionKeyUsage_Impl::KeyUsage(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23342,7 +23342,7 @@ impl IX509ExtensionTemplate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509ExtensionTemplate_Impl::MajorVersion(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23354,7 +23354,7 @@ impl IX509ExtensionTemplate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509ExtensionTemplate_Impl::MinorVersion(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23561,7 +23561,7 @@ impl IX509Extensions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Extensions_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23603,7 +23603,7 @@ impl IX509Extensions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509Extensions_Impl::get_IndexByObjectId(this, core::mem::transmute_copy(&pobjectid)) {
                     Ok(ok__) => {
-                        pindex.write(core::mem::transmute(ok__));
+                        pindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23863,7 +23863,7 @@ impl IX509NameValuePairs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509NameValuePairs_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24006,7 +24006,7 @@ impl IX509PolicyServerListManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PolicyServerListManager_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24214,7 +24214,7 @@ impl IX509PolicyServerUrl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PolicyServerUrl_Impl::Default(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24232,7 +24232,7 @@ impl IX509PolicyServerUrl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PolicyServerUrl_Impl::Flags(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24250,7 +24250,7 @@ impl IX509PolicyServerUrl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PolicyServerUrl_Impl::AuthFlags(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24268,7 +24268,7 @@ impl IX509PolicyServerUrl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PolicyServerUrl_Impl::Cost(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24918,7 +24918,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::ProviderType(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24936,7 +24936,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::LegacyCsp(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24972,7 +24972,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::KeySpec(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24990,7 +24990,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::Length(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25008,7 +25008,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::ExportPolicy(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25026,7 +25026,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::KeyUsage(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25044,7 +25044,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::KeyProtection(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25062,7 +25062,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::MachineContext(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25128,7 +25128,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::Opened(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25140,7 +25140,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::DefaultContainer(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25152,7 +25152,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::Existing(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25170,7 +25170,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::Silent(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25188,7 +25188,7 @@ impl IX509PrivateKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey_Impl::ParentWindow(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25425,7 +25425,7 @@ impl IX509PrivateKey2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey2_Impl::HardwareKeyUsage(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25497,7 +25497,7 @@ impl IX509PrivateKey2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PrivateKey2_Impl::ParametersExportType(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25638,7 +25638,7 @@ impl IX509PublicKey_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509PublicKey_Impl::Length(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25935,7 +25935,7 @@ impl IX509SCEPEnrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SCEPEnrollment_Impl::ProcessResponseMessage(this, core::mem::transmute(&strresponse), core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25953,7 +25953,7 @@ impl IX509SCEPEnrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SCEPEnrollment_Impl::FailInfo(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26073,7 +26073,7 @@ impl IX509SCEPEnrollment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SCEPEnrollment_Impl::Silent(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26212,7 +26212,7 @@ impl IX509SCEPEnrollment2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SCEPEnrollment2_Impl::ProcessResponseMessage2(this, core::mem::transmute_copy(&flags), core::mem::transmute(&strresponse), core::mem::transmute_copy(&encoding)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26236,7 +26236,7 @@ impl IX509SCEPEnrollment2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SCEPEnrollment2_Impl::DelayRetry(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26365,7 +26365,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SCEPEnrollmentHelper_Impl::Enroll(this, core::mem::transmute_copy(&processflags)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26377,7 +26377,7 @@ impl IX509SCEPEnrollmentHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SCEPEnrollmentHelper_Impl::FetchPending(this, core::mem::transmute_copy(&processflags)) {
                     Ok(ok__) => {
-                        pdisposition.write(core::mem::transmute(ok__));
+                        pdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26601,7 +26601,7 @@ impl IX509SignatureInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SignatureInformation_Impl::AlternateSignatureAlgorithm(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26619,7 +26619,7 @@ impl IX509SignatureInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SignatureInformation_Impl::AlternateSignatureAlgorithmSet(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26631,7 +26631,7 @@ impl IX509SignatureInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IX509SignatureInformation_Impl::NullSigned(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -177,7 +177,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideWinSATAssessmentInfo_Impl::Score(this) {
                     Ok(ok__) => {
-                        score.write(core::mem::transmute(ok__));
+                        score.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -308,7 +308,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideWinSATResultsInfo_Impl::AssessmentState(this) {
                     Ok(ok__) => {
-                        state.write(core::mem::transmute(ok__));
+                        state.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -332,7 +332,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideWinSATResultsInfo_Impl::SystemRating(this) {
                     Ok(ok__) => {
-                        level.write(core::mem::transmute(ok__));
+                        level.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -398,7 +398,7 @@ impl IProvideWinSATVisuals_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProvideWinSATVisuals_Impl::get_Bitmap(this, core::mem::transmute_copy(&bitmapsize), core::mem::transmute_copy(&state), core::mem::transmute_copy(&rating)) {
                     Ok(ok__) => {
-                        pbitmap.write(core::mem::transmute(ok__));
+                        pbitmap.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -497,7 +497,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IQueryOEMWinSATCustomization_Impl::GetOEMPrePopulationInfo(this) {
                     Ok(ok__) => {
-                        state.write(core::mem::transmute(ok__));
+                        state.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

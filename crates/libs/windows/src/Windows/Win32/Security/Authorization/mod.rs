@@ -2217,7 +2217,7 @@ impl IAzApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplication_Impl::GenerateAudits(this) {
                     Ok(ok__) => {
-                        pbprop.write(core::mem::transmute(ok__));
+                        pbprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2235,7 +2235,7 @@ impl IAzApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplication_Impl::ApplyStoreSacl(this) {
                     Ok(ok__) => {
-                        pbprop.write(core::mem::transmute(ok__));
+                        pbprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2253,7 +2253,7 @@ impl IAzApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplication_Impl::Writable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2974,7 +2974,7 @@ impl IAzApplication3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplication3_Impl::ScopeExists(this, core::mem::transmute(&bstrscopename)) {
                     Ok(ok__) => {
-                        pbexist.write(core::mem::transmute(ok__));
+                        pbexist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3100,7 +3100,7 @@ impl IAzApplication3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplication3_Impl::BizRulesEnabled(this) {
                     Ok(ok__) => {
-                        pbenabled.write(core::mem::transmute(ok__));
+                        pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3474,7 +3474,7 @@ impl IAzApplicationGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplicationGroup_Impl::Type(this) {
                     Ok(ok__) => {
-                        plprop.write(core::mem::transmute(ok__));
+                        plprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3624,7 +3624,7 @@ impl IAzApplicationGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplicationGroup_Impl::Writable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3984,7 +3984,7 @@ impl IAzApplicationGroups_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplicationGroups_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4087,7 +4087,7 @@ impl IAzApplications_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzApplications_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4635,7 +4635,7 @@ impl IAzAuthorizationStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore_Impl::DomainTimeout(this) {
                     Ok(ok__) => {
-                        plprop.write(core::mem::transmute(ok__));
+                        plprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4653,7 +4653,7 @@ impl IAzAuthorizationStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore_Impl::ScriptEngineTimeout(this) {
                     Ok(ok__) => {
-                        plprop.write(core::mem::transmute(ok__));
+                        plprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4671,7 +4671,7 @@ impl IAzAuthorizationStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore_Impl::MaxScriptEngines(this) {
                     Ok(ok__) => {
-                        plprop.write(core::mem::transmute(ok__));
+                        plprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4689,7 +4689,7 @@ impl IAzAuthorizationStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore_Impl::GenerateAudits(this) {
                     Ok(ok__) => {
-                        pbprop.write(core::mem::transmute(ok__));
+                        pbprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4707,7 +4707,7 @@ impl IAzAuthorizationStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore_Impl::Writable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4941,7 +4941,7 @@ impl IAzAuthorizationStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore_Impl::ApplyStoreSacl(this) {
                     Ok(ok__) => {
-                        pbapplystoresacl.write(core::mem::transmute(ok__));
+                        pbapplystoresacl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5244,7 +5244,7 @@ impl IAzAuthorizationStore3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore3_Impl::IsUpdateNeeded(this) {
                     Ok(ok__) => {
-                        pbisupdateneeded.write(core::mem::transmute(ok__));
+                        pbisupdateneeded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5256,7 +5256,7 @@ impl IAzAuthorizationStore3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore3_Impl::BizruleGroupSupported(this) {
                     Ok(ok__) => {
-                        pbsupported.write(core::mem::transmute(ok__));
+                        pbsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5274,7 +5274,7 @@ impl IAzAuthorizationStore3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzAuthorizationStore3_Impl::IsFunctionalLevelUpgradeSupported(this, core::mem::transmute_copy(&lfunctionallevel)) {
                     Ok(ok__) => {
-                        pbsupported.write(core::mem::transmute(ok__));
+                        pbsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5514,7 +5514,7 @@ impl IAzBizRuleInterfaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzBizRuleInterfaces_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5652,7 +5652,7 @@ impl IAzBizRuleParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzBizRuleParameters_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6223,7 +6223,7 @@ impl IAzClientContext3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzClientContext3_Impl::AccessCheck2(this, core::mem::transmute(&bstrobjectname), core::mem::transmute(&bstrscopename), core::mem::transmute_copy(&loperation)) {
                     Ok(ok__) => {
-                        plresult.write(core::mem::transmute(ok__));
+                        plresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6235,7 +6235,7 @@ impl IAzClientContext3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzClientContext3_Impl::IsInRoleAssignment(this, core::mem::transmute(&bstrscopename), core::mem::transmute(&bstrrolename)) {
                     Ok(ok__) => {
-                        pbisinrole.write(core::mem::transmute(ok__));
+                        pbisinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6644,7 +6644,7 @@ impl IAzOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzOperation_Impl::OperationID(this) {
                     Ok(ok__) => {
-                        plprop.write(core::mem::transmute(ok__));
+                        plprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6662,7 +6662,7 @@ impl IAzOperation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzOperation_Impl::Writable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6840,7 +6840,7 @@ impl IAzOperations_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzOperations_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7328,7 +7328,7 @@ impl IAzRole_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzRole_Impl::Writable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7653,7 +7653,7 @@ impl IAzRoleAssignments_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzRoleAssignments_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7858,7 +7858,7 @@ impl IAzRoleDefinitions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzRoleDefinitions_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7961,7 +7961,7 @@ impl IAzRoles_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzRoles_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8432,7 +8432,7 @@ impl IAzScope_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzScope_Impl::Writable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8654,7 +8654,7 @@ impl IAzScope_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzScope_Impl::CanBeDelegated(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8666,7 +8666,7 @@ impl IAzScope_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzScope_Impl::BizrulesWritable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9026,7 +9026,7 @@ impl IAzScopes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzScopes_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9404,7 +9404,7 @@ impl IAzTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzTask_Impl::IsRoleDefinition(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9470,7 +9470,7 @@ impl IAzTask_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzTask_Impl::Writable(this) {
                     Ok(ok__) => {
-                        pfprop.write(core::mem::transmute(ok__));
+                        pfprop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9674,7 +9674,7 @@ impl IAzTasks_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAzTasks_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

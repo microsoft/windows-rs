@@ -5029,7 +5029,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::ProductID(this) {
                     Ok(ok__) => {
-                        pproductid.write(core::mem::transmute(ok__));
+                        pproductid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5041,7 +5041,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::InstanceID(this) {
                     Ok(ok__) => {
-                        pinstanceid.write(core::mem::transmute(ok__));
+                        pinstanceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5053,7 +5053,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::OfferID(this) {
                     Ok(ok__) => {
-                        pofferid.write(core::mem::transmute(ok__));
+                        pofferid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5083,7 +5083,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::NotificationState(this) {
                     Ok(ok__) => {
-                        pisnotified.write(core::mem::transmute(ok__));
+                        pisnotified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5095,7 +5095,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::AppInstallType(this) {
                     Ok(ok__) => {
-                        pappinstalltype.write(core::mem::transmute(ok__));
+                        pappinstalltype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5107,7 +5107,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5119,7 +5119,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsRevoked(this) {
                     Ok(ok__) => {
-                        pisrevoked.write(core::mem::transmute(ok__));
+                        pisrevoked.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5131,7 +5131,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::UpdateAvailable(this) {
                     Ok(ok__) => {
-                        pisupdateavailable.write(core::mem::transmute(ok__));
+                        pisupdateavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5143,7 +5143,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::InstallDate(this) {
                     Ok(ok__) => {
-                        pinstalldate.write(core::mem::transmute(ok__));
+                        pinstalldate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5155,7 +5155,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsUninstallable(this) {
                     Ok(ok__) => {
-                        pisuninstallable.write(core::mem::transmute(ok__));
+                        pisuninstallable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5167,7 +5167,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsThemable(this) {
                     Ok(ok__) => {
-                        pisthemable.write(core::mem::transmute(ok__));
+                        pisthemable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5179,7 +5179,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsTrial(this) {
                     Ok(ok__) => {
-                        pistrial.write(core::mem::transmute(ok__));
+                        pistrial.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5203,7 +5203,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::Genre(this) {
                     Ok(ok__) => {
-                        pgenre.write(core::mem::transmute(ok__));
+                        pgenre.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5245,7 +5245,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::AppPlatMajorVersion(this) {
                     Ok(ok__) => {
-                        pmajorver.write(core::mem::transmute(ok__));
+                        pmajorver.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5257,7 +5257,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::AppPlatMinorVersion(this) {
                     Ok(ok__) => {
-                        pminorver.write(core::mem::transmute(ok__));
+                        pminorver.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5269,7 +5269,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::PublisherID(this) {
                     Ok(ok__) => {
-                        ppublisherid.write(core::mem::transmute(ok__));
+                        ppublisherid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5281,7 +5281,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsMultiCore(this) {
                     Ok(ok__) => {
-                        pismulticore.write(core::mem::transmute(ok__));
+                        pismulticore.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5299,7 +5299,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::AppPlatMajorVersionLightUp(this) {
                     Ok(ok__) => {
-                        pmajorver.write(core::mem::transmute(ok__));
+                        pmajorver.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5311,7 +5311,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::AppPlatMinorVersionLightUp(this) {
                     Ok(ok__) => {
-                        pminorver.write(core::mem::transmute(ok__));
+                        pminorver.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5347,7 +5347,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsPinableOnKidZone(this) {
                     Ok(ok__) => {
-                        pispinable.write(core::mem::transmute(ok__));
+                        pispinable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5359,7 +5359,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsOriginallyPreInstalled(this) {
                     Ok(ok__) => {
-                        pispreinstalled.write(core::mem::transmute(ok__));
+                        pispreinstalled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5371,7 +5371,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsInstallOnSD(this) {
                     Ok(ok__) => {
-                        pisinstallonsd.write(core::mem::transmute(ok__));
+                        pisinstallonsd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5383,7 +5383,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsOptoutOnSD(this) {
                     Ok(ok__) => {
-                        pisoptoutonsd.write(core::mem::transmute(ok__));
+                        pisoptoutonsd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5395,7 +5395,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsOptoutBackupRestore(this) {
                     Ok(ok__) => {
-                        pisoptoutbackuprestore.write(core::mem::transmute(ok__));
+                        pisoptoutbackuprestore.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5419,7 +5419,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::EnterpriseDisabled(this) {
                     Ok(ok__) => {
-                        isdisabled.write(core::mem::transmute(ok__));
+                        isdisabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5431,7 +5431,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::EnterpriseUninstallable(this) {
                     Ok(ok__) => {
-                        isuninstallable.write(core::mem::transmute(ok__));
+                        isuninstallable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5443,7 +5443,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsVisibleOnAppList(this) {
                     Ok(ok__) => {
-                        pisvisible.write(core::mem::transmute(ok__));
+                        pisvisible.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5455,7 +5455,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsInboxApp(this) {
                     Ok(ok__) => {
-                        pisinboxapp.write(core::mem::transmute(ok__));
+                        pisinboxapp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5467,7 +5467,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::StorageID(this) {
                     Ok(ok__) => {
-                        pstorageid.write(core::mem::transmute(ok__));
+                        pstorageid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5485,7 +5485,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsMovable(this) {
                     Ok(ok__) => {
-                        pismovable.write(core::mem::transmute(ok__));
+                        pismovable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5497,7 +5497,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::DeploymentAppEnumerationHubFilter(this) {
                     Ok(ok__) => {
-                        hubtype.write(core::mem::transmute(ok__));
+                        hubtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5509,7 +5509,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::ModifiedDate(this) {
                     Ok(ok__) => {
-                        pmodifieddate.write(core::mem::transmute(ok__));
+                        pmodifieddate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5521,7 +5521,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsOriginallyRestored(this) {
                     Ok(ok__) => {
-                        pisrestored.write(core::mem::transmute(ok__));
+                        pisrestored.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5533,7 +5533,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::ShouldDeferMdilBind(this) {
                     Ok(ok__) => {
-                        pfdefermdilbind.write(core::mem::transmute(ok__));
+                        pfdefermdilbind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5545,7 +5545,7 @@ impl IPMApplicationInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMApplicationInfo_Impl::IsFullyPreInstall(this) {
                     Ok(ok__) => {
-                        pfisfullypreinstall.write(core::mem::transmute(ok__));
+                        pfisfullypreinstall.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5774,7 +5774,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundServiceAgentInfo_Impl::ProductID(this) {
                     Ok(ok__) => {
-                        pproductid.write(core::mem::transmute(ok__));
+                        pproductid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5792,7 +5792,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundServiceAgentInfo_Impl::BSAID(this) {
                     Ok(ok__) => {
-                        pbsaid.write(core::mem::transmute(ok__));
+                        pbsaid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5828,7 +5828,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundServiceAgentInfo_Impl::IsPeriodic(this) {
                     Ok(ok__) => {
-                        pisperiodic.write(core::mem::transmute(ok__));
+                        pisperiodic.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5840,7 +5840,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundServiceAgentInfo_Impl::IsScheduled(this) {
                     Ok(ok__) => {
-                        pisscheduled.write(core::mem::transmute(ok__));
+                        pisscheduled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5852,7 +5852,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundServiceAgentInfo_Impl::IsScheduleAllowed(this) {
                     Ok(ok__) => {
-                        pisscheduleallowed.write(core::mem::transmute(ok__));
+                        pisscheduleallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5870,7 +5870,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundServiceAgentInfo_Impl::IsLaunchOnBoot(this) {
                     Ok(ok__) => {
-                        plaunchonboot.write(core::mem::transmute(ok__));
+                        plaunchonboot.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6012,7 +6012,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundWorkerInfo_Impl::ProductID(this) {
                     Ok(ok__) => {
-                        pproductid.write(core::mem::transmute(ok__));
+                        pproductid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6036,7 +6036,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundWorkerInfo_Impl::MaxStartupLatency(this) {
                     Ok(ok__) => {
-                        pmaxstartuplatency.write(core::mem::transmute(ok__));
+                        pmaxstartuplatency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6048,7 +6048,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundWorkerInfo_Impl::ExpectedRuntime(this) {
                     Ok(ok__) => {
-                        pexpectedruntime.write(core::mem::transmute(ok__));
+                        pexpectedruntime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6060,7 +6060,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMBackgroundWorkerInfo_Impl::IsBootWorker(this) {
                     Ok(ok__) => {
-                        pisbootworker.write(core::mem::transmute(ok__));
+                        pisbootworker.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6501,7 +6501,7 @@ impl IPMDeploymentManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMDeploymentManager_Impl::SetApplicationsNeedMaintenance(this, core::mem::transmute_copy(&requiredmaintenanceoperations)) {
                     Ok(ok__) => {
-                        pcapplications.write(core::mem::transmute(ok__));
+                        pcapplications.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6519,7 +6519,7 @@ impl IPMDeploymentManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMDeploymentManager_Impl::EnterprisePolicyIsApplicationAllowed(this, core::mem::transmute(&productid), core::mem::transmute(&publishername)) {
                     Ok(ok__) => {
-                        pisallowed.write(core::mem::transmute(ok__));
+                        pisallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6979,7 +6979,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMExtensionCachedFileUpdaterInfo_Impl::SupportsUpdates(this) {
                     Ok(ok__) => {
-                        psupportsupdates.write(core::mem::transmute(ok__));
+                        psupportsupdates.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7167,7 +7167,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMExtensionFileOpenPickerInfo_Impl::SupportsAllFileTypes(this) {
                     Ok(ok__) => {
-                        psupportsalltypes.write(core::mem::transmute(ok__));
+                        psupportsalltypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7222,7 +7222,7 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMExtensionFileSavePickerInfo_Impl::SupportsAllFileTypes(this) {
                     Ok(ok__) => {
-                        psupportsalltypes.write(core::mem::transmute(ok__));
+                        psupportsalltypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7291,7 +7291,7 @@ impl IPMExtensionInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMExtensionInfo_Impl::SupplierPID(this) {
                     Ok(ok__) => {
-                        psupplierpid.write(core::mem::transmute(ok__));
+                        psupplierpid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7477,7 +7477,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMExtensionShareTargetInfo_Impl::SupportsAllFileTypes(this) {
                     Ok(ok__) => {
-                        psupportsalltypes.write(core::mem::transmute(ok__));
+                        psupportsalltypes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7664,7 +7664,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::ProductID(this) {
                     Ok(ok__) => {
-                        pproductid.write(core::mem::transmute(ok__));
+                        pproductid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7682,7 +7682,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::NextSchedule(this) {
                     Ok(ok__) => {
-                        pnextschedule.write(core::mem::transmute(ok__));
+                        pnextschedule.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7700,7 +7700,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::StartSchedule(this) {
                     Ok(ok__) => {
-                        pstartschedule.write(core::mem::transmute(ok__));
+                        pstartschedule.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7718,7 +7718,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::IntervalDuration(this) {
                     Ok(ok__) => {
-                        pintervalduration.write(core::mem::transmute(ok__));
+                        pintervalduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7736,7 +7736,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::RunForever(this) {
                     Ok(ok__) => {
-                        isrunforever.write(core::mem::transmute(ok__));
+                        isrunforever.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7754,7 +7754,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::MaxRunCount(this) {
                     Ok(ok__) => {
-                        pmaxruncount.write(core::mem::transmute(ok__));
+                        pmaxruncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7772,7 +7772,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::RunCount(this) {
                     Ok(ok__) => {
-                        pruncount.write(core::mem::transmute(ok__));
+                        pruncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7790,7 +7790,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::RecurrenceType(this) {
                     Ok(ok__) => {
-                        precurrencetype.write(core::mem::transmute(ok__));
+                        precurrencetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7832,7 +7832,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::AttemptCount(this) {
                     Ok(ok__) => {
-                        pattemptcount.write(core::mem::transmute(ok__));
+                        pattemptcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7850,7 +7850,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMLiveTileJobInfo_Impl::DownloadState(this) {
                     Ok(ok__) => {
-                        pdownloadstate.write(core::mem::transmute(ok__));
+                        pdownloadstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8095,7 +8095,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::ProductID(this) {
                     Ok(ok__) => {
-                        pproductid.write(core::mem::transmute(ok__));
+                        pproductid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8119,7 +8119,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::TaskTransition(this) {
                     Ok(ok__) => {
-                        ptasktransition.write(core::mem::transmute(ok__));
+                        ptasktransition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8131,7 +8131,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::RuntimeType(this) {
                     Ok(ok__) => {
-                        pruntimetype.write(core::mem::transmute(ok__));
+                        pruntimetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8143,7 +8143,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::ActivationPolicy(this) {
                     Ok(ok__) => {
-                        pactivationpolicy.write(core::mem::transmute(ok__));
+                        pactivationpolicy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8155,7 +8155,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::TaskType(this) {
                     Ok(ok__) => {
-                        ptasktype.write(core::mem::transmute(ok__));
+                        ptasktype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8197,7 +8197,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::IsSingleInstanceHost(this) {
                     Ok(ok__) => {
-                        pissingleinstancehost.write(core::mem::transmute(ok__));
+                        pissingleinstancehost.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8209,7 +8209,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::IsInteropEnabled(this) {
                     Ok(ok__) => {
-                        pisinteropenabled.write(core::mem::transmute(ok__));
+                        pisinteropenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8221,7 +8221,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::ApplicationState(this) {
                     Ok(ok__) => {
-                        papplicationstate.write(core::mem::transmute(ok__));
+                        papplicationstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8233,7 +8233,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::InstallType(this) {
                     Ok(ok__) => {
-                        pinstalltype.write(core::mem::transmute(ok__));
+                        pinstalltype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8251,7 +8251,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::BitsPerPixel(this) {
                     Ok(ok__) => {
-                        pbitsperpixel.write(core::mem::transmute(ok__));
+                        pbitsperpixel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8263,7 +8263,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::SuppressesDehydration(this) {
                     Ok(ok__) => {
-                        psuppressesdehydration.write(core::mem::transmute(ok__));
+                        psuppressesdehydration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8281,7 +8281,7 @@ impl IPMTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTaskInfo_Impl::IsOptedForExtendedMem(this) {
                     Ok(ok__) => {
-                        pisoptedin.write(core::mem::transmute(ok__));
+                        pisoptedin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8535,7 +8535,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::ProductID(this) {
                     Ok(ok__) => {
-                        pproductid.write(core::mem::transmute(ok__));
+                        pproductid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8553,7 +8553,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::TemplateType(this) {
                     Ok(ok__) => {
-                        ptemplatetype.write(core::mem::transmute(ok__));
+                        ptemplatetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8565,7 +8565,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::get_HubPinnedState(this, core::mem::transmute_copy(&hubtype)) {
                     Ok(ok__) => {
-                        ppinned.write(core::mem::transmute(ok__));
+                        ppinned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8577,7 +8577,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::get_HubPosition(this, core::mem::transmute_copy(&hubtype)) {
                     Ok(ok__) => {
-                        pposition.write(core::mem::transmute(ok__));
+                        pposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8589,7 +8589,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::IsNotified(this) {
                     Ok(ok__) => {
-                        pisnotified.write(core::mem::transmute(ok__));
+                        pisnotified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8601,7 +8601,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::IsDefault(this) {
                     Ok(ok__) => {
-                        pisdefault.write(core::mem::transmute(ok__));
+                        pisdefault.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8619,7 +8619,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::TileType(this) {
                     Ok(ok__) => {
-                        pstarttiletype.write(core::mem::transmute(ok__));
+                        pstarttiletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8631,7 +8631,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::IsThemable(this) {
                     Ok(ok__) => {
-                        pisthemable.write(core::mem::transmute(ok__));
+                        pisthemable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8673,7 +8673,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::get_HubTileSize(this, core::mem::transmute_copy(&hubtype)) {
                     Ok(ok__) => {
-                        psize.write(core::mem::transmute(ok__));
+                        psize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8721,7 +8721,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::IsRestoring(this) {
                     Ok(ok__) => {
-                        pisrestoring.write(core::mem::transmute(ok__));
+                        pisrestoring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8733,7 +8733,7 @@ impl IPMTileInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTileInfo_Impl::IsAutoRestoreDisabled(this) {
                     Ok(ok__) => {
-                        pisautorestoredisabled.write(core::mem::transmute(ok__));
+                        pisautorestoredisabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8901,7 +8901,7 @@ impl IPMTilePropertyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPMTilePropertyInfo_Impl::PropertyID(this) {
                     Ok(ok__) => {
-                        ppropid.write(core::mem::transmute(ok__));
+                        ppropid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

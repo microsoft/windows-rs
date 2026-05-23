@@ -11,7 +11,8 @@
     non_upper_case_globals,
     non_camel_case_types,
     dead_code,
-    clippy::all
+    clippy::upper_case_acronyms,
+    clippy::missing_transmute_annotations
 )]
 mod bindings;
 use bindings::{Foo, IFoo, IFooFactory, IFooFactory_Impl, IFoo_Impl};

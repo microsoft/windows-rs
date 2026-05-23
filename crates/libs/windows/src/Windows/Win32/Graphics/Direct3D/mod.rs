@@ -910,7 +910,7 @@ impl ID3DDestructionNotifier_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3DDestructionNotifier_Impl::RegisterDestructionCallback(this, core::mem::transmute_copy(&callbackfn), core::mem::transmute_copy(&pdata)) {
                     Ok(ok__) => {
-                        pcallbackid.write(core::mem::transmute(ok__));
+                        pcallbackid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1072,7 +1072,7 @@ impl ID3DShaderCacheApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3DShaderCacheApplication_Impl::GetExePath(this) {
                     Ok(ok__) => {
-                        pexepath.write(core::mem::transmute(ok__));
+                        pexepath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1126,7 +1126,7 @@ impl ID3DShaderCacheApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3DShaderCacheApplication_Impl::GetInstallerName(this) {
                     Ok(ok__) => {
-                        pinstallername.write(core::mem::transmute(ok__));
+                        pinstallername.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1205,7 +1205,7 @@ impl ID3DShaderCacheComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3DShaderCacheComponent_Impl::GetComponentName(this) {
                     Ok(ok__) => {
-                        pname.write(core::mem::transmute(ok__));
+                        pname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1217,7 +1217,7 @@ impl ID3DShaderCacheComponent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID3DShaderCacheComponent_Impl::GetStateObjectDatabasePath(this) {
                     Ok(ok__) => {
-                        ppath.write(core::mem::transmute(ok__));
+                        ppath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

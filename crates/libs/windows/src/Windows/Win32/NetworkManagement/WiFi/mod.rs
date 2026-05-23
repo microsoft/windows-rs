@@ -4294,7 +4294,7 @@ impl IDot11AdHocInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDot11AdHocInterface_Impl::GetFriendlyName(this) {
                     Ok(ok__) => {
-                        ppszname.write(core::mem::transmute(ok__));
+                        ppszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4712,7 +4712,7 @@ impl IDot11AdHocNetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDot11AdHocNetwork_Impl::GetSSID(this) {
                     Ok(ok__) => {
-                        ppszwssid.write(core::mem::transmute(ok__));
+                        ppszwssid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4730,7 +4730,7 @@ impl IDot11AdHocNetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDot11AdHocNetwork_Impl::GetProfileName(this) {
                     Ok(ok__) => {
-                        ppszwprofilename.write(core::mem::transmute(ok__));
+                        ppszwprofilename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

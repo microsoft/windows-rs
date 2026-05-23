@@ -203,7 +203,7 @@ impl IIsolatedProcessLauncher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsolatedProcessLauncher_Impl::GetContainerGuid(this) {
                     Ok(ok__) => {
-                        guid.write(core::mem::transmute(ok__));
+                        guid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -221,7 +221,7 @@ impl IIsolatedProcessLauncher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIsolatedProcessLauncher_Impl::IsContainerRunning(this) {
                     Ok(ok__) => {
-                        running.write(core::mem::transmute(ok__));
+                        running.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

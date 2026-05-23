@@ -255,7 +255,7 @@ impl IRDPSRAPIApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIApplication_Impl::Id(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -267,7 +267,7 @@ impl IRDPSRAPIApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIApplication_Impl::Shared(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -297,7 +297,7 @@ impl IRDPSRAPIApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIApplication_Impl::Flags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -404,7 +404,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIApplicationFilter_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -594,7 +594,7 @@ impl IRDPSRAPIAttendee_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIAttendee_Impl::Id(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -618,7 +618,7 @@ impl IRDPSRAPIAttendee_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIAttendee_Impl::ControlLevel(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -654,7 +654,7 @@ impl IRDPSRAPIAttendee_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIAttendee_Impl::Flags(this) {
                     Ok(ok__) => {
-                        plflags.write(core::mem::transmute(ok__));
+                        plflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -758,7 +758,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIAttendeeDisconnectInfo_Impl::Reason(this) {
                     Ok(ok__) => {
-                        preason.write(core::mem::transmute(ok__));
+                        preason.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -770,7 +770,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIAttendeeDisconnectInfo_Impl::Code(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -910,7 +910,7 @@ impl IRDPSRAPIAudioStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIAudioStream_Impl::Initialize(this) {
                     Ok(ok__) => {
-                        pnperiodinhundrednsintervals.write(core::mem::transmute(ok__));
+                        pnperiodinhundrednsintervals.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -990,7 +990,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIClipboardUseEvents_Impl::OnPasteFromClipboard(this, core::mem::transmute_copy(&clipboardformat), core::mem::transmute_copy(&pattendee)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1123,7 +1123,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIFrameBuffer_Impl::Width(this) {
                     Ok(ok__) => {
-                        plwidth.write(core::mem::transmute(ok__));
+                        plwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1135,7 +1135,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIFrameBuffer_Impl::Height(this) {
                     Ok(ok__) => {
-                        plheight.write(core::mem::transmute(ok__));
+                        plheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1147,7 +1147,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIFrameBuffer_Impl::Bpp(this) {
                     Ok(ok__) => {
-                        plbpp.write(core::mem::transmute(ok__));
+                        plbpp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1159,7 +1159,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIFrameBuffer_Impl::GetFrameBufferBits(this, core::mem::transmute_copy(&x), core::mem::transmute_copy(&y), core::mem::transmute_copy(&width), core::mem::transmute_copy(&heigth)) {
                     Ok(ok__) => {
-                        ppbits.write(core::mem::transmute(ok__));
+                        ppbits.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1297,7 +1297,7 @@ impl IRDPSRAPIInvitation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIInvitation_Impl::AttendeeLimit(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1315,7 +1315,7 @@ impl IRDPSRAPIInvitation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIInvitation_Impl::Revoked(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1436,7 +1436,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIInvitationManager_Impl::Count(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1754,7 +1754,7 @@ impl IRDPSRAPISharingSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPISharingSession_Impl::ColorDepth(this) {
                     Ok(ok__) => {
-                        pcolordepth.write(core::mem::transmute(ok__));
+                        pcolordepth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2033,7 +2033,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITcpConnectionInfo_Impl::Protocol(this) {
                     Ok(ok__) => {
-                        plprotocol.write(core::mem::transmute(ok__));
+                        plprotocol.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2045,7 +2045,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITcpConnectionInfo_Impl::LocalPort(this) {
                     Ok(ok__) => {
-                        plport.write(core::mem::transmute(ok__));
+                        plport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2069,7 +2069,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITcpConnectionInfo_Impl::PeerPort(this) {
                     Ok(ok__) => {
-                        plport.write(core::mem::transmute(ok__));
+                        plport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2307,7 +2307,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITransportStreamBuffer_Impl::Storage(this) {
                     Ok(ok__) => {
-                        ppbstorage.write(core::mem::transmute(ok__));
+                        ppbstorage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2319,7 +2319,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITransportStreamBuffer_Impl::StorageSize(this) {
                     Ok(ok__) => {
-                        plmaxstore.write(core::mem::transmute(ok__));
+                        plmaxstore.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2331,7 +2331,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITransportStreamBuffer_Impl::PayloadSize(this) {
                     Ok(ok__) => {
-                        plretval.write(core::mem::transmute(ok__));
+                        plretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2349,7 +2349,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITransportStreamBuffer_Impl::PayloadOffset(this) {
                     Ok(ok__) => {
-                        plretval.write(core::mem::transmute(ok__));
+                        plretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2367,7 +2367,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPITransportStreamBuffer_Impl::Flags(this) {
                     Ok(ok__) => {
-                        plflags.write(core::mem::transmute(ok__));
+                        plflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2678,7 +2678,7 @@ impl IRDPSRAPIViewer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIViewer_Impl::SmartSizing(this) {
                     Ok(ok__) => {
-                        pvbsmartsizing.write(core::mem::transmute(ok__));
+                        pvbsmartsizing.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2852,7 +2852,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIVirtualChannel_Impl::Flags(this) {
                     Ok(ok__) => {
-                        plflags.write(core::mem::transmute(ok__));
+                        plflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2864,7 +2864,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIVirtualChannel_Impl::Priority(this) {
                     Ok(ok__) => {
-                        ppriority.write(core::mem::transmute(ok__));
+                        ppriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3070,7 +3070,7 @@ impl IRDPSRAPIWindow_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIWindow_Impl::Id(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3094,7 +3094,7 @@ impl IRDPSRAPIWindow_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIWindow_Impl::Shared(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3130,7 +3130,7 @@ impl IRDPSRAPIWindow_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRDPSRAPIWindow_Impl::Flags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -1687,7 +1687,7 @@ impl IDXGIAdapter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter_Impl::GetDesc(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1699,7 +1699,7 @@ impl IDXGIAdapter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter_Impl::CheckInterfaceSupport(this, core::mem::transmute_copy(&interfacename)) {
                     Ok(ok__) => {
-                        pumdversion.write(core::mem::transmute(ok__));
+                        pumdversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1752,7 +1752,7 @@ impl IDXGIAdapter1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter1_Impl::GetDesc1(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1800,7 +1800,7 @@ impl IDXGIAdapter2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter2_Impl::GetDesc2(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1880,7 +1880,7 @@ impl IDXGIAdapter3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter3_Impl::RegisterHardwareContentProtectionTeardownStatusEvent(this, core::mem::transmute_copy(&hevent)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1910,7 +1910,7 @@ impl IDXGIAdapter3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter3_Impl::RegisterVideoMemoryBudgetChangeNotificationEvent(this, core::mem::transmute_copy(&hevent)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1972,7 +1972,7 @@ impl IDXGIAdapter4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter4_Impl::GetDesc3(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2184,7 +2184,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIDecodeSwapChain_Impl::GetSourceRect(this) {
                     Ok(ok__) => {
-                        prect.write(core::mem::transmute(ok__));
+                        prect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2196,7 +2196,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIDecodeSwapChain_Impl::GetTargetRect(this) {
                     Ok(ok__) => {
-                        prect.write(core::mem::transmute(ok__));
+                        prect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2332,7 +2332,7 @@ impl IDXGIDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIDevice_Impl::GetGPUThreadPriority(this) {
                     Ok(ok__) => {
-                        ppriority.write(core::mem::transmute(ok__));
+                        ppriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2401,7 +2401,7 @@ impl IDXGIDevice1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIDevice1_Impl::GetMaximumFrameLatency(this) {
                     Ok(ok__) => {
-                        pmaxlatency.write(core::mem::transmute(ok__));
+                        pmaxlatency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2770,7 +2770,7 @@ impl IDXGIFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory_Impl::GetWindowAssociation(this) {
                     Ok(ok__) => {
-                        pwindowhandle.write(core::mem::transmute(ok__));
+                        pwindowhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3038,7 +3038,7 @@ impl IDXGIFactory2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::GetSharedResourceAdapterLuid(this, core::mem::transmute_copy(&hresource)) {
                     Ok(ok__) => {
-                        pluid.write(core::mem::transmute(ok__));
+                        pluid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3050,7 +3050,7 @@ impl IDXGIFactory2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterStereoStatusWindow(this, core::mem::transmute_copy(&windowhandle), core::mem::transmute_copy(&wmsg)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3062,7 +3062,7 @@ impl IDXGIFactory2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterStereoStatusEvent(this, core::mem::transmute_copy(&hevent)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3080,7 +3080,7 @@ impl IDXGIFactory2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterOcclusionStatusWindow(this, core::mem::transmute_copy(&windowhandle), core::mem::transmute_copy(&wmsg)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3092,7 +3092,7 @@ impl IDXGIFactory2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterOcclusionStatusEvent(this, core::mem::transmute_copy(&hevent)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3374,7 +3374,7 @@ impl IDXGIFactory7_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory7_Impl::RegisterAdaptersChangedEvent(this, core::mem::transmute_copy(&hevent)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4229,7 +4229,7 @@ impl IDXGIOutput_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput_Impl::GetDesc(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4516,7 +4516,7 @@ impl IDXGIOutput3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput3_Impl::CheckOverlaySupport(this, core::mem::transmute_copy(&enumformat), core::mem::transmute_copy(&pconcerneddevice)) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4574,7 +4574,7 @@ impl IDXGIOutput4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput4_Impl::CheckOverlayColorSpaceSupport(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&colorspace), core::mem::transmute_copy(&pconcerneddevice)) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4695,7 +4695,7 @@ impl IDXGIOutput6_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput6_Impl::GetDesc1(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4707,7 +4707,7 @@ impl IDXGIOutput6_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput6_Impl::CheckHardwareCompositionSupport(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4835,7 +4835,7 @@ impl IDXGIOutputDuplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutputDuplication_Impl::MapDesktopSurface(this) {
                     Ok(ok__) => {
-                        plockedrect.write(core::mem::transmute(ok__));
+                        plockedrect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4927,7 +4927,7 @@ impl IDXGIResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIResource_Impl::GetSharedHandle(this) {
                     Ok(ok__) => {
-                        psharedhandle.write(core::mem::transmute(ok__));
+                        psharedhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4939,7 +4939,7 @@ impl IDXGIResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIResource_Impl::GetUsage(this) {
                     Ok(ok__) => {
-                        pusage.write(core::mem::transmute(ok__));
+                        pusage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4957,7 +4957,7 @@ impl IDXGIResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIResource_Impl::GetEvictionPriority(this) {
                     Ok(ok__) => {
-                        pevictionpriority.write(core::mem::transmute(ok__));
+                        pevictionpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5040,7 +5040,7 @@ impl IDXGIResource1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIResource1_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&dwaccess), core::mem::transmute(&lpname)) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5109,7 +5109,7 @@ impl IDXGISurface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISurface_Impl::GetDesc(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5186,7 +5186,7 @@ impl IDXGISurface1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISurface1_Impl::GetDC(this, core::mem::transmute_copy(&discard)) {
                     Ok(ok__) => {
-                        phdc.write(core::mem::transmute(ok__));
+                        phdc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5383,7 +5383,7 @@ impl IDXGISwapChain_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain_Impl::GetDesc(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5425,7 +5425,7 @@ impl IDXGISwapChain_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain_Impl::GetLastPresentCount(this) {
                     Ok(ok__) => {
-                        plastpresentcount.write(core::mem::transmute(ok__));
+                        plastpresentcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5573,7 +5573,7 @@ impl IDXGISwapChain1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain1_Impl::GetDesc1(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5585,7 +5585,7 @@ impl IDXGISwapChain1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain1_Impl::GetFullscreenDesc(this) {
                     Ok(ok__) => {
-                        pdesc.write(core::mem::transmute(ok__));
+                        pdesc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5597,7 +5597,7 @@ impl IDXGISwapChain1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain1_Impl::GetHwnd(this) {
                     Ok(ok__) => {
-                        phwnd.write(core::mem::transmute(ok__));
+                        phwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5645,7 +5645,7 @@ impl IDXGISwapChain1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain1_Impl::GetBackgroundColor(this) {
                     Ok(ok__) => {
-                        pcolor.write(core::mem::transmute(ok__));
+                        pcolor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5663,7 +5663,7 @@ impl IDXGISwapChain1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain1_Impl::GetRotation(this) {
                     Ok(ok__) => {
-                        protation.write(core::mem::transmute(ok__));
+                        protation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5775,7 +5775,7 @@ impl IDXGISwapChain2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain2_Impl::GetMaximumFrameLatency(this) {
                     Ok(ok__) => {
-                        pmaxlatency.write(core::mem::transmute(ok__));
+                        pmaxlatency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5886,7 +5886,7 @@ impl IDXGISwapChain3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain3_Impl::CheckColorSpaceSupport(this, core::mem::transmute_copy(&colorspace)) {
                     Ok(ok__) => {
-                        pcolorspacesupport.write(core::mem::transmute(ok__));
+                        pcolorspacesupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

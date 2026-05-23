@@ -1230,7 +1230,7 @@ impl IGPMBackup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMBackup_Impl::Timestamp(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1374,7 +1374,7 @@ impl IGPMBackupCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMBackupCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1606,7 +1606,7 @@ impl IGPMBackupDirEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMBackupDirEx_Impl::BackupType(this) {
                     Ok(ok__) => {
-                        pgpmbackuptype.write(core::mem::transmute(ok__));
+                        pgpmbackuptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1714,7 +1714,7 @@ impl IGPMCSECollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMCSECollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1845,7 +1845,7 @@ impl IGPMClientSideExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMClientSideExtension_Impl::IsUserEnabled(this) {
                     Ok(ok__) => {
-                        pvbenabled.write(core::mem::transmute(ok__));
+                        pvbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1857,7 +1857,7 @@ impl IGPMClientSideExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMClientSideExtension_Impl::IsComputerEnabled(this) {
                     Ok(ok__) => {
-                        pvbenabled.write(core::mem::transmute(ok__));
+                        pvbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2389,7 +2389,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermGPOApply(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2401,7 +2401,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermGPORead(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2413,7 +2413,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermGPOEdit(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2425,7 +2425,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermGPOEditSecurityAndDelete(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2437,7 +2437,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermGPOCustom(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2449,7 +2449,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermWMIFilterEdit(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2461,7 +2461,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermWMIFilterFullControl(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2473,7 +2473,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermWMIFilterCustom(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2485,7 +2485,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermSOMLink(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2497,7 +2497,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermSOMLogging(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2509,7 +2509,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermSOMPlanning(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2521,7 +2521,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermSOMGPOCreate(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2533,7 +2533,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermSOMWMICreate(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2545,7 +2545,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::PermSOMWMIFullControl(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2557,7 +2557,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPOPermissions(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2569,7 +2569,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPOEffectivePermissions(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2581,7 +2581,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPODisplayName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2593,7 +2593,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPOWMIFilter(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2605,7 +2605,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPOID(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2617,7 +2617,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPOComputerExtensions(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2629,7 +2629,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPOUserExtensions(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2641,7 +2641,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertySOMLinks(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2653,7 +2653,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyGPODomain(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2665,7 +2665,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchPropertyBackupMostRecent(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2677,7 +2677,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchOpEquals(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2689,7 +2689,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchOpContains(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchOpNotContains(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2713,7 +2713,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SearchOpNotEquals(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2725,7 +2725,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::UsePDC(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2737,7 +2737,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::UseAnyDC(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2749,7 +2749,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::DoNotUseW2KDC(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2761,7 +2761,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SOMSite(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2773,7 +2773,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SOMDomain(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2785,7 +2785,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::SOMOU(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2797,7 +2797,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::get_SecurityFlags(this, core::mem::transmute_copy(&vbowner), core::mem::transmute_copy(&vbgroup), core::mem::transmute_copy(&vbdacl), core::mem::transmute_copy(&vbsacl)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2809,7 +2809,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::DoNotValidateDC(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2821,7 +2821,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::ReportHTML(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2833,7 +2833,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::ReportXML(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2845,7 +2845,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RSOPModeUnknown(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2857,7 +2857,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RSOPModePlanning(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2869,7 +2869,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RSOPModeLogging(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2881,7 +2881,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::EntryTypeUser(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2893,7 +2893,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::EntryTypeComputer(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2905,7 +2905,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::EntryTypeLocalGroup(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2917,7 +2917,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::EntryTypeGlobalGroup(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2929,7 +2929,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::EntryTypeUniversalGroup(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2941,7 +2941,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::EntryTypeUNCPath(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2953,7 +2953,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::EntryTypeUnknown(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2965,7 +2965,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::DestinationOptionSameAsSource(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2977,7 +2977,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::DestinationOptionNone(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2989,7 +2989,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::DestinationOptionByRelativeName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3001,7 +3001,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::DestinationOptionSet(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3013,7 +3013,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::MigrationTableOnly(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3025,7 +3025,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::ProcessSecurity(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3037,7 +3037,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RsopLoggingNoComputer(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3049,7 +3049,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RsopLoggingNoUser(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3061,7 +3061,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RsopPlanningAssumeSlowLink(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3073,7 +3073,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::get_RsopPlanningLoopbackOption(this, core::mem::transmute_copy(&vbmerge)) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3085,7 +3085,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RsopPlanningAssumeUserWQLFilterTrue(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3097,7 +3097,7 @@ impl IGPMConstants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants_Impl::RsopPlanningAssumeCompWQLFilterTrue(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3325,7 +3325,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::BackupTypeGPO(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3337,7 +3337,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::BackupTypeStarterGPO(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3349,7 +3349,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::StarterGPOTypeSystem(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3361,7 +3361,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::StarterGPOTypeCustom(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3373,7 +3373,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::SearchPropertyStarterGPOPermissions(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3385,7 +3385,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::SearchPropertyStarterGPOEffectivePermissions(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3397,7 +3397,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::SearchPropertyStarterGPODisplayName(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3409,7 +3409,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::SearchPropertyStarterGPOID(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3421,7 +3421,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::SearchPropertyStarterGPODomain(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3433,7 +3433,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::PermStarterGPORead(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3445,7 +3445,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::PermStarterGPOEdit(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3457,7 +3457,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::PermStarterGPOFullControl(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3469,7 +3469,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::PermStarterGPOCustom(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3481,7 +3481,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::ReportLegacy(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3493,7 +3493,7 @@ impl IGPMConstants2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMConstants2_Impl::ReportComments(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4396,7 +4396,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::CreationTime(this) {
                     Ok(ok__) => {
-                        pdate.write(core::mem::transmute(ok__));
+                        pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4408,7 +4408,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::ModificationTime(this) {
                     Ok(ok__) => {
-                        pdate.write(core::mem::transmute(ok__));
+                        pdate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4420,7 +4420,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::UserDSVersionNumber(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4432,7 +4432,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::ComputerDSVersionNumber(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4444,7 +4444,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::UserSysvolVersionNumber(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4456,7 +4456,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::ComputerSysvolVersionNumber(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4498,7 +4498,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::IsUserEnabled(this) {
                     Ok(ok__) => {
-                        pvbenabled.write(core::mem::transmute(ok__));
+                        pvbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4510,7 +4510,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::IsComputerEnabled(this) {
                     Ok(ok__) => {
-                        pvbenabled.write(core::mem::transmute(ok__));
+                        pvbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4624,7 +4624,7 @@ impl IGPMGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPO_Impl::IsACLConsistent(this) {
                     Ok(ok__) => {
-                        pvbconsistent.write(core::mem::transmute(ok__));
+                        pvbconsistent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4889,7 +4889,7 @@ impl IGPMGPOCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPOCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5051,7 +5051,7 @@ impl IGPMGPOLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPOLink_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5069,7 +5069,7 @@ impl IGPMGPOLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPOLink_Impl::Enforced(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5087,7 +5087,7 @@ impl IGPMGPOLink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPOLink_Impl::SOMLinkOrder(this) {
                     Ok(ok__) => {
-                        lval.write(core::mem::transmute(ok__));
+                        lval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5194,7 +5194,7 @@ impl IGPMGPOLinksCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMGPOLinksCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5325,7 +5325,7 @@ impl IGPMMapEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMMapEntry_Impl::DestinationOption(this) {
                     Ok(ok__) => {
-                        pgpmdestoption.write(core::mem::transmute(ok__));
+                        pgpmdestoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5337,7 +5337,7 @@ impl IGPMMapEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMMapEntry_Impl::EntryType(this) {
                     Ok(ok__) => {
-                        pgpmentrytype.write(core::mem::transmute(ok__));
+                        pgpmentrytype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5421,7 +5421,7 @@ impl IGPMMapEntryCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMMapEntryCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5725,7 +5725,7 @@ impl IGPMPermission_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMPermission_Impl::Inherited(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5737,7 +5737,7 @@ impl IGPMPermission_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMPermission_Impl::Inheritable(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5749,7 +5749,7 @@ impl IGPMPermission_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMPermission_Impl::Denied(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5761,7 +5761,7 @@ impl IGPMPermission_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMPermission_Impl::Permission(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6098,7 +6098,7 @@ impl IGPMRSOP_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMRSOP_Impl::Mode(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6164,7 +6164,7 @@ impl IGPMRSOP_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMRSOP_Impl::LoggingFlags(this) {
                     Ok(ok__) => {
-                        lval.write(core::mem::transmute(ok__));
+                        lval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6182,7 +6182,7 @@ impl IGPMRSOP_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMRSOP_Impl::PlanningFlags(this) {
                     Ok(ok__) => {
-                        lval.write(core::mem::transmute(ok__));
+                        lval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6667,7 +6667,7 @@ impl IGPMSOM_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMSOM_Impl::GPOInheritanceBlocked(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6721,7 +6721,7 @@ impl IGPMSOM_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMSOM_Impl::Type(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6853,7 +6853,7 @@ impl IGPMSOMCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMSOMCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7030,7 +7030,7 @@ impl IGPMSecurityInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMSecurityInfo_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7505,7 +7505,7 @@ impl IGPMStarterGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPO_Impl::CreationTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7529,7 +7529,7 @@ impl IGPMStarterGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPO_Impl::ModifiedTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7541,7 +7541,7 @@ impl IGPMStarterGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPO_Impl::Type(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7553,7 +7553,7 @@ impl IGPMStarterGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPO_Impl::ComputerVersion(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7565,7 +7565,7 @@ impl IGPMStarterGPO_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPO_Impl::UserVersion(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7891,7 +7891,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPOBackup_Impl::Timestamp(this) {
                     Ok(ok__) => {
-                        ptimestamp.write(core::mem::transmute(ok__));
+                        ptimestamp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7903,7 +7903,7 @@ impl IGPMStarterGPOBackup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPOBackup_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8024,7 +8024,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPOBackupCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8131,7 +8131,7 @@ impl IGPMStarterGPOCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStarterGPOCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8382,7 +8382,7 @@ impl IGPMStatusMsgCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMStatusMsgCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8545,7 +8545,7 @@ impl IGPMTrustee_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMTrustee_Impl::TrusteeType(this) {
                     Ok(ok__) => {
-                        lval.write(core::mem::transmute(ok__));
+                        lval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8814,7 +8814,7 @@ impl IGPMWMIFilterCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGPMWMIFilterCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9212,7 +9212,7 @@ impl IRSOPInformation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRSOPInformation_Impl::GetEventLogEntryText(this, core::mem::transmute(&pszeventsource), core::mem::transmute(&pszeventlogname), core::mem::transmute(&pszeventtime), core::mem::transmute_copy(&dweventid)) {
                     Ok(ok__) => {
-                        ppsztext.write(core::mem::transmute(ok__));
+                        ppsztext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

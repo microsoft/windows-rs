@@ -381,7 +381,7 @@ impl INetDiagHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetDiagHelper_Impl::GetDiagnosticsInfo(this) {
                     Ok(ok__) => {
-                        ppinfo.write(core::mem::transmute(ok__));
+                        ppinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl INetDiagHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetDiagHelper_Impl::GetLifeTime(this) {
                     Ok(ok__) => {
-                        plifetime.write(core::mem::transmute(ok__));
+                        plifetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl INetDiagHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetDiagHelper_Impl::GetCacheTime(this) {
                     Ok(ok__) => {
-                        pcachetime.write(core::mem::transmute(ok__));
+                        pcachetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

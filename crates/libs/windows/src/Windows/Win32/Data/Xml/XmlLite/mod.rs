@@ -241,7 +241,7 @@ impl IXmlReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlReader_Impl::GetProperty(this, core::mem::transmute_copy(&nproperty)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IXmlReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlReader_Impl::GetNodeType(this) {
                     Ok(ok__) => {
-                        pnodetype.write(core::mem::transmute(ok__));
+                        pnodetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -355,7 +355,7 @@ impl IXmlReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlReader_Impl::GetLineNumber(this) {
                     Ok(ok__) => {
-                        pnlinenumber.write(core::mem::transmute(ok__));
+                        pnlinenumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -367,7 +367,7 @@ impl IXmlReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlReader_Impl::GetLinePosition(this) {
                     Ok(ok__) => {
-                        pnlineposition.write(core::mem::transmute(ok__));
+                        pnlineposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -379,7 +379,7 @@ impl IXmlReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlReader_Impl::GetAttributeCount(this) {
                     Ok(ok__) => {
-                        pnattributecount.write(core::mem::transmute(ok__));
+                        pnattributecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -391,7 +391,7 @@ impl IXmlReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlReader_Impl::GetDepth(this) {
                     Ok(ok__) => {
-                        pndepth.write(core::mem::transmute(ok__));
+                        pndepth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -720,7 +720,7 @@ impl IXmlWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlWriter_Impl::GetProperty(this, core::mem::transmute_copy(&nproperty)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1143,7 +1143,7 @@ impl IXmlWriterLite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXmlWriterLite_Impl::GetProperty(this, core::mem::transmute_copy(&nproperty)) {
                     Ok(ok__) => {
-                        ppvalue.write(core::mem::transmute(ok__));
+                        ppvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

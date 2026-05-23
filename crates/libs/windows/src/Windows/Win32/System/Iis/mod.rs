@@ -124,7 +124,7 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIFtpAuthorizationProvider_Impl::Finish_GetUserAccessPermission(this) {
                     Ok(ok__) => {
-                        pftpaccess.write(core::mem::transmute(ok__));
+                        pftpaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -184,7 +184,7 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIFtpHomeDirectoryProvider_Impl::Finish_GetUserHomeDirectoryData(this) {
                     Ok(ok__) => {
-                        ppszhomedirectorydata.write(core::mem::transmute(ok__));
+                        ppszhomedirectorydata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIFtpPostprocessProvider_Impl::Finish_HandlePostprocess(this) {
                     Ok(ok__) => {
-                        pftpprocessstatus.write(core::mem::transmute(ok__));
+                        pftpprocessstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIFtpPreprocessProvider_Impl::Finish_HandlePreprocess(this) {
                     Ok(ok__) => {
-                        pftpprocessstatus.write(core::mem::transmute(ok__));
+                        pftpprocessstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -401,7 +401,7 @@ impl AsyncIFtpRoleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIFtpRoleProvider_Impl::Finish_IsUserInRole(this) {
                     Ok(ok__) => {
-                        pfisinrole.write(core::mem::transmute(ok__));
+                        pfisinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IFtpAuthorizationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFtpAuthorizationProvider_Impl::GetUserAccessPermission(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszvirtualpath), core::mem::transmute(&pszusername)) {
                     Ok(ok__) => {
-                        pftpaccess.write(core::mem::transmute(ok__));
+                        pftpaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1215,7 +1215,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFtpHomeDirectoryProvider_Impl::GetUserHomeDirectoryData(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername)) {
                     Ok(ok__) => {
-                        ppszhomedirectorydata.write(core::mem::transmute(ok__));
+                        ppszhomedirectorydata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1286,7 +1286,7 @@ impl IFtpPostprocessProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFtpPostprocessProvider_Impl::HandlePostprocess(this, core::mem::transmute_copy(&ppostprocessparameters)) {
                     Ok(ok__) => {
-                        pftpprocessstatus.write(core::mem::transmute(ok__));
+                        pftpprocessstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1326,7 +1326,7 @@ impl IFtpPreprocessProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFtpPreprocessProvider_Impl::HandlePreprocess(this, core::mem::transmute_copy(&ppreprocessparameters)) {
                     Ok(ok__) => {
-                        pftpprocessstatus.write(core::mem::transmute(ok__));
+                        pftpprocessstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1410,7 +1410,7 @@ impl IFtpRoleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFtpRoleProvider_Impl::IsUserInRole(this, core::mem::transmute(&pszsessionid), core::mem::transmute(&pszsitename), core::mem::transmute(&pszusername), core::mem::transmute(&pszrole)) {
                     Ok(ok__) => {
-                        pfisinrole.write(core::mem::transmute(ok__));
+                        pfisinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2063,7 +2063,7 @@ impl IMSAdminBaseW_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSAdminBaseW_Impl::OpenKey(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath), core::mem::transmute_copy(&dwmdaccessrequested), core::mem::transmute_copy(&dwmdtimeout)) {
                     Ok(ok__) => {
-                        phmdnewhandle.write(core::mem::transmute(ok__));
+                        phmdnewhandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2093,7 +2093,7 @@ impl IMSAdminBaseW_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSAdminBaseW_Impl::GetHandleInfo(this, core::mem::transmute_copy(&hmdhandle)) {
                     Ok(ok__) => {
-                        pmdhiinfo.write(core::mem::transmute(ok__));
+                        pmdhiinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2105,7 +2105,7 @@ impl IMSAdminBaseW_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSAdminBaseW_Impl::GetSystemChangeNumber(this) {
                     Ok(ok__) => {
-                        pdwsystemchangenumber.write(core::mem::transmute(ok__));
+                        pdwsystemchangenumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2117,7 +2117,7 @@ impl IMSAdminBaseW_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMSAdminBaseW_Impl::GetDataSetNumber(this, core::mem::transmute_copy(&hmdhandle), core::mem::transmute(&pszmdpath)) {
                     Ok(ok__) => {
-                        pdwmddatasetnumber.write(core::mem::transmute(ok__));
+                        pdwmddatasetnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

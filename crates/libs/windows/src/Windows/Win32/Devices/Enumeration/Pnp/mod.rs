@@ -138,7 +138,7 @@ impl IUPnPAddressFamilyControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPAddressFamilyControl_Impl::GetAddressFamily(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -268,7 +268,7 @@ impl IUPnPDescriptionDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPDescriptionDocument_Impl::ReadyState(this) {
                     Ok(ok__) => {
-                        plreadystate.write(core::mem::transmute(ok__));
+                        plreadystate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -292,7 +292,7 @@ impl IUPnPDescriptionDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPDescriptionDocument_Impl::LoadResult(this) {
                     Ok(ok__) => {
-                        phrerror.write(core::mem::transmute(ok__));
+                        phrerror.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -560,7 +560,7 @@ impl IUPnPDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPDevice_Impl::IsRootDevice(this) {
                     Ok(ok__) => {
-                        pvarb.write(core::mem::transmute(ok__));
+                        pvarb.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -596,7 +596,7 @@ impl IUPnPDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPDevice_Impl::HasChildren(this) {
                     Ok(ok__) => {
-                        pvarb.write(core::mem::transmute(ok__));
+                        pvarb.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1074,7 +1074,7 @@ impl IUPnPDeviceFinder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPDeviceFinder_Impl::CreateAsyncFind(this, core::mem::transmute(&bstrtypeuri), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&punkdevicefindercallback)) {
                     Ok(ok__) => {
-                        plfinddata.write(core::mem::transmute(ok__));
+                        plfinddata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1326,7 +1326,7 @@ impl IUPnPDevices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPDevices_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1668,7 +1668,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPRemoteEndpointInfo_Impl::GetDwordValue(this, core::mem::transmute(&bstrvaluename)) {
                     Ok(ok__) => {
-                        pdwvalue.write(core::mem::transmute(ok__));
+                        pdwvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1692,7 +1692,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPRemoteEndpointInfo_Impl::GetGuidValue(this, core::mem::transmute(&bstrvaluename)) {
                     Ok(ok__) => {
-                        pguidvalue.write(core::mem::transmute(ok__));
+                        pguidvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1901,7 +1901,7 @@ impl IUPnPService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPService_Impl::LastTransportStatus(this) {
                     Ok(ok__) => {
-                        plvalue.write(core::mem::transmute(ok__));
+                        plvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2029,7 +2029,7 @@ impl IUPnPServiceAsync_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPServiceAsync_Impl::BeginInvokeAction(this, core::mem::transmute(&bstractionname), core::mem::transmute(&vinactionargs), core::mem::transmute_copy(&pasyncresult)) {
                     Ok(ok__) => {
-                        pullrequestid.write(core::mem::transmute(ok__));
+                        pullrequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2047,7 +2047,7 @@ impl IUPnPServiceAsync_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPServiceAsync_Impl::BeginQueryStateVariable(this, core::mem::transmute(&bstrvariablename), core::mem::transmute_copy(&pasyncresult)) {
                     Ok(ok__) => {
-                        pullrequestid.write(core::mem::transmute(ok__));
+                        pullrequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2065,7 +2065,7 @@ impl IUPnPServiceAsync_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPServiceAsync_Impl::BeginSubscribeToEvents(this, core::mem::transmute_copy(&punkcallback), core::mem::transmute_copy(&pasyncresult)) {
                     Ok(ok__) => {
-                        pullrequestid.write(core::mem::transmute(ok__));
+                        pullrequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2083,7 +2083,7 @@ impl IUPnPServiceAsync_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPServiceAsync_Impl::BeginSCPDDownload(this, core::mem::transmute_copy(&pasyncresult)) {
                     Ok(ok__) => {
-                        pullrequestid.write(core::mem::transmute(ok__));
+                        pullrequestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2341,7 +2341,7 @@ impl IUPnPServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUPnPServices_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

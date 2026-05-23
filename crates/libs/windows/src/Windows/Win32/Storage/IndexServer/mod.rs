@@ -487,7 +487,7 @@ impl IPixelFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPixelFilter_Impl::GetImageInfo(this) {
                     Ok(ok__) => {
-                        imageinfo.write(core::mem::transmute(ok__));
+                        imageinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

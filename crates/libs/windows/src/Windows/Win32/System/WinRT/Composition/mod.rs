@@ -489,7 +489,7 @@ impl ICompositorInterop2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICompositorInterop2_Impl::CheckCompositionTextureSupport(this, core::mem::transmute_copy(&renderingdevice)) {
                     Ok(ok__) => {
-                        supportscompositiontextures.write(core::mem::transmute(ok__));
+                        supportscompositiontextures.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -546,7 +546,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDesktopWindowTargetInterop_Impl::Hwnd(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -130,7 +130,7 @@ impl IVssAdminEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssAdminEx_Impl::GetProviderCapability(this, core::mem::transmute(&pproviderid)) {
                     Ok(ok__) => {
-                        plloriginalcapabilitymask.write(core::mem::transmute(ok__));
+                        plloriginalcapabilitymask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -142,7 +142,7 @@ impl IVssAdminEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssAdminEx_Impl::GetProviderContext(this, core::mem::transmute(&providerid)) {
                     Ok(ok__) => {
-                        plcontext.write(core::mem::transmute(ok__));
+                        plcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -871,7 +871,7 @@ impl IVssComponentEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssComponentEx_Impl::GetAuthoritativeRestore(this) {
                     Ok(ok__) => {
-                        pbauth.write(core::mem::transmute(ok__));
+                        pbauth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1986,7 +1986,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssFileShareSnapshotProvider_Impl::IsPathSupported(this, core::mem::transmute_copy(&pwszsharepath)) {
                     Ok(ok__) => {
-                        pbsupportedbythisprovider.write(core::mem::transmute(ok__));
+                        pbsupportedbythisprovider.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2208,7 +2208,7 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssHardwareSnapshotProviderEx_Impl::GetProviderCapabilities(this) {
                     Ok(ok__) => {
-                        plloriginalcapabilitymask.write(core::mem::transmute(ok__));
+                        plloriginalcapabilitymask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2515,7 +2515,7 @@ impl IVssSnapshotMgmt2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssSnapshotMgmt2_Impl::GetMinDiffAreaSize(this) {
                     Ok(ok__) => {
-                        pllmindiffareasize.write(core::mem::transmute(ok__));
+                        pllmindiffareasize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2648,7 +2648,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssSoftwareSnapshotProvider_Impl::IsVolumeSupported(this, core::mem::transmute_copy(&pwszvolumename)) {
                     Ok(ok__) => {
-                        pbsupportedbythisprovider.write(core::mem::transmute(ok__));
+                        pbsupportedbythisprovider.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2845,7 +2845,7 @@ impl IVssWMFiledesc_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssWMFiledesc_Impl::GetRecursive(this) {
                     Ok(ok__) => {
-                        pbrecursive.write(core::mem::transmute(ok__));
+                        pbrecursive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2869,7 +2869,7 @@ impl IVssWMFiledesc_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVssWMFiledesc_Impl::GetBackupTypeMask(this) {
                     Ok(ok__) => {
-                        pdwtypemask.write(core::mem::transmute(ok__));
+                        pdwtypemask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

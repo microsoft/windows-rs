@@ -354,7 +354,7 @@ impl IDynamicPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDynamicPortMapping_Impl::ExternalPort(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -378,7 +378,7 @@ impl IDynamicPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDynamicPortMapping_Impl::InternalPort(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -402,7 +402,7 @@ impl IDynamicPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDynamicPortMapping_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -426,7 +426,7 @@ impl IDynamicPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDynamicPortMapping_Impl::LeaseDuration(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -438,7 +438,7 @@ impl IDynamicPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDynamicPortMapping_Impl::RenewLease(this, core::mem::transmute_copy(&lleasedurationdesired)) {
                     Ok(ok__) => {
-                        pleasedurationreturned.write(core::mem::transmute(ok__));
+                        pleasedurationreturned.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -585,7 +585,7 @@ impl IDynamicPortMappingCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDynamicPortMappingCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl INetConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetConnection_Impl::GetProperties(this) {
                     Ok(ok__) => {
-                        ppprops.write(core::mem::transmute(ok__));
+                        ppprops.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1374,7 +1374,7 @@ impl INetConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetConnection_Impl::GetUiObjectClassId(this) {
                     Ok(ok__) => {
-                        pclsid.write(core::mem::transmute(ok__));
+                        pclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1619,7 +1619,7 @@ impl INetConnectionProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetConnectionProps_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl INetConnectionProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetConnectionProps_Impl::MediaType(this) {
                     Ok(ok__) => {
-                        pmediatype.write(core::mem::transmute(ok__));
+                        pmediatype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1643,7 +1643,7 @@ impl INetConnectionProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetConnectionProps_Impl::Characteristics(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1811,7 +1811,7 @@ impl INetFwAuthorizedApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwAuthorizedApplication_Impl::IpVersion(this) {
                     Ok(ok__) => {
-                        ipversion.write(core::mem::transmute(ok__));
+                        ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1829,7 +1829,7 @@ impl INetFwAuthorizedApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwAuthorizedApplication_Impl::Scope(this) {
                     Ok(ok__) => {
-                        scope.write(core::mem::transmute(ok__));
+                        scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1865,7 +1865,7 @@ impl INetFwAuthorizedApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwAuthorizedApplication_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1968,7 +1968,7 @@ impl INetFwAuthorizedApplications_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwAuthorizedApplications_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2187,7 +2187,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowOutboundDestinationUnreachable(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2205,7 +2205,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowRedirect(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2223,7 +2223,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowInboundEchoRequest(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2241,7 +2241,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowOutboundTimeExceeded(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2259,7 +2259,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowOutboundParameterProblem(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2277,7 +2277,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowOutboundSourceQuench(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2295,7 +2295,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowInboundRouterRequest(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2313,7 +2313,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowInboundTimestampRequest(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2331,7 +2331,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowInboundMaskRequest(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2349,7 +2349,7 @@ impl INetFwIcmpSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwIcmpSettings_Impl::AllowOutboundPacketTooBig(this) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2474,7 +2474,7 @@ impl INetFwMgr_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwMgr_Impl::CurrentProfileType(this) {
                     Ok(ok__) => {
-                        profiletype.write(core::mem::transmute(ok__));
+                        profiletype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2662,7 +2662,7 @@ impl INetFwOpenPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwOpenPort_Impl::IpVersion(this) {
                     Ok(ok__) => {
-                        ipversion.write(core::mem::transmute(ok__));
+                        ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2680,7 +2680,7 @@ impl INetFwOpenPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwOpenPort_Impl::Protocol(this) {
                     Ok(ok__) => {
-                        ipprotocol.write(core::mem::transmute(ok__));
+                        ipprotocol.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2698,7 +2698,7 @@ impl INetFwOpenPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwOpenPort_Impl::Port(this) {
                     Ok(ok__) => {
-                        portnumber.write(core::mem::transmute(ok__));
+                        portnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2716,7 +2716,7 @@ impl INetFwOpenPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwOpenPort_Impl::Scope(this) {
                     Ok(ok__) => {
-                        scope.write(core::mem::transmute(ok__));
+                        scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2752,7 +2752,7 @@ impl INetFwOpenPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwOpenPort_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2770,7 +2770,7 @@ impl INetFwOpenPort_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwOpenPort_Impl::BuiltIn(this) {
                     Ok(ok__) => {
-                        builtin.write(core::mem::transmute(ok__));
+                        builtin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2870,7 +2870,7 @@ impl INetFwOpenPorts_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwOpenPorts_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3194,7 +3194,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::CurrentProfileTypes(this) {
                     Ok(ok__) => {
-                        profiletypesbitmask.write(core::mem::transmute(ok__));
+                        profiletypesbitmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3206,7 +3206,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::get_FirewallEnabled(this, core::mem::transmute_copy(&profiletype)) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3242,7 +3242,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::get_BlockAllInboundTraffic(this, core::mem::transmute_copy(&profiletype)) {
                     Ok(ok__) => {
-                        block.write(core::mem::transmute(ok__));
+                        block.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3260,7 +3260,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::get_NotificationsDisabled(this, core::mem::transmute_copy(&profiletype)) {
                     Ok(ok__) => {
-                        disabled.write(core::mem::transmute(ok__));
+                        disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3278,7 +3278,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::get_UnicastResponsesToMulticastBroadcastDisabled(this, core::mem::transmute_copy(&profiletype)) {
                     Ok(ok__) => {
-                        disabled.write(core::mem::transmute(ok__));
+                        disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3326,7 +3326,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::IsRuleGroupEnabled(this, core::mem::transmute_copy(&profiletypesbitmask), core::mem::transmute(&group)) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3344,7 +3344,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::get_DefaultInboundAction(this, core::mem::transmute_copy(&profiletype)) {
                     Ok(ok__) => {
-                        action.write(core::mem::transmute(ok__));
+                        action.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3362,7 +3362,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::get_DefaultOutboundAction(this, core::mem::transmute_copy(&profiletype)) {
                     Ok(ok__) => {
-                        action.write(core::mem::transmute(ok__));
+                        action.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3380,7 +3380,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::get_IsRuleGroupCurrentlyEnabled(this, core::mem::transmute(&group)) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3392,7 +3392,7 @@ impl INetFwPolicy2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwPolicy2_Impl::LocalPolicyModifyState(this) {
                     Ok(ok__) => {
-                        modifystate.write(core::mem::transmute(ok__));
+                        modifystate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3628,7 +3628,7 @@ impl INetFwProducts_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwProducts_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3816,7 +3816,7 @@ impl INetFwProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwProfile_Impl::Type(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3828,7 +3828,7 @@ impl INetFwProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwProfile_Impl::FirewallEnabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3846,7 +3846,7 @@ impl INetFwProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwProfile_Impl::ExceptionsNotAllowed(this) {
                     Ok(ok__) => {
-                        notallowed.write(core::mem::transmute(ok__));
+                        notallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3864,7 +3864,7 @@ impl INetFwProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwProfile_Impl::NotificationsDisabled(this) {
                     Ok(ok__) => {
-                        disabled.write(core::mem::transmute(ok__));
+                        disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3882,7 +3882,7 @@ impl INetFwProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwProfile_Impl::UnicastResponsesToMulticastBroadcastDisabled(this) {
                     Ok(ok__) => {
-                        disabled.write(core::mem::transmute(ok__));
+                        disabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4062,7 +4062,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRemoteAdminSettings_Impl::IpVersion(this) {
                     Ok(ok__) => {
-                        ipversion.write(core::mem::transmute(ok__));
+                        ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4080,7 +4080,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRemoteAdminSettings_Impl::Scope(this) {
                     Ok(ok__) => {
-                        scope.write(core::mem::transmute(ok__));
+                        scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4116,7 +4116,7 @@ impl INetFwRemoteAdminSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRemoteAdminSettings_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4492,7 +4492,7 @@ impl INetFwRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule_Impl::Protocol(this) {
                     Ok(ok__) => {
-                        protocol.write(core::mem::transmute(ok__));
+                        protocol.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4600,7 +4600,7 @@ impl INetFwRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule_Impl::Direction(this) {
                     Ok(ok__) => {
-                        dir.write(core::mem::transmute(ok__));
+                        dir.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4654,7 +4654,7 @@ impl INetFwRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4690,7 +4690,7 @@ impl INetFwRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule_Impl::Profiles(this) {
                     Ok(ok__) => {
-                        profiletypesbitmask.write(core::mem::transmute(ok__));
+                        profiletypesbitmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4708,7 +4708,7 @@ impl INetFwRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule_Impl::EdgeTraversal(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4726,7 +4726,7 @@ impl INetFwRule_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule_Impl::Action(this) {
                     Ok(ok__) => {
-                        action.write(core::mem::transmute(ok__));
+                        action.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4829,7 +4829,7 @@ impl INetFwRule2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule2_Impl::EdgeTraversalOptions(this) {
                     Ok(ok__) => {
-                        loptions.write(core::mem::transmute(ok__));
+                        loptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5053,7 +5053,7 @@ impl INetFwRule3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRule3_Impl::SecureFlags(this) {
                     Ok(ok__) => {
-                        loptions.write(core::mem::transmute(ok__));
+                        loptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5156,7 +5156,7 @@ impl INetFwRules_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwRules_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5341,7 +5341,7 @@ impl INetFwService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwService_Impl::Type(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5353,7 +5353,7 @@ impl INetFwService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwService_Impl::Customized(this) {
                     Ok(ok__) => {
-                        customized.write(core::mem::transmute(ok__));
+                        customized.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5365,7 +5365,7 @@ impl INetFwService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwService_Impl::IpVersion(this) {
                     Ok(ok__) => {
-                        ipversion.write(core::mem::transmute(ok__));
+                        ipversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5383,7 +5383,7 @@ impl INetFwService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwService_Impl::Scope(this) {
                     Ok(ok__) => {
-                        scope.write(core::mem::transmute(ok__));
+                        scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5419,7 +5419,7 @@ impl INetFwService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwService_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5524,7 +5524,7 @@ impl INetFwServiceRestriction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwServiceRestriction_Impl::ServiceRestricted(this, core::mem::transmute(&servicename), core::mem::transmute(&appname)) {
                     Ok(ok__) => {
-                        servicerestricted.write(core::mem::transmute(ok__));
+                        servicerestricted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5611,7 +5611,7 @@ impl INetFwServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetFwServices_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5754,7 +5754,7 @@ impl INetSharingConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingConfiguration_Impl::SharingEnabled(this) {
                     Ok(ok__) => {
-                        pbenabled.write(core::mem::transmute(ok__));
+                        pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5766,7 +5766,7 @@ impl INetSharingConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingConfiguration_Impl::SharingConnectionType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5790,7 +5790,7 @@ impl INetSharingConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingConfiguration_Impl::InternetFirewallEnabled(this) {
                     Ok(ok__) => {
-                        pbenabled.write(core::mem::transmute(ok__));
+                        pbenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5918,7 +5918,7 @@ impl INetSharingEveryConnectionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingEveryConnectionCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6022,7 +6022,7 @@ impl INetSharingManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingManager_Impl::SharingInstalled(this) {
                     Ok(ok__) => {
-                        pbinstalled.write(core::mem::transmute(ok__));
+                        pbinstalled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6257,7 +6257,7 @@ impl INetSharingPortMappingCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPortMappingCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6383,7 +6383,7 @@ impl INetSharingPortMappingProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPortMappingProps_Impl::IPProtocol(this) {
                     Ok(ok__) => {
-                        pucipprot.write(core::mem::transmute(ok__));
+                        pucipprot.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6395,7 +6395,7 @@ impl INetSharingPortMappingProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPortMappingProps_Impl::ExternalPort(this) {
                     Ok(ok__) => {
-                        pusport.write(core::mem::transmute(ok__));
+                        pusport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6407,7 +6407,7 @@ impl INetSharingPortMappingProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPortMappingProps_Impl::InternalPort(this) {
                     Ok(ok__) => {
-                        pusport.write(core::mem::transmute(ok__));
+                        pusport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6419,7 +6419,7 @@ impl INetSharingPortMappingProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPortMappingProps_Impl::Options(this) {
                     Ok(ok__) => {
-                        pdwoptions.write(core::mem::transmute(ok__));
+                        pdwoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6455,7 +6455,7 @@ impl INetSharingPortMappingProps_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPortMappingProps_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pbool.write(core::mem::transmute(ok__));
+                        pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6539,7 +6539,7 @@ impl INetSharingPrivateConnectionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPrivateConnectionCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6617,7 +6617,7 @@ impl INetSharingPublicConnectionCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetSharingPublicConnectionCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6755,7 +6755,7 @@ impl IStaticPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStaticPortMapping_Impl::ExternalPort(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6767,7 +6767,7 @@ impl IStaticPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStaticPortMapping_Impl::InternalPort(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6803,7 +6803,7 @@ impl IStaticPortMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStaticPortMapping_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6959,7 +6959,7 @@ impl IStaticPortMappingCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStaticPortMappingCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

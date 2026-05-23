@@ -3272,7 +3272,7 @@ impl IViewHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IViewHelper_Impl::SetConfiguration(this, core::mem::transmute_copy(&pistream)) {
                     Ok(ok__) => {
-                        pulstatus.write(core::mem::transmute(ok__));
+                        pulstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

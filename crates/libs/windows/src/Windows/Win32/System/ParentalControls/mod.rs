@@ -32,7 +32,7 @@ impl IWPCGamesSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCGamesSettings_Impl::IsBlocked(this, core::mem::transmute(&guidappid)) {
                     Ok(ok__) => {
-                        pdwreasons.write(core::mem::transmute(ok__));
+                        pdwreasons.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -181,7 +181,7 @@ impl IWPCProviderSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCProviderSupport_Impl::GetCurrent(this) {
                     Ok(ok__) => {
-                        pguidprovider.write(core::mem::transmute(ok__));
+                        pguidprovider.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -237,7 +237,7 @@ impl IWPCSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCSettings_Impl::IsLoggingRequired(this) {
                     Ok(ok__) => {
-                        pfrequired.write(core::mem::transmute(ok__));
+                        pfrequired.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IWPCSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCSettings_Impl::GetLastSettingsChangeTime(this) {
                     Ok(ok__) => {
-                        ptime.write(core::mem::transmute(ok__));
+                        ptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IWPCSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCSettings_Impl::GetRestrictions(this) {
                     Ok(ok__) => {
-                        pdwrestrictions.write(core::mem::transmute(ok__));
+                        pdwrestrictions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -323,7 +323,7 @@ impl IWPCWebSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCWebSettings_Impl::GetSettings(this) {
                     Ok(ok__) => {
-                        pdwsettings.write(core::mem::transmute(ok__));
+                        pdwsettings.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl IWPCWebSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWPCWebSettings_Impl::RequestURLOverride(this, core::mem::transmute_copy(&hwnd), core::mem::transmute(&pcszurl), core::mem::transmute_copy(&curls), core::mem::transmute_copy(&ppcszsuburls)) {
                     Ok(ok__) => {
-                        pfchanged.write(core::mem::transmute(ok__));
+                        pfchanged.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -455,7 +455,7 @@ impl IWindowsParentalControlsCore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsParentalControlsCore_Impl::GetVisibility(this) {
                     Ok(ok__) => {
-                        pevisibility.write(core::mem::transmute(ok__));
+                        pevisibility.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

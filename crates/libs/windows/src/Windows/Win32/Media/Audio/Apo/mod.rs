@@ -462,7 +462,7 @@ impl IApoAcousticEchoCancellation2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IApoAcousticEchoCancellation2_Impl::GetDesiredReferenceStreamProperties(this) {
                     Ok(ok__) => {
-                        pproperties.write(core::mem::transmute(ok__));
+                        pproperties.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -663,7 +663,7 @@ impl IAudioMediaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioMediaType_Impl::IsCompressedFormat(this) {
                     Ok(ok__) => {
-                        pfcompressed.write(core::mem::transmute(ok__));
+                        pfcompressed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -675,7 +675,7 @@ impl IAudioMediaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioMediaType_Impl::IsEqual(this, core::mem::transmute_copy(&piaudiotype)) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -789,7 +789,7 @@ impl IAudioProcessingObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioProcessingObject_Impl::GetLatency(this) {
                     Ok(ok__) => {
-                        ptime.write(core::mem::transmute(ok__));
+                        ptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -801,7 +801,7 @@ impl IAudioProcessingObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioProcessingObject_Impl::GetRegistrationProperties(this) {
                     Ok(ok__) => {
-                        ppregprops.write(core::mem::transmute(ok__));
+                        ppregprops.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -843,7 +843,7 @@ impl IAudioProcessingObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioProcessingObject_Impl::GetInputChannelCount(this) {
                     Ok(ok__) => {
-                        pu32channelcount.write(core::mem::transmute(ok__));
+                        pu32channelcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1202,7 +1202,7 @@ impl IAudioProcessingObjectRTQueueService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioProcessingObjectRTQueueService_Impl::GetRealTimeWorkQueue(this) {
                     Ok(ok__) => {
-                        workqueueid.write(core::mem::transmute(ok__));
+                        workqueueid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1250,7 +1250,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioProcessingObjectVBR_Impl::CalcMaxInputFrames(this, core::mem::transmute_copy(&u32maxoutputframecount)) {
                     Ok(ok__) => {
-                        pu32inputframecount.write(core::mem::transmute(ok__));
+                        pu32inputframecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1262,7 +1262,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioProcessingObjectVBR_Impl::CalcMaxOutputFrames(this, core::mem::transmute_copy(&u32maxinputframecount)) {
                     Ok(ok__) => {
-                        pu32outputframecount.write(core::mem::transmute(ok__));
+                        pu32outputframecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1428,7 +1428,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSystemEffectsCustomFormats_Impl::GetFormatCount(this) {
                     Ok(ok__) => {
-                        pcformats.write(core::mem::transmute(ok__));
+                        pcformats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1452,7 +1452,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSystemEffectsCustomFormats_Impl::GetFormatRepresentation(this, core::mem::transmute_copy(&nformat)) {
                     Ok(ok__) => {
-                        ppwstrformatrep.write(core::mem::transmute(ok__));
+                        ppwstrformatrep.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
