@@ -3,8 +3,7 @@
     non_upper_case_globals,
     non_camel_case_types,
     dead_code,
-    clippy::upper_case_acronyms,
-    clippy::missing_transmute_annotations
+    clippy::all
 )]
 mod fn_abi;
 #[allow(
@@ -12,8 +11,7 @@ mod fn_abi;
     non_upper_case_globals,
     non_camel_case_types,
     dead_code,
-    clippy::upper_case_acronyms,
-    clippy::missing_transmute_annotations
+    clippy::all
 )]
 pub mod struct_fields;
 #[allow(
@@ -21,7 +19,6 @@ pub mod struct_fields;
     non_upper_case_globals,
     non_camel_case_types,
     dead_code,
-    clippy::upper_case_acronyms,
-    clippy::missing_transmute_annotations
+    clippy::all
 )]
 pub mod struct_values;

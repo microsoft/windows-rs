@@ -3,8 +3,7 @@
     non_snake_case,
     non_camel_case_types,
     non_upper_case_globals,
-    clippy::upper_case_acronyms,
-    clippy::type_complexity
+    clippy::all
 )]
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]

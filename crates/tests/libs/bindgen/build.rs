@@ -44,7 +44,7 @@ fn main() {
                 let abs = std::fs::canonicalize(&expected_rs).unwrap_or(expected_rs);
                 writeln!(
                     compile,
-                    "#[allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, unused_imports, unused_variables, unused_unsafe, clippy::missing_safety_doc, clippy::upper_case_acronyms, clippy::missing_transmute_annotations)]\n#[path = {:?}]\nmod {test_name};",
+                    "#[allow(warnings, clippy::all)]\n#[path = {:?}]\nmod {test_name};",
                     abs.display().to_string(),
                 )
                 .unwrap();
