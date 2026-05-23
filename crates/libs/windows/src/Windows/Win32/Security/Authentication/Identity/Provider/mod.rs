@@ -234,7 +234,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIConnectedIdentityProvider_Impl::Finish_IsConnected(this) {
                     Ok(ok__) => {
-                        connected.write(core::mem::transmute(ok__));
+                        connected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -264,7 +264,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIConnectedIdentityProvider_Impl::Finish_GetAccountState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -685,7 +685,7 @@ impl AsyncIIdentityProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIIdentityProvider_Impl::Finish_Advise(this) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -836,7 +836,7 @@ impl AsyncIIdentityStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match AsyncIIdentityStore_Impl::Finish_GetCount(this) {
                     Ok(ok__) => {
-                        pdwproviders.write(core::mem::transmute(ok__));
+                        pdwproviders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1162,7 +1162,7 @@ impl IConnectedIdentityProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConnectedIdentityProvider_Impl::IsConnected(this) {
                     Ok(ok__) => {
-                        connected.write(core::mem::transmute(ok__));
+                        connected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1180,7 +1180,7 @@ impl IConnectedIdentityProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IConnectedIdentityProvider_Impl::GetAccountState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1481,7 +1481,7 @@ impl IIdentityProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIdentityProvider_Impl::Advise(this, core::mem::transmute_copy(&pidentityadvise), core::mem::transmute(&dwidentityupdateevents)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1578,7 +1578,7 @@ impl IIdentityStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IIdentityStore_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pdwproviders.write(core::mem::transmute(ok__));
+                        pdwproviders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

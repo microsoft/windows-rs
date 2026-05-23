@@ -1873,7 +1873,7 @@ impl IAccessible_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessible_Impl::accChildCount(this) {
                     Ok(ok__) => {
-                        pcountchildren.write(core::mem::transmute(ok__));
+                        pcountchildren.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1969,7 +1969,7 @@ impl IAccessible_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessible_Impl::get_accHelpTopic(this, core::mem::transmute_copy(&pszhelpfile), core::mem::transmute(&varchild)) {
                     Ok(ok__) => {
-                        pidtopic.write(core::mem::transmute(ok__));
+                        pidtopic.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2187,7 +2187,7 @@ impl IAccessibleEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleEx_Impl::GetRuntimeId(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2310,7 +2310,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleHostingElementProviders_Impl::GetEmbeddedFragmentRoots(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2322,7 +2322,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleHostingElementProviders_Impl::GetObjectIdForProvider(this, core::mem::transmute_copy(&pprovider)) {
                     Ok(ok__) => {
-                        pidobject.write(core::mem::transmute(ok__));
+                        pidobject.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2407,7 +2407,7 @@ impl IAccessibleWindowlessSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleWindowlessSite_Impl::AcquireObjectIdRange(this, core::mem::transmute_copy(&rangesize), core::mem::transmute_copy(&prangeowner)) {
                     Ok(ok__) => {
-                        prangebase.write(core::mem::transmute(ok__));
+                        prangebase.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2425,7 +2425,7 @@ impl IAccessibleWindowlessSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccessibleWindowlessSite_Impl::QueryObjectIdRanges(this, core::mem::transmute_copy(&prangesowner)) {
                     Ok(ok__) => {
-                        psaranges.write(core::mem::transmute(ok__));
+                        psaranges.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2516,7 +2516,7 @@ impl IAnnotationProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAnnotationProvider_Impl::AnnotationTypeId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2662,7 +2662,7 @@ impl IDockProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDockProvider_Impl::DockPosition(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2740,7 +2740,7 @@ impl IDragProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDragProvider_Impl::IsGrabbed(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2764,7 +2764,7 @@ impl IDragProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDragProvider_Impl::DropEffects(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2776,7 +2776,7 @@ impl IDragProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDragProvider_Impl::GetGrabbedItems(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2849,7 +2849,7 @@ impl IDropTargetProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDropTargetProvider_Impl::DropTargetEffects(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2916,7 +2916,7 @@ impl IExpandCollapseProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IExpandCollapseProvider_Impl::ExpandCollapseState(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2993,7 +2993,7 @@ impl IGridItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridItemProvider_Impl::Row(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3005,7 +3005,7 @@ impl IGridItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridItemProvider_Impl::Column(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3017,7 +3017,7 @@ impl IGridItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridItemProvider_Impl::RowSpan(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3029,7 +3029,7 @@ impl IGridItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridItemProvider_Impl::ColumnSpan(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3116,7 +3116,7 @@ impl IGridProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridProvider_Impl::RowCount(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3128,7 +3128,7 @@ impl IGridProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGridProvider_Impl::ColumnCount(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3394,7 +3394,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::ChildId(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3442,7 +3442,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::Role(this) {
                     Ok(ok__) => {
-                        pdwrole.write(core::mem::transmute(ok__));
+                        pdwrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3454,7 +3454,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::State(this) {
                     Ok(ok__) => {
-                        pdwstate.write(core::mem::transmute(ok__));
+                        pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3490,7 +3490,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILegacyIAccessibleProvider_Impl::GetSelection(this) {
                     Ok(ok__) => {
-                        pvarselectedchildren.write(core::mem::transmute(ok__));
+                        pvarselectedchildren.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3604,7 +3604,7 @@ impl IMultipleViewProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultipleViewProvider_Impl::CurrentView(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3616,7 +3616,7 @@ impl IMultipleViewProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultipleViewProvider_Impl::GetSupportedViews(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3866,7 +3866,7 @@ impl IRangeValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRangeValueProvider_Impl::Value(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3878,7 +3878,7 @@ impl IRangeValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRangeValueProvider_Impl::IsReadOnly(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3890,7 +3890,7 @@ impl IRangeValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRangeValueProvider_Impl::Maximum(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3902,7 +3902,7 @@ impl IRangeValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRangeValueProvider_Impl::Minimum(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3914,7 +3914,7 @@ impl IRangeValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRangeValueProvider_Impl::LargeChange(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3926,7 +3926,7 @@ impl IRangeValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRangeValueProvider_Impl::SmallChange(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4091,7 +4091,7 @@ impl IRawElementProviderFragment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderFragment_Impl::GetRuntimeId(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4103,7 +4103,7 @@ impl IRawElementProviderFragment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderFragment_Impl::BoundingRectangle(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4115,7 +4115,7 @@ impl IRawElementProviderFragment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderFragment_Impl::GetEmbeddedFragmentRoots(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4252,7 +4252,7 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderHostingAccessibles_Impl::GetEmbeddedAccessibles(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4363,7 +4363,7 @@ impl IRawElementProviderSimple_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderSimple_Impl::ProviderOptions(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4565,7 +4565,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawElementProviderWindowlessSite_Impl::GetRuntimeIdPrefix(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4792,7 +4792,7 @@ impl IScrollProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::HorizontalScrollPercent(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4804,7 +4804,7 @@ impl IScrollProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::VerticalScrollPercent(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4816,7 +4816,7 @@ impl IScrollProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::HorizontalViewSize(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4828,7 +4828,7 @@ impl IScrollProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::VerticalViewSize(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4840,7 +4840,7 @@ impl IScrollProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::HorizontallyScrollable(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4852,7 +4852,7 @@ impl IScrollProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IScrollProvider_Impl::VerticallyScrollable(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4943,7 +4943,7 @@ impl ISelectionItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionItemProvider_Impl::IsSelected(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5024,7 +5024,7 @@ impl ISelectionProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider_Impl::GetSelection(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5036,7 +5036,7 @@ impl ISelectionProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider_Impl::CanSelectMultiple(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5048,7 +5048,7 @@ impl ISelectionProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider_Impl::IsSelectionRequired(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5162,7 +5162,7 @@ impl ISelectionProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISelectionProvider2_Impl::ItemCount(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5247,7 +5247,7 @@ impl ISpreadsheetItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpreadsheetItemProvider_Impl::GetAnnotationObjects(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5259,7 +5259,7 @@ impl ISpreadsheetItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISpreadsheetItemProvider_Impl::GetAnnotationTypes(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5396,7 +5396,7 @@ impl IStylesProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStylesProvider_Impl::StyleId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5420,7 +5420,7 @@ impl IStylesProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStylesProvider_Impl::FillColor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5456,7 +5456,7 @@ impl IStylesProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStylesProvider_Impl::FillPatternColor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5581,7 +5581,7 @@ impl ITableItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITableItemProvider_Impl::GetRowHeaderItems(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5593,7 +5593,7 @@ impl ITableItemProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITableItemProvider_Impl::GetColumnHeaderItems(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5664,7 +5664,7 @@ impl ITableProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITableProvider_Impl::GetRowHeaders(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5676,7 +5676,7 @@ impl ITableProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITableProvider_Impl::GetColumnHeaders(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5688,7 +5688,7 @@ impl ITableProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITableProvider_Impl::RowOrColumnMajor(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5924,7 +5924,7 @@ impl ITextProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider_Impl::GetSelection(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5936,7 +5936,7 @@ impl ITextProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider_Impl::GetVisibleRanges(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5984,7 +5984,7 @@ impl ITextProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextProvider_Impl::SupportedTextSelection(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6266,7 +6266,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::Compare(this, core::mem::transmute_copy(&range)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6278,7 +6278,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::CompareEndpoints(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&targetrange), core::mem::transmute_copy(&targetendpoint)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6332,7 +6332,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::GetBoundingRectangles(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6368,7 +6368,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::Move(this, core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6380,7 +6380,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::MoveEndpointByUnit(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6422,7 +6422,7 @@ impl ITextRangeProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITextRangeProvider_Impl::GetChildren(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6534,7 +6534,7 @@ impl IToggleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IToggleProvider_Impl::ToggleState(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6623,7 +6623,7 @@ impl ITransformProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider_Impl::CanMove(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6635,7 +6635,7 @@ impl ITransformProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider_Impl::CanResize(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6647,7 +6647,7 @@ impl ITransformProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider_Impl::CanRotate(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6741,7 +6741,7 @@ impl ITransformProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider2_Impl::CanZoom(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6753,7 +6753,7 @@ impl ITransformProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider2_Impl::ZoomLevel(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6765,7 +6765,7 @@ impl ITransformProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider2_Impl::ZoomMinimum(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6777,7 +6777,7 @@ impl ITransformProvider2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransformProvider2_Impl::ZoomMaximum(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7378,7 +7378,7 @@ impl IUIAutomation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::CompareElements(this, core::mem::transmute_copy(&el1), core::mem::transmute_copy(&el2)) {
                     Ok(ok__) => {
-                        aresame.write(core::mem::transmute(ok__));
+                        aresame.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7390,7 +7390,7 @@ impl IUIAutomation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::CompareRuntimeIds(this, core::mem::transmute_copy(&runtimeid1), core::mem::transmute_copy(&runtimeid2)) {
                     Ok(ok__) => {
-                        aresame.write(core::mem::transmute(ok__));
+                        aresame.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7786,7 +7786,7 @@ impl IUIAutomation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::IntNativeArrayToSafeArray(this, core::mem::transmute_copy(&array), core::mem::transmute_copy(&arraycount)) {
                     Ok(ok__) => {
-                        safearray.write(core::mem::transmute(ok__));
+                        safearray.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7798,7 +7798,7 @@ impl IUIAutomation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::IntSafeArrayToNativeArray(this, core::mem::transmute_copy(&intarray), core::mem::transmute_copy(&array)) {
                     Ok(ok__) => {
-                        arraycount.write(core::mem::transmute(ok__));
+                        arraycount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7822,7 +7822,7 @@ impl IUIAutomation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::VariantToRect(this, core::mem::transmute(&var)) {
                     Ok(ok__) => {
-                        rc.write(core::mem::transmute(ok__));
+                        rc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7834,7 +7834,7 @@ impl IUIAutomation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::SafeArrayToRectNativeArray(this, core::mem::transmute_copy(&rects), core::mem::transmute_copy(&rectarray)) {
                     Ok(ok__) => {
-                        rectarraycount.write(core::mem::transmute(ok__));
+                        rectarraycount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7906,7 +7906,7 @@ impl IUIAutomation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation_Impl::CheckNotSupported(this, core::mem::transmute(&value)) {
                     Ok(ok__) => {
-                        isnotsupported.write(core::mem::transmute(ok__));
+                        isnotsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8091,7 +8091,7 @@ impl IUIAutomation2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation2_Impl::AutoSetFocus(this) {
                     Ok(ok__) => {
-                        autosetfocus.write(core::mem::transmute(ok__));
+                        autosetfocus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8109,7 +8109,7 @@ impl IUIAutomation2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation2_Impl::ConnectionTimeout(this) {
                     Ok(ok__) => {
-                        timeout.write(core::mem::transmute(ok__));
+                        timeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8127,7 +8127,7 @@ impl IUIAutomation2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation2_Impl::TransactionTimeout(this) {
                     Ok(ok__) => {
-                        timeout.write(core::mem::transmute(ok__));
+                        timeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8469,7 +8469,7 @@ impl IUIAutomation6_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation6_Impl::ConnectionRecoveryBehavior(this) {
                     Ok(ok__) => {
-                        connectionrecoverybehavioroptions.write(core::mem::transmute(ok__));
+                        connectionrecoverybehavioroptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8487,7 +8487,7 @@ impl IUIAutomation6_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomation6_Impl::CoalesceEvents(this) {
                     Ok(ok__) => {
-                        coalesceeventsoptions.write(core::mem::transmute(ok__));
+                        coalesceeventsoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8620,7 +8620,7 @@ impl IUIAutomationAndCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationAndCondition_Impl::ChildCount(this) {
                     Ok(ok__) => {
-                        childcount.write(core::mem::transmute(ok__));
+                        childcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8638,7 +8638,7 @@ impl IUIAutomationAndCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationAndCondition_Impl::GetChildren(this) {
                     Ok(ok__) => {
-                        childarray.write(core::mem::transmute(ok__));
+                        childarray.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8756,7 +8756,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationAnnotationPattern_Impl::CurrentAnnotationTypeId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8816,7 +8816,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationAnnotationPattern_Impl::CachedAnnotationTypeId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8922,7 +8922,7 @@ impl IUIAutomationBoolCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationBoolCondition_Impl::BooleanValue(this) {
                     Ok(ok__) => {
-                        boolval.write(core::mem::transmute(ok__));
+                        boolval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9038,7 +9038,7 @@ impl IUIAutomationCacheRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationCacheRequest_Impl::TreeScope(this) {
                     Ok(ok__) => {
-                        scope.write(core::mem::transmute(ok__));
+                        scope.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9074,7 +9074,7 @@ impl IUIAutomationCacheRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationCacheRequest_Impl::AutomationElementMode(this) {
                     Ok(ok__) => {
-                        mode.write(core::mem::transmute(ok__));
+                        mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9232,7 +9232,7 @@ impl IUIAutomationClientInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationClientInfo_Impl::ProcessId(this) {
                     Ok(ok__) => {
-                        processid.write(core::mem::transmute(ok__));
+                        processid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9310,7 +9310,7 @@ impl IUIAutomationClientInfoSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationClientInfoSource_Impl::RegisterClientConnectionCallback(this, core::mem::transmute_copy(&callback)) {
                     Ok(ok__) => {
-                        handle.write(core::mem::transmute(ok__));
+                        handle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9328,7 +9328,7 @@ impl IUIAutomationClientInfoSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationClientInfoSource_Impl::GetConnectedClients(this) {
                     Ok(ok__) => {
-                        clients.write(core::mem::transmute(ok__));
+                        clients.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9450,7 +9450,7 @@ impl IUIAutomationDockPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDockPattern_Impl::CurrentDockPosition(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9462,7 +9462,7 @@ impl IUIAutomationDockPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDockPattern_Impl::CachedDockPosition(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9573,7 +9573,7 @@ impl IUIAutomationDragPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDragPattern_Impl::CurrentIsGrabbed(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9585,7 +9585,7 @@ impl IUIAutomationDragPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDragPattern_Impl::CachedIsGrabbed(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9621,7 +9621,7 @@ impl IUIAutomationDragPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDragPattern_Impl::CurrentDropEffects(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9633,7 +9633,7 @@ impl IUIAutomationDragPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDragPattern_Impl::CachedDropEffects(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9766,7 +9766,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDropTargetPattern_Impl::CurrentDropTargetEffects(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9778,7 +9778,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationDropTargetPattern_Impl::CachedDropTargetEffects(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10517,7 +10517,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::GetRuntimeId(this) {
                     Ok(ok__) => {
-                        runtimeid.write(core::mem::transmute(ok__));
+                        runtimeid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10697,7 +10697,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentProcessId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10709,7 +10709,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentControlType(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10769,7 +10769,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentHasKeyboardFocus(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10781,7 +10781,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsKeyboardFocusable(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10793,7 +10793,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsEnabled(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10841,7 +10841,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentCulture(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10853,7 +10853,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsControlElement(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10865,7 +10865,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsContentElement(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10877,7 +10877,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsPassword(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10889,7 +10889,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentNativeWindowHandle(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10913,7 +10913,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsOffscreen(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10925,7 +10925,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentOrientation(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10949,7 +10949,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsRequiredForForm(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10973,7 +10973,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentBoundingRectangle(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11021,7 +11021,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CurrentIsDataValidForForm(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11081,7 +11081,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedProcessId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11093,7 +11093,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedControlType(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11153,7 +11153,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedHasKeyboardFocus(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11165,7 +11165,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsKeyboardFocusable(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11177,7 +11177,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsEnabled(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11225,7 +11225,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedCulture(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11237,7 +11237,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsControlElement(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11249,7 +11249,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsContentElement(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11261,7 +11261,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsPassword(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11273,7 +11273,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedNativeWindowHandle(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11297,7 +11297,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsOffscreen(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11309,7 +11309,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedOrientation(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11333,7 +11333,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsRequiredForForm(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11357,7 +11357,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedBoundingRectangle(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11405,7 +11405,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::CachedIsDataValidForForm(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11465,7 +11465,7 @@ impl IUIAutomationElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement_Impl::GetClickablePoint(this, core::mem::transmute_copy(&clickable)) {
                     Ok(ok__) => {
-                        gotclickable.write(core::mem::transmute(ok__));
+                        gotclickable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11638,7 +11638,7 @@ impl IUIAutomationElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement2_Impl::CurrentOptimizeForVisualContent(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11650,7 +11650,7 @@ impl IUIAutomationElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement2_Impl::CachedOptimizeForVisualContent(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11662,7 +11662,7 @@ impl IUIAutomationElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement2_Impl::CurrentLiveSetting(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11674,7 +11674,7 @@ impl IUIAutomationElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement2_Impl::CachedLiveSetting(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11774,7 +11774,7 @@ impl IUIAutomationElement3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement3_Impl::CurrentIsPeripheral(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11786,7 +11786,7 @@ impl IUIAutomationElement3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement3_Impl::CachedIsPeripheral(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11920,7 +11920,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CurrentPositionInSet(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11932,7 +11932,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CurrentSizeOfSet(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11944,7 +11944,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CurrentLevel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11956,7 +11956,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CurrentAnnotationTypes(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11980,7 +11980,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CachedPositionInSet(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11992,7 +11992,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CachedSizeOfSet(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12004,7 +12004,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CachedLevel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12016,7 +12016,7 @@ impl IUIAutomationElement4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement4_Impl::CachedAnnotationTypes(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12113,7 +12113,7 @@ impl IUIAutomationElement5_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement5_Impl::CurrentLandmarkType(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12137,7 +12137,7 @@ impl IUIAutomationElement5_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement5_Impl::CachedLandmarkType(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12443,7 +12443,7 @@ impl IUIAutomationElement8_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement8_Impl::CurrentHeadingLevel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12455,7 +12455,7 @@ impl IUIAutomationElement8_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement8_Impl::CachedHeadingLevel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12516,7 +12516,7 @@ impl IUIAutomationElement9_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement9_Impl::CurrentIsDialog(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12528,7 +12528,7 @@ impl IUIAutomationElement9_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElement9_Impl::CachedIsDialog(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12581,7 +12581,7 @@ impl IUIAutomationElementArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationElementArray_Impl::Length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12831,7 +12831,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationExpandCollapsePattern_Impl::CurrentExpandCollapseState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12843,7 +12843,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationExpandCollapsePattern_Impl::CachedExpandCollapseState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13007,7 +13007,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CurrentRow(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13019,7 +13019,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CurrentColumn(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13031,7 +13031,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CurrentRowSpan(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13043,7 +13043,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CurrentColumnSpan(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13067,7 +13067,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CachedRow(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13079,7 +13079,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CachedColumn(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13091,7 +13091,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CachedRowSpan(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13103,7 +13103,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridItemPattern_Impl::CachedColumnSpan(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13199,7 +13199,7 @@ impl IUIAutomationGridPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridPattern_Impl::CurrentRowCount(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13211,7 +13211,7 @@ impl IUIAutomationGridPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridPattern_Impl::CurrentColumnCount(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13223,7 +13223,7 @@ impl IUIAutomationGridPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridPattern_Impl::CachedRowCount(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13235,7 +13235,7 @@ impl IUIAutomationGridPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationGridPattern_Impl::CachedColumnCount(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13565,7 +13565,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentChildId(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13613,7 +13613,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentRole(this) {
                     Ok(ok__) => {
-                        pdwrole.write(core::mem::transmute(ok__));
+                        pdwrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13625,7 +13625,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CurrentState(this) {
                     Ok(ok__) => {
-                        pdwstate.write(core::mem::transmute(ok__));
+                        pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13685,7 +13685,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedChildId(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13733,7 +13733,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedRole(this) {
                     Ok(ok__) => {
-                        pdwrole.write(core::mem::transmute(ok__));
+                        pdwrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13745,7 +13745,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationLegacyIAccessiblePattern_Impl::CachedState(this) {
                     Ok(ok__) => {
-                        pdwstate.write(core::mem::transmute(ok__));
+                        pdwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13937,7 +13937,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationMultipleViewPattern_Impl::CurrentCurrentView(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13949,7 +13949,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationMultipleViewPattern_Impl::GetCurrentSupportedViews(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13961,7 +13961,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationMultipleViewPattern_Impl::CachedCurrentView(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13973,7 +13973,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationMultipleViewPattern_Impl::GetCachedSupportedViews(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14167,7 +14167,7 @@ impl IUIAutomationOrCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationOrCondition_Impl::ChildCount(this) {
                     Ok(ok__) => {
-                        childcount.write(core::mem::transmute(ok__));
+                        childcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14185,7 +14185,7 @@ impl IUIAutomationOrCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationOrCondition_Impl::GetChildren(this) {
                     Ok(ok__) => {
-                        childarray.write(core::mem::transmute(ok__));
+                        childarray.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14407,7 +14407,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationPropertyCondition_Impl::PropertyId(this) {
                     Ok(ok__) => {
-                        propertyid.write(core::mem::transmute(ok__));
+                        propertyid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14431,7 +14431,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationPropertyCondition_Impl::PropertyConditionFlags(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14671,7 +14671,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryEntry_Impl::AllowSubstringMatch(this) {
                     Ok(ok__) => {
-                        allowsubstringmatch.write(core::mem::transmute(ok__));
+                        allowsubstringmatch.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14683,7 +14683,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryEntry_Impl::CanCheckBaseClass(this) {
                     Ok(ok__) => {
-                        cancheckbaseclass.write(core::mem::transmute(ok__));
+                        cancheckbaseclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14695,7 +14695,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryEntry_Impl::NeedsAdviseEvents(this) {
                     Ok(ok__) => {
-                        adviseevents.write(core::mem::transmute(ok__));
+                        adviseevents.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14743,7 +14743,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryEntry_Impl::GetWinEventsForAutomationEvent(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&propertyid)) {
                     Ok(ok__) => {
-                        winevents.write(core::mem::transmute(ok__));
+                        winevents.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14862,7 +14862,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryMapping_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14874,7 +14874,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationProxyFactoryMapping_Impl::GetTable(this) {
                     Ok(ok__) => {
-                        table.write(core::mem::transmute(ok__));
+                        table.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15073,7 +15073,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CurrentValue(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15085,7 +15085,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CurrentIsReadOnly(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15097,7 +15097,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CurrentMaximum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15109,7 +15109,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CurrentMinimum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15121,7 +15121,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CurrentLargeChange(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15133,7 +15133,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CurrentSmallChange(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15145,7 +15145,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CachedValue(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15157,7 +15157,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CachedIsReadOnly(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15169,7 +15169,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CachedMaximum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15181,7 +15181,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CachedMinimum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15193,7 +15193,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CachedLargeChange(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15205,7 +15205,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRangeValuePattern_Impl::CachedSmallChange(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15273,7 +15273,7 @@ impl IUIAutomationRegistrar_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRegistrar_Impl::RegisterProperty(this, core::mem::transmute_copy(&property)) {
                     Ok(ok__) => {
-                        propertyid.write(core::mem::transmute(ok__));
+                        propertyid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15285,7 +15285,7 @@ impl IUIAutomationRegistrar_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationRegistrar_Impl::RegisterEvent(this, core::mem::transmute_copy(&event)) {
                     Ok(ok__) => {
-                        eventid.write(core::mem::transmute(ok__));
+                        eventid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15477,7 +15477,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentHorizontalScrollPercent(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15489,7 +15489,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentVerticalScrollPercent(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15501,7 +15501,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentHorizontalViewSize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15513,7 +15513,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentVerticalViewSize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15525,7 +15525,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentHorizontallyScrollable(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15537,7 +15537,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CurrentVerticallyScrollable(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15549,7 +15549,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedHorizontalScrollPercent(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15561,7 +15561,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedVerticalScrollPercent(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15573,7 +15573,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedHorizontalViewSize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15585,7 +15585,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedVerticalViewSize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15597,7 +15597,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedHorizontallyScrollable(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15609,7 +15609,7 @@ impl IUIAutomationScrollPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationScrollPattern_Impl::CachedVerticallyScrollable(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15722,7 +15722,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionItemPattern_Impl::CurrentIsSelected(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15746,7 +15746,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionItemPattern_Impl::CachedIsSelected(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15859,7 +15859,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CurrentCanSelectMultiple(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15871,7 +15871,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CurrentIsSelectionRequired(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15895,7 +15895,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CachedCanSelectMultiple(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15907,7 +15907,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern_Impl::CachedIsSelectionRequired(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16053,7 +16053,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern2_Impl::CurrentItemCount(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16101,7 +16101,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSelectionPattern2_Impl::CachedItemCount(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16225,7 +16225,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSpreadsheetItemPattern_Impl::GetCurrentAnnotationTypes(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16261,7 +16261,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationSpreadsheetItemPattern_Impl::GetCachedAnnotationTypes(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16505,7 +16505,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationStylesPattern_Impl::CurrentStyleId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16529,7 +16529,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationStylesPattern_Impl::CurrentFillColor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16565,7 +16565,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationStylesPattern_Impl::CurrentFillPatternColor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16595,7 +16595,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationStylesPattern_Impl::CachedStyleId(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16619,7 +16619,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationStylesPattern_Impl::CachedFillColor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16655,7 +16655,7 @@ impl IUIAutomationStylesPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationStylesPattern_Impl::CachedFillPatternColor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16947,7 +16947,7 @@ impl IUIAutomationTablePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTablePattern_Impl::CurrentRowOrColumnMajor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16983,7 +16983,7 @@ impl IUIAutomationTablePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTablePattern_Impl::CachedRowOrColumnMajor(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17312,7 +17312,7 @@ impl IUIAutomationTextPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextPattern_Impl::SupportedTextSelection(this) {
                     Ok(ok__) => {
-                        supportedtextselection.write(core::mem::transmute(ok__));
+                        supportedtextselection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17586,7 +17586,7 @@ impl IUIAutomationTextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::Compare(this, core::mem::transmute_copy(&range)) {
                     Ok(ok__) => {
-                        aresame.write(core::mem::transmute(ok__));
+                        aresame.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17598,7 +17598,7 @@ impl IUIAutomationTextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::CompareEndpoints(this, core::mem::transmute_copy(&srcendpoint), core::mem::transmute_copy(&range), core::mem::transmute_copy(&targetendpoint)) {
                     Ok(ok__) => {
-                        compvalue.write(core::mem::transmute(ok__));
+                        compvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17652,7 +17652,7 @@ impl IUIAutomationTextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::GetBoundingRectangles(this) {
                     Ok(ok__) => {
-                        boundingrects.write(core::mem::transmute(ok__));
+                        boundingrects.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17688,7 +17688,7 @@ impl IUIAutomationTextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::Move(this, core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        moved.write(core::mem::transmute(ok__));
+                        moved.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17700,7 +17700,7 @@ impl IUIAutomationTextRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange_Impl::MoveEndpointByUnit(this, core::mem::transmute_copy(&endpoint), core::mem::transmute_copy(&unit), core::mem::transmute_copy(&count)) {
                     Ok(ok__) => {
-                        moved.write(core::mem::transmute(ok__));
+                        moved.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17901,7 +17901,7 @@ impl IUIAutomationTextRange3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRange3_Impl::GetAttributeValues(this, core::mem::transmute_copy(&attributeids), core::mem::transmute_copy(&attributeidcount)) {
                     Ok(ok__) => {
-                        attributevalues.write(core::mem::transmute(ok__));
+                        attributevalues.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17955,7 +17955,7 @@ impl IUIAutomationTextRangeArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTextRangeArray_Impl::Length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18026,7 +18026,7 @@ impl IUIAutomationTogglePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTogglePattern_Impl::CurrentToggleState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18038,7 +18038,7 @@ impl IUIAutomationTogglePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTogglePattern_Impl::CachedToggleState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18156,7 +18156,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CurrentCanMove(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18168,7 +18168,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CurrentCanResize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18180,7 +18180,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CurrentCanRotate(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18192,7 +18192,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CachedCanMove(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18204,7 +18204,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CachedCanResize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18216,7 +18216,7 @@ impl IUIAutomationTransformPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern_Impl::CachedCanRotate(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18351,7 +18351,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CurrentCanZoom(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18363,7 +18363,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CachedCanZoom(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18375,7 +18375,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CurrentZoomLevel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18387,7 +18387,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CachedZoomLevel(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18399,7 +18399,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CurrentZoomMinimum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18411,7 +18411,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CachedZoomMinimum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18423,7 +18423,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CurrentZoomMaximum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18435,7 +18435,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationTransformPattern2_Impl::CachedZoomMaximum(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18871,7 +18871,7 @@ impl IUIAutomationValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationValuePattern_Impl::CurrentIsReadOnly(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18895,7 +18895,7 @@ impl IUIAutomationValuePattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationValuePattern_Impl::CachedIsReadOnly(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19085,7 +19085,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
                     Ok(ok__) => {
-                        success.write(core::mem::transmute(ok__));
+                        success.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19103,7 +19103,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentCanMaximize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19115,7 +19115,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentCanMinimize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19127,7 +19127,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentIsModal(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19139,7 +19139,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentIsTopmost(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19151,7 +19151,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentWindowVisualState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19163,7 +19163,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CurrentWindowInteractionState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19175,7 +19175,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedCanMaximize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19187,7 +19187,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedCanMinimize(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19199,7 +19199,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedIsModal(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19211,7 +19211,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedIsTopmost(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19223,7 +19223,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedWindowVisualState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19235,7 +19235,7 @@ impl IUIAutomationWindowPattern_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIAutomationWindowPattern_Impl::CachedWindowInteractionState(this) {
                     Ok(ok__) => {
-                        retval.write(core::mem::transmute(ok__));
+                        retval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19326,7 +19326,7 @@ impl IValueProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IValueProvider_Impl::IsReadOnly(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19472,7 +19472,7 @@ impl IWindowProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::WaitForInputIdle(this, core::mem::transmute_copy(&milliseconds)) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19484,7 +19484,7 @@ impl IWindowProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::CanMaximize(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19496,7 +19496,7 @@ impl IWindowProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::CanMinimize(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19508,7 +19508,7 @@ impl IWindowProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::IsModal(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19520,7 +19520,7 @@ impl IWindowProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::WindowVisualState(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19532,7 +19532,7 @@ impl IWindowProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::WindowInteractionState(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19544,7 +19544,7 @@ impl IWindowProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowProvider_Impl::IsTopmost(this) {
                     Ok(ok__) => {
-                        pretval.write(core::mem::transmute(ok__));
+                        pretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

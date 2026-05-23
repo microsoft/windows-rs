@@ -1245,7 +1245,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig_Impl::GetAnyNetworkAccess(this) {
                     Ok(ok__) => {
-                        pbanynetworkaccess.write(core::mem::transmute(ok__));
+                        pbanynetworkaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1263,7 +1263,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig_Impl::GetNetworkAdministrationAccess(this) {
                     Ok(ok__) => {
-                        pbnetworkadministrationaccess.write(core::mem::transmute(ok__));
+                        pbnetworkadministrationaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1281,7 +1281,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig_Impl::GetNetworkTransactionAccess(this) {
                     Ok(ok__) => {
-                        pbnetworktransactionaccess.write(core::mem::transmute(ok__));
+                        pbnetworktransactionaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1299,7 +1299,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig_Impl::GetNetworkClientAccess(this) {
                     Ok(ok__) => {
-                        pbnetworkclientaccess.write(core::mem::transmute(ok__));
+                        pbnetworkclientaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1317,7 +1317,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig_Impl::GetNetworkTIPAccess(this) {
                     Ok(ok__) => {
-                        pbnetworktipaccess.write(core::mem::transmute(ok__));
+                        pbnetworktipaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1335,7 +1335,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig_Impl::GetXAAccess(this) {
                     Ok(ok__) => {
-                        pbxaaccess.write(core::mem::transmute(ok__));
+                        pbxaaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1439,7 +1439,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig2_Impl::GetNetworkInboundAccess(this) {
                     Ok(ok__) => {
-                        pbinbound.write(core::mem::transmute(ok__));
+                        pbinbound.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1451,7 +1451,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig2_Impl::GetNetworkOutboundAccess(this) {
                     Ok(ok__) => {
-                        pboutbound.write(core::mem::transmute(ok__));
+                        pboutbound.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1475,7 +1475,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig2_Impl::GetAuthenticationLevel(this) {
                     Ok(ok__) => {
-                        pauthlevel.write(core::mem::transmute(ok__));
+                        pauthlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1540,7 +1540,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcNetworkAccessConfig3_Impl::GetLUAccess(this) {
                     Ok(ok__) => {
-                        pbluaccess.write(core::mem::transmute(ok__));
+                        pbluaccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1868,7 +1868,7 @@ impl IKernelTransaction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IKernelTransaction_Impl::GetHandle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2006,7 +2006,7 @@ impl IPrepareInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrepareInfo2_Impl::GetPrepareInfoSize(this) {
                     Ok(ok__) => {
-                        pcbprepinfo.write(core::mem::transmute(ok__));
+                        pcbprepinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2127,7 +2127,7 @@ impl IResourceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IResourceManager_Impl::Reenlist(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo), core::mem::transmute_copy(&ltimeout)) {
                     Ok(ok__) => {
-                        pxactstat.write(core::mem::transmute(ok__));
+                        pxactstat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2206,7 +2206,7 @@ impl IResourceManager2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IResourceManager2_Impl::Reenlist2(this, core::mem::transmute_copy(&pxid), core::mem::transmute_copy(&dwtimeout)) {
                     Ok(ok__) => {
-                        pxactstat.write(core::mem::transmute(ok__));
+                        pxactstat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2337,7 +2337,7 @@ impl IResourceManagerRejoinable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IResourceManagerRejoinable_Impl::Rejoin(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo), core::mem::transmute_copy(&ltimeout)) {
                     Ok(ok__) => {
-                        pxactstat.write(core::mem::transmute(ok__));
+                        pxactstat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2477,7 +2477,7 @@ impl ITipHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITipHelper_Impl::GetLocalTmUrl(this) {
                     Ok(ok__) => {
-                        o_ppszlocaltmurl.write(core::mem::transmute(ok__));
+                        o_ppszlocaltmurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2561,7 +2561,7 @@ impl ITipTransaction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITipTransaction_Impl::Push(this, core::mem::transmute_copy(&i_pszremotetmurl)) {
                     Ok(ok__) => {
-                        o_ppszremotetxurl.write(core::mem::transmute(ok__));
+                        o_ppszremotetxurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2573,7 +2573,7 @@ impl ITipTransaction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITipTransaction_Impl::GetTransactionUrl(this) {
                     Ok(ok__) => {
-                        o_ppszlocaltxurl.write(core::mem::transmute(ok__));
+                        o_ppszlocaltxurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2622,7 +2622,7 @@ impl ITmNodeName_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITmNodeName_Impl::GetNodeNameSize(this) {
                     Ok(ok__) => {
-                        pcbnodenamesize.write(core::mem::transmute(ok__));
+                        pcbnodenamesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2960,7 +2960,7 @@ impl ITransactionExport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionExport_Impl::Export(this, core::mem::transmute_copy(&punktransaction)) {
                     Ok(ok__) => {
-                        pcbtransactioncookie.write(core::mem::transmute(ok__));
+                        pcbtransactioncookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3018,7 +3018,7 @@ impl ITransactionExportFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionExportFactory_Impl::GetRemoteClassId(this) {
                     Ok(ok__) => {
-                        pclsid.write(core::mem::transmute(ok__));
+                        pclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3114,7 +3114,7 @@ impl ITransactionImportWhereabouts_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionImportWhereabouts_Impl::GetWhereaboutsSize(this) {
                     Ok(ok__) => {
-                        pcbwhereabouts.write(core::mem::transmute(ok__));
+                        pcbwhereabouts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3567,7 +3567,7 @@ impl ITransactionReceiver_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionReceiver_Impl::GetReturnTokenSize(this) {
                     Ok(ok__) => {
-                        pcbreturntoken.write(core::mem::transmute(ok__));
+                        pcbreturntoken.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3834,7 +3834,7 @@ impl ITransactionTransmitter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionTransmitter_Impl::GetPropagationTokenSize(this) {
                     Ok(ok__) => {
-                        pcbtoken.write(core::mem::transmute(ok__));
+                        pcbtoken.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

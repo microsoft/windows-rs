@@ -450,7 +450,7 @@ impl ISdoCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISdoCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -486,7 +486,7 @@ impl ISdoCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISdoCollection_Impl::IsNameUnique(this, core::mem::transmute(&bstrname)) {
                     Ok(ok__) => {
-                        pbool.write(core::mem::transmute(ok__));
+                        pbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -666,7 +666,7 @@ impl ISdoDictionaryOld_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISdoDictionaryOld_Impl::GetAttributeID(this, core::mem::transmute(&bstrattributename)) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -830,7 +830,7 @@ impl ISdoMachine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISdoMachine_Impl::GetOSType(this) {
                     Ok(ok__) => {
-                        eostype.write(core::mem::transmute(ok__));
+                        eostype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -842,7 +842,7 @@ impl ISdoMachine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISdoMachine_Impl::GetDomainType(this) {
                     Ok(ok__) => {
-                        edomaintype.write(core::mem::transmute(ok__));
+                        edomaintype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -854,7 +854,7 @@ impl ISdoMachine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISdoMachine_Impl::IsDirectoryAvailable(this) {
                     Ok(ok__) => {
-                        booldirectoryavailable.write(core::mem::transmute(ok__));
+                        booldirectoryavailable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1078,7 +1078,7 @@ impl ISdoServiceControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISdoServiceControl_Impl::GetServiceStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

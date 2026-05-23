@@ -393,7 +393,7 @@ impl INetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetwork_Impl::GetNetworkId(this) {
                     Ok(ok__) => {
-                        pgdguidnetworkid.write(core::mem::transmute(ok__));
+                        pgdguidnetworkid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -405,7 +405,7 @@ impl INetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetwork_Impl::GetDomainType(this) {
                     Ok(ok__) => {
-                        pnetworktype.write(core::mem::transmute(ok__));
+                        pnetworktype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -435,7 +435,7 @@ impl INetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetwork_Impl::IsConnectedToInternet(this) {
                     Ok(ok__) => {
-                        pbisconnected.write(core::mem::transmute(ok__));
+                        pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -447,7 +447,7 @@ impl INetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetwork_Impl::IsConnected(this) {
                     Ok(ok__) => {
-                        pbisconnected.write(core::mem::transmute(ok__));
+                        pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -459,7 +459,7 @@ impl INetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetwork_Impl::GetConnectivity(this) {
                     Ok(ok__) => {
-                        pconnectivity.write(core::mem::transmute(ok__));
+                        pconnectivity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl INetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetwork_Impl::GetCategory(this) {
                     Ok(ok__) => {
-                        pcategory.write(core::mem::transmute(ok__));
+                        pcategory.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -546,7 +546,7 @@ impl INetwork2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetwork2_Impl::IsDomainAuthenticatedBy(this, core::mem::transmute_copy(&domainauthenticationkind)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -660,7 +660,7 @@ impl INetworkConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnection_Impl::IsConnectedToInternet(this) {
                     Ok(ok__) => {
-                        pbisconnected.write(core::mem::transmute(ok__));
+                        pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -672,7 +672,7 @@ impl INetworkConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnection_Impl::IsConnected(this) {
                     Ok(ok__) => {
-                        pbisconnected.write(core::mem::transmute(ok__));
+                        pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl INetworkConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnection_Impl::GetConnectivity(this) {
                     Ok(ok__) => {
-                        pconnectivity.write(core::mem::transmute(ok__));
+                        pconnectivity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -696,7 +696,7 @@ impl INetworkConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnection_Impl::GetConnectionId(this) {
                     Ok(ok__) => {
-                        pgdconnectionid.write(core::mem::transmute(ok__));
+                        pgdconnectionid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -708,7 +708,7 @@ impl INetworkConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnection_Impl::GetAdapterId(this) {
                     Ok(ok__) => {
-                        pgdadapterid.write(core::mem::transmute(ok__));
+                        pgdadapterid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -720,7 +720,7 @@ impl INetworkConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnection_Impl::GetDomainType(this) {
                     Ok(ok__) => {
-                        pdomaintype.write(core::mem::transmute(ok__));
+                        pdomaintype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -783,7 +783,7 @@ impl INetworkConnection2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnection2_Impl::IsDomainAuthenticatedBy(this, core::mem::transmute_copy(&domainauthenticationkind)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -829,7 +829,7 @@ impl INetworkConnectionCost_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkConnectionCost_Impl::GetCost(this) {
                     Ok(ok__) => {
-                        pcost.write(core::mem::transmute(ok__));
+                        pcost.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1264,7 +1264,7 @@ impl INetworkListManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkListManager_Impl::IsConnectedToInternet(this) {
                     Ok(ok__) => {
-                        pbisconnected.write(core::mem::transmute(ok__));
+                        pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1276,7 +1276,7 @@ impl INetworkListManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkListManager_Impl::IsConnected(this) {
                     Ok(ok__) => {
-                        pbisconnected.write(core::mem::transmute(ok__));
+                        pbisconnected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1288,7 +1288,7 @@ impl INetworkListManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match INetworkListManager_Impl::GetConnectivity(this) {
                     Ok(ok__) => {
-                        pconnectivity.write(core::mem::transmute(ok__));
+                        pconnectivity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

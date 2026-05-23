@@ -160,7 +160,7 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginMakeCredential(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
-                        response.write(core::mem::transmute(ok__));
+                        response.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -172,7 +172,7 @@ impl EXPERIMENTAL_IPluginAuthenticator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match EXPERIMENTAL_IPluginAuthenticator_Impl::EXPERIMENTAL_PluginGetAssertion(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
-                        response.write(core::mem::transmute(ok__));
+                        response.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -583,7 +583,7 @@ impl IPluginAuthenticator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPluginAuthenticator_Impl::MakeCredential(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
-                        response.write(core::mem::transmute(ok__));
+                        response.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -595,7 +595,7 @@ impl IPluginAuthenticator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPluginAuthenticator_Impl::GetAssertion(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
-                        response.write(core::mem::transmute(ok__));
+                        response.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -613,7 +613,7 @@ impl IPluginAuthenticator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPluginAuthenticator_Impl::GetLockStatus(this) {
                     Ok(ok__) => {
-                        lockstatus.write(core::mem::transmute(ok__));
+                        lockstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

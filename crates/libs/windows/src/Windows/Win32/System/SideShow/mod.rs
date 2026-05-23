@@ -153,7 +153,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowCapabilitiesCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        out_pdwcount.write(core::mem::transmute(ok__));
+                        out_pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -227,7 +227,7 @@ impl ISideShowContent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowContent_Impl::ContentId(this) {
                     Ok(ok__) => {
-                        out_pcontentid.write(core::mem::transmute(ok__));
+                        out_pcontentid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -239,7 +239,7 @@ impl ISideShowContent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowContent_Impl::DifferentiateContent(this) {
                     Ok(ok__) => {
-                        out_pfdifferentiatecontent.write(core::mem::transmute(ok__));
+                        out_pfdifferentiatecontent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -624,7 +624,7 @@ impl ISideShowNotification_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowNotification_Impl::NotificationId(this) {
                     Ok(ok__) => {
-                        out_pnotificationid.write(core::mem::transmute(ok__));
+                        out_pnotificationid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -642,7 +642,7 @@ impl ISideShowNotification_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowNotification_Impl::Title(this) {
                     Ok(ok__) => {
-                        out_ppwsztitle.write(core::mem::transmute(ok__));
+                        out_ppwsztitle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -660,7 +660,7 @@ impl ISideShowNotification_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowNotification_Impl::Message(this) {
                     Ok(ok__) => {
-                        out_ppwszmessage.write(core::mem::transmute(ok__));
+                        out_ppwszmessage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -678,7 +678,7 @@ impl ISideShowNotification_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowNotification_Impl::Image(this) {
                     Ok(ok__) => {
-                        out_phicon.write(core::mem::transmute(ok__));
+                        out_phicon.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -696,7 +696,7 @@ impl ISideShowNotification_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISideShowNotification_Impl::ExpirationTime(this) {
                     Ok(ok__) => {
-                        out_ptime.write(core::mem::transmute(ok__));
+                        out_ptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

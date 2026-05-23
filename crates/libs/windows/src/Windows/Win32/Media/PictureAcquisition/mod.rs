@@ -293,7 +293,7 @@ impl IPhotoAcquireItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireItem_Impl::GetThumbnail(this, core::mem::transmute(&sizethumbnail)) {
                     Ok(ok__) => {
-                        phbmpthumbnail.write(core::mem::transmute(ok__));
+                        phbmpthumbnail.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl IPhotoAcquireItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireItem_Impl::CanDelete(this) {
                     Ok(ok__) => {
-                        pfcandelete.write(core::mem::transmute(ok__));
+                        pfcandelete.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IPhotoAcquireItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireItem_Impl::GetSubItemCount(this) {
                     Ok(ok__) => {
-                        pncount.write(core::mem::transmute(ok__));
+                        pncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -446,7 +446,7 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireOptionsDialog_Impl::Create(this, core::mem::transmute_copy(&hwndparent)) {
                     Ok(ok__) => {
-                        phwnddialog.write(core::mem::transmute(ok__));
+                        phwnddialog.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -733,7 +733,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireProgressCB_Impl::Cancelled(this) {
                     Ok(ok__) => {
-                        pfcancelled.write(core::mem::transmute(ok__));
+                        pfcancelled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -835,7 +835,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireProgressCB_Impl::GetDeleteAfterAcquire(this) {
                     Ok(ok__) => {
-                        pfdeleteafteracquire.write(core::mem::transmute(ok__));
+                        pfdeleteafteracquire.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -847,7 +847,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireProgressCB_Impl::ErrorAdvise(this, core::mem::transmute_copy(&hr), core::mem::transmute(&pszerrormessage), core::mem::transmute_copy(&nmessagetype)) {
                     Ok(ok__) => {
-                        pnerroradviseresult.write(core::mem::transmute(ok__));
+                        pnerroradviseresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1041,7 +1041,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireSettings_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pdwphotoacquireflags.write(core::mem::transmute(ok__));
+                        pdwphotoacquireflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1065,7 +1065,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireSettings_Impl::GetSequencePaddingWidth(this) {
                     Ok(ok__) => {
-                        pdwwidth.write(core::mem::transmute(ok__));
+                        pdwwidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1077,7 +1077,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireSettings_Impl::GetSequenceZeroPadding(this) {
                     Ok(ok__) => {
-                        pfzeropad.write(core::mem::transmute(ok__));
+                        pfzeropad.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1101,7 +1101,7 @@ impl IPhotoAcquireSettings_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireSettings_Impl::GetAcquisitionTime(this) {
                     Ok(ok__) => {
-                        pftacquisitiontime.write(core::mem::transmute(ok__));
+                        pftacquisitiontime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1236,7 +1236,7 @@ impl IPhotoAcquireSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoAcquireSource_Impl::GetItemCount(this) {
                     Ok(ok__) => {
-                        pnitemcount.write(core::mem::transmute(ok__));
+                        pnitemcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1491,7 +1491,7 @@ impl IPhotoProgressDialog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoProgressDialog_Impl::GetWindow(this) {
                     Ok(ok__) => {
-                        phwndprogressdialog.write(core::mem::transmute(ok__));
+                        phwndprogressdialog.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1539,7 +1539,7 @@ impl IPhotoProgressDialog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoProgressDialog_Impl::IsCheckboxChecked(this, core::mem::transmute_copy(&ncheckboxid)) {
                     Ok(ok__) => {
-                        pfchecked.write(core::mem::transmute(ok__));
+                        pfchecked.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1593,7 +1593,7 @@ impl IPhotoProgressDialog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPhotoProgressDialog_Impl::IsCancelled(this) {
                     Ok(ok__) => {
-                        pfcancelled.write(core::mem::transmute(ok__));
+                        pfcancelled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1771,7 +1771,7 @@ impl IUserInputString_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUserInputString_Impl::GetStringType(this) {
                     Ok(ok__) => {
-                        pnstringtype.write(core::mem::transmute(ok__));
+                        pnstringtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1795,7 +1795,7 @@ impl IUserInputString_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUserInputString_Impl::GetMaxLength(this) {
                     Ok(ok__) => {
-                        pcchmaxlength.write(core::mem::transmute(ok__));
+                        pcchmaxlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1819,7 +1819,7 @@ impl IUserInputString_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUserInputString_Impl::GetMruCount(this) {
                     Ok(ok__) => {
-                        pnmrucount.write(core::mem::transmute(ok__));
+                        pnmrucount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -6408,7 +6408,7 @@ impl ISClusCryptoKeys_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusCryptoKeys_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6536,7 +6536,7 @@ impl ISClusDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusDisk_Impl::Signature(this) {
                     Ok(ok__) => {
-                        plsignature.write(core::mem::transmute(ok__));
+                        plsignature.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6560,7 +6560,7 @@ impl ISClusDisk_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusDisk_Impl::DiskNumber(this) {
                     Ok(ok__) => {
-                        pldisknumber.write(core::mem::transmute(ok__));
+                        pldisknumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6652,7 +6652,7 @@ impl ISClusDisks_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusDisks_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6851,7 +6851,7 @@ impl ISClusNetInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNetInterface_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6863,7 +6863,7 @@ impl ISClusNetInterface_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNetInterface_Impl::State(this) {
                     Ok(ok__) => {
-                        dwstate.write(core::mem::transmute(ok__));
+                        dwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6964,7 +6964,7 @@ impl ISClusNetInterfaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNetInterfaces_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7179,7 +7179,7 @@ impl ISClusNetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNetwork_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7221,7 +7221,7 @@ impl ISClusNetwork_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNetwork_Impl::State(this) {
                     Ok(ok__) => {
-                        dwstate.write(core::mem::transmute(ok__));
+                        dwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7337,7 +7337,7 @@ impl ISClusNetworkNetInterfaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNetworkNetInterfaces_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7452,7 +7452,7 @@ impl ISClusNetworks_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNetworks_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7697,7 +7697,7 @@ impl ISClusNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNode_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7721,7 +7721,7 @@ impl ISClusNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNode_Impl::State(this) {
                     Ok(ok__) => {
-                        dwstate.write(core::mem::transmute(ok__));
+                        dwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7870,7 +7870,7 @@ impl ISClusNodeNetInterfaces_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNodeNetInterfaces_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7985,7 +7985,7 @@ impl ISClusNodes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusNodes_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8123,7 +8123,7 @@ impl ISClusPartition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartition_Impl::Flags(this) {
                     Ok(ok__) => {
-                        plflags.write(core::mem::transmute(ok__));
+                        plflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8159,7 +8159,7 @@ impl ISClusPartition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartition_Impl::SerialNumber(this) {
                     Ok(ok__) => {
-                        plserialnumber.write(core::mem::transmute(ok__));
+                        plserialnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8171,7 +8171,7 @@ impl ISClusPartition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartition_Impl::MaximumComponentLength(this) {
                     Ok(ok__) => {
-                        plmaximumcomponentlength.write(core::mem::transmute(ok__));
+                        plmaximumcomponentlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8183,7 +8183,7 @@ impl ISClusPartition_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartition_Impl::FileSystemFlags(this) {
                     Ok(ok__) => {
-                        plfilesystemflags.write(core::mem::transmute(ok__));
+                        plfilesystemflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8290,7 +8290,7 @@ impl ISClusPartitionEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartitionEx_Impl::TotalSize(this) {
                     Ok(ok__) => {
-                        pltotalsize.write(core::mem::transmute(ok__));
+                        pltotalsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8302,7 +8302,7 @@ impl ISClusPartitionEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartitionEx_Impl::FreeSpace(this) {
                     Ok(ok__) => {
-                        plfreespace.write(core::mem::transmute(ok__));
+                        plfreespace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8314,7 +8314,7 @@ impl ISClusPartitionEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartitionEx_Impl::DeviceNumber(this) {
                     Ok(ok__) => {
-                        pldevicenumber.write(core::mem::transmute(ok__));
+                        pldevicenumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8326,7 +8326,7 @@ impl ISClusPartitionEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartitionEx_Impl::PartitionNumber(this) {
                     Ok(ok__) => {
-                        plpartitionnumber.write(core::mem::transmute(ok__));
+                        plpartitionnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8419,7 +8419,7 @@ impl ISClusPartitions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPartitions_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8608,7 +8608,7 @@ impl ISClusProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusProperties_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8919,7 +8919,7 @@ impl ISClusProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusProperty_Impl::Length(this) {
                     Ok(ok__) => {
-                        plength.write(core::mem::transmute(ok__));
+                        plength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8931,7 +8931,7 @@ impl ISClusProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusProperty_Impl::ValueCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8973,7 +8973,7 @@ impl ISClusProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusProperty_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8991,7 +8991,7 @@ impl ISClusProperty_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusProperty_Impl::Format(this) {
                     Ok(ok__) => {
-                        pformat.write(core::mem::transmute(ok__));
+                        pformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9203,7 +9203,7 @@ impl ISClusPropertyValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPropertyValue_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9221,7 +9221,7 @@ impl ISClusPropertyValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPropertyValue_Impl::Format(this) {
                     Ok(ok__) => {
-                        pformat.write(core::mem::transmute(ok__));
+                        pformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9239,7 +9239,7 @@ impl ISClusPropertyValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPropertyValue_Impl::Length(this) {
                     Ok(ok__) => {
-                        plength.write(core::mem::transmute(ok__));
+                        plength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9251,7 +9251,7 @@ impl ISClusPropertyValue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPropertyValue_Impl::DataCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9369,7 +9369,7 @@ impl ISClusPropertyValueData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPropertyValueData_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9513,7 +9513,7 @@ impl ISClusPropertyValues_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusPropertyValues_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9616,7 +9616,7 @@ impl ISClusRefObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusRefObject_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9709,7 +9709,7 @@ impl ISClusRegistryKeys_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusRegistryKeys_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9872,7 +9872,7 @@ impl ISClusResDependencies_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResDependencies_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10055,7 +10055,7 @@ impl ISClusResDependents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResDependents_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10353,7 +10353,7 @@ impl ISClusResGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResGroup_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10383,7 +10383,7 @@ impl ISClusResGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResGroup_Impl::State(this) {
                     Ok(ok__) => {
-                        dwstate.write(core::mem::transmute(ok__));
+                        dwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10612,7 +10612,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResGroupPreferredOwnerNodes_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10785,7 +10785,7 @@ impl ISClusResGroupResources_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResGroupResources_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10937,7 +10937,7 @@ impl ISClusResGroups_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResGroups_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11101,7 +11101,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResPossibleOwnerNodes_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11480,7 +11480,7 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResTypePossibleOwnerNodes_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11612,7 +11612,7 @@ impl ISClusResTypeResources_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResTypeResources_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11764,7 +11764,7 @@ impl ISClusResTypes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResTypes_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12170,7 +12170,7 @@ impl ISClusResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResource_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12200,7 +12200,7 @@ impl ISClusResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResource_Impl::State(this) {
                     Ok(ok__) => {
-                        dwstate.write(core::mem::transmute(ok__));
+                        dwstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12212,7 +12212,7 @@ impl ISClusResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResource_Impl::CoreFlag(this) {
                     Ok(ok__) => {
-                        dwcoreflag.write(core::mem::transmute(ok__));
+                        dwcoreflag.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12368,7 +12368,7 @@ impl ISClusResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResource_Impl::ClassInfo(this) {
                     Ok(ok__) => {
-                        prcclassinfo.write(core::mem::transmute(ok__));
+                        prcclassinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12440,7 +12440,7 @@ impl ISClusResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResource_Impl::MaintenanceMode(this) {
                     Ok(ok__) => {
-                        pbmaintenancemode.write(core::mem::transmute(ok__));
+                        pbmaintenancemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12576,7 +12576,7 @@ impl ISClusResources_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusResources_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12910,7 +12910,7 @@ impl ISClusVersion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusVersion_Impl::MajorVersion(this) {
                     Ok(ok__) => {
-                        pnmajorversion.write(core::mem::transmute(ok__));
+                        pnmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12922,7 +12922,7 @@ impl ISClusVersion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusVersion_Impl::MinorVersion(this) {
                     Ok(ok__) => {
-                        pnminorversion.write(core::mem::transmute(ok__));
+                        pnminorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12934,7 +12934,7 @@ impl ISClusVersion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusVersion_Impl::BuildNumber(this) {
                     Ok(ok__) => {
-                        pnbuildnumber.write(core::mem::transmute(ok__));
+                        pnbuildnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12970,7 +12970,7 @@ impl ISClusVersion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusVersion_Impl::ClusterHighestVersion(this) {
                     Ok(ok__) => {
-                        pnclusterhighestversion.write(core::mem::transmute(ok__));
+                        pnclusterhighestversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12982,7 +12982,7 @@ impl ISClusVersion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusVersion_Impl::ClusterLowestVersion(this) {
                     Ok(ok__) => {
-                        pnclusterlowestversion.write(core::mem::transmute(ok__));
+                        pnclusterlowestversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12994,7 +12994,7 @@ impl ISClusVersion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusVersion_Impl::Flags(this) {
                     Ok(ok__) => {
-                        pnflags.write(core::mem::transmute(ok__));
+                        pnflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13268,7 +13268,7 @@ impl ISCluster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCluster_Impl::Handle(this) {
                     Ok(ok__) => {
-                        phandle.write(core::mem::transmute(ok__));
+                        phandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13334,7 +13334,7 @@ impl ISCluster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISCluster_Impl::QuorumLogSize(this) {
                     Ok(ok__) => {
-                        pnlogsize.write(core::mem::transmute(ok__));
+                        pnlogsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13540,7 +13540,7 @@ impl ISClusterNames_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISClusterNames_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13668,7 +13668,7 @@ impl ISDomainNames_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISDomainNames_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

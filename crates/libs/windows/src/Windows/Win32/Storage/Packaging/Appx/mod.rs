@@ -994,7 +994,7 @@ impl IAppxBlockMapBlock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapBlock_Impl::GetHash(this, core::mem::transmute_copy(&buffersize)) {
                     Ok(ok__) => {
-                        buffer.write(core::mem::transmute(ok__));
+                        buffer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1006,7 +1006,7 @@ impl IAppxBlockMapBlock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapBlock_Impl::GetCompressedSize(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1078,7 +1078,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapBlocksEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1090,7 +1090,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapBlocksEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1188,7 +1188,7 @@ impl IAppxBlockMapFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile_Impl::GetLocalFileHeaderSize(this) {
                     Ok(ok__) => {
-                        lfhsize.write(core::mem::transmute(ok__));
+                        lfhsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1200,7 +1200,7 @@ impl IAppxBlockMapFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1212,7 +1212,7 @@ impl IAppxBlockMapFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile_Impl::GetUncompressedSize(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1224,7 +1224,7 @@ impl IAppxBlockMapFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile_Impl::ValidateFileHash(this, core::mem::transmute_copy(&filestream)) {
                     Ok(ok__) => {
-                        isvalid.write(core::mem::transmute(ok__));
+                        isvalid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1280,7 +1280,7 @@ impl IAppxBlockMapFile2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFile2_Impl::GetBlockSize(this) {
                     Ok(ok__) => {
-                        blocksize.write(core::mem::transmute(ok__));
+                        blocksize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1349,7 +1349,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFilesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1361,7 +1361,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBlockMapFilesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1761,7 +1761,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestOptionalBundleInfo_Impl::GetFileName(this) {
                     Ok(ok__) => {
-                        filename.write(core::mem::transmute(ok__));
+                        filename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1846,7 +1846,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestOptionalBundleInfoEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1858,7 +1858,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestOptionalBundleInfoEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1943,7 +1943,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo_Impl::GetPackageType(this) {
                     Ok(ok__) => {
-                        packagetype.write(core::mem::transmute(ok__));
+                        packagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1967,7 +1967,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo_Impl::GetFileName(this) {
                     Ok(ok__) => {
-                        filename.write(core::mem::transmute(ok__));
+                        filename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1979,7 +1979,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo_Impl::GetOffset(this) {
                     Ok(ok__) => {
-                        offset.write(core::mem::transmute(ok__));
+                        offset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1991,7 +1991,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo_Impl::GetSize(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2067,7 +2067,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo2_Impl::GetIsPackageReference(this) {
                     Ok(ok__) => {
-                        ispackagereference.write(core::mem::transmute(ok__));
+                        ispackagereference.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2079,7 +2079,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo2_Impl::GetIsNonQualifiedResourcePackage(this) {
                     Ok(ok__) => {
-                        isnonqualifiedresourcepackage.write(core::mem::transmute(ok__));
+                        isnonqualifiedresourcepackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2091,7 +2091,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo2_Impl::GetIsDefaultApplicablePackage(this) {
                     Ok(ok__) => {
-                        isdefaultapplicablepackage.write(core::mem::transmute(ok__));
+                        isdefaultapplicablepackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2176,7 +2176,7 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfo4_Impl::GetIsStub(this) {
                     Ok(ok__) => {
-                        isstub.write(core::mem::transmute(ok__));
+                        isstub.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2244,7 +2244,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfoEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2256,7 +2256,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxBundleManifestPackageInfoEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2858,7 +2858,7 @@ impl IAppxContentGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroup_Impl::GetName(this) {
                     Ok(ok__) => {
-                        groupname.write(core::mem::transmute(ok__));
+                        groupname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2926,7 +2926,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupFilesEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
-                        file.write(core::mem::transmute(ok__));
+                        file.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2938,7 +2938,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupFilesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2950,7 +2950,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupFilesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3151,7 +3151,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupsEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3163,7 +3163,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxContentGroupsEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3208,7 +3208,7 @@ impl IAppxDigestProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxDigestProvider_Impl::GetDigest(this) {
                     Ok(ok__) => {
-                        digest.write(core::mem::transmute(ok__));
+                        digest.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4497,7 +4497,7 @@ impl IAppxFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFile_Impl::GetCompressionOption(this) {
                     Ok(ok__) => {
-                        compressionoption.write(core::mem::transmute(ok__));
+                        compressionoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4509,7 +4509,7 @@ impl IAppxFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFile_Impl::GetContentType(this) {
                     Ok(ok__) => {
-                        contenttype.write(core::mem::transmute(ok__));
+                        contenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4521,7 +4521,7 @@ impl IAppxFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFile_Impl::GetName(this) {
                     Ok(ok__) => {
-                        filename.write(core::mem::transmute(ok__));
+                        filename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4533,7 +4533,7 @@ impl IAppxFile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFile_Impl::GetSize(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4601,7 +4601,7 @@ impl IAppxFile2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFile2_Impl::GetBlockSize(this) {
                     Ok(ok__) => {
-                        blocksize.write(core::mem::transmute(ok__));
+                        blocksize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4670,7 +4670,7 @@ impl IAppxFilesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFilesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4682,7 +4682,7 @@ impl IAppxFilesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxFilesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4738,7 +4738,7 @@ impl IAppxManifestApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestApplication_Impl::GetStringValue(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4750,7 +4750,7 @@ impl IAppxManifestApplication_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestApplication_Impl::GetAppUserModelId(this) {
                     Ok(ok__) => {
-                        appusermodelid.write(core::mem::transmute(ok__));
+                        appusermodelid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4822,7 +4822,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestApplicationsEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4834,7 +4834,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestApplicationsEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4895,7 +4895,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestCapabilitiesEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
-                        capability.write(core::mem::transmute(ok__));
+                        capability.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4907,7 +4907,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestCapabilitiesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4919,7 +4919,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestCapabilitiesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4980,7 +4980,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDeviceCapabilitiesEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
-                        devicecapability.write(core::mem::transmute(ok__));
+                        devicecapability.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4992,7 +4992,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDeviceCapabilitiesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5004,7 +5004,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDeviceCapabilitiesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5065,7 +5065,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraint_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5077,7 +5077,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraint_Impl::GetMinVersion(this) {
                     Ok(ok__) => {
-                        minversion.write(core::mem::transmute(ok__));
+                        minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5089,7 +5089,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraint_Impl::GetMinDate(this) {
                     Ok(ok__) => {
-                        mindate.write(core::mem::transmute(ok__));
+                        mindate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5162,7 +5162,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraintsEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5174,7 +5174,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverConstraintsEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5247,7 +5247,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverDependenciesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5259,7 +5259,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestDriverDependenciesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5372,7 +5372,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependenciesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5384,7 +5384,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependenciesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5445,7 +5445,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependency_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5457,7 +5457,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependency_Impl::GetPublisher(this) {
                     Ok(ok__) => {
-                        publisher.write(core::mem::transmute(ok__));
+                        publisher.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5469,7 +5469,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependency_Impl::GetMinVersion(this) {
                     Ok(ok__) => {
-                        minversion.write(core::mem::transmute(ok__));
+                        minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5514,7 +5514,7 @@ impl IAppxManifestHostRuntimeDependency2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestHostRuntimeDependency2_Impl::GetPackageFamilyName(this) {
                     Ok(ok__) => {
-                        packagefamilyname.write(core::mem::transmute(ok__));
+                        packagefamilyname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5582,7 +5582,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestMainPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5594,7 +5594,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestMainPackageDependenciesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5655,7 +5655,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestMainPackageDependency_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5667,7 +5667,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestMainPackageDependency_Impl::GetPublisher(this) {
                     Ok(ok__) => {
-                        publisher.write(core::mem::transmute(ok__));
+                        publisher.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5679,7 +5679,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestMainPackageDependency_Impl::GetPackageFamilyName(this) {
                     Ok(ok__) => {
-                        packagefamilyname.write(core::mem::transmute(ok__));
+                        packagefamilyname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5752,7 +5752,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOSPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5764,7 +5764,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOSPackageDependenciesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5817,7 +5817,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOSPackageDependency_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5829,7 +5829,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOSPackageDependency_Impl::GetVersion(this) {
                     Ok(ok__) => {
-                        version.write(core::mem::transmute(ok__));
+                        version.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5877,7 +5877,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOptionalPackageInfo_Impl::GetIsOptionalPackage(this) {
                     Ok(ok__) => {
-                        isoptionalpackage.write(core::mem::transmute(ok__));
+                        isoptionalpackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5889,7 +5889,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestOptionalPackageInfo_Impl::GetMainPackageName(this) {
                     Ok(ok__) => {
-                        mainpackagename.write(core::mem::transmute(ok__));
+                        mainpackagename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5961,7 +5961,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependenciesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5973,7 +5973,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependenciesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6034,7 +6034,7 @@ impl IAppxManifestPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6046,7 +6046,7 @@ impl IAppxManifestPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency_Impl::GetPublisher(this) {
                     Ok(ok__) => {
-                        publisher.write(core::mem::transmute(ok__));
+                        publisher.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6058,7 +6058,7 @@ impl IAppxManifestPackageDependency_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency_Impl::GetMinVersion(this) {
                     Ok(ok__) => {
-                        minversion.write(core::mem::transmute(ok__));
+                        minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6109,7 +6109,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency2_Impl::GetMaxMajorVersionTested(this) {
                     Ok(ok__) => {
-                        maxmajorversiontested.write(core::mem::transmute(ok__));
+                        maxmajorversiontested.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6149,7 +6149,7 @@ impl IAppxManifestPackageDependency3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageDependency3_Impl::GetIsOptional(this) {
                     Ok(ok__) => {
-                        isoptional.write(core::mem::transmute(ok__));
+                        isoptional.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6248,7 +6248,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6260,7 +6260,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetArchitecture(this) {
                     Ok(ok__) => {
-                        architecture.write(core::mem::transmute(ok__));
+                        architecture.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6272,7 +6272,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetPublisher(this) {
                     Ok(ok__) => {
-                        publisher.write(core::mem::transmute(ok__));
+                        publisher.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6284,7 +6284,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetVersion(this) {
                     Ok(ok__) => {
-                        packageversion.write(core::mem::transmute(ok__));
+                        packageversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6296,7 +6296,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetResourceId(this) {
                     Ok(ok__) => {
-                        resourceid.write(core::mem::transmute(ok__));
+                        resourceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6308,7 +6308,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::ComparePublisher(this, core::mem::transmute(&other)) {
                     Ok(ok__) => {
-                        issame.write(core::mem::transmute(ok__));
+                        issame.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6320,7 +6320,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetPackageFullName(this) {
                     Ok(ok__) => {
-                        packagefullname.write(core::mem::transmute(ok__));
+                        packagefullname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6332,7 +6332,7 @@ impl IAppxManifestPackageId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId_Impl::GetPackageFamilyName(this) {
                     Ok(ok__) => {
-                        packagefamilyname.write(core::mem::transmute(ok__));
+                        packagefamilyname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6388,7 +6388,7 @@ impl IAppxManifestPackageId2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestPackageId2_Impl::GetArchitecture2(this) {
                     Ok(ok__) => {
-                        architecture.write(core::mem::transmute(ok__));
+                        architecture.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6442,7 +6442,7 @@ impl IAppxManifestProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestProperties_Impl::GetBoolValue(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6454,7 +6454,7 @@ impl IAppxManifestProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestProperties_Impl::GetStringValue(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6514,7 +6514,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResource_Impl::GetLanguage(this) {
                     Ok(ok__) => {
-                        language.write(core::mem::transmute(ok__));
+                        language.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6526,7 +6526,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResource_Impl::GetScale(this) {
                     Ok(ok__) => {
-                        scale.write(core::mem::transmute(ok__));
+                        scale.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6538,7 +6538,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResource_Impl::GetDXFeatureLevel(this) {
                     Ok(ok__) => {
-                        dxfeaturelevel.write(core::mem::transmute(ok__));
+                        dxfeaturelevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6611,7 +6611,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResourcesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6623,7 +6623,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestQualifiedResourcesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6777,7 +6777,7 @@ impl IAppxManifestReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestReader_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        capabilities.write(core::mem::transmute(ok__));
+                        capabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6813,7 +6813,7 @@ impl IAppxManifestReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestReader_Impl::GetPrerequisite(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7100,7 +7100,7 @@ impl IAppxManifestReader6_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestReader6_Impl::GetIsNonQualifiedResourcePackage(this) {
                     Ok(ok__) => {
-                        isnonqualifiedresourcepackage.write(core::mem::transmute(ok__));
+                        isnonqualifiedresourcepackage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7244,7 +7244,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestResourcesEnumerator_Impl::GetCurrent(this) {
                     Ok(ok__) => {
-                        resource.write(core::mem::transmute(ok__));
+                        resource.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7256,7 +7256,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestResourcesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7268,7 +7268,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestResourcesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7341,7 +7341,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamiliesEnumerator_Impl::GetHasCurrent(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7353,7 +7353,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamiliesEnumerator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7414,7 +7414,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamily_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7426,7 +7426,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamily_Impl::GetMinVersion(this) {
                     Ok(ok__) => {
-                        minversion.write(core::mem::transmute(ok__));
+                        minversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7438,7 +7438,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppxManifestTargetDeviceFamily_Impl::GetMaxVersionTested(this) {
                     Ok(ok__) => {
-                        maxversiontested.write(core::mem::transmute(ok__));
+                        maxversiontested.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

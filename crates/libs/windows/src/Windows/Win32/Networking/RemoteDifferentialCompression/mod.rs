@@ -39,7 +39,7 @@ impl IFindSimilarResults_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFindSimilarResults_Impl::GetSize(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IRdcFileReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcFileReader_Impl::GetFileSize(this) {
                     Ok(ok__) => {
-                        filesize.write(core::mem::transmute(ok__));
+                        filesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -151,7 +151,7 @@ impl IRdcFileReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcFileReader_Impl::GetFilePosition(this) {
                     Ok(ok__) => {
-                        offsetfromstart.write(core::mem::transmute(ok__));
+                        offsetfromstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl IRdcFileWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcFileWriter_Impl::Write(this, core::mem::transmute_copy(&offsetfilestart), core::mem::transmute_copy(&bytestowrite)) {
                     Ok(ok__) => {
-                        buffer.write(core::mem::transmute(ok__));
+                        buffer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -342,7 +342,7 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcGeneratorFilterMaxParameters_Impl::GetHorizonSize(this) {
                     Ok(ok__) => {
-                        horizonsize.write(core::mem::transmute(ok__));
+                        horizonsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -360,7 +360,7 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcGeneratorFilterMaxParameters_Impl::GetHashWindowSize(this) {
                     Ok(ok__) => {
-                        hashwindowsize.write(core::mem::transmute(ok__));
+                        hashwindowsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -430,7 +430,7 @@ impl IRdcGeneratorParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcGeneratorParameters_Impl::GetGeneratorParametersType(this) {
                     Ok(ok__) => {
-                        parameterstype.write(core::mem::transmute(ok__));
+                        parameterstype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -448,7 +448,7 @@ impl IRdcGeneratorParameters_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcGeneratorParameters_Impl::GetSerializeSize(this) {
                     Ok(ok__) => {
-                        size.write(core::mem::transmute(ok__));
+                        size.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -551,7 +551,7 @@ impl IRdcLibrary_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcLibrary_Impl::ComputeDefaultRecursionDepth(this, core::mem::transmute_copy(&filesize)) {
                     Ok(ok__) => {
-                        depth.write(core::mem::transmute(ok__));
+                        depth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -671,7 +671,7 @@ impl IRdcSignatureReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcSignatureReader_Impl::ReadHeader(this) {
                     Ok(ok__) => {
-                        rdc_errorcode.write(core::mem::transmute(ok__));
+                        rdc_errorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -732,7 +732,7 @@ impl IRdcSimilarityGenerator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRdcSimilarityGenerator_Impl::Results(this) {
                     Ok(ok__) => {
-                        similaritydata.write(core::mem::transmute(ok__));
+                        similaritydata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -826,7 +826,7 @@ impl ISimilarity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarity_Impl::CreateTable(this, core::mem::transmute(&path), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&securitydescriptor), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
-                        isnew.write(core::mem::transmute(ok__));
+                        isnew.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -838,7 +838,7 @@ impl ISimilarity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarity_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&mapping), core::mem::transmute_copy(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
-                        isnew.write(core::mem::transmute(ok__));
+                        isnew.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -880,7 +880,7 @@ impl ISimilarity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarity_Impl::GetRecordCount(this) {
                     Ok(ok__) => {
-                        recordcount.write(core::mem::transmute(ok__));
+                        recordcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -974,7 +974,7 @@ impl ISimilarityFileIdTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityFileIdTable_Impl::CreateTable(this, core::mem::transmute(&path), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&securitydescriptor), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
-                        isnew.write(core::mem::transmute(ok__));
+                        isnew.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -986,7 +986,7 @@ impl ISimilarityFileIdTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityFileIdTable_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&fileidfile), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&recordsize)) {
                     Ok(ok__) => {
-                        isnew.write(core::mem::transmute(ok__));
+                        isnew.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1004,7 +1004,7 @@ impl ISimilarityFileIdTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityFileIdTable_Impl::Append(this, core::mem::transmute_copy(&similarityfileid)) {
                     Ok(ok__) => {
-                        similarityfileindex.write(core::mem::transmute(ok__));
+                        similarityfileindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1028,7 +1028,7 @@ impl ISimilarityFileIdTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityFileIdTable_Impl::GetRecordCount(this) {
                     Ok(ok__) => {
-                        recordcount.write(core::mem::transmute(ok__));
+                        recordcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1168,7 +1168,7 @@ impl ISimilarityTraitsMappedView_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityTraitsMappedView_Impl::Get(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&dirty), core::mem::transmute_copy(&numelements)) {
                     Ok(ok__) => {
-                        viewinfo.write(core::mem::transmute(ok__));
+                        viewinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1277,7 +1277,7 @@ impl ISimilarityTraitsMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityTraitsMapping_Impl::GetFileSize(this) {
                     Ok(ok__) => {
-                        filesize.write(core::mem::transmute(ok__));
+                        filesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1289,7 +1289,7 @@ impl ISimilarityTraitsMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityTraitsMapping_Impl::OpenMapping(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&begin), core::mem::transmute_copy(&end)) {
                     Ok(ok__) => {
-                        actualend.write(core::mem::transmute(ok__));
+                        actualend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1301,7 +1301,7 @@ impl ISimilarityTraitsMapping_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityTraitsMapping_Impl::ResizeMapping(this, core::mem::transmute_copy(&accessmode), core::mem::transmute_copy(&begin), core::mem::transmute_copy(&end)) {
                     Ok(ok__) => {
-                        actualend.write(core::mem::transmute(ok__));
+                        actualend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1413,7 +1413,7 @@ impl ISimilarityTraitsTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityTraitsTable_Impl::CreateTable(this, core::mem::transmute(&path), core::mem::transmute_copy(&truncate), core::mem::transmute_copy(&securitydescriptor)) {
                     Ok(ok__) => {
-                        isnew.write(core::mem::transmute(ok__));
+                        isnew.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1425,7 +1425,7 @@ impl ISimilarityTraitsTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityTraitsTable_Impl::CreateTableIndirect(this, core::mem::transmute_copy(&mapping), core::mem::transmute_copy(&truncate)) {
                     Ok(ok__) => {
-                        isnew.write(core::mem::transmute(ok__));
+                        isnew.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1467,7 +1467,7 @@ impl ISimilarityTraitsTable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISimilarityTraitsTable_Impl::GetLastIndex(this) {
                     Ok(ok__) => {
-                        fileindex.write(core::mem::transmute(ok__));
+                        fileindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

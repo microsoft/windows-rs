@@ -404,7 +404,7 @@ impl ISecurityInformation3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityInformation3_Impl::GetFullResourceName(this) {
                     Ok(ok__) => {
-                        ppszresourcename.write(core::mem::transmute(ok__));
+                        ppszresourcename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

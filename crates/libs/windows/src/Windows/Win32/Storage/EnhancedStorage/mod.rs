@@ -277,7 +277,7 @@ impl IEnhancedStorageACT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT_Impl::GetAuthorizationState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl IEnhancedStorageACT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT_Impl::GetMatchingVolume(this) {
                     Ok(ok__) => {
-                        ppwszvolume.write(core::mem::transmute(ok__));
+                        ppwszvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -301,7 +301,7 @@ impl IEnhancedStorageACT_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT_Impl::GetUniqueIdentity(this) {
                     Ok(ok__) => {
-                        ppwszidentity.write(core::mem::transmute(ok__));
+                        ppwszidentity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -369,7 +369,7 @@ impl IEnhancedStorageACT2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT2_Impl::GetDeviceName(this) {
                     Ok(ok__) => {
-                        ppwszdevicename.write(core::mem::transmute(ok__));
+                        ppwszdevicename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -381,7 +381,7 @@ impl IEnhancedStorageACT2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT2_Impl::IsDeviceRemovable(this) {
                     Ok(ok__) => {
-                        pisdeviceremovable.write(core::mem::transmute(ok__));
+                        pisdeviceremovable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -450,7 +450,7 @@ impl IEnhancedStorageACT3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT3_Impl::IsQueueFrozen(this) {
                     Ok(ok__) => {
-                        pisqueuefrozen.write(core::mem::transmute(ok__));
+                        pisqueuefrozen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -462,7 +462,7 @@ impl IEnhancedStorageACT3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageACT3_Impl::GetShellExtSupport(this) {
                     Ok(ok__) => {
-                        pshellextsupport.write(core::mem::transmute(ok__));
+                        pshellextsupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -539,7 +539,7 @@ impl IEnhancedStorageSilo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageSilo_Impl::GetInfo(this) {
                     Ok(ok__) => {
-                        psiloinfo.write(core::mem::transmute(ok__));
+                        psiloinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -575,7 +575,7 @@ impl IEnhancedStorageSilo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageSilo_Impl::GetDevicePath(this) {
                     Ok(ok__) => {
-                        ppwszsilodevicepath.write(core::mem::transmute(ok__));
+                        ppwszsilodevicepath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -636,7 +636,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageSiloAction_Impl::GetName(this) {
                     Ok(ok__) => {
-                        ppwszactionname.write(core::mem::transmute(ok__));
+                        ppwszactionname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnhancedStorageSiloAction_Impl::GetDescription(this) {
                     Ok(ok__) => {
-                        ppwszactiondescription.write(core::mem::transmute(ok__));
+                        ppwszactiondescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -721,7 +721,7 @@ impl IBlockRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBlockRange_Impl::StartLba(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -733,7 +733,7 @@ impl IBlockRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBlockRange_Impl::EndLba(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -791,7 +791,7 @@ impl IBlockRangeList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBlockRangeList_Impl::BlockRanges(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -930,7 +930,7 @@ impl IBootOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBootOptions_Impl::PlatformId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -948,7 +948,7 @@ impl IBootOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBootOptions_Impl::Emulation(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -966,7 +966,7 @@ impl IBootOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBootOptions_Impl::ImageSize(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1035,7 +1035,7 @@ impl IBurnVerification_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBurnVerification_Impl::BurnVerificationLevel(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1130,7 +1130,7 @@ impl IDiscFormat2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2_Impl::IsRecorderSupported(this, core::mem::transmute_copy(&recorder)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1142,7 +1142,7 @@ impl IDiscFormat2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2_Impl::IsCurrentMediaSupported(this, core::mem::transmute_copy(&recorder)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1154,7 +1154,7 @@ impl IDiscFormat2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2_Impl::MediaPhysicallyBlank(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1166,7 +1166,7 @@ impl IDiscFormat2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2_Impl::MediaHeuristicallyBlank(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1178,7 +1178,7 @@ impl IDiscFormat2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2_Impl::SupportedMediaTypes(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1487,7 +1487,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::BufferUnderrunFreeDisabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1505,7 +1505,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::PostgapAlreadyInImage(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1517,7 +1517,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::CurrentMediaStatus(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1529,7 +1529,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::WriteProtectStatus(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1541,7 +1541,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::TotalSectorsOnMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1553,7 +1553,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::FreeSectorsOnMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1565,7 +1565,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::NextWritableAddress(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1577,7 +1577,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::StartAddressOfPreviousSession(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1589,7 +1589,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::LastWrittenAddressOfPreviousSession(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1607,7 +1607,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::ForceMediaToBeClosed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1625,7 +1625,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::DisableConsumerDvdCompatibilityMode(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1637,7 +1637,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::CurrentPhysicalMediaType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1667,7 +1667,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::RequestedWriteSpeed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1679,7 +1679,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::RequestedRotationTypeIsPureCAV(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1691,7 +1691,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::CurrentWriteSpeed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1703,7 +1703,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::CurrentRotationTypeIsPureCAV(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1715,7 +1715,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::SupportedWriteSpeeds(this) {
                     Ok(ok__) => {
-                        supportedspeeds.write(core::mem::transmute(ok__));
+                        supportedspeeds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1727,7 +1727,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::SupportedWriteSpeedDescriptors(this) {
                     Ok(ok__) => {
-                        supportedspeeddescriptors.write(core::mem::transmute(ok__));
+                        supportedspeeddescriptors.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1745,7 +1745,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::ForceOverwrite(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1757,7 +1757,7 @@ impl IDiscFormat2Data_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Data_Impl::MultisessionInterfaces(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2DataEventArgs_Impl::ElapsedTime(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1899,7 +1899,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2DataEventArgs_Impl::RemainingTime(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1911,7 +1911,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2DataEventArgs_Impl::TotalTime(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1923,7 +1923,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2DataEventArgs_Impl::CurrentAction(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2054,7 +2054,7 @@ impl IDiscFormat2Erase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Erase_Impl::FullErase(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2066,7 +2066,7 @@ impl IDiscFormat2Erase_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2Erase_Impl::CurrentPhysicalMediaType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2377,7 +2377,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::BufferUnderrunFreeDisabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2389,7 +2389,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::StartOfNextSession(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2401,7 +2401,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::LastPossibleStartOfLeadout(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2413,7 +2413,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::CurrentPhysicalMediaType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2425,7 +2425,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::SupportedSectorTypes(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2443,7 +2443,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::RequestedSectorType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2473,7 +2473,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::RequestedWriteSpeed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2485,7 +2485,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::RequestedRotationTypeIsPureCAV(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2497,7 +2497,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::CurrentWriteSpeed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2509,7 +2509,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::CurrentRotationTypeIsPureCAV(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2521,7 +2521,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::SupportedWriteSpeeds(this) {
                     Ok(ok__) => {
-                        supportedspeeds.write(core::mem::transmute(ok__));
+                        supportedspeeds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2533,7 +2533,7 @@ impl IDiscFormat2RawCD_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCD_Impl::SupportedWriteSpeedDescriptors(this) {
                     Ok(ok__) => {
-                        supportedspeeddescriptors.write(core::mem::transmute(ok__));
+                        supportedspeeddescriptors.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2629,7 +2629,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCDEventArgs_Impl::CurrentAction(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2641,7 +2641,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCDEventArgs_Impl::ElapsedTime(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2653,7 +2653,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2RawCDEventArgs_Impl::RemainingTime(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2937,7 +2937,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::BufferUnderrunFreeDisabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2949,7 +2949,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::NumberOfExistingTracks(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2961,7 +2961,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::TotalSectorsOnMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2973,7 +2973,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::FreeSectorsOnMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2985,7 +2985,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::UsedSectorsOnMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3003,7 +3003,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::DoNotFinalizeMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3015,7 +3015,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::ExpectedTableOfContents(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3027,7 +3027,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::CurrentPhysicalMediaType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3057,7 +3057,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::RequestedWriteSpeed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3069,7 +3069,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::RequestedRotationTypeIsPureCAV(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3081,7 +3081,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::CurrentWriteSpeed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3093,7 +3093,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::CurrentRotationTypeIsPureCAV(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3105,7 +3105,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::SupportedWriteSpeeds(this) {
                     Ok(ok__) => {
-                        supportedspeeds.write(core::mem::transmute(ok__));
+                        supportedspeeds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3117,7 +3117,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnce_Impl::SupportedWriteSpeedDescriptors(this) {
                     Ok(ok__) => {
-                        supportedspeeddescriptors.write(core::mem::transmute(ok__));
+                        supportedspeeddescriptors.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3222,7 +3222,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnceEventArgs_Impl::CurrentTrackNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3234,7 +3234,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnceEventArgs_Impl::CurrentAction(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3246,7 +3246,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnceEventArgs_Impl::ElapsedTime(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3258,7 +3258,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscFormat2TrackAtOnceEventArgs_Impl::RemainingTime(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3396,7 +3396,7 @@ impl IDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscMaster_Impl::GetActiveDiscMasterFormat(this) {
                     Ok(ok__) => {
-                        lpiid.write(core::mem::transmute(ok__));
+                        lpiid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3450,7 +3450,7 @@ impl IDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscMaster_Impl::ProgressAdvise(this, core::mem::transmute_copy(&pevents)) {
                     Ok(ok__) => {
-                        pvcookie.write(core::mem::transmute(ok__));
+                        pvcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3587,7 +3587,7 @@ impl IDiscMaster2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscMaster2_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3599,7 +3599,7 @@ impl IDiscMaster2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscMaster2_Impl::IsSupportedEnvironment(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3686,7 +3686,7 @@ impl IDiscMasterProgressEvents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscMasterProgressEvents_Impl::QueryCancel(this) {
                     Ok(ok__) => {
-                        pbcancel.write(core::mem::transmute(ok__));
+                        pbcancel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3892,7 +3892,7 @@ impl IDiscRecorder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder_Impl::GetRecorderType(this) {
                     Ok(ok__) => {
-                        ftypecode.write(core::mem::transmute(ok__));
+                        ftypecode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3952,7 +3952,7 @@ impl IDiscRecorder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder_Impl::GetRecorderState(this) {
                     Ok(ok__) => {
-                        puldevstateflags.write(core::mem::transmute(ok__));
+                        puldevstateflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4300,7 +4300,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::VolumePathNames(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4312,7 +4312,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::DeviceCanLoadMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4324,7 +4324,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::LegacyDeviceNumber(this) {
                     Ok(ok__) => {
-                        legacydevicenumber.write(core::mem::transmute(ok__));
+                        legacydevicenumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4336,7 +4336,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::SupportedFeaturePages(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4348,7 +4348,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::CurrentFeaturePages(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4360,7 +4360,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::SupportedProfiles(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4372,7 +4372,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::CurrentProfiles(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4384,7 +4384,7 @@ impl IDiscRecorder2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2_Impl::SupportedModePages(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4641,7 +4641,7 @@ impl IDiscRecorder2Ex_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2Ex_Impl::GetByteAlignmentMask(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4653,7 +4653,7 @@ impl IDiscRecorder2Ex_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2Ex_Impl::GetMaximumNonPageAlignedTransferSize(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4665,7 +4665,7 @@ impl IDiscRecorder2Ex_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDiscRecorder2Ex_Impl::GetMaximumPageAlignedTransferSize(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5430,7 +5430,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::SessionStartBlock(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5448,7 +5448,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::FreeMediaBlocks(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5472,7 +5472,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::UsedBlocks(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5532,7 +5532,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::FileCount(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5544,7 +5544,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::DirectoryCount(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5574,7 +5574,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::ChangePoint(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5586,7 +5586,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::StrictFileSystemCompliance(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5604,7 +5604,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::UseRestrictedCharacterSet(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5622,7 +5622,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::FileSystemsToCreate(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5640,7 +5640,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::FileSystemsSupported(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5658,7 +5658,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::UDFRevision(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5670,7 +5670,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::UDFRevisionsSupported(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5700,7 +5700,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::ISO9660InterchangeLevel(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5712,7 +5712,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::ISO9660InterchangeLevelsSupported(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5736,7 +5736,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::Exists(this, core::mem::transmute(&fullpath)) {
                     Ok(ok__) => {
-                        itemtype.write(core::mem::transmute(ok__));
+                        itemtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5760,7 +5760,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::IdentifyFileSystemsOnDisc(this, core::mem::transmute_copy(&discrecorder)) {
                     Ok(ok__) => {
-                        filesystems.write(core::mem::transmute(ok__));
+                        filesystems.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5772,7 +5772,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::GetDefaultFileSystemForImport(this, core::mem::transmute_copy(&filesystems)) {
                     Ok(ok__) => {
-                        importdefault.write(core::mem::transmute(ok__));
+                        importdefault.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5784,7 +5784,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::ImportFileSystem(this) {
                     Ok(ok__) => {
-                        importedfilesystem.write(core::mem::transmute(ok__));
+                        importedfilesystem.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5874,7 +5874,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::StageFiles(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5892,7 +5892,7 @@ impl IFileSystemImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage_Impl::MultisessionInterfaces(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6009,7 +6009,7 @@ impl IFileSystemImage2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage2_Impl::BootImageOptionsArray(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6086,7 +6086,7 @@ impl IFileSystemImage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage3_Impl::CreateRedundantUdfMetadataFiles(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6104,7 +6104,7 @@ impl IFileSystemImage3_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImage3_Impl::ProbeSpecificFileSystem(this, core::mem::transmute_copy(&filesystemtoprobe)) {
                     Ok(ok__) => {
-                        isappendable.write(core::mem::transmute(ok__));
+                        isappendable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6219,7 +6219,7 @@ impl IFileSystemImageResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImageResult_Impl::TotalBlocks(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6231,7 +6231,7 @@ impl IFileSystemImageResult_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileSystemImageResult_Impl::BlockSize(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6446,7 +6446,7 @@ impl IFsiDirectoryItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiDirectoryItem_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6637,7 +6637,7 @@ impl IFsiFileItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiFileItem_Impl::DataSize(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6649,7 +6649,7 @@ impl IFsiFileItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiFileItem_Impl::DataSize32BitLow(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6661,7 +6661,7 @@ impl IFsiFileItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiFileItem_Impl::DataSize32BitHigh(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6786,7 +6786,7 @@ impl IFsiFileItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiFileItem2_Impl::IsNamedStream(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6810,7 +6810,7 @@ impl IFsiFileItem2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiFileItem2_Impl::IsRealTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6978,7 +6978,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::CreationTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6996,7 +6996,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::LastAccessedTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7014,7 +7014,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::LastModifiedTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7032,7 +7032,7 @@ impl IFsiItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiItem_Impl::IsHidden(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7182,7 +7182,7 @@ impl IFsiNamedStreams_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFsiNamedStreams_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7412,7 +7412,7 @@ impl IJolietDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJolietDiscMaster_Impl::GetTotalDataBlocks(this) {
                     Ok(ok__) => {
-                        pnblocks.write(core::mem::transmute(ok__));
+                        pnblocks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7424,7 +7424,7 @@ impl IJolietDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJolietDiscMaster_Impl::GetUsedDataBlocks(this) {
                     Ok(ok__) => {
-                        pnblocks.write(core::mem::transmute(ok__));
+                        pnblocks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7436,7 +7436,7 @@ impl IJolietDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJolietDiscMaster_Impl::GetDataBlockSize(this) {
                     Ok(ok__) => {
-                        pnblockbytes.write(core::mem::transmute(ok__));
+                        pnblockbytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7944,7 +7944,7 @@ impl IMultisession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisession_Impl::IsSupportedOnCurrentMediaState(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7962,7 +7962,7 @@ impl IMultisession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisession_Impl::InUse(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8050,7 +8050,7 @@ impl IMultisessionRandomWrite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionRandomWrite_Impl::WriteUnitSize(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8062,7 +8062,7 @@ impl IMultisessionRandomWrite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionRandomWrite_Impl::LastWrittenAddress(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8074,7 +8074,7 @@ impl IMultisessionRandomWrite_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionRandomWrite_Impl::TotalSectorsOnMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8165,7 +8165,7 @@ impl IMultisessionSequential_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionSequential_Impl::IsFirstDataSession(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8177,7 +8177,7 @@ impl IMultisessionSequential_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionSequential_Impl::StartAddressOfPreviousSession(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8189,7 +8189,7 @@ impl IMultisessionSequential_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionSequential_Impl::LastWrittenAddressOfPreviousSession(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8201,7 +8201,7 @@ impl IMultisessionSequential_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionSequential_Impl::NextWritableAddress(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8213,7 +8213,7 @@ impl IMultisessionSequential_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionSequential_Impl::FreeSectorsOnMedia(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8274,7 +8274,7 @@ impl IMultisessionSequential2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultisessionSequential2_Impl::WriteUnitSize(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8364,7 +8364,7 @@ impl IProgressItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItem_Impl::FirstBlock(this) {
                     Ok(ok__) => {
-                        block.write(core::mem::transmute(ok__));
+                        block.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8376,7 +8376,7 @@ impl IProgressItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItem_Impl::LastBlock(this) {
                     Ok(ok__) => {
-                        block.write(core::mem::transmute(ok__));
+                        block.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8388,7 +8388,7 @@ impl IProgressItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItem_Impl::BlockCount(this) {
                     Ok(ok__) => {
-                        blocks.write(core::mem::transmute(ok__));
+                        blocks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8516,7 +8516,7 @@ impl IProgressItems_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IProgressItems_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8758,7 +8758,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::AddTrack(this, core::mem::transmute_copy(&datatype), core::mem::transmute_copy(&data)) {
                     Ok(ok__) => {
-                        trackindex.write(core::mem::transmute(ok__));
+                        trackindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8788,7 +8788,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::ResultingImageType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8800,7 +8800,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::StartOfLeadout(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8818,7 +8818,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::StartOfLeadoutLimit(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8836,7 +8836,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::DisableGaplessAudio(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8872,7 +8872,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::StartingTrackNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8896,7 +8896,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::NumberOfExistingTracks(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8908,7 +8908,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::LastUsedUserSectorInImage(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8920,7 +8920,7 @@ impl IRawCDImageCreator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageCreator_Impl::ExpectedTableOfContents(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9076,7 +9076,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::StartingLba(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9088,7 +9088,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::SectorCount(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9100,7 +9100,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::TrackNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9112,7 +9112,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::SectorType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9142,7 +9142,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::DigitalAudioCopySetting(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9160,7 +9160,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::AudioHasPreemphasis(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9178,7 +9178,7 @@ impl IRawCDImageTrackInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRawCDImageTrackInfo_Impl::TrackIndexes(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9293,7 +9293,7 @@ impl IRedbookDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRedbookDiscMaster_Impl::GetTotalAudioTracks(this) {
                     Ok(ok__) => {
-                        pntracks.write(core::mem::transmute(ok__));
+                        pntracks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9305,7 +9305,7 @@ impl IRedbookDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRedbookDiscMaster_Impl::GetTotalAudioBlocks(this) {
                     Ok(ok__) => {
-                        pnblocks.write(core::mem::transmute(ok__));
+                        pnblocks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9317,7 +9317,7 @@ impl IRedbookDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRedbookDiscMaster_Impl::GetUsedAudioBlocks(this) {
                     Ok(ok__) => {
-                        pnblocks.write(core::mem::transmute(ok__));
+                        pnblocks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9329,7 +9329,7 @@ impl IRedbookDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRedbookDiscMaster_Impl::GetAvailableAudioTrackBlocks(this) {
                     Ok(ok__) => {
-                        pnblocks.write(core::mem::transmute(ok__));
+                        pnblocks.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9341,7 +9341,7 @@ impl IRedbookDiscMaster_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRedbookDiscMaster_Impl::GetAudioBlockSize(this) {
                     Ok(ok__) => {
-                        pnblockbytes.write(core::mem::transmute(ok__));
+                        pnblockbytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9579,7 +9579,7 @@ impl IStreamPseudoRandomBased_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStreamPseudoRandomBased_Impl::Seed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9768,7 +9768,7 @@ impl IWriteEngine2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2_Impl::UseStreamingWrite12(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9786,7 +9786,7 @@ impl IWriteEngine2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2_Impl::StartingSectorsPerSecond(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9804,7 +9804,7 @@ impl IWriteEngine2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2_Impl::EndingSectorsPerSecond(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9822,7 +9822,7 @@ impl IWriteEngine2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2_Impl::BytesPerSector(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9834,7 +9834,7 @@ impl IWriteEngine2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2_Impl::WriteInProgress(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9951,7 +9951,7 @@ impl IWriteEngine2EventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2EventArgs_Impl::StartLba(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9963,7 +9963,7 @@ impl IWriteEngine2EventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2EventArgs_Impl::SectorCount(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9975,7 +9975,7 @@ impl IWriteEngine2EventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2EventArgs_Impl::LastReadLba(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9987,7 +9987,7 @@ impl IWriteEngine2EventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2EventArgs_Impl::LastWrittenLba(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9999,7 +9999,7 @@ impl IWriteEngine2EventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2EventArgs_Impl::TotalSystemBuffer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10011,7 +10011,7 @@ impl IWriteEngine2EventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2EventArgs_Impl::UsedSystemBuffer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10023,7 +10023,7 @@ impl IWriteEngine2EventArgs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteEngine2EventArgs_Impl::FreeSystemBuffer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10102,7 +10102,7 @@ impl IWriteSpeedDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteSpeedDescriptor_Impl::MediaType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10114,7 +10114,7 @@ impl IWriteSpeedDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteSpeedDescriptor_Impl::RotationTypeIsPureCAV(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10126,7 +10126,7 @@ impl IWriteSpeedDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWriteSpeedDescriptor_Impl::WriteSpeed(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

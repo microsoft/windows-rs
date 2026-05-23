@@ -833,7 +833,7 @@ impl IMXNamespaceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXNamespaceManager_Impl::getAllowOverride(this) {
                     Ok(ok__) => {
-                        foverride.write(core::mem::transmute(ok__));
+                        foverride.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -975,7 +975,7 @@ impl IMXNamespacePrefixes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXNamespacePrefixes_Impl::length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1317,7 +1317,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::byteOrderMark(this) {
                     Ok(ok__) => {
-                        fwritebyteordermark.write(core::mem::transmute(ok__));
+                        fwritebyteordermark.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1335,7 +1335,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::indent(this) {
                     Ok(ok__) => {
-                        findentmode.write(core::mem::transmute(ok__));
+                        findentmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1353,7 +1353,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::standalone(this) {
                     Ok(ok__) => {
-                        fvalue.write(core::mem::transmute(ok__));
+                        fvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1371,7 +1371,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::omitXMLDeclaration(this) {
                     Ok(ok__) => {
-                        fvalue.write(core::mem::transmute(ok__));
+                        fvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1407,7 +1407,7 @@ impl IMXWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXWriter_Impl::disableOutputEscaping(this) {
                     Ok(ok__) => {
-                        fvalue.write(core::mem::transmute(ok__));
+                        fvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1576,7 +1576,7 @@ impl IMXXMLFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMXXMLFilter_Impl::getFeature(this, core::mem::transmute(&strname)) {
                     Ok(ok__) => {
-                        fvalue.write(core::mem::transmute(ok__));
+                        fvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1814,7 +1814,7 @@ impl ISAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXAttributes_Impl::getLength(this) {
                     Ok(ok__) => {
-                        pnlength.write(core::mem::transmute(ok__));
+                        pnlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1850,7 +1850,7 @@ impl ISAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXAttributes_Impl::getIndexFromName(this, core::mem::transmute(&pwchuri), core::mem::transmute_copy(&cchuri), core::mem::transmute(&pwchlocalname), core::mem::transmute_copy(&cchlocalname)) {
                     Ok(ok__) => {
-                        pnindex.write(core::mem::transmute(ok__));
+                        pnindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1862,7 +1862,7 @@ impl ISAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXAttributes_Impl::getIndexFromQName(this, core::mem::transmute(&pwchqname), core::mem::transmute_copy(&cchqname)) {
                     Ok(ok__) => {
-                        pnindex.write(core::mem::transmute(ok__));
+                        pnindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2553,7 +2553,7 @@ impl ISAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXLocator_Impl::getColumnNumber(this) {
                     Ok(ok__) => {
-                        pncolumn.write(core::mem::transmute(ok__));
+                        pncolumn.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2565,7 +2565,7 @@ impl ISAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXLocator_Impl::getLineNumber(this) {
                     Ok(ok__) => {
-                        pnline.write(core::mem::transmute(ok__));
+                        pnline.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2577,7 +2577,7 @@ impl ISAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXLocator_Impl::getPublicId(this) {
                     Ok(ok__) => {
-                        ppwchpublicid.write(core::mem::transmute(ok__));
+                        ppwchpublicid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2589,7 +2589,7 @@ impl ISAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXLocator_Impl::getSystemId(this) {
                     Ok(ok__) => {
-                        ppwchsystemid.write(core::mem::transmute(ok__));
+                        ppwchsystemid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2851,7 +2851,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getFeature(this, core::mem::transmute(&pwchname)) {
                     Ok(ok__) => {
-                        pvfvalue.write(core::mem::transmute(ok__));
+                        pvfvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2959,7 +2959,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getBaseURL(this) {
                     Ok(ok__) => {
-                        ppwchbaseurl.write(core::mem::transmute(ok__));
+                        ppwchbaseurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2977,7 +2977,7 @@ impl ISAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISAXXMLReader_Impl::getSecureBaseURL(this) {
                     Ok(ok__) => {
-                        ppwchsecurebaseurl.write(core::mem::transmute(ok__));
+                        ppwchsecurebaseurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3314,7 +3314,7 @@ impl ISchemaAny_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAny_Impl::processContents(this) {
                     Ok(ok__) => {
-                        processcontents.write(core::mem::transmute(ok__));
+                        processcontents.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3460,7 +3460,7 @@ impl ISchemaAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttribute_Impl::r#use(this) {
                     Ok(ok__) => {
-                        r#use.write(core::mem::transmute(ok__));
+                        r#use.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3472,7 +3472,7 @@ impl ISchemaAttribute_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaAttribute_Impl::isReference(this) {
                     Ok(ok__) => {
-                        reference.write(core::mem::transmute(ok__));
+                        reference.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3648,7 +3648,7 @@ impl ISchemaComplexType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaComplexType_Impl::isAbstract(this) {
                     Ok(ok__) => {
-                        r#abstract.write(core::mem::transmute(ok__));
+                        r#abstract.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3684,7 +3684,7 @@ impl ISchemaComplexType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaComplexType_Impl::contentType(this) {
                     Ok(ok__) => {
-                        contenttype.write(core::mem::transmute(ok__));
+                        contenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3708,7 +3708,7 @@ impl ISchemaComplexType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaComplexType_Impl::prohibitedSubstitutions(this) {
                     Ok(ok__) => {
-                        prohibited.write(core::mem::transmute(ok__));
+                        prohibited.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3898,7 +3898,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::isNillable(this) {
                     Ok(ok__) => {
-                        nillable.write(core::mem::transmute(ok__));
+                        nillable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3934,7 +3934,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::substitutionGroupExclusions(this) {
                     Ok(ok__) => {
-                        exclusions.write(core::mem::transmute(ok__));
+                        exclusions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3946,7 +3946,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::disallowedSubstitutions(this) {
                     Ok(ok__) => {
-                        disallowed.write(core::mem::transmute(ok__));
+                        disallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3958,7 +3958,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::isAbstract(this) {
                     Ok(ok__) => {
-                        r#abstract.write(core::mem::transmute(ok__));
+                        r#abstract.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3970,7 +3970,7 @@ impl ISchemaElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaElement_Impl::isReference(this) {
                     Ok(ok__) => {
-                        reference.write(core::mem::transmute(ok__));
+                        reference.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4235,7 +4235,7 @@ impl ISchemaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItem_Impl::itemType(this) {
                     Ok(ok__) => {
-                        itemtype.write(core::mem::transmute(ok__));
+                        itemtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4259,7 +4259,7 @@ impl ISchemaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItem_Impl::writeAnnotation(this, core::mem::transmute_copy(&annotationsink)) {
                     Ok(ok__) => {
-                        iswritten.write(core::mem::transmute(ok__));
+                        iswritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4390,7 +4390,7 @@ impl ISchemaItemCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaItemCollection_Impl::length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4705,7 +4705,7 @@ impl ISchemaStringCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaStringCollection_Impl::length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4936,7 +4936,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::r#final(this) {
                     Ok(ok__) => {
-                        r#final.write(core::mem::transmute(ok__));
+                        r#final.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4948,7 +4948,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::variety(this) {
                     Ok(ok__) => {
-                        variety.write(core::mem::transmute(ok__));
+                        variety.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4960,7 +4960,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::derivedBy(this) {
                     Ok(ok__) => {
-                        derivedby.write(core::mem::transmute(ok__));
+                        derivedby.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4972,7 +4972,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::isValid(this, core::mem::transmute(&data)) {
                     Ok(ok__) => {
-                        valid.write(core::mem::transmute(ok__));
+                        valid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5104,7 +5104,7 @@ impl ISchemaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISchemaType_Impl::whitespace(this) {
                     Ok(ok__) => {
-                        whitespace.write(core::mem::transmute(ok__));
+                        whitespace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5225,7 +5225,7 @@ impl IServerXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IServerXMLHTTPRequest_Impl::waitForResponse(this, core::mem::transmute(&timeoutinseconds)) {
                     Ok(ok__) => {
-                        issuccessful.write(core::mem::transmute(ok__));
+                        issuccessful.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5449,7 +5449,7 @@ impl IVBMXNamespaceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBMXNamespaceManager_Impl::allowOverride(this) {
                     Ok(ok__) => {
-                        foverride.write(core::mem::transmute(ok__));
+                        foverride.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5682,7 +5682,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::length(this) {
                     Ok(ok__) => {
-                        nlength.write(core::mem::transmute(ok__));
+                        nlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5730,7 +5730,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::getIndexFromName(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname)) {
                     Ok(ok__) => {
-                        nindex.write(core::mem::transmute(ok__));
+                        nindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5742,7 +5742,7 @@ impl IVBSAXAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXAttributes_Impl::getIndexFromQName(this, core::mem::transmute(&strqname)) {
                     Ok(ok__) => {
-                        nindex.write(core::mem::transmute(ok__));
+                        nindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6483,7 +6483,7 @@ impl IVBSAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXLocator_Impl::columnNumber(this) {
                     Ok(ok__) => {
-                        ncolumn.write(core::mem::transmute(ok__));
+                        ncolumn.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6495,7 +6495,7 @@ impl IVBSAXLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXLocator_Impl::lineNumber(this) {
                     Ok(ok__) => {
-                        nline.write(core::mem::transmute(ok__));
+                        nline.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6781,7 +6781,7 @@ impl IVBSAXXMLReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVBSAXXMLReader_Impl::getFeature(this, core::mem::transmute(&strname)) {
                     Ok(ok__) => {
-                        fvalue.write(core::mem::transmute(ok__));
+                        fvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7264,7 +7264,7 @@ impl IXMLDOMCharacterData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMCharacterData_Impl::length(this) {
                     Ok(ok__) => {
-                        datalength.write(core::mem::transmute(ok__));
+                        datalength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7821,7 +7821,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::load(this, core::mem::transmute(&xmlsource)) {
                     Ok(ok__) => {
-                        issuccessful.write(core::mem::transmute(ok__));
+                        issuccessful.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7833,7 +7833,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::readyState(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7869,7 +7869,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::r#async(this) {
                     Ok(ok__) => {
-                        isasync.write(core::mem::transmute(ok__));
+                        isasync.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7893,7 +7893,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::loadXML(this, core::mem::transmute(&bstrxml)) {
                     Ok(ok__) => {
-                        issuccessful.write(core::mem::transmute(ok__));
+                        issuccessful.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7911,7 +7911,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::validateOnParse(this) {
                     Ok(ok__) => {
-                        isvalidating.write(core::mem::transmute(ok__));
+                        isvalidating.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7929,7 +7929,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::resolveExternals(this) {
                     Ok(ok__) => {
-                        isresolving.write(core::mem::transmute(ok__));
+                        isresolving.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7947,7 +7947,7 @@ impl IXMLDOMDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMDocument_Impl::preserveWhiteSpace(this) {
                     Ok(ok__) => {
-                        ispreserving.write(core::mem::transmute(ok__));
+                        ispreserving.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8782,7 +8782,7 @@ impl IXMLDOMImplementation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMImplementation_Impl::hasFeature(this, core::mem::transmute(&feature), core::mem::transmute(&version)) {
                     Ok(ok__) => {
-                        hasfeature.write(core::mem::transmute(ok__));
+                        hasfeature.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8956,7 +8956,7 @@ impl IXMLDOMNamedNodeMap_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNamedNodeMap_Impl::length(this) {
                     Ok(ok__) => {
-                        listlength.write(core::mem::transmute(ok__));
+                        listlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9418,7 +9418,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::nodeType(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9562,7 +9562,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::hasChildNodes(this) {
                     Ok(ok__) => {
-                        haschild.write(core::mem::transmute(ok__));
+                        haschild.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9628,7 +9628,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::specified(this) {
                     Ok(ok__) => {
-                        isspecified.write(core::mem::transmute(ok__));
+                        isspecified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9736,7 +9736,7 @@ impl IXMLDOMNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNode_Impl::parsed(this) {
                     Ok(ok__) => {
-                        isparsed.write(core::mem::transmute(ok__));
+                        isparsed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9911,7 +9911,7 @@ impl IXMLDOMNodeList_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMNodeList_Impl::length(this) {
                     Ok(ok__) => {
-                        listlength.write(core::mem::transmute(ok__));
+                        listlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10132,7 +10132,7 @@ impl IXMLDOMParseError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError_Impl::errorCode(this) {
                     Ok(ok__) => {
-                        errorcode.write(core::mem::transmute(ok__));
+                        errorcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10180,7 +10180,7 @@ impl IXMLDOMParseError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError_Impl::line(this) {
                     Ok(ok__) => {
-                        linenumber.write(core::mem::transmute(ok__));
+                        linenumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10192,7 +10192,7 @@ impl IXMLDOMParseError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError_Impl::linepos(this) {
                     Ok(ok__) => {
-                        lineposition.write(core::mem::transmute(ok__));
+                        lineposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10204,7 +10204,7 @@ impl IXMLDOMParseError_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError_Impl::filepos(this) {
                     Ok(ok__) => {
-                        fileposition.write(core::mem::transmute(ok__));
+                        fileposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10327,7 +10327,7 @@ impl IXMLDOMParseError2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseError2_Impl::errorParametersCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10428,7 +10428,7 @@ impl IXMLDOMParseErrorCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMParseErrorCollection_Impl::length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10679,7 +10679,7 @@ impl IXMLDOMSchemaCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSchemaCollection_Impl::length(this) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10813,7 +10813,7 @@ impl IXMLDOMSchemaCollection2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDOMSchemaCollection2_Impl::validateOnLoad(this) {
                     Ok(ok__) => {
-                        validateonload.write(core::mem::transmute(ok__));
+                        validateonload.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11244,7 +11244,7 @@ impl IXMLDSOControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDSOControl_Impl::JavaDSOCompatible(this) {
                     Ok(ok__) => {
-                        fjavadsocompatible.write(core::mem::transmute(ok__));
+                        fjavadsocompatible.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11262,7 +11262,7 @@ impl IXMLDSOControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDSOControl_Impl::readyState(this) {
                     Ok(ok__) => {
-                        state.write(core::mem::transmute(ok__));
+                        state.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11503,7 +11503,7 @@ impl IXMLDocument_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument_Impl::readyState(this) {
                     Ok(ok__) => {
-                        pl.write(core::mem::transmute(ok__));
+                        pl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11832,7 +11832,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::readyState(this) {
                     Ok(ok__) => {
-                        pl.write(core::mem::transmute(ok__));
+                        pl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11910,7 +11910,7 @@ impl IXMLDocument2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLDocument2_Impl::r#async(this) {
                     Ok(ok__) => {
-                        pf.write(core::mem::transmute(ok__));
+                        pf.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12138,7 +12138,7 @@ impl IXMLElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement_Impl::r#type(this) {
                     Ok(ok__) => {
-                        pltype.write(core::mem::transmute(ok__));
+                        pltype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12394,7 +12394,7 @@ impl IXMLElement2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElement2_Impl::r#type(this) {
                     Ok(ok__) => {
-                        pltype.write(core::mem::transmute(ok__));
+                        pltype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12536,7 +12536,7 @@ impl IXMLElementCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLElementCollection_Impl::length(this) {
                     Ok(ok__) => {
-                        p.write(core::mem::transmute(ok__));
+                        p.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12807,7 +12807,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::status(this) {
                     Ok(ok__) => {
-                        plstatus.write(core::mem::transmute(ok__));
+                        plstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12879,7 +12879,7 @@ impl IXMLHTTPRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest_Impl::readyState(this) {
                     Ok(ok__) => {
-                        plstate.write(core::mem::transmute(ok__));
+                        plstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13047,7 +13047,7 @@ impl IXMLHTTPRequest2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest2_Impl::SetCookie(this, core::mem::transmute_copy(&pcookie)) {
                     Ok(ok__) => {
-                        pdwcookiestate.write(core::mem::transmute(ok__));
+                        pdwcookiestate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13077,7 +13077,7 @@ impl IXMLHTTPRequest2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest2_Impl::GetAllResponseHeaders(this) {
                     Ok(ok__) => {
-                        ppwszheaders.write(core::mem::transmute(ok__));
+                        ppwszheaders.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13095,7 +13095,7 @@ impl IXMLHTTPRequest2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXMLHTTPRequest2_Impl::GetResponseHeader(this, core::mem::transmute(&pwszheader)) {
                     Ok(ok__) => {
-                        ppwszvalue.write(core::mem::transmute(ok__));
+                        ppwszvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13564,7 +13564,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::transform(this) {
                     Ok(ok__) => {
-                        pdone.write(core::mem::transmute(ok__));
+                        pdone.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13582,7 +13582,7 @@ impl IXSLProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXSLProcessor_Impl::readyState(this) {
                     Ok(ok__) => {
-                        preadystate.write(core::mem::transmute(ok__));
+                        preadystate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13856,7 +13856,7 @@ impl IXTLRuntime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXTLRuntime_Impl::uniqueID(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13868,7 +13868,7 @@ impl IXTLRuntime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXTLRuntime_Impl::depth(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
-                        pdepth.write(core::mem::transmute(ok__));
+                        pdepth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13880,7 +13880,7 @@ impl IXTLRuntime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXTLRuntime_Impl::childNumber(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
-                        pnumber.write(core::mem::transmute(ok__));
+                        pnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13892,7 +13892,7 @@ impl IXTLRuntime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXTLRuntime_Impl::ancestorChildNumber(this, core::mem::transmute(&bstrnodename), core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
-                        pnumber.write(core::mem::transmute(ok__));
+                        pnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13904,7 +13904,7 @@ impl IXTLRuntime_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXTLRuntime_Impl::absoluteChildNumber(this, core::mem::transmute_copy(&pnode)) {
                     Ok(ok__) => {
-                        pnumber.write(core::mem::transmute(ok__));
+                        pnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

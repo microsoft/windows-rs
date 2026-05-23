@@ -661,7 +661,7 @@ impl IDirectManipulationContent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationContent_Impl::GetContentRect(this) {
                     Ok(ok__) => {
-                        contentsize.write(core::mem::transmute(ok__));
+                        contentsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -822,7 +822,7 @@ impl IDirectManipulationDragDropBehavior_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationDragDropBehavior_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1033,7 +1033,7 @@ impl IDirectManipulationManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationManager_Impl::ProcessInput(this, core::mem::transmute_copy(&message)) {
                     Ok(ok__) => {
-                        handled.write(core::mem::transmute(ok__));
+                        handled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1366,7 +1366,7 @@ impl IDirectManipulationUpdateManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationUpdateManager_Impl::RegisterWaitHandleCallback(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&eventhandler)) {
                     Ok(ok__) => {
-                        cookie.write(core::mem::transmute(ok__));
+                        cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1613,7 +1613,7 @@ impl IDirectManipulationViewport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationViewport_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1637,7 +1637,7 @@ impl IDirectManipulationViewport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationViewport_Impl::GetViewportRect(this) {
                     Ok(ok__) => {
-                        viewport.write(core::mem::transmute(ok__));
+                        viewport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1727,7 +1727,7 @@ impl IDirectManipulationViewport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationViewport_Impl::AddEventHandler(this, core::mem::transmute_copy(&window), core::mem::transmute_copy(&eventhandler)) {
                     Ok(ok__) => {
-                        cookie.write(core::mem::transmute(ok__));
+                        cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1846,7 +1846,7 @@ impl IDirectManipulationViewport2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectManipulationViewport2_Impl::AddBehavior(this, core::mem::transmute_copy(&behavior)) {
                     Ok(ok__) => {
-                        cookie.write(core::mem::transmute(ok__));
+                        cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

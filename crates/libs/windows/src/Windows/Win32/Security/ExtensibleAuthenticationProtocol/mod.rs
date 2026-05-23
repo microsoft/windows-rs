@@ -920,7 +920,7 @@ impl IAccountingProviderConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAccountingProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
                     Ok(ok__) => {
-                        puconnectionparam.write(core::mem::transmute(ok__));
+                        puconnectionparam.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IAuthenticationProviderConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAuthenticationProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename)) {
                     Ok(ok__) => {
-                        puconnectionparam.write(core::mem::transmute(ok__));
+                        puconnectionparam.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1108,7 +1108,7 @@ impl IEAPProviderConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEAPProviderConfig_Impl::Initialize(this, core::mem::transmute(&pszmachinename), core::mem::transmute_copy(&dweaptypeid)) {
                     Ok(ok__) => {
-                        puconnectionparam.write(core::mem::transmute(ok__));
+                        puconnectionparam.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

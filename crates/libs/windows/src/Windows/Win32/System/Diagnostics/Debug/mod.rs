@@ -4142,7 +4142,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumDebugExtendedPropertyInfo_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcelt.write(core::mem::transmute(ok__));
+                        pcelt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4243,7 +4243,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEnumDebugPropertyInfo_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcelt.write(core::mem::transmute(ok__));
+                        pcelt.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5723,7 +5723,7 @@ impl IPerPropertyBrowsing2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPerPropertyBrowsing2_Impl::MapPropertyToPage(this, core::mem::transmute_copy(&dispid)) {
                     Ok(ok__) => {
-                        pclsidproppage.write(core::mem::transmute(ok__));
+                        pclsidproppage.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

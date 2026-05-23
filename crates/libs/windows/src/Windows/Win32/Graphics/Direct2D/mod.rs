@@ -2601,7 +2601,7 @@ impl ID2D1Bitmap1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Bitmap1_Impl::Map(this, core::mem::transmute_copy(&options)) {
                     Ok(ok__) => {
-                        mappedrect.write(core::mem::transmute(ok__));
+                        mappedrect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5403,7 +5403,7 @@ impl ID2D1DeviceContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1DeviceContext_Impl::GetImageLocalBounds(this, core::mem::transmute_copy(&image)) {
                     Ok(ok__) => {
-                        localbounds.write(core::mem::transmute(ok__));
+                        localbounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5415,7 +5415,7 @@ impl ID2D1DeviceContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1DeviceContext_Impl::GetImageWorldBounds(this, core::mem::transmute_copy(&image)) {
                     Ok(ok__) => {
-                        worldbounds.write(core::mem::transmute(ok__));
+                        worldbounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5427,7 +5427,7 @@ impl ID2D1DeviceContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1DeviceContext_Impl::GetGlyphRunWorldBounds(this, core::mem::transmute(&baselineorigin), core::mem::transmute_copy(&glyphrun), core::mem::transmute_copy(&measuringmode)) {
                     Ok(ok__) => {
-                        bounds.write(core::mem::transmute(ok__));
+                        bounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5529,7 +5529,7 @@ impl ID2D1DeviceContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1DeviceContext_Impl::GetEffectInvalidRectangleCount(this, core::mem::transmute_copy(&effect)) {
                     Ok(ok__) => {
-                        rectanglecount.write(core::mem::transmute(ok__));
+                        rectanglecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5924,7 +5924,7 @@ impl ID2D1DeviceContext2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1DeviceContext2_Impl::GetGradientMeshWorldBounds(this, core::mem::transmute_copy(&gradientmesh)) {
                     Ok(ok__) => {
-                        pbounds.write(core::mem::transmute(ok__));
+                        pbounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7115,7 +7115,7 @@ impl ID2D1EffectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1EffectContext_Impl::GetMaximumSupportedFeatureLevel(this, core::mem::transmute_copy(&featurelevels), core::mem::transmute_copy(&featurelevelscount)) {
                     Ok(ok__) => {
-                        maximumsupportedfeaturelevel.write(core::mem::transmute(ok__));
+                        maximumsupportedfeaturelevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8608,7 +8608,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1GdiInteropRenderTarget_Impl::GetDC(this, core::mem::transmute_copy(&mode)) {
                     Ok(ok__) => {
-                        hdc.write(core::mem::transmute(ok__));
+                        hdc.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8683,7 +8683,7 @@ impl ID2D1GdiMetafile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1GdiMetafile_Impl::GetBounds(this) {
                     Ok(ok__) => {
-                        bounds.write(core::mem::transmute(ok__));
+                        bounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8749,7 +8749,7 @@ impl ID2D1GdiMetafile1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1GdiMetafile1_Impl::GetSourceBounds(this) {
                     Ok(ok__) => {
-                        bounds.write(core::mem::transmute(ok__));
+                        bounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9004,7 +9004,7 @@ impl ID2D1Geometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::GetBounds(this, core::mem::transmute_copy(&worldtransform)) {
                     Ok(ok__) => {
-                        bounds.write(core::mem::transmute(ok__));
+                        bounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9016,7 +9016,7 @@ impl ID2D1Geometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::GetWidenedBounds(this, core::mem::transmute_copy(&strokewidth), core::mem::transmute_copy(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                     Ok(ok__) => {
-                        bounds.write(core::mem::transmute(ok__));
+                        bounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9028,7 +9028,7 @@ impl ID2D1Geometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::StrokeContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&strokewidth), core::mem::transmute_copy(&strokestyle), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                     Ok(ok__) => {
-                        contains.write(core::mem::transmute(ok__));
+                        contains.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9040,7 +9040,7 @@ impl ID2D1Geometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::FillContainsPoint(this, core::mem::transmute(&point), core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                     Ok(ok__) => {
-                        contains.write(core::mem::transmute(ok__));
+                        contains.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9052,7 +9052,7 @@ impl ID2D1Geometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::CompareWithGeometry(this, core::mem::transmute_copy(&inputgeometry), core::mem::transmute_copy(&inputgeometrytransform), core::mem::transmute_copy(&flatteningtolerance)) {
                     Ok(ok__) => {
-                        relation.write(core::mem::transmute(ok__));
+                        relation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9088,7 +9088,7 @@ impl ID2D1Geometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::ComputeArea(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                     Ok(ok__) => {
-                        area.write(core::mem::transmute(ok__));
+                        area.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9100,7 +9100,7 @@ impl ID2D1Geometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Geometry_Impl::ComputeLength(this, core::mem::transmute_copy(&worldtransform), core::mem::transmute_copy(&flatteningtolerance)) {
                     Ok(ok__) => {
-                        length.write(core::mem::transmute(ok__));
+                        length.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9924,7 +9924,7 @@ impl ID2D1ImageSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1ImageSource_Impl::TryReclaimResources(this) {
                     Ok(ok__) => {
-                        resourcesdiscarded.write(core::mem::transmute(ok__));
+                        resourcesdiscarded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10183,7 +10183,7 @@ impl ID2D1Ink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Ink_Impl::GetBounds(this, core::mem::transmute_copy(&inkstyle), core::mem::transmute_copy(&worldtransform)) {
                     Ok(ok__) => {
-                        bounds.write(core::mem::transmute(ok__));
+                        bounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10721,7 +10721,7 @@ impl ID2D1PathGeometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1PathGeometry_Impl::GetSegmentCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10733,7 +10733,7 @@ impl ID2D1PathGeometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1PathGeometry_Impl::GetFigureCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13631,7 +13631,7 @@ impl ID2D1SvgElement_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1SvgElement_Impl::GetAttributeValueLength(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        valuelength.write(core::mem::transmute(ok__));
+                        valuelength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14347,7 +14347,7 @@ impl ID2D1Transform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2D1Transform_Impl::MapInvalidRect(this, core::mem::transmute_copy(&inputindex), core::mem::transmute(&invalidinputrect)) {
                     Ok(ok__) => {
-                        invalidoutputrect.write(core::mem::transmute(ok__));
+                        invalidoutputrect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

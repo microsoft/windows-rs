@@ -43,7 +43,7 @@ impl IObjectArray_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IObjectArray_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcobjects.write(core::mem::transmute(ok__));
+                        pcobjects.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

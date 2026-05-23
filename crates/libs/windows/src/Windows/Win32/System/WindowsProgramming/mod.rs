@@ -2404,7 +2404,7 @@ impl ICameraUIControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICameraUIControl_Impl::Suspend(this) {
                     Ok(ok__) => {
-                        pbdeferralrequired.write(core::mem::transmute(ok__));
+                        pbdeferralrequired.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2422,7 +2422,7 @@ impl ICameraUIControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICameraUIControl_Impl::GetCurrentViewType(this) {
                     Ok(ok__) => {
-                        pviewtype.write(core::mem::transmute(ok__));
+                        pviewtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2440,7 +2440,7 @@ impl ICameraUIControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICameraUIControl_Impl::GetSelectedItems(this) {
                     Ok(ok__) => {
-                        ppselecteditempaths.write(core::mem::transmute(ok__));
+                        ppselecteditempaths.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2626,7 +2626,7 @@ impl IContainerActivationHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IContainerActivationHelper_Impl::CanActivateClientVM(this) {
                     Ok(ok__) => {
-                        isallowed.write(core::mem::transmute(ok__));
+                        isallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2855,7 +2855,7 @@ impl IEditionUpgradeHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEditionUpgradeHelper_Impl::CanUpgrade(this) {
                     Ok(ok__) => {
-                        isallowed.write(core::mem::transmute(ok__));
+                        isallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2879,7 +2879,7 @@ impl IEditionUpgradeHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEditionUpgradeHelper_Impl::GetOsProductContentId(this) {
                     Ok(ok__) => {
-                        contentid.write(core::mem::transmute(ok__));
+                        contentid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2891,7 +2891,7 @@ impl IEditionUpgradeHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEditionUpgradeHelper_Impl::GetGenuineLocalStatus(this) {
                     Ok(ok__) => {
-                        isgenuine.write(core::mem::transmute(ok__));
+                        isgenuine.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3157,7 +3157,7 @@ impl IWindowsLockModeHelper_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsLockModeHelper_Impl::GetSMode(this) {
                     Ok(ok__) => {
-                        issmode.write(core::mem::transmute(ok__));
+                        issmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

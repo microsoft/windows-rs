@@ -1635,7 +1635,7 @@ impl IFillLockBytes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFillLockBytes_Impl::FillAppend(this, core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb)) {
                     Ok(ok__) => {
-                        pcbwritten.write(core::mem::transmute(ok__));
+                        pcbwritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1647,7 +1647,7 @@ impl IFillLockBytes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFillLockBytes_Impl::FillAt(this, core::mem::transmute_copy(&uloffset), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&cb)) {
                     Ok(ok__) => {
-                        pcbwritten.write(core::mem::transmute(ok__));
+                        pcbwritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2176,7 +2176,7 @@ impl IPropertyBag2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPropertyBag2_Impl::CountProperties(this) {
                     Ok(ok__) => {
-                        pcproperties.write(core::mem::transmute(ok__));
+                        pcproperties.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

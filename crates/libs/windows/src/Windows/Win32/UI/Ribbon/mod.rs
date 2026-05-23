@@ -139,7 +139,7 @@ impl IUICollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUICollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -594,7 +594,7 @@ impl IUIImage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIImage_Impl::GetBitmap(this) {
                     Ok(ok__) => {
-                        bitmap.write(core::mem::transmute(ok__));
+                        bitmap.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -708,7 +708,7 @@ impl IUIRibbon_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUIRibbon_Impl::GetHeight(this) {
                     Ok(ok__) => {
-                        cy.write(core::mem::transmute(ok__));
+                        cy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

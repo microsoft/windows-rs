@@ -702,7 +702,7 @@ impl IWinHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWinHttpRequest_Impl::Status(this) {
                     Ok(ok__) => {
-                        status.write(core::mem::transmute(ok__));
+                        status.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -780,7 +780,7 @@ impl IWinHttpRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWinHttpRequest_Impl::WaitForResponse(this, core::mem::transmute(&timeout)) {
                     Ok(ok__) => {
-                        succeeded.write(core::mem::transmute(ok__));
+                        succeeded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

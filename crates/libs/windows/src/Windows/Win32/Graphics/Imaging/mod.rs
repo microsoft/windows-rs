@@ -588,7 +588,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::GetContainerFormat(this) {
                     Ok(ok__) => {
-                        pguidcontainerformat.write(core::mem::transmute(ok__));
+                        pguidcontainerformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -636,7 +636,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportAnimation(this) {
                     Ok(ok__) => {
-                        pfsupportanimation.write(core::mem::transmute(ok__));
+                        pfsupportanimation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportChromakey(this) {
                     Ok(ok__) => {
-                        pfsupportchromakey.write(core::mem::transmute(ok__));
+                        pfsupportchromakey.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -660,7 +660,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportLossless(this) {
                     Ok(ok__) => {
-                        pfsupportlossless.write(core::mem::transmute(ok__));
+                        pfsupportlossless.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -672,7 +672,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::DoesSupportMultiframe(this) {
                     Ok(ok__) => {
-                        pfsupportmultiframe.write(core::mem::transmute(ok__));
+                        pfsupportmultiframe.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl IWICBitmapCodecInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapCodecInfo_Impl::MatchesMimeType(this, core::mem::transmute(&wzmimetype)) {
                     Ok(ok__) => {
-                        pfmatches.write(core::mem::transmute(ok__));
+                        pfmatches.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::QueryCapability(this, core::mem::transmute_copy(&pistream)) {
                     Ok(ok__) => {
-                        pdwcapability.write(core::mem::transmute(ok__));
+                        pdwcapability.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -877,7 +877,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::GetContainerFormat(this) {
                     Ok(ok__) => {
-                        pguidcontainerformat.write(core::mem::transmute(ok__));
+                        pguidcontainerformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -949,7 +949,7 @@ impl IWICBitmapDecoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoder_Impl::GetFrameCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1049,7 +1049,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapDecoderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&pistream)) {
                     Ok(ok__) => {
-                        pfmatches.write(core::mem::transmute(ok__));
+                        pfmatches.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1186,7 +1186,7 @@ impl IWICBitmapEncoder_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapEncoder_Impl::GetContainerFormat(this) {
                     Ok(ok__) => {
-                        pguidcontainerformat.write(core::mem::transmute(ok__));
+                        pguidcontainerformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1393,7 +1393,7 @@ impl IWICBitmapFrameChainReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapFrameChainReader_Impl::GetChainedFrameCount(this, core::mem::transmute_copy(&chaintype)) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1466,7 +1466,7 @@ impl IWICBitmapFrameChainWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapFrameChainWriter_Impl::DoesSupportChainType(this, core::mem::transmute_copy(&chaintype)) {
                     Ok(ok__) => {
-                        pfissupported.write(core::mem::transmute(ok__));
+                        pfissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1799,7 +1799,7 @@ impl IWICBitmapLock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapLock_Impl::GetStride(this) {
                     Ok(ok__) => {
-                        pcbstride.write(core::mem::transmute(ok__));
+                        pcbstride.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1817,7 +1817,7 @@ impl IWICBitmapLock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapLock_Impl::GetPixelFormat(this) {
                     Ok(ok__) => {
-                        ppixelformat.write(core::mem::transmute(ok__));
+                        ppixelformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1932,7 +1932,7 @@ impl IWICBitmapSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapSource_Impl::GetPixelFormat(this) {
                     Ok(ok__) => {
-                        ppixelformat.write(core::mem::transmute(ok__));
+                        ppixelformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2030,7 +2030,7 @@ impl IWICBitmapSourceTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapSourceTransform_Impl::DoesSupportTransform(this, core::mem::transmute_copy(&dsttransform)) {
                     Ok(ok__) => {
-                        pfissupported.write(core::mem::transmute(ok__));
+                        pfissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2082,7 +2082,7 @@ impl IWICBitmapSourceTransform2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICBitmapSourceTransform2_Impl::GetColorContextsForPixelFormat(this, core::mem::transmute_copy(&ppixelformat), core::mem::transmute_copy(&ccount), core::mem::transmute_copy(&ppicolorcontexts)) {
                     Ok(ok__) => {
-                        pcactualcount.write(core::mem::transmute(ok__));
+                        pcactualcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2232,7 +2232,7 @@ impl IWICColorContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICColorContext_Impl::GetType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2250,7 +2250,7 @@ impl IWICColorContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICColorContext_Impl::GetExifColorSpace(this) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2589,7 +2589,7 @@ impl IWICComponentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentInfo_Impl::GetComponentType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2601,7 +2601,7 @@ impl IWICComponentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentInfo_Impl::GetCLSID(this) {
                     Ok(ok__) => {
-                        pclsid.write(core::mem::transmute(ok__));
+                        pclsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2613,7 +2613,7 @@ impl IWICComponentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentInfo_Impl::GetSigningStatus(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2631,7 +2631,7 @@ impl IWICComponentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICComponentInfo_Impl::GetVendorGUID(this) {
                     Ok(ok__) => {
-                        pguidvendor.write(core::mem::transmute(ok__));
+                        pguidvendor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2751,7 +2751,7 @@ impl IWICD3DTextureSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICD3DTextureSource_Impl::DoesSupportD3DDeviceType(this, core::mem::transmute_copy(&riid)) {
                     Ok(ok__) => {
-                        pfissupported.write(core::mem::transmute(ok__));
+                        pfissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2963,7 +2963,7 @@ impl IWICDdsFrameDecode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDdsFrameDecode_Impl::GetFormatInfo(this) {
                     Ok(ok__) => {
-                        pformatinfo.write(core::mem::transmute(ok__));
+                        pformatinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3251,7 +3251,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetExposureCompensation(this) {
                     Ok(ok__) => {
-                        pev.write(core::mem::transmute(ok__));
+                        pev.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3281,7 +3281,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetNamedWhitePoint(this) {
                     Ok(ok__) => {
-                        pwhitepoint.write(core::mem::transmute(ok__));
+                        pwhitepoint.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3299,7 +3299,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetWhitePointKelvin(this) {
                     Ok(ok__) => {
-                        pwhitepointkelvin.write(core::mem::transmute(ok__));
+                        pwhitepointkelvin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3323,7 +3323,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetContrast(this) {
                     Ok(ok__) => {
-                        pcontrast.write(core::mem::transmute(ok__));
+                        pcontrast.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3341,7 +3341,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetGamma(this) {
                     Ok(ok__) => {
-                        pgamma.write(core::mem::transmute(ok__));
+                        pgamma.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3359,7 +3359,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetSharpness(this) {
                     Ok(ok__) => {
-                        psharpness.write(core::mem::transmute(ok__));
+                        psharpness.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3377,7 +3377,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetSaturation(this) {
                     Ok(ok__) => {
-                        psaturation.write(core::mem::transmute(ok__));
+                        psaturation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3395,7 +3395,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetTint(this) {
                     Ok(ok__) => {
-                        ptint.write(core::mem::transmute(ok__));
+                        ptint.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3413,7 +3413,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetNoiseReduction(this) {
                     Ok(ok__) => {
-                        pnoisereduction.write(core::mem::transmute(ok__));
+                        pnoisereduction.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3449,7 +3449,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetRotation(this) {
                     Ok(ok__) => {
-                        protation.write(core::mem::transmute(ok__));
+                        protation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3467,7 +3467,7 @@ impl IWICDevelopRaw_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDevelopRaw_Impl::GetRenderMode(this) {
                     Ok(ok__) => {
-                        prendermode.write(core::mem::transmute(ok__));
+                        prendermode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3592,7 +3592,7 @@ impl IWICDisplayAdaptationControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDisplayAdaptationControl_Impl::DoesSupportChangingMaxLuminance(this, core::mem::transmute_copy(&pguiddstformat)) {
                     Ok(ok__) => {
-                        pfissupported.write(core::mem::transmute(ok__));
+                        pfissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3610,7 +3610,7 @@ impl IWICDisplayAdaptationControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDisplayAdaptationControl_Impl::GetDisplayMaxLuminance(this) {
                     Ok(ok__) => {
-                        pfluminanceinnits.write(core::mem::transmute(ok__));
+                        pfluminanceinnits.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3693,7 +3693,7 @@ impl IWICDisplayAdaptationControl2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDisplayAdaptationControl2_Impl::GetSdrWhiteLevel(this) {
                     Ok(ok__) => {
-                        pfwhitelevelinnits.write(core::mem::transmute(ok__));
+                        pfwhitelevelinnits.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3711,7 +3711,7 @@ impl IWICDisplayAdaptationControl2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDisplayAdaptationControl2_Impl::GetToneMappingMode(this) {
                     Ok(ok__) => {
-                        mode.write(core::mem::transmute(ok__));
+                        mode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3723,7 +3723,7 @@ impl IWICDisplayAdaptationControl2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICDisplayAdaptationControl2_Impl::DoesSupportToneMappingMode(this, core::mem::transmute_copy(&mode)) {
                     Ok(ok__) => {
-                        pfissupported.write(core::mem::transmute(ok__));
+                        pfissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3932,7 +3932,7 @@ impl IWICFormatConverter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICFormatConverter_Impl::CanConvert(this, core::mem::transmute_copy(&srcpixelformat), core::mem::transmute_copy(&dstpixelformat)) {
                     Ok(ok__) => {
-                        pfcanconvert.write(core::mem::transmute(ok__));
+                        pfcanconvert.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4683,7 +4683,7 @@ impl IWICJpegFrameDecode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICJpegFrameDecode_Impl::DoesSupportIndexing(this) {
                     Ok(ok__) => {
-                        pfindexingsupported.write(core::mem::transmute(ok__));
+                        pfindexingsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4905,7 +4905,7 @@ impl IWICMetadataBlockReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataBlockReader_Impl::GetContainerFormat(this) {
                     Ok(ok__) => {
-                        pguidcontainerformat.write(core::mem::transmute(ok__));
+                        pguidcontainerformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4917,7 +4917,7 @@ impl IWICMetadataBlockReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataBlockReader_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pccount.write(core::mem::transmute(ok__));
+                        pccount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5142,7 +5142,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataHandlerInfo_Impl::GetMetadataFormat(this) {
                     Ok(ok__) => {
-                        pguidmetadataformat.write(core::mem::transmute(ok__));
+                        pguidmetadataformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5172,7 +5172,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataHandlerInfo_Impl::DoesRequireFullStream(this) {
                     Ok(ok__) => {
-                        pfrequiresfullstream.write(core::mem::transmute(ok__));
+                        pfrequiresfullstream.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5184,7 +5184,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataHandlerInfo_Impl::DoesSupportPadding(this) {
                     Ok(ok__) => {
-                        pfsupportspadding.write(core::mem::transmute(ok__));
+                        pfsupportspadding.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5196,7 +5196,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataHandlerInfo_Impl::DoesRequireFixedSize(this) {
                     Ok(ok__) => {
-                        pffixedsize.write(core::mem::transmute(ok__));
+                        pffixedsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5276,7 +5276,7 @@ impl IWICMetadataQueryReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataQueryReader_Impl::GetContainerFormat(this) {
                     Ok(ok__) => {
-                        pguidcontainerformat.write(core::mem::transmute(ok__));
+                        pguidcontainerformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5456,7 +5456,7 @@ impl IWICMetadataReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataReader_Impl::GetMetadataFormat(this) {
                     Ok(ok__) => {
-                        pguidmetadataformat.write(core::mem::transmute(ok__));
+                        pguidmetadataformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5480,7 +5480,7 @@ impl IWICMetadataReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataReader_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pccount.write(core::mem::transmute(ok__));
+                        pccount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5587,7 +5587,7 @@ impl IWICMetadataReaderInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICMetadataReaderInfo_Impl::MatchesPattern(this, core::mem::transmute_copy(&guidcontainerformat), core::mem::transmute_copy(&pistream)) {
                     Ok(ok__) => {
-                        pfmatches.write(core::mem::transmute(ok__));
+                        pfmatches.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5884,7 +5884,7 @@ impl IWICPalette_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pepalettetype.write(core::mem::transmute(ok__));
+                        pepalettetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5896,7 +5896,7 @@ impl IWICPalette_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::GetColorCount(this) {
                     Ok(ok__) => {
-                        pccount.write(core::mem::transmute(ok__));
+                        pccount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5914,7 +5914,7 @@ impl IWICPalette_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::IsBlackWhite(this) {
                     Ok(ok__) => {
-                        pfisblackwhite.write(core::mem::transmute(ok__));
+                        pfisblackwhite.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5926,7 +5926,7 @@ impl IWICPalette_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::IsGrayscale(this) {
                     Ok(ok__) => {
-                        pfisgrayscale.write(core::mem::transmute(ok__));
+                        pfisgrayscale.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5938,7 +5938,7 @@ impl IWICPalette_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPalette_Impl::HasAlpha(this) {
                     Ok(ok__) => {
-                        pfhasalpha.write(core::mem::transmute(ok__));
+                        pfhasalpha.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6091,7 +6091,7 @@ impl IWICPixelFormatInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPixelFormatInfo_Impl::GetFormatGUID(this) {
                     Ok(ok__) => {
-                        pformat.write(core::mem::transmute(ok__));
+                        pformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6115,7 +6115,7 @@ impl IWICPixelFormatInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPixelFormatInfo_Impl::GetBitsPerPixel(this) {
                     Ok(ok__) => {
-                        puibitsperpixel.write(core::mem::transmute(ok__));
+                        puibitsperpixel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6127,7 +6127,7 @@ impl IWICPixelFormatInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPixelFormatInfo_Impl::GetChannelCount(this) {
                     Ok(ok__) => {
-                        puichannelcount.write(core::mem::transmute(ok__));
+                        puichannelcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6194,7 +6194,7 @@ impl IWICPixelFormatInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPixelFormatInfo2_Impl::SupportsTransparency(this) {
                     Ok(ok__) => {
-                        pfsupportstransparency.write(core::mem::transmute(ok__));
+                        pfsupportstransparency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6206,7 +6206,7 @@ impl IWICPixelFormatInfo2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPixelFormatInfo2_Impl::GetNumericRepresentation(this) {
                     Ok(ok__) => {
-                        pnumericrepresentation.write(core::mem::transmute(ok__));
+                        pnumericrepresentation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6362,7 +6362,7 @@ impl IWICPlanarFormatConverter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICPlanarFormatConverter_Impl::CanConvert(this, core::mem::transmute_copy(&psrcpixelformats), core::mem::transmute_copy(&csrcplanes), core::mem::transmute_copy(&dstpixelformat)) {
                     Ok(ok__) => {
-                        pfcanconvert.write(core::mem::transmute(ok__));
+                        pfcanconvert.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6446,7 +6446,7 @@ impl IWICProgressiveLevelControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICProgressiveLevelControl_Impl::GetLevelCount(this) {
                     Ok(ok__) => {
-                        pclevels.write(core::mem::transmute(ok__));
+                        pclevels.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6458,7 +6458,7 @@ impl IWICProgressiveLevelControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICProgressiveLevelControl_Impl::GetCurrentLevel(this) {
                     Ok(ok__) => {
-                        pnlevel.write(core::mem::transmute(ok__));
+                        pnlevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6641,7 +6641,7 @@ impl IWICStreamProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICStreamProvider_Impl::GetPersistOptions(this) {
                     Ok(ok__) => {
-                        pdwpersistoptions.write(core::mem::transmute(ok__));
+                        pdwpersistoptions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6653,7 +6653,7 @@ impl IWICStreamProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWICStreamProvider_Impl::GetPreferredVendorGUID(this) {
                     Ok(ok__) => {
-                        pguidpreferredvendor.write(core::mem::transmute(ok__));
+                        pguidpreferredvendor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

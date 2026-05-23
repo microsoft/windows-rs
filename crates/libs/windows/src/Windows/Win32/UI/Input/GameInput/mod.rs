@@ -2237,7 +2237,7 @@ impl IGameInputDispatcher_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameInputDispatcher_Impl::OpenWaitHandle(this) {
                     Ok(ok__) => {
-                        waithandle.write(core::mem::transmute(ok__));
+                        waithandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

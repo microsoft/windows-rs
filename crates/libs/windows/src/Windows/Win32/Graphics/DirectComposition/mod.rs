@@ -983,7 +983,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDelegatedInkTrail_Impl::AddTrailPoints(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount)) {
                     Ok(ok__) => {
-                        generationid.write(core::mem::transmute(ok__));
+                        generationid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -995,7 +995,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDelegatedInkTrail_Impl::AddTrailPointsWithPrediction(this, core::mem::transmute_copy(&inkpoints), core::mem::transmute_copy(&inkpointscount), core::mem::transmute_copy(&predictedinkpoints), core::mem::transmute_copy(&predictedinkpointscount)) {
                     Ok(ok__) => {
-                        generationid.write(core::mem::transmute(ok__));
+                        generationid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1352,7 +1352,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::GetFrameStatistics(this) {
                     Ok(ok__) => {
-                        statistics.write(core::mem::transmute(ok__));
+                        statistics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1604,7 +1604,7 @@ impl IDCompositionDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CheckDeviceState(this) {
                     Ok(ok__) => {
-                        pfvalid.write(core::mem::transmute(ok__));
+                        pfvalid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1854,7 +1854,7 @@ impl IDCompositionDevice2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::GetFrameStatistics(this) {
                     Ok(ok__) => {
-                        statistics.write(core::mem::transmute(ok__));
+                        statistics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2460,7 +2460,7 @@ impl IDCompositionDevice4_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice4_Impl::CheckCompositionTextureSupport(this, core::mem::transmute_copy(&renderingdevice)) {
                     Ok(ok__) => {
-                        supportscompositiontextures.write(core::mem::transmute(ok__));
+                        supportscompositiontextures.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

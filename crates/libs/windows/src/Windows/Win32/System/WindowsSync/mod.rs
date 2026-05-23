@@ -2702,7 +2702,7 @@ impl IRegisteredSyncProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRegisteredSyncProvider_Impl::GetInstanceId(this) {
                     Ok(ok__) => {
-                        pguidinstanceid.write(core::mem::transmute(ok__));
+                        pguidinstanceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6123,7 +6123,7 @@ impl ISyncProviderRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISyncProviderRegistration_Impl::GetSyncProviderState(this, core::mem::transmute_copy(&pguidinstanceid)) {
                     Ok(ok__) => {
-                        pdwstateflags.write(core::mem::transmute(ok__));
+                        pdwstateflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6220,7 +6220,7 @@ impl ISyncRegistrationChange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISyncRegistrationChange_Impl::GetEvent(this) {
                     Ok(ok__) => {
-                        psreevent.write(core::mem::transmute(ok__));
+                        psreevent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6232,7 +6232,7 @@ impl ISyncRegistrationChange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISyncRegistrationChange_Impl::GetInstanceId(this) {
                     Ok(ok__) => {
-                        pguidinstanceid.write(core::mem::transmute(ok__));
+                        pguidinstanceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -497,7 +497,7 @@ impl IEventClass2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventClass2_Impl::AllowInprocActivation(this) {
                     Ok(ok__) => {
-                        pfallowinprocactivation.write(core::mem::transmute(ok__));
+                        pfallowinprocactivation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -515,7 +515,7 @@ impl IEventClass2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventClass2_Impl::FireInParallel(this) {
                     Ok(ok__) => {
-                        pffireinparallel.write(core::mem::transmute(ok__));
+                        pffireinparallel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -615,7 +615,7 @@ impl IEventControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventControl_Impl::AllowInprocActivation(this) {
                     Ok(ok__) => {
-                        pfallowinprocactivation.write(core::mem::transmute(ok__));
+                        pfallowinprocactivation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -645,7 +645,7 @@ impl IEventControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventControl_Impl::SetDefaultQuery(this, core::mem::transmute(&methodname), core::mem::transmute(&criteria)) {
                     Ok(ok__) => {
-                        errorindex.write(core::mem::transmute(ok__));
+                        errorindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -883,7 +883,7 @@ impl IEventObjectCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventObjectCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1685,7 +1685,7 @@ impl IEventSubscription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventSubscription_Impl::PerUser(this) {
                     Ok(ok__) => {
-                        pfperuser.write(core::mem::transmute(ok__));
+                        pfperuser.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1721,7 +1721,7 @@ impl IEventSubscription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventSubscription_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1993,7 +1993,7 @@ impl IEventSystem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEventSystem_Impl::Remove(this, core::mem::transmute(&progid), core::mem::transmute(&querycriteria)) {
                     Ok(ok__) => {
-                        errorindex.write(core::mem::transmute(ok__));
+                        errorindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2175,7 +2175,7 @@ impl IMultiInterfaceEventControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultiInterfaceEventControl_Impl::SetDefaultQuery(this, core::mem::transmute_copy(&eventiid), core::mem::transmute(&bstrmethodname), core::mem::transmute(&bstrcriteria)) {
                     Ok(ok__) => {
-                        errorindex.write(core::mem::transmute(ok__));
+                        errorindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2187,7 +2187,7 @@ impl IMultiInterfaceEventControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultiInterfaceEventControl_Impl::AllowInprocActivation(this) {
                     Ok(ok__) => {
-                        pfallowinprocactivation.write(core::mem::transmute(ok__));
+                        pfallowinprocactivation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2205,7 +2205,7 @@ impl IMultiInterfaceEventControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMultiInterfaceEventControl_Impl::FireInParallel(this) {
                     Ok(ok__) => {
-                        pffireinparallel.write(core::mem::transmute(ok__));
+                        pffireinparallel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

@@ -662,7 +662,7 @@ impl ContextInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ContextInfo_Impl::IsInTransaction(this) {
                     Ok(ok__) => {
-                        pbisintx.write(core::mem::transmute(ok__));
+                        pbisintx.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -977,7 +977,7 @@ impl IAssemblyLocator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAssemblyLocator_Impl::GetModules(this, core::mem::transmute(&applicationdir), core::mem::transmute(&applicationname), core::mem::transmute(&assemblyname)) {
                     Ok(ok__) => {
-                        pmodules.write(core::mem::transmute(ok__));
+                        pmodules.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1226,7 +1226,7 @@ impl ICOMAdminCatalog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog_Impl::MajorVersion(this) {
                     Ok(ok__) => {
-                        plmajorversion.write(core::mem::transmute(ok__));
+                        plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1238,7 +1238,7 @@ impl ICOMAdminCatalog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog_Impl::MinorVersion(this) {
                     Ok(ok__) => {
-                        plminorversion.write(core::mem::transmute(ok__));
+                        plminorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1364,7 +1364,7 @@ impl ICOMAdminCatalog_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog_Impl::ServiceCheck(this, core::mem::transmute_copy(&lservice)) {
                     Ok(ok__) => {
-                        plstatus.write(core::mem::transmute(ok__));
+                        plstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1749,7 +1749,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::AreApplicationInstancesPaused(this, core::mem::transmute_copy(&pvarapplicationinstanceid)) {
                     Ok(ok__) => {
-                        pvarboolpaused.write(core::mem::transmute(ok__));
+                        pvarboolpaused.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1773,7 +1773,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::IsApplicationInstanceDumpSupported(this) {
                     Ok(ok__) => {
-                        pvarbooldumpsupported.write(core::mem::transmute(ok__));
+                        pvarbooldumpsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1893,7 +1893,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::IsSafeToDelete(this, core::mem::transmute(&bstrdllname)) {
                     Ok(ok__) => {
-                        pcomadmininuse.write(core::mem::transmute(ok__));
+                        pcomadmininuse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1923,7 +1923,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::Is64BitCatalogServer(this) {
                     Ok(ok__) => {
-                        pbis64bit.write(core::mem::transmute(ok__));
+                        pbis64bit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1959,7 +1959,7 @@ impl ICOMAdminCatalog2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICOMAdminCatalog2_Impl::GetComponentVersionCount(this, core::mem::transmute(&bstrclsidorprogid)) {
                     Ok(ok__) => {
-                        plversioncount.write(core::mem::transmute(ok__));
+                        plversioncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2256,7 +2256,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        plobjectcount.write(core::mem::transmute(ok__));
+                        plobjectcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2292,7 +2292,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::SaveChanges(this) {
                     Ok(ok__) => {
-                        pcchanges.write(core::mem::transmute(ok__));
+                        pcchanges.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2328,7 +2328,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::AddEnabled(this) {
                     Ok(ok__) => {
-                        pvarbool.write(core::mem::transmute(ok__));
+                        pvarbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2340,7 +2340,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::RemoveEnabled(this) {
                     Ok(ok__) => {
-                        pvarbool.write(core::mem::transmute(ok__));
+                        pvarbool.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2364,7 +2364,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::DataStoreMajorVersion(this) {
                     Ok(ok__) => {
-                        plmajorversion.write(core::mem::transmute(ok__));
+                        plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2376,7 +2376,7 @@ impl ICatalogCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogCollection_Impl::DataStoreMinorVersion(this) {
                     Ok(ok__) => {
-                        plminorversionl.write(core::mem::transmute(ok__));
+                        plminorversionl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2563,7 +2563,7 @@ impl ICatalogObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogObject_Impl::IsPropertyReadOnly(this, core::mem::transmute(&bstrpropname)) {
                     Ok(ok__) => {
-                        pbretval.write(core::mem::transmute(ok__));
+                        pbretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2575,7 +2575,7 @@ impl ICatalogObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogObject_Impl::Valid(this) {
                     Ok(ok__) => {
-                        pbretval.write(core::mem::transmute(ok__));
+                        pbretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2587,7 +2587,7 @@ impl ICatalogObject_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICatalogObject_Impl::IsPropertyWriteOnly(this, core::mem::transmute(&bstrpropname)) {
                     Ok(ok__) => {
-                        pbretval.write(core::mem::transmute(ok__));
+                        pbretval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3505,7 +3505,7 @@ impl IComMtaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComMtaThreadPoolKnobs_Impl::MTAGetMaxThreadCount(this) {
                     Ok(ok__) => {
-                        pdwmaxthreads.write(core::mem::transmute(ok__));
+                        pdwmaxthreads.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3523,7 +3523,7 @@ impl IComMtaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComMtaThreadPoolKnobs_Impl::MTAGetThrottleValue(this) {
                     Ok(ok__) => {
-                        pdwthrottle.write(core::mem::transmute(ok__));
+                        pdwthrottle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4273,7 +4273,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs_Impl::GetMinThreadCount(this) {
                     Ok(ok__) => {
-                        minthreads.write(core::mem::transmute(ok__));
+                        minthreads.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4291,7 +4291,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs_Impl::GetMaxThreadCount(this) {
                     Ok(ok__) => {
-                        maxthreads.write(core::mem::transmute(ok__));
+                        maxthreads.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4309,7 +4309,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs_Impl::GetActivityPerThread(this) {
                     Ok(ok__) => {
-                        activitiesperthread.write(core::mem::transmute(ok__));
+                        activitiesperthread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4327,7 +4327,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs_Impl::GetActivityRatio(this) {
                     Ok(ok__) => {
-                        activityratio.write(core::mem::transmute(ok__));
+                        activityratio.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4339,7 +4339,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs_Impl::GetThreadCount(this) {
                     Ok(ok__) => {
-                        pdwthreads.write(core::mem::transmute(ok__));
+                        pdwthreads.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4351,7 +4351,7 @@ impl IComStaThreadPoolKnobs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs_Impl::GetQueueDepth(this) {
                     Ok(ok__) => {
-                        pdwqdepth.write(core::mem::transmute(ok__));
+                        pdwqdepth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4473,7 +4473,7 @@ impl IComStaThreadPoolKnobs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs2_Impl::GetMaxCPULoad(this) {
                     Ok(ok__) => {
-                        pdwload.write(core::mem::transmute(ok__));
+                        pdwload.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4491,7 +4491,7 @@ impl IComStaThreadPoolKnobs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs2_Impl::GetCPUMetricEnabled(this) {
                     Ok(ok__) => {
-                        pbmetricenabled.write(core::mem::transmute(ok__));
+                        pbmetricenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4509,7 +4509,7 @@ impl IComStaThreadPoolKnobs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs2_Impl::GetCreateThreadsAggressively(this) {
                     Ok(ok__) => {
-                        pbmetricenabled.write(core::mem::transmute(ok__));
+                        pbmetricenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4527,7 +4527,7 @@ impl IComStaThreadPoolKnobs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs2_Impl::GetMaxCSR(this) {
                     Ok(ok__) => {
-                        pdwcsr.write(core::mem::transmute(ok__));
+                        pdwcsr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4545,7 +4545,7 @@ impl IComStaThreadPoolKnobs2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComStaThreadPoolKnobs2_Impl::GetWaitTimeForThreadCleanup(this) {
                     Ok(ok__) => {
-                        pdwthreadcleanupwaittime.write(core::mem::transmute(ok__));
+                        pdwthreadcleanupwaittime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4770,7 +4770,7 @@ impl IComTrackingInfoCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComTrackingInfoCollection_Impl::Type(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4782,7 +4782,7 @@ impl IComTrackingInfoCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComTrackingInfoCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4925,7 +4925,7 @@ impl IComTrackingInfoProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComTrackingInfoProperties_Impl::PropCount(this) {
                     Ok(ok__) => {
-                        pcount.write(core::mem::transmute(ok__));
+                        pcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4937,7 +4937,7 @@ impl IComTrackingInfoProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IComTrackingInfoProperties_Impl::GetPropName(this, core::mem::transmute_copy(&ulindex)) {
                     Ok(ok__) => {
-                        ppszpropname.write(core::mem::transmute(ok__));
+                        ppszpropname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5572,7 +5572,7 @@ impl ICrmCompensator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensator_Impl::PrepareRecord(this, core::mem::transmute(&crmlogrec)) {
                     Ok(ok__) => {
-                        pfforget.write(core::mem::transmute(ok__));
+                        pfforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5584,7 +5584,7 @@ impl ICrmCompensator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensator_Impl::EndPrepare(this) {
                     Ok(ok__) => {
-                        pfoktoprepare.write(core::mem::transmute(ok__));
+                        pfoktoprepare.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5602,7 +5602,7 @@ impl ICrmCompensator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensator_Impl::CommitRecord(this, core::mem::transmute(&crmlogrec)) {
                     Ok(ok__) => {
-                        pfforget.write(core::mem::transmute(ok__));
+                        pfforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5626,7 +5626,7 @@ impl ICrmCompensator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensator_Impl::AbortRecord(this, core::mem::transmute(&crmlogrec)) {
                     Ok(ok__) => {
-                        pfforget.write(core::mem::transmute(ok__));
+                        pfforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5768,7 +5768,7 @@ impl ICrmCompensatorVariants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensatorVariants_Impl::PrepareRecordVariants(this, core::mem::transmute_copy(&plogrecord)) {
                     Ok(ok__) => {
-                        pbforget.write(core::mem::transmute(ok__));
+                        pbforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5780,7 +5780,7 @@ impl ICrmCompensatorVariants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensatorVariants_Impl::EndPrepareVariants(this) {
                     Ok(ok__) => {
-                        pboktoprepare.write(core::mem::transmute(ok__));
+                        pboktoprepare.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5798,7 +5798,7 @@ impl ICrmCompensatorVariants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensatorVariants_Impl::CommitRecordVariants(this, core::mem::transmute_copy(&plogrecord)) {
                     Ok(ok__) => {
-                        pbforget.write(core::mem::transmute(ok__));
+                        pbforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5822,7 +5822,7 @@ impl ICrmCompensatorVariants_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmCompensatorVariants_Impl::AbortRecordVariants(this, core::mem::transmute_copy(&plogrecord)) {
                     Ok(ok__) => {
-                        pbforget.write(core::mem::transmute(ok__));
+                        pbforget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5919,7 +5919,7 @@ impl ICrmFormatLogRecords_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmFormatLogRecords_Impl::GetColumnCount(this) {
                     Ok(ok__) => {
-                        plcolumncount.write(core::mem::transmute(ok__));
+                        plcolumncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6312,7 +6312,7 @@ impl ICrmMonitorClerks_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmMonitorClerks_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6449,7 +6449,7 @@ impl ICrmMonitorLogRecords_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmMonitorLogRecords_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6461,7 +6461,7 @@ impl ICrmMonitorLogRecords_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmMonitorLogRecords_Impl::TransactionState(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6473,7 +6473,7 @@ impl ICrmMonitorLogRecords_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICrmMonitorLogRecords_Impl::StructuredRecords(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6918,7 +6918,7 @@ impl IGetAppTrackerData_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGetAppTrackerData_Impl::GetSuggestedPollingInterval(this) {
                     Ok(ok__) => {
-                        pollingintervalinseconds.write(core::mem::transmute(ok__));
+                        pollingintervalinseconds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7746,7 +7746,7 @@ impl IMessageMover_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMessageMover_Impl::CommitBatchSize(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7764,7 +7764,7 @@ impl IMessageMover_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMessageMover_Impl::MoveMessages(this) {
                     Ok(ok__) => {
-                        plmessagesmoved.write(core::mem::transmute(ok__));
+                        plmessagesmoved.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7899,7 +7899,7 @@ impl IMtsEventInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEventInfo_Impl::Count(this) {
                     Ok(ok__) => {
-                        lcount.write(core::mem::transmute(ok__));
+                        lcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8035,7 +8035,7 @@ impl IMtsEvents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEvents_Impl::FireEvents(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8047,7 +8047,7 @@ impl IMtsEvents_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsEvents_Impl::GetProcessID(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8121,7 +8121,7 @@ impl IMtsGrp_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMtsGrp_Impl::Count(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8986,7 +8986,7 @@ impl ISecurityCallContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallContext_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9022,7 +9022,7 @@ impl ISecurityCallContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallContext_Impl::IsCallerInRole(this, core::mem::transmute(&bstrrole)) {
                     Ok(ok__) => {
-                        pfinrole.write(core::mem::transmute(ok__));
+                        pfinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9034,7 +9034,7 @@ impl ISecurityCallContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallContext_Impl::IsSecurityEnabled(this) {
                     Ok(ok__) => {
-                        pfisenabled.write(core::mem::transmute(ok__));
+                        pfisenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9046,7 +9046,7 @@ impl ISecurityCallContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallContext_Impl::IsUserInRole(this, core::mem::transmute_copy(&puser), core::mem::transmute(&bstrrole)) {
                     Ok(ok__) => {
-                        pfinrole.write(core::mem::transmute(ok__));
+                        pfinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9124,7 +9124,7 @@ impl ISecurityCallersColl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityCallersColl_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9227,7 +9227,7 @@ impl ISecurityIdentityColl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISecurityIdentityColl_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11629,7 +11629,7 @@ impl ObjectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ObjectContext_Impl::IsInTransaction(this) {
                     Ok(ok__) => {
-                        pbisintx.write(core::mem::transmute(ok__));
+                        pbisintx.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11641,7 +11641,7 @@ impl ObjectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ObjectContext_Impl::IsSecurityEnabled(this) {
                     Ok(ok__) => {
-                        pbisenabled.write(core::mem::transmute(ok__));
+                        pbisenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11653,7 +11653,7 @@ impl ObjectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ObjectContext_Impl::IsCallerInRole(this, core::mem::transmute(&bstrrole)) {
                     Ok(ok__) => {
-                        pbinrole.write(core::mem::transmute(ok__));
+                        pbinrole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11665,7 +11665,7 @@ impl ObjectContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ObjectContext_Impl::Count(this) {
                     Ok(ok__) => {
-                        plcount.write(core::mem::transmute(ok__));
+                        plcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

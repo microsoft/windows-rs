@@ -188,7 +188,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRandomAccessStreamFileAccessMode_Impl::GetMode(this) {
                     Ok(ok__) => {
-                        fileaccessmode.write(core::mem::transmute(ok__));
+                        fileaccessmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -232,7 +232,7 @@ impl IStorageFolderHandleAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStorageFolderHandleAccess_Impl::Create(this, core::mem::transmute(&filename), core::mem::transmute_copy(&creationoptions), core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
                     Ok(ok__) => {
-                        interophandle.write(core::mem::transmute(ok__));
+                        interophandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -275,7 +275,7 @@ impl IStorageItemHandleAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IStorageItemHandleAccess_Impl::Create(this, core::mem::transmute_copy(&accessoptions), core::mem::transmute_copy(&sharingoptions), core::mem::transmute_copy(&options), core::mem::transmute_copy(&oplockbreakinghandler)) {
                     Ok(ok__) => {
-                        interophandle.write(core::mem::transmute(ok__));
+                        interophandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -354,7 +354,7 @@ impl IUnbufferedFileHandleProvider_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUnbufferedFileHandleProvider_Impl::OpenUnbufferedFileHandle(this, core::mem::transmute_copy(&oplockbreakcallback)) {
                     Ok(ok__) => {
-                        filehandle.write(core::mem::transmute(ok__));
+                        filehandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

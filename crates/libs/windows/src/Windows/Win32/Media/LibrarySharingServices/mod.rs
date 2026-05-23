@@ -73,7 +73,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingDevice_Impl::Authorization(this) {
                     Ok(ok__) => {
-                        authorization.write(core::mem::transmute(ok__));
+                        authorization.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -179,7 +179,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingDeviceProperties_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -356,7 +356,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingDevices_Impl::Count(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -547,7 +547,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingServices_Impl::userHomeMediaSharingState(this) {
                     Ok(ok__) => {
-                        sharingenabled.write(core::mem::transmute(ok__));
+                        sharingenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -583,7 +583,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingServices_Impl::computerHomeMediaSharingAllowedState(this) {
                     Ok(ok__) => {
-                        sharingallowed.write(core::mem::transmute(ok__));
+                        sharingallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -601,7 +601,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingServices_Impl::userInternetMediaSharingState(this) {
                     Ok(ok__) => {
-                        sharingenabled.write(core::mem::transmute(ok__));
+                        sharingenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingServices_Impl::computerInternetMediaSharingAllowedState(this) {
                     Ok(ok__) => {
-                        sharingallowed.write(core::mem::transmute(ok__));
+                        sharingallowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -655,7 +655,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingServices_Impl::allowSharingToAllDevices(this) {
                     Ok(ok__) => {
-                        sharingenabled.write(core::mem::transmute(ok__));
+                        sharingenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -697,7 +697,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWindowsMediaLibrarySharingServices_Impl::customSettingsApplied(this) {
                     Ok(ok__) => {
-                        customsettingsapplied.write(core::mem::transmute(ok__));
+                        customsettingsapplied.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

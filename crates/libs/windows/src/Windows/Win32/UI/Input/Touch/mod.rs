@@ -504,7 +504,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialOriginX(this) {
                     Ok(ok__) => {
-                        x.write(core::mem::transmute(ok__));
+                        x.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialOriginY(this) {
                     Ok(ok__) => {
-                        y.write(core::mem::transmute(ok__));
+                        y.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialVelocityX(this) {
                     Ok(ok__) => {
-                        x.write(core::mem::transmute(ok__));
+                        x.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -558,7 +558,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialVelocityY(this) {
                     Ok(ok__) => {
-                        y.write(core::mem::transmute(ok__));
+                        y.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -576,7 +576,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialAngularVelocity(this) {
                     Ok(ok__) => {
-                        velocity.write(core::mem::transmute(ok__));
+                        velocity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -594,7 +594,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialExpansionVelocity(this) {
                     Ok(ok__) => {
-                        velocity.write(core::mem::transmute(ok__));
+                        velocity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -612,7 +612,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialRadius(this) {
                     Ok(ok__) => {
-                        radius.write(core::mem::transmute(ok__));
+                        radius.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -630,7 +630,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::BoundaryLeft(this) {
                     Ok(ok__) => {
-                        left.write(core::mem::transmute(ok__));
+                        left.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::BoundaryTop(this) {
                     Ok(ok__) => {
-                        top.write(core::mem::transmute(ok__));
+                        top.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -666,7 +666,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::BoundaryRight(this) {
                     Ok(ok__) => {
-                        right.write(core::mem::transmute(ok__));
+                        right.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::BoundaryBottom(this) {
                     Ok(ok__) => {
-                        bottom.write(core::mem::transmute(ok__));
+                        bottom.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::ElasticMarginLeft(this) {
                     Ok(ok__) => {
-                        left.write(core::mem::transmute(ok__));
+                        left.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -720,7 +720,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::ElasticMarginTop(this) {
                     Ok(ok__) => {
-                        top.write(core::mem::transmute(ok__));
+                        top.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -738,7 +738,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::ElasticMarginRight(this) {
                     Ok(ok__) => {
-                        right.write(core::mem::transmute(ok__));
+                        right.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -756,7 +756,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::ElasticMarginBottom(this) {
                     Ok(ok__) => {
-                        bottom.write(core::mem::transmute(ok__));
+                        bottom.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::DesiredDisplacement(this) {
                     Ok(ok__) => {
-                        displacement.write(core::mem::transmute(ok__));
+                        displacement.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -792,7 +792,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::DesiredRotation(this) {
                     Ok(ok__) => {
-                        rotation.write(core::mem::transmute(ok__));
+                        rotation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -810,7 +810,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::DesiredExpansion(this) {
                     Ok(ok__) => {
-                        expansion.write(core::mem::transmute(ok__));
+                        expansion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -828,7 +828,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::DesiredDeceleration(this) {
                     Ok(ok__) => {
-                        deceleration.write(core::mem::transmute(ok__));
+                        deceleration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -846,7 +846,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::DesiredAngularDeceleration(this) {
                     Ok(ok__) => {
-                        deceleration.write(core::mem::transmute(ok__));
+                        deceleration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -864,7 +864,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::DesiredExpansionDeceleration(this) {
                     Ok(ok__) => {
-                        deceleration.write(core::mem::transmute(ok__));
+                        deceleration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -882,7 +882,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::InitialTimestamp(this) {
                     Ok(ok__) => {
-                        timestamp.write(core::mem::transmute(ok__));
+                        timestamp.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -906,7 +906,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::Process(this) {
                     Ok(ok__) => {
-                        completed.write(core::mem::transmute(ok__));
+                        completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -918,7 +918,7 @@ impl IInertiaProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IInertiaProcessor_Impl::ProcessTime(this, core::mem::transmute_copy(&timestamp)) {
                     Ok(ok__) => {
-                        completed.write(core::mem::transmute(ok__));
+                        completed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1145,7 +1145,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::SupportedManipulations(this) {
                     Ok(ok__) => {
-                        manipulations.write(core::mem::transmute(ok__));
+                        manipulations.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1163,7 +1163,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::PivotPointX(this) {
                     Ok(ok__) => {
-                        pivotpointx.write(core::mem::transmute(ok__));
+                        pivotpointx.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1181,7 +1181,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::PivotPointY(this) {
                     Ok(ok__) => {
-                        pivotpointy.write(core::mem::transmute(ok__));
+                        pivotpointy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1199,7 +1199,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::PivotRadius(this) {
                     Ok(ok__) => {
-                        pivotradius.write(core::mem::transmute(ok__));
+                        pivotradius.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1259,7 +1259,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::GetVelocityX(this) {
                     Ok(ok__) => {
-                        velocityx.write(core::mem::transmute(ok__));
+                        velocityx.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1271,7 +1271,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::GetVelocityY(this) {
                     Ok(ok__) => {
-                        velocityy.write(core::mem::transmute(ok__));
+                        velocityy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1283,7 +1283,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::GetExpansionVelocity(this) {
                     Ok(ok__) => {
-                        expansionvelocity.write(core::mem::transmute(ok__));
+                        expansionvelocity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1295,7 +1295,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::GetAngularVelocity(this) {
                     Ok(ok__) => {
-                        angularvelocity.write(core::mem::transmute(ok__));
+                        angularvelocity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1307,7 +1307,7 @@ impl IManipulationProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IManipulationProcessor_Impl::MinimumScaleRotateRadius(this) {
                     Ok(ok__) => {
-                        minradius.write(core::mem::transmute(ok__));
+                        minradius.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

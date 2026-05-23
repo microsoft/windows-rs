@@ -214,7 +214,7 @@ impl IXpsDocumentPackageTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsDocumentPackageTarget_Impl::GetXpsType(this) {
                     Ok(ok__) => {
-                        documenttype.write(core::mem::transmute(ok__));
+                        documenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -348,7 +348,7 @@ impl IXpsOMBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMBrush_Impl::GetOpacity(this) {
                     Ok(ok__) => {
-                        opacity.write(core::mem::transmute(ok__));
+                        opacity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -507,7 +507,7 @@ impl IXpsOMCanvas_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCanvas_Impl::GetUseAliasedEdgeMode(this) {
                     Ok(ok__) => {
-                        usealiasededgemode.write(core::mem::transmute(ok__));
+                        usealiasededgemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IXpsOMCanvas_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCanvas_Impl::GetAccessibilityShortDescription(this) {
                     Ok(ok__) => {
-                        shortdescription.write(core::mem::transmute(ok__));
+                        shortdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -543,7 +543,7 @@ impl IXpsOMCanvas_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCanvas_Impl::GetAccessibilityLongDescription(this) {
                     Ok(ok__) => {
-                        longdescription.write(core::mem::transmute(ok__));
+                        longdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -791,7 +791,7 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMColorProfileResourceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1164,7 +1164,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetCategory(this) {
                     Ok(ok__) => {
-                        category.write(core::mem::transmute(ok__));
+                        category.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1182,7 +1182,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetContentStatus(this) {
                     Ok(ok__) => {
-                        contentstatus.write(core::mem::transmute(ok__));
+                        contentstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1200,7 +1200,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetContentType(this) {
                     Ok(ok__) => {
-                        contenttype.write(core::mem::transmute(ok__));
+                        contenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1218,7 +1218,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetCreated(this) {
                     Ok(ok__) => {
-                        created.write(core::mem::transmute(ok__));
+                        created.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1236,7 +1236,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetCreator(this) {
                     Ok(ok__) => {
-                        creator.write(core::mem::transmute(ok__));
+                        creator.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1254,7 +1254,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetDescription(this) {
                     Ok(ok__) => {
-                        description.write(core::mem::transmute(ok__));
+                        description.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1272,7 +1272,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetIdentifier(this) {
                     Ok(ok__) => {
-                        identifier.write(core::mem::transmute(ok__));
+                        identifier.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1290,7 +1290,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetKeywords(this) {
                     Ok(ok__) => {
-                        keywords.write(core::mem::transmute(ok__));
+                        keywords.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1308,7 +1308,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetLanguage(this) {
                     Ok(ok__) => {
-                        language.write(core::mem::transmute(ok__));
+                        language.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1326,7 +1326,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetLastModifiedBy(this) {
                     Ok(ok__) => {
-                        lastmodifiedby.write(core::mem::transmute(ok__));
+                        lastmodifiedby.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1344,7 +1344,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetLastPrinted(this) {
                     Ok(ok__) => {
-                        lastprinted.write(core::mem::transmute(ok__));
+                        lastprinted.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetModified(this) {
                     Ok(ok__) => {
-                        modified.write(core::mem::transmute(ok__));
+                        modified.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1380,7 +1380,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetRevision(this) {
                     Ok(ok__) => {
-                        revision.write(core::mem::transmute(ok__));
+                        revision.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1398,7 +1398,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetSubject(this) {
                     Ok(ok__) => {
-                        subject.write(core::mem::transmute(ok__));
+                        subject.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1416,7 +1416,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetTitle(this) {
                     Ok(ok__) => {
-                        title.write(core::mem::transmute(ok__));
+                        title.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1434,7 +1434,7 @@ impl IXpsOMCoreProperties_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMCoreProperties_Impl::GetVersion(this) {
                     Ok(ok__) => {
-                        version.write(core::mem::transmute(ok__));
+                        version.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1557,7 +1557,7 @@ impl IXpsOMDashCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMDashCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1569,7 +1569,7 @@ impl IXpsOMDashCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMDashCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        dash.write(core::mem::transmute(ok__));
+                        dash.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1732,7 +1732,7 @@ impl IXpsOMDictionary_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMDictionary_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1768,7 +1768,7 @@ impl IXpsOMDictionary_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMDictionary_Impl::GetIndex(this, core::mem::transmute_copy(&entry)) {
                     Ok(ok__) => {
-                        index.write(core::mem::transmute(ok__));
+                        index.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2080,7 +2080,7 @@ impl IXpsOMDocumentCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMDocumentCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2421,7 +2421,7 @@ impl IXpsOMFontResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMFontResource_Impl::GetEmbeddingOption(this) {
                     Ok(ok__) => {
-                        embeddingoption.write(core::mem::transmute(ok__));
+                        embeddingoption.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2521,7 +2521,7 @@ impl IXpsOMFontResourceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMFontResourceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2698,7 +2698,7 @@ impl IXpsOMGeometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometry_Impl::GetFillRule(this) {
                     Ok(ok__) => {
-                        fillrule.write(core::mem::transmute(ok__));
+                        fillrule.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2746,7 +2746,7 @@ impl IXpsOMGeometry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometry_Impl::GetTransformLookup(this) {
                     Ok(ok__) => {
-                        lookup.write(core::mem::transmute(ok__));
+                        lookup.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2942,7 +2942,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetStartPoint(this) {
                     Ok(ok__) => {
-                        startpoint.write(core::mem::transmute(ok__));
+                        startpoint.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2960,7 +2960,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetIsClosed(this) {
                     Ok(ok__) => {
-                        isclosed.write(core::mem::transmute(ok__));
+                        isclosed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2978,7 +2978,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetIsFilled(this) {
                     Ok(ok__) => {
-                        isfilled.write(core::mem::transmute(ok__));
+                        isfilled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2996,7 +2996,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetSegmentCount(this) {
                     Ok(ok__) => {
-                        segmentcount.write(core::mem::transmute(ok__));
+                        segmentcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3008,7 +3008,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetSegmentDataCount(this) {
                     Ok(ok__) => {
-                        segmentdatacount.write(core::mem::transmute(ok__));
+                        segmentdatacount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3020,7 +3020,7 @@ impl IXpsOMGeometryFigure_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigure_Impl::GetSegmentStrokePattern(this) {
                     Ok(ok__) => {
-                        segmentstrokepattern.write(core::mem::transmute(ok__));
+                        segmentstrokepattern.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3126,7 +3126,7 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGeometryFigureCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3405,7 +3405,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetUnicodeString(this) {
                     Ok(ok__) => {
-                        unicodestring.write(core::mem::transmute(ok__));
+                        unicodestring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3417,7 +3417,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetGlyphIndexCount(this) {
                     Ok(ok__) => {
-                        indexcount.write(core::mem::transmute(ok__));
+                        indexcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3435,7 +3435,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetGlyphMappingCount(this) {
                     Ok(ok__) => {
-                        glyphmappingcount.write(core::mem::transmute(ok__));
+                        glyphmappingcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3453,7 +3453,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetProhibitedCaretStopCount(this) {
                     Ok(ok__) => {
-                        prohibitedcaretstopcount.write(core::mem::transmute(ok__));
+                        prohibitedcaretstopcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3471,7 +3471,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetBidiLevel(this) {
                     Ok(ok__) => {
-                        bidilevel.write(core::mem::transmute(ok__));
+                        bidilevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3483,7 +3483,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetIsSideways(this) {
                     Ok(ok__) => {
-                        issideways.write(core::mem::transmute(ok__));
+                        issideways.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3495,7 +3495,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetDeviceFontName(this) {
                     Ok(ok__) => {
-                        devicefontname.write(core::mem::transmute(ok__));
+                        devicefontname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3507,7 +3507,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetStyleSimulations(this) {
                     Ok(ok__) => {
-                        stylesimulations.write(core::mem::transmute(ok__));
+                        stylesimulations.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3525,7 +3525,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetOrigin(this) {
                     Ok(ok__) => {
-                        origin.write(core::mem::transmute(ok__));
+                        origin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3543,7 +3543,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetFontRenderingEmSize(this) {
                     Ok(ok__) => {
-                        fontrenderingemsize.write(core::mem::transmute(ok__));
+                        fontrenderingemsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3579,7 +3579,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetFontFaceIndex(this) {
                     Ok(ok__) => {
-                        fontfaceindex.write(core::mem::transmute(ok__));
+                        fontfaceindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3627,7 +3627,7 @@ impl IXpsOMGlyphs_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphs_Impl::GetFillBrushLookup(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3842,7 +3842,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetUnicodeString(this) {
                     Ok(ok__) => {
-                        unicodestring.write(core::mem::transmute(ok__));
+                        unicodestring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3860,7 +3860,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetGlyphIndexCount(this) {
                     Ok(ok__) => {
-                        indexcount.write(core::mem::transmute(ok__));
+                        indexcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3884,7 +3884,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetGlyphMappingCount(this) {
                     Ok(ok__) => {
-                        glyphmappingcount.write(core::mem::transmute(ok__));
+                        glyphmappingcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3908,7 +3908,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetProhibitedCaretStopCount(this) {
                     Ok(ok__) => {
-                        prohibitedcaretstopcount.write(core::mem::transmute(ok__));
+                        prohibitedcaretstopcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3932,7 +3932,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetBidiLevel(this) {
                     Ok(ok__) => {
-                        bidilevel.write(core::mem::transmute(ok__));
+                        bidilevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3950,7 +3950,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetIsSideways(this) {
                     Ok(ok__) => {
-                        issideways.write(core::mem::transmute(ok__));
+                        issideways.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3968,7 +3968,7 @@ impl IXpsOMGlyphsEditor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGlyphsEditor_Impl::GetDeviceFontName(this) {
                     Ok(ok__) => {
-                        devicefontname.write(core::mem::transmute(ok__));
+                        devicefontname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4148,7 +4148,7 @@ impl IXpsOMGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGradientBrush_Impl::GetTransformLookup(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4166,7 +4166,7 @@ impl IXpsOMGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGradientBrush_Impl::GetSpreadMethod(this) {
                     Ok(ok__) => {
-                        spreadmethod.write(core::mem::transmute(ok__));
+                        spreadmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4184,7 +4184,7 @@ impl IXpsOMGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGradientBrush_Impl::GetColorInterpolationMode(this) {
                     Ok(ok__) => {
-                        colorinterpolationmode.write(core::mem::transmute(ok__));
+                        colorinterpolationmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4291,7 +4291,7 @@ impl IXpsOMGradientStop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGradientStop_Impl::GetOffset(this) {
                     Ok(ok__) => {
-                        offset.write(core::mem::transmute(ok__));
+                        offset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4412,7 +4412,7 @@ impl IXpsOMGradientStopCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMGradientStopCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4668,7 +4668,7 @@ impl IXpsOMImageResource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMImageResource_Impl::GetImageType(this) {
                     Ok(ok__) => {
-                        imagetype.write(core::mem::transmute(ok__));
+                        imagetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4768,7 +4768,7 @@ impl IXpsOMImageResourceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMImageResourceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4898,7 +4898,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMLinearGradientBrush_Impl::GetStartPoint(this) {
                     Ok(ok__) => {
-                        startpoint.write(core::mem::transmute(ok__));
+                        startpoint.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4916,7 +4916,7 @@ impl IXpsOMLinearGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMLinearGradientBrush_Impl::GetEndPoint(this) {
                     Ok(ok__) => {
-                        endpoint.write(core::mem::transmute(ok__));
+                        endpoint.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5000,7 +5000,7 @@ impl IXpsOMMatrixTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMMatrixTransform_Impl::GetMatrix(this) {
                     Ok(ok__) => {
-                        matrix.write(core::mem::transmute(ok__));
+                        matrix.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5071,7 +5071,7 @@ impl IXpsOMNameCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMNameCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5083,7 +5083,7 @@ impl IXpsOMNameCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMNameCollection_Impl::GetAt(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6270,7 +6270,7 @@ impl IXpsOMObjectFactory1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory1_Impl::GetDocumentTypeFromFile(this, core::mem::transmute(&filename)) {
                     Ok(ok__) => {
-                        documenttype.write(core::mem::transmute(ok__));
+                        documenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6282,7 +6282,7 @@ impl IXpsOMObjectFactory1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMObjectFactory1_Impl::GetDocumentTypeFromStream(this, core::mem::transmute_copy(&xpsdocumentstream)) {
                     Ok(ok__) => {
-                        documenttype.write(core::mem::transmute(ok__));
+                        documenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6705,7 +6705,7 @@ impl IXpsOMPackage1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPackage1_Impl::GetDocumentType(this) {
                     Ok(ok__) => {
-                        documenttype.write(core::mem::transmute(ok__));
+                        documenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6882,7 +6882,7 @@ impl IXpsOMPackageWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPackageWriter_Impl::IsClosed(this) {
                     Ok(ok__) => {
-                        isclosed.write(core::mem::transmute(ok__));
+                        isclosed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7193,7 +7193,7 @@ impl IXpsOMPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GetPageDimensions(this) {
                     Ok(ok__) => {
-                        pagedimensions.write(core::mem::transmute(ok__));
+                        pagedimensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7211,7 +7211,7 @@ impl IXpsOMPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GetContentBox(this) {
                     Ok(ok__) => {
-                        contentbox.write(core::mem::transmute(ok__));
+                        contentbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7229,7 +7229,7 @@ impl IXpsOMPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GetBleedBox(this) {
                     Ok(ok__) => {
-                        bleedbox.write(core::mem::transmute(ok__));
+                        bleedbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7247,7 +7247,7 @@ impl IXpsOMPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GetLanguage(this) {
                     Ok(ok__) => {
-                        language.write(core::mem::transmute(ok__));
+                        language.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7265,7 +7265,7 @@ impl IXpsOMPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7283,7 +7283,7 @@ impl IXpsOMPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GetIsHyperlinkTarget(this) {
                     Ok(ok__) => {
-                        ishyperlinktarget.write(core::mem::transmute(ok__));
+                        ishyperlinktarget.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7355,7 +7355,7 @@ impl IXpsOMPage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage_Impl::GenerateUnusedLookupKey(this, core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7452,7 +7452,7 @@ impl IXpsOMPage1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPage1_Impl::GetDocumentType(this) {
                     Ok(ok__) => {
-                        documenttype.write(core::mem::transmute(ok__));
+                        documenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7657,7 +7657,7 @@ impl IXpsOMPageReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPageReference_Impl::IsPageLoaded(this) {
                     Ok(ok__) => {
-                        ispageloaded.write(core::mem::transmute(ok__));
+                        ispageloaded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7669,7 +7669,7 @@ impl IXpsOMPageReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPageReference_Impl::GetAdvisoryPageDimensions(this) {
                     Ok(ok__) => {
-                        pagedimensions.write(core::mem::transmute(ok__));
+                        pagedimensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7765,7 +7765,7 @@ impl IXpsOMPageReference_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPageReference_Impl::HasRestrictedFonts(this) {
                     Ok(ok__) => {
-                        restrictedfonts.write(core::mem::transmute(ok__));
+                        restrictedfonts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7873,7 +7873,7 @@ impl IXpsOMPageReferenceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPageReferenceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8187,7 +8187,7 @@ impl IXpsOMPartUriCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPartUriCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8574,7 +8574,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetGeometryLookup(this) {
                     Ok(ok__) => {
-                        lookup.write(core::mem::transmute(ok__));
+                        lookup.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8592,7 +8592,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetAccessibilityShortDescription(this) {
                     Ok(ok__) => {
-                        shortdescription.write(core::mem::transmute(ok__));
+                        shortdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8610,7 +8610,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetAccessibilityLongDescription(this) {
                     Ok(ok__) => {
-                        longdescription.write(core::mem::transmute(ok__));
+                        longdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8628,7 +8628,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetSnapsToPixels(this) {
                     Ok(ok__) => {
-                        snapstopixels.write(core::mem::transmute(ok__));
+                        snapstopixels.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8676,7 +8676,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeBrushLookup(this) {
                     Ok(ok__) => {
-                        lookup.write(core::mem::transmute(ok__));
+                        lookup.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8706,7 +8706,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeDashCap(this) {
                     Ok(ok__) => {
-                        strokedashcap.write(core::mem::transmute(ok__));
+                        strokedashcap.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8724,7 +8724,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeDashOffset(this) {
                     Ok(ok__) => {
-                        strokedashoffset.write(core::mem::transmute(ok__));
+                        strokedashoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8742,7 +8742,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeStartLineCap(this) {
                     Ok(ok__) => {
-                        strokestartlinecap.write(core::mem::transmute(ok__));
+                        strokestartlinecap.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8760,7 +8760,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeEndLineCap(this) {
                     Ok(ok__) => {
-                        strokeendlinecap.write(core::mem::transmute(ok__));
+                        strokeendlinecap.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8778,7 +8778,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeLineJoin(this) {
                     Ok(ok__) => {
-                        strokelinejoin.write(core::mem::transmute(ok__));
+                        strokelinejoin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8796,7 +8796,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeMiterLimit(this) {
                     Ok(ok__) => {
-                        strokemiterlimit.write(core::mem::transmute(ok__));
+                        strokemiterlimit.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8814,7 +8814,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetStrokeThickness(this) {
                     Ok(ok__) => {
-                        strokethickness.write(core::mem::transmute(ok__));
+                        strokethickness.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8862,7 +8862,7 @@ impl IXpsOMPath_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMPath_Impl::GetFillBrushLookup(this) {
                     Ok(ok__) => {
-                        lookup.write(core::mem::transmute(ok__));
+                        lookup.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9077,7 +9077,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMRadialGradientBrush_Impl::GetCenter(this) {
                     Ok(ok__) => {
-                        center.write(core::mem::transmute(ok__));
+                        center.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9095,7 +9095,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMRadialGradientBrush_Impl::GetRadiiSizes(this) {
                     Ok(ok__) => {
-                        radiisizes.write(core::mem::transmute(ok__));
+                        radiisizes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9113,7 +9113,7 @@ impl IXpsOMRadialGradientBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMRadialGradientBrush_Impl::GetGradientOrigin(this) {
                     Ok(ok__) => {
-                        origin.write(core::mem::transmute(ok__));
+                        origin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9267,7 +9267,7 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMRemoteDictionaryResource1_Impl::GetDocumentType(this) {
                     Ok(ok__) => {
-                        documenttype.write(core::mem::transmute(ok__));
+                        documenttype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9372,7 +9372,7 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMRemoteDictionaryResourceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9516,7 +9516,7 @@ impl IXpsOMShareable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMShareable_Impl::GetType(this) {
                     Ok(ok__) => {
-                        r#type.write(core::mem::transmute(ok__));
+                        r#type.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9707,7 +9707,7 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMSignatureBlockResourceCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10145,7 +10145,7 @@ impl IXpsOMTileBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMTileBrush_Impl::GetTransformLookup(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10163,7 +10163,7 @@ impl IXpsOMTileBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMTileBrush_Impl::GetViewbox(this) {
                     Ok(ok__) => {
-                        viewbox.write(core::mem::transmute(ok__));
+                        viewbox.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10181,7 +10181,7 @@ impl IXpsOMTileBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMTileBrush_Impl::GetViewport(this) {
                     Ok(ok__) => {
-                        viewport.write(core::mem::transmute(ok__));
+                        viewport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10199,7 +10199,7 @@ impl IXpsOMTileBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMTileBrush_Impl::GetTileMode(this) {
                     Ok(ok__) => {
-                        tilemode.write(core::mem::transmute(ok__));
+                        tilemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10490,7 +10490,7 @@ impl IXpsOMVisual_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetTransformLookup(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10538,7 +10538,7 @@ impl IXpsOMVisual_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetClipGeometryLookup(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10556,7 +10556,7 @@ impl IXpsOMVisual_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetOpacity(this) {
                     Ok(ok__) => {
-                        opacity.write(core::mem::transmute(ok__));
+                        opacity.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10604,7 +10604,7 @@ impl IXpsOMVisual_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetOpacityMaskBrushLookup(this) {
                     Ok(ok__) => {
-                        key.write(core::mem::transmute(ok__));
+                        key.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10622,7 +10622,7 @@ impl IXpsOMVisual_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10640,7 +10640,7 @@ impl IXpsOMVisual_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetIsHyperlinkTarget(this) {
                     Ok(ok__) => {
-                        ishyperlink.write(core::mem::transmute(ok__));
+                        ishyperlink.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10676,7 +10676,7 @@ impl IXpsOMVisual_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisual_Impl::GetLanguage(this) {
                     Ok(ok__) => {
-                        language.write(core::mem::transmute(ok__));
+                        language.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10826,7 +10826,7 @@ impl IXpsOMVisualBrush_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisualBrush_Impl::GetVisualLookup(this) {
                     Ok(ok__) => {
-                        lookup.write(core::mem::transmute(ok__));
+                        lookup.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10929,7 +10929,7 @@ impl IXpsOMVisualCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsOMVisualCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11118,7 +11118,7 @@ impl IXpsSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignature_Impl::GetSignatureId(this) {
                     Ok(ok__) => {
-                        sigid.write(core::mem::transmute(ok__));
+                        sigid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11148,7 +11148,7 @@ impl IXpsSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignature_Impl::GetSigningTime(this) {
                     Ok(ok__) => {
-                        sigdatetimestring.write(core::mem::transmute(ok__));
+                        sigdatetimestring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11160,7 +11160,7 @@ impl IXpsSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignature_Impl::GetSigningTimeFormat(this) {
                     Ok(ok__) => {
-                        timeformat.write(core::mem::transmute(ok__));
+                        timeformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11184,7 +11184,7 @@ impl IXpsSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignature_Impl::Verify(this, core::mem::transmute_copy(&x509certificate)) {
                     Ok(ok__) => {
-                        sigstatus.write(core::mem::transmute(ok__));
+                        sigstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11196,7 +11196,7 @@ impl IXpsSignature_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignature_Impl::GetPolicy(this) {
                     Ok(ok__) => {
-                        policy.write(core::mem::transmute(ok__));
+                        policy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11356,7 +11356,7 @@ impl IXpsSignatureBlock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureBlock_Impl::GetDocumentIndex(this) {
                     Ok(ok__) => {
-                        fixeddocumentindex.write(core::mem::transmute(ok__));
+                        fixeddocumentindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11441,7 +11441,7 @@ impl IXpsSignatureBlockCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureBlockCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11517,7 +11517,7 @@ impl IXpsSignatureCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11928,7 +11928,7 @@ impl IXpsSignatureRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureRequest_Impl::GetIntent(this) {
                     Ok(ok__) => {
-                        intent.write(core::mem::transmute(ok__));
+                        intent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11946,7 +11946,7 @@ impl IXpsSignatureRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureRequest_Impl::GetRequestedSigner(this) {
                     Ok(ok__) => {
-                        signername.write(core::mem::transmute(ok__));
+                        signername.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11964,7 +11964,7 @@ impl IXpsSignatureRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureRequest_Impl::GetRequestSignByDate(this) {
                     Ok(ok__) => {
-                        datestring.write(core::mem::transmute(ok__));
+                        datestring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11982,7 +11982,7 @@ impl IXpsSignatureRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureRequest_Impl::GetSigningLocale(this) {
                     Ok(ok__) => {
-                        place.write(core::mem::transmute(ok__));
+                        place.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12012,7 +12012,7 @@ impl IXpsSignatureRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureRequest_Impl::GetRequestId(this) {
                     Ok(ok__) => {
-                        requestid.write(core::mem::transmute(ok__));
+                        requestid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12092,7 +12092,7 @@ impl IXpsSignatureRequestCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSignatureRequestCollection_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        count.write(core::mem::transmute(ok__));
+                        count.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12304,7 +12304,7 @@ impl IXpsSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSigningOptions_Impl::GetSignatureId(this) {
                     Ok(ok__) => {
-                        signatureid.write(core::mem::transmute(ok__));
+                        signatureid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12322,7 +12322,7 @@ impl IXpsSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSigningOptions_Impl::GetSignatureMethod(this) {
                     Ok(ok__) => {
-                        signaturemethod.write(core::mem::transmute(ok__));
+                        signaturemethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12340,7 +12340,7 @@ impl IXpsSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSigningOptions_Impl::GetDigestMethod(this) {
                     Ok(ok__) => {
-                        digestmethod.write(core::mem::transmute(ok__));
+                        digestmethod.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12376,7 +12376,7 @@ impl IXpsSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSigningOptions_Impl::GetPolicy(this) {
                     Ok(ok__) => {
-                        policy.write(core::mem::transmute(ok__));
+                        policy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12394,7 +12394,7 @@ impl IXpsSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSigningOptions_Impl::GetSigningTimeFormat(this) {
                     Ok(ok__) => {
-                        timeformat.write(core::mem::transmute(ok__));
+                        timeformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12448,7 +12448,7 @@ impl IXpsSigningOptions_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IXpsSigningOptions_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        flags.write(core::mem::transmute(ok__));
+                        flags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

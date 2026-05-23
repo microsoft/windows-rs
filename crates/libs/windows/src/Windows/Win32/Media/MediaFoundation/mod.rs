@@ -13201,7 +13201,7 @@ impl IDXVAHD_Device_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXVAHD_Device_Impl::GetVideoProcessorFilterRange(this, core::mem::transmute_copy(&filter)) {
                     Ok(ok__) => {
-                        prange.write(core::mem::transmute(ok__));
+                        prange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13753,7 +13753,7 @@ impl IDirect3DDeviceManager9_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDeviceManager9_Impl::OpenDeviceHandle(this) {
                     Ok(ok__) => {
-                        phdevice.write(core::mem::transmute(ok__));
+                        phdevice.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14105,7 +14105,7 @@ impl IDirectXVideoMemoryConfiguration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoMemoryConfiguration_Impl::GetAvailableSurfaceTypeByIndex(this, core::mem::transmute_copy(&dwtypeindex)) {
                     Ok(ok__) => {
-                        pdwtype.write(core::mem::transmute(ok__));
+                        pdwtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14227,7 +14227,7 @@ impl IDirectXVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoProcessor_Impl::GetProcAmpRange(this, core::mem::transmute_copy(&procampcap)) {
                     Ok(ok__) => {
-                        prange.write(core::mem::transmute(ok__));
+                        prange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14239,7 +14239,7 @@ impl IDirectXVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoProcessor_Impl::GetFilterPropertyRange(this, core::mem::transmute_copy(&filtersetting)) {
                     Ok(ok__) => {
-                        prange.write(core::mem::transmute(ok__));
+                        prange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14401,7 +14401,7 @@ impl IDirectXVideoProcessorService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoProcessorService_Impl::GetProcAmpRange(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&procampcap)) {
                     Ok(ok__) => {
-                        prange.write(core::mem::transmute(ok__));
+                        prange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14413,7 +14413,7 @@ impl IDirectXVideoProcessorService_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectXVideoProcessorService_Impl::GetFilterPropertyRange(this, core::mem::transmute_copy(&videoprocdeviceguid), core::mem::transmute_copy(&pvideodesc), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&filtersetting)) {
                     Ok(ok__) => {
-                        prange.write(core::mem::transmute(ok__));
+                        prange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14487,7 +14487,7 @@ impl IEVRFilterConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEVRFilterConfig_Impl::GetNumberOfStreams(this) {
                     Ok(ok__) => {
-                        pdwmaxstreams.write(core::mem::transmute(ok__));
+                        pdwmaxstreams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14548,7 +14548,7 @@ impl IEVRFilterConfigEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEVRFilterConfigEx_Impl::GetConfigPrefs(this) {
                     Ok(ok__) => {
-                        pdwconfigflags.write(core::mem::transmute(ok__));
+                        pdwconfigflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14610,7 +14610,7 @@ impl IEVRTrustedVideoPlugin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEVRTrustedVideoPlugin_Impl::IsInTrustedVideoMode(this) {
                     Ok(ok__) => {
-                        pyes.write(core::mem::transmute(ok__));
+                        pyes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14622,7 +14622,7 @@ impl IEVRTrustedVideoPlugin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEVRTrustedVideoPlugin_Impl::CanConstrict(this) {
                     Ok(ok__) => {
-                        pyes.write(core::mem::transmute(ok__));
+                        pyes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14691,7 +14691,7 @@ impl IEVRVideoStreamControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IEVRVideoStreamControl_Impl::GetStreamActiveState(this) {
                     Ok(ok__) => {
-                        lpfactive.write(core::mem::transmute(ok__));
+                        lpfactive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14995,7 +14995,7 @@ impl IMF2DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMF2DBuffer_Impl::IsContiguousFormat(this) {
                     Ok(ok__) => {
-                        pfiscontiguous.write(core::mem::transmute(ok__));
+                        pfiscontiguous.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15007,7 +15007,7 @@ impl IMF2DBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMF2DBuffer_Impl::GetContiguousLength(this) {
                     Ok(ok__) => {
-                        pcblength.write(core::mem::transmute(ok__));
+                        pcblength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15179,7 +15179,7 @@ impl IMFASFContentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFContentInfo_Impl::GetHeaderSize(this, core::mem::transmute_copy(&pistartofcontent)) {
                     Ok(ok__) => {
-                        cbheadersize.write(core::mem::transmute(ok__));
+                        cbheadersize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15197,7 +15197,7 @@ impl IMFASFContentInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFContentInfo_Impl::GenerateHeader(this, core::mem::transmute_copy(&piheader)) {
                     Ok(ok__) => {
-                        pcbheader.write(core::mem::transmute(ok__));
+                        pcbheader.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15385,7 +15385,7 @@ impl IMFASFIndexer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFIndexer_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15403,7 +15403,7 @@ impl IMFASFIndexer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFIndexer_Impl::GetIndexPosition(this, core::mem::transmute_copy(&picontentinfo)) {
                     Ok(ok__) => {
-                        pcbindexoffset.write(core::mem::transmute(ok__));
+                        pcbindexoffset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15421,7 +15421,7 @@ impl IMFASFIndexer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFIndexer_Impl::GetIndexByteStreamCount(this) {
                     Ok(ok__) => {
-                        pcbytestreams.write(core::mem::transmute(ok__));
+                        pcbytestreams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15463,7 +15463,7 @@ impl IMFASFIndexer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFIndexer_Impl::GetIndexWriteSpace(this) {
                     Ok(ok__) => {
-                        pcbindexwritespace.write(core::mem::transmute(ok__));
+                        pcbindexwritespace.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15589,7 +15589,7 @@ impl IMFASFMultiplexer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFMultiplexer_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15625,7 +15625,7 @@ impl IMFASFMultiplexer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFMultiplexer_Impl::GetStatistics(this, core::mem::transmute_copy(&wstreamnumber)) {
                     Ok(ok__) => {
-                        pmuxstats.write(core::mem::transmute(ok__));
+                        pmuxstats.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15731,7 +15731,7 @@ impl IMFASFMutualExclusion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFMutualExclusion_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pguidtype.write(core::mem::transmute(ok__));
+                        pguidtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15749,7 +15749,7 @@ impl IMFASFMutualExclusion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFMutualExclusion_Impl::GetRecordCount(this) {
                     Ok(ok__) => {
-                        pdwrecordcount.write(core::mem::transmute(ok__));
+                        pdwrecordcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15785,7 +15785,7 @@ impl IMFASFMutualExclusion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFMutualExclusion_Impl::AddRecord(this) {
                     Ok(ok__) => {
-                        pdwrecordnumber.write(core::mem::transmute(ok__));
+                        pdwrecordnumber.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15967,7 +15967,7 @@ impl IMFASFProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFProfile_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pcstreams.write(core::mem::transmute(ok__));
+                        pcstreams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16021,7 +16021,7 @@ impl IMFASFProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFProfile_Impl::GetMutualExclusionCount(this) {
                     Ok(ok__) => {
-                        pcmutexs.write(core::mem::transmute(ok__));
+                        pcmutexs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16225,7 +16225,7 @@ impl IMFASFSplitter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFSplitter_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16267,7 +16267,7 @@ impl IMFASFSplitter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFSplitter_Impl::GetLastSendTime(this) {
                     Ok(ok__) => {
-                        pdwlastsendtime.write(core::mem::transmute(ok__));
+                        pdwlastsendtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16383,7 +16383,7 @@ impl IMFASFStreamConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamConfig_Impl::GetStreamType(this) {
                     Ok(ok__) => {
-                        pguidstreamtype.write(core::mem::transmute(ok__));
+                        pguidstreamtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16425,7 +16425,7 @@ impl IMFASFStreamConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamConfig_Impl::GetPayloadExtensionCount(this) {
                     Ok(ok__) => {
-                        pcpayloadextensions.write(core::mem::transmute(ok__));
+                        pcpayloadextensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16531,7 +16531,7 @@ impl IMFASFStreamPrioritization_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamPrioritization_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pdwstreamcount.write(core::mem::transmute(ok__));
+                        pdwstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16700,7 +16700,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pcstreams.write(core::mem::transmute(ok__));
+                        pcstreams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16712,7 +16712,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetOutputCount(this) {
                     Ok(ok__) => {
-                        pcoutputs.write(core::mem::transmute(ok__));
+                        pcoutputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16724,7 +16724,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetOutputStreamCount(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        pcstreams.write(core::mem::transmute(ok__));
+                        pcstreams.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16736,7 +16736,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetOutputStreamNumbers(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        rgwstreamnumbers.write(core::mem::transmute(ok__));
+                        rgwstreamnumbers.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16748,7 +16748,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetOutputFromStream(this, core::mem::transmute_copy(&wstreamnum)) {
                     Ok(ok__) => {
-                        pdwoutput.write(core::mem::transmute(ok__));
+                        pdwoutput.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16760,7 +16760,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetOutputOverride(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        pselection.write(core::mem::transmute(ok__));
+                        pselection.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16778,7 +16778,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetOutputMutexCount(this, core::mem::transmute_copy(&dwoutputnum)) {
                     Ok(ok__) => {
-                        pcmutexes.write(core::mem::transmute(ok__));
+                        pcmutexes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16808,7 +16808,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::GetBandwidthStepCount(this) {
                     Ok(ok__) => {
-                        pcstepcount.write(core::mem::transmute(ok__));
+                        pcstepcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16826,7 +16826,7 @@ impl IMFASFStreamSelector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFASFStreamSelector_Impl::BitrateToStepNumber(this, core::mem::transmute_copy(&dwbitrate)) {
                     Ok(ok__) => {
-                        pdwstepnum.write(core::mem::transmute(ok__));
+                        pdwstepnum.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17372,7 +17372,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetItemType(this, core::mem::transmute_copy(&guidkey)) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17384,7 +17384,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::CompareItem(this, core::mem::transmute_copy(&guidkey), core::mem::transmute_copy(&value)) {
                     Ok(ok__) => {
-                        pbresult.write(core::mem::transmute(ok__));
+                        pbresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17396,7 +17396,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::Compare(this, core::mem::transmute_copy(&ptheirs), core::mem::transmute_copy(&matchtype)) {
                     Ok(ok__) => {
-                        pbresult.write(core::mem::transmute(ok__));
+                        pbresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17408,7 +17408,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetUINT32(this, core::mem::transmute_copy(&guidkey)) {
                     Ok(ok__) => {
-                        punvalue.write(core::mem::transmute(ok__));
+                        punvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17420,7 +17420,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetUINT64(this, core::mem::transmute_copy(&guidkey)) {
                     Ok(ok__) => {
-                        punvalue.write(core::mem::transmute(ok__));
+                        punvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17432,7 +17432,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetDouble(this, core::mem::transmute_copy(&guidkey)) {
                     Ok(ok__) => {
-                        pfvalue.write(core::mem::transmute(ok__));
+                        pfvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17444,7 +17444,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetGUID(this, core::mem::transmute_copy(&guidkey)) {
                     Ok(ok__) => {
-                        pguidvalue.write(core::mem::transmute(ok__));
+                        pguidvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17456,7 +17456,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetStringLength(this, core::mem::transmute_copy(&guidkey)) {
                     Ok(ok__) => {
-                        pcchlength.write(core::mem::transmute(ok__));
+                        pcchlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17480,7 +17480,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetBlobSize(this, core::mem::transmute_copy(&guidkey)) {
                     Ok(ok__) => {
-                        pcbblobsize.write(core::mem::transmute(ok__));
+                        pcbblobsize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17582,7 +17582,7 @@ impl IMFAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAttributes_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pcitems.write(core::mem::transmute(ok__));
+                        pcitems.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17754,7 +17754,7 @@ impl IMFAudioPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAudioPolicy_Impl::GetGroupingParam(this) {
                     Ok(ok__) => {
-                        pguidclass.write(core::mem::transmute(ok__));
+                        pguidclass.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17772,7 +17772,7 @@ impl IMFAudioPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAudioPolicy_Impl::GetDisplayName(this) {
                     Ok(ok__) => {
-                        pszname.write(core::mem::transmute(ok__));
+                        pszname.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17790,7 +17790,7 @@ impl IMFAudioPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAudioPolicy_Impl::GetIconPath(this) {
                     Ok(ok__) => {
-                        pszpath.write(core::mem::transmute(ok__));
+                        pszpath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17861,7 +17861,7 @@ impl IMFAudioStreamVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAudioStreamVolume_Impl::GetChannelCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17879,7 +17879,7 @@ impl IMFAudioStreamVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFAudioStreamVolume_Impl::GetChannelVolume(this, core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        pflevel.write(core::mem::transmute(ok__));
+                        pflevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18093,7 +18093,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        pdwcapabilities.write(core::mem::transmute(ok__));
+                        pdwcapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18105,7 +18105,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::GetLength(this) {
                     Ok(ok__) => {
-                        pqwlength.write(core::mem::transmute(ok__));
+                        pqwlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18123,7 +18123,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::GetCurrentPosition(this) {
                     Ok(ok__) => {
-                        pqwposition.write(core::mem::transmute(ok__));
+                        pqwposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18141,7 +18141,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::IsEndOfStream(this) {
                     Ok(ok__) => {
-                        pfendofstream.write(core::mem::transmute(ok__));
+                        pfendofstream.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18165,7 +18165,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::EndRead(this, core::mem::transmute_copy(&presult)) {
                     Ok(ok__) => {
-                        pcbread.write(core::mem::transmute(ok__));
+                        pcbread.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18177,7 +18177,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::Write(this, core::mem::transmute_copy(&pb), core::mem::transmute_copy(&cb)) {
                     Ok(ok__) => {
-                        pcbwritten.write(core::mem::transmute(ok__));
+                        pcbwritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18195,7 +18195,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::EndWrite(this, core::mem::transmute_copy(&presult)) {
                     Ok(ok__) => {
-                        pcbwritten.write(core::mem::transmute(ok__));
+                        pcbwritten.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18207,7 +18207,7 @@ impl IMFByteStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStream_Impl::Seek(this, core::mem::transmute_copy(&seekorigin), core::mem::transmute_copy(&llseekoffset), core::mem::transmute_copy(&dwseekflags)) {
                     Ok(ok__) => {
-                        pqwcurrentposition.write(core::mem::transmute(ok__));
+                        pqwcurrentposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18393,7 +18393,7 @@ impl IMFByteStreamCacheControl2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStreamCacheControl2_Impl::IsBackgroundTransferActive(this) {
                     Ok(ok__) => {
-                        pfactive.write(core::mem::transmute(ok__));
+                        pfactive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18490,7 +18490,7 @@ impl IMFByteStreamHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStreamHandler_Impl::GetMaxNumberOfBytesRequiredForResolution(this) {
                     Ok(ok__) => {
-                        pqwbytes.write(core::mem::transmute(ok__));
+                        pqwbytes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18584,7 +18584,7 @@ impl IMFByteStreamTimeSeek_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFByteStreamTimeSeek_Impl::IsTimeSeekSupported(this) {
                     Ok(ok__) => {
-                        pftimeseekissupported.write(core::mem::transmute(ok__));
+                        pftimeseekissupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18737,7 +18737,7 @@ impl IMFCameraControlDefaults_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCameraControlDefaults_Impl::GetRangeInfo(this) {
                     Ok(ok__) => {
-                        rangeinfo.write(core::mem::transmute(ok__));
+                        rangeinfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19113,7 +19113,7 @@ impl IMFCameraOcclusionStateReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCameraOcclusionStateReport_Impl::GetOcclusionState(this) {
                     Ok(ok__) => {
-                        occlusionstate.write(core::mem::transmute(ok__));
+                        occlusionstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19545,7 +19545,7 @@ impl IMFCapturePhotoConfirmation_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCapturePhotoConfirmation_Impl::GetPixelFormat(this) {
                     Ok(ok__) => {
-                        subtype.write(core::mem::transmute(ok__));
+                        subtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19745,7 +19745,7 @@ impl IMFCapturePreviewSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCapturePreviewSink_Impl::GetMirrorState(this) {
                     Ok(ok__) => {
-                        pfmirrorstate.write(core::mem::transmute(ok__));
+                        pfmirrorstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19763,7 +19763,7 @@ impl IMFCapturePreviewSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCapturePreviewSink_Impl::GetRotation(this, core::mem::transmute_copy(&dwstreamindex)) {
                     Ok(ok__) => {
-                        pdwrotationvalue.write(core::mem::transmute(ok__));
+                        pdwrotationvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19893,7 +19893,7 @@ impl IMFCaptureRecordSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCaptureRecordSink_Impl::GetRotation(this, core::mem::transmute_copy(&dwstreamindex)) {
                     Ok(ok__) => {
-                        pdwrotationvalue.write(core::mem::transmute(ok__));
+                        pdwrotationvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20220,7 +20220,7 @@ impl IMFCaptureSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCaptureSource_Impl::GetDeviceStreamCount(this) {
                     Ok(ok__) => {
-                        pdwstreamcount.write(core::mem::transmute(ok__));
+                        pdwstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20232,7 +20232,7 @@ impl IMFCaptureSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCaptureSource_Impl::GetDeviceStreamCategory(this, core::mem::transmute_copy(&dwsourcestreamindex)) {
                     Ok(ok__) => {
-                        pstreamcategory.write(core::mem::transmute(ok__));
+                        pstreamcategory.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20244,7 +20244,7 @@ impl IMFCaptureSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCaptureSource_Impl::GetMirrorState(this, core::mem::transmute_copy(&dwstreamindex)) {
                     Ok(ok__) => {
-                        pfmirrorstate.write(core::mem::transmute(ok__));
+                        pfmirrorstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20262,7 +20262,7 @@ impl IMFCaptureSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCaptureSource_Impl::GetStreamIndexFromFriendlyName(this, core::mem::transmute_copy(&uifriendlyname)) {
                     Ok(ok__) => {
-                        pdwactualstreamindex.write(core::mem::transmute(ok__));
+                        pdwactualstreamindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20386,7 +20386,7 @@ impl IMFClock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFClock_Impl::GetClockCharacteristics(this) {
                     Ok(ok__) => {
-                        pdwcharacteristics.write(core::mem::transmute(ok__));
+                        pdwcharacteristics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20404,7 +20404,7 @@ impl IMFClock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFClock_Impl::GetContinuityKey(this) {
                     Ok(ok__) => {
-                        pdwcontinuitykey.write(core::mem::transmute(ok__));
+                        pdwcontinuitykey.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20416,7 +20416,7 @@ impl IMFClock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFClock_Impl::GetState(this, core::mem::transmute_copy(&dwreserved)) {
                     Ok(ok__) => {
-                        peclockstate.write(core::mem::transmute(ok__));
+                        peclockstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20646,7 +20646,7 @@ impl IMFCollection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFCollection_Impl::GetElementCount(this) {
                     Ok(ok__) => {
-                        pcelements.write(core::mem::transmute(ok__));
+                        pcelements.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20932,7 +20932,7 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModuleAccess_Impl::GetKeySystem(this) {
                     Ok(ok__) => {
-                        keysystem.write(core::mem::transmute(ok__));
+                        keysystem.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21094,7 +21094,7 @@ impl IMFContentDecryptionModuleSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModuleSession_Impl::GetSessionId(this) {
                     Ok(ok__) => {
-                        sessionid.write(core::mem::transmute(ok__));
+                        sessionid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21106,7 +21106,7 @@ impl IMFContentDecryptionModuleSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModuleSession_Impl::GetExpiration(this) {
                     Ok(ok__) => {
-                        expiration.write(core::mem::transmute(ok__));
+                        expiration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21124,7 +21124,7 @@ impl IMFContentDecryptionModuleSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModuleSession_Impl::Load(this, core::mem::transmute(&sessionid)) {
                     Ok(ok__) => {
-                        loaded.write(core::mem::transmute(ok__));
+                        loaded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21247,7 +21247,7 @@ impl IMFContentDecryptorContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptorContext_Impl::InitializeHardwareKey(this, core::mem::transmute_copy(&inputprivatedatabytecount), core::mem::transmute_copy(&inputprivatedata)) {
                     Ok(ok__) => {
-                        outputprivatedata.write(core::mem::transmute(ok__));
+                        outputprivatedata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21320,7 +21320,7 @@ impl IMFContentEnabler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentEnabler_Impl::GetEnableType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21344,7 +21344,7 @@ impl IMFContentEnabler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentEnabler_Impl::IsAutomaticSupported(this) {
                     Ok(ok__) => {
-                        pfautomatic.write(core::mem::transmute(ok__));
+                        pfautomatic.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21756,7 +21756,7 @@ impl IMFDXGIBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFDXGIBuffer_Impl::GetSubresourceIndex(this) {
                     Ok(ok__) => {
-                        pusubresource.write(core::mem::transmute(ok__));
+                        pusubresource.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21852,7 +21852,7 @@ impl IMFDXGICrossAdapterBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFDXGICrossAdapterBuffer_Impl::GetSubresourceIndexForDevice(this, core::mem::transmute_copy(&punkdevice)) {
                     Ok(ok__) => {
-                        pusubresource.write(core::mem::transmute(ok__));
+                        pusubresource.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21961,7 +21961,7 @@ impl IMFDXGIDeviceManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFDXGIDeviceManager_Impl::OpenDeviceHandle(this) {
                     Ok(ok__) => {
-                        phdevice.write(core::mem::transmute(ok__));
+                        phdevice.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22381,7 +22381,7 @@ impl IMFDeviceTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFDeviceTransform_Impl::GetInputStreamState(this, core::mem::transmute_copy(&dwstreamid)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22399,7 +22399,7 @@ impl IMFDeviceTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFDeviceTransform_Impl::GetOutputStreamState(this, core::mem::transmute_copy(&dwstreamid)) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22715,7 +22715,7 @@ impl IMFExtendedCameraIntrinsicModel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFExtendedCameraIntrinsicModel_Impl::GetDistortionModelType(this) {
                     Ok(ok__) => {
-                        pdistortionmodeltype.write(core::mem::transmute(ok__));
+                        pdistortionmodeltype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22800,7 +22800,7 @@ impl IMFExtendedCameraIntrinsics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFExtendedCameraIntrinsics_Impl::GetBufferSize(this) {
                     Ok(ok__) => {
-                        pdwbuffersize.write(core::mem::transmute(ok__));
+                        pdwbuffersize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22818,7 +22818,7 @@ impl IMFExtendedCameraIntrinsics_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFExtendedCameraIntrinsics_Impl::GetIntrinsicModelCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22976,7 +22976,7 @@ impl IMFExtendedDRMTypeSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFExtendedDRMTypeSupport_Impl::IsTypeSupportedEx(this, core::mem::transmute(&r#type), core::mem::transmute(&keysystem)) {
                     Ok(ok__) => {
-                        panswer.write(core::mem::transmute(ok__));
+                        panswer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23430,7 +23430,7 @@ impl IMFHttpDownloadRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFHttpDownloadRequest_Impl::QueryHeader(this, core::mem::transmute(&szheadername), core::mem::transmute_copy(&dwindex)) {
                     Ok(ok__) => {
-                        ppszheadervalue.write(core::mem::transmute(ok__));
+                        ppszheadervalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23442,7 +23442,7 @@ impl IMFHttpDownloadRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFHttpDownloadRequest_Impl::GetURL(this) {
                     Ok(ok__) => {
-                        ppszurl.write(core::mem::transmute(ok__));
+                        ppszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23454,7 +23454,7 @@ impl IMFHttpDownloadRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFHttpDownloadRequest_Impl::HasNullSourceOrigin(this) {
                     Ok(ok__) => {
-                        pfnullsourceorigin.write(core::mem::transmute(ok__));
+                        pfnullsourceorigin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23472,7 +23472,7 @@ impl IMFHttpDownloadRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFHttpDownloadRequest_Impl::GetHttpStatus(this) {
                     Ok(ok__) => {
-                        pdwhttpstatus.write(core::mem::transmute(ok__));
+                        pdwhttpstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23484,7 +23484,7 @@ impl IMFHttpDownloadRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFHttpDownloadRequest_Impl::GetAtEndOfPayload(this) {
                     Ok(ok__) => {
-                        pfatendofpayload.write(core::mem::transmute(ok__));
+                        pfatendofpayload.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23496,7 +23496,7 @@ impl IMFHttpDownloadRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFHttpDownloadRequest_Impl::GetTotalLength(this) {
                     Ok(ok__) => {
-                        pqwtotallength.write(core::mem::transmute(ok__));
+                        pqwtotallength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23508,7 +23508,7 @@ impl IMFHttpDownloadRequest_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFHttpDownloadRequest_Impl::GetRangeEndOffset(this) {
                     Ok(ok__) => {
-                        pqwrangeend.write(core::mem::transmute(ok__));
+                        pqwrangeend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23969,7 +23969,7 @@ impl IMFMediaBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaBuffer_Impl::GetCurrentLength(this) {
                     Ok(ok__) => {
-                        pcbcurrentlength.write(core::mem::transmute(ok__));
+                        pcbcurrentlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23987,7 +23987,7 @@ impl IMFMediaBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaBuffer_Impl::GetMaxLength(this) {
                     Ok(ok__) => {
-                        pcbmaxlength.write(core::mem::transmute(ok__));
+                        pcbmaxlength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24341,7 +24341,7 @@ impl IMFMediaEngine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngine_Impl::CanPlayType(this, core::mem::transmute(&r#type)) {
                     Ok(ok__) => {
-                        panswer.write(core::mem::transmute(ok__));
+                        panswer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24545,7 +24545,7 @@ impl IMFMediaEngine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngine_Impl::OnVideoStreamTick(this) {
                     Ok(ok__) => {
-                        ppts.write(core::mem::transmute(ok__));
+                        ppts.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24643,7 +24643,7 @@ impl IMFMediaEngineAudioEndpointId_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineAudioEndpointId_Impl::GetAudioEndpointId(this) {
                     Ok(ok__) => {
-                        ppszendpointid.write(core::mem::transmute(ok__));
+                        ppszendpointid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24948,7 +24948,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineClassFactoryEx_Impl::IsTypeSupported(this, core::mem::transmute(&r#type), core::mem::transmute(&keysystem)) {
                     Ok(ok__) => {
-                        issupported.write(core::mem::transmute(ok__));
+                        issupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25393,7 +25393,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetResourceCharacteristics(this) {
                     Ok(ok__) => {
-                        pcharacteristics.write(core::mem::transmute(ok__));
+                        pcharacteristics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25417,7 +25417,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetNumberOfStreams(this) {
                     Ok(ok__) => {
-                        pdwstreamcount.write(core::mem::transmute(ok__));
+                        pdwstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25441,7 +25441,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetStreamSelection(this, core::mem::transmute_copy(&dwstreamindex)) {
                     Ok(ok__) => {
-                        penabled.write(core::mem::transmute(ok__));
+                        penabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25465,7 +25465,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::IsProtected(this) {
                     Ok(ok__) => {
-                        pprotected.write(core::mem::transmute(ok__));
+                        pprotected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25501,7 +25501,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetTimelineMarkerTimer(this) {
                     Ok(ok__) => {
-                        ptimetofire.write(core::mem::transmute(ok__));
+                        ptimetofire.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25525,7 +25525,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetStereo3DFramePackingMode(this) {
                     Ok(ok__) => {
-                        packmode.write(core::mem::transmute(ok__));
+                        packmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25543,7 +25543,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetStereo3DRenderMode(this) {
                     Ok(ok__) => {
-                        outputtype.write(core::mem::transmute(ok__));
+                        outputtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25567,7 +25567,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetVideoSwapchainHandle(this) {
                     Ok(ok__) => {
-                        phswapchain.write(core::mem::transmute(ok__));
+                        phswapchain.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25585,7 +25585,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetAudioStreamCategory(this) {
                     Ok(ok__) => {
-                        pcategory.write(core::mem::transmute(ok__));
+                        pcategory.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25603,7 +25603,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetAudioEndpointRole(this) {
                     Ok(ok__) => {
-                        prole.write(core::mem::transmute(ok__));
+                        prole.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25621,7 +25621,7 @@ impl IMFMediaEngineEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineEx_Impl::GetRealTimeMode(this) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25748,7 +25748,7 @@ impl IMFMediaEngineExtension_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineExtension_Impl::CanPlayType(this, core::mem::transmute_copy(&audioonly), core::mem::transmute(&mimetype)) {
                     Ok(ok__) => {
-                        panswer.write(core::mem::transmute(ok__));
+                        panswer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25956,7 +25956,7 @@ impl IMFMediaEngineProtectedContent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineProtectedContent_Impl::GetRequiredProtections(this) {
                     Ok(ok__) => {
-                        pframeprotectionflags.write(core::mem::transmute(ok__));
+                        pframeprotectionflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25974,7 +25974,7 @@ impl IMFMediaEngineProtectedContent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineProtectedContent_Impl::TransferVideoFrame(this, core::mem::transmute_copy(&pdstsurf), core::mem::transmute_copy(&psrc), core::mem::transmute_copy(&pdst), core::mem::transmute_copy(&pborderclr)) {
                     Ok(ok__) => {
-                        pframeprotectionflags.write(core::mem::transmute(ok__));
+                        pframeprotectionflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26231,7 +26231,7 @@ impl IMFMediaEngineSupportsSourceTransfer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEngineSupportsSourceTransfer_Impl::ShouldTransferSource(this) {
                     Ok(ok__) => {
-                        pfshouldtransfer.write(core::mem::transmute(ok__));
+                        pfshouldtransfer.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26495,7 +26495,7 @@ impl IMFMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEvent_Impl::GetType(this) {
                     Ok(ok__) => {
-                        pmet.write(core::mem::transmute(ok__));
+                        pmet.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26507,7 +26507,7 @@ impl IMFMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEvent_Impl::GetExtendedType(this) {
                     Ok(ok__) => {
-                        pguidextendedtype.write(core::mem::transmute(ok__));
+                        pguidextendedtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26519,7 +26519,7 @@ impl IMFMediaEvent_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaEvent_Impl::GetStatus(this) {
                     Ok(ok__) => {
-                        phrstatus.write(core::mem::transmute(ok__));
+                        phrstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26964,7 +26964,7 @@ impl IMFMediaKeySession2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaKeySession2_Impl::Load(this, core::mem::transmute(&bstrsessionid)) {
                     Ok(ok__) => {
-                        pfloaded.write(core::mem::transmute(ok__));
+                        pfloaded.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26982,7 +26982,7 @@ impl IMFMediaKeySession2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaKeySession2_Impl::Expiration(this) {
                     Ok(ok__) => {
-                        dblexpiration.write(core::mem::transmute(ok__));
+                        dblexpiration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27401,7 +27401,7 @@ impl IMFMediaKeys2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaKeys2_Impl::GetDOMException(this, core::mem::transmute_copy(&systemcode)) {
                     Ok(ok__) => {
-                        code.write(core::mem::transmute(ok__));
+                        code.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27566,7 +27566,7 @@ impl IMFMediaSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaSession_Impl::GetSessionCapabilities(this) {
                     Ok(ok__) => {
-                        pdwcaps.write(core::mem::transmute(ok__));
+                        pdwcaps.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27772,7 +27772,7 @@ impl IMFMediaSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaSink_Impl::GetCharacteristics(this) {
                     Ok(ok__) => {
-                        pdwcharacteristics.write(core::mem::transmute(ok__));
+                        pdwcharacteristics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27802,7 +27802,7 @@ impl IMFMediaSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaSink_Impl::GetStreamSinkCount(this) {
                     Ok(ok__) => {
-                        pcstreamsinkcount.write(core::mem::transmute(ok__));
+                        pcstreamsinkcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27975,7 +27975,7 @@ impl IMFMediaSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaSource_Impl::GetCharacteristics(this) {
                     Ok(ok__) => {
-                        pdwcharacteristics.write(core::mem::transmute(ok__));
+                        pdwcharacteristics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28642,7 +28642,7 @@ impl IMFMediaStream2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaStream2_Impl::GetStreamState(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28755,7 +28755,7 @@ impl IMFMediaTimeRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaTimeRange_Impl::GetStart(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pstart.write(core::mem::transmute(ok__));
+                        pstart.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28767,7 +28767,7 @@ impl IMFMediaTimeRange_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaTimeRange_Impl::GetEnd(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        pend.write(core::mem::transmute(ok__));
+                        pend.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28870,7 +28870,7 @@ impl IMFMediaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaType_Impl::GetMajorType(this) {
                     Ok(ok__) => {
-                        pguidmajortype.write(core::mem::transmute(ok__));
+                        pguidmajortype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28882,7 +28882,7 @@ impl IMFMediaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaType_Impl::IsCompressedFormat(this) {
                     Ok(ok__) => {
-                        pfcompressed.write(core::mem::transmute(ok__));
+                        pfcompressed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28894,7 +28894,7 @@ impl IMFMediaType_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaType_Impl::IsEqual(this, core::mem::transmute_copy(&pimediatype)) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29000,7 +29000,7 @@ impl IMFMediaTypeHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaTypeHandler_Impl::GetMediaTypeCount(this) {
                     Ok(ok__) => {
-                        pdwtypecount.write(core::mem::transmute(ok__));
+                        pdwtypecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29042,7 +29042,7 @@ impl IMFMediaTypeHandler_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMediaTypeHandler_Impl::GetMajorType(this) {
                     Ok(ok__) => {
-                        pguidmajortype.write(core::mem::transmute(ok__));
+                        pguidmajortype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29165,7 +29165,7 @@ impl IMFMetadata_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMetadata_Impl::GetLanguage(this) {
                     Ok(ok__) => {
-                        ppwszrfc1766.write(core::mem::transmute(ok__));
+                        ppwszrfc1766.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29314,7 +29314,7 @@ impl IMFMuxStreamAttributesManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamAttributesManager_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pdwmuxstreamcount.write(core::mem::transmute(ok__));
+                        pdwmuxstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29404,7 +29404,7 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamMediaTypeManager_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pdwmuxstreamcount.write(core::mem::transmute(ok__));
+                        pdwmuxstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29428,7 +29428,7 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamMediaTypeManager_Impl::GetStreamConfigurationCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29452,7 +29452,7 @@ impl IMFMuxStreamMediaTypeManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamMediaTypeManager_Impl::GetStreamConfiguration(this, core::mem::transmute_copy(&ulindex)) {
                     Ok(ok__) => {
-                        pullstreammask.write(core::mem::transmute(ok__));
+                        pullstreammask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29513,7 +29513,7 @@ impl IMFMuxStreamSampleManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFMuxStreamSampleManager_Impl::GetStreamCount(this) {
                     Ok(ok__) => {
-                        pdwmuxstreamcount.write(core::mem::transmute(ok__));
+                        pdwmuxstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29620,7 +29620,7 @@ impl IMFNetCredential_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFNetCredential_Impl::LoggedOnUser(this) {
                     Ok(ok__) => {
-                        pfloggedonuser.write(core::mem::transmute(ok__));
+                        pfloggedonuser.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29831,7 +29831,7 @@ impl IMFNetCrossOriginSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFNetCrossOriginSupport_Impl::GetCrossOriginPolicy(this) {
                     Ok(ok__) => {
-                        ppolicy.write(core::mem::transmute(ok__));
+                        ppolicy.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29843,7 +29843,7 @@ impl IMFNetCrossOriginSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFNetCrossOriginSupport_Impl::GetSourceOrigin(this) {
                     Ok(ok__) => {
-                        wszsourceorigin.write(core::mem::transmute(ok__));
+                        wszsourceorigin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29855,7 +29855,7 @@ impl IMFNetCrossOriginSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFNetCrossOriginSupport_Impl::IsSameOrigin(this, core::mem::transmute(&wszurl)) {
                     Ok(ok__) => {
-                        pfissameorigin.write(core::mem::transmute(ok__));
+                        pfissameorigin.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30049,7 +30049,7 @@ impl IMFNetResourceFilter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFNetResourceFilter_Impl::OnRedirect(this, core::mem::transmute(&pszurl)) {
                     Ok(ok__) => {
-                        pvbcancel.write(core::mem::transmute(ok__));
+                        pvbcancel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30112,7 +30112,7 @@ impl IMFNetSchemeHandlerConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFNetSchemeHandlerConfig_Impl::GetNumberOfSupportedProtocols(this) {
                     Ok(ok__) => {
-                        pcprotocols.write(core::mem::transmute(ok__));
+                        pcprotocols.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30124,7 +30124,7 @@ impl IMFNetSchemeHandlerConfig_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFNetSchemeHandlerConfig_Impl::GetSupportedProtocolType(this, core::mem::transmute_copy(&nprotocolindex)) {
                     Ok(ok__) => {
-                        pnprotocoltype.write(core::mem::transmute(ok__));
+                        pnprotocoltype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30260,7 +30260,7 @@ impl IMFOutputPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFOutputPolicy_Impl::GetOriginatorID(this) {
                     Ok(ok__) => {
-                        pguidoriginatorid.write(core::mem::transmute(ok__));
+                        pguidoriginatorid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30272,7 +30272,7 @@ impl IMFOutputPolicy_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFOutputPolicy_Impl::GetMinimumGRLVersion(this) {
                     Ok(ok__) => {
-                        pdwminimumgrlversion.write(core::mem::transmute(ok__));
+                        pdwminimumgrlversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30342,7 +30342,7 @@ impl IMFOutputSchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFOutputSchema_Impl::GetSchemaType(this) {
                     Ok(ok__) => {
-                        pguidschematype.write(core::mem::transmute(ok__));
+                        pguidschematype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30354,7 +30354,7 @@ impl IMFOutputSchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFOutputSchema_Impl::GetConfigurationData(this) {
                     Ok(ok__) => {
-                        pdwval.write(core::mem::transmute(ok__));
+                        pdwval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30366,7 +30366,7 @@ impl IMFOutputSchema_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFOutputSchema_Impl::GetOriginatorID(this) {
                     Ok(ok__) => {
-                        pguidoriginatorid.write(core::mem::transmute(ok__));
+                        pguidoriginatorid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30417,7 +30417,7 @@ impl IMFOutputTrustAuthority_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFOutputTrustAuthority_Impl::GetAction(this) {
                     Ok(ok__) => {
-                        paction.write(core::mem::transmute(ok__));
+                        paction.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30902,7 +30902,7 @@ impl IMFPMediaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaItem_Impl::GetURL(this) {
                     Ok(ok__) => {
-                        ppwszurl.write(core::mem::transmute(ok__));
+                        ppwszurl.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30926,7 +30926,7 @@ impl IMFPMediaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaItem_Impl::GetUserData(this) {
                     Ok(ok__) => {
-                        pdwuserdata.write(core::mem::transmute(ok__));
+                        pdwuserdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30968,7 +30968,7 @@ impl IMFPMediaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaItem_Impl::IsProtected(this) {
                     Ok(ok__) => {
-                        pfprotected.write(core::mem::transmute(ok__));
+                        pfprotected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30992,7 +30992,7 @@ impl IMFPMediaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaItem_Impl::GetNumberOfStreams(this) {
                     Ok(ok__) => {
-                        pdwstreamcount.write(core::mem::transmute(ok__));
+                        pdwstreamcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31004,7 +31004,7 @@ impl IMFPMediaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaItem_Impl::GetStreamSelection(this, core::mem::transmute_copy(&dwstreamindex)) {
                     Ok(ok__) => {
-                        pfenabled.write(core::mem::transmute(ok__));
+                        pfenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31046,7 +31046,7 @@ impl IMFPMediaItem_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaItem_Impl::GetCharacteristics(this) {
                     Ok(ok__) => {
-                        pcharacteristics.write(core::mem::transmute(ok__));
+                        pcharacteristics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31423,7 +31423,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetRate(this) {
                     Ok(ok__) => {
-                        pflrate.write(core::mem::transmute(ok__));
+                        pflrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31441,7 +31441,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetState(this) {
                     Ok(ok__) => {
-                        pestate.write(core::mem::transmute(ok__));
+                        pestate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31489,7 +31489,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetVolume(this) {
                     Ok(ok__) => {
-                        pflvolume.write(core::mem::transmute(ok__));
+                        pflvolume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31507,7 +31507,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetBalance(this) {
                     Ok(ok__) => {
-                        pflbalance.write(core::mem::transmute(ok__));
+                        pflbalance.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31525,7 +31525,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetMute(this) {
                     Ok(ok__) => {
-                        pfmute.write(core::mem::transmute(ok__));
+                        pfmute.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31561,7 +31561,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetVideoSourceRect(this) {
                     Ok(ok__) => {
-                        pnrcsource.write(core::mem::transmute(ok__));
+                        pnrcsource.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31579,7 +31579,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetAspectRatioMode(this) {
                     Ok(ok__) => {
-                        pdwaspectratiomode.write(core::mem::transmute(ok__));
+                        pdwaspectratiomode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31591,7 +31591,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetVideoWindow(this) {
                     Ok(ok__) => {
-                        phwndvideo.write(core::mem::transmute(ok__));
+                        phwndvideo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31615,7 +31615,7 @@ impl IMFPMediaPlayer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPMediaPlayer_Impl::GetBorderColor(this) {
                     Ok(ok__) => {
-                        pclr.write(core::mem::transmute(ok__));
+                        pclr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31792,7 +31792,7 @@ impl IMFPluginControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPluginControl_Impl::GetPreferredClsid(this, core::mem::transmute_copy(&plugintype), core::mem::transmute(&selector)) {
                     Ok(ok__) => {
-                        clsid.write(core::mem::transmute(ok__));
+                        clsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31822,7 +31822,7 @@ impl IMFPluginControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPluginControl_Impl::GetDisabledByIndex(this, core::mem::transmute_copy(&plugintype), core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        clsid.write(core::mem::transmute(ok__));
+                        clsid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31984,7 +31984,7 @@ impl IMFPresentationClock_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPresentationClock_Impl::GetTime(this) {
                     Ok(ok__) => {
-                        phnsclocktime.write(core::mem::transmute(ok__));
+                        phnsclocktime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32095,7 +32095,7 @@ impl IMFPresentationDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFPresentationDescriptor_Impl::GetStreamDescriptorCount(this) {
                     Ok(ok__) => {
-                        pdwdescriptorcount.write(core::mem::transmute(ok__));
+                        pdwdescriptorcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32296,7 +32296,7 @@ impl IMFQualityAdvise_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFQualityAdvise_Impl::GetDropMode(this) {
                     Ok(ok__) => {
-                        pedropmode.write(core::mem::transmute(ok__));
+                        pedropmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32308,7 +32308,7 @@ impl IMFQualityAdvise_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFQualityAdvise_Impl::GetQualityLevel(this) {
                     Ok(ok__) => {
-                        pequalitylevel.write(core::mem::transmute(ok__));
+                        pequalitylevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32370,7 +32370,7 @@ impl IMFQualityAdvise2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFQualityAdvise2_Impl::NotifyQualityEvent(this, core::mem::transmute_copy(&pevent)) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32418,7 +32418,7 @@ impl IMFQualityAdviseLimits_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFQualityAdviseLimits_Impl::GetMaximumDropMode(this) {
                     Ok(ok__) => {
-                        pedropmode.write(core::mem::transmute(ok__));
+                        pedropmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32430,7 +32430,7 @@ impl IMFQualityAdviseLimits_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFQualityAdviseLimits_Impl::GetMinimumQualityLevel(this) {
                     Ok(ok__) => {
-                        pequalitylevel.write(core::mem::transmute(ok__));
+                        pequalitylevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32641,7 +32641,7 @@ impl IMFRateSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFRateSupport_Impl::GetSlowestRate(this, core::mem::transmute_copy(&edirection), core::mem::transmute_copy(&fthin)) {
                     Ok(ok__) => {
-                        pflrate.write(core::mem::transmute(ok__));
+                        pflrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32653,7 +32653,7 @@ impl IMFRateSupport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFRateSupport_Impl::GetFastestRate(this, core::mem::transmute_copy(&edirection), core::mem::transmute_copy(&fthin)) {
                     Ok(ok__) => {
-                        pflrate.write(core::mem::transmute(ok__));
+                        pflrate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32884,7 +32884,7 @@ impl IMFRelativePanelReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFRelativePanelReport_Impl::GetRelativePanel(this) {
                     Ok(ok__) => {
-                        panel.write(core::mem::transmute(ok__));
+                        panel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33157,7 +33157,7 @@ impl IMFSAMIStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSAMIStyle_Impl::GetStyleCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33187,7 +33187,7 @@ impl IMFSAMIStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSAMIStyle_Impl::GetSelectedStyle(this) {
                     Ok(ok__) => {
-                        ppwszstyle.write(core::mem::transmute(ok__));
+                        ppwszstyle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33295,7 +33295,7 @@ impl IMFSSLCertificateManager_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSSLCertificateManager_Impl::OnServerCertificate(this, core::mem::transmute(&pszurl), core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&cbdata)) {
                     Ok(ok__) => {
-                        pfisgood.write(core::mem::transmute(ok__));
+                        pfisgood.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33439,7 +33439,7 @@ impl IMFSample_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSample_Impl::GetSampleFlags(this) {
                     Ok(ok__) => {
-                        pdwsampleflags.write(core::mem::transmute(ok__));
+                        pdwsampleflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33457,7 +33457,7 @@ impl IMFSample_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSample_Impl::GetSampleTime(this) {
                     Ok(ok__) => {
-                        phnssampletime.write(core::mem::transmute(ok__));
+                        phnssampletime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33475,7 +33475,7 @@ impl IMFSample_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSample_Impl::GetSampleDuration(this) {
                     Ok(ok__) => {
-                        phnssampleduration.write(core::mem::transmute(ok__));
+                        phnssampleduration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33493,7 +33493,7 @@ impl IMFSample_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSample_Impl::GetBufferCount(this) {
                     Ok(ok__) => {
-                        pdwbuffercount.write(core::mem::transmute(ok__));
+                        pdwbuffercount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33547,7 +33547,7 @@ impl IMFSample_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSample_Impl::GetTotalLength(this) {
                     Ok(ok__) => {
-                        pcbtotallength.write(core::mem::transmute(ok__));
+                        pcbtotallength.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33855,7 +33855,7 @@ impl IMFSampleProtection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSampleProtection_Impl::GetInputProtectionVersion(this) {
                     Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
+                        pdwversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33867,7 +33867,7 @@ impl IMFSampleProtection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSampleProtection_Impl::GetOutputProtectionVersion(this) {
                     Ok(ok__) => {
-                        pdwversion.write(core::mem::transmute(ok__));
+                        pdwversion.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33973,7 +33973,7 @@ impl IMFSaveJob_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSaveJob_Impl::GetProgress(this) {
                     Ok(ok__) => {
-                        pdwpercentcomplete.write(core::mem::transmute(ok__));
+                        pdwpercentcomplete.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34096,7 +34096,7 @@ impl IMFSecureBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSecureBuffer_Impl::GetIdentifier(this) {
                     Ok(ok__) => {
-                        pguididentifier.write(core::mem::transmute(ok__));
+                        pguididentifier.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34239,7 +34239,7 @@ impl IMFSensorActivitiesReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorActivitiesReport_Impl::GetCount(this) {
                     Ok(ok__) => {
-                        pccount.write(core::mem::transmute(ok__));
+                        pccount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34414,7 +34414,7 @@ impl IMFSensorActivityReport_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorActivityReport_Impl::GetProcessCount(this) {
                     Ok(ok__) => {
-                        pccount.write(core::mem::transmute(ok__));
+                        pccount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34530,7 +34530,7 @@ impl IMFSensorDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorDevice_Impl::GetDeviceId(this) {
                     Ok(ok__) => {
-                        pdeviceid.write(core::mem::transmute(ok__));
+                        pdeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34542,7 +34542,7 @@ impl IMFSensorDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorDevice_Impl::GetDeviceType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34554,7 +34554,7 @@ impl IMFSensorDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorDevice_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34584,7 +34584,7 @@ impl IMFSensorDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorDevice_Impl::GetStreamAttributesCount(this, core::mem::transmute_copy(&etype)) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34614,7 +34614,7 @@ impl IMFSensorDevice_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorDevice_Impl::GetSensorDeviceMode(this) {
                     Ok(ok__) => {
-                        pemode.write(core::mem::transmute(ok__));
+                        pemode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34721,7 +34721,7 @@ impl IMFSensorGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorGroup_Impl::GetFlags(this) {
                     Ok(ok__) => {
-                        pflags.write(core::mem::transmute(ok__));
+                        pflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34745,7 +34745,7 @@ impl IMFSensorGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorGroup_Impl::GetSensorDeviceCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34775,7 +34775,7 @@ impl IMFSensorGroup_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorGroup_Impl::GetDefaultSensorDeviceIndex(this) {
                     Ok(ok__) => {
-                        pdwindex.write(core::mem::transmute(ok__));
+                        pdwindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34861,7 +34861,7 @@ impl IMFSensorProcessActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorProcessActivity_Impl::GetProcessId(this) {
                     Ok(ok__) => {
-                        ppid.write(core::mem::transmute(ok__));
+                        ppid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34873,7 +34873,7 @@ impl IMFSensorProcessActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorProcessActivity_Impl::GetStreamingState(this) {
                     Ok(ok__) => {
-                        pfstreaming.write(core::mem::transmute(ok__));
+                        pfstreaming.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34885,7 +34885,7 @@ impl IMFSensorProcessActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorProcessActivity_Impl::GetStreamingMode(this) {
                     Ok(ok__) => {
-                        pmode.write(core::mem::transmute(ok__));
+                        pmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34897,7 +34897,7 @@ impl IMFSensorProcessActivity_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorProcessActivity_Impl::GetReportTime(this) {
                     Ok(ok__) => {
-                        pft.write(core::mem::transmute(ok__));
+                        pft.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34979,7 +34979,7 @@ impl IMFSensorProfile_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorProfile_Impl::IsMediaTypeSupported(this, core::mem::transmute_copy(&streamid), core::mem::transmute_copy(&pmediatype)) {
                     Ok(ok__) => {
-                        pfsupported.write(core::mem::transmute(ok__));
+                        pfsupported.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35174,7 +35174,7 @@ impl IMFSensorStream_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorStream_Impl::GetMediaTypeCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35295,7 +35295,7 @@ impl IMFSensorTransformFactory_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSensorTransformFactory_Impl::GetTransformCount(this) {
                     Ok(ok__) => {
-                        pdwcount.write(core::mem::transmute(ok__));
+                        pdwcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35389,7 +35389,7 @@ impl IMFSequencerSource_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSequencerSource_Impl::AppendTopology(this, core::mem::transmute_copy(&ptopology), core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        pdwid.write(core::mem::transmute(ok__));
+                        pdwid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35514,7 +35514,7 @@ impl IMFShutdown_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFShutdown_Impl::GetShutdownStatus(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35616,7 +35616,7 @@ impl IMFSimpleAudioVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSimpleAudioVolume_Impl::GetMasterVolume(this) {
                     Ok(ok__) => {
-                        pflevel.write(core::mem::transmute(ok__));
+                        pflevel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35634,7 +35634,7 @@ impl IMFSimpleAudioVolume_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSimpleAudioVolume_Impl::GetMute(this) {
                     Ok(ok__) => {
-                        pbmute.write(core::mem::transmute(ok__));
+                        pbmute.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35740,7 +35740,7 @@ impl IMFSinkWriter_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSinkWriter_Impl::AddStream(this, core::mem::transmute_copy(&ptargetmediatype)) {
                     Ok(ok__) => {
-                        pdwstreamindex.write(core::mem::transmute(ok__));
+                        pdwstreamindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36504,7 +36504,7 @@ impl IMFSourceReader_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSourceReader_Impl::GetStreamSelection(this, core::mem::transmute_copy(&dwstreamindex)) {
                     Ok(ok__) => {
-                        pfselected.write(core::mem::transmute(ok__));
+                        pfselected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36774,7 +36774,7 @@ impl IMFSourceReaderEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSourceReaderEx_Impl::SetNativeMediaType(this, core::mem::transmute_copy(&dwstreamindex), core::mem::transmute_copy(&pmediatype)) {
                     Ok(ok__) => {
-                        pdwstreamflags.write(core::mem::transmute(ok__));
+                        pdwstreamflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37047,7 +37047,7 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioObjectBuffer_Impl::GetID(this) {
                     Ok(ok__) => {
-                        pu32id.write(core::mem::transmute(ok__));
+                        pu32id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37065,7 +37065,7 @@ impl IMFSpatialAudioObjectBuffer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioObjectBuffer_Impl::GetType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37149,7 +37149,7 @@ impl IMFSpatialAudioSample_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFSpatialAudioSample_Impl::GetObjectCount(this) {
                     Ok(ok__) => {
-                        pdwobjectcount.write(core::mem::transmute(ok__));
+                        pdwobjectcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37229,7 +37229,7 @@ impl IMFStreamDescriptor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFStreamDescriptor_Impl::GetStreamIdentifier(this) {
                     Ok(ok__) => {
-                        pdwstreamidentifier.write(core::mem::transmute(ok__));
+                        pdwstreamidentifier.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37344,7 +37344,7 @@ impl IMFStreamSink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFStreamSink_Impl::GetIdentifier(this) {
                     Ok(ok__) => {
-                        pdwidentifier.write(core::mem::transmute(ok__));
+                        pdwidentifier.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37544,7 +37544,7 @@ impl IMFTimecodeTranslate_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimecodeTranslate_Impl::EndConvertTimecodeToHNS(this, core::mem::transmute_copy(&presult)) {
                     Ok(ok__) => {
-                        phnstime.write(core::mem::transmute(ok__));
+                        phnstime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37727,7 +37727,7 @@ impl IMFTimedText_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedText_Impl::AddDataSource(this, core::mem::transmute_copy(&bytestream), core::mem::transmute(&label), core::mem::transmute(&language), core::mem::transmute_copy(&kind), core::mem::transmute_copy(&isdefault)) {
                     Ok(ok__) => {
-                        trackid.write(core::mem::transmute(ok__));
+                        trackid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37739,7 +37739,7 @@ impl IMFTimedText_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedText_Impl::AddDataSourceFromUrl(this, core::mem::transmute(&url), core::mem::transmute(&label), core::mem::transmute(&language), core::mem::transmute_copy(&kind), core::mem::transmute_copy(&isdefault)) {
                     Ok(ok__) => {
-                        trackid.write(core::mem::transmute(ok__));
+                        trackid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37769,7 +37769,7 @@ impl IMFTimedText_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedText_Impl::GetCueTimeOffset(this) {
                     Ok(ok__) => {
-                        offset.write(core::mem::transmute(ok__));
+                        offset.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37938,7 +37938,7 @@ impl IMFTimedTextBouten_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextBouten_Impl::GetBoutenType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37950,7 +37950,7 @@ impl IMFTimedTextBouten_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextBouten_Impl::GetBoutenColor(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37962,7 +37962,7 @@ impl IMFTimedTextBouten_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextBouten_Impl::GetBoutenPosition(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38075,7 +38075,7 @@ impl IMFTimedTextCue_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextCue_Impl::GetOriginalId(this) {
                     Ok(ok__) => {
-                        originalid.write(core::mem::transmute(ok__));
+                        originalid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38358,7 +38358,7 @@ impl IMFTimedTextFormattedText_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextFormattedText_Impl::GetText(this) {
                     Ok(ok__) => {
-                        text.write(core::mem::transmute(ok__));
+                        text.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38614,7 +38614,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38638,7 +38638,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetBackgroundColor(this) {
                     Ok(ok__) => {
-                        bgcolor.write(core::mem::transmute(ok__));
+                        bgcolor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38650,7 +38650,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetWritingMode(this) {
                     Ok(ok__) => {
-                        writingmode.write(core::mem::transmute(ok__));
+                        writingmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38662,7 +38662,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetDisplayAlignment(this) {
                     Ok(ok__) => {
-                        displayalign.write(core::mem::transmute(ok__));
+                        displayalign.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38680,7 +38680,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetClipOverflow(this) {
                     Ok(ok__) => {
-                        clipoverflow.write(core::mem::transmute(ok__));
+                        clipoverflow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38698,7 +38698,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetWrap(this) {
                     Ok(ok__) => {
-                        wrap.write(core::mem::transmute(ok__));
+                        wrap.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38710,7 +38710,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetZIndex(this) {
                     Ok(ok__) => {
-                        zindex.write(core::mem::transmute(ok__));
+                        zindex.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38722,7 +38722,7 @@ impl IMFTimedTextRegion_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRegion_Impl::GetScrollMode(this) {
                     Ok(ok__) => {
-                        scrollmode.write(core::mem::transmute(ok__));
+                        scrollmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38800,7 +38800,7 @@ impl IMFTimedTextRuby_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRuby_Impl::GetRubyText(this) {
                     Ok(ok__) => {
-                        rubytext.write(core::mem::transmute(ok__));
+                        rubytext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38812,7 +38812,7 @@ impl IMFTimedTextRuby_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRuby_Impl::GetRubyPosition(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38824,7 +38824,7 @@ impl IMFTimedTextRuby_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRuby_Impl::GetRubyAlign(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38836,7 +38836,7 @@ impl IMFTimedTextRuby_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextRuby_Impl::GetRubyReserve(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38969,7 +38969,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetName(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38987,7 +38987,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetFontFamily(this) {
                     Ok(ok__) => {
-                        fontfamily.write(core::mem::transmute(ok__));
+                        fontfamily.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39005,7 +39005,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetColor(this) {
                     Ok(ok__) => {
-                        color.write(core::mem::transmute(ok__));
+                        color.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39017,7 +39017,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetBackgroundColor(this) {
                     Ok(ok__) => {
-                        bgcolor.write(core::mem::transmute(ok__));
+                        bgcolor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39029,7 +39029,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetShowBackgroundAlways(this) {
                     Ok(ok__) => {
-                        showbackgroundalways.write(core::mem::transmute(ok__));
+                        showbackgroundalways.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39041,7 +39041,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetFontStyle(this) {
                     Ok(ok__) => {
-                        fontstyle.write(core::mem::transmute(ok__));
+                        fontstyle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39053,7 +39053,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetBold(this) {
                     Ok(ok__) => {
-                        bold.write(core::mem::transmute(ok__));
+                        bold.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39065,7 +39065,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetRightToLeft(this) {
                     Ok(ok__) => {
-                        righttoleft.write(core::mem::transmute(ok__));
+                        righttoleft.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39077,7 +39077,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetTextAlignment(this) {
                     Ok(ok__) => {
-                        textalign.write(core::mem::transmute(ok__));
+                        textalign.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39089,7 +39089,7 @@ impl IMFTimedTextStyle_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle_Impl::GetTextDecoration(this) {
                     Ok(ok__) => {
-                        textdecoration.write(core::mem::transmute(ok__));
+                        textdecoration.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39198,7 +39198,7 @@ impl IMFTimedTextStyle2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle2_Impl::IsTextCombined(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39210,7 +39210,7 @@ impl IMFTimedTextStyle2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextStyle2_Impl::GetFontAngleInDegrees(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39337,7 +39337,7 @@ impl IMFTimedTextTrack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextTrack_Impl::GetLabel(this) {
                     Ok(ok__) => {
-                        label.write(core::mem::transmute(ok__));
+                        label.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39355,7 +39355,7 @@ impl IMFTimedTextTrack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextTrack_Impl::GetLanguage(this) {
                     Ok(ok__) => {
-                        language.write(core::mem::transmute(ok__));
+                        language.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39379,7 +39379,7 @@ impl IMFTimedTextTrack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextTrack_Impl::GetInBandMetadataTrackDispatchType(this) {
                     Ok(ok__) => {
-                        dispatchtype.write(core::mem::transmute(ok__));
+                        dispatchtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39409,7 +39409,7 @@ impl IMFTimedTextTrack_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTimedTextTrack_Impl::GetDataFormat(this) {
                     Ok(ok__) => {
-                        format.write(core::mem::transmute(ok__));
+                        format.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39732,7 +39732,7 @@ impl IMFTopology_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTopology_Impl::GetTopologyID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39756,7 +39756,7 @@ impl IMFTopology_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTopology_Impl::GetNodeCount(this) {
                     Ok(ok__) => {
-                        pwnodes.write(core::mem::transmute(ok__));
+                        pwnodes.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40003,7 +40003,7 @@ impl IMFTopologyNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTopologyNode_Impl::GetNodeType(this) {
                     Ok(ok__) => {
-                        ptype.write(core::mem::transmute(ok__));
+                        ptype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40015,7 +40015,7 @@ impl IMFTopologyNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTopologyNode_Impl::GetTopoNodeID(this) {
                     Ok(ok__) => {
-                        pid.write(core::mem::transmute(ok__));
+                        pid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40033,7 +40033,7 @@ impl IMFTopologyNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTopologyNode_Impl::GetInputCount(this) {
                     Ok(ok__) => {
-                        pcinputs.write(core::mem::transmute(ok__));
+                        pcinputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40045,7 +40045,7 @@ impl IMFTopologyNode_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTopologyNode_Impl::GetOutputCount(this) {
                     Ok(ok__) => {
-                        pcoutputs.write(core::mem::transmute(ok__));
+                        pcoutputs.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40707,7 +40707,7 @@ impl IMFTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTransform_Impl::GetOutputStreamInfo(this, core::mem::transmute_copy(&dwoutputstreamid)) {
                     Ok(ok__) => {
-                        pstreaminfo.write(core::mem::transmute(ok__));
+                        pstreaminfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40827,7 +40827,7 @@ impl IMFTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTransform_Impl::GetInputStatus(this, core::mem::transmute_copy(&dwinputstreamid)) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40839,7 +40839,7 @@ impl IMFTransform_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTransform_Impl::GetOutputStatus(this) {
                     Ok(ok__) => {
-                        pdwflags.write(core::mem::transmute(ok__));
+                        pdwflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40990,7 +40990,7 @@ impl IMFTrustedOutput_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTrustedOutput_Impl::GetOutputTrustAuthorityCount(this) {
                     Ok(ok__) => {
-                        pcoutputtrustauthorities.write(core::mem::transmute(ok__));
+                        pcoutputtrustauthorities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41014,7 +41014,7 @@ impl IMFTrustedOutput_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFTrustedOutput_Impl::IsFinal(this) {
                     Ok(ok__) => {
-                        pfisfinal.write(core::mem::transmute(ok__));
+                        pfisfinal.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41103,7 +41103,7 @@ impl IMFVideoDeviceID_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoDeviceID_Impl::GetDeviceID(this) {
                     Ok(ok__) => {
-                        pdeviceid.write(core::mem::transmute(ok__));
+                        pdeviceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41266,7 +41266,7 @@ impl IMFVideoDisplayControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoDisplayControl_Impl::GetAspectRatioMode(this) {
                     Ok(ok__) => {
-                        pdwaspectratiomode.write(core::mem::transmute(ok__));
+                        pdwaspectratiomode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41284,7 +41284,7 @@ impl IMFVideoDisplayControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoDisplayControl_Impl::GetVideoWindow(this) {
                     Ok(ok__) => {
-                        phwndvideo.write(core::mem::transmute(ok__));
+                        phwndvideo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41314,7 +41314,7 @@ impl IMFVideoDisplayControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoDisplayControl_Impl::GetBorderColor(this) {
                     Ok(ok__) => {
-                        pclr.write(core::mem::transmute(ok__));
+                        pclr.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41332,7 +41332,7 @@ impl IMFVideoDisplayControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoDisplayControl_Impl::GetRenderingPrefs(this) {
                     Ok(ok__) => {
-                        pdwrenderflags.write(core::mem::transmute(ok__));
+                        pdwrenderflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41350,7 +41350,7 @@ impl IMFVideoDisplayControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoDisplayControl_Impl::GetFullscreen(this) {
                     Ok(ok__) => {
-                        pffullscreen.write(core::mem::transmute(ok__));
+                        pffullscreen.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41565,7 +41565,7 @@ impl IMFVideoMixerControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoMixerControl_Impl::GetStreamZOrder(this, core::mem::transmute_copy(&dwstreamid)) {
                     Ok(ok__) => {
-                        pdwz.write(core::mem::transmute(ok__));
+                        pdwz.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41583,7 +41583,7 @@ impl IMFVideoMixerControl_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoMixerControl_Impl::GetStreamOutputRect(this, core::mem::transmute_copy(&dwstreamid)) {
                     Ok(ok__) => {
-                        pnrcoutput.write(core::mem::transmute(ok__));
+                        pnrcoutput.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41646,7 +41646,7 @@ impl IMFVideoMixerControl2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoMixerControl2_Impl::GetMixingPrefs(this) {
                     Ok(ok__) => {
-                        pdwmixflags.write(core::mem::transmute(ok__));
+                        pdwmixflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41873,7 +41873,7 @@ impl IMFVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoProcessor_Impl::GetVideoProcessorMode(this) {
                     Ok(ok__) => {
-                        lpmode.write(core::mem::transmute(ok__));
+                        lpmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41891,7 +41891,7 @@ impl IMFVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoProcessor_Impl::GetProcAmpRange(this, core::mem::transmute_copy(&dwproperty)) {
                     Ok(ok__) => {
-                        pproprange.write(core::mem::transmute(ok__));
+                        pproprange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41903,7 +41903,7 @@ impl IMFVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoProcessor_Impl::GetProcAmpValues(this, core::mem::transmute_copy(&dwflags)) {
                     Ok(ok__) => {
-                        values.write(core::mem::transmute(ok__));
+                        values.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41921,7 +41921,7 @@ impl IMFVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoProcessor_Impl::GetFilteringRange(this, core::mem::transmute_copy(&dwproperty)) {
                     Ok(ok__) => {
-                        pproprange.write(core::mem::transmute(ok__));
+                        pproprange.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41933,7 +41933,7 @@ impl IMFVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoProcessor_Impl::GetFilteringValue(this, core::mem::transmute_copy(&dwproperty)) {
                     Ok(ok__) => {
-                        pvalue.write(core::mem::transmute(ok__));
+                        pvalue.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41951,7 +41951,7 @@ impl IMFVideoProcessor_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoProcessor_Impl::GetBackgroundColor(this) {
                     Ok(ok__) => {
-                        lpclrbkg.write(core::mem::transmute(ok__));
+                        lpclrbkg.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42134,7 +42134,7 @@ impl IMFVideoProcessorControl2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoProcessorControl2_Impl::GetSupportedHardwareEffects(this) {
                     Ok(ok__) => {
-                        puisupport.write(core::mem::transmute(ok__));
+                        puisupport.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42438,7 +42438,7 @@ impl IMFVideoSampleAllocatorCallback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFVideoSampleAllocatorCallback_Impl::GetFreeSampleCount(this) {
                     Ok(ok__) => {
-                        plsamples.write(core::mem::transmute(ok__));
+                        plsamples.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42918,7 +42918,7 @@ impl IMFWorkQueueServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFWorkQueueServices_Impl::GetTopologyWorkQueueMMCSSTaskId(this, core::mem::transmute_copy(&dwtopologyworkqueueid)) {
                     Ok(ok__) => {
-                        pdwtaskid.write(core::mem::transmute(ok__));
+                        pdwtaskid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42936,7 +42936,7 @@ impl IMFWorkQueueServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFWorkQueueServices_Impl::EndRegisterPlatformWorkQueueWithMMCSS(this, core::mem::transmute_copy(&presult)) {
                     Ok(ok__) => {
-                        pdwtaskid.write(core::mem::transmute(ok__));
+                        pdwtaskid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42966,7 +42966,7 @@ impl IMFWorkQueueServices_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFWorkQueueServices_Impl::GetPlatformWorkQueueMMCSSTaskId(this, core::mem::transmute_copy(&dwplatformworkqueueid)) {
                     Ok(ok__) => {
-                        pdwtaskid.write(core::mem::transmute(ok__));
+                        pdwtaskid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43044,7 +43044,7 @@ impl IMFWorkQueueServicesEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFWorkQueueServicesEx_Impl::GetTopologyWorkQueueMMCSSPriority(this, core::mem::transmute_copy(&dwtopologyworkqueueid)) {
                     Ok(ok__) => {
-                        plpriority.write(core::mem::transmute(ok__));
+                        plpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43062,7 +43062,7 @@ impl IMFWorkQueueServicesEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFWorkQueueServicesEx_Impl::GetPlatformWorkQueueMMCSSPriority(this, core::mem::transmute_copy(&dwplatformworkqueueid)) {
                     Ok(ok__) => {
-                        plpriority.write(core::mem::transmute(ok__));
+                        plpriority.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43240,7 +43240,7 @@ impl IPlayToControlWithCapabilities_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPlayToControlWithCapabilities_Impl::GetCapabilities(this) {
                     Ok(ok__) => {
-                        pcapabilities.write(core::mem::transmute(ok__));
+                        pcapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

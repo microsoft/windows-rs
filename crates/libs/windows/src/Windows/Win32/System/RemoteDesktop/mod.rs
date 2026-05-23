@@ -945,7 +945,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::AllowLogon(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -963,7 +963,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::EnableRemoteControl(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::MaxDisconnectionTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -999,7 +999,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::MaxConnectionTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1017,7 +1017,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::MaxIdleTime(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1035,7 +1035,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::ReconnectionAction(this) {
                     Ok(ok__) => {
-                        pnewval.write(core::mem::transmute(ok__));
+                        pnewval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1053,7 +1053,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::BrokenConnectionAction(this) {
                     Ok(ok__) => {
-                        pnewval.write(core::mem::transmute(ok__));
+                        pnewval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1071,7 +1071,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::ConnectClientDrivesAtLogon(this) {
                     Ok(ok__) => {
-                        pnewval.write(core::mem::transmute(ok__));
+                        pnewval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1089,7 +1089,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::ConnectClientPrintersAtLogon(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1107,7 +1107,7 @@ impl IADsTSUserEx_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IADsTSUserEx_Impl::DefaultToMainPrinter(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1246,7 +1246,7 @@ impl IAudioDeviceEndpoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioDeviceEndpoint_Impl::GetRTCaps(this) {
                     Ok(ok__) => {
-                        pbisrtcapable.write(core::mem::transmute(ok__));
+                        pbisrtcapable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1258,7 +1258,7 @@ impl IAudioDeviceEndpoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioDeviceEndpoint_Impl::GetEventDrivenCapable(this) {
                     Ok(ok__) => {
-                        pbiseventcapable.write(core::mem::transmute(ok__));
+                        pbiseventcapable.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1342,7 +1342,7 @@ impl IAudioEndpoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpoint_Impl::GetFrameFormat(this) {
                     Ok(ok__) => {
-                        ppformat.write(core::mem::transmute(ok__));
+                        ppformat.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1354,7 +1354,7 @@ impl IAudioEndpoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpoint_Impl::GetFramesPerPacket(this) {
                     Ok(ok__) => {
-                        pframesperpacket.write(core::mem::transmute(ok__));
+                        pframesperpacket.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1366,7 +1366,7 @@ impl IAudioEndpoint_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioEndpoint_Impl::GetLatency(this) {
                     Ok(ok__) => {
-                        platency.write(core::mem::transmute(ok__));
+                        platency.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2140,7 +2140,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDesktopClientTouchPointer_Impl::Enabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2158,7 +2158,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDesktopClientTouchPointer_Impl::EventsEnabled(this) {
                     Ok(ok__) => {
-                        eventsenabled.write(core::mem::transmute(ok__));
+                        eventsenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2176,7 +2176,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRemoteDesktopClientTouchPointer_Impl::PointerSpeed(this) {
                     Ok(ok__) => {
-                        pointerspeed.write(core::mem::transmute(ok__));
+                        pointerspeed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2526,7 +2526,7 @@ impl ITSGPolicyEngine_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITSGPolicyEngine_Impl::IsQuarantineEnabled(this) {
                     Ok(ok__) => {
-                        quarantineenabled.write(core::mem::transmute(ok__));
+                        quarantineenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2858,7 +2858,7 @@ impl ITsSbClientConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbClientConnection_Impl::IsFirstAssignment(this) {
                     Ok(ok__) => {
-                        ppval.write(core::mem::transmute(ok__));
+                        ppval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2870,7 +2870,7 @@ impl ITsSbClientConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbClientConnection_Impl::RdFarmType(this) {
                     Ok(ok__) => {
-                        prdfarmtype.write(core::mem::transmute(ok__));
+                        prdfarmtype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2882,7 +2882,7 @@ impl ITsSbClientConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbClientConnection_Impl::UserSidString(this) {
                     Ok(ok__) => {
-                        pszusersidstring.write(core::mem::transmute(ok__));
+                        pszusersidstring.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3028,7 +3028,7 @@ impl ITsSbEnvironment_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbEnvironment_Impl::ServerWeight(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3215,7 +3215,7 @@ impl ITsSbGenericNotifySink_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbGenericNotifySink_Impl::GetWaitTimeout(this) {
                     Ok(ok__) => {
-                        pfttimeout.write(core::mem::transmute(ok__));
+                        pfttimeout.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4774,7 +4774,7 @@ impl ITsSbResourcePluginStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbResourcePluginStore_Impl::SetTargetState(this, core::mem::transmute(&targetname), core::mem::transmute_copy(&newstate)) {
                     Ok(ok__) => {
-                        poldstate.write(core::mem::transmute(ok__));
+                        poldstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4846,7 +4846,7 @@ impl ITsSbResourcePluginStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbResourcePluginStore_Impl::TestAndSetServerState(this, core::mem::transmute(&poolname), core::mem::transmute(&serverfqdn), core::mem::transmute_copy(&newstate), core::mem::transmute_copy(&teststate)) {
                     Ok(ok__) => {
-                        pinitstate.write(core::mem::transmute(ok__));
+                        pinitstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4864,7 +4864,7 @@ impl ITsSbResourcePluginStore_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbResourcePluginStore_Impl::GetServerState(this, core::mem::transmute(&poolname), core::mem::transmute(&serverfqdn)) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5094,7 +5094,7 @@ impl ITsSbSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbSession_Impl::SessionId(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5148,7 +5148,7 @@ impl ITsSbSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbSession_Impl::State(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5166,7 +5166,7 @@ impl ITsSbSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbSession_Impl::CreateTime(this) {
                     Ok(ok__) => {
-                        ptime.write(core::mem::transmute(ok__));
+                        ptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5184,7 +5184,7 @@ impl ITsSbSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbSession_Impl::DisconnectTime(this) {
                     Ok(ok__) => {
-                        ptime.write(core::mem::transmute(ok__));
+                        ptime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5220,7 +5220,7 @@ impl ITsSbSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbSession_Impl::ClientDisplay(this) {
                     Ok(ok__) => {
-                        pclientdisplay.write(core::mem::transmute(ok__));
+                        pclientdisplay.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5238,7 +5238,7 @@ impl ITsSbSession_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbSession_Impl::ProtocolType(this) {
                     Ok(ok__) => {
-                        pval.write(core::mem::transmute(ok__));
+                        pval.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5517,7 +5517,7 @@ impl ITsSbTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTarget_Impl::TargetState(this) {
                     Ok(ok__) => {
-                        pstate.write(core::mem::transmute(ok__));
+                        pstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5571,7 +5571,7 @@ impl ITsSbTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTarget_Impl::NumSessions(this) {
                     Ok(ok__) => {
-                        pnumsessions.write(core::mem::transmute(ok__));
+                        pnumsessions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5583,7 +5583,7 @@ impl ITsSbTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTarget_Impl::NumPendingConnections(this) {
                     Ok(ok__) => {
-                        pnumpendingconnections.write(core::mem::transmute(ok__));
+                        pnumpendingconnections.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5595,7 +5595,7 @@ impl ITsSbTarget_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTarget_Impl::TargetLoad(this) {
                     Ok(ok__) => {
-                        ptargetload.write(core::mem::transmute(ok__));
+                        ptargetload.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5769,7 +5769,7 @@ impl ITsSbTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTaskInfo_Impl::StartTime(this) {
                     Ok(ok__) => {
-                        pstarttime.write(core::mem::transmute(ok__));
+                        pstarttime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5781,7 +5781,7 @@ impl ITsSbTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTaskInfo_Impl::EndTime(this) {
                     Ok(ok__) => {
-                        pendtime.write(core::mem::transmute(ok__));
+                        pendtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5793,7 +5793,7 @@ impl ITsSbTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTaskInfo_Impl::Deadline(this) {
                     Ok(ok__) => {
-                        pdeadline.write(core::mem::transmute(ok__));
+                        pdeadline.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5829,7 +5829,7 @@ impl ITsSbTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTaskInfo_Impl::Context(this) {
                     Ok(ok__) => {
-                        pcontext.write(core::mem::transmute(ok__));
+                        pcontext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5853,7 +5853,7 @@ impl ITsSbTaskInfo_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITsSbTaskInfo_Impl::Status(this) {
                     Ok(ok__) => {
-                        pstatus.write(core::mem::transmute(ok__));
+                        pstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6046,7 +6046,7 @@ impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsEnhancedFastReconnectArbitrator_Impl::GetSessionForEnhancedFastReconnect(this, core::mem::transmute_copy(&psessionidarray), core::mem::transmute_copy(&dwsessioncount)) {
                     Ok(ok__) => {
-                        presultsessionid.write(core::mem::transmute(ok__));
+                        presultsessionid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6489,7 +6489,7 @@ impl IWRdsProtocolConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolConnection_Impl::GetVideoHandle(this) {
                     Ok(ok__) => {
-                        pvideohandle.write(core::mem::transmute(ok__));
+                        pvideohandle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6549,7 +6549,7 @@ impl IWRdsProtocolConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolConnection_Impl::GetLastInputTime(this) {
                     Ok(ok__) => {
-                        plastinputtime.write(core::mem::transmute(ok__));
+                        plastinputtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6567,7 +6567,7 @@ impl IWRdsProtocolConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolConnection_Impl::CreateVirtualChannel(this, core::mem::transmute(&szendpointname), core::mem::transmute_copy(&bstatic), core::mem::transmute_copy(&requestedpriority)) {
                     Ok(ok__) => {
-                        phchannel.write(core::mem::transmute(ok__));
+                        phchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6663,7 +6663,7 @@ impl IWRdsProtocolConnection2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolConnection2_Impl::GetSerializedUserCredential(this) {
                     Ok(ok__) => {
-                        usercredential.write(core::mem::transmute(ok__));
+                        usercredential.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6747,7 +6747,7 @@ impl IWRdsProtocolConnectionCallback_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolConnectionCallback_Impl::GetConnectionId(this) {
                     Ok(ok__) => {
-                        pconnectionid.write(core::mem::transmute(ok__));
+                        pconnectionid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6923,7 +6923,7 @@ impl IWRdsProtocolListener_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolListener_Impl::GetSettings(this, core::mem::transmute_copy(&wrdslistenersettinglevel)) {
                     Ok(ok__) => {
-                        pwrdslistenersettings.write(core::mem::transmute(ok__));
+                        pwrdslistenersettings.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7061,7 +7061,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolLogonErrorRedirector_Impl::RedirectStatus(this, core::mem::transmute(&pszmessage)) {
                     Ok(ok__) => {
-                        presponse.write(core::mem::transmute(ok__));
+                        presponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7073,7 +7073,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolLogonErrorRedirector_Impl::RedirectMessage(this, core::mem::transmute(&pszcaption), core::mem::transmute(&pszmessage), core::mem::transmute_copy(&utype)) {
                     Ok(ok__) => {
-                        presponse.write(core::mem::transmute(ok__));
+                        presponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7085,7 +7085,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWRdsProtocolLogonErrorRedirector_Impl::RedirectLogonError(this, core::mem::transmute_copy(&ntsstatus), core::mem::transmute_copy(&ntssubstatus), core::mem::transmute(&pszcaption), core::mem::transmute(&pszmessage), core::mem::transmute_copy(&utype)) {
                     Ok(ok__) => {
-                        presponse.write(core::mem::transmute(ok__));
+                        presponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7615,7 +7615,7 @@ impl IWTSBitmapRenderer_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSBitmapRenderer_Impl::GetRendererStatistics(this) {
                     Ok(ok__) => {
-                        pstatistics.write(core::mem::transmute(ok__));
+                        pstatistics.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8138,7 +8138,7 @@ impl IWTSProtocolConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSProtocolConnection_Impl::GetLastInputTime(this) {
                     Ok(ok__) => {
-                        plastinputtime.write(core::mem::transmute(ok__));
+                        plastinputtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8162,7 +8162,7 @@ impl IWTSProtocolConnection_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSProtocolConnection_Impl::CreateVirtualChannel(this, core::mem::transmute(&szendpointname), core::mem::transmute_copy(&bstatic), core::mem::transmute_copy(&requestedpriority)) {
                     Ok(ok__) => {
-                        phchannel.write(core::mem::transmute(ok__));
+                        phchannel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8527,7 +8527,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSProtocolLogonErrorRedirector_Impl::RedirectStatus(this, core::mem::transmute(&pszmessage)) {
                     Ok(ok__) => {
-                        presponse.write(core::mem::transmute(ok__));
+                        presponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8539,7 +8539,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSProtocolLogonErrorRedirector_Impl::RedirectMessage(this, core::mem::transmute(&pszcaption), core::mem::transmute(&pszmessage), core::mem::transmute_copy(&utype)) {
                     Ok(ok__) => {
-                        presponse.write(core::mem::transmute(ok__));
+                        presponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8551,7 +8551,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSProtocolLogonErrorRedirector_Impl::RedirectLogonError(this, core::mem::transmute_copy(&ntsstatus), core::mem::transmute_copy(&ntssubstatus), core::mem::transmute(&pszcaption), core::mem::transmute(&pszmessage), core::mem::transmute_copy(&utype)) {
                     Ok(ok__) => {
-                        presponse.write(core::mem::transmute(ok__));
+                        presponse.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8842,7 +8842,7 @@ impl IWTSSBPlugin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWTSSBPlugin_Impl::Initialize(this) {
                     Ok(ok__) => {
-                        plugincapabilities.write(core::mem::transmute(ok__));
+                        plugincapabilities.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9078,7 +9078,7 @@ impl IWorkspace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWorkspace_Impl::GetWorkspaceNames(this) {
                     Ok(ok__) => {
-                        psawkspnames.write(core::mem::transmute(ok__));
+                        psawkspnames.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9096,7 +9096,7 @@ impl IWorkspace_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWorkspace_Impl::GetProcessId(this) {
                     Ok(ok__) => {
-                        pulprocessid.write(core::mem::transmute(ok__));
+                        pulprocessid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9334,7 +9334,7 @@ impl IWorkspaceRegistration_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWorkspaceRegistration_Impl::AddResource(this, core::mem::transmute_copy(&punk)) {
                     Ok(ok__) => {
-                        pdwcookie.write(core::mem::transmute(ok__));
+                        pdwcookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9455,7 +9455,7 @@ impl IWorkspaceReportMessage_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWorkspaceReportMessage_Impl::IsErrorMessageRegistered(this, core::mem::transmute(&bstrwkspid), core::mem::transmute_copy(&dwerrortype), core::mem::transmute(&bstrerrormessagetype), core::mem::transmute_copy(&dwerrorcode)) {
                     Ok(ok__) => {
-                        pferrorexist.write(core::mem::transmute(ok__));
+                        pferrorexist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9554,7 +9554,7 @@ impl IWorkspaceResTypeRegistry_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWorkspaceResTypeRegistry_Impl::GetRegisteredFileExtensions(this, core::mem::transmute_copy(&fmachinewide)) {
                     Ok(ok__) => {
-                        psafileextensions.write(core::mem::transmute(ok__));
+                        psafileextensions.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9678,7 +9678,7 @@ impl IWorkspaceScriptable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWorkspaceScriptable_Impl::IsWorkspaceCredentialSpecified(this, core::mem::transmute(&bstrworkspaceid), core::mem::transmute_copy(&bcountunauthenticatedcredentials)) {
                     Ok(ok__) => {
-                        pbcredexist.write(core::mem::transmute(ok__));
+                        pbcredexist.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9690,7 +9690,7 @@ impl IWorkspaceScriptable_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWorkspaceScriptable_Impl::IsWorkspaceSSOEnabled(this) {
                     Ok(ok__) => {
-                        pbssoenabled.write(core::mem::transmute(ok__));
+                        pbssoenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9916,7 +9916,7 @@ impl ItsPubPlugin_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ItsPubPlugin_Impl::GetCacheLastUpdateTime(this) {
                     Ok(ok__) => {
-                        lastupdatetime.write(core::mem::transmute(ok__));
+                        lastupdatetime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

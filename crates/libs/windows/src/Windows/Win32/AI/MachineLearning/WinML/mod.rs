@@ -70,7 +70,7 @@ impl IMLOperatorAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorAttributes_Impl::GetAttributeElementCount(this, core::mem::transmute(&name), core::mem::transmute_copy(&r#type)) {
                     Ok(ok__) => {
-                        elementcount.write(core::mem::transmute(ok__));
+                        elementcount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IMLOperatorAttributes_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorAttributes_Impl::GetStringAttributeElementLength(this, core::mem::transmute(&name), core::mem::transmute_copy(&elementindex)) {
                     Ok(ok__) => {
-                        attributeelementbytesize.write(core::mem::transmute(ok__));
+                        attributeelementbytesize.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -376,7 +376,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorKernelCreationContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
-                        edgedescription.write(core::mem::transmute(ok__));
+                        edgedescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -388,7 +388,7 @@ impl IMLOperatorKernelCreationContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorKernelCreationContext_Impl::GetOutputEdgeDescription(this, core::mem::transmute_copy(&outputindex)) {
                     Ok(ok__) => {
-                        edgedescription.write(core::mem::transmute(ok__));
+                        edgedescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -628,7 +628,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorShapeInferenceContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
-                        edgedescription.write(core::mem::transmute(ok__));
+                        edgedescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -640,7 +640,7 @@ impl IMLOperatorShapeInferenceContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorShapeInferenceContext_Impl::GetInputTensorDimensionCount(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
-                        dimensioncount.write(core::mem::transmute(ok__));
+                        dimensioncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -869,7 +869,7 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorTensorShapeDescription_Impl::GetInputTensorDimensionCount(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
-                        dimensioncount.write(core::mem::transmute(ok__));
+                        dimensioncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -893,7 +893,7 @@ impl IMLOperatorTensorShapeDescription_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorTensorShapeDescription_Impl::GetOutputTensorDimensionCount(this, core::mem::transmute_copy(&outputindex)) {
                     Ok(ok__) => {
-                        dimensioncount.write(core::mem::transmute(ok__));
+                        dimensioncount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IMLOperatorTypeInferenceContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMLOperatorTypeInferenceContext_Impl::GetInputEdgeDescription(this, core::mem::transmute_copy(&inputindex)) {
                     Ok(ok__) => {
-                        edgedescription.write(core::mem::transmute(ok__));
+                        edgedescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1118,7 +1118,7 @@ impl IWinMLEvaluationContext_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWinMLEvaluationContext_Impl::GetValueByName(this, core::mem::transmute(&name)) {
                     Ok(ok__) => {
-                        pdescriptor.write(core::mem::transmute(ok__));
+                        pdescriptor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1191,7 +1191,7 @@ impl IWinMLModel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWinMLModel_Impl::GetDescription(this) {
                     Ok(ok__) => {
-                        ppdescription.write(core::mem::transmute(ok__));
+                        ppdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1209,7 +1209,7 @@ impl IWinMLModel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWinMLModel_Impl::EnumerateModelInputs(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppinputdescriptor.write(core::mem::transmute(ok__));
+                        ppinputdescriptor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1221,7 +1221,7 @@ impl IWinMLModel_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWinMLModel_Impl::EnumerateModelOutputs(this, core::mem::transmute_copy(&index)) {
                     Ok(ok__) => {
-                        ppoutputdescriptor.write(core::mem::transmute(ok__));
+                        ppoutputdescriptor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),

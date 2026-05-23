@@ -828,7 +828,7 @@ impl IBufferByteAccess_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IBufferByteAccess_Impl::Buffer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -913,7 +913,7 @@ impl ICastingController_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICastingController_Impl::Advise(this, core::mem::transmute_copy(&eventhandler)) {
                     Ok(ok__) => {
-                        cookie.write(core::mem::transmute(ok__));
+                        cookie.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1140,7 +1140,7 @@ impl ICoreInputInterop2_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreInputInterop2_Impl::WindowHandle(this) {
                     Ok(ok__) => {
-                        window.write(core::mem::transmute(ok__));
+                        window.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1388,7 +1388,7 @@ impl ICoreWindowComponentInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowComponentInterop_Impl::GetViewInstanceId(this) {
                     Ok(ok__) => {
-                        componentviewinstanceid.write(core::mem::transmute(ok__));
+                        componentviewinstanceid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1437,7 +1437,7 @@ impl ICoreWindowInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWindowInterop_Impl::WindowHandle(this) {
                     Ok(ok__) => {
-                        hwnd.write(core::mem::transmute(ok__));
+                        hwnd.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2079,7 +2079,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IShareWindowCommandEventArgsInterop_Impl::GetWindow(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
