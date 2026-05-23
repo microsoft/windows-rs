@@ -189,14 +189,14 @@ pub unsafe fn SQLColumnPrivileges(hstmt: *mut core::ffi::c_void, szcatalogname: 
     unsafe {
         SQLColumnPrivileges(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -206,14 +206,14 @@ pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut core::ffi::c_void, szcatalogname:
     unsafe {
         SQLColumnPrivilegesA(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -223,14 +223,14 @@ pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut core::ffi::c_void, szcatalogname:
     unsafe {
         SQLColumnPrivilegesW(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -240,14 +240,14 @@ pub unsafe fn SQLColumns(statementhandle: *mut core::ffi::c_void, catalogname: O
     unsafe {
         SQLColumns(
             statementhandle as _,
-            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(columnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            columnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            catalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            schemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(columnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            columnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -257,14 +257,14 @@ pub unsafe fn SQLColumnsA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&
     unsafe {
         SQLColumnsA(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -274,14 +274,14 @@ pub unsafe fn SQLColumnsW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&
     unsafe {
         SQLColumnsW(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -453,17 +453,17 @@ pub unsafe fn SQLErrorW(henv: *mut core::ffi::c_void, hdbc: *mut core::ffi::c_vo
 #[inline]
 pub unsafe fn SQLExecDirect(statementhandle: *mut core::ffi::c_void, statementtext: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExecDirect(statementhandle : *mut core::ffi::c_void, statementtext : *const u8, textlength : i32) -> i16);
-    unsafe { SQLExecDirect(statementhandle as _, core::mem::transmute(statementtext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), statementtext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SQLExecDirect(statementhandle as _, core::mem::transmute(statementtext.map_or(core::ptr::null(), |slice| slice.as_ptr())), statementtext.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLExecDirectA(hstmt: *mut core::ffi::c_void, szsqlstr: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExecDirectA(hstmt : *mut core::ffi::c_void, szsqlstr : *const u8, cbsqlstr : i32) -> i16);
-    unsafe { SQLExecDirectA(hstmt as _, core::mem::transmute(szsqlstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SQLExecDirectA(hstmt as _, core::mem::transmute(szsqlstr.map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLExecDirectW(hstmt: *mut core::ffi::c_void, szsqlstr: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLExecDirectW(hstmt : *mut core::ffi::c_void, szsqlstr : *const u16, textlength : i32) -> i16);
-    unsafe { SQLExecDirectW(hstmt as _, core::mem::transmute(szsqlstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SQLExecDirectW(hstmt as _, core::mem::transmute(szsqlstr.map_or(core::ptr::null(), |slice| slice.as_ptr())), szsqlstr.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLExecute(statementhandle: *mut core::ffi::c_void) -> i16 {
@@ -505,18 +505,18 @@ pub unsafe fn SQLForeignKeys(hstmt: *mut core::ffi::c_void, szpkcatalogname: Opt
     unsafe {
         SQLForeignKeys(
             hstmt as _,
-            core::mem::transmute(szpkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szpkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szpktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpktablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpktablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfktablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfktablename.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -526,18 +526,18 @@ pub unsafe fn SQLForeignKeysA(hstmt: *mut core::ffi::c_void, szpkcatalogname: Op
     unsafe {
         SQLForeignKeysA(
             hstmt as _,
-            core::mem::transmute(szpkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szpkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szpktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpktablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpktablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfktablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfktablename.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -547,18 +547,18 @@ pub unsafe fn SQLForeignKeysW(hstmt: *mut core::ffi::c_void, szpkcatalogname: Op
     unsafe {
         SQLForeignKeysW(
             hstmt as _,
-            core::mem::transmute(szpkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szpkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szpktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szpktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfkcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfkcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfkschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfkschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szfktablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szfktablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpkschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szpktablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szpktablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfkschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfkschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szfktablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szfktablename.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -964,47 +964,17 @@ pub unsafe fn SQLPrepareW(hstmt: *mut core::ffi::c_void, szsqlstr: &[u16]) -> i1
 #[inline]
 pub unsafe fn SQLPrimaryKeys(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrimaryKeys(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
-    unsafe {
-        SQLPrimaryKeys(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLPrimaryKeys(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())), sztablename.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLPrimaryKeysA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrimaryKeysA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
-    unsafe {
-        SQLPrimaryKeysA(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLPrimaryKeysA(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())), sztablename.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLPrimaryKeysW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLPrimaryKeysW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
-    unsafe {
-        SQLPrimaryKeysW(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLPrimaryKeysW(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())), sztablename.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLProcedureColumns(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, szprocname: Option<&[u8]>, szcolumnname: Option<&[u8]>) -> i16 {
@@ -1012,14 +982,14 @@ pub unsafe fn SQLProcedureColumns(hstmt: *mut core::ffi::c_void, szcatalogname: 
     unsafe {
         SQLProcedureColumns(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -1029,14 +999,14 @@ pub unsafe fn SQLProcedureColumnsA(hstmt: *mut core::ffi::c_void, szcatalogname:
     unsafe {
         SQLProcedureColumnsA(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -1046,61 +1016,31 @@ pub unsafe fn SQLProcedureColumnsW(hstmt: *mut core::ffi::c_void, szcatalogname:
     unsafe {
         SQLProcedureColumnsW(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szcolumnname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcolumnname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szprocname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcolumnname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcolumnname.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
 #[inline]
 pub unsafe fn SQLProcedures(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, szprocname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProcedures(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, szprocname : *const u8, cchprocname : i16) -> i16);
-    unsafe {
-        SQLProcedures(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLProcedures(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szprocname.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLProceduresA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, szprocname: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProceduresA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, szprocname : *const u8, cbprocname : i16) -> i16);
-    unsafe {
-        SQLProceduresA(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLProceduresA(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szprocname.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLProceduresW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, szprocname: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLProceduresW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, szprocname : *const u16, cchprocname : i16) -> i16);
-    unsafe {
-        SQLProceduresW(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szprocname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szprocname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLProceduresW(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szprocname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szprocname.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(target_arch = "x86")]
 #[inline]
@@ -1284,12 +1224,12 @@ pub unsafe fn SQLSpecialColumns(statementhandle: *mut core::ffi::c_void, identif
         SQLSpecialColumns(
             statementhandle as _,
             identifiertype,
-            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            catalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            schemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tablename.map_or(0, |slice| slice.len().try_into().unwrap()),
             scope,
             nullable,
         )
@@ -1302,12 +1242,12 @@ pub unsafe fn SQLSpecialColumnsA(hstmt: *mut core::ffi::c_void, fcoltype: u16, s
         SQLSpecialColumnsA(
             hstmt as _,
             fcoltype,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
             fscope,
             fnullable,
         )
@@ -1320,12 +1260,12 @@ pub unsafe fn SQLSpecialColumnsW(hstmt: *mut core::ffi::c_void, fcoltype: u16, s
         SQLSpecialColumnsW(
             hstmt as _,
             fcoltype,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
             fscope,
             fnullable,
         )
@@ -1334,19 +1274,7 @@ pub unsafe fn SQLSpecialColumnsW(hstmt: *mut core::ffi::c_void, fcoltype: u16, s
 #[inline]
 pub unsafe fn SQLStatistics(statementhandle: *mut core::ffi::c_void, catalogname: Option<&[u8]>, schemaname: Option<&[u8]>, tablename: Option<&[u8]>, unique: u16, reserved: u16) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLStatistics(statementhandle : *mut core::ffi::c_void, catalogname : *const u8, namelength1 : i16, schemaname : *const u8, namelength2 : i16, tablename : *const u8, namelength3 : i16, unique : u16, reserved : u16) -> i16);
-    unsafe {
-        SQLStatistics(
-            statementhandle as _,
-            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            unique,
-            reserved,
-        )
-    }
+    unsafe { SQLStatistics(statementhandle as _, core::mem::transmute(catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), catalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), schemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(tablename.map_or(core::ptr::null(), |slice| slice.as_ptr())), tablename.map_or(0, |slice| slice.len().try_into().unwrap()), unique, reserved) }
 }
 #[inline]
 pub unsafe fn SQLStatisticsA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>, funique: u16, faccuracy: u16) -> i16 {
@@ -1354,12 +1282,12 @@ pub unsafe fn SQLStatisticsA(hstmt: *mut core::ffi::c_void, szcatalogname: Optio
     unsafe {
         SQLStatisticsA(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
             funique,
             faccuracy,
         )
@@ -1371,12 +1299,12 @@ pub unsafe fn SQLStatisticsW(hstmt: *mut core::ffi::c_void, szcatalogname: Optio
     unsafe {
         SQLStatisticsW(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
             funique,
             faccuracy,
         )
@@ -1385,47 +1313,17 @@ pub unsafe fn SQLStatisticsW(hstmt: *mut core::ffi::c_void, szcatalogname: Optio
 #[inline]
 pub unsafe fn SQLTablePrivileges(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablePrivileges(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cchcatalogname : i16, szschemaname : *const u8, cchschemaname : i16, sztablename : *const u8, cchtablename : i16) -> i16);
-    unsafe {
-        SQLTablePrivileges(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLTablePrivileges(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())), sztablename.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLTablePrivilegesA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u8]>, szschemaname: Option<&[u8]>, sztablename: Option<&[u8]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablePrivilegesA(hstmt : *mut core::ffi::c_void, szcatalogname : *const u8, cbcatalogname : i16, szschemaname : *const u8, cbschemaname : i16, sztablename : *const u8, cbtablename : i16) -> i16);
-    unsafe {
-        SQLTablePrivilegesA(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLTablePrivilegesA(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())), sztablename.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLTablePrivilegesW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[u16]>, szschemaname: Option<&[u16]>, sztablename: Option<&[u16]>) -> i16 {
     windows_core::link!("odbc32.dll" "system" fn SQLTablePrivilegesW(hstmt : *mut core::ffi::c_void, szcatalogname : *const u16, cchcatalogname : i16, szschemaname : *const u16, cchschemaname : i16, sztablename : *const u16, cchtablename : i16) -> i16);
-    unsafe {
-        SQLTablePrivilegesW(
-            hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        )
-    }
+    unsafe { SQLTablePrivilegesW(hstmt as _, core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())), szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())), sztablename.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SQLTables(statementhandle: *mut core::ffi::c_void, catalogname: Option<&[u8]>, schemaname: Option<&[u8]>, tablename: Option<&[u8]>, tabletype: Option<&[u8]>) -> i16 {
@@ -1433,14 +1331,14 @@ pub unsafe fn SQLTables(statementhandle: *mut core::ffi::c_void, catalogname: Op
     unsafe {
         SQLTables(
             statementhandle as _,
-            core::mem::transmute(catalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            catalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(schemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            schemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(tablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            tablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(tabletype.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            tabletype.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(catalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            catalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(schemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            schemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(tabletype.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            tabletype.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -1450,14 +1348,14 @@ pub unsafe fn SQLTablesA(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[
     unsafe {
         SQLTablesA(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztabletype.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztabletype.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztabletype.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztabletype.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -1467,14 +1365,14 @@ pub unsafe fn SQLTablesW(hstmt: *mut core::ffi::c_void, szcatalogname: Option<&[
     unsafe {
         SQLTablesW(
             hstmt as _,
-            core::mem::transmute(szcatalogname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szcatalogname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(szschemaname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            szschemaname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztablename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztablename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sztabletype.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sztabletype.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szcatalogname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szcatalogname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(szschemaname.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            szschemaname.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztablename.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztablename.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sztabletype.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sztabletype.map_or(0, |slice| slice.len().try_into().unwrap()),
         )
     }
 }
@@ -5848,7 +5746,7 @@ windows_core::imp::interface_hierarchy!(ICommandProperties, windows_core::IUnkno
 impl ICommandProperties {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: &[DBPROPSET]) -> windows_core::Result<()> {
@@ -7146,7 +7044,7 @@ impl IDBDataSourceAdmin {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ModifyDataSource(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<()> {
@@ -7229,7 +7127,7 @@ impl IDBInfo {
         }
     }
     pub unsafe fn GetLiteralInfo(&self, rgliterals: Option<&[u32]>, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut u16) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetLiteralInfo)(windows_core::Interface::as_raw(self), rgliterals.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgliterals.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcliteralinfo as _, prgliteralinfo as _, ppcharbuffer as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetLiteralInfo)(windows_core::Interface::as_raw(self), rgliterals.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgliterals.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcliteralinfo as _, prgliteralinfo as _, ppcharbuffer as _).ok() }
     }
 }
 #[repr(C)]
@@ -7328,7 +7226,7 @@ impl IDBPromptInitialize {
         P0: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).PromptDataSource)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hwndparent, dwpromptoptions, rgsourcetypefilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsourcetypefilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pwszszzproviderfilter.param().abi(), riid, core::mem::transmute(ppdatasource)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).PromptDataSource)(windows_core::Interface::as_raw(self), punkouter.param().abi(), hwndparent, dwpromptoptions, rgsourcetypefilter.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsourcetypefilter.map_or(core::ptr::null(), |slice| slice.as_ptr())), pwszszzproviderfilter.param().abi(), riid, core::mem::transmute(ppdatasource)).ok() }
     }
     pub unsafe fn PromptFileName<P2, P3>(&self, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: P2, pwszinitialfile: P3) -> windows_core::Result<windows_core::PWSTR>
     where
@@ -7388,11 +7286,11 @@ windows_core::imp::interface_hierarchy!(IDBProperties, windows_core::IUnknown);
 impl IDBProperties {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: Option<*mut *mut u16>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<()> {
@@ -7522,7 +7420,7 @@ impl IDBSchemaRowset {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgrestrictions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pprowset)).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgrestrictions.map_or(core::ptr::null(), |slice| slice.as_ptr())), riid, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pprowset)).ok() }
     }
     pub unsafe fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSchemas)(windows_core::Interface::as_raw(self), pcschemas as _, prgschemas as _, prgrestrictionsupport as _).ok() }
@@ -11588,7 +11486,7 @@ windows_core::imp::interface_hierarchy!(IRowsetInfo, windows_core::IUnknown);
 impl IRowsetInfo {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     pub unsafe fn GetReferencedRowset(&self, iordinal: usize, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
@@ -15963,7 +15861,7 @@ windows_core::imp::interface_hierarchy!(ISessionProperties, windows_core::IUnkno
 impl ISessionProperties {
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _).ok() }
     }
     #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::Result<()> {
@@ -16693,8 +16591,8 @@ impl ITableDefinition {
                 windows_core::Interface::as_raw(self),
                 punkouter.param().abi(),
                 ptableid.unwrap_or(core::mem::zeroed()) as _,
-                rgcolumndescs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                core::mem::transmute(rgcolumndescs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                rgcolumndescs.map_or(0, |slice| slice.len().try_into().unwrap()),
+                core::mem::transmute(rgcolumndescs.map_or(core::ptr::null(), |slice| slice.as_ptr())),
                 riid,
                 rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),

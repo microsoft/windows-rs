@@ -91,7 +91,7 @@ pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspm
 #[inline]
 pub unsafe fn GetRuntimeAttestationReport(nonce: Option<&[u8; 32]>, packageversion: u16, reporttypesbitmap: u64, reportbuffer: Option<*mut core::ffi::c_void>, reportbuffersize: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetRuntimeAttestationReport(nonce : *const u8, packageversion : u16, reporttypesbitmap : u64, reportbuffer : *mut core::ffi::c_void, reportbuffersize : *mut u32) -> windows_core::BOOL);
-    unsafe { GetRuntimeAttestationReport(core::mem::transmute(nonce.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), packageversion, reporttypesbitmap, reportbuffer.unwrap_or(core::mem::zeroed()) as _, reportbuffersize as _) }
+    unsafe { GetRuntimeAttestationReport(core::mem::transmute(nonce.map_or(core::ptr::null(), |slice| slice.as_ptr())), packageversion, reporttypesbitmap, reportbuffer.unwrap_or(core::mem::zeroed()) as _, reportbuffersize as _) }
 }
 #[inline]
 pub unsafe fn GetSystemCpuSetInformation(information: Option<*mut SYSTEM_CPU_SET_INFORMATION>, bufferlength: u32, returnedlength: *mut u32, process: Option<super::super::Foundation::HANDLE>, flags: Option<u32>) -> windows_core::BOOL {

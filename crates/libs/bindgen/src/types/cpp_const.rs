@@ -76,10 +76,17 @@ impl CppConst {
                     }
                 } else {
                     let ty = field_ty.write_name(config);
-                    let value = constant.value().write();
+                    let value_value = constant.value();
+                    let value = value_value.write();
+                    let approx = if value_value.is_approx_constant() {
+                        quote! { #[allow(clippy::approx_constant)] }
+                    } else {
+                        quote! {}
+                    };
 
                     quote! {
                         #cfg
+                        #approx
                         pub const #name: #ty = #value;
                     }
                 }

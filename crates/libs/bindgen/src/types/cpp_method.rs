@@ -662,8 +662,20 @@ impl CppMethod {
                         ParamHint::ArrayFixed(_)
                         | ParamHint::ArrayRelativeLen(_)
                         | ParamHint::ArrayRelativeByteLen(_) => {
+                            // For shared (input) optional slices the param type is
+                            // `Option<&[T]>`, which is `Copy`, so we can call
+                            // `map_or` on it directly and avoid the
+                            // `clippy::needless_option_as_deref` warning that
+                            // `as_deref()` would trigger on `Option<&[T]>`.
+                            // For `Option<&mut [T]>` (output slices) `as_deref()`
+                            // is *not* needless — it downgrades the mutable
+                            // reference to a shared one — so keep it there.
                             let map = if param.is_optional() {
-                                quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                if param.is_input() {
+                                    quote! { #name.map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                } else {
+                                    quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                }
                             } else {
                                 quote! { #name.as_ptr() }
                             };
@@ -673,7 +685,11 @@ impl CppMethod {
                             let relative_param = &self.signature.params[relative];
                             let name = relative_param.write_ident();
                             if relative_param.is_optional() {
-                                quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                if relative_param.is_input() {
+                                    quote! { #name.map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                } else {
+                                    quote! { #name.as_deref().map_or(0, |slice|slice.len().try_into().unwrap()), }
+                                }
                             } else {
                                 quote! { #name.len().try_into().unwrap(), }
                             }

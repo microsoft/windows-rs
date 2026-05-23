@@ -294,8 +294,8 @@ pub unsafe fn ClfsReserveAndAppendLog(pvmarshalcontext: *const core::ffi::c_void
     unsafe {
         ClfsReserveAndAppendLog(
             pvmarshalcontext,
-            core::mem::transmute(rgwriteentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            rgwriteentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(rgwriteentries.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            rgwriteentries.map_or(0, |slice| slice.len().try_into().unwrap()),
             plsnundonext.unwrap_or(core::mem::zeroed()) as _,
             plsnprevious.unwrap_or(core::mem::zeroed()) as _,
             rgcbreservation.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
@@ -312,8 +312,8 @@ pub unsafe fn ClfsReserveAndAppendLogAligned(pvmarshalcontext: *const core::ffi:
     unsafe {
         ClfsReserveAndAppendLogAligned(
             pvmarshalcontext,
-            core::mem::transmute(rgwriteentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            rgwriteentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(rgwriteentries.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            rgwriteentries.map_or(0, |slice| slice.len().try_into().unwrap()),
             cbentryalignment,
             plsnundonext.unwrap_or(core::mem::zeroed()) as _,
             plsnprevious.unwrap_or(core::mem::zeroed()) as _,
@@ -496,13 +496,13 @@ pub unsafe fn EtwUnregister(reghandle: super::super::super::Win32::System::Diagn
 #[inline]
 pub unsafe fn EtwWrite(reghandle: super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> windows_core::NTSTATUS {
     windows_core::link!("ntoskrnl.exe" "system" fn EtwWrite(reghandle : super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR) -> windows_core::NTSTATUS);
-    unsafe { EtwWrite(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EtwWrite(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
 pub unsafe fn EtwWriteEx(reghandle: super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> windows_core::NTSTATUS {
     windows_core::link!("ntoskrnl.exe" "system" fn EtwWriteEx(reghandle : super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR) -> windows_core::NTSTATUS);
-    unsafe { EtwWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EtwWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Etw")]
 #[inline]
@@ -517,7 +517,7 @@ where
 #[inline]
 pub unsafe fn EtwWriteTransfer(reghandle: super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE, eventdescriptor: *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR]>) -> windows_core::NTSTATUS {
     windows_core::link!("ntoskrnl.exe" "system" fn EtwWriteTransfer(reghandle : super::super::super::Win32::System::Diagnostics::Etw::REGHANDLE, eventdescriptor : *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const super::super::super::Win32::System::Diagnostics::Etw::EVENT_DATA_DESCRIPTOR) -> windows_core::NTSTATUS);
-    unsafe { EtwWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EtwWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -627,7 +627,7 @@ pub unsafe fn ExAllocatePool2(flags: u64, numberofbytes: usize, tag: u32) -> *mu
 #[inline]
 pub unsafe fn ExAllocatePool3(flags: u64, numberofbytes: usize, tag: u32, extendedparameters: Option<&[POOL_EXTENDED_PARAMETER]>) -> *mut core::ffi::c_void {
     windows_core::link!("ntoskrnl.exe" "system" fn ExAllocatePool3(flags : u64, numberofbytes : usize, tag : u32, extendedparameters : *const POOL_EXTENDED_PARAMETER, extendedparameterscount : u32) -> *mut core::ffi::c_void);
-    unsafe { ExAllocatePool3(flags, numberofbytes, tag, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ExAllocatePool3(flags, numberofbytes, tag, core::mem::transmute(extendedparameters.map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -748,7 +748,7 @@ pub unsafe fn ExFreePool(p: *mut core::ffi::c_void) {
 #[inline]
 pub unsafe fn ExFreePool2(p: *mut core::ffi::c_void, tag: u32, extendedparameters: Option<&[POOL_EXTENDED_PARAMETER]>) {
     windows_core::link!("ntoskrnl.exe" "system" fn ExFreePool2(p : *mut core::ffi::c_void, tag : u32, extendedparameters : *const POOL_EXTENDED_PARAMETER, extendedparameterscount : u32));
-    unsafe { ExFreePool2(p as _, tag, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ExFreePool2(p as _, tag, core::mem::transmute(extendedparameters.map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ExFreePoolWithTag(p: *mut core::ffi::c_void, tag: u32) {
@@ -1160,7 +1160,7 @@ pub unsafe fn HalAllocateCrashDumpRegisters(adapterobject: *const super::super::
 #[inline]
 pub unsafe fn HalAllocateHardwareCounters(groupaffinty: Option<&[super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY]>, resourcelist: Option<*const PHYSICAL_COUNTER_RESOURCE_LIST>, countersethandle: *mut super::super::super::Win32::Foundation::HANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("hal.dll" "system" fn HalAllocateHardwareCounters(groupaffinty : *const super::super::super::Win32::System::SystemInformation::GROUP_AFFINITY, groupcount : u32, resourcelist : *const PHYSICAL_COUNTER_RESOURCE_LIST, countersethandle : *mut super::super::super::Win32::Foundation::HANDLE) -> windows_core::NTSTATUS);
-    unsafe { HalAllocateHardwareCounters(core::mem::transmute(groupaffinty.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), groupaffinty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), resourcelist.unwrap_or(core::mem::zeroed()) as _, countersethandle as _) }
+    unsafe { HalAllocateHardwareCounters(core::mem::transmute(groupaffinty.map_or(core::ptr::null(), |slice| slice.as_ptr())), groupaffinty.map_or(0, |slice| slice.len().try_into().unwrap()), resourcelist.unwrap_or(core::mem::zeroed()) as _, countersethandle as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]

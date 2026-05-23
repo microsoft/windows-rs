@@ -266,7 +266,7 @@ pub unsafe fn CreatePrivateObjectSecurityEx(parentdescriptor: Option<PSECURITY_D
 #[inline]
 pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor: Option<PSECURITY_DESCRIPTOR>, creatordescriptor: Option<PSECURITY_DESCRIPTOR>, newdescriptor: *mut PSECURITY_DESCRIPTOR, objecttypes: Option<&[*const windows_core::GUID]>, iscontainerobject: bool, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Option<super::Foundation::HANDLE>, genericmapping: *const GENERIC_MAPPING) -> windows_core::Result<()> {
     windows_core::link!("advapi32.dll" "system" fn CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor : PSECURITY_DESCRIPTOR, creatordescriptor : PSECURITY_DESCRIPTOR, newdescriptor : *mut PSECURITY_DESCRIPTOR, objecttypes : *const *const windows_core::GUID, guidcount : u32, iscontainerobject : windows_core::BOOL, autoinheritflags : SECURITY_AUTO_INHERIT_FLAGS, token : super::Foundation::HANDLE, genericmapping : *const GENERIC_MAPPING) -> windows_core::BOOL);
-    unsafe { CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, creatordescriptor.unwrap_or(core::mem::zeroed()) as _, newdescriptor as _, core::mem::transmute(objecttypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), iscontainerobject.into(), autoinheritflags, token.unwrap_or(core::mem::zeroed()) as _, genericmapping).ok() }
+    unsafe { CreatePrivateObjectSecurityWithMultipleInheritance(parentdescriptor.unwrap_or(core::mem::zeroed()) as _, creatordescriptor.unwrap_or(core::mem::zeroed()) as _, newdescriptor as _, core::mem::transmute(objecttypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypes.map_or(0, |slice| slice.len().try_into().unwrap()), iscontainerobject.into(), autoinheritflags, token.unwrap_or(core::mem::zeroed()) as _, genericmapping).ok() }
 }
 #[inline]
 pub unsafe fn CreateRestrictedToken(existingtokenhandle: super::Foundation::HANDLE, flags: CREATE_RESTRICTED_TOKEN_FLAGS, sidstodisable: Option<&[SID_AND_ATTRIBUTES]>, privilegestodelete: Option<&[LUID_AND_ATTRIBUTES]>, sidstorestrict: Option<&[SID_AND_ATTRIBUTES]>, newtokenhandle: *mut super::Foundation::HANDLE) -> windows_core::Result<()> {
@@ -275,12 +275,12 @@ pub unsafe fn CreateRestrictedToken(existingtokenhandle: super::Foundation::HAND
         CreateRestrictedToken(
             existingtokenhandle,
             flags,
-            sidstodisable.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sidstodisable.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            privilegestodelete.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(privilegestodelete.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            sidstorestrict.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(sidstorestrict.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sidstodisable.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sidstodisable.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            privilegestodelete.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(privilegestodelete.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            sidstorestrict.map_or(0, |slice| slice.len().try_into().unwrap()),
+            core::mem::transmute(sidstorestrict.map_or(core::ptr::null(), |slice| slice.as_ptr())),
             newtokenhandle as _,
         )
         .ok()

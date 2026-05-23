@@ -4,6 +4,13 @@ pub use windows_metadata::Value;
 
 pub trait ValueExt {
     fn write(&self) -> TokenStream;
+
+    /// Returns true if this value is a floating-point literal close enough
+    /// to a `core::{f32,f64}::consts` constant that `clippy::approx_constant`
+    /// would flag it. Used by the constant emitters to attach a per-item
+    /// `#[allow(clippy::approx_constant)]` on the affected `pub const`, so
+    /// the lint can stay enabled for hand-written code in consuming crates.
+    fn is_approx_constant(&self) -> bool;
 }
 
 impl ValueExt for Value {
@@ -32,6 +39,53 @@ impl ValueExt for Value {
             }
             rest => panic!("{rest:?}"),
         }
+    }
+
+    fn is_approx_constant(&self) -> bool {
+        let value = match self {
+            Self::F32(v) => *v as f64,
+            Self::F64(v) => *v,
+            _ => return false,
+        };
+
+        if !value.is_finite() {
+            return false;
+        }
+
+        let abs = value.abs();
+        if abs == 0.0 {
+            return false;
+        }
+
+        // Mirror clippy's `approx_constant` lint: it fires when a float literal
+        // matches one of these constants to ~4 significant digits. We use a
+        // relative tolerance of 1e-4 which catches the same cases without
+        // producing false positives on unrelated near-by values.
+        const CONSTANTS: &[f64] = &[
+            core::f64::consts::E,
+            core::f64::consts::FRAC_1_PI,
+            core::f64::consts::FRAC_1_SQRT_2,
+            core::f64::consts::FRAC_2_PI,
+            core::f64::consts::FRAC_2_SQRT_PI,
+            core::f64::consts::FRAC_PI_2,
+            core::f64::consts::FRAC_PI_3,
+            core::f64::consts::FRAC_PI_4,
+            core::f64::consts::FRAC_PI_6,
+            core::f64::consts::FRAC_PI_8,
+            core::f64::consts::LN_10,
+            core::f64::consts::LN_2,
+            core::f64::consts::LOG10_2,
+            core::f64::consts::LOG10_E,
+            core::f64::consts::LOG2_10,
+            core::f64::consts::LOG2_E,
+            core::f64::consts::PI,
+            core::f64::consts::SQRT_2,
+            core::f64::consts::TAU,
+        ];
+
+        CONSTANTS
+            .iter()
+            .any(|c| (value - c).abs() / c.abs() <= 1e-4)
     }
 }
 

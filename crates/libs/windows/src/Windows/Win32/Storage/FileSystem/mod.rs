@@ -241,7 +241,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bindfltapi.dll" "system" fn CreateBindLink(virtualpath : windows_core::PCWSTR, backingpath : windows_core::PCWSTR, createbindlinkflags : CREATE_BIND_LINK_FLAGS, exceptioncount : u32, exceptionpaths : *const windows_core::PCWSTR) -> windows_core::HRESULT);
-    unsafe { CreateBindLink(virtualpath.param().abi(), backingpath.param().abi(), createbindlinkflags, exceptionpaths.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(exceptionpaths.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+    unsafe { CreateBindLink(virtualpath.param().abi(), backingpath.param().abi(), createbindlinkflags, exceptionpaths.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(exceptionpaths.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2965,13 +2965,13 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbac
 #[inline]
 pub unsafe fn WriteFile(hfile: super::super::Foundation::HANDLE, lpbuffer: Option<&[u8]>, lpnumberofbyteswritten: Option<*mut u32>, lpoverlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn WriteFile(hfile : super::super::Foundation::HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { WriteFile(hfile, core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpnumberofbyteswritten.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
+    unsafe { WriteFile(hfile, core::mem::transmute(lpbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpnumberofbyteswritten.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WriteFileEx(hfile: super::super::Foundation::HANDLE, lpbuffer: Option<&[u8]>, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::Result<()> {
     windows_core::link!("kernel32.dll" "system" fn WriteFileEx(hfile : super::super::Foundation::HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpoverlapped : *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine : super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> windows_core::BOOL);
-    unsafe { WriteFileEx(hfile, core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpoverlapped as _, lpcompletionroutine).ok() }
+    unsafe { WriteFileEx(hfile, core::mem::transmute(lpbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpoverlapped as _, lpcompletionroutine).ok() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]

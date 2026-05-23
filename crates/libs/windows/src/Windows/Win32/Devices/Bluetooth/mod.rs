@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn BluetoothAuthenticateDevice(hwndparent: Option<super::super::Foundation::HWND>, hradio: Option<super::super::Foundation::HANDLE>, pbtbi: *mut BLUETOOTH_DEVICE_INFO, pszpasskey: Option<&[u16]>) -> u32 {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothAuthenticateDevice(hwndparent : super::super::Foundation::HWND, hradio : super::super::Foundation::HANDLE, pbtbi : *mut BLUETOOTH_DEVICE_INFO, pszpasskey : windows_core::PCWSTR, ulpasskeylength : u32) -> u32);
-    unsafe { BluetoothAuthenticateDevice(hwndparent.unwrap_or(core::mem::zeroed()) as _, hradio.unwrap_or(core::mem::zeroed()) as _, pbtbi as _, core::mem::transmute(pszpasskey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszpasskey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { BluetoothAuthenticateDevice(hwndparent.unwrap_or(core::mem::zeroed()) as _, hradio.unwrap_or(core::mem::zeroed()) as _, pbtbi as _, core::mem::transmute(pszpasskey.map_or(core::ptr::null(), |slice| slice.as_ptr())), pszpasskey.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn BluetoothAuthenticateDeviceEx(hwndparentin: Option<super::super::Foundation::HWND>, hradioin: Option<super::super::Foundation::HANDLE>, pbtdiinout: *mut BLUETOOTH_DEVICE_INFO, pbtoobdata: Option<*const BLUETOOTH_OOB_DATA_INFO>, authenticationrequirement: AUTHENTICATION_REQUIREMENTS) -> u32 {

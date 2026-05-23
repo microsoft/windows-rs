@@ -216,7 +216,7 @@ impl IXAPO {
         }
     }
     pub unsafe fn LockForProcess(&self, pinputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>, poutputlockedparameters: Option<&[XAPO_LOCKFORPROCESS_PARAMETERS]>) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).LockForProcess)(windows_core::Interface::as_raw(self), pinputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputlockedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputlockedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputlockedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
+        unsafe { (windows_core::Interface::vtable(self).LockForProcess)(windows_core::Interface::as_raw(self), pinputlockedparameters.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputlockedparameters.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputlockedparameters.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputlockedparameters.map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
     pub unsafe fn UnlockForProcess(&self) {
         unsafe {
@@ -225,7 +225,7 @@ impl IXAPO {
     }
     pub unsafe fn Process(&self, pinputprocessparameters: Option<&[XAPO_PROCESS_BUFFER_PARAMETERS]>, poutputprocessparameters: Option<&mut [XAPO_PROCESS_BUFFER_PARAMETERS]>, isenabled: bool) {
         unsafe {
-            (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pinputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputprocessparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputprocessparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), isenabled.into());
+            (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pinputprocessparameters.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputprocessparameters.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputprocessparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputprocessparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), isenabled.into());
         }
     }
     pub unsafe fn CalcInputFrames(&self, outputframecount: u32) -> u32 {
@@ -1493,6 +1493,7 @@ pub const Processor8: u32 = 128u32;
 pub const Processor9: u32 = 256u32;
 pub const SPEAKER_MONO: u32 = 4u32;
 pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
+#[allow(clippy::approx_constant)]
 pub const X3DAUDIO_2PI: f32 = 6.2831855f32;
 pub const X3DAUDIO_CALCULATE_DELAY: u32 = 2u32;
 pub const X3DAUDIO_CALCULATE_DOPPLER: u32 = 32u32;
@@ -1504,6 +1505,7 @@ pub const X3DAUDIO_CALCULATE_REDIRECT_TO_LFE: u32 = 131072u32;
 pub const X3DAUDIO_CALCULATE_REVERB: u32 = 16u32;
 pub const X3DAUDIO_CALCULATE_ZEROCENTER: u32 = 65536u32;
 pub const X3DAUDIO_HANDLE_BYTESIZE: u32 = 20u32;
+#[allow(clippy::approx_constant)]
 pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
 #[repr(transparent)]

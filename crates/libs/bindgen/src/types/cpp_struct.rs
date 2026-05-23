@@ -201,9 +201,16 @@ impl CppStruct {
                     if let Some(constant) = f.constant() {
                         let name = to_ident(f.name());
                         let ty = constant.constant_type(config.reader).write_name(config);
-                        let value = constant.value().write();
+                        let value_value = constant.value();
+                        let value = value_value.write();
+                        let approx = if value_value.is_approx_constant() {
+                            quote! { #[allow(clippy::approx_constant)] }
+                        } else {
+                            quote! {}
+                        };
 
                         return Some(quote! {
+                            #approx
                             pub const #name: #ty = #value;
                         });
                     }
