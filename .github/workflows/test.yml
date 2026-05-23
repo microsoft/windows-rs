@@ -94,8 +94,9 @@ jobs:
         if: matrix.target == 'i686-pc-windows-msvc'
         shell: pwsh
         run: |
-          Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile dotnet-install.ps1
-          ./dotnet-install.ps1 -Channel 9.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
+          $script = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
+          Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile $script
+          & $script -Channel 9.0 -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
       - name: Test
         # The 32-bit i686 test process has a 2 GB user-mode address space; the
         # ~110 bindgen fixtures in test_fixtures each load the large default
