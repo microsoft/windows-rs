@@ -1535,7 +1535,7 @@ impl ICoreWebView2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_Impl::Source(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1582,7 +1582,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1622,7 +1622,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1659,7 +1659,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1696,7 +1696,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1733,7 +1733,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1773,7 +1773,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1813,7 +1813,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1853,7 +1853,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1893,7 +1893,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -1933,7 +1933,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2089,7 +2089,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&handler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2146,7 +2146,7 @@ impl ICoreWebView2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_Impl::BrowserProcessId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2162,7 +2162,7 @@ impl ICoreWebView2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_Impl::CanGoBack(this) {
                     Ok(ok__) => {
-                        cangoback.write(core::mem::transmute(ok__));
+                        cangoback.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl ICoreWebView2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_Impl::CanGoForward(this) {
                     Ok(ok__) => {
-                        cangoforward.write(core::mem::transmute(ok__));
+                        cangoforward.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2254,7 +2254,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2294,7 +2294,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2330,7 +2330,7 @@ impl ICoreWebView2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_Impl::DocumentTitle(this) {
                     Ok(ok__) => {
-                        title.write(core::mem::transmute(ok__));
+                        title.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2401,7 +2401,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2437,7 +2437,7 @@ impl ICoreWebView2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_Impl::ContainsFullScreenElement(this) {
                     Ok(ok__) => {
-                        containsfullscreenelement.write(core::mem::transmute(ok__));
+                        containsfullscreenelement.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2460,7 +2460,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2538,7 +2538,7 @@ impl ICoreWebView2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2763,7 +2763,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::KeyEventKind(this) {
                     Ok(ok__) => {
-                        keyeventkind.write(core::mem::transmute(ok__));
+                        keyeventkind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2782,7 +2782,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::VirtualKey(this) {
                     Ok(ok__) => {
-                        virtualkey.write(core::mem::transmute(ok__));
+                        virtualkey.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2801,7 +2801,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::KeyEventLParam(this) {
                     Ok(ok__) => {
-                        lparam.write(core::mem::transmute(ok__));
+                        lparam.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2820,7 +2820,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::PhysicalKeyStatus(this) {
                     Ok(ok__) => {
-                        physicalkeystatus.write(core::mem::transmute(ok__));
+                        physicalkeystatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2839,7 +2839,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        handled.write(core::mem::transmute(ok__));
+                        handled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -2957,7 +2957,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl::IsBrowserAcceleratorKeyEnabled (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
+                match ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl::IsBrowserAcceleratorKeyEnabled (this ,) { Ok (ok__) => { value . write (ok__) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn SetIsBrowserAcceleratorKeyEnabled<
@@ -3263,7 +3263,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3282,7 +3282,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Challenge(this) {
                     Ok(ok__) => {
-                        challenge.write(core::mem::transmute(ok__));
+                        challenge.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3320,7 +3320,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Cancel(this) {
                     Ok(ok__) => {
-                        cancel.write(core::mem::transmute(ok__));
+                        cancel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3541,7 +3541,7 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BasicAuthenticationResponse_Impl::UserName(this) {
                     Ok(ok__) => {
-                        username.write(core::mem::transmute(ok__));
+                        username.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3577,7 +3577,7 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BasicAuthenticationResponse_Impl::Password(this) {
                     Ok(ok__) => {
-                        password.write(core::mem::transmute(ok__));
+                        password.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3726,7 +3726,7 @@ impl ICoreWebView2BrowserExtension_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BrowserExtension_Impl::Id(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3745,7 +3745,7 @@ impl ICoreWebView2BrowserExtension_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BrowserExtension_Impl::Name(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3781,7 +3781,7 @@ impl ICoreWebView2BrowserExtension_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BrowserExtension_Impl::IsEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -3951,7 +3951,7 @@ impl ICoreWebView2BrowserExtensionList_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BrowserExtensionList_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4126,7 +4126,7 @@ impl ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
                 match ICoreWebView2BrowserProcessExitedEventArgs_Impl::BrowserProcessExitKind(this)
                 {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4145,7 +4145,7 @@ impl ICoreWebView2BrowserProcessExitedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2BrowserProcessExitedEventArgs_Impl::BrowserProcessId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4593,7 +4593,7 @@ impl ICoreWebView2Certificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Certificate_Impl::Subject(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4612,7 +4612,7 @@ impl ICoreWebView2Certificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Certificate_Impl::Issuer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4631,7 +4631,7 @@ impl ICoreWebView2Certificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Certificate_Impl::ValidFrom(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4650,7 +4650,7 @@ impl ICoreWebView2Certificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Certificate_Impl::ValidTo(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4669,7 +4669,7 @@ impl ICoreWebView2Certificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Certificate_Impl::DerEncodedSerialNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4688,7 +4688,7 @@ impl ICoreWebView2Certificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Certificate_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -4707,7 +4707,7 @@ impl ICoreWebView2Certificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Certificate_Impl::ToPemEncoding(this) {
                     Ok(ok__) => {
-                        pemencodeddata.write(core::mem::transmute(ok__));
+                        pemencodeddata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5034,7 +5034,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::Subject(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5053,7 +5053,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::Issuer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5072,7 +5072,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::ValidFrom(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5091,7 +5091,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::ValidTo(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5110,7 +5110,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::DerEncodedSerialNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5129,7 +5129,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::DisplayName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5148,7 +5148,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::ToPemEncoding(this) {
                     Ok(ok__) => {
-                        pemencodeddata.write(core::mem::transmute(ok__));
+                        pemencodeddata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5186,7 +5186,7 @@ impl ICoreWebView2ClientCertificate_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificate_Impl::Kind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5282,7 +5282,7 @@ impl ICoreWebView2ClientCertificateCollection_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificateCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5546,7 +5546,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Host(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5565,7 +5565,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Port(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5584,7 +5584,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::IsProxy(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5667,7 +5667,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Cancel(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -5703,7 +5703,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6112,7 +6112,7 @@ impl ICoreWebView2CompositionController_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2CompositionController_Impl::Cursor(this) {
                     Ok(ok__) => {
-                        cursor.write(core::mem::transmute(ok__));
+                        cursor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6131,7 +6131,7 @@ impl ICoreWebView2CompositionController_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2CompositionController_Impl::SystemCursorId(this) {
                     Ok(ok__) => {
-                        systemcursorid.write(core::mem::transmute(ok__));
+                        systemcursorid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6154,7 +6154,7 @@ impl ICoreWebView2CompositionController_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6424,7 +6424,7 @@ impl ICoreWebView2CompositionController3_Vtbl {
                     core::mem::transmute(&point),
                 ) {
                     Ok(ok__) => {
-                        effect.write(core::mem::transmute(ok__));
+                        effect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6461,7 +6461,7 @@ impl ICoreWebView2CompositionController3_Vtbl {
                     core::mem::transmute(&point),
                 ) {
                     Ok(ok__) => {
-                        effect.write(core::mem::transmute(ok__));
+                        effect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6488,7 +6488,7 @@ impl ICoreWebView2CompositionController3_Vtbl {
                     core::mem::transmute(&point),
                 ) {
                     Ok(ok__) => {
-                        effect.write(core::mem::transmute(ok__));
+                        effect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6642,7 +6642,7 @@ impl ICoreWebView2CompositionController4_Vtbl {
                     core::mem::transmute(&point),
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6688,7 +6688,7 @@ impl ICoreWebView2CompositionController4_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6812,7 +6812,7 @@ impl ICoreWebView2CompositionController5_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -6990,7 +6990,7 @@ impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContentLoadingEventArgs_Impl::IsErrorPage(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7009,7 +7009,7 @@ impl ICoreWebView2ContentLoadingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContentLoadingEventArgs_Impl::NavigationId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7322,7 +7322,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItem_Impl::Name(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7341,7 +7341,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItem_Impl::Label(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7360,7 +7360,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItem_Impl::CommandId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7379,7 +7379,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItem_Impl::ShortcutKeyDescription(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7417,7 +7417,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItem_Impl::Kind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7453,7 +7453,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItem_Impl::IsEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7489,7 +7489,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItem_Impl::IsChecked(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7531,7 +7531,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7682,7 +7682,7 @@ impl ICoreWebView2ContextMenuItemCollection_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuItemCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7948,7 +7948,7 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::Location(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -7984,7 +7984,7 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::SelectedCommandId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8020,7 +8020,7 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuRequestedEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8351,7 +8351,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::Kind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8370,7 +8370,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::IsEditable(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8389,7 +8389,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::IsRequestedForMainFrame(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8408,7 +8408,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::PageUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8427,7 +8427,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::FrameUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8446,7 +8446,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::HasLinkUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8465,7 +8465,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::LinkUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8484,7 +8484,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::HasLinkText(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8503,7 +8503,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::LinkText(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8522,7 +8522,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::HasSourceUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8541,7 +8541,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::SourceUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8560,7 +8560,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::HasSelection(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -8579,7 +8579,7 @@ impl ICoreWebView2ContextMenuTarget_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ContextMenuTarget_Impl::SelectionText(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9011,7 +9011,7 @@ impl ICoreWebView2Controller_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller_Impl::IsVisible(this) {
                     Ok(ok__) => {
-                        isvisible.write(core::mem::transmute(ok__));
+                        isvisible.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9047,7 +9047,7 @@ impl ICoreWebView2Controller_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller_Impl::Bounds(this) {
                     Ok(ok__) => {
-                        bounds.write(core::mem::transmute(ok__));
+                        bounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9079,7 +9079,7 @@ impl ICoreWebView2Controller_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller_Impl::ZoomFactor(this) {
                     Ok(ok__) => {
-                        zoomfactor.write(core::mem::transmute(ok__));
+                        zoomfactor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9119,7 +9119,7 @@ impl ICoreWebView2Controller_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9192,7 +9192,7 @@ impl ICoreWebView2Controller_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9232,7 +9232,7 @@ impl ICoreWebView2Controller_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9272,7 +9272,7 @@ impl ICoreWebView2Controller_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9312,7 +9312,7 @@ impl ICoreWebView2Controller_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9348,7 +9348,7 @@ impl ICoreWebView2Controller_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller_Impl::ParentWindow(this) {
                     Ok(ok__) => {
-                        parentwindow.write(core::mem::transmute(ok__));
+                        parentwindow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9518,7 +9518,7 @@ impl ICoreWebView2Controller2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller2_Impl::DefaultBackgroundColor(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9726,7 +9726,7 @@ impl ICoreWebView2Controller3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller3_Impl::RasterizationScale(this) {
                     Ok(ok__) => {
-                        scale.write(core::mem::transmute(ok__));
+                        scale.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9762,7 +9762,7 @@ impl ICoreWebView2Controller3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller3_Impl::ShouldDetectMonitorScaleChanges(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9802,7 +9802,7 @@ impl ICoreWebView2Controller3_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9838,7 +9838,7 @@ impl ICoreWebView2Controller3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller3_Impl::BoundsMode(this) {
                     Ok(ok__) => {
-                        boundsmode.write(core::mem::transmute(ok__));
+                        boundsmode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -9954,7 +9954,7 @@ impl ICoreWebView2Controller4_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Controller4_Impl::AllowExternalDrop(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10075,7 +10075,7 @@ impl ICoreWebView2ControllerOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ControllerOptions_Impl::ProfileName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10111,7 +10111,7 @@ impl ICoreWebView2ControllerOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ControllerOptions_Impl::IsInPrivateModeEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10213,7 +10213,7 @@ impl ICoreWebView2ControllerOptions2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ControllerOptions2_Impl::ScriptLocale(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10322,7 +10322,7 @@ impl ICoreWebView2ControllerOptions3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ControllerOptions3_Impl::DefaultBackgroundColor(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10430,7 +10430,7 @@ impl ICoreWebView2ControllerOptions4_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ControllerOptions4_Impl::AllowHostInputProcessing(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10688,7 +10688,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10704,7 +10704,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::Value(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10736,7 +10736,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::Domain(this) {
                     Ok(ok__) => {
-                        domain.write(core::mem::transmute(ok__));
+                        domain.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10752,7 +10752,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::Path(this) {
                     Ok(ok__) => {
-                        path.write(core::mem::transmute(ok__));
+                        path.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10771,7 +10771,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::Expires(this) {
                     Ok(ok__) => {
-                        expires.write(core::mem::transmute(ok__));
+                        expires.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10804,7 +10804,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::IsHttpOnly(this) {
                     Ok(ok__) => {
-                        ishttponly.write(core::mem::transmute(ok__));
+                        ishttponly.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10840,7 +10840,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::SameSite(this) {
                     Ok(ok__) => {
-                        samesite.write(core::mem::transmute(ok__));
+                        samesite.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10873,7 +10873,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::IsSecure(this) {
                     Ok(ok__) => {
-                        issecure.write(core::mem::transmute(ok__));
+                        issecure.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10906,7 +10906,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Cookie_Impl::IsSession(this) {
                     Ok(ok__) => {
-                        issession.write(core::mem::transmute(ok__));
+                        issession.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -10998,7 +10998,7 @@ impl ICoreWebView2CookieList_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2CookieList_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11963,7 +11963,7 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2CustomSchemeRegistration_Impl::SchemeName(this) {
                     Ok(ok__) => {
-                        schemename.write(core::mem::transmute(ok__));
+                        schemename.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -11982,7 +11982,7 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2CustomSchemeRegistration_Impl::TreatAsSecure(this) {
                     Ok(ok__) => {
-                        treatassecure.write(core::mem::transmute(ok__));
+                        treatassecure.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12056,7 +12056,7 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2CustomSchemeRegistration_Impl::HasAuthorityComponent(this) {
                     Ok(ok__) => {
-                        hasauthoritycomponent.write(core::mem::transmute(ok__));
+                        hasauthoritycomponent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12142,7 +12142,7 @@ impl ICoreWebView2DOMContentLoadedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DOMContentLoadedEventArgs_Impl::NavigationId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12330,7 +12330,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl::ParameterObjectAsJson (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
+                match ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Impl::ParameterObjectAsJson (this ,) { Ok (ok__) => { value . write (ok__) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         Self {
@@ -12400,7 +12400,7 @@ impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Impl::SessionId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -12571,7 +12571,7 @@ impl ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2DevToolsProtocolEventReceiver_Impl::add_DevToolsProtocolEventReceived (this , core::mem::transmute_copy (& eventhandler) ,) { Ok (ok__) => { token . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
+                match ICoreWebView2DevToolsProtocolEventReceiver_Impl::add_DevToolsProtocolEventReceived (this , core::mem::transmute_copy (& eventhandler) ,) { Ok (ok__) => { token . write (ok__) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn remove_DevToolsProtocolEventReceived<
@@ -12980,7 +12980,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13020,7 +13020,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13060,7 +13060,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13096,7 +13096,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::Uri(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13115,7 +13115,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::ContentDisposition(this) {
                     Ok(ok__) => {
-                        contentdisposition.write(core::mem::transmute(ok__));
+                        contentdisposition.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13134,7 +13134,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::MimeType(this) {
                     Ok(ok__) => {
-                        mimetype.write(core::mem::transmute(ok__));
+                        mimetype.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13153,7 +13153,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::TotalBytesToReceive(this) {
                     Ok(ok__) => {
-                        totalbytestoreceive.write(core::mem::transmute(ok__));
+                        totalbytestoreceive.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13172,7 +13172,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::BytesReceived(this) {
                     Ok(ok__) => {
-                        bytesreceived.write(core::mem::transmute(ok__));
+                        bytesreceived.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13191,7 +13191,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::EstimatedEndTime(this) {
                     Ok(ok__) => {
-                        estimatedendtime.write(core::mem::transmute(ok__));
+                        estimatedendtime.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13210,7 +13210,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::ResultFilePath(this) {
                     Ok(ok__) => {
-                        resultfilepath.write(core::mem::transmute(ok__));
+                        resultfilepath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13229,7 +13229,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::State(this) {
                     Ok(ok__) => {
-                        downloadstate.write(core::mem::transmute(ok__));
+                        downloadstate.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13248,7 +13248,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::InterruptReason(this) {
                     Ok(ok__) => {
-                        interruptreason.write(core::mem::transmute(ok__));
+                        interruptreason.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13303,7 +13303,7 @@ impl ICoreWebView2DownloadOperation_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadOperation_Impl::CanResume(this) {
                     Ok(ok__) => {
-                        canresume.write(core::mem::transmute(ok__));
+                        canresume.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13503,7 +13503,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::Cancel(this) {
                     Ok(ok__) => {
-                        cancel.write(core::mem::transmute(ok__));
+                        cancel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13539,7 +13539,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::ResultFilePath(this) {
                     Ok(ok__) => {
-                        resultfilepath.write(core::mem::transmute(ok__));
+                        resultfilepath.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13575,7 +13575,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DownloadStartingEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        handled.write(core::mem::transmute(ok__));
+                        handled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13828,7 +13828,7 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DragStartingEventArgs_Impl::AllowedDropEffects(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13866,7 +13866,7 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DragStartingEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -13902,7 +13902,7 @@ impl ICoreWebView2DragStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2DragStartingEventArgs_Impl::Position(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14210,7 +14210,7 @@ impl ICoreWebView2Environment_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Environment_Impl::BrowserVersionString(this) {
                     Ok(ok__) => {
-                        versioninfo.write(core::mem::transmute(ok__));
+                        versioninfo.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14233,7 +14233,7 @@ impl ICoreWebView2Environment_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -14547,7 +14547,7 @@ impl ICoreWebView2Environment11_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Environment11_Impl::FailureReportFolderPath(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15498,7 +15498,7 @@ impl ICoreWebView2Environment5_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15674,7 +15674,7 @@ impl ICoreWebView2Environment7_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Environment7_Impl::UserDataFolder(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -15798,7 +15798,7 @@ impl ICoreWebView2Environment8_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16120,7 +16120,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions_Impl::AdditionalBrowserArguments(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16156,7 +16156,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions_Impl::Language(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16192,7 +16192,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions_Impl::TargetCompatibleBrowserVersion(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16230,7 +16230,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     this,
                 ) {
                     Ok(ok__) => {
-                        allow.write(core::mem::transmute(ok__));
+                        allow.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16339,7 +16339,7 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions2_Impl::ExclusiveUserDataFolderAccess(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16436,7 +16436,7 @@ impl ICoreWebView2EnvironmentOptions3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions3_Impl::IsCustomCrashReportingEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16645,7 +16645,7 @@ impl ICoreWebView2EnvironmentOptions5_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions5_Impl::EnableTrackingPrevention(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16740,7 +16740,7 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions6_Impl::AreBrowserExtensionsEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16874,7 +16874,7 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions7_Impl::ChannelSearchKind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -16910,7 +16910,7 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions7_Impl::ReleaseChannels(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17009,7 +17009,7 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2EnvironmentOptions8_Impl::ScrollBarStyle(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17292,7 +17292,7 @@ impl ICoreWebView2ExecuteScriptResult_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ExecuteScriptResult_Impl::Succeeded(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17311,7 +17311,7 @@ impl ICoreWebView2ExecuteScriptResult_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ExecuteScriptResult_Impl::ResultAsJson(this) {
                     Ok(ok__) => {
-                        jsonresult.write(core::mem::transmute(ok__));
+                        jsonresult.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17565,7 +17565,7 @@ impl ICoreWebView2File_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2File_Impl::Path(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17656,7 +17656,7 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FileSystemHandle_Impl::Kind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17675,7 +17675,7 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FileSystemHandle_Impl::Path(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17694,7 +17694,7 @@ impl ICoreWebView2FileSystemHandle_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FileSystemHandle_Impl::Permission(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17890,7 +17890,7 @@ impl ICoreWebView2Find_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Find_Impl::ActiveMatchIndex(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17909,7 +17909,7 @@ impl ICoreWebView2Find_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Find_Impl::MatchCount(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17932,7 +17932,7 @@ impl ICoreWebView2Find_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -17972,7 +17972,7 @@ impl ICoreWebView2Find_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18388,7 +18388,7 @@ impl ICoreWebView2FindOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FindOptions_Impl::FindTerm(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18421,7 +18421,7 @@ impl ICoreWebView2FindOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FindOptions_Impl::IsCaseSensitive(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18457,7 +18457,7 @@ impl ICoreWebView2FindOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FindOptions_Impl::ShouldHighlightAllMatches(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18493,7 +18493,7 @@ impl ICoreWebView2FindOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FindOptions_Impl::ShouldMatchWord(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18529,7 +18529,7 @@ impl ICoreWebView2FindOptions_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FindOptions_Impl::SuppressDefaultFindDialog(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18876,7 +18876,7 @@ impl ICoreWebView2Frame_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Frame_Impl::Name(this) {
                     Ok(ok__) => {
-                        name.write(core::mem::transmute(ok__));
+                        name.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18899,7 +18899,7 @@ impl ICoreWebView2Frame_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -18976,7 +18976,7 @@ impl ICoreWebView2Frame_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19009,7 +19009,7 @@ impl ICoreWebView2Frame_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Frame_Impl::IsDestroyed(this) {
                     Ok(ok__) => {
-                        destroyed.write(core::mem::transmute(ok__));
+                        destroyed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19308,7 +19308,7 @@ impl ICoreWebView2Frame2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19348,7 +19348,7 @@ impl ICoreWebView2Frame2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19388,7 +19388,7 @@ impl ICoreWebView2Frame2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19428,7 +19428,7 @@ impl ICoreWebView2Frame2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19521,7 +19521,7 @@ impl ICoreWebView2Frame2_Vtbl {
                     core::mem::transmute_copy(&handler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19647,7 +19647,7 @@ impl ICoreWebView2Frame3_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19833,7 +19833,7 @@ impl ICoreWebView2Frame5_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Frame5_Impl::FrameId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -19939,7 +19939,7 @@ impl ICoreWebView2Frame6_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20062,7 +20062,7 @@ impl ICoreWebView2Frame7_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20598,7 +20598,7 @@ impl ICoreWebView2FrameInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FrameInfo_Impl::Name(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20617,7 +20617,7 @@ impl ICoreWebView2FrameInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FrameInfo_Impl::Source(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20736,7 +20736,7 @@ impl ICoreWebView2FrameInfo2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FrameInfo2_Impl::FrameId(this) {
                     Ok(ok__) => {
-                        id.write(core::mem::transmute(ok__));
+                        id.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20755,7 +20755,7 @@ impl ICoreWebView2FrameInfo2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FrameInfo2_Impl::FrameKind(this) {
                     Ok(ok__) => {
-                        kind.write(core::mem::transmute(ok__));
+                        kind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20919,7 +20919,7 @@ impl ICoreWebView2FrameInfoCollectionIterator_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FrameInfoCollectionIterator_Impl::HasCurrent(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -20957,7 +20957,7 @@ impl ICoreWebView2FrameInfoCollectionIterator_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2FrameInfoCollectionIterator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21942,7 +21942,7 @@ impl ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2HttpHeadersCollectionIterator_Impl::HasCurrentHeader(this) {
                     Ok(ok__) => {
-                        hascurrent.write(core::mem::transmute(ok__));
+                        hascurrent.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -21961,7 +21961,7 @@ impl ICoreWebView2HttpHeadersCollectionIterator_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2HttpHeadersCollectionIterator_Impl::MoveNext(this) {
                     Ok(ok__) => {
-                        hasnext.write(core::mem::transmute(ok__));
+                        hasnext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22116,7 +22116,7 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
                     core::mem::transmute_copy(&name),
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22162,7 +22162,7 @@ impl ICoreWebView2HttpRequestHeaders_Vtbl {
                     core::mem::transmute_copy(&name),
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22382,7 +22382,7 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
                     core::mem::transmute_copy(&name),
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22405,7 +22405,7 @@ impl ICoreWebView2HttpResponseHeaders_Vtbl {
                     core::mem::transmute_copy(&name),
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22822,7 +22822,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22842,7 +22842,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::InitiatingOrigin(this)
                 {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22861,7 +22861,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::IsUserInitiated(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -22880,7 +22880,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::Cancel(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23095,7 +23095,7 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2MoveFocusRequestedEventArgs_Impl::Reason(this) {
                     Ok(ok__) => {
-                        reason.write(core::mem::transmute(ok__));
+                        reason.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23114,7 +23114,7 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2MoveFocusRequestedEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23304,7 +23304,7 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationCompletedEventArgs_Impl::IsSuccess(this) {
                     Ok(ok__) => {
-                        issuccess.write(core::mem::transmute(ok__));
+                        issuccess.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23323,7 +23323,7 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationCompletedEventArgs_Impl::WebErrorStatus(this) {
                     Ok(ok__) => {
-                        weberrorstatus.write(core::mem::transmute(ok__));
+                        weberrorstatus.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23342,7 +23342,7 @@ impl ICoreWebView2NavigationCompletedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationCompletedEventArgs_Impl::NavigationId(this) {
                     Ok(ok__) => {
-                        navigationid.write(core::mem::transmute(ok__));
+                        navigationid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23418,7 +23418,7 @@ impl ICoreWebView2NavigationCompletedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationCompletedEventArgs2_Impl::HttpStatusCode(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23647,7 +23647,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23666,7 +23666,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::IsUserInitiated(this) {
                     Ok(ok__) => {
-                        isuserinitiated.write(core::mem::transmute(ok__));
+                        isuserinitiated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23685,7 +23685,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::IsRedirected(this) {
                     Ok(ok__) => {
-                        isredirected.write(core::mem::transmute(ok__));
+                        isredirected.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23723,7 +23723,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::Cancel(this) {
                     Ok(ok__) => {
-                        cancel.write(core::mem::transmute(ok__));
+                        cancel.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23759,7 +23759,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationStartingEventArgs_Impl::NavigationId(this) {
                     Ok(ok__) => {
-                        navigationid.write(core::mem::transmute(ok__));
+                        navigationid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -23852,7 +23852,7 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2NavigationStartingEventArgs2_Impl::AdditionalAllowedFrameAncestors (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
+                match ICoreWebView2NavigationStartingEventArgs2_Impl::AdditionalAllowedFrameAncestors (this ,) { Ok (ok__) => { value . write (ok__) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn SetAdditionalAllowedFrameAncestors<
@@ -23947,7 +23947,7 @@ impl ICoreWebView2NavigationStartingEventArgs3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NavigationStartingEventArgs3_Impl::NavigationKind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24275,7 +24275,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24347,7 +24347,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        handled.write(core::mem::transmute(ok__));
+                        handled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24366,7 +24366,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NewWindowRequestedEventArgs_Impl::IsUserInitiated(this) {
                     Ok(ok__) => {
-                        isuserinitiated.write(core::mem::transmute(ok__));
+                        isuserinitiated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24485,7 +24485,7 @@ impl ICoreWebView2NewWindowRequestedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NewWindowRequestedEventArgs2_Impl::Name(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -24709,7 +24709,7 @@ impl ICoreWebView2NonClientRegionChangedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NonClientRegionChangedEventArgs_Impl::RegionKind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25088,7 +25088,7 @@ impl ICoreWebView2Notification_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25160,7 +25160,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::Body(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25179,7 +25179,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::Direction(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25198,7 +25198,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::Language(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25217,7 +25217,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::Tag(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25236,7 +25236,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::IconUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25255,7 +25255,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::Title(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25274,7 +25274,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::BadgeUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25293,7 +25293,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::BodyImageUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25312,7 +25312,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::ShouldRenotify(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25331,7 +25331,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::RequiresInteraction(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25350,7 +25350,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::IsSilent(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25369,7 +25369,7 @@ impl ICoreWebView2Notification_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Notification_Impl::Timestamp(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25607,7 +25607,7 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NotificationReceivedEventArgs_Impl::SenderOrigin(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25662,7 +25662,7 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2NotificationReceivedEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -25955,7 +25955,7 @@ impl ICoreWebView2ObjectCollectionView_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ObjectCollectionView_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26121,7 +26121,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26140,7 +26140,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::PermissionKind(this) {
                     Ok(ok__) => {
-                        permissionkind.write(core::mem::transmute(ok__));
+                        permissionkind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26159,7 +26159,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::IsUserInitiated(this) {
                     Ok(ok__) => {
-                        isuserinitiated.write(core::mem::transmute(ok__));
+                        isuserinitiated.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26178,7 +26178,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionRequestedEventArgs_Impl::State(this) {
                     Ok(ok__) => {
-                        state.write(core::mem::transmute(ok__));
+                        state.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26309,7 +26309,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionRequestedEventArgs2_Impl::Handled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26419,7 +26419,7 @@ impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionRequestedEventArgs3_Impl::SavesInProfile(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26604,7 +26604,7 @@ impl ICoreWebView2PermissionSetting_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionSetting_Impl::PermissionKind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26623,7 +26623,7 @@ impl ICoreWebView2PermissionSetting_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionSetting_Impl::PermissionOrigin(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26642,7 +26642,7 @@ impl ICoreWebView2PermissionSetting_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionSetting_Impl::PermissionState(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -26755,7 +26755,7 @@ impl ICoreWebView2PermissionSettingCollectionView_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PermissionSettingCollectionView_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27589,7 +27589,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PointerKind(this) {
                     Ok(ok__) => {
-                        pointerkind.write(core::mem::transmute(ok__));
+                        pointerkind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27625,7 +27625,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PointerId(this) {
                     Ok(ok__) => {
-                        pointerid.write(core::mem::transmute(ok__));
+                        pointerid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27661,7 +27661,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::FrameId(this) {
                     Ok(ok__) => {
-                        frameid.write(core::mem::transmute(ok__));
+                        frameid.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27694,7 +27694,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PointerFlags(this) {
                     Ok(ok__) => {
-                        pointerflags.write(core::mem::transmute(ok__));
+                        pointerflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27730,7 +27730,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PointerDeviceRect(this) {
                     Ok(ok__) => {
-                        pointerdevicerect.write(core::mem::transmute(ok__));
+                        pointerdevicerect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27766,7 +27766,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::DisplayRect(this) {
                     Ok(ok__) => {
-                        displayrect.write(core::mem::transmute(ok__));
+                        displayrect.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27802,7 +27802,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PixelLocation(this) {
                     Ok(ok__) => {
-                        pixellocation.write(core::mem::transmute(ok__));
+                        pixellocation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27838,7 +27838,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::HimetricLocation(this) {
                     Ok(ok__) => {
-                        himetriclocation.write(core::mem::transmute(ok__));
+                        himetriclocation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27874,7 +27874,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PixelLocationRaw(this) {
                     Ok(ok__) => {
-                        pixellocationraw.write(core::mem::transmute(ok__));
+                        pixellocationraw.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27910,7 +27910,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::HimetricLocationRaw(this) {
                     Ok(ok__) => {
-                        himetriclocationraw.write(core::mem::transmute(ok__));
+                        himetriclocationraw.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27946,7 +27946,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::Time(this) {
                     Ok(ok__) => {
-                        time.write(core::mem::transmute(ok__));
+                        time.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -27979,7 +27979,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::HistoryCount(this) {
                     Ok(ok__) => {
-                        historycount.write(core::mem::transmute(ok__));
+                        historycount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28015,7 +28015,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::InputData(this) {
                     Ok(ok__) => {
-                        inputdata.write(core::mem::transmute(ok__));
+                        inputdata.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28051,7 +28051,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::KeyStates(this) {
                     Ok(ok__) => {
-                        keystates.write(core::mem::transmute(ok__));
+                        keystates.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28087,7 +28087,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PerformanceCount(this) {
                     Ok(ok__) => {
-                        performancecount.write(core::mem::transmute(ok__));
+                        performancecount.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28123,7 +28123,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::ButtonChangeKind(this) {
                     Ok(ok__) => {
-                        buttonchangekind.write(core::mem::transmute(ok__));
+                        buttonchangekind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28159,7 +28159,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PenFlags(this) {
                     Ok(ok__) => {
-                        penflags.write(core::mem::transmute(ok__));
+                        penflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28195,7 +28195,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PenMask(this) {
                     Ok(ok__) => {
-                        penmask.write(core::mem::transmute(ok__));
+                        penmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28228,7 +28228,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PenPressure(this) {
                     Ok(ok__) => {
-                        penpressure.write(core::mem::transmute(ok__));
+                        penpressure.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28264,7 +28264,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PenRotation(this) {
                     Ok(ok__) => {
-                        penrotation.write(core::mem::transmute(ok__));
+                        penrotation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28300,7 +28300,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PenTiltX(this) {
                     Ok(ok__) => {
-                        pentiltx.write(core::mem::transmute(ok__));
+                        pentiltx.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28336,7 +28336,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::PenTiltY(this) {
                     Ok(ok__) => {
-                        pentilty.write(core::mem::transmute(ok__));
+                        pentilty.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28372,7 +28372,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::TouchFlags(this) {
                     Ok(ok__) => {
-                        touchflags.write(core::mem::transmute(ok__));
+                        touchflags.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28408,7 +28408,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::TouchMask(this) {
                     Ok(ok__) => {
-                        touchmask.write(core::mem::transmute(ok__));
+                        touchmask.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28444,7 +28444,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::TouchContact(this) {
                     Ok(ok__) => {
-                        touchcontact.write(core::mem::transmute(ok__));
+                        touchcontact.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28480,7 +28480,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::TouchContactRaw(this) {
                     Ok(ok__) => {
-                        touchcontactraw.write(core::mem::transmute(ok__));
+                        touchcontactraw.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28516,7 +28516,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::TouchOrientation(this) {
                     Ok(ok__) => {
-                        touchorientation.write(core::mem::transmute(ok__));
+                        touchorientation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -28552,7 +28552,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PointerInfo_Impl::TouchPressure(this) {
                     Ok(ok__) => {
-                        touchpressure.write(core::mem::transmute(ok__));
+                        touchpressure.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29106,7 +29106,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::Orientation(this) {
                     Ok(ok__) => {
-                        orientation.write(core::mem::transmute(ok__));
+                        orientation.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29142,7 +29142,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::ScaleFactor(this) {
                     Ok(ok__) => {
-                        scalefactor.write(core::mem::transmute(ok__));
+                        scalefactor.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29178,7 +29178,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::PageWidth(this) {
                     Ok(ok__) => {
-                        pagewidth.write(core::mem::transmute(ok__));
+                        pagewidth.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29214,7 +29214,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::PageHeight(this) {
                     Ok(ok__) => {
-                        pageheight.write(core::mem::transmute(ok__));
+                        pageheight.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29250,7 +29250,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::MarginTop(this) {
                     Ok(ok__) => {
-                        margintop.write(core::mem::transmute(ok__));
+                        margintop.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29286,7 +29286,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::MarginBottom(this) {
                     Ok(ok__) => {
-                        marginbottom.write(core::mem::transmute(ok__));
+                        marginbottom.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29322,7 +29322,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::MarginLeft(this) {
                     Ok(ok__) => {
-                        marginleft.write(core::mem::transmute(ok__));
+                        marginleft.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29358,7 +29358,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::MarginRight(this) {
                     Ok(ok__) => {
-                        marginright.write(core::mem::transmute(ok__));
+                        marginright.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29394,7 +29394,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::ShouldPrintBackgrounds(this) {
                     Ok(ok__) => {
-                        shouldprintbackgrounds.write(core::mem::transmute(ok__));
+                        shouldprintbackgrounds.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29430,7 +29430,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::ShouldPrintSelectionOnly(this) {
                     Ok(ok__) => {
-                        shouldprintselectiononly.write(core::mem::transmute(ok__));
+                        shouldprintselectiononly.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29466,7 +29466,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::ShouldPrintHeaderAndFooter(this) {
                     Ok(ok__) => {
-                        shouldprintheaderandfooter.write(core::mem::transmute(ok__));
+                        shouldprintheaderandfooter.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29502,7 +29502,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::HeaderTitle(this) {
                     Ok(ok__) => {
-                        headertitle.write(core::mem::transmute(ok__));
+                        headertitle.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29538,7 +29538,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings_Impl::FooterUri(this) {
                     Ok(ok__) => {
-                        footeruri.write(core::mem::transmute(ok__));
+                        footeruri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29861,7 +29861,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::PageRanges(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29897,7 +29897,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::PagesPerSide(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29933,7 +29933,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::Copies(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -29966,7 +29966,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::Collation(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30002,7 +30002,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::ColorMode(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30038,7 +30038,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::Duplex(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30071,7 +30071,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::MediaSize(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30107,7 +30107,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2PrintSettings2_Impl::PrinterName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30482,7 +30482,7 @@ impl ICoreWebView2ProcessExtendedInfoCollection_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessExtendedInfoCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30573,7 +30573,7 @@ impl ICoreWebView2ProcessFailedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessFailedEventArgs_Impl::ProcessFailedKind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30690,7 +30690,7 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessFailedEventArgs2_Impl::Reason(this) {
                     Ok(ok__) => {
-                        reason.write(core::mem::transmute(ok__));
+                        reason.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30709,7 +30709,7 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessFailedEventArgs2_Impl::ExitCode(this) {
                     Ok(ok__) => {
-                        exitcode.write(core::mem::transmute(ok__));
+                        exitcode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30728,7 +30728,7 @@ impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessFailedEventArgs2_Impl::ProcessDescription(this) {
                     Ok(ok__) => {
-                        processdescription.write(core::mem::transmute(ok__));
+                        processdescription.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30824,7 +30824,7 @@ impl ICoreWebView2ProcessFailedEventArgs3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessFailedEventArgs3_Impl::FailureSourceModulePath(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30974,7 +30974,7 @@ impl ICoreWebView2ProcessInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessInfo_Impl::ProcessId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -30993,7 +30993,7 @@ impl ICoreWebView2ProcessInfo_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessInfo_Impl::Kind(this) {
                     Ok(ok__) => {
-                        kind.write(core::mem::transmute(ok__));
+                        kind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31074,7 +31074,7 @@ impl ICoreWebView2ProcessInfoCollection_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ProcessInfoCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31323,7 +31323,7 @@ impl ICoreWebView2Profile_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile_Impl::ProfileName(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31342,7 +31342,7 @@ impl ICoreWebView2Profile_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile_Impl::IsInPrivateModeEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31361,7 +31361,7 @@ impl ICoreWebView2Profile_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile_Impl::ProfilePath(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31380,7 +31380,7 @@ impl ICoreWebView2Profile_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile_Impl::DefaultDownloadFolderPath(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31416,7 +31416,7 @@ impl ICoreWebView2Profile_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile_Impl::PreferredColorScheme(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -31717,7 +31717,7 @@ impl ICoreWebView2Profile3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile3_Impl::PreferredTrackingPreventionLevel(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32077,7 +32077,7 @@ impl ICoreWebView2Profile6_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile6_Impl::IsPasswordAutosaveEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32113,7 +32113,7 @@ impl ICoreWebView2Profile6_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Profile6_Impl::IsGeneralAutofillEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32391,7 +32391,7 @@ impl ICoreWebView2Profile8_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32816,7 +32816,7 @@ impl ICoreWebView2RegionRectCollectionView_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2RegionRectCollectionView_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -32839,7 +32839,7 @@ impl ICoreWebView2RegionRectCollectionView_Vtbl {
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33059,7 +33059,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::ContentMimeType(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33095,7 +33095,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::Cancel(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33131,7 +33131,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::SuppressDefaultDialog(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33186,7 +33186,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::SaveAsFilePath(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33222,7 +33222,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::AllowReplace(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33258,7 +33258,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveAsUIShowingEventArgs_Impl::Kind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33511,7 +33511,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::CancelSave(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33549,7 +33549,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
                     this,
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33569,7 +33569,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::FileExtension(this)
                 {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33588,7 +33588,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::FilePath(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33605,7 +33605,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SuppressDefaultPolicy (this ,) { Ok (ok__) => { value . write (core::mem::transmute (ok__)) ; windows_core::HRESULT (0) } Err (err) => err . into () }
+                match ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SuppressDefaultPolicy (this ,) { Ok (ok__) => { value . write (ok__) ; windows_core::HRESULT (0) } Err (err) => err . into () }
             }
         }
         unsafe extern "system" fn SetSuppressDefaultPolicy<
@@ -33862,7 +33862,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Cancel(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -33898,7 +33898,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Handled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34190,7 +34190,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::Uri(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34209,7 +34209,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::Kind(this) {
                     Ok(ok__) => {
-                        kind.write(core::mem::transmute(ok__));
+                        kind.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34228,7 +34228,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::Message(this) {
                     Ok(ok__) => {
-                        message.write(core::mem::transmute(ok__));
+                        message.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34259,7 +34259,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::DefaultText(this) {
                     Ok(ok__) => {
-                        defaulttext.write(core::mem::transmute(ok__));
+                        defaulttext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34278,7 +34278,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptDialogOpeningEventArgs_Impl::ResultText(this) {
                     Ok(ok__) => {
-                        resulttext.write(core::mem::transmute(ok__));
+                        resulttext.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34508,7 +34508,7 @@ impl ICoreWebView2ScriptException_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptException_Impl::LineNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34527,7 +34527,7 @@ impl ICoreWebView2ScriptException_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptException_Impl::ColumnNumber(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34546,7 +34546,7 @@ impl ICoreWebView2ScriptException_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptException_Impl::Name(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34565,7 +34565,7 @@ impl ICoreWebView2ScriptException_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptException_Impl::Message(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34584,7 +34584,7 @@ impl ICoreWebView2ScriptException_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ScriptException_Impl::ToJson(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34737,7 +34737,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::ErrorStatus(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34756,7 +34756,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::RequestUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -34796,7 +34796,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::Action(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35319,7 +35319,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::IsScriptEnabled(this) {
                     Ok(ok__) => {
-                        isscriptenabled.write(core::mem::transmute(ok__));
+                        isscriptenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35355,7 +35355,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::IsWebMessageEnabled(this) {
                     Ok(ok__) => {
-                        iswebmessageenabled.write(core::mem::transmute(ok__));
+                        iswebmessageenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35391,7 +35391,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::AreDefaultScriptDialogsEnabled(this) {
                     Ok(ok__) => {
-                        aredefaultscriptdialogsenabled.write(core::mem::transmute(ok__));
+                        aredefaultscriptdialogsenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35427,7 +35427,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::IsStatusBarEnabled(this) {
                     Ok(ok__) => {
-                        isstatusbarenabled.write(core::mem::transmute(ok__));
+                        isstatusbarenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35463,7 +35463,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::AreDevToolsEnabled(this) {
                     Ok(ok__) => {
-                        aredevtoolsenabled.write(core::mem::transmute(ok__));
+                        aredevtoolsenabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35499,7 +35499,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::AreDefaultContextMenusEnabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35535,7 +35535,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::AreHostObjectsAllowed(this) {
                     Ok(ok__) => {
-                        allowed.write(core::mem::transmute(ok__));
+                        allowed.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35571,7 +35571,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::IsZoomControlEnabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35607,7 +35607,7 @@ impl ICoreWebView2Settings_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings_Impl::IsBuiltInErrorPageEnabled(this) {
                     Ok(ok__) => {
-                        enabled.write(core::mem::transmute(ok__));
+                        enabled.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35722,7 +35722,7 @@ impl ICoreWebView2Settings2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings2_Impl::UserAgent(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35833,7 +35833,7 @@ impl ICoreWebView2Settings3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings3_Impl::AreBrowserAcceleratorKeysEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -35972,7 +35972,7 @@ impl ICoreWebView2Settings4_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings4_Impl::IsPasswordAutosaveEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36008,7 +36008,7 @@ impl ICoreWebView2Settings4_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings4_Impl::IsGeneralAutofillEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36119,7 +36119,7 @@ impl ICoreWebView2Settings5_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings5_Impl::IsPinchZoomEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36230,7 +36230,7 @@ impl ICoreWebView2Settings6_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings6_Impl::IsSwipeNavigationEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36351,7 +36351,7 @@ impl ICoreWebView2Settings7_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings7_Impl::HiddenPdfToolbarItems(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36469,7 +36469,7 @@ impl ICoreWebView2Settings8_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings8_Impl::IsReputationCheckingRequired(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36594,7 +36594,7 @@ impl ICoreWebView2Settings9_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2Settings9_Impl::IsNonClientRegionSupportEnabled(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36735,7 +36735,7 @@ impl ICoreWebView2SharedBuffer_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SharedBuffer_Impl::Size(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36754,7 +36754,7 @@ impl ICoreWebView2SharedBuffer_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SharedBuffer_Impl::Buffer(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36792,7 +36792,7 @@ impl ICoreWebView2SharedBuffer_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SharedBuffer_Impl::FileMappingHandle(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -36949,7 +36949,7 @@ impl ICoreWebView2SourceChangedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2SourceChangedEventArgs_Impl::IsNewDocument(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37249,7 +37249,7 @@ impl ICoreWebView2StringCollection_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2StringCollection_Impl::Count(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37272,7 +37272,7 @@ impl ICoreWebView2StringCollection_Vtbl {
                     core::mem::transmute_copy(&index),
                 ) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37440,7 +37440,7 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebMessageReceivedEventArgs_Impl::Source(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37459,7 +37459,7 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebMessageReceivedEventArgs_Impl::WebMessageAsJson(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37479,7 +37479,7 @@ impl ICoreWebView2WebMessageReceivedEventArgs_Vtbl {
                 match ICoreWebView2WebMessageReceivedEventArgs_Impl::TryGetWebMessageAsString(this)
                 {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37782,7 +37782,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceRequest_Impl::Uri(this) {
                     Ok(ok__) => {
-                        uri.write(core::mem::transmute(ok__));
+                        uri.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -37815,7 +37815,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceRequest_Impl::Method(this) {
                     Ok(ok__) => {
-                        method.write(core::mem::transmute(ok__));
+                        method.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38101,7 +38101,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceRequestedEventArgs_Impl::ResourceContext(this) {
                     Ok(ok__) => {
-                        context.write(core::mem::transmute(ok__));
+                        context.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38185,7 +38185,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs2_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceRequestedEventArgs2_Impl::RequestedSourceKind(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38464,7 +38464,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceResponse_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        statuscode.write(core::mem::transmute(ok__));
+                        statuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38500,7 +38500,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceResponse_Impl::ReasonPhrase(this) {
                     Ok(ok__) => {
-                        reasonphrase.write(core::mem::transmute(ok__));
+                        reasonphrase.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38835,7 +38835,7 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceResponseView_Impl::StatusCode(this) {
                     Ok(ok__) => {
-                        statuscode.write(core::mem::transmute(ok__));
+                        statuscode.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -38854,7 +38854,7 @@ impl ICoreWebView2WebResourceResponseView_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WebResourceResponseView_Impl::ReasonPhrase(this) {
                     Ok(ok__) => {
-                        reasonphrase.write(core::mem::transmute(ok__));
+                        reasonphrase.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39219,7 +39219,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::HasPosition(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39238,7 +39238,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::HasSize(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39257,7 +39257,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::Left(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39276,7 +39276,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::Top(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39295,7 +39295,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::Height(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39314,7 +39314,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::Width(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39333,7 +39333,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayMenuBar(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39352,7 +39352,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayStatus(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39371,7 +39371,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayToolbar(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39390,7 +39390,7 @@ impl ICoreWebView2WindowFeatures_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2WindowFeatures_Impl::ShouldDisplayScrollBars(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39584,7 +39584,7 @@ impl ICoreWebView2_10_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39777,7 +39777,7 @@ impl ICoreWebView2_11_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39927,7 +39927,7 @@ impl ICoreWebView2_12_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -39963,7 +39963,7 @@ impl ICoreWebView2_12_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_12_Impl::StatusBarText(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40203,7 +40203,7 @@ impl ICoreWebView2_14_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40409,7 +40409,7 @@ impl ICoreWebView2_15_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40445,7 +40445,7 @@ impl ICoreWebView2_15_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_15_Impl::FaviconUri(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -40907,7 +40907,7 @@ impl ICoreWebView2_18_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41054,7 +41054,7 @@ impl ICoreWebView2_19_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_19_Impl::MemoryUsageTargetLevel(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41272,7 +41272,7 @@ impl ICoreWebView2_2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41329,7 +41329,7 @@ impl ICoreWebView2_2_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -41478,7 +41478,7 @@ impl ICoreWebView2_20_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_20_Impl::FrameId(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42049,7 +42049,7 @@ impl ICoreWebView2_24_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42228,7 +42228,7 @@ impl ICoreWebView2_25_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42410,7 +42410,7 @@ impl ICoreWebView2_26_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42579,7 +42579,7 @@ impl ICoreWebView2_27_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -42909,7 +42909,7 @@ impl ICoreWebView2_3_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_3_Impl::IsSuspended(this) {
                     Ok(ok__) => {
-                        issuspended.write(core::mem::transmute(ok__));
+                        issuspended.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43088,7 +43088,7 @@ impl ICoreWebView2_4_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43125,7 +43125,7 @@ impl ICoreWebView2_4_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43249,7 +43249,7 @@ impl ICoreWebView2_5_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43627,7 +43627,7 @@ impl ICoreWebView2_8_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43657,7 +43657,7 @@ impl ICoreWebView2_8_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_8_Impl::IsMuted(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43693,7 +43693,7 @@ impl ICoreWebView2_8_Vtbl {
                     core::mem::transmute_copy(&eventhandler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43729,7 +43729,7 @@ impl ICoreWebView2_8_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_8_Impl::IsDocumentPlayingAudio(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -43971,7 +43971,7 @@ impl ICoreWebView2_9_Vtbl {
                     core::mem::transmute_copy(&handler),
                 ) {
                     Ok(ok__) => {
-                        token.write(core::mem::transmute(ok__));
+                        token.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -44007,7 +44007,7 @@ impl ICoreWebView2_9_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_9_Impl::IsDefaultDownloadDialogOpen(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -44050,7 +44050,7 @@ impl ICoreWebView2_9_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_9_Impl::DefaultDownloadDialogCornerAlignment(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
@@ -44086,7 +44086,7 @@ impl ICoreWebView2_9_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICoreWebView2_9_Impl::DefaultDownloadDialogMargin(this) {
                     Ok(ok__) => {
-                        value.write(core::mem::transmute(ok__));
+                        value.write(ok__);
                         windows_core::HRESULT(0)
                     }
                     Err(err) => err.into(),
