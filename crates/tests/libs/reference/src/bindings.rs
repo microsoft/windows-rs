@@ -1526,3 +1526,17 @@ impl windows_core::RuntimeType for TimeSpan {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct Vector2 {
+    pub X: f32,
+    pub Y: f32,
+}
+impl windows_core::TypeKind for Vector2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for Vector2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)",
+    );
+}

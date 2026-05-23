@@ -20,6 +20,7 @@ fn main() {
         "Windows.Foundation.Rect",
         "Windows.Foundation.Size",
         "Windows.Foundation.TimeSpan",
+        "Windows.Foundation.Numerics.Vector2",
         "--flat",
     ])
     .unwrap();
