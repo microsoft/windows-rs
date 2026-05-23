@@ -115,10 +115,49 @@ where
     T: RuntimeType + Clone,
 {
     fn Type(&self) -> Result<bindings::PropertyType> {
-        Ok(bindings::PropertyType::OtherType)
+        use bindings::PropertyType;
+        macro_rules! match_type {
+            ($($t:ty => $pt:expr),* $(,)?) => {{
+                let id = core::any::TypeId::of::<T>();
+                $(if id == core::any::TypeId::of::<$t>() { return Ok($pt); })*
+                Ok(PropertyType::OtherType)
+            }};
+        }
+        match_type! {
+            u8 => PropertyType::UInt8,
+            i16 => PropertyType::Int16,
+            u16 => PropertyType::UInt16,
+            i32 => PropertyType::Int32,
+            u32 => PropertyType::UInt32,
+            i64 => PropertyType::Int64,
+            u64 => PropertyType::UInt64,
+            f32 => PropertyType::Single,
+            f64 => PropertyType::Double,
+            bool => PropertyType::Boolean,
+            HSTRING => PropertyType::String,
+            GUID => PropertyType::Guid,
+            windows_time::DateTime => PropertyType::DateTime,
+            windows_time::TimeSpan => PropertyType::TimeSpan,
+            bindings::Point => PropertyType::Point,
+            bindings::Size => PropertyType::Size,
+            bindings::Rect => PropertyType::Rect,
+        }
     }
     fn IsNumericScalar(&self) -> Result<bool> {
-        Err(Error::from_hresult(E_NOTIMPL))
+        use bindings::PropertyType;
+        let pt = bindings::IPropertyValue_Impl::Type(self)?;
+        Ok(matches!(
+            pt,
+            PropertyType::UInt8
+                | PropertyType::Int16
+                | PropertyType::UInt16
+                | PropertyType::Int32
+                | PropertyType::UInt32
+                | PropertyType::Int64
+                | PropertyType::UInt64
+                | PropertyType::Single
+                | PropertyType::Double
+        ))
     }
     fn GetUInt8(&self) -> Result<u8> {
         cast_value(&self.value)
