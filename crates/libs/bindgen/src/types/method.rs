@@ -855,8 +855,25 @@ impl Method {
                         })
                         .collect();
 
-                    let event_where_clause = quote! {
-                        where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
+                    let event_where_clause = {
+                        // Only drop Send when the delegate is locally generated
+                        // under minimal mode — we inline the DelegateBox and
+                        // bypass the delegate's new() bounds. When the delegate
+                        // is referenced (external crate), its new() still
+                        // requires Send so we must keep the bound here too.
+                        let drop_send = delegate_is_local_minimal
+                            && (config.bindgen.is_not_send(d.type_name())
+                                || interface
+                                    .is_some_and(|i| config.bindgen.is_not_send(i.type_name())));
+                        if drop_send {
+                            quote! {
+                                where #(#other_constraints)* F: Fn #fn_sig_no_return + 'static,
+                            }
+                        } else {
+                            quote! {
+                                where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
+                            }
+                        }
                     };
 
                     // Reuse the rendered declarations for non-delegate params and
@@ -875,9 +892,21 @@ impl Method {
                         .collect();
 
                     let event_prelude = if delegate_is_local_minimal {
+                        // Inline DelegateBox construction directly instead of
+                        // calling Delegate::new(). This decouples the event
+                        // wrapper's Send bound from the delegate constructor's
+                        // bound — the wrapper's own where clause is the sole
+                        // authority on whether F must be Send.
+                        let boxed_name: TokenStream =
+                            format!("{}Box", trim_tick(d.def.name())).parse().unwrap();
+                        let generic_names = d.generics.iter().map(|ty| ty.write_name(config));
+                        let generic_names = quote! { #(#generic_names,)* };
                         quote! {
                             #prelude
-                            let #pname = <#delegate_name>::new(#pname);
+                            let #pname: #delegate_name = {
+                                let com = windows_core::imp::DelegateBox::<#delegate_name, F>::new(&#boxed_name::<#generic_names F>::VTABLE, #pname);
+                                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+                            };
                         }
                     } else {
                         // Synthetic argument names for the wrapping closure

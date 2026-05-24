@@ -1,0 +1,3 @@
+filter = "Test"
+minimal = true
+not_send = ["Test"]
