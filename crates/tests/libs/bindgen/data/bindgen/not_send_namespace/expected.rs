@@ -31,7 +31,13 @@ pub mod Test {
         where
             F: Fn(windows_core::Ref<IWidget>) + 'static,
         {
-            let handler = <TappedHandler>::new(handler);
+            let handler: TappedHandler = {
+                let com = windows_core::imp::DelegateBox::<TappedHandler, F>::new(
+                    &TappedHandlerBox::<F>::VTABLE,
+                    handler,
+                );
+                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            };
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 let token__ = (windows_core::Interface::vtable(self).Tapped)(
@@ -145,18 +151,6 @@ pub mod Test {
                 invoke,
             );
             unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
-        }
-        pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
-        where
-            P0: windows_core::Param<IWidget>,
-        {
-            unsafe {
-                (windows_core::Interface::vtable(self).Invoke)(
-                    windows_core::Interface::as_raw(self),
-                    sender.param().abi(),
-                )
-                .ok()
-            }
         }
     }
     #[repr(C)]

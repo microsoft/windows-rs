@@ -14,19 +14,6 @@ pub mod Test {
                 windows_core::imp::DelegateBox::<Handler, F>::new(&HandlerBox::<F>::VTABLE, invoke);
             unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
         }
-        pub fn Invoke<P0>(&self, sender: P0, args: i32) -> windows_core::Result<()>
-        where
-            P0: windows_core::Param<IFoo>,
-        {
-            unsafe {
-                (windows_core::Interface::vtable(self).Invoke)(
-                    windows_core::Interface::as_raw(self),
-                    sender.param().abi(),
-                    args,
-                )
-                .ok()
-            }
-        }
     }
     #[repr(C)]
     #[doc(hidden)]
@@ -88,7 +75,13 @@ pub mod Test {
         where
             F: Fn(windows_core::Ref<IFoo>, i32) + 'static,
         {
-            let handler = <Handler>::new(handler);
+            let handler: Handler = {
+                let com = windows_core::imp::DelegateBox::<Handler, F>::new(
+                    &HandlerBox::<F>::VTABLE,
+                    handler,
+                );
+                unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+            };
             unsafe {
                 let mut result__ = core::mem::zeroed();
                 let token__ = (windows_core::Interface::vtable(self).Click)(

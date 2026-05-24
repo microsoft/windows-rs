@@ -856,8 +856,15 @@ impl Method {
                         .collect();
 
                     let event_where_clause = {
-                        let drop_send = config.bindgen.is_not_send(d.type_name())
-                            || interface.is_some_and(|i| config.bindgen.is_not_send(i.type_name()));
+                        // Only drop Send when the delegate is locally generated
+                        // under minimal mode — we inline the DelegateBox and
+                        // bypass the delegate's new() bounds. When the delegate
+                        // is referenced (external crate), its new() still
+                        // requires Send so we must keep the bound here too.
+                        let drop_send = delegate_is_local_minimal
+                            && (config.bindgen.is_not_send(d.type_name())
+                                || interface
+                                    .is_some_and(|i| config.bindgen.is_not_send(i.type_name())));
                         if drop_send {
                             quote! {
                                 where #(#other_constraints)* F: Fn #fn_sig_no_return + 'static,
