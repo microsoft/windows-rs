@@ -2,7 +2,7 @@ use super::*;
 use std::sync::RwLock;
 
 #[derive(Default)]
-pub(crate) struct WarningBuilder(RwLock<Vec<String>>);
+pub struct WarningBuilder(RwLock<Vec<String>>);
 
 impl WarningBuilder {
     pub fn build(self) -> Warnings {

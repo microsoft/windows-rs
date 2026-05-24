@@ -892,8 +892,7 @@ impl Method {
                         // authority on whether F must be Send.
                         let boxed_name: TokenStream =
                             format!("{}Box", trim_tick(d.def.name())).parse().unwrap();
-                        let generic_names =
-                            d.generics.iter().map(|ty| ty.write_name(config));
+                        let generic_names = d.generics.iter().map(|ty| ty.write_name(config));
                         let generic_names = quote! { #(#generic_names,)* };
                         quote! {
                             #prelude
