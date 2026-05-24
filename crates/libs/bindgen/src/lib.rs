@@ -830,10 +830,17 @@ impl Bindgen {
     }
 
     /// Returns `true` if the given type name matches any `--not-send` pattern.
+    ///
+    /// In `--minimal` mode, ALL delegates are treated as `!Send` by default
+    /// because minimal bindings are consumed by a single crate that controls
+    /// its own threading. The `--not-send` list is still honored for non-minimal
+    /// builds.
     pub fn is_not_send(&self, name: TypeName) -> bool {
-        self.not_send
-            .iter()
-            .any(|rule| match_not_send_rule(rule, name.namespace(), name.name()))
+        self.style.is_minimal()
+            || self
+                .not_send
+                .iter()
+                .any(|rule| match_not_send_rule(rule, name.namespace(), name.name()))
     }
 
     /// Generate the bindings.

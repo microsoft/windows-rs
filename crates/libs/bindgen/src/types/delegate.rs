@@ -39,6 +39,16 @@ impl Delegate {
             &mut MethodNames::new(),
         );
 
+        // For --not-send delegates, elide the public Invoke method. These
+        // delegates are only constructed by app code and passed to WinUI for
+        // callback — the app never calls Invoke() itself. Omitting it prevents
+        // accidental invocation from an arbitrary thread and reduces codegen.
+        let invoke_method = if config.bindgen.is_not_send(self.type_name()) {
+            quote! {}
+        } else {
+            invoke
+        };
+
         let invoke_vtbl = method.write_abi(config, true);
 
         let definition = if self.generics.is_empty() {
@@ -116,7 +126,7 @@ impl Delegate {
                         core::mem::transmute(windows_core::imp::Box::new(com))
                     }
                 }
-                #invoke
+                #invoke_method
             }
             #cfg
             #[repr(C)]
