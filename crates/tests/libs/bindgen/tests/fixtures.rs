@@ -110,6 +110,7 @@ struct FixtureConfig {
     implement: bool,
     implements: Vec<String>,
     references: Vec<String>,
+    not_send: Vec<String>,
     /// `winmd_to_rdl` only: prebuilt winmd (or directory) to consume.
     winmd_input: Option<String>,
     /// `error` only: which stage must fail. `"reader"` (default),
@@ -163,6 +164,7 @@ impl FixtureConfig {
                 "implement" => cfg.implement = parse_bool(value),
                 "implements" => cfg.implements = parse_string_list(value),
                 "references" => cfg.references = parse_string_list(value),
+                "not_send" => cfg.not_send = parse_string_list(value),
                 "winmd_input" => cfg.winmd_input = Some(parse_string(value)),
                 "kind" => cfg.kind = Some(parse_string(value)),
                 "arch_inputs" => cfg.arch_inputs = parse_string_list(value),
@@ -386,6 +388,9 @@ fn run_bindgen(f: &Fixture) {
     }
     if cfg.implement || !cfg.implements.is_empty() {
         bindgen.implement(&cfg.implements);
+    }
+    if !cfg.not_send.is_empty() {
+        bindgen.not_send(&cfg.not_send);
     }
     // Discard warnings: fixtures may intentionally exercise filters
     // (including method-level `--filter` denylist / allowlist entries)

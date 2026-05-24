@@ -855,8 +855,18 @@ impl Method {
                         })
                         .collect();
 
-                    let event_where_clause = quote! {
-                        where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
+                    let event_where_clause = {
+                        let drop_send = config.bindgen.is_not_send(d.type_name())
+                            || interface.is_some_and(|i| config.bindgen.is_not_send(i.type_name()));
+                        if drop_send {
+                            quote! {
+                                where #(#other_constraints)* F: Fn #fn_sig_no_return + 'static,
+                            }
+                        } else {
+                            quote! {
+                                where #(#other_constraints)* F: Fn #fn_sig_no_return + Send + 'static,
+                            }
+                        }
                     };
 
                     // Reuse the rendered declarations for non-delegate params and

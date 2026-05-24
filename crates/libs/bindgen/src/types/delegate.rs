@@ -93,7 +93,11 @@ impl Delegate {
                 method.write_impl_signature(config, false, false)
             };
 
-            quote! { F: Fn #signature + Send + 'static }
+            if config.bindgen.is_not_send(self.type_name()) {
+                quote! { F: Fn #signature + 'static }
+            } else {
+                quote! { F: Fn #signature + Send + 'static }
+            }
         };
 
         let invoke_upcall = if config.bindgen.style.is_minimal() {
