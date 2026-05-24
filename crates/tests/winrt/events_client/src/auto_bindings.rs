@@ -29,7 +29,7 @@ impl Class {
     }
     pub fn StaticEvent<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, i32) + Send + 'static,
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, i32) + 'static,
     {
         let handler = <windows::Foundation::EventHandler<i32>>::new(move |a0, a1| {
             handler(a0, a1);
@@ -96,7 +96,7 @@ impl IClass {
     }
     pub fn Event<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
-        F: Fn(windows_core::Ref<Class>, i32) + Send + 'static,
+        F: Fn(windows_core::Ref<Class>, i32) + 'static,
     {
         let handler = <windows::Foundation::TypedEventHandler<Class, i32>>::new(move |a0, a1| {
             handler(a0, a1);
