@@ -1157,8 +1157,8 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
 
     for type_set in types.values() {
         for ty in type_set {
-            let methods: Box<dyn Iterator<Item = MethodDef>> = match ty {
-                Type::Interface(i) => Box::new(i.def.methods()),
+            let (methods, generics): (Box<dyn Iterator<Item = MethodDef>>, &[Type]) = match ty {
+                Type::Interface(i) => (Box::new(i.def.methods()), &i.generics),
                 Type::Class(c) => {
                     // Classes reference interfaces; the interfaces' own methods
                     // will be visited when we process the Interface variant.
@@ -1181,7 +1181,7 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
 
                 // For non-event methods, any delegate param means that delegate
                 // is used outside of events.
-                let sig = method.method_signature("", &[], reader);
+                let sig = method.method_signature("", generics, reader);
                 for param in &sig.params {
                     if let Type::Delegate(d) = &param.ty {
                         non_event_delegates.insert(d.type_name());
