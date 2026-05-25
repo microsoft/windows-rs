@@ -89,7 +89,6 @@ pub fn builder() -> Bindgen {
 /// | `--extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. Only valid with `--sys`. |
 /// | `--minimal` | Generates minimal-mode bindings: drops per-class wrapper methods, inherited interface forwarders, sys-style typedef handles, and sys-style free function wrappers to reduce build time; also replaces each `add_*`/`remove_*` event accessor pair with a single auto-revoking method. Mutually exclusive with `--sys`. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. With no following names, emits `_Impl` scaffolding for every WinRT interface in scope; with one or more type-name patterns, narrows emission to the listed types only. |
-/// | `--not-send` | Removes the `Send` bound from the closure parameter on matching delegate constructors and event-add wrappers. Accepts type names or namespace prefixes. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 /// | `--etc` | Reads additional whitespace-separated arguments from one or more response files (lines beginning with `//` are ignored). |
 ///
@@ -418,7 +417,6 @@ where
                     kind = ArgKind::Implement;
                 }
                 "--link" => kind = ArgKind::Link,
-                "--not-send" => kind = ArgKind::NotSend,
                 "--index" => {
                     builder.index();
                 }
@@ -465,9 +463,6 @@ where
                     }
                 });
             }
-            ArgKind::NotSend => {
-                builder.not_send.push(arg.to_string());
-            }
         }
     }
 
@@ -495,7 +490,6 @@ pub struct Bindgen {
     references: Vec<String>,
     derive: Vec<String>,
     implement: Option<Vec<String>>,
-    not_send: Vec<String>,
     rustfmt: Option<String>,
     link: Option<String>,
     layout: Layout,
@@ -734,26 +728,6 @@ impl Bindgen {
         self
     }
 
-    /// Mark delegate types (or namespaces of delegates) as not requiring
-    /// `Send` on the closure passed to their `::new()` constructor.
-    ///
-    /// Each entry may be a fully-qualified type name (`Namespace.Name`) or a
-    /// namespace prefix that matches every delegate type under it. Delegates
-    /// not matched retain the default `Send + 'static` bound.
-    ///
-    /// When a matched delegate appears as a parameter in an event-add method,
-    /// the auto-generated closure-accepting wrapper also drops `Send`.
-    pub fn not_send<I, S>(&mut self, names: I) -> &mut Self
-    where
-        I: IntoIterator<Item = S>,
-        S: AsRef<str>,
-    {
-        for name in names {
-            self.not_send.push(name.as_ref().to_string());
-        }
-        self
-    }
-
     /// Generate raw or sys-style Rust bindings.
     ///
     /// Mutually exclusive with [`Bindgen::minimal`]; panics if `minimal` was
@@ -827,20 +801,6 @@ impl Bindgen {
 
     fn is_sys(&self) -> bool {
         self.style.is_sys()
-    }
-
-    /// Returns `true` if the given type name matches any `--not-send` pattern.
-    ///
-    /// In `--minimal` mode, ALL delegates are treated as `!Send` by default
-    /// because minimal bindings are consumed by a single crate that controls
-    /// its own threading. The `--not-send` list is still honored for non-minimal
-    /// builds.
-    pub fn is_not_send(&self, name: TypeName) -> bool {
-        self.style.is_minimal()
-            || self
-                .not_send
-                .iter()
-                .any(|rule| match_not_send_rule(rule, name.namespace(), name.name()))
     }
 
     /// Generate the bindings.
@@ -1004,6 +964,12 @@ impl Bindgen {
             warnings.add(message.clone());
         }
 
+        let event_only_delegates = if self.style.is_minimal() {
+            compute_event_only_delegates(&types, &reader)
+        } else {
+            HashSet::new()
+        };
+
         let config = Config {
             bindgen: self,
             reader: &reader,
@@ -1015,6 +981,7 @@ impl Bindgen {
             link,
             warnings: &warnings,
             namespace: "",
+            event_only_delegates: &event_only_delegates,
         };
 
         let tree = TypeTree::new(&types);
@@ -1039,7 +1006,6 @@ enum ArgKind {
     Implement,
     Link,
     Deps,
-    NotSend,
 }
 
 /// Selects how generated bindings depend on the `windows-*` crates.
@@ -1171,26 +1137,65 @@ fn expand_input(input: &[&str]) -> Vec<File> {
     input
 }
 
-/// Returns `true` if `rule` selects the type `namespace.name` for `--not-send`.
-/// A rule whose length is less than or equal to `namespace.len()` is treated as
-/// a namespace prefix and matches every type whose namespace starts with `rule`.
-/// Otherwise `rule` must be a fully-qualified `Namespace.Name` whose namespace
-/// component equals `namespace` exactly and whose name component equals `name`
-/// exactly.
-fn match_not_send_rule(rule: &str, namespace: &str, name: &str) -> bool {
-    if rule.len() <= namespace.len() {
-        return namespace_starts_with(namespace, rule);
+/// Computes the set of delegate TypeNames that are exclusively used as
+/// parameters in `add_*` SpecialName methods (i.e., event handlers). These
+/// delegates never need a public `new()` or `Invoke()` because the event-add
+/// wrapper inlines the DelegateBox construction directly.
+fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<TypeName> {
+    // Collect all delegates in the type map.
+    let mut all_delegates: HashSet<TypeName> = HashSet::new();
+    for type_set in types.values() {
+        for ty in type_set {
+            if let Type::Delegate(d) = ty {
+                all_delegates.insert(d.type_name());
+            }
+        }
     }
 
-    if !rule.starts_with(namespace) {
-        return false;
+    // Track delegates that appear in non-event contexts.
+    let mut non_event_delegates: HashSet<TypeName> = HashSet::new();
+
+    for type_set in types.values() {
+        for ty in type_set {
+            let methods: Box<dyn Iterator<Item = MethodDef>> = match ty {
+                Type::Interface(i) => Box::new(i.def.methods()),
+                Type::Class(c) => {
+                    // Classes reference interfaces; the interfaces' own methods
+                    // will be visited when we process the Interface variant.
+                    // However, some classes have factory/static methods on
+                    // exclusive interfaces that may take delegate params.
+                    // Those interfaces are in the type map separately, so skip.
+                    let _ = c;
+                    continue;
+                }
+                _ => continue,
+            };
+
+            for method in methods {
+                let is_event_add = method.flags().contains(MethodAttributes::SpecialName)
+                    && method.name().starts_with("add_");
+
+                if is_event_add {
+                    continue;
+                }
+
+                // For non-event methods, any delegate param means that delegate
+                // is used outside of events.
+                let sig = method.method_signature("", &[], reader);
+                for param in &sig.params {
+                    if let Type::Delegate(d) = &param.ty {
+                        non_event_delegates.insert(d.type_name());
+                    }
+                }
+            }
+        }
     }
 
-    if rule.as_bytes()[namespace.len()] != b'.' {
-        return false;
-    }
-
-    name == &rule[namespace.len() + 1..]
+    // Event-only = all delegates minus those used in non-event contexts.
+    all_delegates
+        .difference(&non_event_delegates)
+        .copied()
+        .collect()
 }
 
 fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {

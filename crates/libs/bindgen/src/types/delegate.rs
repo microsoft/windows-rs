@@ -39,11 +39,11 @@ impl Delegate {
             &mut MethodNames::new(),
         );
 
-        // For --not-send delegates, elide the public Invoke method. These
-        // delegates are only constructed by app code and passed to WinUI for
-        // callback — the app never calls Invoke() itself. Omitting it prevents
-        // accidental invocation from an arbitrary thread and reduces codegen.
-        let invoke_method = if config.bindgen.is_not_send(self.type_name()) {
+        // In minimal mode, delegates are invoked by the API, not by user code.
+        // Suppress the public Invoke() method for all minimal delegates.
+        let is_event_only = config.bindgen.style.is_minimal()
+            && config.event_only_delegates.contains(&self.type_name());
+        let invoke_method = if config.bindgen.style.is_minimal() {
             quote! {}
         } else {
             invoke
@@ -103,10 +103,25 @@ impl Delegate {
                 method.write_impl_signature(config, false, false)
             };
 
-            if config.bindgen.is_not_send(self.type_name()) {
+            if config.bindgen.style.is_minimal() {
                 quote! { F: Fn #signature + 'static }
             } else {
                 quote! { F: Fn #signature + Send + 'static }
+            }
+        };
+
+        // Event-only delegates never need `new()` — the event-add wrapper
+        // inlines the DelegateBox construction directly.
+        let new_method = if is_event_only {
+            quote! {}
+        } else {
+            quote! {
+                pub fn new<#fn_constraint>(invoke: F) -> Self {
+                    let com = windows_core::imp::DelegateBox::<#name, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
+                    unsafe {
+                        core::mem::transmute(windows_core::imp::Box::new(com))
+                    }
+                }
             }
         };
 
@@ -116,18 +131,21 @@ impl Delegate {
             method.write_upcall(quote! { (this.invoke) }, false, config)
         };
 
+        let impl_block = if is_event_only {
+            quote! {}
+        } else {
+            quote! {
+                #cfg
+                impl<#constraints> #name {
+                    #new_method
+                    #invoke_method
+                }
+            }
+        };
+
         quote! {
             #definition
-            #cfg
-            impl<#constraints> #name {
-                pub fn new<#fn_constraint>(invoke: F) -> Self {
-                    let com = windows_core::imp::DelegateBox::<#name, F>::new(&#boxed::<#generic_names F>::VTABLE, invoke);
-                    unsafe {
-                        core::mem::transmute(windows_core::imp::Box::new(com))
-                    }
-                }
-                #invoke_method
-            }
+            #impl_block
             #cfg
             #[repr(C)]
             #[doc(hidden)]
