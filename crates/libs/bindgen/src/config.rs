@@ -12,6 +12,11 @@ pub struct Config<'a> {
     pub link: &'a str,
     pub warnings: &'a WarningBuilder,
     pub namespace: &'static str,
+    /// Delegates that are exclusively used as parameters in `add_*` SpecialName
+    /// methods (event handlers). In minimal mode these delegates have their
+    /// `new()` and `Invoke()` methods suppressed because the event-add wrapper
+    /// inlines the DelegateBox construction directly.
+    pub event_only_delegates: &'a HashSet<TypeName>,
 }
 
 impl Config<'_> {
