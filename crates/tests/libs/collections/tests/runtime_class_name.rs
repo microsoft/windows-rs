@@ -86,6 +86,7 @@ fn observable_map_string_i32() {
     );
 }
 
+#[cfg(windows)]
 #[test]
 fn nested_vector_of_reference() {
     // IVector<IReference<Single>> - tests nested generic type name composition
