@@ -112,6 +112,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ICompositor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.ICompositor");
 }
 impl windows_core::RuntimeName for ICompositor {
     const NAME: &'static str = "test_composable.ICompositor";
@@ -197,6 +199,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IContainerVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IContainerVisual");
 }
 impl windows_core::RuntimeName for IContainerVisual {
     const NAME: &'static str = "test_composable.IContainerVisual";
@@ -242,6 +246,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IContainerVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IContainerVisualFactory");
 }
 impl windows_core::RuntimeName for IContainerVisualFactory {
     const NAME: &'static str = "test_composable.IContainerVisualFactory";
@@ -271,6 +277,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for ISpriteVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.ISpriteVisual");
 }
 impl windows_core::RuntimeName for ISpriteVisual {
     const NAME: &'static str = "test_composable.ISpriteVisual";
@@ -315,6 +323,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IVisual {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IVisual");
 }
 impl windows_core::RuntimeName for IVisual {
     const NAME: &'static str = "test_composable.IVisual";
@@ -367,6 +377,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IVisualFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable.IVisualFactory");
 }
 impl windows_core::RuntimeName for IVisualFactory {
     const NAME: &'static str = "test_composable.IVisualFactory";

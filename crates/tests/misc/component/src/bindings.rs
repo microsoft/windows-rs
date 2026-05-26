@@ -202,6 +202,8 @@ impl windows_core::TypeKind for Flags {
 impl windows_core::RuntimeType for Flags {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_component.Flags");
 }
 impl Flags {
     pub const fn contains(&self, other: Self) -> bool {
@@ -240,6 +242,8 @@ windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0xd4d8912e_c8b5_5e61_8
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_component.IClass");
 }
 impl windows_core::RuntimeName for IClass {
     const NAME: &'static str = "test_component.IClass";
@@ -468,6 +472,8 @@ windows_core::imp::define_interface!(IThing, IThing_Vtbl, 0xa9039ba1_6caf_5414_8
 impl windows_core::RuntimeType for IThing {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_component.Nested.IThing");
 }
 windows_core::imp::interface_hierarchy!(IThing, windows_core::IUnknown, windows_core::IInspectable);
 impl IThing {

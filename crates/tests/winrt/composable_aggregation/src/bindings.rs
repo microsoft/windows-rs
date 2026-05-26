@@ -75,6 +75,8 @@ windows_core::imp::define_interface!(IFoo, IFoo_Vtbl, 0x37c80dbe_24c3_5b23_8946_
 impl windows_core::RuntimeType for IFoo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable_aggregation.IFoo");
 }
 windows_core::imp::interface_hierarchy!(IFoo, windows_core::IUnknown, windows_core::IInspectable);
 impl IFoo {
@@ -136,6 +138,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IFooFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_composable_aggregation.IFooFactory");
 }
 windows_core::imp::interface_hierarchy!(
     IFooFactory,

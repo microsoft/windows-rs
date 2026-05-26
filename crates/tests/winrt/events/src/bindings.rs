@@ -109,6 +109,8 @@ windows_core::imp::define_interface!(IClass, IClass_Vtbl, 0x692a46c8_496e_525b_8
 impl windows_core::RuntimeType for IClass {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_events.IClass");
 }
 impl windows_core::RuntimeName for IClass {
     const NAME: &'static str = "test_events.IClass";
@@ -200,6 +202,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IClassStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_events.IClassStatics");
 }
 impl windows_core::RuntimeName for IClassStatics {
     const NAME: &'static str = "test_events.IClassStatics";

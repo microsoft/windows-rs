@@ -6,6 +6,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_activation.One.IInstance");
 }
 impl windows_core::RuntimeName for IInstance {
     const NAME: &'static str = "test_activation.One.IInstance";
@@ -55,6 +57,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IMissing {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"test_activation.One.IMissing");
 }
 impl windows_core::RuntimeName for IMissing {
     const NAME: &'static str = "test_activation.One.IMissing";
@@ -96,6 +100,9 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IStaticStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"test_activation.One.Two.Three.Four.IStaticStatics",
+    );
 }
 impl windows_core::RuntimeName for IStaticStatics {
     const NAME: &'static str = "test_activation.One.Two.Three.Four.IStaticStatics";

@@ -6,6 +6,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IJsonValidator {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Sample.IJsonValidator");
 }
 impl windows_core::RuntimeName for IJsonValidator {
     const NAME: &'static str = "Sample.IJsonValidator";
@@ -63,6 +65,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IJsonValidatorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Sample.IJsonValidatorFactory");
 }
 impl windows_core::RuntimeName for IJsonValidatorFactory {
     const NAME: &'static str = "Sample.IJsonValidatorFactory";
