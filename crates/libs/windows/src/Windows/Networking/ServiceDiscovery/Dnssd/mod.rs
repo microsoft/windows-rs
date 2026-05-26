@@ -63,6 +63,7 @@ impl windows_core::TypeKind for DnssdRegistrationStatus {
 }
 impl windows_core::RuntimeType for DnssdRegistrationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -348,10 +349,12 @@ impl windows_core::TypeKind for DnssdServiceWatcherStatus {
 }
 impl windows_core::RuntimeType for DnssdServiceWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcherStatus");
 }
 windows_core::imp::define_interface!(IDnssdRegistrationResult, IDnssdRegistrationResult_Vtbl, 0x3d786ad2_e606_5350_73ea_7e97f066162f);
 impl windows_core::RuntimeType for IDnssdRegistrationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.ServiceDiscovery.Dnssd.IDnssdRegistrationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -364,6 +367,7 @@ pub struct IDnssdRegistrationResult_Vtbl {
 windows_core::imp::define_interface!(IDnssdServiceInstance, IDnssdServiceInstance_Vtbl, 0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
 impl windows_core::RuntimeType for IDnssdServiceInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -400,6 +404,7 @@ pub struct IDnssdServiceInstance_Vtbl {
 windows_core::imp::define_interface!(IDnssdServiceInstanceFactory, IDnssdServiceInstanceFactory_Vtbl, 0x6cb061a1_c478_4331_9684_4af2186c0a2b);
 impl windows_core::RuntimeType for IDnssdServiceInstanceFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstanceFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -410,6 +415,7 @@ pub struct IDnssdServiceInstanceFactory_Vtbl {
 windows_core::imp::define_interface!(IDnssdServiceWatcher, IDnssdServiceWatcher_Vtbl, 0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
 impl windows_core::RuntimeType for IDnssdServiceWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher");
 }
 #[repr(C)]
 #[doc(hidden)]

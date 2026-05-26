@@ -7,6 +7,8 @@ windows_core::imp::define_interface!(
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValue");
 }
 windows_core::imp::interface_hierarchy!(
     IPropertyValue,
@@ -1024,6 +1026,10 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IRefe
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.IReference`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue>
     for IReference<T>
@@ -1044,6 +1050,8 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
+        <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IReference_Impl<T>: IPropertyValue_Impl
 where
@@ -1109,6 +1117,8 @@ impl windows_core::TypeKind for Point {
 impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Point");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1162,6 +1172,8 @@ impl windows_core::TypeKind for PropertyType {
 impl windows_core::RuntimeType for PropertyType {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.PropertyType");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1177,6 +1189,8 @@ impl windows_core::TypeKind for Rect {
 impl windows_core::RuntimeType for Rect {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Rect");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1190,4 +1204,6 @@ impl windows_core::TypeKind for Size {
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Size");
 }

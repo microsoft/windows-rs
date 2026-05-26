@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IInstalledVoicesStatic, IInstalledVoicesStatic_Vtbl, 0x7d526ecc_7533_4c3f_85be_888c2baeebdc);
 impl windows_core::RuntimeType for IInstalledVoicesStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12,6 +13,7 @@ pub struct IInstalledVoicesStatic_Vtbl {
 windows_core::imp::define_interface!(IInstalledVoicesStatic2, IInstalledVoicesStatic2_Vtbl, 0x64255f2e_358d_4058_be9a_fd3fcb423530);
 impl windows_core::RuntimeType for IInstalledVoicesStatic2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,6 +26,7 @@ windows_core::imp::define_interface!(ISpeechSynthesisStream, ISpeechSynthesisStr
 #[cfg(feature = "Storage_Streams")]
 impl windows_core::RuntimeType for ISpeechSynthesisStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesisStream");
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
@@ -35,6 +38,7 @@ pub struct ISpeechSynthesisStream_Vtbl {
 windows_core::imp::define_interface!(ISpeechSynthesizer, ISpeechSynthesizer_Vtbl, 0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
 impl windows_core::RuntimeType for ISpeechSynthesizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,6 +58,7 @@ pub struct ISpeechSynthesizer_Vtbl {
 windows_core::imp::define_interface!(ISpeechSynthesizer2, ISpeechSynthesizer2_Vtbl, 0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e);
 impl windows_core::RuntimeType for ISpeechSynthesizer2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizer2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -64,6 +69,7 @@ pub struct ISpeechSynthesizer2_Vtbl {
 windows_core::imp::define_interface!(ISpeechSynthesizerOptions, ISpeechSynthesizerOptions_Vtbl, 0xa0e23871_cc3d_43c9_91b1_ee185324d83d);
 impl windows_core::RuntimeType for ISpeechSynthesizerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,6 +83,7 @@ pub struct ISpeechSynthesizerOptions_Vtbl {
 windows_core::imp::define_interface!(ISpeechSynthesizerOptions2, ISpeechSynthesizerOptions2_Vtbl, 0x1cbef60e_119c_4bed_b118_d250c3a25793);
 impl windows_core::RuntimeType for ISpeechSynthesizerOptions2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -92,6 +99,7 @@ pub struct ISpeechSynthesizerOptions2_Vtbl {
 windows_core::imp::define_interface!(ISpeechSynthesizerOptions3, ISpeechSynthesizerOptions3_Vtbl, 0x401ed877_902c_4814_a582_a5d0c0769fa8);
 impl windows_core::RuntimeType for ISpeechSynthesizerOptions3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -105,6 +113,7 @@ pub struct ISpeechSynthesizerOptions3_Vtbl {
 windows_core::imp::define_interface!(IVoiceInformation, IVoiceInformation_Vtbl, 0xb127d6a4_1291_4604_aa9c_83134083352c);
 impl windows_core::RuntimeType for IVoiceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.IVoiceInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -128,6 +137,7 @@ impl windows_core::TypeKind for SpeechAppendedSilence {
 }
 impl windows_core::RuntimeType for SpeechAppendedSilence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.SpeechAppendedSilence");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -141,6 +151,7 @@ impl windows_core::TypeKind for SpeechPunctuationSilence {
 }
 impl windows_core::RuntimeType for SpeechPunctuationSilence {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.SpeechPunctuationSilence");
 }
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 #[repr(transparent)]
@@ -473,6 +484,7 @@ impl windows_core::TypeKind for VoiceGender {
 }
 impl windows_core::RuntimeType for VoiceGender {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.SpeechSynthesis.VoiceGender");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

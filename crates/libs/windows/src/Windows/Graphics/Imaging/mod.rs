@@ -11,6 +11,7 @@ impl windows_core::TypeKind for BitmapAlphaMode {
 }
 impl windows_core::RuntimeType for BitmapAlphaMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapAlphaMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapAlphaMode");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -25,6 +26,7 @@ impl windows_core::TypeKind for BitmapBounds {
 }
 impl windows_core::RuntimeType for BitmapBounds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapBounds");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -81,6 +83,7 @@ impl windows_core::TypeKind for BitmapBufferAccessMode {
 }
 impl windows_core::RuntimeType for BitmapBufferAccessMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapBufferAccessMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapBufferAccessMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -584,6 +587,7 @@ impl windows_core::TypeKind for BitmapFlip {
 }
 impl windows_core::RuntimeType for BitmapFlip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapFlip;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapFlip");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -718,6 +722,7 @@ impl windows_core::TypeKind for BitmapInterpolationMode {
 }
 impl windows_core::RuntimeType for BitmapInterpolationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapInterpolationMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapInterpolationMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -738,6 +743,7 @@ impl windows_core::TypeKind for BitmapPixelFormat {
 }
 impl windows_core::RuntimeType for BitmapPixelFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapPixelFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapPixelFormat");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -752,6 +758,7 @@ impl windows_core::TypeKind for BitmapPlaneDescription {
 }
 impl windows_core::RuntimeType for BitmapPlaneDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapPlaneDescription");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -918,6 +925,7 @@ impl windows_core::TypeKind for BitmapRotation {
 }
 impl windows_core::RuntimeType for BitmapRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.BitmapRotation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapRotation");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -930,6 +938,7 @@ impl windows_core::TypeKind for BitmapSize {
 }
 impl windows_core::RuntimeType for BitmapSize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapSize;u4;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapSize");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1065,6 +1074,7 @@ impl windows_core::TypeKind for ColorManagementMode {
 }
 impl windows_core::RuntimeType for ColorManagementMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ColorManagementMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ColorManagementMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1078,10 +1088,12 @@ impl windows_core::TypeKind for ExifOrientationMode {
 }
 impl windows_core::RuntimeType for ExifOrientationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.ExifOrientationMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ExifOrientationMode");
 }
 windows_core::imp::define_interface!(IBitmapBuffer, IBitmapBuffer_Vtbl, 0xa53e04c4_399c_438c_b28f_a63a6b83d1a1);
 impl windows_core::RuntimeType for IBitmapBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapBuffer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1093,6 +1105,7 @@ pub struct IBitmapBuffer_Vtbl {
 windows_core::imp::define_interface!(IBitmapCodecInformation, IBitmapCodecInformation_Vtbl, 0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4);
 impl windows_core::RuntimeType for IBitmapCodecInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapCodecInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1106,6 +1119,7 @@ pub struct IBitmapCodecInformation_Vtbl {
 windows_core::imp::define_interface!(IBitmapDecoder, IBitmapDecoder_Vtbl, 0xacef22ba_1d74_4c91_9dfc_9620745233e6);
 impl windows_core::RuntimeType for IBitmapDecoder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapDecoder");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1123,6 +1137,7 @@ pub struct IBitmapDecoder_Vtbl {
 windows_core::imp::define_interface!(IBitmapDecoderStatics, IBitmapDecoderStatics_Vtbl, 0x438ccb26_bcef_4e95_bad6_23a822e58d01);
 impl windows_core::RuntimeType for IBitmapDecoderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapDecoderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1148,6 +1163,7 @@ pub struct IBitmapDecoderStatics_Vtbl {
 windows_core::imp::define_interface!(IBitmapDecoderStatics2, IBitmapDecoderStatics2_Vtbl, 0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f);
 impl windows_core::RuntimeType for IBitmapDecoderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapDecoderStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1159,6 +1175,7 @@ pub struct IBitmapDecoderStatics2_Vtbl {
 windows_core::imp::define_interface!(IBitmapEncoder, IBitmapEncoder_Vtbl, 0x2bc468e3_e1f8_4b54_95e8_32919551ce62);
 impl windows_core::RuntimeType for IBitmapEncoder {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoder");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1182,6 +1199,7 @@ pub struct IBitmapEncoder_Vtbl {
 windows_core::imp::define_interface!(IBitmapEncoderStatics, IBitmapEncoderStatics_Vtbl, 0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2);
 impl windows_core::RuntimeType for IBitmapEncoderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1211,6 +1229,7 @@ pub struct IBitmapEncoderStatics_Vtbl {
 windows_core::imp::define_interface!(IBitmapEncoderStatics2, IBitmapEncoderStatics2_Vtbl, 0x33cbc259_fe31_41b1_b812_086d21e87e16);
 impl windows_core::RuntimeType for IBitmapEncoderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoderStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1221,6 +1240,7 @@ pub struct IBitmapEncoderStatics2_Vtbl {
 windows_core::imp::define_interface!(IBitmapEncoderWithSoftwareBitmap, IBitmapEncoderWithSoftwareBitmap_Vtbl, 0x686cd241_4330_4c77_ace4_0334968b1768);
 impl windows_core::RuntimeType for IBitmapEncoderWithSoftwareBitmap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapEncoderWithSoftwareBitmap");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1231,6 +1251,7 @@ pub struct IBitmapEncoderWithSoftwareBitmap_Vtbl {
 windows_core::imp::define_interface!(IBitmapFrame, IBitmapFrame_Vtbl, 0x72a49a1c_8081_438d_91bc_94ecfc8185c6);
 impl windows_core::RuntimeType for IBitmapFrame {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapFrame");
 }
 windows_core::imp::interface_hierarchy!(IBitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl IBitmapFrame {
@@ -1524,6 +1545,7 @@ pub struct IBitmapFrame_Vtbl {
 windows_core::imp::define_interface!(IBitmapFrameWithSoftwareBitmap, IBitmapFrameWithSoftwareBitmap_Vtbl, 0xfe287c9a_420c_4963_87ad_691436e08383);
 impl windows_core::RuntimeType for IBitmapFrameWithSoftwareBitmap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapFrameWithSoftwareBitmap");
 }
 windows_core::imp::interface_hierarchy!(IBitmapFrameWithSoftwareBitmap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBitmapFrameWithSoftwareBitmap, IBitmapFrame);
@@ -1712,6 +1734,7 @@ pub struct IBitmapFrameWithSoftwareBitmap_Vtbl {
 windows_core::imp::define_interface!(IBitmapProperties, IBitmapProperties_Vtbl, 0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
 impl windows_core::RuntimeType for IBitmapProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1722,6 +1745,7 @@ pub struct IBitmapProperties_Vtbl {
 windows_core::imp::define_interface!(IBitmapPropertiesView, IBitmapPropertiesView_Vtbl, 0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
 impl windows_core::RuntimeType for IBitmapPropertiesView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapPropertiesView");
 }
 windows_core::imp::interface_hierarchy!(IBitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
 impl IBitmapPropertiesView {
@@ -1774,6 +1798,7 @@ pub struct IBitmapPropertiesView_Vtbl {
 windows_core::imp::define_interface!(IBitmapTransform, IBitmapTransform_Vtbl, 0xae755344_e268_4d35_adcf_e995d31a8d34);
 impl windows_core::RuntimeType for IBitmapTransform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapTransform");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1795,6 +1820,7 @@ pub struct IBitmapTransform_Vtbl {
 windows_core::imp::define_interface!(IBitmapTypedValue, IBitmapTypedValue_Vtbl, 0xcd8044a9_2443_4000_b0cd_79316c56f589);
 impl windows_core::RuntimeType for IBitmapTypedValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapTypedValue");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1806,6 +1832,7 @@ pub struct IBitmapTypedValue_Vtbl {
 windows_core::imp::define_interface!(IBitmapTypedValueFactory, IBitmapTypedValueFactory_Vtbl, 0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b);
 impl windows_core::RuntimeType for IBitmapTypedValueFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IBitmapTypedValueFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1816,6 +1843,7 @@ pub struct IBitmapTypedValueFactory_Vtbl {
 windows_core::imp::define_interface!(IPixelDataProvider, IPixelDataProvider_Vtbl, 0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f);
 impl windows_core::RuntimeType for IPixelDataProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.IPixelDataProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1826,6 +1854,7 @@ pub struct IPixelDataProvider_Vtbl {
 windows_core::imp::define_interface!(ISoftwareBitmap, ISoftwareBitmap_Vtbl, 0x689e0708_7eef_483f_963f_da938818e073);
 impl windows_core::RuntimeType for ISoftwareBitmap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ISoftwareBitmap");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1855,6 +1884,7 @@ pub struct ISoftwareBitmap_Vtbl {
 windows_core::imp::define_interface!(ISoftwareBitmapFactory, ISoftwareBitmapFactory_Vtbl, 0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8);
 impl windows_core::RuntimeType for ISoftwareBitmapFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ISoftwareBitmapFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1866,6 +1896,7 @@ pub struct ISoftwareBitmapFactory_Vtbl {
 windows_core::imp::define_interface!(ISoftwareBitmapStatics, ISoftwareBitmapStatics_Vtbl, 0xdf0385db_672f_4a9d_806e_c2442f343e86);
 impl windows_core::RuntimeType for ISoftwareBitmapStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.ISoftwareBitmapStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2028,6 +2059,7 @@ impl windows_core::TypeKind for JpegSubsamplingMode {
 }
 impl windows_core::RuntimeType for JpegSubsamplingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.JpegSubsamplingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.JpegSubsamplingMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2070,6 +2102,7 @@ impl windows_core::TypeKind for PngFilterMode {
 }
 impl windows_core::RuntimeType for PngFilterMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.PngFilterMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.PngFilterMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2279,4 +2312,5 @@ impl windows_core::TypeKind for TiffCompressionMode {
 }
 impl windows_core::RuntimeType for TiffCompressionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.TiffCompressionMode");
 }

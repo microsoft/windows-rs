@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IToastOcclusionManagerPreviewStatics, IToastOcclusionManagerPreviewStatics_Vtbl, 0x507e5c83_50f9_5412_8953_b65c18cfab12);
 impl windows_core::RuntimeType for IToastOcclusionManagerPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Notifications.Preview.IToastOcclusionManagerPreviewStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

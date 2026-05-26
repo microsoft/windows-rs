@@ -7,6 +7,7 @@ pub mod Notes;
 windows_core::imp::define_interface!(IStartupAppInfoPreview, IStartupAppInfoPreview_Vtbl, 0xc3a147db_09fa_5aa5_b3bd_119a09963d58);
 impl windows_core::RuntimeType for IStartupAppInfoPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Preview.IStartupAppInfoPreview");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -21,6 +22,7 @@ pub struct IStartupAppInfoPreview_Vtbl {
 windows_core::imp::define_interface!(IStartupAppsManagerPreview, IStartupAppsManagerPreview_Vtbl, 0x7197b9c1_03bb_5693_87c3_6f983cc70fb3);
 impl windows_core::RuntimeType for IStartupAppsManagerPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Preview.IStartupAppsManagerPreview");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -31,6 +33,7 @@ pub struct IStartupAppsManagerPreview_Vtbl {
 windows_core::imp::define_interface!(IStartupAppsManagerPreviewStatics, IStartupAppsManagerPreviewStatics_Vtbl, 0x9d0331f5_343f_5cd7_9d66_762cfa2c0380);
 impl windows_core::RuntimeType for IStartupAppsManagerPreviewStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Preview.IStartupAppsManagerPreviewStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,6 +56,7 @@ impl windows_core::TypeKind for StartupAppImpactPreview {
 }
 impl windows_core::RuntimeType for StartupAppImpactPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Preview.StartupAppImpactPreview;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Preview.StartupAppImpactPreview");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -44,10 +44,15 @@ impl<T: RuntimeType + 'static> RuntimeType for IReference<T> {
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+    const NAME: imp::ConstBuffer = imp::ConstBuffer::new()
+        .push_slice(b"Windows.Foundation.IReference`1<")
+        .push_other(T::NAME)
+        .push_slice(b">");
 }
 
 impl<T: RuntimeType + 'static> RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
+    const RUNTIME_CLASS_NAME: imp::ConstBuffer = <Self as RuntimeType>::NAME;
 }
 
 impl<T: RuntimeType + 'static> IReference<T> {

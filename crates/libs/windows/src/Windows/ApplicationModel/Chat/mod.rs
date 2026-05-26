@@ -328,6 +328,7 @@ impl windows_core::TypeKind for ChatConversationThreadingKind {
 }
 impl windows_core::RuntimeType for ChatConversationThreadingKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatConversationThreadingKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatConversationThreadingKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -341,6 +342,7 @@ impl windows_core::TypeKind for ChatItemKind {
 }
 impl windows_core::RuntimeType for ChatItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatItemKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatItemKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -871,6 +873,7 @@ impl windows_core::TypeKind for ChatMessageChangeType {
 }
 impl windows_core::RuntimeType for ChatMessageChangeType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageChangeType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatMessageChangeType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -934,6 +937,7 @@ impl windows_core::TypeKind for ChatMessageKind {
 }
 impl windows_core::RuntimeType for ChatMessageKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatMessageKind");
 }
 pub struct ChatMessageManager;
 impl ChatMessageManager {
@@ -1061,6 +1065,7 @@ impl windows_core::TypeKind for ChatMessageOperatorKind {
 }
 impl windows_core::RuntimeType for ChatMessageOperatorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageOperatorKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatMessageOperatorKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1117,6 +1122,7 @@ impl windows_core::TypeKind for ChatMessageStatus {
 }
 impl windows_core::RuntimeType for ChatMessageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatMessageStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1519,6 +1525,7 @@ impl windows_core::TypeKind for ChatMessageTransportKind {
 }
 impl windows_core::RuntimeType for ChatMessageTransportKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageTransportKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatMessageTransportKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1586,6 +1593,7 @@ impl windows_core::TypeKind for ChatMessageValidationStatus {
 }
 impl windows_core::RuntimeType for ChatMessageValidationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatMessageValidationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatMessageValidationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1718,6 +1726,7 @@ impl windows_core::TypeKind for ChatRestoreHistorySpan {
 }
 impl windows_core::RuntimeType for ChatRestoreHistorySpan {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatRestoreHistorySpan;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatRestoreHistorySpan");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1767,6 +1776,7 @@ impl windows_core::TypeKind for ChatStoreChangedEventKind {
 }
 impl windows_core::RuntimeType for ChatStoreChangedEventKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatStoreChangedEventKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatStoreChangedEventKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1880,6 +1890,7 @@ impl windows_core::TypeKind for ChatTransportErrorCodeCategory {
 }
 impl windows_core::RuntimeType for ChatTransportErrorCodeCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatTransportErrorCodeCategory");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1897,10 +1908,12 @@ impl windows_core::TypeKind for ChatTransportInterpretedErrorCode {
 }
 impl windows_core::RuntimeType for ChatTransportInterpretedErrorCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.ChatTransportInterpretedErrorCode");
 }
 windows_core::imp::define_interface!(IChatCapabilities, IChatCapabilities_Vtbl, 0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
 impl windows_core::RuntimeType for IChatCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1915,6 +1928,7 @@ pub struct IChatCapabilities_Vtbl {
 windows_core::imp::define_interface!(IChatCapabilitiesManagerStatics, IChatCapabilitiesManagerStatics_Vtbl, 0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
 impl windows_core::RuntimeType for IChatCapabilitiesManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatCapabilitiesManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1926,6 +1940,7 @@ pub struct IChatCapabilitiesManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IChatCapabilitiesManagerStatics2, IChatCapabilitiesManagerStatics2_Vtbl, 0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
 impl windows_core::RuntimeType for IChatCapabilitiesManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatCapabilitiesManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1937,6 +1952,7 @@ pub struct IChatCapabilitiesManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IChatConversation, IChatConversation_Vtbl, 0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
 impl windows_core::RuntimeType for IChatConversation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatConversation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1964,6 +1980,7 @@ pub struct IChatConversation_Vtbl {
 windows_core::imp::define_interface!(IChatConversation2, IChatConversation2_Vtbl, 0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
 impl windows_core::RuntimeType for IChatConversation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatConversation2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1975,6 +1992,7 @@ pub struct IChatConversation2_Vtbl {
 windows_core::imp::define_interface!(IChatConversationReader, IChatConversationReader_Vtbl, 0x055136d2_de32_4a47_a93a_b3dc0833852b);
 impl windows_core::RuntimeType for IChatConversationReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatConversationReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1986,6 +2004,7 @@ pub struct IChatConversationReader_Vtbl {
 windows_core::imp::define_interface!(IChatConversationThreadingInfo, IChatConversationThreadingInfo_Vtbl, 0x331c21dc_7a07_4422_a32c_24be7c6dab24);
 impl windows_core::RuntimeType for IChatConversationThreadingInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatConversationThreadingInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2004,6 +2023,7 @@ pub struct IChatConversationThreadingInfo_Vtbl {
 windows_core::imp::define_interface!(IChatItem, IChatItem_Vtbl, 0x8751d000_ceb1_4243_b803_15d45a1dd428);
 impl windows_core::RuntimeType for IChatItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatItem");
 }
 windows_core::imp::interface_hierarchy!(IChatItem, windows_core::IUnknown, windows_core::IInspectable);
 impl IChatItem {
@@ -2049,6 +2069,7 @@ pub struct IChatItem_Vtbl {
 windows_core::imp::define_interface!(IChatMessage, IChatMessage_Vtbl, 0x4b39052a_1142_5089_76da_f2db3d17cd05);
 impl windows_core::RuntimeType for IChatMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessage");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2075,6 +2096,7 @@ pub struct IChatMessage_Vtbl {
 windows_core::imp::define_interface!(IChatMessage2, IChatMessage2_Vtbl, 0x86668332_543f_49f5_ac71_6c2afc6565fd);
 impl windows_core::RuntimeType for IChatMessage2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessage2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2112,6 +2134,7 @@ pub struct IChatMessage2_Vtbl {
 windows_core::imp::define_interface!(IChatMessage3, IChatMessage3_Vtbl, 0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
 impl windows_core::RuntimeType for IChatMessage3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessage3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2122,6 +2145,7 @@ pub struct IChatMessage3_Vtbl {
 windows_core::imp::define_interface!(IChatMessage4, IChatMessage4_Vtbl, 0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
 impl windows_core::RuntimeType for IChatMessage4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessage4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2133,6 +2157,7 @@ pub struct IChatMessage4_Vtbl {
 windows_core::imp::define_interface!(IChatMessageAttachment, IChatMessageAttachment_Vtbl, 0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
 impl windows_core::RuntimeType for IChatMessageAttachment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageAttachment");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2156,6 +2181,7 @@ pub struct IChatMessageAttachment_Vtbl {
 windows_core::imp::define_interface!(IChatMessageAttachment2, IChatMessageAttachment2_Vtbl, 0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
 impl windows_core::RuntimeType for IChatMessageAttachment2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageAttachment2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2177,6 +2203,7 @@ pub struct IChatMessageAttachment2_Vtbl {
 windows_core::imp::define_interface!(IChatMessageAttachmentFactory, IChatMessageAttachmentFactory_Vtbl, 0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
 impl windows_core::RuntimeType for IChatMessageAttachmentFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageAttachmentFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2190,6 +2217,7 @@ pub struct IChatMessageAttachmentFactory_Vtbl {
 windows_core::imp::define_interface!(IChatMessageBlockingStatic, IChatMessageBlockingStatic_Vtbl, 0xf6b9a380_cdea_11e4_8830_0800200c9a66);
 impl windows_core::RuntimeType for IChatMessageBlockingStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageBlockingStatic");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2200,6 +2228,7 @@ pub struct IChatMessageBlockingStatic_Vtbl {
 windows_core::imp::define_interface!(IChatMessageChange, IChatMessageChange_Vtbl, 0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
 impl windows_core::RuntimeType for IChatMessageChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageChange");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2211,6 +2240,7 @@ pub struct IChatMessageChange_Vtbl {
 windows_core::imp::define_interface!(IChatMessageChangeReader, IChatMessageChangeReader_Vtbl, 0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
 impl windows_core::RuntimeType for IChatMessageChangeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageChangeReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2223,6 +2253,7 @@ pub struct IChatMessageChangeReader_Vtbl {
 windows_core::imp::define_interface!(IChatMessageChangeTracker, IChatMessageChangeTracker_Vtbl, 0x60b7f066_70a0_5224_508c_242ef7c1d06f);
 impl windows_core::RuntimeType for IChatMessageChangeTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageChangeTracker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2235,6 +2266,7 @@ pub struct IChatMessageChangeTracker_Vtbl {
 windows_core::imp::define_interface!(IChatMessageChangedDeferral, IChatMessageChangedDeferral_Vtbl, 0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
 impl windows_core::RuntimeType for IChatMessageChangedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageChangedDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2245,6 +2277,7 @@ pub struct IChatMessageChangedDeferral_Vtbl {
 windows_core::imp::define_interface!(IChatMessageChangedEventArgs, IChatMessageChangedEventArgs_Vtbl, 0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
 impl windows_core::RuntimeType for IChatMessageChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2255,6 +2288,7 @@ pub struct IChatMessageChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IChatMessageManager2Statics, IChatMessageManager2Statics_Vtbl, 0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
 impl windows_core::RuntimeType for IChatMessageManager2Statics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageManager2Statics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2266,6 +2300,7 @@ pub struct IChatMessageManager2Statics_Vtbl {
 windows_core::imp::define_interface!(IChatMessageManagerStatic, IChatMessageManagerStatic_Vtbl, 0xf15c60f7_d5e8_5e92_556d_e03b60253104);
 impl windows_core::RuntimeType for IChatMessageManagerStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageManagerStatic");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2279,6 +2314,7 @@ pub struct IChatMessageManagerStatic_Vtbl {
 windows_core::imp::define_interface!(IChatMessageManagerStatics3, IChatMessageManagerStatics3_Vtbl, 0x208b830d_6755_48cc_9ab3_fd03c463fc92);
 impl windows_core::RuntimeType for IChatMessageManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2289,6 +2325,7 @@ pub struct IChatMessageManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(IChatMessageNotificationTriggerDetails, IChatMessageNotificationTriggerDetails_Vtbl, 0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
 impl windows_core::RuntimeType for IChatMessageNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageNotificationTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2299,6 +2336,7 @@ pub struct IChatMessageNotificationTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IChatMessageNotificationTriggerDetails2, IChatMessageNotificationTriggerDetails2_Vtbl, 0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
 impl windows_core::RuntimeType for IChatMessageNotificationTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageNotificationTriggerDetails2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2312,6 +2350,7 @@ pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
 windows_core::imp::define_interface!(IChatMessageReader, IChatMessageReader_Vtbl, 0xb6ea78ce_4489_56f9_76aa_e204682514cf);
 impl windows_core::RuntimeType for IChatMessageReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2322,6 +2361,7 @@ pub struct IChatMessageReader_Vtbl {
 windows_core::imp::define_interface!(IChatMessageReader2, IChatMessageReader2_Vtbl, 0x89643683_64bb_470d_9df4_0de8be1a05bf);
 impl windows_core::RuntimeType for IChatMessageReader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageReader2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2332,6 +2372,7 @@ pub struct IChatMessageReader2_Vtbl {
 windows_core::imp::define_interface!(IChatMessageStore, IChatMessageStore_Vtbl, 0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
 impl windows_core::RuntimeType for IChatMessageStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2353,6 +2394,7 @@ pub struct IChatMessageStore_Vtbl {
 windows_core::imp::define_interface!(IChatMessageStore2, IChatMessageStore2_Vtbl, 0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
 impl windows_core::RuntimeType for IChatMessageStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageStore2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2379,6 +2421,7 @@ pub struct IChatMessageStore2_Vtbl {
 windows_core::imp::define_interface!(IChatMessageStore3, IChatMessageStore3_Vtbl, 0x9adbbb09_4345_4ec1_8b74_b7338243719c);
 impl windows_core::RuntimeType for IChatMessageStore3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageStore3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2389,6 +2432,7 @@ pub struct IChatMessageStore3_Vtbl {
 windows_core::imp::define_interface!(IChatMessageStoreChangedEventArgs, IChatMessageStoreChangedEventArgs_Vtbl, 0x65c66fac_fe8c_46d4_9119_57b8410311d5);
 impl windows_core::RuntimeType for IChatMessageStoreChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageStoreChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2400,6 +2444,7 @@ pub struct IChatMessageStoreChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IChatMessageTransport, IChatMessageTransport_Vtbl, 0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
 impl windows_core::RuntimeType for IChatMessageTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageTransport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2414,6 +2459,7 @@ pub struct IChatMessageTransport_Vtbl {
 windows_core::imp::define_interface!(IChatMessageTransport2, IChatMessageTransport2_Vtbl, 0x90a75622_d84a_4c22_a94d_544444edc8a1);
 impl windows_core::RuntimeType for IChatMessageTransport2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageTransport2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2425,6 +2471,7 @@ pub struct IChatMessageTransport2_Vtbl {
 windows_core::imp::define_interface!(IChatMessageTransportConfiguration, IChatMessageTransportConfiguration_Vtbl, 0x879ff725_1a08_4aca_a075_3355126312e6);
 impl windows_core::RuntimeType for IChatMessageTransportConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageTransportConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2442,6 +2489,7 @@ pub struct IChatMessageTransportConfiguration_Vtbl {
 windows_core::imp::define_interface!(IChatMessageValidationResult, IChatMessageValidationResult_Vtbl, 0x25e93a03_28ec_5889_569b_7e486b126f18);
 impl windows_core::RuntimeType for IChatMessageValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatMessageValidationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2455,6 +2503,7 @@ pub struct IChatMessageValidationResult_Vtbl {
 windows_core::imp::define_interface!(IChatQueryOptions, IChatQueryOptions_Vtbl, 0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
 impl windows_core::RuntimeType for IChatQueryOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatQueryOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2466,6 +2515,7 @@ pub struct IChatQueryOptions_Vtbl {
 windows_core::imp::define_interface!(IChatRecipientDeliveryInfo, IChatRecipientDeliveryInfo_Vtbl, 0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
 impl windows_core::RuntimeType for IChatRecipientDeliveryInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatRecipientDeliveryInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2486,6 +2536,7 @@ pub struct IChatRecipientDeliveryInfo_Vtbl {
 windows_core::imp::define_interface!(IChatSearchReader, IChatSearchReader_Vtbl, 0x4665fe49_9020_4752_980d_39612325f589);
 impl windows_core::RuntimeType for IChatSearchReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatSearchReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2497,6 +2548,7 @@ pub struct IChatSearchReader_Vtbl {
 windows_core::imp::define_interface!(IChatSyncConfiguration, IChatSyncConfiguration_Vtbl, 0x09f869b2_69f4_4aff_82b6_06992ff402d2);
 impl windows_core::RuntimeType for IChatSyncConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatSyncConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2510,6 +2562,7 @@ pub struct IChatSyncConfiguration_Vtbl {
 windows_core::imp::define_interface!(IChatSyncManager, IChatSyncManager_Vtbl, 0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
 impl windows_core::RuntimeType for IChatSyncManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IChatSyncManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2531,6 +2584,7 @@ pub struct IChatSyncManager_Vtbl {
 windows_core::imp::define_interface!(IRcsEndUserMessage, IRcsEndUserMessage_Vtbl, 0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
 impl windows_core::RuntimeType for IRcsEndUserMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsEndUserMessage");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2547,6 +2601,7 @@ pub struct IRcsEndUserMessage_Vtbl {
 windows_core::imp::define_interface!(IRcsEndUserMessageAction, IRcsEndUserMessageAction_Vtbl, 0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
 impl windows_core::RuntimeType for IRcsEndUserMessageAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsEndUserMessageAction");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2557,6 +2612,7 @@ pub struct IRcsEndUserMessageAction_Vtbl {
 windows_core::imp::define_interface!(IRcsEndUserMessageAvailableEventArgs, IRcsEndUserMessageAvailableEventArgs_Vtbl, 0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
 impl windows_core::RuntimeType for IRcsEndUserMessageAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsEndUserMessageAvailableEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2568,6 +2624,7 @@ pub struct IRcsEndUserMessageAvailableEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRcsEndUserMessageAvailableTriggerDetails, IRcsEndUserMessageAvailableTriggerDetails_Vtbl, 0x5b97742d_351f_4692_b41e_1b035dc18986);
 impl windows_core::RuntimeType for IRcsEndUserMessageAvailableTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsEndUserMessageAvailableTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2579,6 +2636,7 @@ pub struct IRcsEndUserMessageAvailableTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IRcsEndUserMessageManager, IRcsEndUserMessageManager_Vtbl, 0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
 impl windows_core::RuntimeType for IRcsEndUserMessageManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsEndUserMessageManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2590,6 +2648,7 @@ pub struct IRcsEndUserMessageManager_Vtbl {
 windows_core::imp::define_interface!(IRcsManagerStatics, IRcsManagerStatics_Vtbl, 0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
 impl windows_core::RuntimeType for IRcsManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2603,6 +2662,7 @@ pub struct IRcsManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IRcsManagerStatics2, IRcsManagerStatics2_Vtbl, 0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
 impl windows_core::RuntimeType for IRcsManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2614,6 +2674,7 @@ pub struct IRcsManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(IRcsServiceKindSupportedChangedEventArgs, IRcsServiceKindSupportedChangedEventArgs_Vtbl, 0xf47ea244_e783_4866_b3a7_4e5ccf023070);
 impl windows_core::RuntimeType for IRcsServiceKindSupportedChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsServiceKindSupportedChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2624,6 +2685,7 @@ pub struct IRcsServiceKindSupportedChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRcsTransport, IRcsTransport_Vtbl, 0xfea34759_f37c_4319_8546_ec84d21d30ff);
 impl windows_core::RuntimeType for IRcsTransport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsTransport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2642,6 +2704,7 @@ pub struct IRcsTransport_Vtbl {
 windows_core::imp::define_interface!(IRcsTransportConfiguration, IRcsTransportConfiguration_Vtbl, 0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
 impl windows_core::RuntimeType for IRcsTransportConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRcsTransportConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2657,6 +2720,7 @@ pub struct IRcsTransportConfiguration_Vtbl {
 windows_core::imp::define_interface!(IRemoteParticipantComposingChangedEventArgs, IRemoteParticipantComposingChangedEventArgs_Vtbl, 0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
 impl windows_core::RuntimeType for IRemoteParticipantComposingChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.IRemoteParticipantComposingChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2913,6 +2977,7 @@ impl windows_core::TypeKind for RcsServiceKind {
 }
 impl windows_core::RuntimeType for RcsServiceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.RcsServiceKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Chat.RcsServiceKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

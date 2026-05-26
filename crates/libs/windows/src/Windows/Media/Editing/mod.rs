@@ -141,6 +141,7 @@ unsafe impl Sync for EmbeddedAudioTrack {}
 windows_core::imp::define_interface!(IBackgroundAudioTrack, IBackgroundAudioTrack_Vtbl, 0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
 impl windows_core::RuntimeType for IBackgroundAudioTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IBackgroundAudioTrack");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -170,6 +171,7 @@ pub struct IBackgroundAudioTrack_Vtbl {
 windows_core::imp::define_interface!(IBackgroundAudioTrackStatics, IBackgroundAudioTrackStatics_Vtbl, 0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664);
 impl windows_core::RuntimeType for IBackgroundAudioTrackStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IBackgroundAudioTrackStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -184,6 +186,7 @@ pub struct IBackgroundAudioTrackStatics_Vtbl {
 windows_core::imp::define_interface!(IEmbeddedAudioTrack, IEmbeddedAudioTrack_Vtbl, 0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
 impl windows_core::RuntimeType for IEmbeddedAudioTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IEmbeddedAudioTrack");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -197,6 +200,7 @@ pub struct IEmbeddedAudioTrack_Vtbl {
 windows_core::imp::define_interface!(IMediaClip, IMediaClip_Vtbl, 0x53f25366_5fba_3ea4_8693_24761811140a);
 impl windows_core::RuntimeType for IMediaClip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaClip");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,6 +237,7 @@ pub struct IMediaClip_Vtbl {
 windows_core::imp::define_interface!(IMediaClipStatics, IMediaClipStatics_Vtbl, 0xfa402b68_928f_43c4_bc6e_783a1a359656);
 impl windows_core::RuntimeType for IMediaClipStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaClipStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,6 +259,7 @@ pub struct IMediaClipStatics_Vtbl {
 windows_core::imp::define_interface!(IMediaClipStatics2, IMediaClipStatics2_Vtbl, 0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
 impl windows_core::RuntimeType for IMediaClipStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaClipStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -267,6 +273,7 @@ pub struct IMediaClipStatics2_Vtbl {
 windows_core::imp::define_interface!(IMediaComposition, IMediaComposition_Vtbl, 0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
 impl windows_core::RuntimeType for IMediaComposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaComposition");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -321,6 +328,7 @@ pub struct IMediaComposition_Vtbl {
 windows_core::imp::define_interface!(IMediaComposition2, IMediaComposition2_Vtbl, 0xa59e5372_2366_492c_bec8_e6dfba6d0281);
 impl windows_core::RuntimeType for IMediaComposition2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaComposition2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -331,6 +339,7 @@ pub struct IMediaComposition2_Vtbl {
 windows_core::imp::define_interface!(IMediaCompositionStatics, IMediaCompositionStatics_Vtbl, 0x87a08f04_e32a_45ce_8f66_a30df0766224);
 impl windows_core::RuntimeType for IMediaCompositionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaCompositionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -344,6 +353,7 @@ pub struct IMediaCompositionStatics_Vtbl {
 windows_core::imp::define_interface!(IMediaOverlay, IMediaOverlay_Vtbl, 0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
 impl windows_core::RuntimeType for IMediaOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaOverlay");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -363,6 +373,7 @@ pub struct IMediaOverlay_Vtbl {
 windows_core::imp::define_interface!(IMediaOverlayFactory, IMediaOverlayFactory_Vtbl, 0xb584828a_6188_4f8f_a2e0_aa552d598e18);
 impl windows_core::RuntimeType for IMediaOverlayFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaOverlayFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -374,6 +385,7 @@ pub struct IMediaOverlayFactory_Vtbl {
 windows_core::imp::define_interface!(IMediaOverlayLayer, IMediaOverlayLayer_Vtbl, 0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
 impl windows_core::RuntimeType for IMediaOverlayLayer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaOverlayLayer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,6 +401,7 @@ pub struct IMediaOverlayLayer_Vtbl {
 windows_core::imp::define_interface!(IMediaOverlayLayerFactory, IMediaOverlayLayerFactory_Vtbl, 0x947cb473_a39e_4362_abbf_9f8b5070a062);
 impl windows_core::RuntimeType for IMediaOverlayLayerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.IMediaOverlayLayerFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -884,6 +897,7 @@ impl windows_core::TypeKind for MediaTrimmingPreference {
 }
 impl windows_core::RuntimeType for MediaTrimmingPreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.MediaTrimmingPreference");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -897,4 +911,5 @@ impl windows_core::TypeKind for VideoFramePrecision {
 }
 impl windows_core::RuntimeType for VideoFramePrecision {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Editing.VideoFramePrecision");
 }

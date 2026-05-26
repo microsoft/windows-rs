@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPwmControllerProvider, IPwmControllerProvider_Vtbl, 0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
 impl windows_core::RuntimeType for IPwmControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.Provider.IPwmControllerProvider");
 }
 windows_core::imp::interface_hierarchy!(IPwmControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmControllerProvider {
@@ -193,6 +194,7 @@ pub struct IPwmControllerProvider_Vtbl {
 windows_core::imp::define_interface!(IPwmProvider, IPwmProvider_Vtbl, 0xa3301228_52f1_47b0_9349_66ba43d25902);
 impl windows_core::RuntimeType for IPwmProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Pwm.Provider.IPwmProvider");
 }
 windows_core::imp::interface_hierarchy!(IPwmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IPwmProvider {

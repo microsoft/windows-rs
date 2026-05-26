@@ -52,6 +52,7 @@ impl windows_core::TypeKind for AppServiceClosedStatus {
 }
 impl windows_core::RuntimeType for AppServiceClosedStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.AppServiceClosedStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -206,6 +207,7 @@ impl windows_core::TypeKind for AppServiceConnectionStatus {
 }
 impl windows_core::RuntimeType for AppServiceConnectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.AppServiceConnectionStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -345,6 +347,7 @@ impl windows_core::TypeKind for AppServiceResponseStatus {
 }
 impl windows_core::RuntimeType for AppServiceResponseStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.AppServiceResponseStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -406,6 +409,7 @@ unsafe impl Sync for AppServiceTriggerDetails {}
 windows_core::imp::define_interface!(IAppServiceCatalogStatics, IAppServiceCatalogStatics_Vtbl, 0xef0d2507_d132_4c85_8395_3c31d5a1e941);
 impl windows_core::RuntimeType for IAppServiceCatalogStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceCatalogStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -416,6 +420,7 @@ pub struct IAppServiceCatalogStatics_Vtbl {
 windows_core::imp::define_interface!(IAppServiceClosedEventArgs, IAppServiceClosedEventArgs_Vtbl, 0xde6016f6_cb03_4d35_ac8d_cc6303239731);
 impl windows_core::RuntimeType for IAppServiceClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -426,6 +431,7 @@ pub struct IAppServiceClosedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAppServiceConnection, IAppServiceConnection_Vtbl, 0x9dd474a2_871f_4d52_89a9_9e090531bd27);
 impl windows_core::RuntimeType for IAppServiceConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -448,6 +454,7 @@ pub struct IAppServiceConnection_Vtbl {
 windows_core::imp::define_interface!(IAppServiceConnection2, IAppServiceConnection2_Vtbl, 0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
 impl windows_core::RuntimeType for IAppServiceConnection2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceConnection2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -469,6 +476,7 @@ pub struct IAppServiceConnection2_Vtbl {
 windows_core::imp::define_interface!(IAppServiceConnectionStatics, IAppServiceConnectionStatics_Vtbl, 0xadc56ce9_d408_5673_8637_827a4b274168);
 impl windows_core::RuntimeType for IAppServiceConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceConnectionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -482,6 +490,7 @@ pub struct IAppServiceConnectionStatics_Vtbl {
 windows_core::imp::define_interface!(IAppServiceDeferral, IAppServiceDeferral_Vtbl, 0x7e1b5322_eab0_4248_ae04_fdf93838e472);
 impl windows_core::RuntimeType for IAppServiceDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -492,6 +501,7 @@ pub struct IAppServiceDeferral_Vtbl {
 windows_core::imp::define_interface!(IAppServiceRequest, IAppServiceRequest_Vtbl, 0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
 impl windows_core::RuntimeType for IAppServiceRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -509,6 +519,7 @@ pub struct IAppServiceRequest_Vtbl {
 windows_core::imp::define_interface!(IAppServiceRequestReceivedEventArgs, IAppServiceRequestReceivedEventArgs_Vtbl, 0x6e122360_ff65_44ae_9e45_857fe4180681);
 impl windows_core::RuntimeType for IAppServiceRequestReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -520,6 +531,7 @@ pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAppServiceResponse, IAppServiceResponse_Vtbl, 0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
 impl windows_core::RuntimeType for IAppServiceResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceResponse");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -534,6 +546,7 @@ pub struct IAppServiceResponse_Vtbl {
 windows_core::imp::define_interface!(IAppServiceTriggerDetails, IAppServiceTriggerDetails_Vtbl, 0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
 impl windows_core::RuntimeType for IAppServiceTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -546,6 +559,7 @@ pub struct IAppServiceTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IAppServiceTriggerDetails2, IAppServiceTriggerDetails2_Vtbl, 0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
 impl windows_core::RuntimeType for IAppServiceTriggerDetails2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -556,6 +570,7 @@ pub struct IAppServiceTriggerDetails2_Vtbl {
 windows_core::imp::define_interface!(IAppServiceTriggerDetails3, IAppServiceTriggerDetails3_Vtbl, 0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
 impl windows_core::RuntimeType for IAppServiceTriggerDetails3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -566,6 +581,7 @@ pub struct IAppServiceTriggerDetails3_Vtbl {
 windows_core::imp::define_interface!(IAppServiceTriggerDetails4, IAppServiceTriggerDetails4_Vtbl, 0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
 impl windows_core::RuntimeType for IAppServiceTriggerDetails4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -576,6 +592,7 @@ pub struct IAppServiceTriggerDetails4_Vtbl {
 windows_core::imp::define_interface!(IStatelessAppServiceResponse, IStatelessAppServiceResponse_Vtbl, 0x43754af7_a9ec_52fe_82e7_939b68dc9388);
 impl windows_core::RuntimeType for IStatelessAppServiceResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.IStatelessAppServiceResponse");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -643,4 +660,5 @@ impl windows_core::TypeKind for StatelessAppServiceResponseStatus {
 }
 impl windows_core::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus");
 }

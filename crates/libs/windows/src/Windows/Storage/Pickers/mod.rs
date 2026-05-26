@@ -639,6 +639,7 @@ unsafe impl Sync for FolderPicker {}
 windows_core::imp::define_interface!(IFileOpenPicker, IFileOpenPicker_Vtbl, 0x2ca8278a_12c5_4c5f_8977_94547793c241);
 impl windows_core::RuntimeType for IFileOpenPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileOpenPicker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -665,6 +666,7 @@ pub struct IFileOpenPicker_Vtbl {
 windows_core::imp::define_interface!(IFileOpenPicker2, IFileOpenPicker2_Vtbl, 0x8ceb6cd2_b446_46f7_b265_90f8e55ad650);
 impl windows_core::RuntimeType for IFileOpenPicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileOpenPicker2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -680,6 +682,7 @@ pub struct IFileOpenPicker2_Vtbl {
 windows_core::imp::define_interface!(IFileOpenPicker3, IFileOpenPicker3_Vtbl, 0xd9a5c5b3_c5dc_5b98_bd80_a8d0ca0584d8);
 impl windows_core::RuntimeType for IFileOpenPicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileOpenPicker3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -693,6 +696,7 @@ pub struct IFileOpenPicker3_Vtbl {
 windows_core::imp::define_interface!(IFileOpenPickerStatics, IFileOpenPickerStatics_Vtbl, 0x6821573b_2f02_4833_96d4_abbfad72b67b);
 impl windows_core::RuntimeType for IFileOpenPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileOpenPickerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -706,6 +710,7 @@ pub struct IFileOpenPickerStatics_Vtbl {
 windows_core::imp::define_interface!(IFileOpenPickerStatics2, IFileOpenPickerStatics2_Vtbl, 0xe8917415_eddd_5c98_b6f3_366fdfcad392);
 impl windows_core::RuntimeType for IFileOpenPickerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileOpenPickerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -719,6 +724,7 @@ pub struct IFileOpenPickerStatics2_Vtbl {
 windows_core::imp::define_interface!(IFileOpenPickerWithOperationId, IFileOpenPickerWithOperationId_Vtbl, 0x3f57b569_2522_4ca5_aa73_a15509f1fcbf);
 impl windows_core::RuntimeType for IFileOpenPickerWithOperationId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileOpenPickerWithOperationId");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -732,6 +738,7 @@ pub struct IFileOpenPickerWithOperationId_Vtbl {
 windows_core::imp::define_interface!(IFileSavePicker, IFileSavePicker_Vtbl, 0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145);
 impl windows_core::RuntimeType for IFileSavePicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileSavePicker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -764,6 +771,7 @@ pub struct IFileSavePicker_Vtbl {
 windows_core::imp::define_interface!(IFileSavePicker2, IFileSavePicker2_Vtbl, 0x0ec313a2_d24b_449a_8197_e89104fd42cc);
 impl windows_core::RuntimeType for IFileSavePicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileSavePicker2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -778,6 +786,7 @@ pub struct IFileSavePicker2_Vtbl {
 windows_core::imp::define_interface!(IFileSavePicker3, IFileSavePicker3_Vtbl, 0x698aec69_ba3c_4e51_bd90_4abcbbf4cfaf);
 impl windows_core::RuntimeType for IFileSavePicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileSavePicker3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -789,6 +798,7 @@ pub struct IFileSavePicker3_Vtbl {
 windows_core::imp::define_interface!(IFileSavePicker4, IFileSavePicker4_Vtbl, 0xe7d83a5a_ddfa_5de0_8b70_c842c21988ec);
 impl windows_core::RuntimeType for IFileSavePicker4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileSavePicker4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -802,6 +812,7 @@ pub struct IFileSavePicker4_Vtbl {
 windows_core::imp::define_interface!(IFileSavePickerStatics, IFileSavePickerStatics_Vtbl, 0x28e3cf9e_961c_5e2c_aed7_e64737f4ce37);
 impl windows_core::RuntimeType for IFileSavePickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFileSavePickerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -815,6 +826,7 @@ pub struct IFileSavePickerStatics_Vtbl {
 windows_core::imp::define_interface!(IFolderPicker, IFolderPicker_Vtbl, 0x084f7799_f3fb_400a_99b1_7b4a772fd60d);
 impl windows_core::RuntimeType for IFolderPicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFolderPicker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -837,6 +849,7 @@ pub struct IFolderPicker_Vtbl {
 windows_core::imp::define_interface!(IFolderPicker2, IFolderPicker2_Vtbl, 0x8eb3ba97_dc85_4616_be94_9660881f2f5d);
 impl windows_core::RuntimeType for IFolderPicker2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFolderPicker2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -851,6 +864,7 @@ pub struct IFolderPicker2_Vtbl {
 windows_core::imp::define_interface!(IFolderPicker3, IFolderPicker3_Vtbl, 0x673b1e29_d326_53c0_bd24_a25c714cee36);
 impl windows_core::RuntimeType for IFolderPicker3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFolderPicker3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -864,6 +878,7 @@ pub struct IFolderPicker3_Vtbl {
 windows_core::imp::define_interface!(IFolderPickerStatics, IFolderPickerStatics_Vtbl, 0x9be34740_7ca1_5942_a3c8_46f2551ecff3);
 impl windows_core::RuntimeType for IFolderPickerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.IFolderPickerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -894,6 +909,7 @@ impl windows_core::TypeKind for PickerLocationId {
 }
 impl windows_core::RuntimeType for PickerLocationId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerLocationId;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.PickerLocationId");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -907,4 +923,5 @@ impl windows_core::TypeKind for PickerViewMode {
 }
 impl windows_core::RuntimeType for PickerViewMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Pickers.PickerViewMode");
 }

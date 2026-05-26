@@ -54,6 +54,7 @@ impl windows_core::TypeKind for DialAppLaunchResult {
 }
 impl windows_core::RuntimeType for DialAppLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.DialAppLaunchResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -69,6 +70,7 @@ impl windows_core::TypeKind for DialAppState {
 }
 impl windows_core::RuntimeType for DialAppState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.DialAppState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -114,6 +116,7 @@ impl windows_core::TypeKind for DialAppStopResult {
 }
 impl windows_core::RuntimeType for DialAppStopResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.DialAppStopResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -202,6 +205,7 @@ impl windows_core::TypeKind for DialDeviceDisplayStatus {
 }
 impl windows_core::RuntimeType for DialDeviceDisplayStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.DialDeviceDisplayStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -431,6 +435,7 @@ unsafe impl Sync for DialReceiverApp {}
 windows_core::imp::define_interface!(IDialApp, IDialApp_Vtbl, 0x555ffbd3_45b7_49f3_bbd7_302db6084646);
 impl windows_core::RuntimeType for IDialApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialApp");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -444,6 +449,7 @@ pub struct IDialApp_Vtbl {
 windows_core::imp::define_interface!(IDialAppStateDetails, IDialAppStateDetails_Vtbl, 0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
 impl windows_core::RuntimeType for IDialAppStateDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialAppStateDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -455,6 +461,7 @@ pub struct IDialAppStateDetails_Vtbl {
 windows_core::imp::define_interface!(IDialDevice, IDialDevice_Vtbl, 0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
 impl windows_core::RuntimeType for IDialDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -466,6 +473,7 @@ pub struct IDialDevice_Vtbl {
 windows_core::imp::define_interface!(IDialDevice2, IDialDevice2_Vtbl, 0xbab7f3d5_5bfb_4eba_8b32_b57c5c5ee5c9);
 impl windows_core::RuntimeType for IDialDevice2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialDevice2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -480,6 +488,7 @@ pub struct IDialDevice2_Vtbl {
 windows_core::imp::define_interface!(IDialDevicePicker, IDialDevicePicker_Vtbl, 0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
 impl windows_core::RuntimeType for IDialDevicePicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialDevicePicker");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -512,6 +521,7 @@ pub struct IDialDevicePicker_Vtbl {
 windows_core::imp::define_interface!(IDialDevicePickerFilter, IDialDevicePickerFilter_Vtbl, 0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
 impl windows_core::RuntimeType for IDialDevicePickerFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialDevicePickerFilter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -522,6 +532,7 @@ pub struct IDialDevicePickerFilter_Vtbl {
 windows_core::imp::define_interface!(IDialDeviceSelectedEventArgs, IDialDeviceSelectedEventArgs_Vtbl, 0x480b92ad_ac76_47eb_9c06_a19304da0247);
 impl windows_core::RuntimeType for IDialDeviceSelectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialDeviceSelectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -532,6 +543,7 @@ pub struct IDialDeviceSelectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDialDeviceStatics, IDialDeviceStatics_Vtbl, 0xaa69cc95_01f8_4758_8461_2bbd1cdc3cf3);
 impl windows_core::RuntimeType for IDialDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialDeviceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -547,6 +559,7 @@ pub struct IDialDeviceStatics_Vtbl {
 windows_core::imp::define_interface!(IDialDisconnectButtonClickedEventArgs, IDialDisconnectButtonClickedEventArgs_Vtbl, 0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
 impl windows_core::RuntimeType for IDialDisconnectButtonClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialDisconnectButtonClickedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -557,6 +570,7 @@ pub struct IDialDisconnectButtonClickedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDialReceiverApp, IDialReceiverApp_Vtbl, 0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
 impl windows_core::RuntimeType for IDialReceiverApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialReceiverApp");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -568,6 +582,7 @@ pub struct IDialReceiverApp_Vtbl {
 windows_core::imp::define_interface!(IDialReceiverApp2, IDialReceiverApp2_Vtbl, 0x530c5805_9130_42ac_a504_1977dcb2ea8a);
 impl windows_core::RuntimeType for IDialReceiverApp2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialReceiverApp2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -578,6 +593,7 @@ pub struct IDialReceiverApp2_Vtbl {
 windows_core::imp::define_interface!(IDialReceiverAppStatics, IDialReceiverAppStatics_Vtbl, 0x53183a3c_4c36_4d02_b28a_f2a9da38ec52);
 impl windows_core::RuntimeType for IDialReceiverAppStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.DialProtocol.IDialReceiverAppStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IWindowsProtectedPrintInfoStatics, IWindowsProtectedPrintInfoStatics_Vtbl, 0xa7d212f3_4168_5485_98ab_d89d04603b40);
 impl windows_core::RuntimeType for IWindowsProtectedPrintInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.ProtectedPrint.IWindowsProtectedPrintInfoStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

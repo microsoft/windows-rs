@@ -105,6 +105,7 @@ impl windows_core::TypeKind for GraphicsTrustStatus {
 }
 impl windows_core::RuntimeType for GraphicsTrustStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.GraphicsTrustStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.GraphicsTrustStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -119,6 +120,7 @@ impl windows_core::TypeKind for HdcpProtection {
 }
 impl windows_core::RuntimeType for HdcpProtection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpProtection;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.HdcpProtection");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -194,10 +196,12 @@ impl windows_core::TypeKind for HdcpSetProtectionResult {
 }
 impl windows_core::RuntimeType for HdcpSetProtectionResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.HdcpSetProtectionResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.HdcpSetProtectionResult");
 }
 windows_core::imp::define_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x95972e93_7746_417e_8495_f031bbc5862c);
 impl windows_core::RuntimeType for IComponentLoadFailedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IComponentLoadFailedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -209,6 +213,7 @@ pub struct IComponentLoadFailedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IComponentRenewalStatics, IComponentRenewalStatics_Vtbl, 0x6ffbcd67_b795_48c5_8b7b_a7c4efe202e3);
 impl windows_core::RuntimeType for IComponentRenewalStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IComponentRenewalStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -219,6 +224,7 @@ pub struct IComponentRenewalStatics_Vtbl {
 windows_core::imp::define_interface!(IHdcpSession, IHdcpSession_Vtbl, 0x718845e9_64d7_426d_809b_1be461941a2a);
 impl windows_core::RuntimeType for IHdcpSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IHdcpSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -233,6 +239,7 @@ pub struct IHdcpSession_Vtbl {
 windows_core::imp::define_interface!(IMediaProtectionManager, IMediaProtectionManager_Vtbl, 0x45694947_c741_434b_a79e_474c12d93d2f);
 impl windows_core::RuntimeType for IMediaProtectionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -252,6 +259,7 @@ pub struct IMediaProtectionManager_Vtbl {
 windows_core::imp::define_interface!(IMediaProtectionPMPServer, IMediaProtectionPMPServer_Vtbl, 0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
 impl windows_core::RuntimeType for IMediaProtectionPMPServer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionPMPServer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -265,6 +273,7 @@ pub struct IMediaProtectionPMPServer_Vtbl {
 windows_core::imp::define_interface!(IMediaProtectionPMPServerFactory, IMediaProtectionPMPServerFactory_Vtbl, 0x602c8e5e_f7d2_487e_af91_dbc4252b2182);
 impl windows_core::RuntimeType for IMediaProtectionPMPServerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionPMPServerFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,6 +287,7 @@ pub struct IMediaProtectionPMPServerFactory_Vtbl {
 windows_core::imp::define_interface!(IMediaProtectionServiceCompletion, IMediaProtectionServiceCompletion_Vtbl, 0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
 impl windows_core::RuntimeType for IMediaProtectionServiceCompletion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionServiceCompletion");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -288,6 +298,7 @@ pub struct IMediaProtectionServiceCompletion_Vtbl {
 windows_core::imp::define_interface!(IMediaProtectionServiceRequest, IMediaProtectionServiceRequest_Vtbl, 0xb1de0ea6_2094_478d_87a4_8b95200f85c6);
 impl windows_core::RuntimeType for IMediaProtectionServiceRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IMediaProtectionServiceRequest");
 }
 windows_core::imp::interface_hierarchy!(IMediaProtectionServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl IMediaProtectionServiceRequest {
@@ -357,6 +368,7 @@ pub struct IMediaProtectionServiceRequest_Vtbl {
 windows_core::imp::define_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 impl windows_core::RuntimeType for IProtectionCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IProtectionCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -367,6 +379,7 @@ pub struct IProtectionCapabilities_Vtbl {
 windows_core::imp::define_interface!(IRevocationAndRenewalInformation, IRevocationAndRenewalInformation_Vtbl, 0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
 impl windows_core::RuntimeType for IRevocationAndRenewalInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IRevocationAndRenewalInformation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -377,6 +390,7 @@ pub struct IRevocationAndRenewalInformation_Vtbl {
 windows_core::imp::define_interface!(IRevocationAndRenewalItem, IRevocationAndRenewalItem_Vtbl, 0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
 impl windows_core::RuntimeType for IRevocationAndRenewalItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IRevocationAndRenewalItem");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -391,6 +405,7 @@ pub struct IRevocationAndRenewalItem_Vtbl {
 windows_core::imp::define_interface!(IServiceRequestedEventArgs, IServiceRequestedEventArgs_Vtbl, 0x34283baf_abb4_4fc1_bd89_93f106573a49);
 impl windows_core::RuntimeType for IServiceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IServiceRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -402,6 +417,7 @@ pub struct IServiceRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IServiceRequestedEventArgs2, IServiceRequestedEventArgs2_Vtbl, 0x553c69d6_fafe_4128_8dfa_130e398a13a7);
 impl windows_core::RuntimeType for IServiceRequestedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.IServiceRequestedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -584,6 +600,7 @@ impl windows_core::TypeKind for ProtectionCapabilityResult {
 }
 impl windows_core::RuntimeType for ProtectionCapabilityResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.ProtectionCapabilityResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.ProtectionCapabilityResult");
 }
 windows_core::imp::define_interface!(RebootNeededEventHandler, RebootNeededEventHandler_Vtbl, 0x64e12a45_973b_4a3a_b260_91898a49a82c);
 impl windows_core::RuntimeType for RebootNeededEventHandler {
@@ -639,6 +656,7 @@ impl windows_core::TypeKind for RenewalStatus {
 }
 impl windows_core::RuntimeType for RenewalStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RenewalStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.RenewalStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -737,6 +755,7 @@ impl windows_core::TypeKind for RevocationAndRenewalReasons {
 }
 impl windows_core::RuntimeType for RevocationAndRenewalReasons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.RevocationAndRenewalReasons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Protection.RevocationAndRenewalReasons");
 }
 impl RevocationAndRenewalReasons {
     pub const fn contains(&self, other: Self) -> bool {

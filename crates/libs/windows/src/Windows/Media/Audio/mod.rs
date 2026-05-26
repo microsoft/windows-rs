@@ -144,6 +144,7 @@ impl windows_core::TypeKind for AudioDeviceNodeCreationStatus {
 }
 impl windows_core::RuntimeType for AudioDeviceNodeCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioDeviceNodeCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioDeviceNodeCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -332,6 +333,7 @@ impl windows_core::TypeKind for AudioEffectsPackStatus {
 }
 impl windows_core::RuntimeType for AudioEffectsPackStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioEffectsPackStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioEffectsPackStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -545,6 +547,7 @@ impl windows_core::TypeKind for AudioFileNodeCreationStatus {
 }
 impl windows_core::RuntimeType for AudioFileNodeCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioFileNodeCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioFileNodeCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1326,6 +1329,7 @@ impl windows_core::TypeKind for AudioGraphCreationStatus {
 }
 impl windows_core::RuntimeType for AudioGraphCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioGraphCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1447,6 +1451,7 @@ impl windows_core::TypeKind for AudioGraphUnrecoverableError {
 }
 impl windows_core::RuntimeType for AudioGraphUnrecoverableError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioGraphUnrecoverableError;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioGraphUnrecoverableError");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1642,6 +1647,7 @@ impl windows_core::TypeKind for AudioNodeEmitterDecayKind {
 }
 impl windows_core::RuntimeType for AudioNodeEmitterDecayKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterDecayKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioNodeEmitterDecayKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1743,6 +1749,7 @@ impl windows_core::TypeKind for AudioNodeEmitterSettings {
 }
 impl windows_core::RuntimeType for AudioNodeEmitterSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterSettings;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioNodeEmitterSettings");
 }
 impl AudioNodeEmitterSettings {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1835,6 +1842,7 @@ impl windows_core::TypeKind for AudioNodeEmitterShapeKind {
 }
 impl windows_core::RuntimeType for AudioNodeEmitterShapeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioNodeEmitterShapeKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioNodeEmitterShapeKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2027,6 +2035,7 @@ impl windows_core::TypeKind for AudioPlaybackConnectionOpenResultStatus {
 }
 impl windows_core::RuntimeType for AudioPlaybackConnectionOpenResultStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2040,6 +2049,7 @@ impl windows_core::TypeKind for AudioPlaybackConnectionState {
 }
 impl windows_core::RuntimeType for AudioPlaybackConnectionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.AudioPlaybackConnectionState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.AudioPlaybackConnectionState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2694,6 +2704,7 @@ unsafe impl Sync for FrameInputNodeQuantumStartedEventArgs {}
 windows_core::imp::define_interface!(IAudioDeviceInputNode, IAudioDeviceInputNode_Vtbl, 0xb01b6be1_6f4e_49e2_ac01_559d62beb3a9);
 impl windows_core::RuntimeType for IAudioDeviceInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioDeviceInputNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2707,6 +2718,7 @@ pub struct IAudioDeviceInputNode_Vtbl {
 windows_core::imp::define_interface!(IAudioDeviceOutputNode, IAudioDeviceOutputNode_Vtbl, 0x362edbff_ff1c_4434_9e0f_bd2ef522ac82);
 impl windows_core::RuntimeType for IAudioDeviceOutputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioDeviceOutputNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2720,6 +2732,7 @@ pub struct IAudioDeviceOutputNode_Vtbl {
 windows_core::imp::define_interface!(IAudioEffectsPackConfiguration, IAudioEffectsPackConfiguration_Vtbl, 0x71d7627d_70c1_536c_a8f8_6f98015a7f06);
 impl windows_core::RuntimeType for IAudioEffectsPackConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioEffectsPackConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2734,6 +2747,7 @@ pub struct IAudioEffectsPackConfiguration_Vtbl {
 windows_core::imp::define_interface!(IAudioEffectsPackConfigurationStatics, IAudioEffectsPackConfigurationStatics_Vtbl, 0x61c20413_530c_55ff_ba2b_8e68a9b56a04);
 impl windows_core::RuntimeType for IAudioEffectsPackConfigurationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioEffectsPackConfigurationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2745,6 +2759,7 @@ pub struct IAudioEffectsPackConfigurationStatics_Vtbl {
 windows_core::imp::define_interface!(IAudioFileInputNode, IAudioFileInputNode_Vtbl, 0x905b67c8_6f65_4cd4_8890_4694843c276d);
 impl windows_core::RuntimeType for IAudioFileInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioFileInputNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2771,6 +2786,7 @@ pub struct IAudioFileInputNode_Vtbl {
 windows_core::imp::define_interface!(IAudioFileOutputNode, IAudioFileOutputNode_Vtbl, 0x50e01980_5166_4093_80f8_ada00089e9cf);
 impl windows_core::RuntimeType for IAudioFileOutputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioFileOutputNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2792,6 +2808,7 @@ pub struct IAudioFileOutputNode_Vtbl {
 windows_core::imp::define_interface!(IAudioFrameCompletedEventArgs, IAudioFrameCompletedEventArgs_Vtbl, 0xdc7c829e_0208_4504_a5a8_f0f268920a65);
 impl windows_core::RuntimeType for IAudioFrameCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioFrameCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2802,6 +2819,7 @@ pub struct IAudioFrameCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAudioFrameInputNode, IAudioFrameInputNode_Vtbl, 0x01b266c7_fd96_4ff5_a3c5_d27a9bf44237);
 impl windows_core::RuntimeType for IAudioFrameInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioFrameInputNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2820,6 +2838,7 @@ pub struct IAudioFrameInputNode_Vtbl {
 windows_core::imp::define_interface!(IAudioFrameOutputNode, IAudioFrameOutputNode_Vtbl, 0xb847371b_3299_45f5_88b3_c9d12a3f1cc8);
 impl windows_core::RuntimeType for IAudioFrameOutputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioFrameOutputNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2830,6 +2849,7 @@ pub struct IAudioFrameOutputNode_Vtbl {
 windows_core::imp::define_interface!(IAudioGraph, IAudioGraph_Vtbl, 0x1ad46eed_e48c_4e14_9660_2c4f83e9cdd8);
 impl windows_core::RuntimeType for IAudioGraph {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraph");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2900,6 +2920,7 @@ pub struct IAudioGraph_Vtbl {
 windows_core::imp::define_interface!(IAudioGraph2, IAudioGraph2_Vtbl, 0x4e4c3bd5_4fc1_45f6_a947_3cd38f4fd839);
 impl windows_core::RuntimeType for IAudioGraph2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraph2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2926,6 +2947,7 @@ pub struct IAudioGraph2_Vtbl {
 windows_core::imp::define_interface!(IAudioGraph3, IAudioGraph3_Vtbl, 0xddcd25ae_1185_42a7_831d_6a9b0fc86820);
 impl windows_core::RuntimeType for IAudioGraph3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraph3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2943,6 +2965,7 @@ pub struct IAudioGraph3_Vtbl {
 windows_core::imp::define_interface!(IAudioGraphConnection, IAudioGraphConnection_Vtbl, 0x763070ed_d04e_4fac_b233_600b42edd469);
 impl windows_core::RuntimeType for IAudioGraphConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraphConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2955,6 +2978,7 @@ pub struct IAudioGraphConnection_Vtbl {
 windows_core::imp::define_interface!(IAudioGraphSettings, IAudioGraphSettings_Vtbl, 0x1d59647f_e6fe_4628_84f8_9d8bdba25785);
 impl windows_core::RuntimeType for IAudioGraphSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraphSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2994,6 +3018,7 @@ pub struct IAudioGraphSettings_Vtbl {
 windows_core::imp::define_interface!(IAudioGraphSettings2, IAudioGraphSettings2_Vtbl, 0x72919787_4dab_46e3_b4c9_d8e1a2636062);
 impl windows_core::RuntimeType for IAudioGraphSettings2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraphSettings2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3005,6 +3030,7 @@ pub struct IAudioGraphSettings2_Vtbl {
 windows_core::imp::define_interface!(IAudioGraphSettingsFactory, IAudioGraphSettingsFactory_Vtbl, 0xa5d91cc6_c2eb_4a61_a214_1d66d75f83da);
 impl windows_core::RuntimeType for IAudioGraphSettingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraphSettingsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3018,6 +3044,7 @@ pub struct IAudioGraphSettingsFactory_Vtbl {
 windows_core::imp::define_interface!(IAudioGraphStatics, IAudioGraphStatics_Vtbl, 0x76ec3132_e159_4ab7_a82a_17beb4b31e94);
 impl windows_core::RuntimeType for IAudioGraphStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraphStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3028,6 +3055,7 @@ pub struct IAudioGraphStatics_Vtbl {
 windows_core::imp::define_interface!(IAudioGraphUnrecoverableErrorOccurredEventArgs, IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl, 0xc3d9cbe0_3ff6_4fb3_b262_50d435c55423);
 impl windows_core::RuntimeType for IAudioGraphUnrecoverableErrorOccurredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3038,6 +3066,7 @@ pub struct IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAudioInputNode, IAudioInputNode_Vtbl, 0xd148005c_8428_4784_b7fd_a99d468c5d20);
 impl windows_core::RuntimeType for IAudioInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioInputNode");
 }
 windows_core::imp::interface_hierarchy!(IAudioInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAudioInputNode, IAudioNode, super::super::Foundation::IClosable);
@@ -3206,6 +3235,7 @@ pub struct IAudioInputNode_Vtbl {
 windows_core::imp::define_interface!(IAudioInputNode2, IAudioInputNode2_Vtbl, 0x905156b7_ca68_4c6d_a8bc_e3ee17fe3fd2);
 impl windows_core::RuntimeType for IAudioInputNode2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioInputNode2");
 }
 windows_core::imp::interface_hierarchy!(IAudioInputNode2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAudioInputNode2, IAudioInputNode, IAudioNode, super::super::Foundation::IClosable);
@@ -3354,6 +3384,7 @@ pub struct IAudioInputNode2_Vtbl {
 windows_core::imp::define_interface!(IAudioNode, IAudioNode_Vtbl, 0x15389d7f_dbd8_4819_bf03_668e9357cd6d);
 impl windows_core::RuntimeType for IAudioNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNode");
 }
 windows_core::imp::interface_hierarchy!(IAudioNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAudioNode, super::super::Foundation::IClosable);
@@ -3581,6 +3612,7 @@ pub struct IAudioNode_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitter, IAudioNodeEmitter_Vtbl, 0x3676971d_880a_47b8_adf7_1323a9d965be);
 impl windows_core::RuntimeType for IAudioNodeEmitter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3605,6 +3637,7 @@ pub struct IAudioNodeEmitter_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitter2, IAudioNodeEmitter2_Vtbl, 0x4ab6eecb_ec29_47f8_818c_b6b660a5aeb1);
 impl windows_core::RuntimeType for IAudioNodeEmitter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitter2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3616,6 +3649,7 @@ pub struct IAudioNodeEmitter2_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitterConeProperties, IAudioNodeEmitterConeProperties_Vtbl, 0xe99b2cee_02ca_4375_9326_0c6ae4bcdfb5);
 impl windows_core::RuntimeType for IAudioNodeEmitterConeProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitterConeProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3628,6 +3662,7 @@ pub struct IAudioNodeEmitterConeProperties_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitterDecayModel, IAudioNodeEmitterDecayModel_Vtbl, 0x1d1d5af7_0d53_4fa9_bd84_d5816a86f3ff);
 impl windows_core::RuntimeType for IAudioNodeEmitterDecayModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitterDecayModel");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3641,6 +3676,7 @@ pub struct IAudioNodeEmitterDecayModel_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitterDecayModelStatics, IAudioNodeEmitterDecayModelStatics_Vtbl, 0xc7787ca8_f178_462f_bc81_8dd5cbe5dae8);
 impl windows_core::RuntimeType for IAudioNodeEmitterDecayModelStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitterDecayModelStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3652,6 +3688,7 @@ pub struct IAudioNodeEmitterDecayModelStatics_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitterFactory, IAudioNodeEmitterFactory_Vtbl, 0xfdc8489a_6ad6_4ce4_b7f7_a99370df7ee9);
 impl windows_core::RuntimeType for IAudioNodeEmitterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3662,6 +3699,7 @@ pub struct IAudioNodeEmitterFactory_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitterNaturalDecayModelProperties, IAudioNodeEmitterNaturalDecayModelProperties_Vtbl, 0x48934bcf_cf2c_4efc_9331_75bd22df1f0c);
 impl windows_core::RuntimeType for IAudioNodeEmitterNaturalDecayModelProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3673,6 +3711,7 @@ pub struct IAudioNodeEmitterNaturalDecayModelProperties_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitterShape, IAudioNodeEmitterShape_Vtbl, 0xea0311c5_e73d_44bc_859c_45553bbc4828);
 impl windows_core::RuntimeType for IAudioNodeEmitterShape {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitterShape");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3684,6 +3723,7 @@ pub struct IAudioNodeEmitterShape_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeEmitterShapeStatics, IAudioNodeEmitterShapeStatics_Vtbl, 0x57bb2771_ffa5_4b86_a779_e264aeb9145f);
 impl windows_core::RuntimeType for IAudioNodeEmitterShapeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeEmitterShapeStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3695,6 +3735,7 @@ pub struct IAudioNodeEmitterShapeStatics_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeListener, IAudioNodeListener_Vtbl, 0xd9722e16_0c0a_41da_b755_6c77835fb1eb);
 impl windows_core::RuntimeType for IAudioNodeListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeListener");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3718,6 +3759,7 @@ pub struct IAudioNodeListener_Vtbl {
 windows_core::imp::define_interface!(IAudioNodeWithListener, IAudioNodeWithListener_Vtbl, 0x0e0f907c_79ff_4544_9eeb_01257b15105a);
 impl windows_core::RuntimeType for IAudioNodeWithListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioNodeWithListener");
 }
 windows_core::imp::interface_hierarchy!(IAudioNodeWithListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IAudioNodeWithListener, IAudioNode, super::super::Foundation::IClosable);
@@ -3856,6 +3898,7 @@ pub struct IAudioNodeWithListener_Vtbl {
 windows_core::imp::define_interface!(IAudioPlaybackConnection, IAudioPlaybackConnection_Vtbl, 0x1a4c1dea_cafc_50e7_8718_ea3f81cbfa51);
 impl windows_core::RuntimeType for IAudioPlaybackConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioPlaybackConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3873,6 +3916,7 @@ pub struct IAudioPlaybackConnection_Vtbl {
 windows_core::imp::define_interface!(IAudioPlaybackConnectionOpenResult, IAudioPlaybackConnectionOpenResult_Vtbl, 0x4e656aef_39f9_5fc9_a519_a5bbfd9fe921);
 impl windows_core::RuntimeType for IAudioPlaybackConnectionOpenResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioPlaybackConnectionOpenResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3884,6 +3928,7 @@ pub struct IAudioPlaybackConnectionOpenResult_Vtbl {
 windows_core::imp::define_interface!(IAudioPlaybackConnectionStatics, IAudioPlaybackConnectionStatics_Vtbl, 0xe60963a2_69e6_5ffc_9e13_824a85213daf);
 impl windows_core::RuntimeType for IAudioPlaybackConnectionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioPlaybackConnectionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3895,6 +3940,7 @@ pub struct IAudioPlaybackConnectionStatics_Vtbl {
 windows_core::imp::define_interface!(IAudioStateMonitor, IAudioStateMonitor_Vtbl, 0x1d13d136_0199_4cdc_b84e_e72c2b581ece);
 impl windows_core::RuntimeType for IAudioStateMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioStateMonitor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3907,6 +3953,7 @@ pub struct IAudioStateMonitor_Vtbl {
 windows_core::imp::define_interface!(IAudioStateMonitorStatics, IAudioStateMonitorStatics_Vtbl, 0x6374ea4c_1b3b_4001_94d9_dd225330fa40);
 impl windows_core::RuntimeType for IAudioStateMonitorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IAudioStateMonitorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3942,6 +3989,7 @@ pub struct IAudioStateMonitorStatics_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioDeviceInputNodeResult, ICreateAudioDeviceInputNodeResult_Vtbl, 0x16eec7a8_1ca7_40ef_91a4_d346e0aa1bba);
 impl windows_core::RuntimeType for ICreateAudioDeviceInputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioDeviceInputNodeResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3953,6 +4001,7 @@ pub struct ICreateAudioDeviceInputNodeResult_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioDeviceInputNodeResult2, ICreateAudioDeviceInputNodeResult2_Vtbl, 0x921c69ce_3f35_41c7_9622_79f608baedc2);
 impl windows_core::RuntimeType for ICreateAudioDeviceInputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioDeviceInputNodeResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3963,6 +4012,7 @@ pub struct ICreateAudioDeviceInputNodeResult2_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioDeviceOutputNodeResult, ICreateAudioDeviceOutputNodeResult_Vtbl, 0xf7776d27_1d9a_47f7_9cd4_2859cc1b7bff);
 impl windows_core::RuntimeType for ICreateAudioDeviceOutputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3974,6 +4024,7 @@ pub struct ICreateAudioDeviceOutputNodeResult_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioDeviceOutputNodeResult2, ICreateAudioDeviceOutputNodeResult2_Vtbl, 0x4864269f_bdce_4ab1_bd38_fbae93aedaca);
 impl windows_core::RuntimeType for ICreateAudioDeviceOutputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3984,6 +4035,7 @@ pub struct ICreateAudioDeviceOutputNodeResult2_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioFileInputNodeResult, ICreateAudioFileInputNodeResult_Vtbl, 0xce83d61c_e297_4c50_9ce7_1c7a69d6bd09);
 impl windows_core::RuntimeType for ICreateAudioFileInputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioFileInputNodeResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3995,6 +4047,7 @@ pub struct ICreateAudioFileInputNodeResult_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioFileInputNodeResult2, ICreateAudioFileInputNodeResult2_Vtbl, 0xf9082020_3d80_4fe0_81c1_768fea7ca7e0);
 impl windows_core::RuntimeType for ICreateAudioFileInputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioFileInputNodeResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4005,6 +4058,7 @@ pub struct ICreateAudioFileInputNodeResult2_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioFileOutputNodeResult, ICreateAudioFileOutputNodeResult_Vtbl, 0x47d6ba7b_e909_453f_866e_5540cda734ff);
 impl windows_core::RuntimeType for ICreateAudioFileOutputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioFileOutputNodeResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4016,6 +4070,7 @@ pub struct ICreateAudioFileOutputNodeResult_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioFileOutputNodeResult2, ICreateAudioFileOutputNodeResult2_Vtbl, 0x9f01b50d_3318_47b3_a60a_1b492be7fc0d);
 impl windows_core::RuntimeType for ICreateAudioFileOutputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioFileOutputNodeResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4026,6 +4081,7 @@ pub struct ICreateAudioFileOutputNodeResult2_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioGraphResult, ICreateAudioGraphResult_Vtbl, 0x5453ef7e_7bde_4b76_bb5d_48f79cfc8c0b);
 impl windows_core::RuntimeType for ICreateAudioGraphResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioGraphResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4037,6 +4093,7 @@ pub struct ICreateAudioGraphResult_Vtbl {
 windows_core::imp::define_interface!(ICreateAudioGraphResult2, ICreateAudioGraphResult2_Vtbl, 0x6d738dfc_88c6_4fcb_a534_85cedd4050a1);
 impl windows_core::RuntimeType for ICreateAudioGraphResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateAudioGraphResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4047,6 +4104,7 @@ pub struct ICreateAudioGraphResult2_Vtbl {
 windows_core::imp::define_interface!(ICreateMediaSourceAudioInputNodeResult, ICreateMediaSourceAudioInputNodeResult_Vtbl, 0x46a658a3_53c0_4d59_9e51_cc1d1044a4c4);
 impl windows_core::RuntimeType for ICreateMediaSourceAudioInputNodeResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4058,6 +4116,7 @@ pub struct ICreateMediaSourceAudioInputNodeResult_Vtbl {
 windows_core::imp::define_interface!(ICreateMediaSourceAudioInputNodeResult2, ICreateMediaSourceAudioInputNodeResult2_Vtbl, 0x63514ce8_6a1a_49e3_97ec_28fd5be114e5);
 impl windows_core::RuntimeType for ICreateMediaSourceAudioInputNodeResult2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4070,6 +4129,7 @@ windows_core::imp::define_interface!(IEchoEffectDefinition, IEchoEffectDefinitio
 #[cfg(feature = "Media_Effects")]
 impl windows_core::RuntimeType for IEchoEffectDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IEchoEffectDefinition");
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
@@ -4086,6 +4146,7 @@ pub struct IEchoEffectDefinition_Vtbl {
 windows_core::imp::define_interface!(IEchoEffectDefinitionFactory, IEchoEffectDefinitionFactory_Vtbl, 0x0d4e2257_aaf2_4e86_a54c_fb79db8f6c12);
 impl windows_core::RuntimeType for IEchoEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IEchoEffectDefinitionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4099,6 +4160,7 @@ pub struct IEchoEffectDefinitionFactory_Vtbl {
 windows_core::imp::define_interface!(IEqualizerBand, IEqualizerBand_Vtbl, 0xc00a5a6a_262d_4b85_9bb7_43280b62ed0c);
 impl windows_core::RuntimeType for IEqualizerBand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IEqualizerBand");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4116,6 +4178,7 @@ windows_core::imp::define_interface!(IEqualizerEffectDefinition, IEqualizerEffec
 #[cfg(feature = "Media_Effects")]
 impl windows_core::RuntimeType for IEqualizerEffectDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IEqualizerEffectDefinition");
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
@@ -4127,6 +4190,7 @@ pub struct IEqualizerEffectDefinition_Vtbl {
 windows_core::imp::define_interface!(IEqualizerEffectDefinitionFactory, IEqualizerEffectDefinitionFactory_Vtbl, 0xd2876fc4_d410_4eb5_9e69_c9aa1277eaf0);
 impl windows_core::RuntimeType for IEqualizerEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IEqualizerEffectDefinitionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4140,6 +4204,7 @@ pub struct IEqualizerEffectDefinitionFactory_Vtbl {
 windows_core::imp::define_interface!(IFrameInputNodeQuantumStartedEventArgs, IFrameInputNodeQuantumStartedEventArgs_Vtbl, 0x3d9bd498_a306_4f06_bd9f_e9efc8226304);
 impl windows_core::RuntimeType for IFrameInputNodeQuantumStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4152,6 +4217,7 @@ windows_core::imp::define_interface!(ILimiterEffectDefinition, ILimiterEffectDef
 #[cfg(feature = "Media_Effects")]
 impl windows_core::RuntimeType for ILimiterEffectDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ILimiterEffectDefinition");
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
@@ -4166,6 +4232,7 @@ pub struct ILimiterEffectDefinition_Vtbl {
 windows_core::imp::define_interface!(ILimiterEffectDefinitionFactory, ILimiterEffectDefinitionFactory_Vtbl, 0xecbae6f1_61ff_45ef_b8f5_48659a57c72d);
 impl windows_core::RuntimeType for ILimiterEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ILimiterEffectDefinitionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4179,6 +4246,7 @@ pub struct ILimiterEffectDefinitionFactory_Vtbl {
 windows_core::imp::define_interface!(IMediaSourceAudioInputNode, IMediaSourceAudioInputNode_Vtbl, 0x99d8983b_a88a_4041_8e4f_ddbac0c91fd3);
 impl windows_core::RuntimeType for IMediaSourceAudioInputNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IMediaSourceAudioInputNode");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4207,6 +4275,7 @@ windows_core::imp::define_interface!(IReverbEffectDefinition, IReverbEffectDefin
 #[cfg(feature = "Media_Effects")]
 impl windows_core::RuntimeType for IReverbEffectDefinition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IReverbEffectDefinition");
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(C)]
@@ -4263,6 +4332,7 @@ pub struct IReverbEffectDefinition_Vtbl {
 windows_core::imp::define_interface!(IReverbEffectDefinitionFactory, IReverbEffectDefinitionFactory_Vtbl, 0xa7d5cbfe_100b_4ff0_9da6_dc4e05a759f0);
 impl windows_core::RuntimeType for IReverbEffectDefinitionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.IReverbEffectDefinitionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4276,6 +4346,7 @@ pub struct IReverbEffectDefinitionFactory_Vtbl {
 windows_core::imp::define_interface!(ISetDefaultSpatialAudioFormatResult, ISetDefaultSpatialAudioFormatResult_Vtbl, 0x1c2aa511_1400_5e70_9ea9_ae151241e8ea);
 impl windows_core::RuntimeType for ISetDefaultSpatialAudioFormatResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ISetDefaultSpatialAudioFormatResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4286,6 +4357,7 @@ pub struct ISetDefaultSpatialAudioFormatResult_Vtbl {
 windows_core::imp::define_interface!(ISpatialAudioDeviceConfiguration, ISpatialAudioDeviceConfiguration_Vtbl, 0xee830034_61cf_5749_9da4_10f0fe028199);
 impl windows_core::RuntimeType for ISpatialAudioDeviceConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ISpatialAudioDeviceConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4303,6 +4375,7 @@ pub struct ISpatialAudioDeviceConfiguration_Vtbl {
 windows_core::imp::define_interface!(ISpatialAudioDeviceConfigurationStatics, ISpatialAudioDeviceConfigurationStatics_Vtbl, 0x3ec37f7b_936d_4e04_9728_2827d9f758c4);
 impl windows_core::RuntimeType for ISpatialAudioDeviceConfigurationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ISpatialAudioDeviceConfigurationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4313,6 +4386,7 @@ pub struct ISpatialAudioDeviceConfigurationStatics_Vtbl {
 windows_core::imp::define_interface!(ISpatialAudioFormatConfiguration, ISpatialAudioFormatConfiguration_Vtbl, 0x32df09a8_50f0_5395_9923_7d44ca71ed6d);
 impl windows_core::RuntimeType for ISpatialAudioFormatConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ISpatialAudioFormatConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4326,6 +4400,7 @@ pub struct ISpatialAudioFormatConfiguration_Vtbl {
 windows_core::imp::define_interface!(ISpatialAudioFormatConfigurationStatics, ISpatialAudioFormatConfigurationStatics_Vtbl, 0x2b5fef71_67c9_4e5f_a35b_41680711f8c7);
 impl windows_core::RuntimeType for ISpatialAudioFormatConfigurationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ISpatialAudioFormatConfigurationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4336,6 +4411,7 @@ pub struct ISpatialAudioFormatConfigurationStatics_Vtbl {
 windows_core::imp::define_interface!(ISpatialAudioFormatSubtypeStatics, ISpatialAudioFormatSubtypeStatics_Vtbl, 0xb3de8a47_83ee_4266_a945_bedf507afeed);
 impl windows_core::RuntimeType for ISpatialAudioFormatSubtypeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4351,6 +4427,7 @@ pub struct ISpatialAudioFormatSubtypeStatics_Vtbl {
 windows_core::imp::define_interface!(ISpatialAudioFormatSubtypeStatics2, ISpatialAudioFormatSubtypeStatics2_Vtbl, 0x4565e6cb_d95b_5621_b6af_0e8849c57c80);
 impl windows_core::RuntimeType for ISpatialAudioFormatSubtypeStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4643,6 +4720,7 @@ impl windows_core::TypeKind for MediaSourceAudioInputNodeCreationStatus {
 }
 impl windows_core::RuntimeType for MediaSourceAudioInputNodeCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4656,6 +4734,7 @@ impl windows_core::TypeKind for MixedRealitySpatialAudioFormatPolicy {
 }
 impl windows_core::RuntimeType for MixedRealitySpatialAudioFormatPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4670,6 +4749,7 @@ impl windows_core::TypeKind for QuantumSizeSelectionMode {
 }
 impl windows_core::RuntimeType for QuantumSizeSelectionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.QuantumSizeSelectionMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.QuantumSizeSelectionMode");
 }
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
@@ -4974,6 +5054,7 @@ impl windows_core::TypeKind for SetDefaultSpatialAudioFormatStatus {
 }
 impl windows_core::RuntimeType for SetDefaultSpatialAudioFormatStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -5168,4 +5249,5 @@ impl windows_core::TypeKind for SpatialAudioModel {
 }
 impl windows_core::RuntimeType for SpatialAudioModel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Audio.SpatialAudioModel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Audio.SpatialAudioModel");
 }

@@ -183,6 +183,7 @@ impl windows_core::TypeKind for DisplayMonitorConnectionKind {
 }
 impl windows_core::RuntimeType for DisplayMonitorConnectionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorConnectionKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.DisplayMonitorConnectionKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -196,6 +197,7 @@ impl windows_core::TypeKind for DisplayMonitorDescriptorKind {
 }
 impl windows_core::RuntimeType for DisplayMonitorDescriptorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorDescriptorKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.DisplayMonitorDescriptorKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -215,6 +217,7 @@ impl windows_core::TypeKind for DisplayMonitorPhysicalConnectorKind {
 }
 impl windows_core::RuntimeType for DisplayMonitorPhysicalConnectorKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.DisplayMonitorPhysicalConnectorKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -229,10 +232,12 @@ impl windows_core::TypeKind for DisplayMonitorUsageKind {
 }
 impl windows_core::RuntimeType for DisplayMonitorUsageKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.DisplayMonitorUsageKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.DisplayMonitorUsageKind");
 }
 windows_core::imp::define_interface!(IDisplayMonitor, IDisplayMonitor_Vtbl, 0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
 impl windows_core::RuntimeType for IDisplayMonitor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.IDisplayMonitor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -268,6 +273,7 @@ pub struct IDisplayMonitor_Vtbl {
 windows_core::imp::define_interface!(IDisplayMonitor2, IDisplayMonitor2_Vtbl, 0x023018e6_cb23_5830_96df_a7bf6e602577);
 impl windows_core::RuntimeType for IDisplayMonitor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.IDisplayMonitor2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,6 +284,7 @@ pub struct IDisplayMonitor2_Vtbl {
 windows_core::imp::define_interface!(IDisplayMonitorStatics, IDisplayMonitorStatics_Vtbl, 0x6eae698f_a228_4c05_821d_b695d667de8e);
 impl windows_core::RuntimeType for IDisplayMonitorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.IDisplayMonitorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

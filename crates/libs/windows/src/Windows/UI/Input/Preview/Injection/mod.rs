@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IInjectedInputGamepadInfo, IInjectedInputGamepadInfo_Vtbl, 0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
 impl windows_core::RuntimeType for IInjectedInputGamepadInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,6 +31,7 @@ pub struct IInjectedInputGamepadInfo_Vtbl {
 windows_core::imp::define_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 impl windows_core::RuntimeType for IInjectedInputGamepadInfoFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfoFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -43,6 +45,7 @@ pub struct IInjectedInputGamepadInfoFactory_Vtbl {
 windows_core::imp::define_interface!(IInjectedInputKeyboardInfo, IInjectedInputKeyboardInfo_Vtbl, 0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
 impl windows_core::RuntimeType for IInjectedInputKeyboardInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputKeyboardInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -58,6 +61,7 @@ pub struct IInjectedInputKeyboardInfo_Vtbl {
 windows_core::imp::define_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 impl windows_core::RuntimeType for IInjectedInputMouseInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputMouseInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -77,6 +81,7 @@ pub struct IInjectedInputMouseInfo_Vtbl {
 windows_core::imp::define_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 impl windows_core::RuntimeType for IInjectedInputPenInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputPenInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -100,6 +105,7 @@ pub struct IInjectedInputPenInfo_Vtbl {
 windows_core::imp::define_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 impl windows_core::RuntimeType for IInjectedInputTouchInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInjectedInputTouchInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -119,6 +125,7 @@ pub struct IInjectedInputTouchInfo_Vtbl {
 windows_core::imp::define_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 impl windows_core::RuntimeType for IInputInjector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjector");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -137,6 +144,7 @@ pub struct IInputInjector_Vtbl {
 windows_core::imp::define_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 impl windows_core::RuntimeType for IInputInjector2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjector2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -149,6 +157,7 @@ pub struct IInputInjector2_Vtbl {
 windows_core::imp::define_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 impl windows_core::RuntimeType for IInputInjectorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjectorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -159,6 +168,7 @@ pub struct IInputInjectorStatics_Vtbl {
 windows_core::imp::define_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 impl windows_core::RuntimeType for IInputInjectorStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.IInputInjectorStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -187,6 +197,7 @@ impl windows_core::TypeKind for InjectedInputButtonChangeKind {
 }
 impl windows_core::RuntimeType for InjectedInputButtonChangeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -302,6 +313,7 @@ impl windows_core::TypeKind for InjectedInputKeyOptions {
 }
 impl windows_core::RuntimeType for InjectedInputKeyOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions");
 }
 impl InjectedInputKeyOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -479,6 +491,7 @@ impl windows_core::TypeKind for InjectedInputMouseOptions {
 }
 impl windows_core::RuntimeType for InjectedInputMouseOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions");
 }
 impl InjectedInputMouseOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -527,6 +540,7 @@ impl windows_core::TypeKind for InjectedInputPenButtons {
 }
 impl windows_core::RuntimeType for InjectedInputPenButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputPenButtons");
 }
 impl InjectedInputPenButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -662,6 +676,7 @@ impl windows_core::TypeKind for InjectedInputPenParameters {
 }
 impl windows_core::RuntimeType for InjectedInputPenParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputPenParameters");
 }
 impl InjectedInputPenParameters {
     pub const fn contains(&self, other: Self) -> bool {
@@ -707,6 +722,7 @@ impl windows_core::TypeKind for InjectedInputPoint {
 }
 impl windows_core::RuntimeType for InjectedInputPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputPoint");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -722,6 +738,7 @@ impl windows_core::TypeKind for InjectedInputPointerInfo {
 }
 impl windows_core::RuntimeType for InjectedInputPointerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -746,6 +763,7 @@ impl windows_core::TypeKind for InjectedInputPointerOptions {
 }
 impl windows_core::RuntimeType for InjectedInputPointerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions");
 }
 impl InjectedInputPointerOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -793,6 +811,7 @@ impl windows_core::TypeKind for InjectedInputRectangle {
 }
 impl windows_core::RuntimeType for InjectedInputRectangle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputRectangle");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -807,6 +826,7 @@ impl windows_core::TypeKind for InjectedInputShortcut {
 }
 impl windows_core::RuntimeType for InjectedInputShortcut {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputShortcut");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -890,6 +910,7 @@ impl windows_core::TypeKind for InjectedInputTouchParameters {
 }
 impl windows_core::RuntimeType for InjectedInputTouchParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters");
 }
 impl InjectedInputTouchParameters {
     pub const fn contains(&self, other: Self) -> bool {
@@ -937,6 +958,7 @@ impl windows_core::TypeKind for InjectedInputVisualizationMode {
 }
 impl windows_core::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

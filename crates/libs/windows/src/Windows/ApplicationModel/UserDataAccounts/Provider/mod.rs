@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IUserDataAccountPartnerAccountInfo, IUserDataAccountPartnerAccountInfo_Vtbl, 0x5f200037_f6ef_4ec3_8630_012c59c1149f);
 impl windows_core::RuntimeType for IUserDataAccountPartnerAccountInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountPartnerAccountInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13,6 +14,7 @@ pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
 windows_core::imp::define_interface!(IUserDataAccountProviderAddAccountOperation, IUserDataAccountProviderAddAccountOperation_Vtbl, 0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
 impl windows_core::RuntimeType for IUserDataAccountProviderAddAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderAddAccountOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,6 +27,7 @@ pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
 windows_core::imp::define_interface!(IUserDataAccountProviderOperation, IUserDataAccountProviderOperation_Vtbl, 0xa20aad63_888c_4a62_a3dd_34d07a802b2b);
 impl windows_core::RuntimeType for IUserDataAccountProviderOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation");
 }
 windows_core::imp::interface_hierarchy!(IUserDataAccountProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserDataAccountProviderOperation {
@@ -70,6 +73,7 @@ pub struct IUserDataAccountProviderOperation_Vtbl {
 windows_core::imp::define_interface!(IUserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderResolveErrorsOperation_Vtbl, 0x6235dc15_bfcb_41e1_9957_9759a28846cc);
 impl windows_core::RuntimeType for IUserDataAccountProviderResolveErrorsOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderResolveErrorsOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -81,6 +85,7 @@ pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
 windows_core::imp::define_interface!(IUserDataAccountProviderSettingsOperation, IUserDataAccountProviderSettingsOperation_Vtbl, 0x92034db7_8648_4f30_acfa_3002658ca80d);
 impl windows_core::RuntimeType for IUserDataAccountProviderSettingsOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderSettingsOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -179,6 +184,7 @@ impl windows_core::TypeKind for UserDataAccountProviderOperationKind {
 }
 impl windows_core::RuntimeType for UserDataAccountProviderOperationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderOperationKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -192,6 +198,7 @@ impl windows_core::TypeKind for UserDataAccountProviderPartnerAccountKind {
 }
 impl windows_core::RuntimeType for UserDataAccountProviderPartnerAccountKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderPartnerAccountKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IVariablePhotoCapturedEventArgs, IVariablePhotoCapturedEventArgs_Vtbl, 0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
 impl windows_core::RuntimeType for IVariablePhotoCapturedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -17,6 +18,7 @@ pub struct IVariablePhotoCapturedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IVariablePhotoSequenceCapture, IVariablePhotoSequenceCapture_Vtbl, 0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
 impl windows_core::RuntimeType for IVariablePhotoSequenceCapture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,6 +35,7 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
 windows_core::imp::define_interface!(IVariablePhotoSequenceCapture2, IVariablePhotoSequenceCapture2_Vtbl, 0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
 impl windows_core::RuntimeType for IVariablePhotoSequenceCapture2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture2");
 }
 #[repr(C)]
 #[doc(hidden)]

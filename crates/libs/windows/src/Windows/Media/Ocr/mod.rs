@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IOcrEngine, IOcrEngine_Vtbl, 0x5a14bc41_5b76_3140_b680_8825562683ac);
 impl windows_core::RuntimeType for IOcrEngine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrEngine");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18,6 +19,7 @@ pub struct IOcrEngine_Vtbl {
 windows_core::imp::define_interface!(IOcrEngineStatics, IOcrEngineStatics_Vtbl, 0x5bffa85a_3384_3540_9940_699120d428a8);
 impl windows_core::RuntimeType for IOcrEngineStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrEngineStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -41,6 +43,7 @@ pub struct IOcrEngineStatics_Vtbl {
 windows_core::imp::define_interface!(IOcrLine, IOcrLine_Vtbl, 0x0043a16f_e31f_3a24_899c_d444bd088124);
 impl windows_core::RuntimeType for IOcrLine {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrLine");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +55,7 @@ pub struct IOcrLine_Vtbl {
 windows_core::imp::define_interface!(IOcrResult, IOcrResult_Vtbl, 0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
 impl windows_core::RuntimeType for IOcrResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -64,6 +68,7 @@ pub struct IOcrResult_Vtbl {
 windows_core::imp::define_interface!(IOcrWord, IOcrWord_Vtbl, 0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
 impl windows_core::RuntimeType for IOcrWord {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Ocr.IOcrWord");
 }
 #[repr(C)]
 #[doc(hidden)]

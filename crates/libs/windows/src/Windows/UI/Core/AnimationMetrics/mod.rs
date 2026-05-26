@@ -102,6 +102,7 @@ impl windows_core::TypeKind for AnimationEffect {
 }
 impl windows_core::RuntimeType for AnimationEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.AnimationEffect");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -133,10 +134,12 @@ impl windows_core::TypeKind for AnimationEffectTarget {
 }
 impl windows_core::RuntimeType for AnimationEffectTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.AnimationEffectTarget");
 }
 windows_core::imp::define_interface!(IAnimationDescription, IAnimationDescription_Vtbl, 0x7d11a549_be3d_41de_b081_05c149962f9b);
 impl windows_core::RuntimeType for IAnimationDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IAnimationDescription");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -151,6 +154,7 @@ pub struct IAnimationDescription_Vtbl {
 windows_core::imp::define_interface!(IAnimationDescriptionFactory, IAnimationDescriptionFactory_Vtbl, 0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 impl windows_core::RuntimeType for IAnimationDescriptionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IAnimationDescriptionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -161,6 +165,7 @@ pub struct IAnimationDescriptionFactory_Vtbl {
 windows_core::imp::define_interface!(IOpacityAnimation, IOpacityAnimation_Vtbl, 0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 impl windows_core::RuntimeType for IOpacityAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IOpacityAnimation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -172,6 +177,7 @@ pub struct IOpacityAnimation_Vtbl {
 windows_core::imp::define_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 impl windows_core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IPropertyAnimation");
 }
 windows_core::imp::interface_hierarchy!(IPropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyAnimation {
@@ -304,6 +310,7 @@ pub struct IPropertyAnimation_Vtbl {
 windows_core::imp::define_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0x023552c7_71ab_428c_9c9f_d31780964995);
 impl windows_core::RuntimeType for IScaleAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.IScaleAnimation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -442,6 +449,7 @@ impl windows_core::TypeKind for PropertyAnimationType {
 }
 impl windows_core::RuntimeType for PropertyAnimationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AnimationMetrics.PropertyAnimationType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

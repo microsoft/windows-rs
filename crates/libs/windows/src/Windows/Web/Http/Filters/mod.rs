@@ -256,6 +256,7 @@ impl windows_core::TypeKind for HttpCacheReadBehavior {
 }
 impl windows_core::RuntimeType for HttpCacheReadBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheReadBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.HttpCacheReadBehavior");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -269,6 +270,7 @@ impl windows_core::TypeKind for HttpCacheWriteBehavior {
 }
 impl windows_core::RuntimeType for HttpCacheWriteBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCacheWriteBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.HttpCacheWriteBehavior");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -282,6 +284,7 @@ impl windows_core::TypeKind for HttpCookieUsageBehavior {
 }
 impl windows_core::RuntimeType for HttpCookieUsageBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Filters.HttpCookieUsageBehavior;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.HttpCookieUsageBehavior");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -347,6 +350,7 @@ unsafe impl Sync for HttpServerCustomValidationRequestedEventArgs {}
 windows_core::imp::define_interface!(IHttpBaseProtocolFilter, IHttpBaseProtocolFilter_Vtbl, 0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -396,6 +400,7 @@ pub struct IHttpBaseProtocolFilter_Vtbl {
 windows_core::imp::define_interface!(IHttpBaseProtocolFilter2, IHttpBaseProtocolFilter2_Vtbl, 0x2ec30013_9427_4900_a017_fa7da3b5c9ae);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -407,6 +412,7 @@ pub struct IHttpBaseProtocolFilter2_Vtbl {
 windows_core::imp::define_interface!(IHttpBaseProtocolFilter3, IHttpBaseProtocolFilter3_Vtbl, 0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -418,6 +424,7 @@ pub struct IHttpBaseProtocolFilter3_Vtbl {
 windows_core::imp::define_interface!(IHttpBaseProtocolFilter4, IHttpBaseProtocolFilter4_Vtbl, 0x9fe36ccf_2983_4893_941f_eb518ca8cef9);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -430,6 +437,7 @@ pub struct IHttpBaseProtocolFilter4_Vtbl {
 windows_core::imp::define_interface!(IHttpBaseProtocolFilter5, IHttpBaseProtocolFilter5_Vtbl, 0x416e4993_31e3_4816_bf09_e018ee8dc1f5);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilter5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilter5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -443,6 +451,7 @@ pub struct IHttpBaseProtocolFilter5_Vtbl {
 windows_core::imp::define_interface!(IHttpBaseProtocolFilterStatics, IHttpBaseProtocolFilterStatics_Vtbl, 0x6d4dee0c_e908_494e_b5a3_1263c9b8242a);
 impl windows_core::RuntimeType for IHttpBaseProtocolFilterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpBaseProtocolFilterStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -456,6 +465,7 @@ pub struct IHttpBaseProtocolFilterStatics_Vtbl {
 windows_core::imp::define_interface!(IHttpCacheControl, IHttpCacheControl_Vtbl, 0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
 impl windows_core::RuntimeType for IHttpCacheControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpCacheControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -469,6 +479,7 @@ pub struct IHttpCacheControl_Vtbl {
 windows_core::imp::define_interface!(IHttpFilter, IHttpFilter_Vtbl, 0xa4cb6dd5_0902_439e_bfd7_e12552b165ce);
 impl windows_core::RuntimeType for IHttpFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpFilter");
 }
 windows_core::imp::interface_hierarchy!(IHttpFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IHttpFilter, super::super::super::Foundation::IClosable);
@@ -523,6 +534,7 @@ pub struct IHttpFilter_Vtbl {
 windows_core::imp::define_interface!(IHttpServerCustomValidationRequestedEventArgs, IHttpServerCustomValidationRequestedEventArgs_Vtbl, 0x3165fe32_e7dd_48b7_a361_939c750e63cc);
 impl windows_core::RuntimeType for IHttpServerCustomValidationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]

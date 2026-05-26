@@ -71,6 +71,7 @@ impl windows_core::TypeKind for AppViewBackButtonVisibility {
 }
 impl windows_core::RuntimeType for AppViewBackButtonVisibility {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AppViewBackButtonVisibility;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.AppViewBackButtonVisibility");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -235,6 +236,7 @@ impl windows_core::TypeKind for CoreAcceleratorKeyEventType {
 }
 impl windows_core::RuntimeType for CoreAcceleratorKeyEventType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreAcceleratorKeyEventType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreAcceleratorKeyEventType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -640,6 +642,7 @@ impl windows_core::TypeKind for CoreCursorType {
 }
 impl windows_core::RuntimeType for CoreCursorType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreCursorType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreCursorType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -764,6 +767,7 @@ impl windows_core::TypeKind for CoreDispatcherPriority {
 }
 impl windows_core::RuntimeType for CoreDispatcherPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreDispatcherPriority;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreDispatcherPriority");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -781,6 +785,7 @@ impl windows_core::TypeKind for CoreIndependentInputFilters {
 }
 impl windows_core::RuntimeType for CoreIndependentInputFilters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreIndependentInputFilters;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreIndependentInputFilters");
 }
 impl CoreIndependentInputFilters {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1136,6 +1141,7 @@ impl windows_core::TypeKind for CoreInputDeviceTypes {
 }
 impl windows_core::RuntimeType for CoreInputDeviceTypes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreInputDeviceTypes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreInputDeviceTypes");
 }
 impl CoreInputDeviceTypes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1185,6 +1191,7 @@ impl windows_core::TypeKind for CorePhysicalKeyStatus {
 }
 impl windows_core::RuntimeType for CorePhysicalKeyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CorePhysicalKeyStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1200,6 +1207,7 @@ impl windows_core::TypeKind for CoreProcessEventsOption {
 }
 impl windows_core::RuntimeType for CoreProcessEventsOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProcessEventsOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreProcessEventsOption");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1212,6 +1220,7 @@ impl windows_core::TypeKind for CoreProximityEvaluation {
 }
 impl windows_core::RuntimeType for CoreProximityEvaluation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CoreProximityEvaluation;i4;struct(Windows.Foundation.Point;f4;f4))");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreProximityEvaluation");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1225,6 +1234,7 @@ impl windows_core::TypeKind for CoreProximityEvaluationScore {
 }
 impl windows_core::RuntimeType for CoreProximityEvaluationScore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreProximityEvaluationScore;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreProximityEvaluationScore");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1239,6 +1249,7 @@ impl windows_core::TypeKind for CoreVirtualKeyStates {
 }
 impl windows_core::RuntimeType for CoreVirtualKeyStates {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreVirtualKeyStates;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreVirtualKeyStates");
 }
 impl CoreVirtualKeyStates {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1728,6 +1739,7 @@ impl windows_core::TypeKind for CoreWindowActivationMode {
 }
 impl windows_core::RuntimeType for CoreWindowActivationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreWindowActivationMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1742,6 +1754,7 @@ impl windows_core::TypeKind for CoreWindowActivationState {
 }
 impl windows_core::RuntimeType for CoreWindowActivationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowActivationState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreWindowActivationState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1901,6 +1914,7 @@ impl windows_core::TypeKind for CoreWindowFlowDirection {
 }
 impl windows_core::RuntimeType for CoreWindowFlowDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.CoreWindowFlowDirection");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2113,6 +2127,7 @@ impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerBox<
 windows_core::imp::define_interface!(IAcceleratorKeyEventArgs, IAcceleratorKeyEventArgs_Vtbl, 0xff1c4c4a_9287_470b_836e_9086e3126ade);
 impl windows_core::RuntimeType for IAcceleratorKeyEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IAcceleratorKeyEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2128,6 +2143,7 @@ pub struct IAcceleratorKeyEventArgs_Vtbl {
 windows_core::imp::define_interface!(IAcceleratorKeyEventArgs2, IAcceleratorKeyEventArgs2_Vtbl, 0xd300a9f6_2f7e_4873_a555_166e596ee1c5);
 impl windows_core::RuntimeType for IAcceleratorKeyEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IAcceleratorKeyEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2138,6 +2154,7 @@ pub struct IAcceleratorKeyEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IAutomationProviderRequestedEventArgs, IAutomationProviderRequestedEventArgs_Vtbl, 0x961ff258_21bf_4b42_a298_fa479d4c52e2);
 impl windows_core::RuntimeType for IAutomationProviderRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IAutomationProviderRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2149,6 +2166,7 @@ pub struct IAutomationProviderRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IBackRequestedEventArgs, IBackRequestedEventArgs_Vtbl, 0xd603d28a_e411_4a4e_ba41_6a327a8675bc);
 impl windows_core::RuntimeType for IBackRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IBackRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2160,6 +2178,7 @@ pub struct IBackRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ICharacterReceivedEventArgs, ICharacterReceivedEventArgs_Vtbl, 0xc584659f_99b2_4bcc_bd33_04e63f42902e);
 impl windows_core::RuntimeType for ICharacterReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICharacterReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2171,6 +2190,7 @@ pub struct ICharacterReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClosestInteractiveBoundsRequestedEventArgs, IClosestInteractiveBoundsRequestedEventArgs_Vtbl, 0x347c11d7_f6f8_40e3_b29f_ae50d3e86486);
 impl windows_core::RuntimeType for IClosestInteractiveBoundsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IClosestInteractiveBoundsRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2184,6 +2204,7 @@ pub struct IClosestInteractiveBoundsRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ICoreAcceleratorKeys, ICoreAcceleratorKeys_Vtbl, 0x9ffdf7f5_b8c9_4ef0_b7d2_1de626561fc8);
 impl windows_core::RuntimeType for ICoreAcceleratorKeys {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreAcceleratorKeys");
 }
 windows_core::imp::interface_hierarchy!(ICoreAcceleratorKeys, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreAcceleratorKeys {
@@ -2247,6 +2268,7 @@ pub struct ICoreAcceleratorKeys_Vtbl {
 windows_core::imp::define_interface!(ICoreClosestInteractiveBoundsRequested, ICoreClosestInteractiveBoundsRequested_Vtbl, 0xf303043a_e8bf_4e8e_ae69_c9dadd57a114);
 impl windows_core::RuntimeType for ICoreClosestInteractiveBoundsRequested {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreClosestInteractiveBoundsRequested");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2258,6 +2280,7 @@ pub struct ICoreClosestInteractiveBoundsRequested_Vtbl {
 windows_core::imp::define_interface!(ICoreComponentFocusable, ICoreComponentFocusable_Vtbl, 0x52f96fa3_8742_4411_ae69_79a85f29ac8b);
 impl windows_core::RuntimeType for ICoreComponentFocusable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreComponentFocusable");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2272,6 +2295,7 @@ pub struct ICoreComponentFocusable_Vtbl {
 windows_core::imp::define_interface!(ICoreCursor, ICoreCursor_Vtbl, 0x96893acf_111d_442c_8a77_b87992f8e2d6);
 impl windows_core::RuntimeType for ICoreCursor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreCursor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2283,6 +2307,7 @@ pub struct ICoreCursor_Vtbl {
 windows_core::imp::define_interface!(ICoreCursorFactory, ICoreCursorFactory_Vtbl, 0xf6359621_a79d_4ed3_8c32_a9ef9d6b76a4);
 impl windows_core::RuntimeType for ICoreCursorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreCursorFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2293,6 +2318,7 @@ pub struct ICoreCursorFactory_Vtbl {
 windows_core::imp::define_interface!(ICoreDispatcher, ICoreDispatcher_Vtbl, 0x60db2fa8_b705_4fde_a7d6_ebbb1891d39e);
 impl windows_core::RuntimeType for ICoreDispatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreDispatcher");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2306,6 +2332,7 @@ pub struct ICoreDispatcher_Vtbl {
 windows_core::imp::define_interface!(ICoreDispatcher2, ICoreDispatcher2_Vtbl, 0x6f5e63c7_e3aa_4eae_b0e0_dcf321ca4b2f);
 impl windows_core::RuntimeType for ICoreDispatcher2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreDispatcher2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2317,6 +2344,7 @@ pub struct ICoreDispatcher2_Vtbl {
 windows_core::imp::define_interface!(ICoreDispatcherWithTaskPriority, ICoreDispatcherWithTaskPriority_Vtbl, 0xbafaecad_484d_41be_ba80_1d58c65263ea);
 impl windows_core::RuntimeType for ICoreDispatcherWithTaskPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreDispatcherWithTaskPriority");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2331,6 +2359,7 @@ pub struct ICoreDispatcherWithTaskPriority_Vtbl {
 windows_core::imp::define_interface!(ICoreIndependentInputSourceController, ICoreIndependentInputSourceController_Vtbl, 0x0963261c_84fe_578a_83ca_6425309ccde4);
 impl windows_core::RuntimeType for ICoreIndependentInputSourceController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreIndependentInputSourceController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2347,6 +2376,7 @@ pub struct ICoreIndependentInputSourceController_Vtbl {
 windows_core::imp::define_interface!(ICoreIndependentInputSourceControllerStatics, ICoreIndependentInputSourceControllerStatics_Vtbl, 0x3edc4e20_9a8a_5691_8586_fca4cb57526d);
 impl windows_core::RuntimeType for ICoreIndependentInputSourceControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreIndependentInputSourceControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2364,6 +2394,7 @@ pub struct ICoreIndependentInputSourceControllerStatics_Vtbl {
 windows_core::imp::define_interface!(ICoreInputSourceBase, ICoreInputSourceBase_Vtbl, 0x9f488807_4580_4be8_be68_92a9311713bb);
 impl windows_core::RuntimeType for ICoreInputSourceBase {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreInputSourceBase");
 }
 windows_core::imp::interface_hierarchy!(ICoreInputSourceBase, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreInputSourceBase {
@@ -2482,6 +2513,7 @@ pub struct ICoreInputSourceBase_Vtbl {
 windows_core::imp::define_interface!(ICoreKeyboardInputSource, ICoreKeyboardInputSource_Vtbl, 0x231c9088_e469_4df1_b208_6e490d71cb90);
 impl windows_core::RuntimeType for ICoreKeyboardInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreKeyboardInputSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2501,6 +2533,7 @@ pub struct ICoreKeyboardInputSource_Vtbl {
 windows_core::imp::define_interface!(ICoreKeyboardInputSource2, ICoreKeyboardInputSource2_Vtbl, 0xfa24cb94_f963_47a5_8778_207c482b0afd);
 impl windows_core::RuntimeType for ICoreKeyboardInputSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreKeyboardInputSource2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2511,6 +2544,7 @@ pub struct ICoreKeyboardInputSource2_Vtbl {
 windows_core::imp::define_interface!(ICorePointerInputSource, ICorePointerInputSource_Vtbl, 0xbbf1bb18_e47a_48eb_8807_f8f8d3ea4551);
 impl windows_core::RuntimeType for ICorePointerInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICorePointerInputSource");
 }
 windows_core::imp::interface_hierarchy!(ICorePointerInputSource, windows_core::IUnknown, windows_core::IInspectable);
 impl ICorePointerInputSource {
@@ -2893,6 +2927,7 @@ pub struct ICorePointerInputSource_Vtbl {
 windows_core::imp::define_interface!(ICorePointerInputSource2, ICorePointerInputSource2_Vtbl, 0xd703708a_4516_4786_b1e5_2751d563f997);
 impl windows_core::RuntimeType for ICorePointerInputSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICorePointerInputSource2");
 }
 windows_core::imp::interface_hierarchy!(ICorePointerInputSource2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ICorePointerInputSource2, ICorePointerInputSource);
@@ -3084,6 +3119,7 @@ pub struct ICorePointerInputSource2_Vtbl {
 windows_core::imp::define_interface!(ICorePointerRedirector, ICorePointerRedirector_Vtbl, 0x8f9d0c94_5688_4b0c_a9f1_f931f7fa3dc3);
 impl windows_core::RuntimeType for ICorePointerRedirector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICorePointerRedirector");
 }
 windows_core::imp::interface_hierarchy!(ICorePointerRedirector, windows_core::IUnknown, windows_core::IInspectable);
 impl ICorePointerRedirector {
@@ -3219,6 +3255,7 @@ pub struct ICorePointerRedirector_Vtbl {
 windows_core::imp::define_interface!(ICoreTouchHitTesting, ICoreTouchHitTesting_Vtbl, 0xb1d8a289_3acf_4124_9fa3_ea8aba353c21);
 impl windows_core::RuntimeType for ICoreTouchHitTesting {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreTouchHitTesting");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3230,6 +3267,7 @@ pub struct ICoreTouchHitTesting_Vtbl {
 windows_core::imp::define_interface!(ICoreWindow, ICoreWindow_Vtbl, 0x79b9d5f2_879e_4b89_b798_79e47598030c);
 impl windows_core::RuntimeType for ICoreWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindow");
 }
 windows_core::imp::interface_hierarchy!(ICoreWindow, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreWindow {
@@ -4206,6 +4244,7 @@ pub struct ICoreWindow_Vtbl {
 windows_core::imp::define_interface!(ICoreWindow2, ICoreWindow2_Vtbl, 0x7c2b1b85_6917_4361_9c02_0d9e3a420b95);
 impl windows_core::RuntimeType for ICoreWindow2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindow2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4216,6 +4255,7 @@ pub struct ICoreWindow2_Vtbl {
 windows_core::imp::define_interface!(ICoreWindow3, ICoreWindow3_Vtbl, 0x32c20dd8_faef_4375_a2ab_32640e4815c7);
 impl windows_core::RuntimeType for ICoreWindow3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindow3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4228,6 +4268,7 @@ pub struct ICoreWindow3_Vtbl {
 windows_core::imp::define_interface!(ICoreWindow4, ICoreWindow4_Vtbl, 0x35caf0d0_47f0_436c_af97_0dd88f6f5f02);
 impl windows_core::RuntimeType for ICoreWindow4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindow4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4241,6 +4282,7 @@ pub struct ICoreWindow4_Vtbl {
 windows_core::imp::define_interface!(ICoreWindow5, ICoreWindow5_Vtbl, 0x4b4ae1e1_2e6d_4eaa_bda1_1c5cc1bee141);
 impl windows_core::RuntimeType for ICoreWindow5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindow5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4255,6 +4297,7 @@ pub struct ICoreWindow5_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowDialog, ICoreWindowDialog_Vtbl, 0xe7392ce0_c78d_427e_8b2c_01ff420c69d5);
 impl windows_core::RuntimeType for ICoreWindowDialog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowDialog");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4292,6 +4335,7 @@ pub struct ICoreWindowDialog_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowDialogFactory, ICoreWindowDialogFactory_Vtbl, 0xcfb2a855_1c59_4b13_b1e5_16e29805f7c4);
 impl windows_core::RuntimeType for ICoreWindowDialogFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowDialogFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4302,6 +4346,7 @@ pub struct ICoreWindowDialogFactory_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowEventArgs, ICoreWindowEventArgs_Vtbl, 0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
 impl windows_core::RuntimeType for ICoreWindowEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowEventArgs");
 }
 windows_core::imp::interface_hierarchy!(ICoreWindowEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreWindowEventArgs {
@@ -4362,6 +4407,7 @@ pub struct ICoreWindowEventArgs_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowFlyout, ICoreWindowFlyout_Vtbl, 0xe89d854d_2050_40bb_b344_f6f355eeb314);
 impl windows_core::RuntimeType for ICoreWindowFlyout {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowFlyout");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4397,6 +4443,7 @@ pub struct ICoreWindowFlyout_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowFlyoutFactory, ICoreWindowFlyoutFactory_Vtbl, 0xdec4c6c4_93e8_4f7c_be27_cefaa1af68a7);
 impl windows_core::RuntimeType for ICoreWindowFlyoutFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowFlyoutFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4408,6 +4455,7 @@ pub struct ICoreWindowFlyoutFactory_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowPopupShowingEventArgs, ICoreWindowPopupShowingEventArgs_Vtbl, 0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26);
 impl windows_core::RuntimeType for ICoreWindowPopupShowingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowPopupShowingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4418,6 +4466,7 @@ pub struct ICoreWindowPopupShowingEventArgs_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowResizeManager, ICoreWindowResizeManager_Vtbl, 0xb8f0b925_b350_48b3_a198_5c1a84700243);
 impl windows_core::RuntimeType for ICoreWindowResizeManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowResizeManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4428,6 +4477,7 @@ pub struct ICoreWindowResizeManager_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowResizeManagerLayoutCapability, ICoreWindowResizeManagerLayoutCapability_Vtbl, 0xbb74f27b_a544_4301_80e6_0ae033ef4536);
 impl windows_core::RuntimeType for ICoreWindowResizeManagerLayoutCapability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowResizeManagerLayoutCapability");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4439,6 +4489,7 @@ pub struct ICoreWindowResizeManagerLayoutCapability_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowResizeManagerStatics, ICoreWindowResizeManagerStatics_Vtbl, 0xae4a9045_6d70_49db_8e68_46ffbd17d38d);
 impl windows_core::RuntimeType for ICoreWindowResizeManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowResizeManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4449,6 +4500,7 @@ pub struct ICoreWindowResizeManagerStatics_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowStatic, ICoreWindowStatic_Vtbl, 0x4d239005_3c2a_41b1_9022_536bb9cf93b1);
 impl windows_core::RuntimeType for ICoreWindowStatic {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowStatic");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4459,6 +4511,7 @@ pub struct ICoreWindowStatic_Vtbl {
 windows_core::imp::define_interface!(ICoreWindowWithContext, ICoreWindowWithContext_Vtbl, 0x9ac40241_3575_4c3b_af66_e8c529d4d06c);
 impl windows_core::RuntimeType for ICoreWindowWithContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ICoreWindowWithContext");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4469,6 +4522,7 @@ pub struct ICoreWindowWithContext_Vtbl {
 windows_core::imp::define_interface!(IIdleDispatchedHandlerArgs, IIdleDispatchedHandlerArgs_Vtbl, 0x98bb6a24_dc1c_43cb_b4ed_d1c0eb2391f3);
 impl windows_core::RuntimeType for IIdleDispatchedHandlerArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IIdleDispatchedHandlerArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4479,6 +4533,7 @@ pub struct IIdleDispatchedHandlerArgs_Vtbl {
 windows_core::imp::define_interface!(IInitializeWithCoreWindow, IInitializeWithCoreWindow_Vtbl, 0x188f20d6_9873_464a_ace5_57e010f465e6);
 impl windows_core::RuntimeType for IInitializeWithCoreWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IInitializeWithCoreWindow");
 }
 windows_core::imp::interface_hierarchy!(IInitializeWithCoreWindow, windows_core::IUnknown, windows_core::IInspectable);
 impl IInitializeWithCoreWindow {
@@ -4518,6 +4573,7 @@ pub struct IInitializeWithCoreWindow_Vtbl {
 windows_core::imp::define_interface!(IInputEnabledEventArgs, IInputEnabledEventArgs_Vtbl, 0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a);
 impl windows_core::RuntimeType for IInputEnabledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IInputEnabledEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4528,6 +4584,7 @@ pub struct IInputEnabledEventArgs_Vtbl {
 windows_core::imp::define_interface!(IKeyEventArgs, IKeyEventArgs_Vtbl, 0x5ff5e930_2544_4a17_bd78_1f2fdebb106b);
 impl windows_core::RuntimeType for IKeyEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IKeyEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4542,6 +4599,7 @@ pub struct IKeyEventArgs_Vtbl {
 windows_core::imp::define_interface!(IKeyEventArgs2, IKeyEventArgs2_Vtbl, 0x583add98_0790_4571_9b12_645ef9d79e42);
 impl windows_core::RuntimeType for IKeyEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IKeyEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4552,6 +4610,7 @@ pub struct IKeyEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IPointerEventArgs, IPointerEventArgs_Vtbl, 0x920d9cb1_a5fc_4a21_8c09_49dfe6ffe25f);
 impl windows_core::RuntimeType for IPointerEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IPointerEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4573,6 +4632,7 @@ pub struct IPointerEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISystemNavigationManager, ISystemNavigationManager_Vtbl, 0x93023118_cf50_42a6_9706_69107fa122e1);
 impl windows_core::RuntimeType for ISystemNavigationManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ISystemNavigationManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4584,6 +4644,7 @@ pub struct ISystemNavigationManager_Vtbl {
 windows_core::imp::define_interface!(ISystemNavigationManager2, ISystemNavigationManager2_Vtbl, 0x8c510401_67be_49ae_9509_671c1e54a389);
 impl windows_core::RuntimeType for ISystemNavigationManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ISystemNavigationManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4595,6 +4656,7 @@ pub struct ISystemNavigationManager2_Vtbl {
 windows_core::imp::define_interface!(ISystemNavigationManagerStatics, ISystemNavigationManagerStatics_Vtbl, 0xdc52b5ce_bee0_4305_8c54_68228ed683b5);
 impl windows_core::RuntimeType for ISystemNavigationManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ISystemNavigationManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4605,6 +4667,7 @@ pub struct ISystemNavigationManagerStatics_Vtbl {
 windows_core::imp::define_interface!(ITouchHitTestingEventArgs, ITouchHitTestingEventArgs_Vtbl, 0x22f3b823_0b7c_424e_9df7_33d4f962931b);
 impl windows_core::RuntimeType for ITouchHitTestingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.ITouchHitTestingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4620,6 +4683,7 @@ pub struct ITouchHitTestingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IVisibilityChangedEventArgs, IVisibilityChangedEventArgs_Vtbl, 0xbf9918ea_d801_4564_a495_b1e84f8ad085);
 impl windows_core::RuntimeType for IVisibilityChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IVisibilityChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4630,6 +4694,7 @@ pub struct IVisibilityChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWindowActivatedEventArgs, IWindowActivatedEventArgs_Vtbl, 0x179d65e7_4658_4cb6_aa13_41d094ea255e);
 impl windows_core::RuntimeType for IWindowActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IWindowActivatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4640,6 +4705,7 @@ pub struct IWindowActivatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWindowSizeChangedEventArgs, IWindowSizeChangedEventArgs_Vtbl, 0x5a200ec7_0426_47dc_b86c_6f475915e451);
 impl windows_core::RuntimeType for IWindowSizeChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Core.IWindowSizeChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]

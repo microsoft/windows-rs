@@ -8,6 +8,7 @@ impl windows_core::TypeKind for AutomationAnnotationTypeRegistration {
 }
 impl windows_core::RuntimeType for AutomationAnnotationTypeRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -19,6 +20,7 @@ impl windows_core::TypeKind for AutomationRemoteOperationOperandId {
 }
 impl windows_core::RuntimeType for AutomationRemoteOperationOperandId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -83,6 +85,7 @@ impl windows_core::TypeKind for AutomationRemoteOperationStatus {
 }
 impl windows_core::RuntimeType for AutomationRemoteOperationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus");
 }
 pub struct CoreAutomationRegistrar;
 impl CoreAutomationRegistrar {
@@ -201,6 +204,7 @@ unsafe impl Sync for CoreAutomationRemoteOperationContext {}
 windows_core::imp::define_interface!(IAutomationRemoteOperationResult, IAutomationRemoteOperationResult_Vtbl, 0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1);
 impl windows_core::RuntimeType for IAutomationRemoteOperationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.IAutomationRemoteOperationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -215,6 +219,7 @@ pub struct IAutomationRemoteOperationResult_Vtbl {
 windows_core::imp::define_interface!(ICoreAutomationConnectionBoundObjectProvider, ICoreAutomationConnectionBoundObjectProvider_Vtbl, 0x0620bb64_9616_5593_be3a_eb8e6daeb3fa);
 impl windows_core::RuntimeType for ICoreAutomationConnectionBoundObjectProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.ICoreAutomationConnectionBoundObjectProvider");
 }
 windows_core::imp::interface_hierarchy!(ICoreAutomationConnectionBoundObjectProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreAutomationConnectionBoundObjectProvider {
@@ -261,6 +266,7 @@ pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
 windows_core::imp::define_interface!(ICoreAutomationRegistrarStatics, ICoreAutomationRegistrarStatics_Vtbl, 0x3e50129b_d6dc_5680_b580_ffff78300304);
 impl windows_core::RuntimeType for ICoreAutomationRegistrarStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.ICoreAutomationRegistrarStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -272,6 +278,7 @@ pub struct ICoreAutomationRegistrarStatics_Vtbl {
 windows_core::imp::define_interface!(ICoreAutomationRemoteOperation, ICoreAutomationRemoteOperation_Vtbl, 0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060);
 impl windows_core::RuntimeType for ICoreAutomationRemoteOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -286,6 +293,7 @@ pub struct ICoreAutomationRemoteOperation_Vtbl {
 windows_core::imp::define_interface!(ICoreAutomationRemoteOperation2, ICoreAutomationRemoteOperation2_Vtbl, 0xeefaf86f_e953_5099_8ce9_dca813482ba0);
 impl windows_core::RuntimeType for ICoreAutomationRemoteOperation2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperation2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -296,6 +304,7 @@ pub struct ICoreAutomationRemoteOperation2_Vtbl {
 windows_core::imp::define_interface!(ICoreAutomationRemoteOperationContext, ICoreAutomationRemoteOperationContext_Vtbl, 0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb);
 impl windows_core::RuntimeType for ICoreAutomationRemoteOperationContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationContext");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -308,6 +317,7 @@ pub struct ICoreAutomationRemoteOperationContext_Vtbl {
 windows_core::imp::define_interface!(ICoreAutomationRemoteOperationExtensionProvider, ICoreAutomationRemoteOperationExtensionProvider_Vtbl, 0x88f53e67_dc69_553b_a0aa_70477e724da8);
 impl windows_core::RuntimeType for ICoreAutomationRemoteOperationExtensionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationExtensionProvider");
 }
 windows_core::imp::interface_hierarchy!(ICoreAutomationRemoteOperationExtensionProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ICoreAutomationRemoteOperationExtensionProvider {
@@ -371,6 +381,7 @@ pub struct ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
 windows_core::imp::define_interface!(IRemoteAutomationClientSession, IRemoteAutomationClientSession_Vtbl, 0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
 impl windows_core::RuntimeType for IRemoteAutomationClientSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.IRemoteAutomationClientSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -388,6 +399,7 @@ pub struct IRemoteAutomationClientSession_Vtbl {
 windows_core::imp::define_interface!(IRemoteAutomationClientSessionFactory, IRemoteAutomationClientSessionFactory_Vtbl, 0xf250263d_6057_5373_a5a5_ed7265fe0376);
 impl windows_core::RuntimeType for IRemoteAutomationClientSessionFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.IRemoteAutomationClientSessionFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,6 +411,7 @@ pub struct IRemoteAutomationClientSessionFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteAutomationConnectionRequestedEventArgs, IRemoteAutomationConnectionRequestedEventArgs_Vtbl, 0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
 impl windows_core::RuntimeType for IRemoteAutomationConnectionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.IRemoteAutomationConnectionRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -410,6 +423,7 @@ pub struct IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteAutomationDisconnectedEventArgs, IRemoteAutomationDisconnectedEventArgs_Vtbl, 0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
 impl windows_core::RuntimeType for IRemoteAutomationDisconnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.IRemoteAutomationDisconnectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -420,6 +434,7 @@ pub struct IRemoteAutomationDisconnectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteAutomationServerStatics, IRemoteAutomationServerStatics_Vtbl, 0xe6e8945e_0c11_5028_9ae3_c2771288b6b7);
 impl windows_core::RuntimeType for IRemoteAutomationServerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.IRemoteAutomationServerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -430,6 +445,7 @@ pub struct IRemoteAutomationServerStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteAutomationWindow, IRemoteAutomationWindow_Vtbl, 0x7c607689_496d_512a_9bd5_c050cfaf1428);
 impl windows_core::RuntimeType for IRemoteAutomationWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.IRemoteAutomationWindow");
 }
 #[repr(C)]
 #[doc(hidden)]

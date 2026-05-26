@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IMiracastReceiver, IMiracastReceiver_Vtbl, 0x7a315258_e444_51b4_aff7_b88daa1229e0);
 impl windows_core::RuntimeType for IMiracastReceiver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiver");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,6 +30,7 @@ pub struct IMiracastReceiver_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverApplySettingsResult, IMiracastReceiverApplySettingsResult_Vtbl, 0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9);
 impl windows_core::RuntimeType for IMiracastReceiverApplySettingsResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverApplySettingsResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -40,6 +42,7 @@ pub struct IMiracastReceiverApplySettingsResult_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverConnection, IMiracastReceiverConnection_Vtbl, 0x704b2f36_d2e5_551f_a854_f822b7917d28);
 impl windows_core::RuntimeType for IMiracastReceiverConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverConnection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -59,6 +62,7 @@ pub struct IMiracastReceiverConnection_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverConnectionCreatedEventArgs, IMiracastReceiverConnectionCreatedEventArgs_Vtbl, 0x7d8dfa39_307a_5c0f_94bd_d0c69d169982);
 impl windows_core::RuntimeType for IMiracastReceiverConnectionCreatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverConnectionCreatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -71,6 +75,7 @@ pub struct IMiracastReceiverConnectionCreatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverCursorImageChannel, IMiracastReceiverCursorImageChannel_Vtbl, 0xd9ac332d_723a_5a9d_b90a_81153efa2a0f);
 impl windows_core::RuntimeType for IMiracastReceiverCursorImageChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverCursorImageChannel");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -97,6 +102,7 @@ pub struct IMiracastReceiverCursorImageChannel_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverCursorImageChannelSettings, IMiracastReceiverCursorImageChannelSettings_Vtbl, 0xccdbedff_bd00_5b9c_8e4c_00cacf86b634);
 impl windows_core::RuntimeType for IMiracastReceiverCursorImageChannelSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverCursorImageChannelSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -116,6 +122,7 @@ pub struct IMiracastReceiverCursorImageChannelSettings_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverDisconnectedEventArgs, IMiracastReceiverDisconnectedEventArgs_Vtbl, 0xd9a15e5e_5fee_57e6_b4b0_04727db93229);
 impl windows_core::RuntimeType for IMiracastReceiverDisconnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverDisconnectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -126,6 +133,7 @@ pub struct IMiracastReceiverDisconnectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverGameControllerDevice, IMiracastReceiverGameControllerDevice_Vtbl, 0x2d7171e8_bed4_5118_a058_e2477eb5888d);
 impl windows_core::RuntimeType for IMiracastReceiverGameControllerDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverGameControllerDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -143,6 +151,7 @@ pub struct IMiracastReceiverGameControllerDevice_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverInputDevices, IMiracastReceiverInputDevices_Vtbl, 0xda35bb02_28aa_5ee8_96f5_a42901c66f00);
 impl windows_core::RuntimeType for IMiracastReceiverInputDevices {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverInputDevices");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -154,6 +163,7 @@ pub struct IMiracastReceiverInputDevices_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverKeyboardDevice, IMiracastReceiverKeyboardDevice_Vtbl, 0xbeb67272_06c0_54ff_ac96_217464ff2501);
 impl windows_core::RuntimeType for IMiracastReceiverKeyboardDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverKeyboardDevice");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -169,6 +179,7 @@ pub struct IMiracastReceiverKeyboardDevice_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverMediaSourceCreatedEventArgs, IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl, 0x17cf519e_1246_531d_945a_6b158e39c3aa);
 impl windows_core::RuntimeType for IMiracastReceiverMediaSourceCreatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverMediaSourceCreatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -185,6 +196,7 @@ pub struct IMiracastReceiverMediaSourceCreatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverSession, IMiracastReceiverSession_Vtbl, 0x1d2bcdb4_ef8b_5209_bfc9_c32116504803);
 impl windows_core::RuntimeType for IMiracastReceiverSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -206,6 +218,7 @@ pub struct IMiracastReceiverSession_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverSessionStartResult, IMiracastReceiverSessionStartResult_Vtbl, 0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e);
 impl windows_core::RuntimeType for IMiracastReceiverSessionStartResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverSessionStartResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -217,6 +230,7 @@ pub struct IMiracastReceiverSessionStartResult_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverSettings, IMiracastReceiverSettings_Vtbl, 0x57cd2f24_c55a_5fbe_9464_eb05307705dd);
 impl windows_core::RuntimeType for IMiracastReceiverSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -236,6 +250,7 @@ pub struct IMiracastReceiverSettings_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverStatus, IMiracastReceiverStatus_Vtbl, 0xc28a5591_23ab_519e_ad09_90bff6dcc87e);
 impl windows_core::RuntimeType for IMiracastReceiverStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverStatus");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -250,6 +265,7 @@ pub struct IMiracastReceiverStatus_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverStreamControl, IMiracastReceiverStreamControl_Vtbl, 0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82);
 impl windows_core::RuntimeType for IMiracastReceiverStreamControl {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverStreamControl");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -265,6 +281,7 @@ pub struct IMiracastReceiverStreamControl_Vtbl {
 windows_core::imp::define_interface!(IMiracastReceiverVideoStreamSettings, IMiracastReceiverVideoStreamSettings_Vtbl, 0x169b5e1b_149d_52d0_b126_6f89744e4f50);
 impl windows_core::RuntimeType for IMiracastReceiverVideoStreamSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastReceiverVideoStreamSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -284,6 +301,7 @@ pub struct IMiracastReceiverVideoStreamSettings_Vtbl {
 windows_core::imp::define_interface!(IMiracastTransmitter, IMiracastTransmitter_Vtbl, 0x342d79fd_2e64_5508_8a30_833d1eac70d0);
 impl windows_core::RuntimeType for IMiracastTransmitter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.IMiracastTransmitter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -459,6 +477,7 @@ impl windows_core::TypeKind for MiracastReceiverApplySettingsStatus {
 }
 impl windows_core::RuntimeType for MiracastReceiverApplySettingsStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverApplySettingsStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastReceiverApplySettingsStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -474,6 +493,7 @@ impl windows_core::TypeKind for MiracastReceiverAuthorizationMethod {
 }
 impl windows_core::RuntimeType for MiracastReceiverAuthorizationMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverAuthorizationMethod;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastReceiverAuthorizationMethod");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -707,6 +727,7 @@ impl windows_core::TypeKind for MiracastReceiverDisconnectReason {
 }
 impl windows_core::RuntimeType for MiracastReceiverDisconnectReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverDisconnectReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastReceiverDisconnectReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -804,6 +825,7 @@ impl windows_core::TypeKind for MiracastReceiverGameControllerDeviceUsageMode {
 }
 impl windows_core::RuntimeType for MiracastReceiverGameControllerDeviceUsageMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastReceiverGameControllerDeviceUsageMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -902,6 +924,7 @@ impl windows_core::TypeKind for MiracastReceiverListeningStatus {
 }
 impl windows_core::RuntimeType for MiracastReceiverListeningStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverListeningStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastReceiverListeningStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1079,6 +1102,7 @@ impl windows_core::TypeKind for MiracastReceiverSessionStartStatus {
 }
 impl windows_core::RuntimeType for MiracastReceiverSessionStartStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverSessionStartStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastReceiverSessionStartStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1297,6 +1321,7 @@ impl windows_core::TypeKind for MiracastReceiverWiFiStatus {
 }
 impl windows_core::RuntimeType for MiracastReceiverWiFiStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastReceiverWiFiStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastReceiverWiFiStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1366,4 +1391,5 @@ impl windows_core::TypeKind for MiracastTransmitterAuthorizationStatus {
 }
 impl windows_core::RuntimeType for MiracastTransmitterAuthorizationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus");
 }

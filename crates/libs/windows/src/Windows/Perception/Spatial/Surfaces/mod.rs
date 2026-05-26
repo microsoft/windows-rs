@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(ISpatialSurfaceInfo, ISpatialSurfaceInfo_Vtbl, 0xf8e9ebe7_39b7_3962_bb03_57f56e1fb0a1);
 impl windows_core::RuntimeType for ISpatialSurfaceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18,6 +19,7 @@ pub struct ISpatialSurfaceInfo_Vtbl {
 windows_core::imp::define_interface!(ISpatialSurfaceMesh, ISpatialSurfaceMesh_Vtbl, 0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 impl windows_core::RuntimeType for ISpatialSurfaceMesh {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMesh");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,6 +35,7 @@ pub struct ISpatialSurfaceMesh_Vtbl {
 windows_core::imp::define_interface!(ISpatialSurfaceMeshBuffer, ISpatialSurfaceMeshBuffer_Vtbl, 0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 impl windows_core::RuntimeType for ISpatialSurfaceMeshBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshBuffer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -52,6 +55,7 @@ pub struct ISpatialSurfaceMeshBuffer_Vtbl {
 windows_core::imp::define_interface!(ISpatialSurfaceMeshOptions, ISpatialSurfaceMeshOptions_Vtbl, 0xd2759f89_3572_3d2d_a10d_5fee9394aa37);
 impl windows_core::RuntimeType for ISpatialSurfaceMeshOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -87,6 +91,7 @@ pub struct ISpatialSurfaceMeshOptions_Vtbl {
 windows_core::imp::define_interface!(ISpatialSurfaceMeshOptionsStatics, ISpatialSurfaceMeshOptionsStatics_Vtbl, 0x9b340abf_9781_4505_8935_013575caae5e);
 impl windows_core::RuntimeType for ISpatialSurfaceMeshOptionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptionsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -108,6 +113,7 @@ pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
 windows_core::imp::define_interface!(ISpatialSurfaceObserver, ISpatialSurfaceObserver_Vtbl, 0x10b69819_ddca_3483_ac3a_748fe8c86df5);
 impl windows_core::RuntimeType for ISpatialSurfaceObserver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserver");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -122,6 +128,7 @@ pub struct ISpatialSurfaceObserver_Vtbl {
 windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics, ISpatialSurfaceObserverStatics_Vtbl, 0x165951ed_2108_4168_9175_87e027bc9285);
 impl windows_core::RuntimeType for ISpatialSurfaceObserverStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -132,6 +139,7 @@ pub struct ISpatialSurfaceObserverStatics_Vtbl {
 windows_core::imp::define_interface!(ISpatialSurfaceObserverStatics2, ISpatialSurfaceObserverStatics2_Vtbl, 0x0f534261_c55d_4e6b_a895_a19de69a42e3);
 impl windows_core::RuntimeType for ISpatialSurfaceObserverStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]

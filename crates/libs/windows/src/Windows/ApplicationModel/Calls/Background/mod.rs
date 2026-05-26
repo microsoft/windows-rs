@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPhoneCallBlockedTriggerDetails, IPhoneCallBlockedTriggerDetails_Vtbl, 0xa4a690a2_e4c1_427f_864e_e470477ddb67);
 impl windows_core::RuntimeType for IPhoneCallBlockedTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.IPhoneCallBlockedTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13,6 +14,7 @@ pub struct IPhoneCallBlockedTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IPhoneCallOriginDataRequestTriggerDetails, IPhoneCallOriginDataRequestTriggerDetails_Vtbl, 0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
 impl windows_core::RuntimeType for IPhoneCallOriginDataRequestTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.IPhoneCallOriginDataRequestTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -24,6 +26,7 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IPhoneIncomingCallDismissedTriggerDetails, IPhoneIncomingCallDismissedTriggerDetails_Vtbl, 0xbad30276_83b6_5732_9c38_0c206546196a);
 impl windows_core::RuntimeType for IPhoneIncomingCallDismissedTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallDismissedTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -39,6 +42,7 @@ pub struct IPhoneIncomingCallDismissedTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IPhoneIncomingCallNotificationTriggerDetails, IPhoneIncomingCallNotificationTriggerDetails_Vtbl, 0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
 impl windows_core::RuntimeType for IPhoneIncomingCallNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallNotificationTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,6 +54,7 @@ pub struct IPhoneIncomingCallNotificationTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IPhoneLineChangedTriggerDetails, IPhoneLineChangedTriggerDetails_Vtbl, 0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
 impl windows_core::RuntimeType for IPhoneLineChangedTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -62,6 +67,7 @@ pub struct IPhoneLineChangedTriggerDetails_Vtbl {
 windows_core::imp::define_interface!(IPhoneNewVoicemailMessageTriggerDetails, IPhoneNewVoicemailMessageTriggerDetails_Vtbl, 0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
 impl windows_core::RuntimeType for IPhoneNewVoicemailMessageTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.IPhoneNewVoicemailMessageTriggerDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -84,6 +90,7 @@ impl windows_core::TypeKind for PhoneCallBlockedReason {
 }
 impl windows_core::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -165,6 +172,7 @@ impl windows_core::TypeKind for PhoneIncomingCallDismissedReason {
 }
 impl windows_core::RuntimeType for PhoneIncomingCallDismissedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -263,6 +271,7 @@ impl windows_core::TypeKind for PhoneLineChangeKind {
 }
 impl windows_core::RuntimeType for PhoneLineChangeKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.PhoneLineChangeKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -320,6 +329,7 @@ impl windows_core::TypeKind for PhoneLineProperties {
 }
 impl windows_core::RuntimeType for PhoneLineProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneLineProperties;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.PhoneLineProperties");
 }
 impl PhoneLineProperties {
     pub const fn contains(&self, other: Self) -> bool {
@@ -408,4 +418,5 @@ impl windows_core::TypeKind for PhoneTriggerType {
 }
 impl windows_core::RuntimeType for PhoneTriggerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Calls.Background.PhoneTriggerType");
 }

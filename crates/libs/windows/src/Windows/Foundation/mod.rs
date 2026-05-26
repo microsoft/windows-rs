@@ -167,6 +167,7 @@ impl windows_core::RuntimeName for GuidHelper {
 windows_core::imp::define_interface!(IClosable, IClosable_Vtbl, 0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
 impl windows_core::RuntimeType for IClosable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IClosable");
 }
 windows_core::imp::interface_hierarchy!(IClosable, windows_core::IUnknown, windows_core::IInspectable);
 impl IClosable {
@@ -203,6 +204,7 @@ pub struct IClosable_Vtbl {
 windows_core::imp::define_interface!(IDeferral, IDeferral_Vtbl, 0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
 impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferral");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -213,6 +215,7 @@ pub struct IDeferral_Vtbl {
 windows_core::imp::define_interface!(IDeferralFactory, IDeferralFactory_Vtbl, 0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a);
 impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IDeferralFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -223,6 +226,7 @@ pub struct IDeferralFactory_Vtbl {
 windows_core::imp::define_interface!(IGetActivationFactory, IGetActivationFactory_Vtbl, 0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c);
 impl windows_core::RuntimeType for IGetActivationFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGetActivationFactory");
 }
 windows_core::imp::interface_hierarchy!(IGetActivationFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl IGetActivationFactory {
@@ -272,6 +276,7 @@ pub struct IGetActivationFactory_Vtbl {
 windows_core::imp::define_interface!(IGuidHelperStatics, IGuidHelperStatics_Vtbl, 0x59c7966b_ae52_5283_ad7f_a1b9e9678add);
 impl windows_core::RuntimeType for IGuidHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IGuidHelperStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -284,6 +289,7 @@ pub struct IGuidHelperStatics_Vtbl {
 windows_core::imp::define_interface!(IMemoryBuffer, IMemoryBuffer_Vtbl, 0xfbc4dd2a_245b_11e4_af98_689423260cf8);
 impl windows_core::RuntimeType for IMemoryBuffer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBuffer");
 }
 windows_core::imp::interface_hierarchy!(IMemoryBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMemoryBuffer, IClosable);
@@ -335,6 +341,7 @@ pub struct IMemoryBuffer_Vtbl {
 windows_core::imp::define_interface!(IMemoryBufferFactory, IMemoryBufferFactory_Vtbl, 0xfbc4dd2b_245b_11e4_af98_689423260cf8);
 impl windows_core::RuntimeType for IMemoryBufferFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBufferFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -345,6 +352,7 @@ pub struct IMemoryBufferFactory_Vtbl {
 windows_core::imp::define_interface!(IMemoryBufferReference, IMemoryBufferReference_Vtbl, 0xfbc4dd29_245b_11e4_af98_689423260cf8);
 impl windows_core::RuntimeType for IMemoryBufferReference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IMemoryBufferReference");
 }
 windows_core::imp::interface_hierarchy!(IMemoryBufferReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMemoryBufferReference, IClosable);
@@ -434,6 +442,7 @@ pub struct IMemoryBufferReference_Vtbl {
 windows_core::imp::define_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValue");
 }
 windows_core::imp::interface_hierarchy!(IPropertyValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyValue {
@@ -1110,6 +1119,7 @@ pub struct IPropertyValue_Vtbl {
 windows_core::imp::define_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 impl windows_core::RuntimeType for IPropertyValueStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IPropertyValueStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1168,6 +1178,7 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IReferenceArray<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"Windows.Foundation.IReferenceArray`1<").push_other(T::NAME).push_slice(b">");
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue> for IReferenceArray<T> {
     const QUERY: bool = true;
@@ -1398,6 +1409,7 @@ impl<T: windows_core::RuntimeType + 'static> IReferenceArray<T> {
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReferenceArray<T> {
     const NAME: &'static str = "Windows.Foundation.IReferenceArray";
+    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer = <Self as windows_core::RuntimeType>::NAME;
 }
 pub trait IReferenceArray_Impl<T>: IPropertyValue_Impl
 where
@@ -1444,6 +1456,7 @@ where
 windows_core::imp::define_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IStringable");
 }
 windows_core::imp::interface_hierarchy!(IStringable, windows_core::IUnknown, windows_core::IInspectable);
 impl IStringable {
@@ -1490,6 +1503,7 @@ pub struct IStringable_Vtbl {
 windows_core::imp::define_interface!(IUriEscapeStatics, IUriEscapeStatics_Vtbl, 0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1);
 impl windows_core::RuntimeType for IUriEscapeStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriEscapeStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1501,6 +1515,7 @@ pub struct IUriEscapeStatics_Vtbl {
 windows_core::imp::define_interface!(IUriRuntimeClass, IUriRuntimeClass_Vtbl, 0x9e365e57_48b2_4160_956f_c7385120bbfc);
 impl windows_core::RuntimeType for IUriRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClass");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1527,6 +1542,7 @@ pub struct IUriRuntimeClass_Vtbl {
 windows_core::imp::define_interface!(IUriRuntimeClassFactory, IUriRuntimeClassFactory_Vtbl, 0x44a9796f_723e_4fdf_a218_033e75b0c084);
 impl windows_core::RuntimeType for IUriRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClassFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1538,6 +1554,7 @@ pub struct IUriRuntimeClassFactory_Vtbl {
 windows_core::imp::define_interface!(IUriRuntimeClassWithAbsoluteCanonicalUri, IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl, 0x758d9661_221c_480f_a339_50656673f46f);
 impl windows_core::RuntimeType for IUriRuntimeClassWithAbsoluteCanonicalUri {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1549,6 +1566,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
 windows_core::imp::define_interface!(IWwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry_Vtbl, 0x125e7431_f678_4e8e_b670_20a9b06c512d);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderEntry");
 }
 windows_core::imp::interface_hierarchy!(IWwwFormUrlDecoderEntry, windows_core::IUnknown, windows_core::IInspectable);
 impl IWwwFormUrlDecoderEntry {
@@ -1620,6 +1638,7 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClass, IWwwFormUrlDecoderRuntimeClass_Vtbl, 0xd45a0451_f225_4542_9296_0e1df5d254df);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClass");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1630,6 +1649,7 @@ pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
 windows_core::imp::define_interface!(IWwwFormUrlDecoderRuntimeClassFactory, IWwwFormUrlDecoderRuntimeClassFactory_Vtbl, 0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b);
 impl windows_core::RuntimeType for IWwwFormUrlDecoderRuntimeClassFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1687,6 +1707,7 @@ impl windows_core::TypeKind for Point {
 }
 impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Point");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1739,6 +1760,7 @@ impl windows_core::TypeKind for PropertyType {
 }
 impl windows_core::RuntimeType for PropertyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.PropertyType");
 }
 pub struct PropertyValue;
 impl PropertyValue {
@@ -2000,6 +2022,7 @@ impl windows_core::TypeKind for Rect {
 }
 impl windows_core::RuntimeType for Rect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Rect");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2012,6 +2035,7 @@ impl windows_core::TypeKind for Size {
 }
 impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Size");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

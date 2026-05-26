@@ -178,6 +178,7 @@ impl windows_core::TypeKind for ArcadeStickButtons {
 }
 impl windows_core::RuntimeType for ArcadeStickButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ArcadeStickButtons");
 }
 impl ArcadeStickButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -223,6 +224,7 @@ impl windows_core::TypeKind for ArcadeStickReading {
 }
 impl windows_core::RuntimeType for ArcadeStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.ArcadeStickReading");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -390,6 +392,7 @@ impl windows_core::TypeKind for FlightStickButtons {
 }
 impl windows_core::RuntimeType for FlightStickButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.FlightStickButtons");
 }
 impl FlightStickButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -440,6 +443,7 @@ impl windows_core::TypeKind for FlightStickReading {
 }
 impl windows_core::RuntimeType for FlightStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.FlightStickReading");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -520,6 +524,7 @@ impl windows_core::TypeKind for GameControllerButtonLabel {
 }
 impl windows_core::RuntimeType for GameControllerButtonLabel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.GameControllerButtonLabel");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -534,6 +539,7 @@ impl windows_core::TypeKind for GameControllerSwitchKind {
 }
 impl windows_core::RuntimeType for GameControllerSwitchKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.GameControllerSwitchKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -554,6 +560,7 @@ impl windows_core::TypeKind for GameControllerSwitchPosition {
 }
 impl windows_core::RuntimeType for GameControllerSwitchPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.GameControllerSwitchPosition");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -745,6 +752,7 @@ impl windows_core::TypeKind for GamepadButtons {
 }
 impl windows_core::RuntimeType for GamepadButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.GamepadButtons");
 }
 impl GamepadButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -796,6 +804,7 @@ impl windows_core::TypeKind for GamepadReading {
 }
 impl windows_core::RuntimeType for GamepadReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.GamepadReading");
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -810,6 +819,7 @@ impl windows_core::TypeKind for GamepadVibration {
 }
 impl windows_core::RuntimeType for GamepadVibration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.GamepadVibration");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -853,6 +863,7 @@ unsafe impl Sync for Headset {}
 windows_core::imp::define_interface!(IArcadeStick, IArcadeStick_Vtbl, 0xb14a539d_befb_4c81_8051_15ecf3b13036);
 impl windows_core::RuntimeType for IArcadeStick {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IArcadeStick");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -864,6 +875,7 @@ pub struct IArcadeStick_Vtbl {
 windows_core::imp::define_interface!(IArcadeStickStatics, IArcadeStickStatics_Vtbl, 0x5c37b8c8_37b1_4ad8_9458_200f1a30018e);
 impl windows_core::RuntimeType for IArcadeStickStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IArcadeStickStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -878,6 +890,7 @@ pub struct IArcadeStickStatics_Vtbl {
 windows_core::imp::define_interface!(IArcadeStickStatics2, IArcadeStickStatics2_Vtbl, 0x52b5d744_bb86_445a_b59c_596f0e2a49df);
 impl windows_core::RuntimeType for IArcadeStickStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IArcadeStickStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -888,6 +901,7 @@ pub struct IArcadeStickStatics2_Vtbl {
 windows_core::imp::define_interface!(IFlightStick, IFlightStick_Vtbl, 0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
 impl windows_core::RuntimeType for IFlightStick {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IFlightStick");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -900,6 +914,7 @@ pub struct IFlightStick_Vtbl {
 windows_core::imp::define_interface!(IFlightStickStatics, IFlightStickStatics_Vtbl, 0x5514924a_fecc_435e_83dc_5cec8a18a520);
 impl windows_core::RuntimeType for IFlightStickStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IFlightStickStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -915,6 +930,7 @@ pub struct IFlightStickStatics_Vtbl {
 windows_core::imp::define_interface!(IGameController, IGameController_Vtbl, 0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
 impl windows_core::RuntimeType for IGameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGameController");
 }
 windows_core::imp::interface_hierarchy!(IGameController, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameController {
@@ -1126,6 +1142,7 @@ pub struct IGameController_Vtbl {
 windows_core::imp::define_interface!(IGameControllerBatteryInfo, IGameControllerBatteryInfo_Vtbl, 0xdcecc681_3963_4da6_955d_553f3b6f6161);
 impl windows_core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGameControllerBatteryInfo");
 }
 windows_core::imp::interface_hierarchy!(IGameControllerBatteryInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameControllerBatteryInfo {
@@ -1182,6 +1199,7 @@ pub struct IGameControllerBatteryInfo_Vtbl {
 windows_core::imp::define_interface!(IGamepad, IGamepad_Vtbl, 0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
 impl windows_core::RuntimeType for IGamepad {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepad");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1194,6 +1212,7 @@ pub struct IGamepad_Vtbl {
 windows_core::imp::define_interface!(IGamepad2, IGamepad2_Vtbl, 0x3c1689bd_5915_4245_b0c0_c89fae0308ff);
 impl windows_core::RuntimeType for IGamepad2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepad2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1204,6 +1223,7 @@ pub struct IGamepad2_Vtbl {
 windows_core::imp::define_interface!(IGamepadStatics, IGamepadStatics_Vtbl, 0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
 impl windows_core::RuntimeType for IGamepadStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepadStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1218,6 +1238,7 @@ pub struct IGamepadStatics_Vtbl {
 windows_core::imp::define_interface!(IGamepadStatics2, IGamepadStatics2_Vtbl, 0x42676dc5_0856_47c4_9213_b395504c3a3c);
 impl windows_core::RuntimeType for IGamepadStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IGamepadStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1228,6 +1249,7 @@ pub struct IGamepadStatics2_Vtbl {
 windows_core::imp::define_interface!(IHeadset, IHeadset_Vtbl, 0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
 impl windows_core::RuntimeType for IHeadset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IHeadset");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1239,6 +1261,7 @@ pub struct IHeadset_Vtbl {
 windows_core::imp::define_interface!(IRacingWheel, IRacingWheel_Vtbl, 0xf546656f_e106_4c82_a90f_554012904b85);
 impl windows_core::RuntimeType for IRacingWheel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRacingWheel");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1259,6 +1282,7 @@ pub struct IRacingWheel_Vtbl {
 windows_core::imp::define_interface!(IRacingWheelStatics, IRacingWheelStatics_Vtbl, 0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
 impl windows_core::RuntimeType for IRacingWheelStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRacingWheelStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1273,6 +1297,7 @@ pub struct IRacingWheelStatics_Vtbl {
 windows_core::imp::define_interface!(IRacingWheelStatics2, IRacingWheelStatics2_Vtbl, 0xe666bcaa_edfd_4323_a9f6_3c384048d1ed);
 impl windows_core::RuntimeType for IRacingWheelStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRacingWheelStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1283,6 +1308,7 @@ pub struct IRacingWheelStatics2_Vtbl {
 windows_core::imp::define_interface!(IRawGameController, IRawGameController_Vtbl, 0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
 impl windows_core::RuntimeType for IRawGameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRawGameController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1304,6 +1330,7 @@ pub struct IRawGameController_Vtbl {
 windows_core::imp::define_interface!(IRawGameController2, IRawGameController2_Vtbl, 0x43c0c035_bb73_4756_a787_3ed6bea617bd);
 impl windows_core::RuntimeType for IRawGameController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRawGameController2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1319,6 +1346,7 @@ pub struct IRawGameController2_Vtbl {
 windows_core::imp::define_interface!(IRawGameControllerStatics, IRawGameControllerStatics_Vtbl, 0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e);
 impl windows_core::RuntimeType for IRawGameControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IRawGameControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1334,6 +1362,7 @@ pub struct IRawGameControllerStatics_Vtbl {
 windows_core::imp::define_interface!(IUINavigationController, IUINavigationController_Vtbl, 0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
 impl windows_core::RuntimeType for IUINavigationController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IUINavigationController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1346,6 +1375,7 @@ pub struct IUINavigationController_Vtbl {
 windows_core::imp::define_interface!(IUINavigationControllerStatics, IUINavigationControllerStatics_Vtbl, 0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
 impl windows_core::RuntimeType for IUINavigationControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IUINavigationControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1360,6 +1390,7 @@ pub struct IUINavigationControllerStatics_Vtbl {
 windows_core::imp::define_interface!(IUINavigationControllerStatics2, IUINavigationControllerStatics2_Vtbl, 0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4);
 impl windows_core::RuntimeType for IUINavigationControllerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.IUINavigationControllerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1390,6 +1421,7 @@ impl windows_core::TypeKind for OptionalUINavigationButtons {
 }
 impl windows_core::RuntimeType for OptionalUINavigationButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.OptionalUINavigationButtons");
 }
 impl OptionalUINavigationButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1645,6 +1677,7 @@ impl windows_core::TypeKind for RacingWheelButtons {
 }
 impl windows_core::RuntimeType for RacingWheelButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.RacingWheelButtons");
 }
 impl RacingWheelButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1696,6 +1729,7 @@ impl windows_core::TypeKind for RacingWheelReading {
 }
 impl windows_core::RuntimeType for RacingWheelReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.RacingWheelReading");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1928,6 +1962,7 @@ impl windows_core::TypeKind for RequiredUINavigationButtons {
 }
 impl windows_core::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.RequiredUINavigationButtons");
 }
 impl RequiredUINavigationButtons {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2131,4 +2166,5 @@ impl windows_core::TypeKind for UINavigationReading {
 }
 impl windows_core::RuntimeType for UINavigationReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.UINavigationReading;u8;enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4);enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4))");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.UINavigationReading");
 }

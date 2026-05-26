@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IXsltProcessor, IXsltProcessor_Vtbl, 0x7b64703f_550c_48c6_a90f_93a5b964518f);
 impl windows_core::RuntimeType for IXsltProcessor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Xml.Xsl.IXsltProcessor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14,6 +15,7 @@ pub struct IXsltProcessor_Vtbl {
 windows_core::imp::define_interface!(IXsltProcessor2, IXsltProcessor2_Vtbl, 0x8da45c56_97a5_44cb_a8be_27d86280c70a);
 impl windows_core::RuntimeType for IXsltProcessor2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Xml.Xsl.IXsltProcessor2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -27,6 +29,7 @@ pub struct IXsltProcessor2_Vtbl {
 windows_core::imp::define_interface!(IXsltProcessorFactory, IXsltProcessorFactory_Vtbl, 0x274146c0_9a51_4663_bf30_0ef742146f20);
 impl windows_core::RuntimeType for IXsltProcessorFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Data.Xml.Xsl.IXsltProcessorFactory");
 }
 #[repr(C)]
 #[doc(hidden)]

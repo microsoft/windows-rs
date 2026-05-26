@@ -341,6 +341,7 @@ impl windows_core::TypeKind for BarcodeScannerStatus {
 }
 impl windows_core::RuntimeType for BarcodeScannerStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeScannerStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.BarcodeScannerStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1050,6 +1051,7 @@ impl windows_core::TypeKind for BarcodeSymbologyDecodeLengthKind {
 }
 impl windows_core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.BarcodeSymbologyDecodeLengthKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1430,6 +1432,7 @@ impl windows_core::TypeKind for CashDrawerStatusKind {
 }
 impl windows_core::RuntimeType for CashDrawerStatusKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.CashDrawerStatusKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.CashDrawerStatusKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3048,6 +3051,7 @@ unsafe impl Sync for ClaimedSlipPrinter {}
 windows_core::imp::define_interface!(IBarcodeScanner, IBarcodeScanner_Vtbl, 0xbea33e06_b264_4f03_a9c1_45b20f01134f);
 impl windows_core::RuntimeType for IBarcodeScanner {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScanner");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3071,6 +3075,7 @@ pub struct IBarcodeScanner_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScanner2, IBarcodeScanner2_Vtbl, 0x89215167_8cee_436d_89ab_8dfb43bb4286);
 impl windows_core::RuntimeType for IBarcodeScanner2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScanner2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3081,6 +3086,7 @@ pub struct IBarcodeScanner2_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerCapabilities, IBarcodeScannerCapabilities_Vtbl, 0xc60691e4_f2c8_4420_a307_b12ef6622857);
 impl windows_core::RuntimeType for IBarcodeScannerCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3094,6 +3100,7 @@ pub struct IBarcodeScannerCapabilities_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerCapabilities1, IBarcodeScannerCapabilities1_Vtbl, 0x8e5ab3e9_0e2c_472f_a1cc_ee8054b6a684);
 impl windows_core::RuntimeType for IBarcodeScannerCapabilities1 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerCapabilities1");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3104,6 +3111,7 @@ pub struct IBarcodeScannerCapabilities1_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerCapabilities2, IBarcodeScannerCapabilities2_Vtbl, 0xf211cfec_e1a1_4ea8_9abc_92b1596270ab);
 impl windows_core::RuntimeType for IBarcodeScannerCapabilities2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerCapabilities2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3114,6 +3122,7 @@ pub struct IBarcodeScannerCapabilities2_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerDataReceivedEventArgs, IBarcodeScannerDataReceivedEventArgs_Vtbl, 0x4234a7e2_ed97_467d_ad2b_01e44313a929);
 impl windows_core::RuntimeType for IBarcodeScannerDataReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerDataReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3124,6 +3133,7 @@ pub struct IBarcodeScannerDataReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerErrorOccurredEventArgs, IBarcodeScannerErrorOccurredEventArgs_Vtbl, 0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
 impl windows_core::RuntimeType for IBarcodeScannerErrorOccurredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerErrorOccurredEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3136,6 +3146,7 @@ pub struct IBarcodeScannerErrorOccurredEventArgs_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerImagePreviewReceivedEventArgs, IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl, 0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
 impl windows_core::RuntimeType for IBarcodeScannerImagePreviewReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerImagePreviewReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3149,6 +3160,7 @@ pub struct IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerReport, IBarcodeScannerReport_Vtbl, 0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
 impl windows_core::RuntimeType for IBarcodeScannerReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3167,6 +3179,7 @@ pub struct IBarcodeScannerReport_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerReportFactory, IBarcodeScannerReportFactory_Vtbl, 0xa2547326_2013_457c_8963_49c15dca78ce);
 impl windows_core::RuntimeType for IBarcodeScannerReportFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerReportFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3180,6 +3193,7 @@ pub struct IBarcodeScannerReportFactory_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerStatics, IBarcodeScannerStatics_Vtbl, 0x5d115f6f_da49_41e8_8c8c_f0cb62a9c4fc);
 impl windows_core::RuntimeType for IBarcodeScannerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3192,6 +3206,7 @@ pub struct IBarcodeScannerStatics_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerStatics2, IBarcodeScannerStatics2_Vtbl, 0xb8652473_a36f_4007_b1d0_279ebe92a656);
 impl windows_core::RuntimeType for IBarcodeScannerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3202,6 +3217,7 @@ pub struct IBarcodeScannerStatics2_Vtbl {
 windows_core::imp::define_interface!(IBarcodeScannerStatusUpdatedEventArgs, IBarcodeScannerStatusUpdatedEventArgs_Vtbl, 0x355d8586_9c43_462b_a91a_816dc97f452c);
 impl windows_core::RuntimeType for IBarcodeScannerStatusUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeScannerStatusUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3213,6 +3229,7 @@ pub struct IBarcodeScannerStatusUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IBarcodeSymbologiesStatics, IBarcodeSymbologiesStatics_Vtbl, 0xca8549bb_06d2_43f4_a44b_c620679fd8d0);
 impl windows_core::RuntimeType for IBarcodeSymbologiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeSymbologiesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3316,6 +3333,7 @@ pub struct IBarcodeSymbologiesStatics_Vtbl {
 windows_core::imp::define_interface!(IBarcodeSymbologiesStatics2, IBarcodeSymbologiesStatics2_Vtbl, 0x8b7518f4_99d0_40bf_9424_b91d6dd4c6e0);
 impl windows_core::RuntimeType for IBarcodeSymbologiesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeSymbologiesStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3326,6 +3344,7 @@ pub struct IBarcodeSymbologiesStatics2_Vtbl {
 windows_core::imp::define_interface!(IBarcodeSymbologyAttributes, IBarcodeSymbologyAttributes_Vtbl, 0x66413a78_ab7a_4ada_8ece_936014b2ead7);
 impl windows_core::RuntimeType for IBarcodeSymbologyAttributes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IBarcodeSymbologyAttributes");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3348,6 +3367,7 @@ pub struct IBarcodeSymbologyAttributes_Vtbl {
 windows_core::imp::define_interface!(ICashDrawer, ICashDrawer_Vtbl, 0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
 impl windows_core::RuntimeType for ICashDrawer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3367,6 +3387,7 @@ pub struct ICashDrawer_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerCapabilities, ICashDrawerCapabilities_Vtbl, 0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
 impl windows_core::RuntimeType for ICashDrawerCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3382,6 +3403,7 @@ pub struct ICashDrawerCapabilities_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerCloseAlarm, ICashDrawerCloseAlarm_Vtbl, 0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
 impl windows_core::RuntimeType for ICashDrawerCloseAlarm {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerCloseAlarm");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3402,6 +3424,7 @@ pub struct ICashDrawerCloseAlarm_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerEventSource, ICashDrawerEventSource_Vtbl, 0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
 impl windows_core::RuntimeType for ICashDrawerEventSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerEventSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3415,6 +3438,7 @@ pub struct ICashDrawerEventSource_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerEventSourceEventArgs, ICashDrawerEventSourceEventArgs_Vtbl, 0x69cb3bc1_147f_421c_9c23_090123bb786c);
 impl windows_core::RuntimeType for ICashDrawerEventSourceEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerEventSourceEventArgs");
 }
 windows_core::imp::interface_hierarchy!(ICashDrawerEventSourceEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ICashDrawerEventSourceEventArgs {
@@ -3461,6 +3485,7 @@ pub struct ICashDrawerEventSourceEventArgs_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerStatics, ICashDrawerStatics_Vtbl, 0xdfa0955a_d437_4fff_b547_dda969a4f883);
 impl windows_core::RuntimeType for ICashDrawerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3473,6 +3498,7 @@ pub struct ICashDrawerStatics_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerStatics2, ICashDrawerStatics2_Vtbl, 0x3e818121_8c42_40e8_9c0e_40297048104c);
 impl windows_core::RuntimeType for ICashDrawerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3483,6 +3509,7 @@ pub struct ICashDrawerStatics2_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerStatus, ICashDrawerStatus_Vtbl, 0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
 impl windows_core::RuntimeType for ICashDrawerStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerStatus");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3494,6 +3521,7 @@ pub struct ICashDrawerStatus_Vtbl {
 windows_core::imp::define_interface!(ICashDrawerStatusUpdatedEventArgs, ICashDrawerStatusUpdatedEventArgs_Vtbl, 0x30aae98a_0d70_459c_9553_87e124c52488);
 impl windows_core::RuntimeType for ICashDrawerStatusUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICashDrawerStatusUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3504,6 +3532,7 @@ pub struct ICashDrawerStatusUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClaimedBarcodeScanner, IClaimedBarcodeScanner_Vtbl, 0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
 impl windows_core::RuntimeType for IClaimedBarcodeScanner {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedBarcodeScanner");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3538,6 +3567,7 @@ pub struct IClaimedBarcodeScanner_Vtbl {
 windows_core::imp::define_interface!(IClaimedBarcodeScanner1, IClaimedBarcodeScanner1_Vtbl, 0xf61aad0c_8551_42b4_998c_970c20210a22);
 impl windows_core::RuntimeType for IClaimedBarcodeScanner1 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedBarcodeScanner1");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3549,6 +3579,7 @@ pub struct IClaimedBarcodeScanner1_Vtbl {
 windows_core::imp::define_interface!(IClaimedBarcodeScanner2, IClaimedBarcodeScanner2_Vtbl, 0xe3b59e8c_2d8b_4f70_8af3_3448bedd5fe2);
 impl windows_core::RuntimeType for IClaimedBarcodeScanner2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedBarcodeScanner2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3560,6 +3591,7 @@ pub struct IClaimedBarcodeScanner2_Vtbl {
 windows_core::imp::define_interface!(IClaimedBarcodeScanner3, IClaimedBarcodeScanner3_Vtbl, 0xe6ceb430_712e_45fc_8b86_cd55f5aef79d);
 impl windows_core::RuntimeType for IClaimedBarcodeScanner3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedBarcodeScanner3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3573,6 +3605,7 @@ pub struct IClaimedBarcodeScanner3_Vtbl {
 windows_core::imp::define_interface!(IClaimedBarcodeScanner4, IClaimedBarcodeScanner4_Vtbl, 0x5d501f97_376a_41a8_a230_2f37c1949dde);
 impl windows_core::RuntimeType for IClaimedBarcodeScanner4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedBarcodeScanner4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3584,6 +3617,7 @@ pub struct IClaimedBarcodeScanner4_Vtbl {
 windows_core::imp::define_interface!(IClaimedBarcodeScannerClosedEventArgs, IClaimedBarcodeScannerClosedEventArgs_Vtbl, 0xcf7d5489_a22c_4c65_a901_88d77d833954);
 impl windows_core::RuntimeType for IClaimedBarcodeScannerClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedBarcodeScannerClosedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3593,6 +3627,7 @@ pub struct IClaimedBarcodeScannerClosedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClaimedCashDrawer, IClaimedCashDrawer_Vtbl, 0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
 impl windows_core::RuntimeType for IClaimedCashDrawer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedCashDrawer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3614,6 +3649,7 @@ pub struct IClaimedCashDrawer_Vtbl {
 windows_core::imp::define_interface!(IClaimedCashDrawer2, IClaimedCashDrawer2_Vtbl, 0x9cbab5a2_de42_4d5b_b0c1_9b57a2ba89c3);
 impl windows_core::RuntimeType for IClaimedCashDrawer2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedCashDrawer2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3625,6 +3661,7 @@ pub struct IClaimedCashDrawer2_Vtbl {
 windows_core::imp::define_interface!(IClaimedCashDrawerClosedEventArgs, IClaimedCashDrawerClosedEventArgs_Vtbl, 0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
 impl windows_core::RuntimeType for IClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedCashDrawerClosedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3634,6 +3671,7 @@ pub struct IClaimedCashDrawerClosedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClaimedJournalPrinter, IClaimedJournalPrinter_Vtbl, 0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
 impl windows_core::RuntimeType for IClaimedJournalPrinter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedJournalPrinter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3644,6 +3682,7 @@ pub struct IClaimedJournalPrinter_Vtbl {
 windows_core::imp::define_interface!(IClaimedLineDisplay, IClaimedLineDisplay_Vtbl, 0x120ac970_9a75_4acf_aae7_09972bcf8794);
 impl windows_core::RuntimeType for IClaimedLineDisplay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedLineDisplay");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3664,6 +3703,7 @@ pub struct IClaimedLineDisplay_Vtbl {
 windows_core::imp::define_interface!(IClaimedLineDisplay2, IClaimedLineDisplay2_Vtbl, 0xa31c75ed_41f5_4e76_a074_795e47a46e97);
 impl windows_core::RuntimeType for IClaimedLineDisplay2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedLineDisplay2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3699,6 +3739,7 @@ pub struct IClaimedLineDisplay2_Vtbl {
 windows_core::imp::define_interface!(IClaimedLineDisplay3, IClaimedLineDisplay3_Vtbl, 0x642ecd92_e9d4_4ecc_af75_329c274cd18f);
 impl windows_core::RuntimeType for IClaimedLineDisplay3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedLineDisplay3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3710,6 +3751,7 @@ pub struct IClaimedLineDisplay3_Vtbl {
 windows_core::imp::define_interface!(IClaimedLineDisplayClosedEventArgs, IClaimedLineDisplayClosedEventArgs_Vtbl, 0xf915f364_d3d5_4f10_b511_90939edfacd8);
 impl windows_core::RuntimeType for IClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedLineDisplayClosedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3719,6 +3761,7 @@ pub struct IClaimedLineDisplayClosedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClaimedLineDisplayStatics, IClaimedLineDisplayStatics_Vtbl, 0x78ca98fb_8b6b_4973_86f0_3e570c351825);
 impl windows_core::RuntimeType for IClaimedLineDisplayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedLineDisplayStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3731,6 +3774,7 @@ pub struct IClaimedLineDisplayStatics_Vtbl {
 windows_core::imp::define_interface!(IClaimedMagneticStripeReader, IClaimedMagneticStripeReader_Vtbl, 0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
 impl windows_core::RuntimeType for IClaimedMagneticStripeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedMagneticStripeReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3776,6 +3820,7 @@ pub struct IClaimedMagneticStripeReader_Vtbl {
 windows_core::imp::define_interface!(IClaimedMagneticStripeReader2, IClaimedMagneticStripeReader2_Vtbl, 0x236fafdf_e2dc_4d7d_9c78_060df2bf2928);
 impl windows_core::RuntimeType for IClaimedMagneticStripeReader2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedMagneticStripeReader2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3787,6 +3832,7 @@ pub struct IClaimedMagneticStripeReader2_Vtbl {
 windows_core::imp::define_interface!(IClaimedMagneticStripeReaderClosedEventArgs, IClaimedMagneticStripeReaderClosedEventArgs_Vtbl, 0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
 impl windows_core::RuntimeType for IClaimedMagneticStripeReaderClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedMagneticStripeReaderClosedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3796,6 +3842,7 @@ pub struct IClaimedMagneticStripeReaderClosedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClaimedPosPrinter, IClaimedPosPrinter_Vtbl, 0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
 impl windows_core::RuntimeType for IClaimedPosPrinter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedPosPrinter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3824,6 +3871,7 @@ pub struct IClaimedPosPrinter_Vtbl {
 windows_core::imp::define_interface!(IClaimedPosPrinter2, IClaimedPosPrinter2_Vtbl, 0x5bf7a3d5_5198_437a_82df_589993fa77e1);
 impl windows_core::RuntimeType for IClaimedPosPrinter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedPosPrinter2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3835,6 +3883,7 @@ pub struct IClaimedPosPrinter2_Vtbl {
 windows_core::imp::define_interface!(IClaimedPosPrinterClosedEventArgs, IClaimedPosPrinterClosedEventArgs_Vtbl, 0xe2b7a27b_4d40_471d_92ed_63375b18c788);
 impl windows_core::RuntimeType for IClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedPosPrinterClosedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3844,6 +3893,7 @@ pub struct IClaimedPosPrinterClosedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IClaimedReceiptPrinter, IClaimedReceiptPrinter_Vtbl, 0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
 impl windows_core::RuntimeType for IClaimedReceiptPrinter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedReceiptPrinter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3859,6 +3909,7 @@ pub struct IClaimedReceiptPrinter_Vtbl {
 windows_core::imp::define_interface!(IClaimedSlipPrinter, IClaimedSlipPrinter_Vtbl, 0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
 impl windows_core::RuntimeType for IClaimedSlipPrinter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IClaimedSlipPrinter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3881,6 +3932,7 @@ pub struct IClaimedSlipPrinter_Vtbl {
 windows_core::imp::define_interface!(ICommonClaimedPosPrinterStation, ICommonClaimedPosPrinterStation_Vtbl, 0xb7eb66a8_fe8a_4cfb_8b42_e35b280cb27c);
 impl windows_core::RuntimeType for ICommonClaimedPosPrinterStation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICommonClaimedPosPrinterStation");
 }
 windows_core::imp::interface_hierarchy!(ICommonClaimedPosPrinterStation, windows_core::IUnknown, windows_core::IInspectable);
 impl ICommonClaimedPosPrinterStation {
@@ -4262,6 +4314,7 @@ pub struct ICommonClaimedPosPrinterStation_Vtbl {
 windows_core::imp::define_interface!(ICommonPosPrintStationCapabilities, ICommonPosPrintStationCapabilities_Vtbl, 0xde5b52ca_e02e_40e9_9e5e_1b488e6aacfc);
 impl windows_core::RuntimeType for ICommonPosPrintStationCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICommonPosPrintStationCapabilities");
 }
 windows_core::imp::interface_hierarchy!(ICommonPosPrintStationCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl ICommonPosPrintStationCapabilities {
@@ -4563,6 +4616,7 @@ pub struct ICommonPosPrintStationCapabilities_Vtbl {
 windows_core::imp::define_interface!(ICommonReceiptSlipCapabilities, ICommonReceiptSlipCapabilities_Vtbl, 0x09286b8b_9873_4d05_bfbe_4727a6038f69);
 impl windows_core::RuntimeType for ICommonReceiptSlipCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ICommonReceiptSlipCapabilities");
 }
 windows_core::imp::interface_hierarchy!(ICommonReceiptSlipCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ICommonReceiptSlipCapabilities, ICommonPosPrintStationCapabilities);
@@ -4873,6 +4927,7 @@ pub struct ICommonReceiptSlipCapabilities_Vtbl {
 windows_core::imp::define_interface!(IJournalPrintJob, IJournalPrintJob_Vtbl, 0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
 impl windows_core::RuntimeType for IJournalPrintJob {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IJournalPrintJob");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4885,6 +4940,7 @@ pub struct IJournalPrintJob_Vtbl {
 windows_core::imp::define_interface!(IJournalPrinterCapabilities, IJournalPrinterCapabilities_Vtbl, 0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
 impl windows_core::RuntimeType for IJournalPrinterCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IJournalPrinterCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4894,6 +4950,7 @@ pub struct IJournalPrinterCapabilities_Vtbl {
 windows_core::imp::define_interface!(IJournalPrinterCapabilities2, IJournalPrinterCapabilities2_Vtbl, 0x03b0b645_33b8_533b_baaa_a4389283ab0a);
 impl windows_core::RuntimeType for IJournalPrinterCapabilities2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IJournalPrinterCapabilities2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4909,6 +4966,7 @@ pub struct IJournalPrinterCapabilities2_Vtbl {
 windows_core::imp::define_interface!(ILineDisplay, ILineDisplay_Vtbl, 0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
 impl windows_core::RuntimeType for ILineDisplay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplay");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4926,6 +4984,7 @@ pub struct ILineDisplay_Vtbl {
 windows_core::imp::define_interface!(ILineDisplay2, ILineDisplay2_Vtbl, 0xc296a628_ef44_40f3_bd1c_b04c6a5cdc7d);
 impl windows_core::RuntimeType for ILineDisplay2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplay2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4936,6 +4995,7 @@ pub struct ILineDisplay2_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayAttributes, ILineDisplayAttributes_Vtbl, 0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
 impl windows_core::RuntimeType for ILineDisplayAttributes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayAttributes");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4959,6 +5019,7 @@ pub struct ILineDisplayAttributes_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayCapabilities, ILineDisplayCapabilities_Vtbl, 0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
 impl windows_core::RuntimeType for ILineDisplayCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4986,6 +5047,7 @@ pub struct ILineDisplayCapabilities_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayCursor, ILineDisplayCursor_Vtbl, 0xecdffc45_754a_4e3b_ab2b_151181085605);
 impl windows_core::RuntimeType for ILineDisplayCursor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayCursor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5004,6 +5066,7 @@ pub struct ILineDisplayCursor_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayCursorAttributes, ILineDisplayCursorAttributes_Vtbl, 0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
 impl windows_core::RuntimeType for ILineDisplayCursorAttributes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayCursorAttributes");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5021,6 +5084,7 @@ pub struct ILineDisplayCursorAttributes_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayCustomGlyphs, ILineDisplayCustomGlyphs_Vtbl, 0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
 impl windows_core::RuntimeType for ILineDisplayCustomGlyphs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayCustomGlyphs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5036,6 +5100,7 @@ pub struct ILineDisplayCustomGlyphs_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayMarquee, ILineDisplayMarquee_Vtbl, 0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
 impl windows_core::RuntimeType for ILineDisplayMarquee {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayMarquee");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5053,6 +5118,7 @@ pub struct ILineDisplayMarquee_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayStatics, ILineDisplayStatics_Vtbl, 0x022dc0b6_11b0_4690_9547_0b39c5af2114);
 impl windows_core::RuntimeType for ILineDisplayStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5066,6 +5132,7 @@ pub struct ILineDisplayStatics_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayStatics2, ILineDisplayStatics2_Vtbl, 0x600c3f1c_77ab_4968_a7de_c02ff169f2cc);
 impl windows_core::RuntimeType for ILineDisplayStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5076,6 +5143,7 @@ pub struct ILineDisplayStatics2_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayStatisticsCategorySelector, ILineDisplayStatisticsCategorySelector_Vtbl, 0xb521c46b_9274_4d24_94f3_b6017b832444);
 impl windows_core::RuntimeType for ILineDisplayStatisticsCategorySelector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayStatisticsCategorySelector");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5088,6 +5156,7 @@ pub struct ILineDisplayStatisticsCategorySelector_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayStatusUpdatedEventArgs, ILineDisplayStatusUpdatedEventArgs_Vtbl, 0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
 impl windows_core::RuntimeType for ILineDisplayStatusUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayStatusUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5098,6 +5167,7 @@ pub struct ILineDisplayStatusUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayStoredBitmap, ILineDisplayStoredBitmap_Vtbl, 0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
 impl windows_core::RuntimeType for ILineDisplayStoredBitmap {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayStoredBitmap");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5109,6 +5179,7 @@ pub struct ILineDisplayStoredBitmap_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayWindow, ILineDisplayWindow_Vtbl, 0xd21feef4_2364_4be5_bee1_851680af4964);
 impl windows_core::RuntimeType for ILineDisplayWindow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayWindow");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5127,6 +5198,7 @@ pub struct ILineDisplayWindow_Vtbl {
 windows_core::imp::define_interface!(ILineDisplayWindow2, ILineDisplayWindow2_Vtbl, 0xa95ce2e6_bdd8_4365_8e11_de94de8dff02);
 impl windows_core::RuntimeType for ILineDisplayWindow2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ILineDisplayWindow2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5160,6 +5232,7 @@ pub struct ILineDisplayWindow2_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReader, IMagneticStripeReader_Vtbl, 0x1a92b015_47c3_468a_9333_0c6517574883);
 impl windows_core::RuntimeType for IMagneticStripeReader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReader");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5182,6 +5255,7 @@ pub struct IMagneticStripeReader_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderAamvaCardDataReceivedEventArgs, IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl, 0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
 impl windows_core::RuntimeType for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderAamvaCardDataReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5210,6 +5284,7 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderBankCardDataReceivedEventArgs, IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl, 0x2e958823_a31a_4763_882c_23725e39b08e);
 impl windows_core::RuntimeType for IMagneticStripeReaderBankCardDataReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderBankCardDataReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5228,6 +5303,7 @@ pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderCapabilities, IMagneticStripeReaderCapabilities_Vtbl, 0x7128809c_c440_44a2_a467_469175d02896);
 impl windows_core::RuntimeType for IMagneticStripeReaderCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5248,6 +5324,7 @@ pub struct IMagneticStripeReaderCapabilities_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderCardTypesStatics, IMagneticStripeReaderCardTypesStatics_Vtbl, 0x528f2c5d_2986_474f_8454_7ccd05928d5f);
 impl windows_core::RuntimeType for IMagneticStripeReaderCardTypesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderCardTypesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5261,6 +5338,7 @@ pub struct IMagneticStripeReaderCardTypesStatics_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderEncryptionAlgorithmsStatics, IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl, 0x53b57350_c3db_4754_9c00_41392374a109);
 impl windows_core::RuntimeType for IMagneticStripeReaderEncryptionAlgorithmsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderEncryptionAlgorithmsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5273,6 +5351,7 @@ pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderErrorOccurredEventArgs, IMagneticStripeReaderErrorOccurredEventArgs_Vtbl, 0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
 impl windows_core::RuntimeType for IMagneticStripeReaderErrorOccurredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderErrorOccurredEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5288,6 +5367,7 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgs_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderReport, IMagneticStripeReaderReport_Vtbl, 0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
 impl windows_core::RuntimeType for IMagneticStripeReaderReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderReport");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5312,6 +5392,7 @@ pub struct IMagneticStripeReaderReport_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderStatics, IMagneticStripeReaderStatics_Vtbl, 0xc45fab4a_efd7_4760_a5ce_15b0e47e94eb);
 impl windows_core::RuntimeType for IMagneticStripeReaderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5324,6 +5405,7 @@ pub struct IMagneticStripeReaderStatics_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderStatics2, IMagneticStripeReaderStatics2_Vtbl, 0x8cadc362_d667_48fa_86bc_f5ae1189262b);
 impl windows_core::RuntimeType for IMagneticStripeReaderStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5334,6 +5416,7 @@ pub struct IMagneticStripeReaderStatics2_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderStatusUpdatedEventArgs, IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl, 0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
 impl windows_core::RuntimeType for IMagneticStripeReaderStatusUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderStatusUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5345,6 +5428,7 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderTrackData, IMagneticStripeReaderTrackData_Vtbl, 0x104cf671_4a9d_446e_abc5_20402307ba36);
 impl windows_core::RuntimeType for IMagneticStripeReaderTrackData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderTrackData");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5366,6 +5450,7 @@ pub struct IMagneticStripeReaderTrackData_Vtbl {
 windows_core::imp::define_interface!(IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs, IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl, 0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
 impl windows_core::RuntimeType for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5376,6 +5461,7 @@ pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPosPrinter, IPosPrinter_Vtbl, 0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
 impl windows_core::RuntimeType for IPosPrinter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5395,6 +5481,7 @@ pub struct IPosPrinter_Vtbl {
 windows_core::imp::define_interface!(IPosPrinter2, IPosPrinter2_Vtbl, 0x248475e8_8b98_5517_8e48_760e86f68987);
 impl windows_core::RuntimeType for IPosPrinter2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinter2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5406,6 +5493,7 @@ pub struct IPosPrinter2_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterCapabilities, IPosPrinterCapabilities_Vtbl, 0xcde95721_4380_4985_adc5_39db30cd93bc);
 impl windows_core::RuntimeType for IPosPrinterCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5425,6 +5513,7 @@ pub struct IPosPrinterCapabilities_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterCharacterSetIdsStatics, IPosPrinterCharacterSetIdsStatics_Vtbl, 0x5c709eff_709a_4fe7_b215_06a748a38b39);
 impl windows_core::RuntimeType for IPosPrinterCharacterSetIdsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterCharacterSetIdsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5437,6 +5526,7 @@ pub struct IPosPrinterCharacterSetIdsStatics_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterFontProperty, IPosPrinterFontProperty_Vtbl, 0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
 impl windows_core::RuntimeType for IPosPrinterFontProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterFontProperty");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5449,6 +5539,7 @@ pub struct IPosPrinterFontProperty_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterJob, IPosPrinterJob_Vtbl, 0x9a94005c_0615_4591_a58f_30f87edfe2e4);
 impl windows_core::RuntimeType for IPosPrinterJob {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterJob");
 }
 windows_core::imp::interface_hierarchy!(IPosPrinterJob, windows_core::IUnknown, windows_core::IInspectable);
 impl IPosPrinterJob {
@@ -5534,6 +5625,7 @@ pub struct IPosPrinterJob_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterPrintOptions, IPosPrinterPrintOptions_Vtbl, 0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
 impl windows_core::RuntimeType for IPosPrinterPrintOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterPrintOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5569,6 +5661,7 @@ pub struct IPosPrinterPrintOptions_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterReleaseDeviceRequestedEventArgs, IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl, 0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
 impl windows_core::RuntimeType for IPosPrinterReleaseDeviceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterReleaseDeviceRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5578,6 +5671,7 @@ pub struct IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterStatics, IPosPrinterStatics_Vtbl, 0x8ce0d4ea_132f_4cdf_a64a_2d0d7c96a85b);
 impl windows_core::RuntimeType for IPosPrinterStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5590,6 +5684,7 @@ pub struct IPosPrinterStatics_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterStatics2, IPosPrinterStatics2_Vtbl, 0xeecd2c1c_b0d0_42e7_b137_b89b16244d41);
 impl windows_core::RuntimeType for IPosPrinterStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5600,6 +5695,7 @@ pub struct IPosPrinterStatics2_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterStatus, IPosPrinterStatus_Vtbl, 0xd1f0c730_da40_4328_bf76_5156fa33b747);
 impl windows_core::RuntimeType for IPosPrinterStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterStatus");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5611,6 +5707,7 @@ pub struct IPosPrinterStatus_Vtbl {
 windows_core::imp::define_interface!(IPosPrinterStatusUpdatedEventArgs, IPosPrinterStatusUpdatedEventArgs_Vtbl, 0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
 impl windows_core::RuntimeType for IPosPrinterStatusUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IPosPrinterStatusUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5621,6 +5718,7 @@ pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IReceiptOrSlipJob, IReceiptOrSlipJob_Vtbl, 0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
 impl windows_core::RuntimeType for IReceiptOrSlipJob {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IReceiptOrSlipJob");
 }
 windows_core::imp::interface_hierarchy!(IReceiptOrSlipJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IReceiptOrSlipJob, IPosPrinterJob);
@@ -5907,6 +6005,7 @@ pub struct IReceiptOrSlipJob_Vtbl {
 windows_core::imp::define_interface!(IReceiptPrintJob, IReceiptPrintJob_Vtbl, 0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
 impl windows_core::RuntimeType for IReceiptPrintJob {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IReceiptPrintJob");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5919,6 +6018,7 @@ pub struct IReceiptPrintJob_Vtbl {
 windows_core::imp::define_interface!(IReceiptPrintJob2, IReceiptPrintJob2_Vtbl, 0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e);
 impl windows_core::RuntimeType for IReceiptPrintJob2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IReceiptPrintJob2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5932,6 +6032,7 @@ pub struct IReceiptPrintJob2_Vtbl {
 windows_core::imp::define_interface!(IReceiptPrinterCapabilities, IReceiptPrinterCapabilities_Vtbl, 0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
 impl windows_core::RuntimeType for IReceiptPrinterCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IReceiptPrinterCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5944,6 +6045,7 @@ pub struct IReceiptPrinterCapabilities_Vtbl {
 windows_core::imp::define_interface!(IReceiptPrinterCapabilities2, IReceiptPrinterCapabilities2_Vtbl, 0x20030638_8a2c_55ac_9a7b_7576d8869e99);
 impl windows_core::RuntimeType for IReceiptPrinterCapabilities2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IReceiptPrinterCapabilities2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5959,6 +6061,7 @@ pub struct IReceiptPrinterCapabilities2_Vtbl {
 windows_core::imp::define_interface!(ISlipPrintJob, ISlipPrintJob_Vtbl, 0x5d88f95d_6131_5a4b_b7d5_8ef2da7b4165);
 impl windows_core::RuntimeType for ISlipPrintJob {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ISlipPrintJob");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5971,6 +6074,7 @@ pub struct ISlipPrintJob_Vtbl {
 windows_core::imp::define_interface!(ISlipPrinterCapabilities, ISlipPrinterCapabilities_Vtbl, 0x99b16399_488c_4157_8ac2_9f57f708d3db);
 impl windows_core::RuntimeType for ISlipPrinterCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ISlipPrinterCapabilities");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5982,6 +6086,7 @@ pub struct ISlipPrinterCapabilities_Vtbl {
 windows_core::imp::define_interface!(ISlipPrinterCapabilities2, ISlipPrinterCapabilities2_Vtbl, 0x6ff89671_2d1a_5000_87c2_b0851bfdf07e);
 impl windows_core::RuntimeType for ISlipPrinterCapabilities2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.ISlipPrinterCapabilities2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5997,6 +6102,7 @@ pub struct ISlipPrinterCapabilities2_Vtbl {
 windows_core::imp::define_interface!(IUnifiedPosErrorData, IUnifiedPosErrorData_Vtbl, 0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
 impl windows_core::RuntimeType for IUnifiedPosErrorData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IUnifiedPosErrorData");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6010,6 +6116,7 @@ pub struct IUnifiedPosErrorData_Vtbl {
 windows_core::imp::define_interface!(IUnifiedPosErrorDataFactory, IUnifiedPosErrorDataFactory_Vtbl, 0x4b982551_1ffe_451b_a368_63e0ce465f5a);
 impl windows_core::RuntimeType for IUnifiedPosErrorDataFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.IUnifiedPosErrorDataFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6688,6 +6795,7 @@ impl windows_core::TypeKind for LineDisplayCursorType {
 }
 impl windows_core::RuntimeType for LineDisplayCursorType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayCursorType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayCursorType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -6742,6 +6850,7 @@ impl windows_core::TypeKind for LineDisplayDescriptorState {
 }
 impl windows_core::RuntimeType for LineDisplayDescriptorState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayDescriptorState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayDescriptorState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6756,6 +6865,7 @@ impl windows_core::TypeKind for LineDisplayHorizontalAlignment {
 }
 impl windows_core::RuntimeType for LineDisplayHorizontalAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayHorizontalAlignment;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayHorizontalAlignment");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -6827,6 +6937,7 @@ impl windows_core::TypeKind for LineDisplayMarqueeFormat {
 }
 impl windows_core::RuntimeType for LineDisplayMarqueeFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayMarqueeFormat;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayMarqueeFormat");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6843,6 +6954,7 @@ impl windows_core::TypeKind for LineDisplayPowerStatus {
 }
 impl windows_core::RuntimeType for LineDisplayPowerStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayPowerStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayPowerStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6858,6 +6970,7 @@ impl windows_core::TypeKind for LineDisplayScrollDirection {
 }
 impl windows_core::RuntimeType for LineDisplayScrollDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayScrollDirection;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayScrollDirection");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -6963,6 +7076,7 @@ impl windows_core::TypeKind for LineDisplayTextAttribute {
 }
 impl windows_core::RuntimeType for LineDisplayTextAttribute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttribute;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayTextAttribute");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6977,6 +7091,7 @@ impl windows_core::TypeKind for LineDisplayTextAttributeGranularity {
 }
 impl windows_core::RuntimeType for LineDisplayTextAttributeGranularity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayTextAttributeGranularity");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6991,6 +7106,7 @@ impl windows_core::TypeKind for LineDisplayVerticalAlignment {
 }
 impl windows_core::RuntimeType for LineDisplayVerticalAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.LineDisplayVerticalAlignment;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.LineDisplayVerticalAlignment");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -7416,6 +7532,7 @@ impl windows_core::TypeKind for MagneticStripeReaderAuthenticationLevel {
 }
 impl windows_core::RuntimeType for MagneticStripeReaderAuthenticationLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationLevel");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7429,6 +7546,7 @@ impl windows_core::TypeKind for MagneticStripeReaderAuthenticationProtocol {
 }
 impl windows_core::RuntimeType for MagneticStripeReaderAuthenticationProtocol {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.MagneticStripeReaderAuthenticationProtocol");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -7714,6 +7832,7 @@ impl windows_core::TypeKind for MagneticStripeReaderErrorReportingType {
 }
 impl windows_core::RuntimeType for MagneticStripeReaderErrorReportingType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.MagneticStripeReaderErrorReportingType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -7802,6 +7921,7 @@ impl windows_core::TypeKind for MagneticStripeReaderStatus {
 }
 impl windows_core::RuntimeType for MagneticStripeReaderStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.MagneticStripeReaderStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -7888,6 +8008,7 @@ impl windows_core::TypeKind for MagneticStripeReaderTrackErrorType {
 }
 impl windows_core::RuntimeType for MagneticStripeReaderTrackErrorType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.MagneticStripeReaderTrackErrorType");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7904,6 +8025,7 @@ impl windows_core::TypeKind for MagneticStripeReaderTrackIds {
 }
 impl windows_core::RuntimeType for MagneticStripeReaderTrackIds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.MagneticStripeReaderTrackIds;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.MagneticStripeReaderTrackIds");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -7943,6 +8065,7 @@ impl windows_core::TypeKind for PosConnectionTypes {
 }
 impl windows_core::RuntimeType for PosConnectionTypes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosConnectionTypes;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosConnectionTypes");
 }
 impl PosConnectionTypes {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8122,6 +8245,7 @@ impl windows_core::TypeKind for PosPrinterAlignment {
 }
 impl windows_core::RuntimeType for PosPrinterAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterAlignment;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterAlignment");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8136,6 +8260,7 @@ impl windows_core::TypeKind for PosPrinterBarcodeTextPosition {
 }
 impl windows_core::RuntimeType for PosPrinterBarcodeTextPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterBarcodeTextPosition");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -8230,6 +8355,7 @@ impl windows_core::TypeKind for PosPrinterCartridgeSensors {
 }
 impl windows_core::RuntimeType for PosPrinterCartridgeSensors {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterCartridgeSensors;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterCartridgeSensors");
 }
 impl PosPrinterCartridgeSensors {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8314,6 +8440,7 @@ impl windows_core::TypeKind for PosPrinterColorCapabilities {
 }
 impl windows_core::RuntimeType for PosPrinterColorCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCapabilities;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterColorCapabilities");
 }
 impl PosPrinterColorCapabilities {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8369,6 +8496,7 @@ impl windows_core::TypeKind for PosPrinterColorCartridge {
 }
 impl windows_core::RuntimeType for PosPrinterColorCartridge {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterColorCartridge;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterColorCartridge");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -8418,6 +8546,7 @@ impl windows_core::TypeKind for PosPrinterLineDirection {
 }
 impl windows_core::RuntimeType for PosPrinterLineDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineDirection;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterLineDirection");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8433,6 +8562,7 @@ impl windows_core::TypeKind for PosPrinterLineStyle {
 }
 impl windows_core::RuntimeType for PosPrinterLineStyle {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterLineStyle;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterLineStyle");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8448,6 +8578,7 @@ impl windows_core::TypeKind for PosPrinterMapMode {
 }
 impl windows_core::RuntimeType for PosPrinterMapMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMapMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterMapMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8464,6 +8595,7 @@ impl windows_core::TypeKind for PosPrinterMarkFeedCapabilities {
 }
 impl windows_core::RuntimeType for PosPrinterMarkFeedCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterMarkFeedCapabilities");
 }
 impl PosPrinterMarkFeedCapabilities {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8512,6 +8644,7 @@ impl windows_core::TypeKind for PosPrinterMarkFeedKind {
 }
 impl windows_core::RuntimeType for PosPrinterMarkFeedKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterMarkFeedKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterMarkFeedKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -8668,6 +8801,7 @@ impl windows_core::TypeKind for PosPrinterPrintSide {
 }
 impl windows_core::RuntimeType for PosPrinterPrintSide {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterPrintSide;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterPrintSide");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -8700,6 +8834,7 @@ impl windows_core::TypeKind for PosPrinterRotation {
 }
 impl windows_core::RuntimeType for PosPrinterRotation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRotation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterRotation");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8714,6 +8849,7 @@ impl windows_core::TypeKind for PosPrinterRuledLineCapabilities {
 }
 impl windows_core::RuntimeType for PosPrinterRuledLineCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterRuledLineCapabilities");
 }
 impl PosPrinterRuledLineCapabilities {
     pub const fn contains(&self, other: Self) -> bool {
@@ -8793,6 +8929,7 @@ impl windows_core::TypeKind for PosPrinterStatusKind {
 }
 impl windows_core::RuntimeType for PosPrinterStatusKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.PosPrinterStatusKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.PosPrinterStatusKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -9220,6 +9357,7 @@ impl windows_core::TypeKind for SizeUInt32 {
 }
 impl windows_core::RuntimeType for SizeUInt32 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.PointOfService.SizeUInt32;u4;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.SizeUInt32");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -9651,6 +9789,7 @@ impl windows_core::TypeKind for UnifiedPosErrorReason {
 }
 impl windows_core::RuntimeType for UnifiedPosErrorReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.UnifiedPosErrorReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9668,6 +9807,7 @@ impl windows_core::TypeKind for UnifiedPosErrorSeverity {
 }
 impl windows_core::RuntimeType for UnifiedPosErrorSeverity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosErrorSeverity;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.UnifiedPosErrorSeverity");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9683,6 +9823,7 @@ impl windows_core::TypeKind for UnifiedPosHealthCheckLevel {
 }
 impl windows_core::RuntimeType for UnifiedPosHealthCheckLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.UnifiedPosHealthCheckLevel");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9697,4 +9838,5 @@ impl windows_core::TypeKind for UnifiedPosPowerReportingType {
 }
 impl windows_core::RuntimeType for UnifiedPosPowerReportingType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.PointOfService.UnifiedPosPowerReportingType");
 }

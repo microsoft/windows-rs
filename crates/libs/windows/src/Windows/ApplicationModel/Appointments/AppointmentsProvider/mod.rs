@@ -87,6 +87,7 @@ impl windows_core::RuntimeName for AppointmentsProviderLaunchActionVerbs {
 windows_core::imp::define_interface!(IAddAppointmentOperation, IAddAppointmentOperation_Vtbl, 0xec4a9af3_620d_4c69_add7_9794e918081f);
 impl windows_core::RuntimeType for IAddAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.AppointmentsProvider.IAddAppointmentOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -102,6 +103,7 @@ pub struct IAddAppointmentOperation_Vtbl {
 windows_core::imp::define_interface!(IAppointmentsProviderLaunchActionVerbsStatics, IAppointmentsProviderLaunchActionVerbsStatics_Vtbl, 0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8);
 impl windows_core::RuntimeType for IAppointmentsProviderLaunchActionVerbsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -115,6 +117,7 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics_Vtbl {
 windows_core::imp::define_interface!(IAppointmentsProviderLaunchActionVerbsStatics2, IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl, 0xef9049a4_af21_473c_88dc_76cd89f60ca5);
 impl windows_core::RuntimeType for IAppointmentsProviderLaunchActionVerbsStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -125,6 +128,7 @@ pub struct IAppointmentsProviderLaunchActionVerbsStatics2_Vtbl {
 windows_core::imp::define_interface!(IRemoveAppointmentOperation, IRemoveAppointmentOperation_Vtbl, 0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
 impl windows_core::RuntimeType for IRemoveAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.AppointmentsProvider.IRemoveAppointmentOperation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -141,6 +145,7 @@ pub struct IRemoveAppointmentOperation_Vtbl {
 windows_core::imp::define_interface!(IReplaceAppointmentOperation, IReplaceAppointmentOperation_Vtbl, 0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
 impl windows_core::RuntimeType for IReplaceAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation");
 }
 #[repr(C)]
 #[doc(hidden)]

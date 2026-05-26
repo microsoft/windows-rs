@@ -42,6 +42,7 @@ impl windows_core::TypeKind for CrossSlideThresholds {
 }
 impl windows_core::RuntimeType for CrossSlideThresholds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.CrossSlideThresholds;f4;f4;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.CrossSlideThresholds");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -102,6 +103,7 @@ impl windows_core::TypeKind for CrossSlidingState {
 }
 impl windows_core::RuntimeType for CrossSlidingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.CrossSlidingState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.CrossSlidingState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -158,6 +160,7 @@ impl windows_core::TypeKind for DraggingState {
 }
 impl windows_core::RuntimeType for DraggingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.DraggingState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.DraggingState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -256,6 +259,7 @@ impl windows_core::TypeKind for EdgeGestureKind {
 }
 impl windows_core::RuntimeType for EdgeGestureKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.EdgeGestureKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.EdgeGestureKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -271,6 +275,7 @@ impl windows_core::TypeKind for GazeInputAccessStatus {
 }
 impl windows_core::RuntimeType for GazeInputAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GazeInputAccessStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.GazeInputAccessStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -711,6 +716,7 @@ impl windows_core::TypeKind for GestureSettings {
 }
 impl windows_core::RuntimeType for GestureSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.GestureSettings;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.GestureSettings");
 }
 impl GestureSettings {
     pub const fn contains(&self, other: Self) -> bool {
@@ -807,10 +813,12 @@ impl windows_core::TypeKind for HoldingState {
 }
 impl windows_core::RuntimeType for HoldingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.HoldingState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.HoldingState");
 }
 windows_core::imp::define_interface!(IAttachableInputObject, IAttachableInputObject_Vtbl, 0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 impl windows_core::RuntimeType for IAttachableInputObject {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IAttachableInputObject");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -820,6 +828,7 @@ pub struct IAttachableInputObject_Vtbl {
 windows_core::imp::define_interface!(IAttachableInputObjectFactory, IAttachableInputObjectFactory_Vtbl, 0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b);
 impl windows_core::RuntimeType for IAttachableInputObjectFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IAttachableInputObjectFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -829,6 +838,7 @@ pub struct IAttachableInputObjectFactory_Vtbl {
 windows_core::imp::define_interface!(ICrossSlidingEventArgs, ICrossSlidingEventArgs_Vtbl, 0xe9374738_6f88_41d9_8720_78e08e398349);
 impl windows_core::RuntimeType for ICrossSlidingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ICrossSlidingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -844,6 +854,7 @@ pub struct ICrossSlidingEventArgs_Vtbl {
 windows_core::imp::define_interface!(ICrossSlidingEventArgs2, ICrossSlidingEventArgs2_Vtbl, 0xeefb7d48_c070_59f3_8dab_bcaf621d8687);
 impl windows_core::RuntimeType for ICrossSlidingEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ICrossSlidingEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -854,6 +865,7 @@ pub struct ICrossSlidingEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IDraggingEventArgs, IDraggingEventArgs_Vtbl, 0x1c905384_083c_4bd3_b559_179cddeb33ec);
 impl windows_core::RuntimeType for IDraggingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IDraggingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -869,6 +881,7 @@ pub struct IDraggingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IDraggingEventArgs2, IDraggingEventArgs2_Vtbl, 0x71efdbf9_382a_55ca_b4b9_008123c1bf1a);
 impl windows_core::RuntimeType for IDraggingEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IDraggingEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -879,6 +892,7 @@ pub struct IDraggingEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IEdgeGesture, IEdgeGesture_Vtbl, 0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
 impl windows_core::RuntimeType for IEdgeGesture {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IEdgeGesture");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -894,6 +908,7 @@ pub struct IEdgeGesture_Vtbl {
 windows_core::imp::define_interface!(IEdgeGestureEventArgs, IEdgeGestureEventArgs_Vtbl, 0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
 impl windows_core::RuntimeType for IEdgeGestureEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IEdgeGestureEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -904,6 +919,7 @@ pub struct IEdgeGestureEventArgs_Vtbl {
 windows_core::imp::define_interface!(IEdgeGestureStatics, IEdgeGestureStatics_Vtbl, 0xbc6a8519_18ee_4043_9839_4fc584d60a14);
 impl windows_core::RuntimeType for IEdgeGestureStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IEdgeGestureStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -914,6 +930,7 @@ pub struct IEdgeGestureStatics_Vtbl {
 windows_core::imp::define_interface!(IGestureRecognizer, IGestureRecognizer_Vtbl, 0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
 impl windows_core::RuntimeType for IGestureRecognizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IGestureRecognizer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -981,6 +998,7 @@ pub struct IGestureRecognizer_Vtbl {
 windows_core::imp::define_interface!(IGestureRecognizer2, IGestureRecognizer2_Vtbl, 0xd646097f_6ef7_5746_8ba8_8ff2206e6f3b);
 impl windows_core::RuntimeType for IGestureRecognizer2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IGestureRecognizer2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1006,6 +1024,7 @@ pub struct IGestureRecognizer2_Vtbl {
 windows_core::imp::define_interface!(IHoldingEventArgs, IHoldingEventArgs_Vtbl, 0x2bf755c5_e799_41b4_bb40_242f40959b71);
 impl windows_core::RuntimeType for IHoldingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IHoldingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1021,6 +1040,7 @@ pub struct IHoldingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IHoldingEventArgs2, IHoldingEventArgs2_Vtbl, 0x141da9ea_4c79_5674_afea_493fdeb91f19);
 impl windows_core::RuntimeType for IHoldingEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IHoldingEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1032,6 +1052,7 @@ pub struct IHoldingEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IInputActivationListener, IInputActivationListener_Vtbl, 0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
 impl windows_core::RuntimeType for IInputActivationListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IInputActivationListener");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1044,6 +1065,7 @@ pub struct IInputActivationListener_Vtbl {
 windows_core::imp::define_interface!(IInputActivationListenerActivationChangedEventArgs, IInputActivationListenerActivationChangedEventArgs_Vtbl, 0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
 impl windows_core::RuntimeType for IInputActivationListenerActivationChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IInputActivationListenerActivationChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1054,6 +1076,7 @@ pub struct IInputActivationListenerActivationChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IKeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptor_Vtbl, 0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
 impl windows_core::RuntimeType for IKeyboardDeliveryInterceptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IKeyboardDeliveryInterceptor");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1075,6 +1098,7 @@ pub struct IKeyboardDeliveryInterceptor_Vtbl {
 windows_core::imp::define_interface!(IKeyboardDeliveryInterceptorStatics, IKeyboardDeliveryInterceptorStatics_Vtbl, 0xf9f63ba2_ceba_4755_8a7e_14c0ffecd239);
 impl windows_core::RuntimeType for IKeyboardDeliveryInterceptorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IKeyboardDeliveryInterceptorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1085,6 +1109,7 @@ pub struct IKeyboardDeliveryInterceptorStatics_Vtbl {
 windows_core::imp::define_interface!(IManipulationCompletedEventArgs, IManipulationCompletedEventArgs_Vtbl, 0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
 impl windows_core::RuntimeType for IManipulationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1101,6 +1126,7 @@ pub struct IManipulationCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IManipulationCompletedEventArgs2, IManipulationCompletedEventArgs2_Vtbl, 0xf0c0dce7_30a9_5b96_886f_6560a85e4757);
 impl windows_core::RuntimeType for IManipulationCompletedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationCompletedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1112,6 +1138,7 @@ pub struct IManipulationCompletedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IManipulationInertiaStartingEventArgs, IManipulationInertiaStartingEventArgs_Vtbl, 0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
 impl windows_core::RuntimeType for IManipulationInertiaStartingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationInertiaStartingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1129,6 +1156,7 @@ pub struct IManipulationInertiaStartingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IManipulationInertiaStartingEventArgs2, IManipulationInertiaStartingEventArgs2_Vtbl, 0xc25409b8_f9fa_5a45_bd97_dcbbb2201860);
 impl windows_core::RuntimeType for IManipulationInertiaStartingEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationInertiaStartingEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1139,6 +1167,7 @@ pub struct IManipulationInertiaStartingEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IManipulationStartedEventArgs, IManipulationStartedEventArgs_Vtbl, 0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
 impl windows_core::RuntimeType for IManipulationStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationStartedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1154,6 +1183,7 @@ pub struct IManipulationStartedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IManipulationStartedEventArgs2, IManipulationStartedEventArgs2_Vtbl, 0x2da3db4e_e583_5055_afaa_16fd986531a6);
 impl windows_core::RuntimeType for IManipulationStartedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationStartedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1164,6 +1194,7 @@ pub struct IManipulationStartedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IManipulationUpdatedEventArgs, IManipulationUpdatedEventArgs_Vtbl, 0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
 impl windows_core::RuntimeType for IManipulationUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1181,6 +1212,7 @@ pub struct IManipulationUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IManipulationUpdatedEventArgs2, IManipulationUpdatedEventArgs2_Vtbl, 0xf3dfb96a_3306_5903_a1c5_ff9757a8689e);
 impl windows_core::RuntimeType for IManipulationUpdatedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IManipulationUpdatedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1192,6 +1224,7 @@ pub struct IManipulationUpdatedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IMouseWheelParameters, IMouseWheelParameters_Vtbl, 0xead0ca44_9ded_4037_8149_5e4cc2564468);
 impl windows_core::RuntimeType for IMouseWheelParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IMouseWheelParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1209,6 +1242,7 @@ pub struct IMouseWheelParameters_Vtbl {
 windows_core::imp::define_interface!(IPhysicalGestureRecognizer, IPhysicalGestureRecognizer_Vtbl, 0x79a29f4d_32a6_5aa5_a999_42b0b420c66d);
 impl windows_core::RuntimeType for IPhysicalGestureRecognizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPhysicalGestureRecognizer");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1251,6 +1285,7 @@ pub struct IPhysicalGestureRecognizer_Vtbl {
 windows_core::imp::define_interface!(IPointerPoint, IPointerPoint_Vtbl, 0xe995317d_7296_42d9_8233_c5be73b74a4a);
 impl windows_core::RuntimeType for IPointerPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerPoint");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1271,6 +1306,7 @@ pub struct IPointerPoint_Vtbl {
 windows_core::imp::define_interface!(IPointerPointPhysicalPosition, IPointerPointPhysicalPosition_Vtbl, 0x003185a3_a5e7_4859_9c0b_89340204806c);
 impl windows_core::RuntimeType for IPointerPointPhysicalPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerPointPhysicalPosition");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1282,6 +1318,7 @@ pub struct IPointerPointPhysicalPosition_Vtbl {
 windows_core::imp::define_interface!(IPointerPointProperties, IPointerPointProperties_Vtbl, 0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
 impl windows_core::RuntimeType for IPointerPointProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerPointProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1315,6 +1352,7 @@ pub struct IPointerPointProperties_Vtbl {
 windows_core::imp::define_interface!(IPointerPointProperties2, IPointerPointProperties2_Vtbl, 0x22c3433a_c83b_41c0_a296_5e232d64d6af);
 impl windows_core::RuntimeType for IPointerPointProperties2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerPointProperties2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1325,6 +1363,7 @@ pub struct IPointerPointProperties2_Vtbl {
 windows_core::imp::define_interface!(IPointerPointStatics, IPointerPointStatics_Vtbl, 0xa506638d_2a1a_413e_bc75_9f38381cc069);
 impl windows_core::RuntimeType for IPointerPointStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerPointStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1338,6 +1377,7 @@ pub struct IPointerPointStatics_Vtbl {
 windows_core::imp::define_interface!(IPointerPointTransform, IPointerPointTransform_Vtbl, 0x4d5fe14f_b87c_4028_bc9c_59e9947fb056);
 impl windows_core::RuntimeType for IPointerPointTransform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerPointTransform");
 }
 windows_core::imp::interface_hierarchy!(IPointerPointTransform, windows_core::IUnknown, windows_core::IInspectable);
 impl IPointerPointTransform {
@@ -1429,6 +1469,7 @@ pub struct IPointerPointTransform_Vtbl {
 windows_core::imp::define_interface!(IPointerVisualizationSettings, IPointerVisualizationSettings_Vtbl, 0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
 impl windows_core::RuntimeType for IPointerVisualizationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerVisualizationSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1442,6 +1483,7 @@ pub struct IPointerVisualizationSettings_Vtbl {
 windows_core::imp::define_interface!(IPointerVisualizationSettingsStatics, IPointerVisualizationSettingsStatics_Vtbl, 0x68870edb_165b_4214_b4f3_584eca8c8a69);
 impl windows_core::RuntimeType for IPointerVisualizationSettingsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IPointerVisualizationSettingsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1452,6 +1494,7 @@ pub struct IPointerVisualizationSettingsStatics_Vtbl {
 windows_core::imp::define_interface!(IRadialController, IRadialController_Vtbl, 0x3055d1c8_df51_43d4_b23b_0e1037467a09);
 impl windows_core::RuntimeType for IRadialController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1480,6 +1523,7 @@ pub struct IRadialController_Vtbl {
 windows_core::imp::define_interface!(IRadialController2, IRadialController2_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialController2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialController2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1495,6 +1539,7 @@ pub struct IRadialController2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerButtonClickedEventArgs, IRadialControllerButtonClickedEventArgs_Vtbl, 0x206aa438_e651_11e5_bf62_2c27d7404e85);
 impl windows_core::RuntimeType for IRadialControllerButtonClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerButtonClickedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1505,6 +1550,7 @@ pub struct IRadialControllerButtonClickedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerButtonClickedEventArgs2, IRadialControllerButtonClickedEventArgs2_Vtbl, 0x3d577ef3_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerButtonClickedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerButtonClickedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1518,6 +1564,7 @@ pub struct IRadialControllerButtonClickedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerButtonHoldingEventArgs, IRadialControllerButtonHoldingEventArgs_Vtbl, 0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerButtonHoldingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerButtonHoldingEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1532,6 +1579,7 @@ pub struct IRadialControllerButtonHoldingEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerButtonPressedEventArgs, IRadialControllerButtonPressedEventArgs_Vtbl, 0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerButtonPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerButtonPressedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1546,6 +1594,7 @@ pub struct IRadialControllerButtonPressedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerButtonReleasedEventArgs, IRadialControllerButtonReleasedEventArgs_Vtbl, 0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerButtonReleasedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerButtonReleasedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1560,6 +1609,7 @@ pub struct IRadialControllerButtonReleasedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerConfiguration, IRadialControllerConfiguration_Vtbl, 0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
 impl windows_core::RuntimeType for IRadialControllerConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1572,6 +1622,7 @@ pub struct IRadialControllerConfiguration_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerConfiguration2, IRadialControllerConfiguration2_Vtbl, 0x3d577ef7_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerConfiguration2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1585,6 +1636,7 @@ pub struct IRadialControllerConfiguration2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerConfigurationStatics, IRadialControllerConfigurationStatics_Vtbl, 0x79b6b0e5_069a_4486_a99d_8db772b9642f);
 impl windows_core::RuntimeType for IRadialControllerConfigurationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerConfigurationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1595,6 +1647,7 @@ pub struct IRadialControllerConfigurationStatics_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerConfigurationStatics2, IRadialControllerConfigurationStatics2_Vtbl, 0x53e08b17_e205_48d3_9caf_80ff47c4d7c7);
 impl windows_core::RuntimeType for IRadialControllerConfigurationStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerConfigurationStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1608,6 +1661,7 @@ pub struct IRadialControllerConfigurationStatics2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerControlAcquiredEventArgs, IRadialControllerControlAcquiredEventArgs_Vtbl, 0x206aa439_e651_11e5_bf62_2c27d7404e85);
 impl windows_core::RuntimeType for IRadialControllerControlAcquiredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerControlAcquiredEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1618,6 +1672,7 @@ pub struct IRadialControllerControlAcquiredEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerControlAcquiredEventArgs2, IRadialControllerControlAcquiredEventArgs2_Vtbl, 0x3d577ef4_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerControlAcquiredEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerControlAcquiredEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1632,6 +1687,7 @@ pub struct IRadialControllerControlAcquiredEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerMenu, IRadialControllerMenu_Vtbl, 0x8506b35d_f640_4412_aba0_bad077e5ea8a);
 impl windows_core::RuntimeType for IRadialControllerMenu {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerMenu");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1647,6 +1703,7 @@ pub struct IRadialControllerMenu_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerMenuItem, IRadialControllerMenuItem_Vtbl, 0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
 impl windows_core::RuntimeType for IRadialControllerMenuItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerMenuItem");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1661,6 +1718,7 @@ pub struct IRadialControllerMenuItem_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerMenuItemStatics, IRadialControllerMenuItemStatics_Vtbl, 0x249e0887_d842_4524_9df8_e0d647edc887);
 impl windows_core::RuntimeType for IRadialControllerMenuItemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerMenuItemStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1675,6 +1733,7 @@ pub struct IRadialControllerMenuItemStatics_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerMenuItemStatics2, IRadialControllerMenuItemStatics2_Vtbl, 0x0cbb70be_7e3e_48bd_be04_2c7fcaa9c1ff);
 impl windows_core::RuntimeType for IRadialControllerMenuItemStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerMenuItemStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1686,6 +1745,7 @@ pub struct IRadialControllerMenuItemStatics2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerRotationChangedEventArgs, IRadialControllerRotationChangedEventArgs_Vtbl, 0x206aa435_e651_11e5_bf62_2c27d7404e85);
 impl windows_core::RuntimeType for IRadialControllerRotationChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerRotationChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1697,6 +1757,7 @@ pub struct IRadialControllerRotationChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerRotationChangedEventArgs2, IRadialControllerRotationChangedEventArgs2_Vtbl, 0x3d577eec_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerRotationChangedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerRotationChangedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1711,6 +1772,7 @@ pub struct IRadialControllerRotationChangedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerScreenContact, IRadialControllerScreenContact_Vtbl, 0x206aa434_e651_11e5_bf62_2c27d7404e85);
 impl windows_core::RuntimeType for IRadialControllerScreenContact {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerScreenContact");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1722,6 +1784,7 @@ pub struct IRadialControllerScreenContact_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerScreenContactContinuedEventArgs, IRadialControllerScreenContactContinuedEventArgs_Vtbl, 0x206aa437_e651_11e5_bf62_2c27d7404e85);
 impl windows_core::RuntimeType for IRadialControllerScreenContactContinuedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1732,6 +1795,7 @@ pub struct IRadialControllerScreenContactContinuedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerScreenContactContinuedEventArgs2, IRadialControllerScreenContactContinuedEventArgs2_Vtbl, 0x3d577ef1_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerScreenContactContinuedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerScreenContactContinuedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1746,6 +1810,7 @@ pub struct IRadialControllerScreenContactContinuedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerScreenContactEndedEventArgs, IRadialControllerScreenContactEndedEventArgs_Vtbl, 0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerScreenContactEndedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerScreenContactEndedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1760,6 +1825,7 @@ pub struct IRadialControllerScreenContactEndedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerScreenContactStartedEventArgs, IRadialControllerScreenContactStartedEventArgs_Vtbl, 0x206aa436_e651_11e5_bf62_2c27d7404e85);
 impl windows_core::RuntimeType for IRadialControllerScreenContactStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1770,6 +1836,7 @@ pub struct IRadialControllerScreenContactStartedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerScreenContactStartedEventArgs2, IRadialControllerScreenContactStartedEventArgs2_Vtbl, 0x3d577ef0_3cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerScreenContactStartedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerScreenContactStartedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1784,6 +1851,7 @@ pub struct IRadialControllerScreenContactStartedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerStatics, IRadialControllerStatics_Vtbl, 0xfaded0b7_b84c_4894_87aa_8f25aa5f288b);
 impl windows_core::RuntimeType for IRadialControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRadialControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1795,6 +1863,7 @@ pub struct IRadialControllerStatics_Vtbl {
 windows_core::imp::define_interface!(IRightTappedEventArgs, IRightTappedEventArgs_Vtbl, 0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
 impl windows_core::RuntimeType for IRightTappedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRightTappedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1809,6 +1878,7 @@ pub struct IRightTappedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRightTappedEventArgs2, IRightTappedEventArgs2_Vtbl, 0x61c7b7bb_9f57_5857_a33c_c58c3dfa959e);
 impl windows_core::RuntimeType for IRightTappedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.IRightTappedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1819,6 +1889,7 @@ pub struct IRightTappedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(ISystemButtonEventController, ISystemButtonEventController_Vtbl, 0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
 impl windows_core::RuntimeType for ISystemButtonEventController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ISystemButtonEventController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1836,6 +1907,7 @@ pub struct ISystemButtonEventController_Vtbl {
 windows_core::imp::define_interface!(ISystemButtonEventControllerStatics, ISystemButtonEventControllerStatics_Vtbl, 0x632fb07b_20bd_5e15_af4a_00dbf2064ffa);
 impl windows_core::RuntimeType for ISystemButtonEventControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ISystemButtonEventControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1849,6 +1921,7 @@ pub struct ISystemButtonEventControllerStatics_Vtbl {
 windows_core::imp::define_interface!(ISystemFunctionButtonEventArgs, ISystemFunctionButtonEventArgs_Vtbl, 0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
 impl windows_core::RuntimeType for ISystemFunctionButtonEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ISystemFunctionButtonEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1861,6 +1934,7 @@ pub struct ISystemFunctionButtonEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISystemFunctionLockChangedEventArgs, ISystemFunctionLockChangedEventArgs_Vtbl, 0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
 impl windows_core::RuntimeType for ISystemFunctionLockChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ISystemFunctionLockChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1874,6 +1948,7 @@ pub struct ISystemFunctionLockChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ISystemFunctionLockIndicatorChangedEventArgs, ISystemFunctionLockIndicatorChangedEventArgs_Vtbl, 0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
 impl windows_core::RuntimeType for ISystemFunctionLockIndicatorChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ISystemFunctionLockIndicatorChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1887,6 +1962,7 @@ pub struct ISystemFunctionLockIndicatorChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ITappedEventArgs, ITappedEventArgs_Vtbl, 0xcfa126e4_253a_4c3c_953b_395c37aed309);
 impl windows_core::RuntimeType for ITappedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ITappedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1902,6 +1978,7 @@ pub struct ITappedEventArgs_Vtbl {
 windows_core::imp::define_interface!(ITappedEventArgs2, ITappedEventArgs2_Vtbl, 0x294388f2_177e_51d5_be56_ee0866fa968c);
 impl windows_core::RuntimeType for ITappedEventArgs2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ITappedEventArgs2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1912,6 +1989,7 @@ pub struct ITappedEventArgs2_Vtbl {
 windows_core::imp::define_interface!(ITouchpadGesturesController, ITouchpadGesturesController_Vtbl, 0x28c13cdd_e068_549f_89c6_1a440c6fc327);
 impl windows_core::RuntimeType for ITouchpadGesturesController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ITouchpadGesturesController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1942,6 +2020,7 @@ pub struct ITouchpadGesturesController_Vtbl {
 windows_core::imp::define_interface!(ITouchpadGesturesControllerStatics, ITouchpadGesturesControllerStatics_Vtbl, 0x207ef171_1a73_51cd_a694_8840e09dbafa);
 impl windows_core::RuntimeType for ITouchpadGesturesControllerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ITouchpadGesturesControllerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1953,6 +2032,7 @@ pub struct ITouchpadGesturesControllerStatics_Vtbl {
 windows_core::imp::define_interface!(ITouchpadGlobalActionEventArgs, ITouchpadGlobalActionEventArgs_Vtbl, 0x6edad206_e4e3_5f39_9d13_8575e8e2a12b);
 impl windows_core::RuntimeType for ITouchpadGlobalActionEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ITouchpadGlobalActionEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2043,6 +2123,7 @@ impl windows_core::TypeKind for InputActivationState {
 }
 impl windows_core::RuntimeType for InputActivationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.InputActivationState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.InputActivationState");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2175,6 +2256,7 @@ impl windows_core::TypeKind for ManipulationDelta {
 }
 impl windows_core::RuntimeType for ManipulationDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationDelta;struct(Windows.Foundation.Point;f4;f4);f4;f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ManipulationDelta");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2345,6 +2427,7 @@ impl windows_core::TypeKind for ManipulationVelocities {
 }
 impl windows_core::RuntimeType for ManipulationVelocities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.ManipulationVelocities;struct(Windows.Foundation.Point;f4;f4);f4;f4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.ManipulationVelocities");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2890,6 +2973,7 @@ impl windows_core::TypeKind for PointerUpdateKind {
 }
 impl windows_core::RuntimeType for PointerUpdateKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.PointerUpdateKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.PointerUpdateKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3535,6 +3619,7 @@ impl windows_core::TypeKind for RadialControllerMenuKnownIcon {
 }
 impl windows_core::RuntimeType for RadialControllerMenuKnownIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerMenuKnownIcon;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.RadialControllerMenuKnownIcon");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -3735,6 +3820,7 @@ impl windows_core::TypeKind for RadialControllerSystemMenuItemKind {
 }
 impl windows_core::RuntimeType for RadialControllerSystemMenuItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.RadialControllerSystemMenuItemKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.RadialControllerSystemMenuItemKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -4132,6 +4218,7 @@ impl windows_core::TypeKind for TouchpadGlobalAction {
 }
 impl windows_core::RuntimeType for TouchpadGlobalAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.TouchpadGlobalAction;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.TouchpadGlobalAction");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -4181,6 +4268,7 @@ impl windows_core::TypeKind for TouchpadGlobalGestureKinds {
 }
 impl windows_core::RuntimeType for TouchpadGlobalGestureKinds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.TouchpadGlobalGestureKinds;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.TouchpadGlobalGestureKinds");
 }
 impl TouchpadGlobalGestureKinds {
     pub const fn contains(&self, other: Self) -> bool {

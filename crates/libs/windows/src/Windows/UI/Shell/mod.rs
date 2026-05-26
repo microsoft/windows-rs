@@ -121,6 +121,7 @@ unsafe impl Sync for FocusSessionManager {}
 windows_core::imp::define_interface!(IAdaptiveCard, IAdaptiveCard_Vtbl, 0x72d0568c_a274_41cd_82a8_989d40b9b05e);
 impl windows_core::RuntimeType for IAdaptiveCard {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IAdaptiveCard");
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveCard, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdaptiveCard {
@@ -167,6 +168,7 @@ pub struct IAdaptiveCard_Vtbl {
 windows_core::imp::define_interface!(IAdaptiveCardBuilderStatics, IAdaptiveCardBuilderStatics_Vtbl, 0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 impl windows_core::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IAdaptiveCardBuilderStatics");
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveCardBuilderStatics, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdaptiveCardBuilderStatics {
@@ -216,6 +218,7 @@ pub struct IAdaptiveCardBuilderStatics_Vtbl {
 windows_core::imp::define_interface!(IFocusSession, IFocusSession_Vtbl, 0x069fbab8_0e84_5f2f_8614_9b6544326277);
 impl windows_core::RuntimeType for IFocusSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IFocusSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -227,6 +230,7 @@ pub struct IFocusSession_Vtbl {
 windows_core::imp::define_interface!(IFocusSessionManager, IFocusSessionManager_Vtbl, 0xe7ffbaa9_d8be_5dbf_bac6_49364842e37e);
 impl windows_core::RuntimeType for IFocusSessionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IFocusSessionManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -243,6 +247,7 @@ pub struct IFocusSessionManager_Vtbl {
 windows_core::imp::define_interface!(IFocusSessionManagerStatics, IFocusSessionManagerStatics_Vtbl, 0x834df764_cb9a_5d0a_aa9f_73df4f249395);
 impl windows_core::RuntimeType for IFocusSessionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IFocusSessionManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -254,6 +259,7 @@ pub struct IFocusSessionManagerStatics_Vtbl {
 windows_core::imp::define_interface!(ISecurityAppManager, ISecurityAppManager_Vtbl, 0x96ac500c_aed4_561d_bde8_953520343a2d);
 impl windows_core::RuntimeType for ISecurityAppManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.ISecurityAppManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -266,6 +272,7 @@ pub struct ISecurityAppManager_Vtbl {
 windows_core::imp::define_interface!(IShareWindowCommandEventArgs, IShareWindowCommandEventArgs_Vtbl, 0x4578dc09_a523_5756_a995_e4feb991fff0);
 impl windows_core::RuntimeType for IShareWindowCommandEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IShareWindowCommandEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -278,6 +285,7 @@ pub struct IShareWindowCommandEventArgs_Vtbl {
 windows_core::imp::define_interface!(IShareWindowCommandSource, IShareWindowCommandSource_Vtbl, 0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
 impl windows_core::RuntimeType for IShareWindowCommandSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IShareWindowCommandSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -294,6 +302,7 @@ pub struct IShareWindowCommandSource_Vtbl {
 windows_core::imp::define_interface!(IShareWindowCommandSourceStatics, IShareWindowCommandSourceStatics_Vtbl, 0xb0eb6656_9cac_517c_b6c7_8ef715084295);
 impl windows_core::RuntimeType for IShareWindowCommandSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IShareWindowCommandSourceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -304,6 +313,7 @@ pub struct IShareWindowCommandSourceStatics_Vtbl {
 windows_core::imp::define_interface!(ITaskbarManager, ITaskbarManager_Vtbl, 0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
 impl windows_core::RuntimeType for ITaskbarManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.ITaskbarManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -325,6 +335,7 @@ pub struct ITaskbarManager_Vtbl {
 windows_core::imp::define_interface!(ITaskbarManager2, ITaskbarManager2_Vtbl, 0x79f0a06e_7b02_4911_918c_dee0bbd20ba4);
 impl windows_core::RuntimeType for ITaskbarManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.ITaskbarManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -340,6 +351,7 @@ pub struct ITaskbarManager2_Vtbl {
 windows_core::imp::define_interface!(ITaskbarManagerDesktopAppSupportStatics, ITaskbarManagerDesktopAppSupportStatics_Vtbl, 0xcdfefd63_e879_4134_b9a7_8283f05f9480);
 impl windows_core::RuntimeType for ITaskbarManagerDesktopAppSupportStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.ITaskbarManagerDesktopAppSupportStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -349,6 +361,7 @@ pub struct ITaskbarManagerDesktopAppSupportStatics_Vtbl {
 windows_core::imp::define_interface!(ITaskbarManagerStatics, ITaskbarManagerStatics_Vtbl, 0xdb32ab74_de52_4fe6_b7b6_95ff9f8395df);
 impl windows_core::RuntimeType for ITaskbarManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.ITaskbarManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -359,6 +372,7 @@ pub struct ITaskbarManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IWindowTab, IWindowTab_Vtbl, 0x551e776a_7928_4d60_bdd9_672b5a5758eb);
 impl windows_core::RuntimeType for IWindowTab {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTab");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -379,6 +393,7 @@ pub struct IWindowTab_Vtbl {
 windows_core::imp::define_interface!(IWindowTabCloseRequestedEventArgs, IWindowTabCloseRequestedEventArgs_Vtbl, 0x477282e9_eec4_5882_9889_2dd64d0f9fb6);
 impl windows_core::RuntimeType for IWindowTabCloseRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabCloseRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -389,6 +404,7 @@ pub struct IWindowTabCloseRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWindowTabCollection, IWindowTabCollection_Vtbl, 0xaccd0d6c_ed07_519a_8c33_17e02e7e9b0f);
 impl windows_core::RuntimeType for IWindowTabCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabCollection");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,6 +415,7 @@ pub struct IWindowTabCollection_Vtbl {
 windows_core::imp::define_interface!(IWindowTabGroup, IWindowTabGroup_Vtbl, 0xa9c2c4fe_6cfe_449c_8b57_5756771abe56);
 impl windows_core::RuntimeType for IWindowTabGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabGroup");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -412,6 +429,7 @@ pub struct IWindowTabGroup_Vtbl {
 windows_core::imp::define_interface!(IWindowTabIcon, IWindowTabIcon_Vtbl, 0xf92f398f_3669_4d0c_a183_14ddae6f6538);
 impl windows_core::RuntimeType for IWindowTabIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabIcon");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -421,6 +439,7 @@ pub struct IWindowTabIcon_Vtbl {
 windows_core::imp::define_interface!(IWindowTabIconStatics, IWindowTabIconStatics_Vtbl, 0x2e18d95e_2cbb_4084_af0c_36ee1c2d54b1);
 impl windows_core::RuntimeType for IWindowTabIconStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabIconStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -436,6 +455,7 @@ pub struct IWindowTabIconStatics_Vtbl {
 windows_core::imp::define_interface!(IWindowTabManager, IWindowTabManager_Vtbl, 0x97b3c697_f43a_43e7_b3a2_e889a9835599);
 impl windows_core::RuntimeType for IWindowTabManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -455,6 +475,7 @@ pub struct IWindowTabManager_Vtbl {
 windows_core::imp::define_interface!(IWindowTabManagerStatics, IWindowTabManagerStatics_Vtbl, 0x76755668_45f0_4e0b_8172_4e6d9d0f87bd);
 impl windows_core::RuntimeType for IWindowTabManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -467,6 +488,7 @@ pub struct IWindowTabManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IWindowTabSwitchRequestedEventArgs, IWindowTabSwitchRequestedEventArgs_Vtbl, 0x7cbc421a_58a4_568b_a351_f8a947a5aad8);
 impl windows_core::RuntimeType for IWindowTabSwitchRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabSwitchRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -477,6 +499,7 @@ pub struct IWindowTabSwitchRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWindowTabTearOutRequestedEventArgs, IWindowTabTearOutRequestedEventArgs_Vtbl, 0x17d66659_5005_5ece_99af_566306e73642);
 impl windows_core::RuntimeType for IWindowTabTearOutRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabTearOutRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -490,6 +513,7 @@ pub struct IWindowTabTearOutRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IWindowTabThumbnailRequestedEventArgs, IWindowTabThumbnailRequestedEventArgs_Vtbl, 0x2d558e54_9c4e_5abc_ab72_3350fb4937a0);
 impl windows_core::RuntimeType for IWindowTabThumbnailRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.IWindowTabThumbnailRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -522,6 +546,7 @@ impl windows_core::TypeKind for SecurityAppKind {
 }
 impl windows_core::RuntimeType for SecurityAppKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.SecurityAppKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -578,6 +603,7 @@ impl windows_core::TypeKind for SecurityAppState {
 }
 impl windows_core::RuntimeType for SecurityAppState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.SecurityAppState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -593,6 +619,7 @@ impl windows_core::TypeKind for SecurityAppSubstatus {
 }
 impl windows_core::RuntimeType for SecurityAppSubstatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.SecurityAppSubstatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -607,6 +634,7 @@ impl windows_core::TypeKind for ShareWindowCommand {
 }
 impl windows_core::RuntimeType for ShareWindowCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Shell.ShareWindowCommand");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

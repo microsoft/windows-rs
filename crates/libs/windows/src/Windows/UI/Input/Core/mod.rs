@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSource, IRadialControllerIndependentInputSource_Vtbl, 0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerIndependentInputSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Core.IRadialControllerIndependentInputSource");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -15,6 +16,7 @@ pub struct IRadialControllerIndependentInputSource_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSource2, IRadialControllerIndependentInputSource2_Vtbl, 0x7073aad8_35f3_4eeb_8751_be4d0a66faf4);
 impl windows_core::RuntimeType for IRadialControllerIndependentInputSource2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Core.IRadialControllerIndependentInputSource2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,6 +30,7 @@ pub struct IRadialControllerIndependentInputSource2_Vtbl {
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceStatics, IRadialControllerIndependentInputSourceStatics_Vtbl, 0x3d577ef5_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IRadialControllerIndependentInputSourceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Core.IRadialControllerIndependentInputSourceStatics");
 }
 #[repr(C)]
 #[doc(hidden)]

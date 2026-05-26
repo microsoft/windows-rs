@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IKnownRemoteSystemCapabilitiesStatics, IKnownRemoteSystemCapabilitiesStatics_Vtbl, 0x8108e380_7f8a_44e4_92cd_03b6469b94a3);
 impl windows_core::RuntimeType for IKnownRemoteSystemCapabilitiesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IKnownRemoteSystemCapabilitiesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -14,6 +15,7 @@ pub struct IKnownRemoteSystemCapabilitiesStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystem, IRemoteSystem_Vtbl, 0xed5838cd_1e10_4a8c_b4a6_4e5fd6f97721);
 impl windows_core::RuntimeType for IRemoteSystem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystem");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -28,6 +30,7 @@ pub struct IRemoteSystem_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystem2, IRemoteSystem2_Vtbl, 0x09dfe4ec_fb8b_4a08_a758_6876435d769e);
 impl windows_core::RuntimeType for IRemoteSystem2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystem2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -39,6 +42,7 @@ pub struct IRemoteSystem2_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystem3, IRemoteSystem3_Vtbl, 0x72b4b495_b7c6_40be_831b_73562f12ffa8);
 impl windows_core::RuntimeType for IRemoteSystem3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystem3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -50,6 +54,7 @@ pub struct IRemoteSystem3_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystem4, IRemoteSystem4_Vtbl, 0xf164ffe5_b987_4ca5_9926_fa0438be6273);
 impl windows_core::RuntimeType for IRemoteSystem4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystem4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -60,6 +65,7 @@ pub struct IRemoteSystem4_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystem5, IRemoteSystem5_Vtbl, 0xeb2ad723_e5e2_4ae2_a7a7_a1097a098e90);
 impl windows_core::RuntimeType for IRemoteSystem5 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystem5");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -70,6 +76,7 @@ pub struct IRemoteSystem5_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystem6, IRemoteSystem6_Vtbl, 0xd4cda942_c027_533e_9384_3a19b4f7eef3);
 impl windows_core::RuntimeType for IRemoteSystem6 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystem6");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -80,6 +87,7 @@ pub struct IRemoteSystem6_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemAddedEventArgs, IRemoteSystemAddedEventArgs_Vtbl, 0x8f39560f_e534_4697_8836_7abea151516e);
 impl windows_core::RuntimeType for IRemoteSystemAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemAddedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -90,6 +98,7 @@ pub struct IRemoteSystemAddedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemApp, IRemoteSystemApp_Vtbl, 0x80e5bcbd_d54d_41b1_9b16_6810a871ed4f);
 impl windows_core::RuntimeType for IRemoteSystemApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemApp");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -104,6 +113,7 @@ pub struct IRemoteSystemApp_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemApp2, IRemoteSystemApp2_Vtbl, 0x6369bf15_0a96_577a_8ff6_c35904dfa8f3);
 impl windows_core::RuntimeType for IRemoteSystemApp2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemApp2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -115,6 +125,7 @@ pub struct IRemoteSystemApp2_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemAppRegistration, IRemoteSystemAppRegistration_Vtbl, 0xb47947b5_7035_4a5a_b8df_962d8f8431f4);
 impl windows_core::RuntimeType for IRemoteSystemAppRegistration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemAppRegistration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -127,6 +138,7 @@ pub struct IRemoteSystemAppRegistration_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemAppRegistrationStatics, IRemoteSystemAppRegistrationStatics_Vtbl, 0x01b99840_cfd2_453f_ae25_c2539f086afd);
 impl windows_core::RuntimeType for IRemoteSystemAppRegistrationStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemAppRegistrationStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -138,6 +150,7 @@ pub struct IRemoteSystemAppRegistrationStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemAuthorizationKindFilter, IRemoteSystemAuthorizationKindFilter_Vtbl, 0x6b0dde8e_04d0_40f4_a27f_c2acbbd6b734);
 impl windows_core::RuntimeType for IRemoteSystemAuthorizationKindFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemAuthorizationKindFilter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -148,6 +161,7 @@ pub struct IRemoteSystemAuthorizationKindFilter_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemAuthorizationKindFilterFactory, IRemoteSystemAuthorizationKindFilterFactory_Vtbl, 0xad65df4d_b66a_45a4_8177_8caed75d9e5a);
 impl windows_core::RuntimeType for IRemoteSystemAuthorizationKindFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemAuthorizationKindFilterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -158,6 +172,7 @@ pub struct IRemoteSystemAuthorizationKindFilterFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionInfo, IRemoteSystemConnectionInfo_Vtbl, 0x23278bc3_0d09_52cb_9c6a_eed2940bee43);
 impl windows_core::RuntimeType for IRemoteSystemConnectionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -168,6 +183,7 @@ pub struct IRemoteSystemConnectionInfo_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionInfoStatics, IRemoteSystemConnectionInfoStatics_Vtbl, 0xac831e2d_66c5_56d7_a4ce_705d94925ad6);
 impl windows_core::RuntimeType for IRemoteSystemConnectionInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionInfoStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -181,6 +197,7 @@ pub struct IRemoteSystemConnectionInfoStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionRequest, IRemoteSystemConnectionRequest_Vtbl, 0x84ed4104_8d5e_4d72_8238_7621576c7a67);
 impl windows_core::RuntimeType for IRemoteSystemConnectionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -191,6 +208,7 @@ pub struct IRemoteSystemConnectionRequest_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionRequest2, IRemoteSystemConnectionRequest2_Vtbl, 0x12df6d6f_bffc_483a_8abe_d34a6c19f92b);
 impl windows_core::RuntimeType for IRemoteSystemConnectionRequest2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionRequest2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -201,6 +219,7 @@ pub struct IRemoteSystemConnectionRequest2_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionRequest3, IRemoteSystemConnectionRequest3_Vtbl, 0xde86c3e7_c9cc_5a50_b8d9_ba7b34bb8d0e);
 impl windows_core::RuntimeType for IRemoteSystemConnectionRequest3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionRequest3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -211,6 +230,7 @@ pub struct IRemoteSystemConnectionRequest3_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionRequestFactory, IRemoteSystemConnectionRequestFactory_Vtbl, 0xaa0a0a20_baeb_4575_b530_810bb9786334);
 impl windows_core::RuntimeType for IRemoteSystemConnectionRequestFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionRequestFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -221,6 +241,7 @@ pub struct IRemoteSystemConnectionRequestFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionRequestStatics, IRemoteSystemConnectionRequestStatics_Vtbl, 0x86ca143d_8214_425c_8932_db49032d1306);
 impl windows_core::RuntimeType for IRemoteSystemConnectionRequestStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionRequestStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -231,6 +252,7 @@ pub struct IRemoteSystemConnectionRequestStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemConnectionRequestStatics2, IRemoteSystemConnectionRequestStatics2_Vtbl, 0x460f1027_64ec_598e_a800_4f2ee58def19);
 impl windows_core::RuntimeType for IRemoteSystemConnectionRequestStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemConnectionRequestStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -242,6 +264,7 @@ pub struct IRemoteSystemConnectionRequestStatics2_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemDiscoveryTypeFilter, IRemoteSystemDiscoveryTypeFilter_Vtbl, 0x42d9041f_ee5a_43da_ac6a_6fee25460741);
 impl windows_core::RuntimeType for IRemoteSystemDiscoveryTypeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemDiscoveryTypeFilter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -252,6 +275,7 @@ pub struct IRemoteSystemDiscoveryTypeFilter_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemDiscoveryTypeFilterFactory, IRemoteSystemDiscoveryTypeFilterFactory_Vtbl, 0x9f9eb993_c260_4161_92f2_9c021f23fe5d);
 impl windows_core::RuntimeType for IRemoteSystemDiscoveryTypeFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemDiscoveryTypeFilterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -262,6 +286,7 @@ pub struct IRemoteSystemDiscoveryTypeFilterFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemEnumerationCompletedEventArgs, IRemoteSystemEnumerationCompletedEventArgs_Vtbl, 0xc6e83d5f_4030_4354_a060_14f1b22c545d);
 impl windows_core::RuntimeType for IRemoteSystemEnumerationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemEnumerationCompletedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -271,6 +296,7 @@ pub struct IRemoteSystemEnumerationCompletedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemFilter, IRemoteSystemFilter_Vtbl, 0x4a3ba9e4_99eb_45eb_ba16_0367728ff374);
 impl windows_core::RuntimeType for IRemoteSystemFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemFilter");
 }
 windows_core::imp::interface_hierarchy!(IRemoteSystemFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl windows_core::RuntimeName for IRemoteSystemFilter {
@@ -293,6 +319,7 @@ pub struct IRemoteSystemFilter_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemKindFilter, IRemoteSystemKindFilter_Vtbl, 0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
 impl windows_core::RuntimeType for IRemoteSystemKindFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemKindFilter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -303,6 +330,7 @@ pub struct IRemoteSystemKindFilter_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemKindFilterFactory, IRemoteSystemKindFilterFactory_Vtbl, 0xa1fb18ee_99ea_40bc_9a39_c670aa804a28);
 impl windows_core::RuntimeType for IRemoteSystemKindFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemKindFilterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -313,6 +341,7 @@ pub struct IRemoteSystemKindFilterFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemKindStatics, IRemoteSystemKindStatics_Vtbl, 0xf6317633_ab14_41d0_9553_796aadb882db);
 impl windows_core::RuntimeType for IRemoteSystemKindStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemKindStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -327,6 +356,7 @@ pub struct IRemoteSystemKindStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemKindStatics2, IRemoteSystemKindStatics2_Vtbl, 0xb9e3a3d0_0466_4749_91e8_65f9d19a96a5);
 impl windows_core::RuntimeType for IRemoteSystemKindStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemKindStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -339,6 +369,7 @@ pub struct IRemoteSystemKindStatics2_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemRemovedEventArgs, IRemoteSystemRemovedEventArgs_Vtbl, 0x8b3d16bb_7306_49ea_b7df_67d5714cb013);
 impl windows_core::RuntimeType for IRemoteSystemRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemRemovedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -349,6 +380,7 @@ pub struct IRemoteSystemRemovedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSession, IRemoteSystemSession_Vtbl, 0x69476a01_9ada_490f_9549_d31cb14c9e95);
 impl windows_core::RuntimeType for IRemoteSystemSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSession");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -365,6 +397,7 @@ pub struct IRemoteSystemSession_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionAddedEventArgs, IRemoteSystemSessionAddedEventArgs_Vtbl, 0xd585d754_bc97_4c39_99b4_beca76e04c3f);
 impl windows_core::RuntimeType for IRemoteSystemSessionAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionAddedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -375,6 +408,7 @@ pub struct IRemoteSystemSessionAddedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionController, IRemoteSystemSessionController_Vtbl, 0xe48b2dd2_6820_4867_b425_d89c0a3ef7ba);
 impl windows_core::RuntimeType for IRemoteSystemSessionController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionController");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -388,6 +422,7 @@ pub struct IRemoteSystemSessionController_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionControllerFactory, IRemoteSystemSessionControllerFactory_Vtbl, 0xbfcc2f6b_ac3d_4199_82cd_6670a773ef2e);
 impl windows_core::RuntimeType for IRemoteSystemSessionControllerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionControllerFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -399,6 +434,7 @@ pub struct IRemoteSystemSessionControllerFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionCreationResult, IRemoteSystemSessionCreationResult_Vtbl, 0xa79812c2_37de_448c_8b83_a30aa3c4ead6);
 impl windows_core::RuntimeType for IRemoteSystemSessionCreationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionCreationResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -410,6 +446,7 @@ pub struct IRemoteSystemSessionCreationResult_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionDisconnectedEventArgs, IRemoteSystemSessionDisconnectedEventArgs_Vtbl, 0xde0bc69b_77c5_461c_8209_7c6c5d3111ab);
 impl windows_core::RuntimeType for IRemoteSystemSessionDisconnectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionDisconnectedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -420,6 +457,7 @@ pub struct IRemoteSystemSessionDisconnectedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionInfo, IRemoteSystemSessionInfo_Vtbl, 0xff4df648_8b0a_4e9a_9905_69e4b841c588);
 impl windows_core::RuntimeType for IRemoteSystemSessionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -432,6 +470,7 @@ pub struct IRemoteSystemSessionInfo_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionInvitation, IRemoteSystemSessionInvitation_Vtbl, 0x3e32cc91_51d7_4766_a121_25516c3b8294);
 impl windows_core::RuntimeType for IRemoteSystemSessionInvitation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionInvitation");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -443,6 +482,7 @@ pub struct IRemoteSystemSessionInvitation_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionInvitationListener, IRemoteSystemSessionInvitationListener_Vtbl, 0x08f4003f_bc71_49e1_874a_31ddff9a27b9);
 impl windows_core::RuntimeType for IRemoteSystemSessionInvitationListener {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionInvitationListener");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -454,6 +494,7 @@ pub struct IRemoteSystemSessionInvitationListener_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionInvitationReceivedEventArgs, IRemoteSystemSessionInvitationReceivedEventArgs_Vtbl, 0x5e964a2d_a10d_4edb_8dea_54d20ac19543);
 impl windows_core::RuntimeType for IRemoteSystemSessionInvitationReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionInvitationReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -464,6 +505,7 @@ pub struct IRemoteSystemSessionInvitationReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionJoinRequest, IRemoteSystemSessionJoinRequest_Vtbl, 0x20600068_7994_4331_86d1_d89d882585ee);
 impl windows_core::RuntimeType for IRemoteSystemSessionJoinRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequest");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -475,6 +517,7 @@ pub struct IRemoteSystemSessionJoinRequest_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionJoinRequestedEventArgs, IRemoteSystemSessionJoinRequestedEventArgs_Vtbl, 0xdbca4fc3_82b9_4816_9c24_e40e61774bd8);
 impl windows_core::RuntimeType for IRemoteSystemSessionJoinRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionJoinRequestedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -486,6 +529,7 @@ pub struct IRemoteSystemSessionJoinRequestedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionJoinResult, IRemoteSystemSessionJoinResult_Vtbl, 0xce7b1f04_a03e_41a4_900b_1e79328c1267);
 impl windows_core::RuntimeType for IRemoteSystemSessionJoinResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionJoinResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -497,6 +541,7 @@ pub struct IRemoteSystemSessionJoinResult_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionMessageChannel, IRemoteSystemSessionMessageChannel_Vtbl, 0x9524d12a_73d9_4c10_b751_c26784437127);
 impl windows_core::RuntimeType for IRemoteSystemSessionMessageChannel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannel");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -521,6 +566,7 @@ pub struct IRemoteSystemSessionMessageChannel_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionMessageChannelFactory, IRemoteSystemSessionMessageChannelFactory_Vtbl, 0x295e1c4a_bd16_4298_b7ce_415482b0e11d);
 impl windows_core::RuntimeType for IRemoteSystemSessionMessageChannelFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannelFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -532,6 +578,7 @@ pub struct IRemoteSystemSessionMessageChannelFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionOptions, IRemoteSystemSessionOptions_Vtbl, 0x740ed755_8418_4f01_9353_e21c9ecc6cfc);
 impl windows_core::RuntimeType for IRemoteSystemSessionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionOptions");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -543,6 +590,7 @@ pub struct IRemoteSystemSessionOptions_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionParticipant, IRemoteSystemSessionParticipant_Vtbl, 0x7e90058c_acf9_4729_8a17_44e7baed5dcc);
 impl windows_core::RuntimeType for IRemoteSystemSessionParticipant {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionParticipant");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -557,6 +605,7 @@ pub struct IRemoteSystemSessionParticipant_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionParticipantAddedEventArgs, IRemoteSystemSessionParticipantAddedEventArgs_Vtbl, 0xd35a57d8_c9a1_4bb7_b6b0_79bb91adf93d);
 impl windows_core::RuntimeType for IRemoteSystemSessionParticipantAddedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionParticipantAddedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -567,6 +616,7 @@ pub struct IRemoteSystemSessionParticipantAddedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionParticipantRemovedEventArgs, IRemoteSystemSessionParticipantRemovedEventArgs_Vtbl, 0x866ef088_de68_4abf_88a1_f90d16274192);
 impl windows_core::RuntimeType for IRemoteSystemSessionParticipantRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionParticipantRemovedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -577,6 +627,7 @@ pub struct IRemoteSystemSessionParticipantRemovedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionParticipantWatcher, IRemoteSystemSessionParticipantWatcher_Vtbl, 0xdcdd02cc_aa87_4d79_b6cc_4459b3e92075);
 impl windows_core::RuntimeType for IRemoteSystemSessionParticipantWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionParticipantWatcher");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -595,6 +646,7 @@ pub struct IRemoteSystemSessionParticipantWatcher_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionRemovedEventArgs, IRemoteSystemSessionRemovedEventArgs_Vtbl, 0xaf82914e_39a1_4dea_9d63_43798d5bbbd0);
 impl windows_core::RuntimeType for IRemoteSystemSessionRemovedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionRemovedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -605,6 +657,7 @@ pub struct IRemoteSystemSessionRemovedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionStatics, IRemoteSystemSessionStatics_Vtbl, 0x8524899f_fd20_44e3_9565_e75a3b14c66e);
 impl windows_core::RuntimeType for IRemoteSystemSessionStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -615,6 +668,7 @@ pub struct IRemoteSystemSessionStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionUpdatedEventArgs, IRemoteSystemSessionUpdatedEventArgs_Vtbl, 0x16875069_231e_4c91_8ec8_b3a39d9e55a3);
 impl windows_core::RuntimeType for IRemoteSystemSessionUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -625,6 +679,7 @@ pub struct IRemoteSystemSessionUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionValueSetReceivedEventArgs, IRemoteSystemSessionValueSetReceivedEventArgs_Vtbl, 0x06f31785_2da5_4e58_a78f_9e8d0784ee25);
 impl windows_core::RuntimeType for IRemoteSystemSessionValueSetReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionValueSetReceivedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -639,6 +694,7 @@ pub struct IRemoteSystemSessionValueSetReceivedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemSessionWatcher, IRemoteSystemSessionWatcher_Vtbl, 0x8003e340_0c41_4a62_b6d7_bdbe2b19be2d);
 impl windows_core::RuntimeType for IRemoteSystemSessionWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemSessionWatcher");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -657,6 +713,7 @@ pub struct IRemoteSystemSessionWatcher_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemStatics, IRemoteSystemStatics_Vtbl, 0xa485b392_ff2b_4b47_be62_743f2f140f30);
 impl windows_core::RuntimeType for IRemoteSystemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -673,6 +730,7 @@ pub struct IRemoteSystemStatics_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemStatics2, IRemoteSystemStatics2_Vtbl, 0x0c98edca_6f99_4c52_a272_ea4f36471744);
 impl windows_core::RuntimeType for IRemoteSystemStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -683,6 +741,7 @@ pub struct IRemoteSystemStatics2_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemStatics3, IRemoteSystemStatics3_Vtbl, 0x9995f16f_0b3c_5ac5_b325_cc73f437dfcd);
 impl windows_core::RuntimeType for IRemoteSystemStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -694,6 +753,7 @@ pub struct IRemoteSystemStatics3_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemStatusTypeFilter, IRemoteSystemStatusTypeFilter_Vtbl, 0x0c39514e_cbb6_4777_8534_2e0c521affa2);
 impl windows_core::RuntimeType for IRemoteSystemStatusTypeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -704,6 +764,7 @@ pub struct IRemoteSystemStatusTypeFilter_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemStatusTypeFilterFactory, IRemoteSystemStatusTypeFilterFactory_Vtbl, 0x33cf78fa_d724_4125_ac7a_8d281e44c949);
 impl windows_core::RuntimeType for IRemoteSystemStatusTypeFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -714,6 +775,7 @@ pub struct IRemoteSystemStatusTypeFilterFactory_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemUpdatedEventArgs, IRemoteSystemUpdatedEventArgs_Vtbl, 0x7502ff0e_dbcb_4155_b4ca_b30a04f27627);
 impl windows_core::RuntimeType for IRemoteSystemUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemUpdatedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -724,6 +786,7 @@ pub struct IRemoteSystemUpdatedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemWatcher, IRemoteSystemWatcher_Vtbl, 0x5d600c7e_2c07_48c5_889c_455d2b099771);
 impl windows_core::RuntimeType for IRemoteSystemWatcher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemWatcher");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -741,6 +804,7 @@ pub struct IRemoteSystemWatcher_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemWatcher2, IRemoteSystemWatcher2_Vtbl, 0x73436700_19ca_48f9_a4cd_780f7ad58c71);
 impl windows_core::RuntimeType for IRemoteSystemWatcher2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemWatcher2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -754,6 +818,7 @@ pub struct IRemoteSystemWatcher2_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemWatcher3, IRemoteSystemWatcher3_Vtbl, 0xf79c0fcf_a913_55d3_8413_418fcf15ba54);
 impl windows_core::RuntimeType for IRemoteSystemWatcher3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemWatcher3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -764,6 +829,7 @@ pub struct IRemoteSystemWatcher3_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemWatcherErrorOccurredEventArgs, IRemoteSystemWatcherErrorOccurredEventArgs_Vtbl, 0x74c5c6af_5114_4426_9216_20d81f8519ae);
 impl windows_core::RuntimeType for IRemoteSystemWatcherErrorOccurredEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemWatcherErrorOccurredEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -774,6 +840,7 @@ pub struct IRemoteSystemWatcherErrorOccurredEventArgs_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemWebAccountFilter, IRemoteSystemWebAccountFilter_Vtbl, 0x3fb75873_87c8_5d8f_977e_f69f96d67238);
 impl windows_core::RuntimeType for IRemoteSystemWebAccountFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemWebAccountFilter");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -787,6 +854,7 @@ pub struct IRemoteSystemWebAccountFilter_Vtbl {
 windows_core::imp::define_interface!(IRemoteSystemWebAccountFilterFactory, IRemoteSystemWebAccountFilterFactory_Vtbl, 0x348a2709_5f4d_5127_b4a7_bf99d5252b1b);
 impl windows_core::RuntimeType for IRemoteSystemWebAccountFilterFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.IRemoteSystemWebAccountFilterFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1010,6 +1078,7 @@ impl windows_core::TypeKind for RemoteSystemAccessStatus {
 }
 impl windows_core::RuntimeType for RemoteSystemAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemAccessStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1165,6 +1234,7 @@ impl windows_core::TypeKind for RemoteSystemAuthorizationKind {
 }
 impl windows_core::RuntimeType for RemoteSystemAuthorizationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemAuthorizationKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1336,6 +1406,7 @@ impl windows_core::TypeKind for RemoteSystemDiscoveryType {
 }
 impl windows_core::RuntimeType for RemoteSystemDiscoveryType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemDiscoveryType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1504,6 +1575,7 @@ impl windows_core::TypeKind for RemoteSystemPlatform {
 }
 impl windows_core::RuntimeType for RemoteSystemPlatform {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemPlatform");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1738,6 +1810,7 @@ impl windows_core::TypeKind for RemoteSystemSessionCreationStatus {
 }
 impl windows_core::RuntimeType for RemoteSystemSessionCreationStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1776,6 +1849,7 @@ impl windows_core::TypeKind for RemoteSystemSessionDisconnectedReason {
 }
 impl windows_core::RuntimeType for RemoteSystemSessionDisconnectedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2006,6 +2080,7 @@ impl windows_core::TypeKind for RemoteSystemSessionJoinStatus {
 }
 impl windows_core::RuntimeType for RemoteSystemSessionJoinStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2109,6 +2184,7 @@ impl windows_core::TypeKind for RemoteSystemSessionMessageChannelReliability {
 }
 impl windows_core::RuntimeType for RemoteSystemSessionMessageChannelReliability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2305,6 +2381,7 @@ impl windows_core::TypeKind for RemoteSystemSessionParticipantWatcherStatus {
 }
 impl windows_core::RuntimeType for RemoteSystemSessionParticipantWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2467,6 +2544,7 @@ impl windows_core::TypeKind for RemoteSystemSessionWatcherStatus {
 }
 impl windows_core::RuntimeType for RemoteSystemSessionWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2482,6 +2560,7 @@ impl windows_core::TypeKind for RemoteSystemStatus {
 }
 impl windows_core::RuntimeType for RemoteSystemStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2495,6 +2574,7 @@ impl windows_core::TypeKind for RemoteSystemStatusType {
 }
 impl windows_core::RuntimeType for RemoteSystemStatusType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemStatusType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2663,6 +2743,7 @@ impl windows_core::TypeKind for RemoteSystemWatcherError {
 }
 impl windows_core::RuntimeType for RemoteSystemWatcherError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.RemoteSystems.RemoteSystemWatcherError");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

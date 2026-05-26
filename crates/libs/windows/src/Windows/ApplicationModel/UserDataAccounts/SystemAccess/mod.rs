@@ -11,6 +11,7 @@ impl windows_core::TypeKind for DeviceAccountAuthenticationType {
 }
 impl windows_core::RuntimeType for DeviceAccountAuthenticationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountAuthenticationType");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -522,6 +523,7 @@ impl windows_core::TypeKind for DeviceAccountIconId {
 }
 impl windows_core::RuntimeType for DeviceAccountIconId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountIconId");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -540,6 +542,7 @@ impl windows_core::TypeKind for DeviceAccountMailAgeFilter {
 }
 impl windows_core::RuntimeType for DeviceAccountMailAgeFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountMailAgeFilter");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -554,6 +557,7 @@ impl windows_core::TypeKind for DeviceAccountServerType {
 }
 impl windows_core::RuntimeType for DeviceAccountServerType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountServerType");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -572,10 +576,12 @@ impl windows_core::TypeKind for DeviceAccountSyncScheduleKind {
 }
 impl windows_core::RuntimeType for DeviceAccountSyncScheduleKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind");
 }
 windows_core::imp::define_interface!(IDeviceAccountConfiguration, IDeviceAccountConfiguration_Vtbl, 0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
 impl windows_core::RuntimeType for IDeviceAccountConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -617,6 +623,7 @@ pub struct IDeviceAccountConfiguration_Vtbl {
 windows_core::imp::define_interface!(IDeviceAccountConfiguration2, IDeviceAccountConfiguration2_Vtbl, 0xf2b2e5a6_728d_4a4a_8945_2bf8580136de);
 impl windows_core::RuntimeType for IDeviceAccountConfiguration2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IDeviceAccountConfiguration2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -694,6 +701,7 @@ pub struct IDeviceAccountConfiguration2_Vtbl {
 windows_core::imp::define_interface!(IUserDataAccountSystemAccessManagerStatics, IUserDataAccountSystemAccessManagerStatics_Vtbl, 0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6);
 impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -704,6 +712,7 @@ pub struct IUserDataAccountSystemAccessManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IUserDataAccountSystemAccessManagerStatics2, IUserDataAccountSystemAccessManagerStatics2_Vtbl, 0x943f854d_4b4e_439f_83d3_979b27c05ac7);
 impl windows_core::RuntimeType for IUserDataAccountSystemAccessManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -67,6 +67,7 @@ unsafe impl Sync for DeviceUseDetails {}
 windows_core::imp::define_interface!(IDeviceServicingDetails, IDeviceServicingDetails_Vtbl, 0x4aabee29_2344_4ac4_8527_4a8ef6905645);
 impl windows_core::RuntimeType for IDeviceServicingDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Background.IDeviceServicingDetails");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -79,6 +80,7 @@ pub struct IDeviceServicingDetails_Vtbl {
 windows_core::imp::define_interface!(IDeviceUseDetails, IDeviceUseDetails_Vtbl, 0x7d565141_557e_4154_b994_e4f7a11fb323);
 impl windows_core::RuntimeType for IDeviceUseDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Background.IDeviceUseDetails");
 }
 #[repr(C)]
 #[doc(hidden)]

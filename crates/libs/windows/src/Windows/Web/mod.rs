@@ -9,6 +9,7 @@ pub mod UI;
 windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 impl windows_core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.IUriToStreamResolver");
 }
 windows_core::imp::interface_hierarchy!(IUriToStreamResolver, windows_core::IUnknown, windows_core::IInspectable);
 impl IUriToStreamResolver {
@@ -65,6 +66,7 @@ pub struct IUriToStreamResolver_Vtbl {
 windows_core::imp::define_interface!(IWebErrorStatics, IWebErrorStatics_Vtbl, 0xfe616766_bf27_4064_87b7_6563bb11ce2e);
 impl windows_core::RuntimeType for IWebErrorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.IWebErrorStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -153,4 +155,5 @@ impl windows_core::TypeKind for WebErrorStatus {
 }
 impl windows_core::RuntimeType for WebErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.WebErrorStatus");
 }

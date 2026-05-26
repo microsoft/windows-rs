@@ -9,6 +9,7 @@ impl windows_core::TypeKind for DeviceCommand {
 }
 impl windows_core::RuntimeType for DeviceCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.DeviceCommand;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.DeviceCommand");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -24,6 +25,7 @@ impl windows_core::TypeKind for GameControllerBatteryChargingState {
 }
 impl windows_core::RuntimeType for GameControllerBatteryChargingState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryChargingState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.GameControllerBatteryChargingState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -39,6 +41,7 @@ impl windows_core::TypeKind for GameControllerBatteryKind {
 }
 impl windows_core::RuntimeType for GameControllerBatteryKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.GameControllerBatteryKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -55,6 +58,7 @@ impl windows_core::TypeKind for GameControllerBatteryLevel {
 }
 impl windows_core::RuntimeType for GameControllerBatteryLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerBatteryLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.GameControllerBatteryLevel");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -73,6 +77,7 @@ impl windows_core::TypeKind for GameControllerFirmwareCorruptReason {
 }
 impl windows_core::RuntimeType for GameControllerFirmwareCorruptReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.GameControllerFirmwareCorruptReason;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.GameControllerFirmwareCorruptReason");
 }
 pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
@@ -118,6 +123,7 @@ impl windows_core::TypeKind for HeadsetGeqGains {
 }
 impl windows_core::RuntimeType for HeadsetGeqGains {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Preview.HeadsetGeqGains;i4;i4;i4;i4;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.HeadsetGeqGains");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -133,6 +139,7 @@ impl windows_core::TypeKind for HeadsetLevel {
 }
 impl windows_core::RuntimeType for HeadsetLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.HeadsetLevel");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -150,10 +157,12 @@ impl windows_core::TypeKind for HeadsetOperation {
 }
 impl windows_core::RuntimeType for HeadsetOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.HeadsetOperation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.HeadsetOperation");
 }
 windows_core::imp::define_interface!(IGameControllerProviderInfoStatics, IGameControllerProviderInfoStatics_Vtbl, 0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb);
 impl windows_core::RuntimeType for IGameControllerProviderInfoStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.IGameControllerProviderInfoStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -171,6 +180,7 @@ pub struct IGameControllerProviderInfoStatics_Vtbl {
 windows_core::imp::define_interface!(ILegacyGipGameControllerProvider, ILegacyGipGameControllerProvider_Vtbl, 0x2da3ed52_ffd9_43e2_825c_1d2790e04d14);
 impl windows_core::RuntimeType for ILegacyGipGameControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.ILegacyGipGameControllerProvider");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -202,6 +212,7 @@ pub struct ILegacyGipGameControllerProvider_Vtbl {
 windows_core::imp::define_interface!(ILegacyGipGameControllerProviderStatics, ILegacyGipGameControllerProviderStatics_Vtbl, 0xd40dda17_b1f4_499a_874c_7095aac15291);
 impl windows_core::RuntimeType for ILegacyGipGameControllerProviderStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.ILegacyGipGameControllerProviderStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -419,4 +430,5 @@ impl windows_core::TypeKind for RemappingButtonCategory {
 }
 impl windows_core::RuntimeType for RemappingButtonCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.RemappingButtonCategory;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Gaming.Input.Preview.RemappingButtonCategory");
 }

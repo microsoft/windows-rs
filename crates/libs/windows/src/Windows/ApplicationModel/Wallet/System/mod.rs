@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IWalletItemSystemStore, IWalletItemSystemStore_Vtbl, 0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
 impl windows_core::RuntimeType for IWalletItemSystemStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18,6 +19,7 @@ pub struct IWalletItemSystemStore_Vtbl {
 windows_core::imp::define_interface!(IWalletItemSystemStore2, IWalletItemSystemStore2_Vtbl, 0xf98d3a4e_be00_4fdd_9734_6c113c1ac1cb);
 impl windows_core::RuntimeType for IWalletItemSystemStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -29,6 +31,7 @@ pub struct IWalletItemSystemStore2_Vtbl {
 windows_core::imp::define_interface!(IWalletManagerSystemStatics, IWalletManagerSystemStatics_Vtbl, 0xbee8eb89_2634_4b9a_8b23_ee8903c91fe0);
 impl windows_core::RuntimeType for IWalletManagerSystemStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.System.IWalletManagerSystemStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -49,6 +52,7 @@ impl windows_core::TypeKind for WalletItemAppAssociation {
 }
 impl windows_core::RuntimeType for WalletItemAppAssociation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]

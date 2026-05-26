@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IProviderSpiConnectionSettings, IProviderSpiConnectionSettings_Vtbl, 0xf6034550_a542_4ec0_9601_a4dd68f8697b);
 impl windows_core::RuntimeType for IProviderSpiConnectionSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -20,6 +21,7 @@ pub struct IProviderSpiConnectionSettings_Vtbl {
 windows_core::imp::define_interface!(IProviderSpiConnectionSettingsFactory, IProviderSpiConnectionSettingsFactory_Vtbl, 0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
 impl windows_core::RuntimeType for IProviderSpiConnectionSettingsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettingsFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -30,6 +32,7 @@ pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
 windows_core::imp::define_interface!(ISpiControllerProvider, ISpiControllerProvider_Vtbl, 0xc1686504_02ce_4226_a385_4f11fb04b41b);
 impl windows_core::RuntimeType for ISpiControllerProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ISpiControllerProvider");
 }
 windows_core::imp::interface_hierarchy!(ISpiControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiControllerProvider {
@@ -82,6 +85,7 @@ pub struct ISpiControllerProvider_Vtbl {
 windows_core::imp::define_interface!(ISpiDeviceProvider, ISpiDeviceProvider_Vtbl, 0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
 impl windows_core::RuntimeType for ISpiDeviceProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ISpiDeviceProvider");
 }
 windows_core::imp::interface_hierarchy!(ISpiDeviceProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ISpiDeviceProvider, super::super::super::Foundation::IClosable);
@@ -206,6 +210,7 @@ pub struct ISpiDeviceProvider_Vtbl {
 windows_core::imp::define_interface!(ISpiProvider, ISpiProvider_Vtbl, 0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
 impl windows_core::RuntimeType for ISpiProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ISpiProvider");
 }
 windows_core::imp::interface_hierarchy!(ISpiProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISpiProvider {
@@ -336,6 +341,7 @@ impl windows_core::TypeKind for ProviderSpiMode {
 }
 impl windows_core::RuntimeType for ProviderSpiMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ProviderSpiMode");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -349,4 +355,5 @@ impl windows_core::TypeKind for ProviderSpiSharingMode {
 }
 impl windows_core::RuntimeType for ProviderSpiSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Spi.Provider.ProviderSpiSharingMode;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Spi.Provider.ProviderSpiSharingMode");
 }

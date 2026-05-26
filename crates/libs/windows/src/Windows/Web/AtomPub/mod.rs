@@ -231,6 +231,7 @@ windows_core::imp::define_interface!(IAtomPubClient, IAtomPubClient_Vtbl, 0x3539
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IAtomPubClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.AtomPub.IAtomPubClient");
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]
@@ -261,6 +262,7 @@ pub struct IAtomPubClient_Vtbl {
 windows_core::imp::define_interface!(IAtomPubClientFactory, IAtomPubClientFactory_Vtbl, 0x49d55012_57cb_4bde_ab9f_2610b172777b);
 impl windows_core::RuntimeType for IAtomPubClientFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.AtomPub.IAtomPubClientFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -276,6 +278,7 @@ windows_core::imp::define_interface!(IResourceCollection, IResourceCollection_Vt
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IResourceCollection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.AtomPub.IResourceCollection");
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]
@@ -292,6 +295,7 @@ windows_core::imp::define_interface!(IServiceDocument, IServiceDocument_Vtbl, 0x
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IServiceDocument {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.AtomPub.IServiceDocument");
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]
@@ -305,6 +309,7 @@ windows_core::imp::define_interface!(IWorkspace, IWorkspace_Vtbl, 0xb41da63b_a4b
 #[cfg(feature = "Web_Syndication")]
 impl windows_core::RuntimeType for IWorkspace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.AtomPub.IWorkspace");
 }
 #[cfg(feature = "Web_Syndication")]
 #[repr(C)]

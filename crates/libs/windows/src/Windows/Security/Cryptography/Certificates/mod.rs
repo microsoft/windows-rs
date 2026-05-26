@@ -241,6 +241,7 @@ impl windows_core::TypeKind for CertificateChainPolicy {
 }
 impl windows_core::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.CertificateChainPolicy");
 }
 pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
@@ -1019,6 +1020,7 @@ impl windows_core::TypeKind for ChainValidationResult {
 }
 impl windows_core::RuntimeType for ChainValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ChainValidationResult");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1265,6 +1267,7 @@ impl windows_core::TypeKind for EnrollKeyUsages {
 }
 impl windows_core::RuntimeType for EnrollKeyUsages {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.EnrollKeyUsages");
 }
 impl EnrollKeyUsages {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1311,10 +1314,12 @@ impl windows_core::TypeKind for ExportOption {
 }
 impl windows_core::RuntimeType for ExportOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ExportOption");
 }
 windows_core::imp::define_interface!(ICertificate, ICertificate_Vtbl, 0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
 impl windows_core::RuntimeType for ICertificate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificate");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1342,6 +1347,7 @@ pub struct ICertificate_Vtbl {
 windows_core::imp::define_interface!(ICertificate2, ICertificate2_Vtbl, 0x17b8374c_8a25_4d96_a492_8fc29ac4fda6);
 impl windows_core::RuntimeType for ICertificate2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificate2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1357,6 +1363,7 @@ pub struct ICertificate2_Vtbl {
 windows_core::imp::define_interface!(ICertificate3, ICertificate3_Vtbl, 0xbe51a966_ae5f_4652_ace7_c6d7e7724cf3);
 impl windows_core::RuntimeType for ICertificate3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificate3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1369,6 +1376,7 @@ pub struct ICertificate3_Vtbl {
 windows_core::imp::define_interface!(ICertificateChain, ICertificateChain_Vtbl, 0x20bf5385_3691_4501_a62c_fd97278b31ee);
 impl windows_core::RuntimeType for ICertificateChain {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateChain");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1381,6 +1389,7 @@ pub struct ICertificateChain_Vtbl {
 windows_core::imp::define_interface!(ICertificateEnrollmentManagerStatics, ICertificateEnrollmentManagerStatics_Vtbl, 0x8846ef3f_a986_48fb_9fd7_9aec06935bf1);
 impl windows_core::RuntimeType for ICertificateEnrollmentManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1393,6 +1402,7 @@ pub struct ICertificateEnrollmentManagerStatics_Vtbl {
 windows_core::imp::define_interface!(ICertificateEnrollmentManagerStatics2, ICertificateEnrollmentManagerStatics2_Vtbl, 0xdc5b1c33_6429_4014_999c_5d9735802d1d);
 impl windows_core::RuntimeType for ICertificateEnrollmentManagerStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1404,6 +1414,7 @@ pub struct ICertificateEnrollmentManagerStatics2_Vtbl {
 windows_core::imp::define_interface!(ICertificateEnrollmentManagerStatics3, ICertificateEnrollmentManagerStatics3_Vtbl, 0xfdec82be_617c_425a_b72d_398b26ac7264);
 impl windows_core::RuntimeType for ICertificateEnrollmentManagerStatics3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1414,6 +1425,7 @@ pub struct ICertificateEnrollmentManagerStatics3_Vtbl {
 windows_core::imp::define_interface!(ICertificateExtension, ICertificateExtension_Vtbl, 0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
 impl windows_core::RuntimeType for ICertificateExtension {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateExtension");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1430,6 +1442,7 @@ pub struct ICertificateExtension_Vtbl {
 windows_core::imp::define_interface!(ICertificateFactory, ICertificateFactory_Vtbl, 0x17b4221c_4baf_44a2_9608_04fb62b16942);
 impl windows_core::RuntimeType for ICertificateFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1443,6 +1456,7 @@ pub struct ICertificateFactory_Vtbl {
 windows_core::imp::define_interface!(ICertificateKeyUsages, ICertificateKeyUsages_Vtbl, 0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
 impl windows_core::RuntimeType for ICertificateKeyUsages {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateKeyUsages");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1468,6 +1482,7 @@ pub struct ICertificateKeyUsages_Vtbl {
 windows_core::imp::define_interface!(ICertificateQuery, ICertificateQuery_Vtbl, 0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
 impl windows_core::RuntimeType for ICertificateQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateQuery");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1486,6 +1501,7 @@ pub struct ICertificateQuery_Vtbl {
 windows_core::imp::define_interface!(ICertificateQuery2, ICertificateQuery2_Vtbl, 0x935a0af7_0bd9_4f75_b8c2_e27a7f74eecd);
 impl windows_core::RuntimeType for ICertificateQuery2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateQuery2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1501,6 +1517,7 @@ pub struct ICertificateQuery2_Vtbl {
 windows_core::imp::define_interface!(ICertificateRequestProperties, ICertificateRequestProperties_Vtbl, 0x487e84f6_94e2_4dce_8833_1a700a37a29a);
 impl windows_core::RuntimeType for ICertificateRequestProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1528,6 +1545,7 @@ pub struct ICertificateRequestProperties_Vtbl {
 windows_core::imp::define_interface!(ICertificateRequestProperties2, ICertificateRequestProperties2_Vtbl, 0x3da0c954_d73f_4ff3_a0a6_0677c0ada05b);
 impl windows_core::RuntimeType for ICertificateRequestProperties2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1543,6 +1561,7 @@ pub struct ICertificateRequestProperties2_Vtbl {
 windows_core::imp::define_interface!(ICertificateRequestProperties3, ICertificateRequestProperties3_Vtbl, 0xe687f616_734d_46b1_9d4c_6edfdbfc845b);
 impl windows_core::RuntimeType for ICertificateRequestProperties3 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties3");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1562,6 +1581,7 @@ pub struct ICertificateRequestProperties3_Vtbl {
 windows_core::imp::define_interface!(ICertificateRequestProperties4, ICertificateRequestProperties4_Vtbl, 0x4e429ad2_1c61_4fea_b8fe_135fb19cdce4);
 impl windows_core::RuntimeType for ICertificateRequestProperties4 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateRequestProperties4");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1574,6 +1594,7 @@ pub struct ICertificateRequestProperties4_Vtbl {
 windows_core::imp::define_interface!(ICertificateStore, ICertificateStore_Vtbl, 0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
 impl windows_core::RuntimeType for ICertificateStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1585,6 +1606,7 @@ pub struct ICertificateStore_Vtbl {
 windows_core::imp::define_interface!(ICertificateStore2, ICertificateStore2_Vtbl, 0xc7e68e4a_417d_4d1a_babd_15687e549974);
 impl windows_core::RuntimeType for ICertificateStore2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateStore2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1595,6 +1617,7 @@ pub struct ICertificateStore2_Vtbl {
 windows_core::imp::define_interface!(ICertificateStoresStatics, ICertificateStoresStatics_Vtbl, 0xfbecc739_c6fe_4de7_99cf_74c3e596e032);
 impl windows_core::RuntimeType for ICertificateStoresStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateStoresStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1609,6 +1632,7 @@ pub struct ICertificateStoresStatics_Vtbl {
 windows_core::imp::define_interface!(ICertificateStoresStatics2, ICertificateStoresStatics2_Vtbl, 0xfa900b79_a0d4_4b8c_bc55_c0a37eb141ed);
 impl windows_core::RuntimeType for ICertificateStoresStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICertificateStoresStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1619,6 +1643,7 @@ pub struct ICertificateStoresStatics2_Vtbl {
 windows_core::imp::define_interface!(IChainBuildingParameters, IChainBuildingParameters_Vtbl, 0x422ba922_7c8d_47b7_b59b_b12703733ac3);
 impl windows_core::RuntimeType for IChainBuildingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IChainBuildingParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1640,6 +1665,7 @@ pub struct IChainBuildingParameters_Vtbl {
 windows_core::imp::define_interface!(IChainValidationParameters, IChainValidationParameters_Vtbl, 0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
 impl windows_core::RuntimeType for IChainValidationParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IChainValidationParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1659,6 +1685,7 @@ pub struct IChainValidationParameters_Vtbl {
 windows_core::imp::define_interface!(ICmsAttachedSignature, ICmsAttachedSignature_Vtbl, 0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
 impl windows_core::RuntimeType for ICmsAttachedSignature {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsAttachedSignature");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1672,6 +1699,7 @@ pub struct ICmsAttachedSignature_Vtbl {
 windows_core::imp::define_interface!(ICmsAttachedSignatureFactory, ICmsAttachedSignatureFactory_Vtbl, 0xd0c8fc15_f757_4c64_a362_52cc1c77cffb);
 impl windows_core::RuntimeType for ICmsAttachedSignatureFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1685,6 +1713,7 @@ pub struct ICmsAttachedSignatureFactory_Vtbl {
 windows_core::imp::define_interface!(ICmsAttachedSignatureStatics, ICmsAttachedSignatureStatics_Vtbl, 0x87989c8e_b0ad_498d_a7f5_78b59bce4b36);
 impl windows_core::RuntimeType for ICmsAttachedSignatureStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1698,6 +1727,7 @@ pub struct ICmsAttachedSignatureStatics_Vtbl {
 windows_core::imp::define_interface!(ICmsDetachedSignature, ICmsDetachedSignature_Vtbl, 0x0f1ef154_f65e_4536_8339_5944081db2ca);
 impl windows_core::RuntimeType for ICmsDetachedSignature {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsDetachedSignature");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1713,6 +1743,7 @@ pub struct ICmsDetachedSignature_Vtbl {
 windows_core::imp::define_interface!(ICmsDetachedSignatureFactory, ICmsDetachedSignatureFactory_Vtbl, 0xc4ab3503_ae7f_4387_ad19_00f150e48ebb);
 impl windows_core::RuntimeType for ICmsDetachedSignatureFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureFactory");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1726,6 +1757,7 @@ pub struct ICmsDetachedSignatureFactory_Vtbl {
 windows_core::imp::define_interface!(ICmsDetachedSignatureStatics, ICmsDetachedSignatureStatics_Vtbl, 0x3d114cfd_bf9b_4682_9be6_91f57c053808);
 impl windows_core::RuntimeType for ICmsDetachedSignatureStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1739,6 +1771,7 @@ pub struct ICmsDetachedSignatureStatics_Vtbl {
 windows_core::imp::define_interface!(ICmsSignerInfo, ICmsSignerInfo_Vtbl, 0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
 impl windows_core::RuntimeType for ICmsSignerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsSignerInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1753,6 +1786,7 @@ pub struct ICmsSignerInfo_Vtbl {
 windows_core::imp::define_interface!(ICmsTimestampInfo, ICmsTimestampInfo_Vtbl, 0x2f5f00f2_2c18_4f88_8435_c534086076f5);
 impl windows_core::RuntimeType for ICmsTimestampInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ICmsTimestampInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1765,6 +1799,7 @@ pub struct ICmsTimestampInfo_Vtbl {
 windows_core::imp::define_interface!(IKeyAlgorithmNamesStatics, IKeyAlgorithmNamesStatics_Vtbl, 0x479065d7_7ac7_4581_8c3b_d07027140448);
 impl windows_core::RuntimeType for IKeyAlgorithmNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1782,6 +1817,7 @@ pub struct IKeyAlgorithmNamesStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyAlgorithmNamesStatics2, IKeyAlgorithmNamesStatics2_Vtbl, 0xc99b5686_e1fd_4a4a_893d_a26f33dd8bb4);
 impl windows_core::RuntimeType for IKeyAlgorithmNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1793,6 +1829,7 @@ pub struct IKeyAlgorithmNamesStatics2_Vtbl {
 windows_core::imp::define_interface!(IKeyAttestationHelperStatics, IKeyAttestationHelperStatics_Vtbl, 0x1648e246_f644_4326_88be_3af102d30e0c);
 impl windows_core::RuntimeType for IKeyAttestationHelperStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1804,6 +1841,7 @@ pub struct IKeyAttestationHelperStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyAttestationHelperStatics2, IKeyAttestationHelperStatics2_Vtbl, 0x9c590b2c_a6c6_4a5e_9e64_e85d5279df97);
 impl windows_core::RuntimeType for IKeyAttestationHelperStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1814,6 +1852,7 @@ pub struct IKeyAttestationHelperStatics2_Vtbl {
 windows_core::imp::define_interface!(IKeyStorageProviderNamesStatics, IKeyStorageProviderNamesStatics_Vtbl, 0xaf186ae0_5529_4602_bd94_0aab91957b5c);
 impl windows_core::RuntimeType for IKeyStorageProviderNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1826,6 +1865,7 @@ pub struct IKeyStorageProviderNamesStatics_Vtbl {
 windows_core::imp::define_interface!(IKeyStorageProviderNamesStatics2, IKeyStorageProviderNamesStatics2_Vtbl, 0x262d743d_9c2e_41cc_8812_c4d971dd7c60);
 impl windows_core::RuntimeType for IKeyStorageProviderNamesStatics2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1836,6 +1876,7 @@ pub struct IKeyStorageProviderNamesStatics2_Vtbl {
 windows_core::imp::define_interface!(IPfxImportParameters, IPfxImportParameters_Vtbl, 0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
 impl windows_core::RuntimeType for IPfxImportParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IPfxImportParameters");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1859,6 +1900,7 @@ pub struct IPfxImportParameters_Vtbl {
 windows_core::imp::define_interface!(IStandardCertificateStoreNamesStatics, IStandardCertificateStoreNamesStatics_Vtbl, 0x0c154adb_a496_41f8_8fe5_9e96f36efbf8);
 impl windows_core::RuntimeType for IStandardCertificateStoreNamesStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IStandardCertificateStoreNamesStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1871,6 +1913,7 @@ pub struct IStandardCertificateStoreNamesStatics_Vtbl {
 windows_core::imp::define_interface!(ISubjectAlternativeNameInfo, ISubjectAlternativeNameInfo_Vtbl, 0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
 impl windows_core::RuntimeType for ISubjectAlternativeNameInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1886,6 +1929,7 @@ pub struct ISubjectAlternativeNameInfo_Vtbl {
 windows_core::imp::define_interface!(ISubjectAlternativeNameInfo2, ISubjectAlternativeNameInfo2_Vtbl, 0x437a78c6_1c51_41ea_b34a_3d654398a370);
 impl windows_core::RuntimeType for ISubjectAlternativeNameInfo2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.ISubjectAlternativeNameInfo2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1902,6 +1946,7 @@ pub struct ISubjectAlternativeNameInfo2_Vtbl {
 windows_core::imp::define_interface!(IUserCertificateEnrollmentManager, IUserCertificateEnrollmentManager_Vtbl, 0x96313718_22e1_4819_b20b_ab46a6eca06e);
 impl windows_core::RuntimeType for IUserCertificateEnrollmentManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1915,6 +1960,7 @@ pub struct IUserCertificateEnrollmentManager_Vtbl {
 windows_core::imp::define_interface!(IUserCertificateEnrollmentManager2, IUserCertificateEnrollmentManager2_Vtbl, 0x0dad9cb1_65de_492a_b86d_fc5c482c3747);
 impl windows_core::RuntimeType for IUserCertificateEnrollmentManager2 {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager2");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1925,6 +1971,7 @@ pub struct IUserCertificateEnrollmentManager2_Vtbl {
 windows_core::imp::define_interface!(IUserCertificateStore, IUserCertificateStore_Vtbl, 0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
 impl windows_core::RuntimeType for IUserCertificateStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.IUserCertificateStore");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1946,6 +1993,7 @@ impl windows_core::TypeKind for InstallOptions {
 }
 impl windows_core::RuntimeType for InstallOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.InstallOptions");
 }
 impl InstallOptions {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2100,6 +2148,7 @@ impl windows_core::TypeKind for KeyProtectionLevel {
 }
 impl windows_core::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.KeyProtectionLevel");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -2114,6 +2163,7 @@ impl windows_core::TypeKind for KeySize {
 }
 impl windows_core::RuntimeType for KeySize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.KeySize");
 }
 pub struct KeyStorageProviderNames;
 impl KeyStorageProviderNames {
@@ -2256,6 +2306,7 @@ impl windows_core::TypeKind for SignatureValidationResult {
 }
 impl windows_core::RuntimeType for SignatureValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.Cryptography.Certificates.SignatureValidationResult");
 }
 pub struct StandardCertificateStoreNames;
 impl StandardCertificateStoreNames {

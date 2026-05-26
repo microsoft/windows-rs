@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IUserDataAvailabilityStateChangedEventArgs, IUserDataAvailabilityStateChangedEventArgs_Vtbl, 0xa76582c9_06a2_4273_a803_834c9f87fbeb);
 impl windows_core::RuntimeType for IUserDataAvailabilityStateChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataAvailabilityStateChangedEventArgs");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11,6 +12,7 @@ pub struct IUserDataAvailabilityStateChangedEventArgs_Vtbl {
 windows_core::imp::define_interface!(IUserDataBufferUnprotectResult, IUserDataBufferUnprotectResult_Vtbl, 0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 impl windows_core::RuntimeType for IUserDataBufferUnprotectResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataBufferUnprotectResult");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -25,6 +27,7 @@ pub struct IUserDataBufferUnprotectResult_Vtbl {
 windows_core::imp::define_interface!(IUserDataProtectionManager, IUserDataProtectionManager_Vtbl, 0x1f13237d_b42e_4a88_9480_0f240924c876);
 impl windows_core::RuntimeType for IUserDataProtectionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataProtectionManager");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -53,6 +56,7 @@ pub struct IUserDataProtectionManager_Vtbl {
 windows_core::imp::define_interface!(IUserDataProtectionManagerStatics, IUserDataProtectionManagerStatics_Vtbl, 0x977780e8_6dce_4fae_af85_782ac2cf4572);
 impl windows_core::RuntimeType for IUserDataProtectionManagerStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataProtectionManagerStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -67,6 +71,7 @@ pub struct IUserDataProtectionManagerStatics_Vtbl {
 windows_core::imp::define_interface!(IUserDataStorageItemProtectionInfo, IUserDataStorageItemProtectionInfo_Vtbl, 0x5b6680f6_e87f_40a1_b19d_a6187a0c662f);
 impl windows_core::RuntimeType for IUserDataStorageItemProtectionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.IUserDataStorageItemProtectionInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -87,6 +92,7 @@ impl windows_core::TypeKind for UserDataAvailability {
 }
 impl windows_core::RuntimeType for UserDataAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataAvailability;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.UserDataAvailability");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -155,6 +161,7 @@ impl windows_core::TypeKind for UserDataBufferUnprotectStatus {
 }
 impl windows_core::RuntimeType for UserDataBufferUnprotectStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataBufferUnprotectStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.UserDataBufferUnprotectStatus");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -289,4 +296,5 @@ impl windows_core::TypeKind for UserDataStorageItemProtectionStatus {
 }
 impl windows_core::RuntimeType for UserDataStorageItemProtectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.DataProtection.UserDataStorageItemProtectionStatus;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Security.DataProtection.UserDataStorageItemProtectionStatus");
 }

@@ -1,6 +1,7 @@
 windows_core::imp::define_interface!(IPlatformDiagnosticActionsStatics, IPlatformDiagnosticActionsStatics_Vtbl, 0xc1145cfa_9292_4267_890a_9ea3ed072312);
 impl windows_core::RuntimeType for IPlatformDiagnosticActionsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticActionsStatics");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -18,6 +19,7 @@ pub struct IPlatformDiagnosticActionsStatics_Vtbl {
 windows_core::imp::define_interface!(IPlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo_Vtbl, 0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
 impl windows_core::RuntimeType for IPlatformDiagnosticTraceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -33,6 +35,7 @@ pub struct IPlatformDiagnosticTraceInfo_Vtbl {
 windows_core::imp::define_interface!(IPlatformDiagnosticTraceRuntimeInfo, IPlatformDiagnosticTraceRuntimeInfo_Vtbl, 0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
 impl windows_core::RuntimeType for IPlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceRuntimeInfo");
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -54,6 +57,7 @@ impl windows_core::TypeKind for PlatformDiagnosticActionState {
 }
 impl windows_core::RuntimeType for PlatformDiagnosticActionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState");
 }
 pub struct PlatformDiagnosticActions;
 impl PlatformDiagnosticActions {
@@ -128,6 +132,7 @@ impl windows_core::TypeKind for PlatformDiagnosticEscalationType {
 }
 impl windows_core::RuntimeType for PlatformDiagnosticEscalationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -142,6 +147,7 @@ impl windows_core::TypeKind for PlatformDiagnosticEventBufferLatencies {
 }
 impl windows_core::RuntimeType for PlatformDiagnosticEventBufferLatencies {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies");
 }
 impl PlatformDiagnosticEventBufferLatencies {
     pub const fn contains(&self, other: Self) -> bool {
@@ -242,6 +248,7 @@ impl windows_core::TypeKind for PlatformDiagnosticTracePriority {
 }
 impl windows_core::RuntimeType for PlatformDiagnosticTracePriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -286,6 +293,7 @@ impl windows_core::TypeKind for PlatformDiagnosticTraceSlotState {
 }
 impl windows_core::RuntimeType for PlatformDiagnosticTraceSlotState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState");
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -300,4 +308,5 @@ impl windows_core::TypeKind for PlatformDiagnosticTraceSlotType {
 }
 impl windows_core::RuntimeType for PlatformDiagnosticTraceSlotType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType");
 }
