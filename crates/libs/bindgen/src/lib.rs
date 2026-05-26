@@ -743,35 +743,6 @@ impl Bindgen {
     }
 
     /// Generate minimal-mode Rust bindings.
-    ///
-    /// In `minimal` mode, the per-class wrapper methods on WinRT runtime
-    /// classes are omitted (only static/composable factory helpers and the
-    /// `new()` activation helper are kept), and inherited / forwarding wrapper
-    /// methods on interfaces are omitted (only methods that dispatch on the
-    /// interface's own vtable are kept). Callers must explicitly
-    /// `cast::<IFoo>()?` to the interface that owns a slot before invoking it.
-    ///
-    /// Handle types are emitted as bare `pub type` aliases over their
-    /// underlying primitive (matching `--sys`), without the
-    /// `is_invalid`, `Free`, or `AlsoUsableFor` machinery. Free functions are
-    /// emitted as their `link!` (or extern) declaration only, without the
-    /// `Result<T>` / `from_thread` / `from_abi` ergonomic wrappers (also
-    /// matching `--sys`).
-    ///
-    /// Event accessor pairs (`add_*`/`remove_*`) are replaced by a single
-    /// auto-revoking wrapper that returns a [`windows_core::EventRevoker`].
-    /// The `Remove*` wrapper is suppressed. Callers can call
-    /// [`windows_core::EventRevoker::into_token`] to recover the raw token when interoperating
-    /// with code that manages registration tokens directly.
-    ///
-    /// This is a build-time / disk / memory optimization: the generated source
-    /// is dramatically smaller and rustc does much less type-checking and
-    /// codegen work, at the cost of API ergonomics. Vtable layout, ABI, GUIDs,
-    /// `RuntimeType` signatures, and `interface_hierarchy!` invocations are
-    /// preserved bit-for-bit, so existing `windows-implement` consumers and
-    /// raw-vtable callers are unaffected.
-    ///
-    /// `--minimal` is mutually exclusive with `--sys`.
     #[track_caller]
     pub fn minimal(&mut self) -> &mut Self {
         if matches!(self.style, Style::Sys { .. }) {
