@@ -52,6 +52,8 @@ impl Struct {
             };
 
             let signature = Literal::byte_string(self.runtime_signature(config.reader).as_bytes());
+            let type_name_bytes =
+                Literal::byte_string(format!("{}", self.def.type_name()).as_bytes());
 
             quote! {
                 impl windows_core::TypeKind for #name {
@@ -59,6 +61,7 @@ impl Struct {
                 }
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
+                    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#type_name_bytes);
                 }
             }
         };
